@@ -1,0 +1,36 @@
+{
+  "name": "sagittal-scripts-edo-staves",
+  "version": "1.0.0",
+  "description": "generates examples on the staff for EDO notations",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sagittal/sagittal-scripts-edo-staves.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "profile": "node --prof -r ts-node/register/transpile-only --max-old-space-size=131072 [[script.ts]] && node --prof-process isolate-*.log > processed.txt && rm isolate-*.log",
+    "lint": "tslint \"src/**/*.ts\" --fix && tslint \"spec/**/*.ts\" --fix",
+    "test": "node -r ts-node/register/transpile-only node_modules/jasmine/bin/jasmine",
+    "test-names": "node -r ts-node/register/transpile-only node_modules/jasmine/bin/jasmine --ci=false --names=true",
+    "test-ci": "node -r ts-node/register node_modules/jasmine/bin/jasmine --ci=true",
+    "test-ci-names": "node -r ts-node/register node_modules/jasmine/bin/jasmine --ci=true --names=true",
+    "tmp": "node -r ts-node/register/transpile-only --max-old-space-size=131072 spec/helpers/shared/tmp/tmp.ts",
+    "generate-edo-staves": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateEdoStaves"
+  },
+  "devDependencies": {
+    "@sagittal/general": "^1.0.45",
+    "@sagittal/system": "^1.0.20",
+    "@types/jasmine": "^3.6.2",
+    "@types/node": "^14.14.14",
+    "jasmine": "^3.6.3",
+    "jasmine-spec-reporter": "^5.0.2",
+    "staff-code": "^1.0.6",
+    "ts-loader": "^8.0.12",
+    "ts-node": "^9.1.1",
+    "tslint": "^6.1.3",
+    "typescript": "^4.1.3"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
