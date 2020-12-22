@@ -34,4 +34,8 @@ const context = canvas.getContext("2d")
 const pathString = vectorizeText(unicode, {font: "Bravura Text BB" as FontName, height, context})
 const svgString = `<svg xmlns="http://www.w3.org/2000/svg" height="${height}" width="${width}">${pathString}</svg>`
 
+// TODO: VECTORIZATION OF TEXT TO SVG IN NODE
+//  This doesn't work yet. Waiting on Dave's investigations into what's up with the ligatures table
+//  From the very bottom of this post: http://forum.sagittal.org/viewtopic.php?p=3146#p3146
+
 fs.writeFileSync("dist/edoStaves.svg", svgString)
