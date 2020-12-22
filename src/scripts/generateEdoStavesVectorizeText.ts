@@ -1,7 +1,7 @@
 import {FontName, Px, vectorizeText} from "@sagittal/general"
 import {createCanvas, registerFont} from "canvas"
 import fs from "fs"
-import {computeInputUnicode} from "staff-code"
+import {computeInputSentenceUnicode} from "staff-code"
 
 const input = `
 st tbcf ;
@@ -12,7 +12,7 @@ g4 \\! ; nt ; nt ; /| ; nt ;
 a4 \\! ; nt ; nt ; /| ; nt ;
 c5 \\! ; nt ; nt ;
 `
-const unicode = computeInputUnicode(input)
+const unicode = computeInputSentenceUnicode(input)
 
 /*
 
@@ -31,7 +31,7 @@ const height = 832 as Px
 registerFont("../../staffCode/assets/fonts/BravuraTextBB.otf", {family: "Bravura Text BB"})
 const canvas = createCanvas(width, height)
 const context = canvas.getContext("2d")
-const pathString = vectorizeText(unicode, {font: "Bravura Text BB" as FontName, height, canvas, context})
+const pathString = vectorizeText(unicode, {font: "Bravura Text BB" as FontName, height, context})
 const svgString = `<svg xmlns="http://www.w3.org/2000/svg" height="${height}" width="${width}">${pathString}</svg>`
 
 fs.writeFileSync("dist/edoStaves.svg", svgString)

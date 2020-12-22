@@ -1,5 +1,5 @@
 import * as fs from "fs"
-import {computeInputUnicode} from "staff-code"
+import {computeInputSentenceUnicode} from "staff-code"
 import TextToSVG from "text-to-svg"
 
 const input = `
@@ -11,7 +11,7 @@ g4 \\! ; nt ; nt ; /| ; nt ;
 a4 \\! ; nt ; nt ; /| ; nt ;
 c5 \\! ; nt ; nt ;
 `
-const unicode = computeInputUnicode(input)
+const unicode = computeInputSentenceUnicode(input)
 
 const textToSVG = TextToSVG.loadSync("../../staffCode/assets/fonts/BravuraTextBB.otf")
 const options = {x: 0, y: 0, fontSize: 72, anchor: "top" as "top", attributes: {fill: "black", stroke: "black"}}
