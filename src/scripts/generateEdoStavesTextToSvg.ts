@@ -1,8 +1,9 @@
+import {Io, Sentence} from "@sagittal/general"
 import * as fs from "fs"
 import {computeInputSentenceUnicode} from "staff-code"
 import TextToSVG from "text-to-svg"
 
-const input = `
+const inputSentence = `
 st tbcf ;
 c4 nt ; /| ; nt ;
 d4 \\! ; nt ; nt ; /| ; nt ;
@@ -11,7 +12,7 @@ g4 \\! ; nt ; nt ; /| ; nt ;
 a4 \\! ; nt ; nt ; /| ; nt ;
 c5 \\! ; nt ; nt ;
 `
-const unicode = computeInputSentenceUnicode(input)
+const unicode = computeInputSentenceUnicode(inputSentence as Io & Sentence)
 
 const textToSVG = TextToSVG.loadSync("../../staffCode/assets/fonts/BravuraTextBB.otf")
 const options = {x: 0, y: 0, fontSize: 72, anchor: "top" as "top", attributes: {fill: "black", stroke: "black"}}

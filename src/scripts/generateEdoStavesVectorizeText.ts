@@ -1,9 +1,9 @@
-import {FontName, Px, vectorizeText} from "@sagittal/general"
+import {FontName, Io, Px, Sentence, vectorizeText} from "@sagittal/general"
 import {createCanvas, registerFont} from "canvas"
 import fs from "fs"
 import {computeInputSentenceUnicode} from "staff-code"
 
-const input = `
+const inputSentence = `
 st tbcf ;
 c4 nt ; /| ; nt ;
 d4 \\! ; nt ; nt ; /| ; nt ;
@@ -12,7 +12,7 @@ g4 \\! ; nt ; nt ; /| ; nt ;
 a4 \\! ; nt ; nt ; /| ; nt ;
 c5 \\! ; nt ; nt ;
 `
-const unicode = computeInputSentenceUnicode(input)
+const unicode = computeInputSentenceUnicode(inputSentence as Io & Sentence)
 
 /*
 
@@ -37,5 +37,9 @@ const svgString = `<svg xmlns="http://www.w3.org/2000/svg" height="${height}" wi
 // TODO: VECTORIZATION OF TEXT TO SVG IN NODE
 //  This doesn't work yet. Waiting on Dave's investigations into what's up with the ligatures table
 //  From the very bottom of this post: http://forum.sagittal.org/viewtopic.php?p=3146#p3146
+//  Okay, now he's done that: http://forum.sagittal.org/viewtopic.php?p=3193#p3193
+//  I do have some more stuff I could try. I was debugging opentype.js but it spits out all code points in decimal,
+//  Not hexadecimal, so I can't figure out what the hell ranges and glyphs it's talking about.
+//  I'll have to inject some helper methods into their code to do some heavier duty debugging.
 
 fs.writeFileSync("dist/edoStaves.svg", svgString)
