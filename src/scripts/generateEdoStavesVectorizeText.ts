@@ -34,6 +34,12 @@ const context = canvas.getContext("2d")
 const pathString = vectorizeText(unicode, {font: "Bravura Text BB" as FontName, height, context})
 const svgString = `<svg xmlns="http://www.w3.org/2000/svg" height="${height}" width="${width}">${pathString}</svg>`
 
+// TODO: STAFFCODE PACKAGE WILL NEED TO OFFER CJS MODULES FOR NODE TO CONSUME IT
+//  Otherwise we can't even import it here
+//  We can either do it like @sagittal/general does and export both
+//  Or just go back to not using ESM, since no web app currently uses it
+//  But I think we should do it the dual way, and add that to its README, that it can be used in either Node or browser
+
 // TODO: VECTORIZATION OF TEXT TO SVG IN NODE
 //  This doesn't work yet. Waiting on Dave's investigations into what's up with the ligatures table
 //  From the very bottom of this post: http://forum.sagittal.org/viewtopic.php?p=3146#p3146
