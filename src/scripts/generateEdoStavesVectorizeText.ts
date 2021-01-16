@@ -4,7 +4,7 @@ import fs from "fs"
 import {computeInputSentenceUnicode} from "staff-code"
 
 const inputSentence = `
-st tbcf ;
+ston Gcl ;
 c4 nt ; /| ; nt ;
 d4 \\! ; nt ; nt ; /| ; nt ;
 f4 \\! ; nt ; nt ; /| ; nt ;
@@ -28,17 +28,11 @@ falling back to "Sans 256px", expect ugly output.
  */
 const width = 5000 as Px
 const height = 832 as Px
-registerFont("../../staffCode/assets/fonts/BravuraTextBB.otf", {family: "Bravura Text BB"})
+registerFont("./node_modules/staff-code/dist/package/assets/fonts/BravuraTextBB.otf", {family: "Bravura Text BB"})
 const canvas = createCanvas(width, height)
 const context = canvas.getContext("2d")
-const pathString = vectorizeText(unicode, {font: "Bravura Text BB" as FontName, height, context})
+const pathString = vectorizeText(unicode, {font: "Bravura Text BB" as FontName, height, context, canvas})
 const svgString = `<svg xmlns="http://www.w3.org/2000/svg" height="${height}" width="${width}">${pathString}</svg>`
-
-// TODO: STAFFCODE PACKAGE WILL NEED TO OFFER CJS MODULES FOR NODE TO CONSUME IT
-//  Otherwise we can't even import it here
-//  We can either do it like @sagittal/general does and export both
-//  Or just go back to not using ESM, since no web app currently uses it
-//  But I think we should do it the dual way, and add that to its README, that it can be used in either Node or browser
 
 // TODO: VECTORIZATION OF TEXT TO SVG IN NODE
 //  This doesn't work yet. Waiting on Dave's investigations into what's up with the ligatures table
