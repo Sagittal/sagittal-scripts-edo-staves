@@ -1,0 +1,3651 @@
+{
+  "lookupType": 7,
+  "lookupFlag": 0,
+  "subtables": [
+    {
+      "substFormat": 1,
+      "lookupType": 4,
+      "extension": {
+        "substFormat": 1,
+        "coverage": {
+          "format": 2,
+          "ranges": [
+            {
+              "start": 2369,
+              "end": 2384,
+              "index": 0
+            }
+          ]
+        },
+        "ligatureSets": [
+          [
+            {
+              "ligGlyph": 18413,
+              "components": [
+                2046
+              ]
+            },
+            {
+              "ligGlyph": 18397,
+              "components": [
+                2045
+              ]
+            },
+            {
+              "ligGlyph": 18381,
+              "components": [
+                2044
+              ]
+            },
+            {
+              "ligGlyph": 18365,
+              "components": [
+                2043
+              ]
+            },
+            {
+              "ligGlyph": 18349,
+              "components": [
+                2042
+              ]
+            },
+            {
+              "ligGlyph": 18333,
+              "components": [
+                2041
+              ]
+            },
+            {
+              "ligGlyph": 18317,
+              "components": [
+                2040
+              ]
+            },
+            {
+              "ligGlyph": 18301,
+              "components": [
+                2037
+              ]
+            },
+            {
+              "ligGlyph": 18285,
+              "components": [
+                2036
+              ]
+            },
+            {
+              "ligGlyph": 18269,
+              "components": [
+                2033
+              ]
+            },
+            {
+              "ligGlyph": 18253,
+              "components": [
+                2032
+              ]
+            },
+            {
+              "ligGlyph": 18237,
+              "components": [
+                2031
+              ]
+            },
+            {
+              "ligGlyph": 18221,
+              "components": [
+                2030
+              ]
+            },
+            {
+              "ligGlyph": 18205,
+              "components": [
+                2020
+              ]
+            },
+            {
+              "ligGlyph": 18189,
+              "components": [
+                2019
+              ]
+            },
+            {
+              "ligGlyph": 18173,
+              "components": [
+                2018
+              ]
+            },
+            {
+              "ligGlyph": 18157,
+              "components": [
+                2017
+              ]
+            },
+            {
+              "ligGlyph": 18141,
+              "components": [
+                2016
+              ]
+            },
+            {
+              "ligGlyph": 18125,
+              "components": [
+                2015
+              ]
+            },
+            {
+              "ligGlyph": 18109,
+              "components": [
+                2014
+              ]
+            },
+            {
+              "ligGlyph": 18093,
+              "components": [
+                2013
+              ]
+            },
+            {
+              "ligGlyph": 18077,
+              "components": [
+                2012
+              ]
+            },
+            {
+              "ligGlyph": 18061,
+              "components": [
+                2011
+              ]
+            },
+            {
+              "ligGlyph": 18045,
+              "components": [
+                2010
+              ]
+            },
+            {
+              "ligGlyph": 18029,
+              "components": [
+                2009
+              ]
+            },
+            {
+              "ligGlyph": 18013,
+              "components": [
+                2008
+              ]
+            },
+            {
+              "ligGlyph": 17997,
+              "components": [
+                2007
+              ]
+            },
+            {
+              "ligGlyph": 17981,
+              "components": [
+                2006
+              ]
+            },
+            {
+              "ligGlyph": 17965,
+              "components": [
+                2005
+              ]
+            },
+            {
+              "ligGlyph": 17949,
+              "components": [
+                2000
+              ]
+            },
+            {
+              "ligGlyph": 17933,
+              "components": [
+                1999
+              ]
+            },
+            {
+              "ligGlyph": 17917,
+              "components": [
+                1998
+              ]
+            },
+            {
+              "ligGlyph": 17901,
+              "components": [
+                1997
+              ]
+            },
+            {
+              "ligGlyph": 17885,
+              "components": [
+                1996
+              ]
+            },
+            {
+              "ligGlyph": 17869,
+              "components": [
+                1995
+              ]
+            },
+            {
+              "ligGlyph": 17853,
+              "components": [
+                1994
+              ]
+            },
+            {
+              "ligGlyph": 17837,
+              "components": [
+                1993
+              ]
+            }
+          ],
+          [
+            {
+              "ligGlyph": 18414,
+              "components": [
+                2046
+              ]
+            },
+            {
+              "ligGlyph": 18398,
+              "components": [
+                2045
+              ]
+            },
+            {
+              "ligGlyph": 18382,
+              "components": [
+                2044
+              ]
+            },
+            {
+              "ligGlyph": 18366,
+              "components": [
+                2043
+              ]
+            },
+            {
+              "ligGlyph": 18350,
+              "components": [
+                2042
+              ]
+            },
+            {
+              "ligGlyph": 18334,
+              "components": [
+                2041
+              ]
+            },
+            {
+              "ligGlyph": 18318,
+              "components": [
+                2040
+              ]
+            },
+            {
+              "ligGlyph": 18302,
+              "components": [
+                2037
+              ]
+            },
+            {
+              "ligGlyph": 18286,
+              "components": [
+                2036
+              ]
+            },
+            {
+              "ligGlyph": 18270,
+              "components": [
+                2033
+              ]
+            },
+            {
+              "ligGlyph": 18254,
+              "components": [
+                2032
+              ]
+            },
+            {
+              "ligGlyph": 18238,
+              "components": [
+                2031
+              ]
+            },
+            {
+              "ligGlyph": 18222,
+              "components": [
+                2030
+              ]
+            },
+            {
+              "ligGlyph": 18206,
+              "components": [
+                2020
+              ]
+            },
+            {
+              "ligGlyph": 18190,
+              "components": [
+                2019
+              ]
+            },
+            {
+              "ligGlyph": 18174,
+              "components": [
+                2018
+              ]
+            },
+            {
+              "ligGlyph": 18158,
+              "components": [
+                2017
+              ]
+            },
+            {
+              "ligGlyph": 18142,
+              "components": [
+                2016
+              ]
+            },
+            {
+              "ligGlyph": 18126,
+              "components": [
+                2015
+              ]
+            },
+            {
+              "ligGlyph": 18110,
+              "components": [
+                2014
+              ]
+            },
+            {
+              "ligGlyph": 18094,
+              "components": [
+                2013
+              ]
+            },
+            {
+              "ligGlyph": 18078,
+              "components": [
+                2012
+              ]
+            },
+            {
+              "ligGlyph": 18062,
+              "components": [
+                2011
+              ]
+            },
+            {
+              "ligGlyph": 18046,
+              "components": [
+                2010
+              ]
+            },
+            {
+              "ligGlyph": 18030,
+              "components": [
+                2009
+              ]
+            },
+            {
+              "ligGlyph": 18014,
+              "components": [
+                2008
+              ]
+            },
+            {
+              "ligGlyph": 17998,
+              "components": [
+                2007
+              ]
+            },
+            {
+              "ligGlyph": 17982,
+              "components": [
+                2006
+              ]
+            },
+            {
+              "ligGlyph": 17966,
+              "components": [
+                2005
+              ]
+            },
+            {
+              "ligGlyph": 17950,
+              "components": [
+                2000
+              ]
+            },
+            {
+              "ligGlyph": 17934,
+              "components": [
+                1999
+              ]
+            },
+            {
+              "ligGlyph": 17918,
+              "components": [
+                1998
+              ]
+            },
+            {
+              "ligGlyph": 17902,
+              "components": [
+                1997
+              ]
+            },
+            {
+              "ligGlyph": 17886,
+              "components": [
+                1996
+              ]
+            },
+            {
+              "ligGlyph": 17870,
+              "components": [
+                1995
+              ]
+            },
+            {
+              "ligGlyph": 17854,
+              "components": [
+                1994
+              ]
+            },
+            {
+              "ligGlyph": 17838,
+              "components": [
+                1993
+              ]
+            }
+          ],
+          [
+            {
+              "ligGlyph": 18415,
+              "components": [
+                2046
+              ]
+            },
+            {
+              "ligGlyph": 18399,
+              "components": [
+                2045
+              ]
+            },
+            {
+              "ligGlyph": 18383,
+              "components": [
+                2044
+              ]
+            },
+            {
+              "ligGlyph": 18367,
+              "components": [
+                2043
+              ]
+            },
+            {
+              "ligGlyph": 18351,
+              "components": [
+                2042
+              ]
+            },
+            {
+              "ligGlyph": 18335,
+              "components": [
+                2041
+              ]
+            },
+            {
+              "ligGlyph": 18319,
+              "components": [
+                2040
+              ]
+            },
+            {
+              "ligGlyph": 18303,
+              "components": [
+                2037
+              ]
+            },
+            {
+              "ligGlyph": 18287,
+              "components": [
+                2036
+              ]
+            },
+            {
+              "ligGlyph": 18271,
+              "components": [
+                2033
+              ]
+            },
+            {
+              "ligGlyph": 18255,
+              "components": [
+                2032
+              ]
+            },
+            {
+              "ligGlyph": 18239,
+              "components": [
+                2031
+              ]
+            },
+            {
+              "ligGlyph": 18223,
+              "components": [
+                2030
+              ]
+            },
+            {
+              "ligGlyph": 18207,
+              "components": [
+                2020
+              ]
+            },
+            {
+              "ligGlyph": 18191,
+              "components": [
+                2019
+              ]
+            },
+            {
+              "ligGlyph": 18175,
+              "components": [
+                2018
+              ]
+            },
+            {
+              "ligGlyph": 18159,
+              "components": [
+                2017
+              ]
+            },
+            {
+              "ligGlyph": 18143,
+              "components": [
+                2016
+              ]
+            },
+            {
+              "ligGlyph": 18127,
+              "components": [
+                2015
+              ]
+            },
+            {
+              "ligGlyph": 18111,
+              "components": [
+                2014
+              ]
+            },
+            {
+              "ligGlyph": 18095,
+              "components": [
+                2013
+              ]
+            },
+            {
+              "ligGlyph": 18079,
+              "components": [
+                2012
+              ]
+            },
+            {
+              "ligGlyph": 18063,
+              "components": [
+                2011
+              ]
+            },
+            {
+              "ligGlyph": 18047,
+              "components": [
+                2010
+              ]
+            },
+            {
+              "ligGlyph": 18031,
+              "components": [
+                2009
+              ]
+            },
+            {
+              "ligGlyph": 18015,
+              "components": [
+                2008
+              ]
+            },
+            {
+              "ligGlyph": 17999,
+              "components": [
+                2007
+              ]
+            },
+            {
+              "ligGlyph": 17983,
+              "components": [
+                2006
+              ]
+            },
+            {
+              "ligGlyph": 17967,
+              "components": [
+                2005
+              ]
+            },
+            {
+              "ligGlyph": 17951,
+              "components": [
+                2000
+              ]
+            },
+            {
+              "ligGlyph": 17935,
+              "components": [
+                1999
+              ]
+            },
+            {
+              "ligGlyph": 17919,
+              "components": [
+                1998
+              ]
+            },
+            {
+              "ligGlyph": 17903,
+              "components": [
+                1997
+              ]
+            },
+            {
+              "ligGlyph": 17887,
+              "components": [
+                1996
+              ]
+            },
+            {
+              "ligGlyph": 17871,
+              "components": [
+                1995
+              ]
+            },
+            {
+              "ligGlyph": 17855,
+              "components": [
+                1994
+              ]
+            },
+            {
+              "ligGlyph": 17839,
+              "components": [
+                1993
+              ]
+            }
+          ],
+          [
+            {
+              "ligGlyph": 18416,
+              "components": [
+                2046
+              ]
+            },
+            {
+              "ligGlyph": 18400,
+              "components": [
+                2045
+              ]
+            },
+            {
+              "ligGlyph": 18384,
+              "components": [
+                2044
+              ]
+            },
+            {
+              "ligGlyph": 18368,
+              "components": [
+                2043
+              ]
+            },
+            {
+              "ligGlyph": 18352,
+              "components": [
+                2042
+              ]
+            },
+            {
+              "ligGlyph": 18336,
+              "components": [
+                2041
+              ]
+            },
+            {
+              "ligGlyph": 18320,
+              "components": [
+                2040
+              ]
+            },
+            {
+              "ligGlyph": 18304,
+              "components": [
+                2037
+              ]
+            },
+            {
+              "ligGlyph": 18288,
+              "components": [
+                2036
+              ]
+            },
+            {
+              "ligGlyph": 18272,
+              "components": [
+                2033
+              ]
+            },
+            {
+              "ligGlyph": 18256,
+              "components": [
+                2032
+              ]
+            },
+            {
+              "ligGlyph": 18240,
+              "components": [
+                2031
+              ]
+            },
+            {
+              "ligGlyph": 18224,
+              "components": [
+                2030
+              ]
+            },
+            {
+              "ligGlyph": 18208,
+              "components": [
+                2020
+              ]
+            },
+            {
+              "ligGlyph": 18192,
+              "components": [
+                2019
+              ]
+            },
+            {
+              "ligGlyph": 18176,
+              "components": [
+                2018
+              ]
+            },
+            {
+              "ligGlyph": 18160,
+              "components": [
+                2017
+              ]
+            },
+            {
+              "ligGlyph": 18144,
+              "components": [
+                2016
+              ]
+            },
+            {
+              "ligGlyph": 18128,
+              "components": [
+                2015
+              ]
+            },
+            {
+              "ligGlyph": 18112,
+              "components": [
+                2014
+              ]
+            },
+            {
+              "ligGlyph": 18096,
+              "components": [
+                2013
+              ]
+            },
+            {
+              "ligGlyph": 18080,
+              "components": [
+                2012
+              ]
+            },
+            {
+              "ligGlyph": 18064,
+              "components": [
+                2011
+              ]
+            },
+            {
+              "ligGlyph": 18048,
+              "components": [
+                2010
+              ]
+            },
+            {
+              "ligGlyph": 18032,
+              "components": [
+                2009
+              ]
+            },
+            {
+              "ligGlyph": 18016,
+              "components": [
+                2008
+              ]
+            },
+            {
+              "ligGlyph": 18000,
+              "components": [
+                2007
+              ]
+            },
+            {
+              "ligGlyph": 17984,
+              "components": [
+                2006
+              ]
+            },
+            {
+              "ligGlyph": 17968,
+              "components": [
+                2005
+              ]
+            },
+            {
+              "ligGlyph": 17952,
+              "components": [
+                2000
+              ]
+            },
+            {
+              "ligGlyph": 17936,
+              "components": [
+                1999
+              ]
+            },
+            {
+              "ligGlyph": 17920,
+              "components": [
+                1998
+              ]
+            },
+            {
+              "ligGlyph": 17904,
+              "components": [
+                1997
+              ]
+            },
+            {
+              "ligGlyph": 17888,
+              "components": [
+                1996
+              ]
+            },
+            {
+              "ligGlyph": 17872,
+              "components": [
+                1995
+              ]
+            },
+            {
+              "ligGlyph": 17856,
+              "components": [
+                1994
+              ]
+            },
+            {
+              "ligGlyph": 17840,
+              "components": [
+                1993
+              ]
+            },
+            {
+              "ligGlyph": 17824,
+              "components": [
+                1992
+              ]
+            }
+          ],
+          [
+            {
+              "ligGlyph": 18417,
+              "components": [
+                2046
+              ]
+            },
+            {
+              "ligGlyph": 18401,
+              "components": [
+                2045
+              ]
+            },
+            {
+              "ligGlyph": 18385,
+              "components": [
+                2044
+              ]
+            },
+            {
+              "ligGlyph": 18369,
+              "components": [
+                2043
+              ]
+            },
+            {
+              "ligGlyph": 18353,
+              "components": [
+                2042
+              ]
+            },
+            {
+              "ligGlyph": 18337,
+              "components": [
+                2041
+              ]
+            },
+            {
+              "ligGlyph": 18321,
+              "components": [
+                2040
+              ]
+            },
+            {
+              "ligGlyph": 18305,
+              "components": [
+                2037
+              ]
+            },
+            {
+              "ligGlyph": 18289,
+              "components": [
+                2036
+              ]
+            },
+            {
+              "ligGlyph": 18273,
+              "components": [
+                2033
+              ]
+            },
+            {
+              "ligGlyph": 18257,
+              "components": [
+                2032
+              ]
+            },
+            {
+              "ligGlyph": 18241,
+              "components": [
+                2031
+              ]
+            },
+            {
+              "ligGlyph": 18225,
+              "components": [
+                2030
+              ]
+            },
+            {
+              "ligGlyph": 18209,
+              "components": [
+                2020
+              ]
+            },
+            {
+              "ligGlyph": 18193,
+              "components": [
+                2019
+              ]
+            },
+            {
+              "ligGlyph": 18177,
+              "components": [
+                2018
+              ]
+            },
+            {
+              "ligGlyph": 18161,
+              "components": [
+                2017
+              ]
+            },
+            {
+              "ligGlyph": 18145,
+              "components": [
+                2016
+              ]
+            },
+            {
+              "ligGlyph": 18129,
+              "components": [
+                2015
+              ]
+            },
+            {
+              "ligGlyph": 18113,
+              "components": [
+                2014
+              ]
+            },
+            {
+              "ligGlyph": 18097,
+              "components": [
+                2013
+              ]
+            },
+            {
+              "ligGlyph": 18081,
+              "components": [
+                2012
+              ]
+            },
+            {
+              "ligGlyph": 18065,
+              "components": [
+                2011
+              ]
+            },
+            {
+              "ligGlyph": 18049,
+              "components": [
+                2010
+              ]
+            },
+            {
+              "ligGlyph": 18033,
+              "components": [
+                2009
+              ]
+            },
+            {
+              "ligGlyph": 18017,
+              "components": [
+                2008
+              ]
+            },
+            {
+              "ligGlyph": 18001,
+              "components": [
+                2007
+              ]
+            },
+            {
+              "ligGlyph": 17985,
+              "components": [
+                2006
+              ]
+            },
+            {
+              "ligGlyph": 17969,
+              "components": [
+                2005
+              ]
+            },
+            {
+              "ligGlyph": 17953,
+              "components": [
+                2000
+              ]
+            },
+            {
+              "ligGlyph": 17937,
+              "components": [
+                1999
+              ]
+            },
+            {
+              "ligGlyph": 17921,
+              "components": [
+                1998
+              ]
+            },
+            {
+              "ligGlyph": 17905,
+              "components": [
+                1997
+              ]
+            },
+            {
+              "ligGlyph": 17889,
+              "components": [
+                1996
+              ]
+            },
+            {
+              "ligGlyph": 17873,
+              "components": [
+                1995
+              ]
+            },
+            {
+              "ligGlyph": 17857,
+              "components": [
+                1994
+              ]
+            },
+            {
+              "ligGlyph": 17841,
+              "components": [
+                1993
+              ]
+            },
+            {
+              "ligGlyph": 17825,
+              "components": [
+                1992
+              ]
+            }
+          ],
+          [
+            {
+              "ligGlyph": 18418,
+              "components": [
+                2046
+              ]
+            },
+            {
+              "ligGlyph": 18402,
+              "components": [
+                2045
+              ]
+            },
+            {
+              "ligGlyph": 18386,
+              "components": [
+                2044
+              ]
+            },
+            {
+              "ligGlyph": 18370,
+              "components": [
+                2043
+              ]
+            },
+            {
+              "ligGlyph": 18354,
+              "components": [
+                2042
+              ]
+            },
+            {
+              "ligGlyph": 18338,
+              "components": [
+                2041
+              ]
+            },
+            {
+              "ligGlyph": 18322,
+              "components": [
+                2040
+              ]
+            },
+            {
+              "ligGlyph": 18306,
+              "components": [
+                2037
+              ]
+            },
+            {
+              "ligGlyph": 18290,
+              "components": [
+                2036
+              ]
+            },
+            {
+              "ligGlyph": 18274,
+              "components": [
+                2033
+              ]
+            },
+            {
+              "ligGlyph": 18258,
+              "components": [
+                2032
+              ]
+            },
+            {
+              "ligGlyph": 18242,
+              "components": [
+                2031
+              ]
+            },
+            {
+              "ligGlyph": 18226,
+              "components": [
+                2030
+              ]
+            },
+            {
+              "ligGlyph": 18210,
+              "components": [
+                2020
+              ]
+            },
+            {
+              "ligGlyph": 18194,
+              "components": [
+                2019
+              ]
+            },
+            {
+              "ligGlyph": 18178,
+              "components": [
+                2018
+              ]
+            },
+            {
+              "ligGlyph": 18162,
+              "components": [
+                2017
+              ]
+            },
+            {
+              "ligGlyph": 18146,
+              "components": [
+                2016
+              ]
+            },
+            {
+              "ligGlyph": 18130,
+              "components": [
+                2015
+              ]
+            },
+            {
+              "ligGlyph": 18114,
+              "components": [
+                2014
+              ]
+            },
+            {
+              "ligGlyph": 18098,
+              "components": [
+                2013
+              ]
+            },
+            {
+              "ligGlyph": 18082,
+              "components": [
+                2012
+              ]
+            },
+            {
+              "ligGlyph": 18066,
+              "components": [
+                2011
+              ]
+            },
+            {
+              "ligGlyph": 18050,
+              "components": [
+                2010
+              ]
+            },
+            {
+              "ligGlyph": 18034,
+              "components": [
+                2009
+              ]
+            },
+            {
+              "ligGlyph": 18018,
+              "components": [
+                2008
+              ]
+            },
+            {
+              "ligGlyph": 18002,
+              "components": [
+                2007
+              ]
+            },
+            {
+              "ligGlyph": 17986,
+              "components": [
+                2006
+              ]
+            },
+            {
+              "ligGlyph": 17970,
+              "components": [
+                2005
+              ]
+            },
+            {
+              "ligGlyph": 17954,
+              "components": [
+                2000
+              ]
+            },
+            {
+              "ligGlyph": 17938,
+              "components": [
+                1999
+              ]
+            },
+            {
+              "ligGlyph": 17922,
+              "components": [
+                1998
+              ]
+            },
+            {
+              "ligGlyph": 17906,
+              "components": [
+                1997
+              ]
+            },
+            {
+              "ligGlyph": 17890,
+              "components": [
+                1996
+              ]
+            },
+            {
+              "ligGlyph": 17874,
+              "components": [
+                1995
+              ]
+            },
+            {
+              "ligGlyph": 17858,
+              "components": [
+                1994
+              ]
+            },
+            {
+              "ligGlyph": 17842,
+              "components": [
+                1993
+              ]
+            },
+            {
+              "ligGlyph": 17826,
+              "components": [
+                1992
+              ]
+            }
+          ],
+          [
+            {
+              "ligGlyph": 18419,
+              "components": [
+                2046
+              ]
+            },
+            {
+              "ligGlyph": 18403,
+              "components": [
+                2045
+              ]
+            },
+            {
+              "ligGlyph": 18387,
+              "components": [
+                2044
+              ]
+            },
+            {
+              "ligGlyph": 18371,
+              "components": [
+                2043
+              ]
+            },
+            {
+              "ligGlyph": 18355,
+              "components": [
+                2042
+              ]
+            },
+            {
+              "ligGlyph": 18339,
+              "components": [
+                2041
+              ]
+            },
+            {
+              "ligGlyph": 18323,
+              "components": [
+                2040
+              ]
+            },
+            {
+              "ligGlyph": 18307,
+              "components": [
+                2037
+              ]
+            },
+            {
+              "ligGlyph": 18291,
+              "components": [
+                2036
+              ]
+            },
+            {
+              "ligGlyph": 18275,
+              "components": [
+                2033
+              ]
+            },
+            {
+              "ligGlyph": 18259,
+              "components": [
+                2032
+              ]
+            },
+            {
+              "ligGlyph": 18243,
+              "components": [
+                2031
+              ]
+            },
+            {
+              "ligGlyph": 18227,
+              "components": [
+                2030
+              ]
+            },
+            {
+              "ligGlyph": 18211,
+              "components": [
+                2020
+              ]
+            },
+            {
+              "ligGlyph": 18195,
+              "components": [
+                2019
+              ]
+            },
+            {
+              "ligGlyph": 18179,
+              "components": [
+                2018
+              ]
+            },
+            {
+              "ligGlyph": 18163,
+              "components": [
+                2017
+              ]
+            },
+            {
+              "ligGlyph": 18147,
+              "components": [
+                2016
+              ]
+            },
+            {
+              "ligGlyph": 18131,
+              "components": [
+                2015
+              ]
+            },
+            {
+              "ligGlyph": 18115,
+              "components": [
+                2014
+              ]
+            },
+            {
+              "ligGlyph": 18099,
+              "components": [
+                2013
+              ]
+            },
+            {
+              "ligGlyph": 18083,
+              "components": [
+                2012
+              ]
+            },
+            {
+              "ligGlyph": 18067,
+              "components": [
+                2011
+              ]
+            },
+            {
+              "ligGlyph": 18051,
+              "components": [
+                2010
+              ]
+            },
+            {
+              "ligGlyph": 18035,
+              "components": [
+                2009
+              ]
+            },
+            {
+              "ligGlyph": 18019,
+              "components": [
+                2008
+              ]
+            },
+            {
+              "ligGlyph": 18003,
+              "components": [
+                2007
+              ]
+            },
+            {
+              "ligGlyph": 17987,
+              "components": [
+                2006
+              ]
+            },
+            {
+              "ligGlyph": 17971,
+              "components": [
+                2005
+              ]
+            },
+            {
+              "ligGlyph": 17955,
+              "components": [
+                2000
+              ]
+            },
+            {
+              "ligGlyph": 17939,
+              "components": [
+                1999
+              ]
+            },
+            {
+              "ligGlyph": 17923,
+              "components": [
+                1998
+              ]
+            },
+            {
+              "ligGlyph": 17907,
+              "components": [
+                1997
+              ]
+            },
+            {
+              "ligGlyph": 17891,
+              "components": [
+                1996
+              ]
+            },
+            {
+              "ligGlyph": 17875,
+              "components": [
+                1995
+              ]
+            },
+            {
+              "ligGlyph": 17859,
+              "components": [
+                1994
+              ]
+            },
+            {
+              "ligGlyph": 17843,
+              "components": [
+                1993
+              ]
+            },
+            {
+              "ligGlyph": 17827,
+              "components": [
+                1992
+              ]
+            }
+          ],
+          [
+            {
+              "ligGlyph": 18420,
+              "components": [
+                2046
+              ]
+            },
+            {
+              "ligGlyph": 18404,
+              "components": [
+                2045
+              ]
+            },
+            {
+              "ligGlyph": 18388,
+              "components": [
+                2044
+              ]
+            },
+            {
+              "ligGlyph": 18372,
+              "components": [
+                2043
+              ]
+            },
+            {
+              "ligGlyph": 18356,
+              "components": [
+                2042
+              ]
+            },
+            {
+              "ligGlyph": 18340,
+              "components": [
+                2041
+              ]
+            },
+            {
+              "ligGlyph": 18324,
+              "components": [
+                2040
+              ]
+            },
+            {
+              "ligGlyph": 18308,
+              "components": [
+                2037
+              ]
+            },
+            {
+              "ligGlyph": 18292,
+              "components": [
+                2036
+              ]
+            },
+            {
+              "ligGlyph": 18276,
+              "components": [
+                2033
+              ]
+            },
+            {
+              "ligGlyph": 18260,
+              "components": [
+                2032
+              ]
+            },
+            {
+              "ligGlyph": 18244,
+              "components": [
+                2031
+              ]
+            },
+            {
+              "ligGlyph": 18228,
+              "components": [
+                2030
+              ]
+            },
+            {
+              "ligGlyph": 18212,
+              "components": [
+                2020
+              ]
+            },
+            {
+              "ligGlyph": 18196,
+              "components": [
+                2019
+              ]
+            },
+            {
+              "ligGlyph": 18180,
+              "components": [
+                2018
+              ]
+            },
+            {
+              "ligGlyph": 18164,
+              "components": [
+                2017
+              ]
+            },
+            {
+              "ligGlyph": 18148,
+              "components": [
+                2016
+              ]
+            },
+            {
+              "ligGlyph": 18132,
+              "components": [
+                2015
+              ]
+            },
+            {
+              "ligGlyph": 18116,
+              "components": [
+                2014
+              ]
+            },
+            {
+              "ligGlyph": 18100,
+              "components": [
+                2013
+              ]
+            },
+            {
+              "ligGlyph": 18084,
+              "components": [
+                2012
+              ]
+            },
+            {
+              "ligGlyph": 18068,
+              "components": [
+                2011
+              ]
+            },
+            {
+              "ligGlyph": 18052,
+              "components": [
+                2010
+              ]
+            },
+            {
+              "ligGlyph": 18036,
+              "components": [
+                2009
+              ]
+            },
+            {
+              "ligGlyph": 18020,
+              "components": [
+                2008
+              ]
+            },
+            {
+              "ligGlyph": 18004,
+              "components": [
+                2007
+              ]
+            },
+            {
+              "ligGlyph": 17988,
+              "components": [
+                2006
+              ]
+            },
+            {
+              "ligGlyph": 17972,
+              "components": [
+                2005
+              ]
+            },
+            {
+              "ligGlyph": 17956,
+              "components": [
+                2000
+              ]
+            },
+            {
+              "ligGlyph": 17940,
+              "components": [
+                1999
+              ]
+            },
+            {
+              "ligGlyph": 17924,
+              "components": [
+                1998
+              ]
+            },
+            {
+              "ligGlyph": 17908,
+              "components": [
+                1997
+              ]
+            },
+            {
+              "ligGlyph": 17892,
+              "components": [
+                1996
+              ]
+            },
+            {
+              "ligGlyph": 17876,
+              "components": [
+                1995
+              ]
+            },
+            {
+              "ligGlyph": 17860,
+              "components": [
+                1994
+              ]
+            },
+            {
+              "ligGlyph": 17844,
+              "components": [
+                1993
+              ]
+            },
+            {
+              "ligGlyph": 17828,
+              "components": [
+                1992
+              ]
+            }
+          ],
+          [
+            {
+              "ligGlyph": 18421,
+              "components": [
+                2046
+              ]
+            },
+            {
+              "ligGlyph": 18405,
+              "components": [
+                2045
+              ]
+            },
+            {
+              "ligGlyph": 18389,
+              "components": [
+                2044
+              ]
+            },
+            {
+              "ligGlyph": 18373,
+              "components": [
+                2043
+              ]
+            },
+            {
+              "ligGlyph": 18357,
+              "components": [
+                2042
+              ]
+            },
+            {
+              "ligGlyph": 18341,
+              "components": [
+                2041
+              ]
+            },
+            {
+              "ligGlyph": 18325,
+              "components": [
+                2040
+              ]
+            },
+            {
+              "ligGlyph": 18309,
+              "components": [
+                2037
+              ]
+            },
+            {
+              "ligGlyph": 18293,
+              "components": [
+                2036
+              ]
+            },
+            {
+              "ligGlyph": 18277,
+              "components": [
+                2033
+              ]
+            },
+            {
+              "ligGlyph": 18261,
+              "components": [
+                2032
+              ]
+            },
+            {
+              "ligGlyph": 18245,
+              "components": [
+                2031
+              ]
+            },
+            {
+              "ligGlyph": 18229,
+              "components": [
+                2030
+              ]
+            },
+            {
+              "ligGlyph": 18213,
+              "components": [
+                2020
+              ]
+            },
+            {
+              "ligGlyph": 18197,
+              "components": [
+                2019
+              ]
+            },
+            {
+              "ligGlyph": 18181,
+              "components": [
+                2018
+              ]
+            },
+            {
+              "ligGlyph": 18165,
+              "components": [
+                2017
+              ]
+            },
+            {
+              "ligGlyph": 18149,
+              "components": [
+                2016
+              ]
+            },
+            {
+              "ligGlyph": 18133,
+              "components": [
+                2015
+              ]
+            },
+            {
+              "ligGlyph": 18117,
+              "components": [
+                2014
+              ]
+            },
+            {
+              "ligGlyph": 18101,
+              "components": [
+                2013
+              ]
+            },
+            {
+              "ligGlyph": 18085,
+              "components": [
+                2012
+              ]
+            },
+            {
+              "ligGlyph": 18069,
+              "components": [
+                2011
+              ]
+            },
+            {
+              "ligGlyph": 18053,
+              "components": [
+                2010
+              ]
+            },
+            {
+              "ligGlyph": 18037,
+              "components": [
+                2009
+              ]
+            },
+            {
+              "ligGlyph": 18021,
+              "components": [
+                2008
+              ]
+            },
+            {
+              "ligGlyph": 18005,
+              "components": [
+                2007
+              ]
+            },
+            {
+              "ligGlyph": 17989,
+              "components": [
+                2006
+              ]
+            },
+            {
+              "ligGlyph": 17973,
+              "components": [
+                2005
+              ]
+            },
+            {
+              "ligGlyph": 17957,
+              "components": [
+                2000
+              ]
+            },
+            {
+              "ligGlyph": 17941,
+              "components": [
+                1999
+              ]
+            },
+            {
+              "ligGlyph": 17925,
+              "components": [
+                1998
+              ]
+            },
+            {
+              "ligGlyph": 17909,
+              "components": [
+                1997
+              ]
+            },
+            {
+              "ligGlyph": 17893,
+              "components": [
+                1996
+              ]
+            },
+            {
+              "ligGlyph": 17877,
+              "components": [
+                1995
+              ]
+            },
+            {
+              "ligGlyph": 17861,
+              "components": [
+                1994
+              ]
+            },
+            {
+              "ligGlyph": 17845,
+              "components": [
+                1993
+              ]
+            },
+            {
+              "ligGlyph": 17829,
+              "components": [
+                1992
+              ]
+            }
+          ],
+          [
+            {
+              "ligGlyph": 18422,
+              "components": [
+                2046
+              ]
+            },
+            {
+              "ligGlyph": 18406,
+              "components": [
+                2045
+              ]
+            },
+            {
+              "ligGlyph": 18390,
+              "components": [
+                2044
+              ]
+            },
+            {
+              "ligGlyph": 18374,
+              "components": [
+                2043
+              ]
+            },
+            {
+              "ligGlyph": 18358,
+              "components": [
+                2042
+              ]
+            },
+            {
+              "ligGlyph": 18342,
+              "components": [
+                2041
+              ]
+            },
+            {
+              "ligGlyph": 18326,
+              "components": [
+                2040
+              ]
+            },
+            {
+              "ligGlyph": 18310,
+              "components": [
+                2037
+              ]
+            },
+            {
+              "ligGlyph": 18294,
+              "components": [
+                2036
+              ]
+            },
+            {
+              "ligGlyph": 18278,
+              "components": [
+                2033
+              ]
+            },
+            {
+              "ligGlyph": 18262,
+              "components": [
+                2032
+              ]
+            },
+            {
+              "ligGlyph": 18246,
+              "components": [
+                2031
+              ]
+            },
+            {
+              "ligGlyph": 18230,
+              "components": [
+                2030
+              ]
+            },
+            {
+              "ligGlyph": 18214,
+              "components": [
+                2020
+              ]
+            },
+            {
+              "ligGlyph": 18198,
+              "components": [
+                2019
+              ]
+            },
+            {
+              "ligGlyph": 18182,
+              "components": [
+                2018
+              ]
+            },
+            {
+              "ligGlyph": 18166,
+              "components": [
+                2017
+              ]
+            },
+            {
+              "ligGlyph": 18150,
+              "components": [
+                2016
+              ]
+            },
+            {
+              "ligGlyph": 18134,
+              "components": [
+                2015
+              ]
+            },
+            {
+              "ligGlyph": 18118,
+              "components": [
+                2014
+              ]
+            },
+            {
+              "ligGlyph": 18102,
+              "components": [
+                2013
+              ]
+            },
+            {
+              "ligGlyph": 18086,
+              "components": [
+                2012
+              ]
+            },
+            {
+              "ligGlyph": 18070,
+              "components": [
+                2011
+              ]
+            },
+            {
+              "ligGlyph": 18054,
+              "components": [
+                2010
+              ]
+            },
+            {
+              "ligGlyph": 18038,
+              "components": [
+                2009
+              ]
+            },
+            {
+              "ligGlyph": 18022,
+              "components": [
+                2008
+              ]
+            },
+            {
+              "ligGlyph": 18006,
+              "components": [
+                2007
+              ]
+            },
+            {
+              "ligGlyph": 17990,
+              "components": [
+                2006
+              ]
+            },
+            {
+              "ligGlyph": 17974,
+              "components": [
+                2005
+              ]
+            },
+            {
+              "ligGlyph": 17958,
+              "components": [
+                2000
+              ]
+            },
+            {
+              "ligGlyph": 17942,
+              "components": [
+                1999
+              ]
+            },
+            {
+              "ligGlyph": 17926,
+              "components": [
+                1998
+              ]
+            },
+            {
+              "ligGlyph": 17910,
+              "components": [
+                1997
+              ]
+            },
+            {
+              "ligGlyph": 17894,
+              "components": [
+                1996
+              ]
+            },
+            {
+              "ligGlyph": 17878,
+              "components": [
+                1995
+              ]
+            },
+            {
+              "ligGlyph": 17862,
+              "components": [
+                1994
+              ]
+            },
+            {
+              "ligGlyph": 17846,
+              "components": [
+                1993
+              ]
+            },
+            {
+              "ligGlyph": 17830,
+              "components": [
+                1992
+              ]
+            }
+          ],
+          [
+            {
+              "ligGlyph": 18407,
+              "components": [
+                2045
+              ]
+            },
+            {
+              "ligGlyph": 18391,
+              "components": [
+                2044
+              ]
+            },
+            {
+              "ligGlyph": 18375,
+              "components": [
+                2043
+              ]
+            },
+            {
+              "ligGlyph": 18359,
+              "components": [
+                2042
+              ]
+            },
+            {
+              "ligGlyph": 18343,
+              "components": [
+                2041
+              ]
+            },
+            {
+              "ligGlyph": 18327,
+              "components": [
+                2040
+              ]
+            },
+            {
+              "ligGlyph": 18311,
+              "components": [
+                2037
+              ]
+            },
+            {
+              "ligGlyph": 18295,
+              "components": [
+                2036
+              ]
+            },
+            {
+              "ligGlyph": 18279,
+              "components": [
+                2033
+              ]
+            },
+            {
+              "ligGlyph": 18263,
+              "components": [
+                2032
+              ]
+            },
+            {
+              "ligGlyph": 18247,
+              "components": [
+                2031
+              ]
+            },
+            {
+              "ligGlyph": 18231,
+              "components": [
+                2030
+              ]
+            },
+            {
+              "ligGlyph": 18215,
+              "components": [
+                2020
+              ]
+            },
+            {
+              "ligGlyph": 18199,
+              "components": [
+                2019
+              ]
+            },
+            {
+              "ligGlyph": 18183,
+              "components": [
+                2018
+              ]
+            },
+            {
+              "ligGlyph": 18167,
+              "components": [
+                2017
+              ]
+            },
+            {
+              "ligGlyph": 18151,
+              "components": [
+                2016
+              ]
+            },
+            {
+              "ligGlyph": 18135,
+              "components": [
+                2015
+              ]
+            },
+            {
+              "ligGlyph": 18119,
+              "components": [
+                2014
+              ]
+            },
+            {
+              "ligGlyph": 18103,
+              "components": [
+                2013
+              ]
+            },
+            {
+              "ligGlyph": 18087,
+              "components": [
+                2012
+              ]
+            },
+            {
+              "ligGlyph": 18071,
+              "components": [
+                2011
+              ]
+            },
+            {
+              "ligGlyph": 18055,
+              "components": [
+                2010
+              ]
+            },
+            {
+              "ligGlyph": 18039,
+              "components": [
+                2009
+              ]
+            },
+            {
+              "ligGlyph": 18023,
+              "components": [
+                2008
+              ]
+            },
+            {
+              "ligGlyph": 18007,
+              "components": [
+                2007
+              ]
+            },
+            {
+              "ligGlyph": 17991,
+              "components": [
+                2006
+              ]
+            },
+            {
+              "ligGlyph": 17975,
+              "components": [
+                2005
+              ]
+            },
+            {
+              "ligGlyph": 17959,
+              "components": [
+                2000
+              ]
+            },
+            {
+              "ligGlyph": 17943,
+              "components": [
+                1999
+              ]
+            },
+            {
+              "ligGlyph": 17927,
+              "components": [
+                1998
+              ]
+            },
+            {
+              "ligGlyph": 17911,
+              "components": [
+                1997
+              ]
+            },
+            {
+              "ligGlyph": 17895,
+              "components": [
+                1996
+              ]
+            },
+            {
+              "ligGlyph": 17879,
+              "components": [
+                1995
+              ]
+            },
+            {
+              "ligGlyph": 17863,
+              "components": [
+                1994
+              ]
+            },
+            {
+              "ligGlyph": 17847,
+              "components": [
+                1993
+              ]
+            },
+            {
+              "ligGlyph": 17831,
+              "components": [
+                1992
+              ]
+            }
+          ],
+          [
+            {
+              "ligGlyph": 18408,
+              "components": [
+                2045
+              ]
+            },
+            {
+              "ligGlyph": 18392,
+              "components": [
+                2044
+              ]
+            },
+            {
+              "ligGlyph": 18376,
+              "components": [
+                2043
+              ]
+            },
+            {
+              "ligGlyph": 18360,
+              "components": [
+                2042
+              ]
+            },
+            {
+              "ligGlyph": 18344,
+              "components": [
+                2041
+              ]
+            },
+            {
+              "ligGlyph": 18328,
+              "components": [
+                2040
+              ]
+            },
+            {
+              "ligGlyph": 18312,
+              "components": [
+                2037
+              ]
+            },
+            {
+              "ligGlyph": 18296,
+              "components": [
+                2036
+              ]
+            },
+            {
+              "ligGlyph": 18280,
+              "components": [
+                2033
+              ]
+            },
+            {
+              "ligGlyph": 18264,
+              "components": [
+                2032
+              ]
+            },
+            {
+              "ligGlyph": 18248,
+              "components": [
+                2031
+              ]
+            },
+            {
+              "ligGlyph": 18232,
+              "components": [
+                2030
+              ]
+            },
+            {
+              "ligGlyph": 18216,
+              "components": [
+                2020
+              ]
+            },
+            {
+              "ligGlyph": 18200,
+              "components": [
+                2019
+              ]
+            },
+            {
+              "ligGlyph": 18184,
+              "components": [
+                2018
+              ]
+            },
+            {
+              "ligGlyph": 18168,
+              "components": [
+                2017
+              ]
+            },
+            {
+              "ligGlyph": 18152,
+              "components": [
+                2016
+              ]
+            },
+            {
+              "ligGlyph": 18136,
+              "components": [
+                2015
+              ]
+            },
+            {
+              "ligGlyph": 18120,
+              "components": [
+                2014
+              ]
+            },
+            {
+              "ligGlyph": 18104,
+              "components": [
+                2013
+              ]
+            },
+            {
+              "ligGlyph": 18088,
+              "components": [
+                2012
+              ]
+            },
+            {
+              "ligGlyph": 18072,
+              "components": [
+                2011
+              ]
+            },
+            {
+              "ligGlyph": 18056,
+              "components": [
+                2010
+              ]
+            },
+            {
+              "ligGlyph": 18040,
+              "components": [
+                2009
+              ]
+            },
+            {
+              "ligGlyph": 18024,
+              "components": [
+                2008
+              ]
+            },
+            {
+              "ligGlyph": 18008,
+              "components": [
+                2007
+              ]
+            },
+            {
+              "ligGlyph": 17992,
+              "components": [
+                2006
+              ]
+            },
+            {
+              "ligGlyph": 17976,
+              "components": [
+                2005
+              ]
+            },
+            {
+              "ligGlyph": 17960,
+              "components": [
+                2000
+              ]
+            },
+            {
+              "ligGlyph": 17944,
+              "components": [
+                1999
+              ]
+            },
+            {
+              "ligGlyph": 17928,
+              "components": [
+                1998
+              ]
+            },
+            {
+              "ligGlyph": 17912,
+              "components": [
+                1997
+              ]
+            },
+            {
+              "ligGlyph": 17896,
+              "components": [
+                1996
+              ]
+            },
+            {
+              "ligGlyph": 17880,
+              "components": [
+                1995
+              ]
+            },
+            {
+              "ligGlyph": 17864,
+              "components": [
+                1994
+              ]
+            },
+            {
+              "ligGlyph": 17848,
+              "components": [
+                1993
+              ]
+            },
+            {
+              "ligGlyph": 17832,
+              "components": [
+                1992
+              ]
+            }
+          ],
+          [
+            {
+              "ligGlyph": 18409,
+              "components": [
+                2045
+              ]
+            },
+            {
+              "ligGlyph": 18393,
+              "components": [
+                2044
+              ]
+            },
+            {
+              "ligGlyph": 18377,
+              "components": [
+                2043
+              ]
+            },
+            {
+              "ligGlyph": 18361,
+              "components": [
+                2042
+              ]
+            },
+            {
+              "ligGlyph": 18345,
+              "components": [
+                2041
+              ]
+            },
+            {
+              "ligGlyph": 18329,
+              "components": [
+                2040
+              ]
+            },
+            {
+              "ligGlyph": 18313,
+              "components": [
+                2037
+              ]
+            },
+            {
+              "ligGlyph": 18297,
+              "components": [
+                2036
+              ]
+            },
+            {
+              "ligGlyph": 18281,
+              "components": [
+                2033
+              ]
+            },
+            {
+              "ligGlyph": 18265,
+              "components": [
+                2032
+              ]
+            },
+            {
+              "ligGlyph": 18249,
+              "components": [
+                2031
+              ]
+            },
+            {
+              "ligGlyph": 18233,
+              "components": [
+                2030
+              ]
+            },
+            {
+              "ligGlyph": 18217,
+              "components": [
+                2020
+              ]
+            },
+            {
+              "ligGlyph": 18201,
+              "components": [
+                2019
+              ]
+            },
+            {
+              "ligGlyph": 18185,
+              "components": [
+                2018
+              ]
+            },
+            {
+              "ligGlyph": 18169,
+              "components": [
+                2017
+              ]
+            },
+            {
+              "ligGlyph": 18153,
+              "components": [
+                2016
+              ]
+            },
+            {
+              "ligGlyph": 18137,
+              "components": [
+                2015
+              ]
+            },
+            {
+              "ligGlyph": 18121,
+              "components": [
+                2014
+              ]
+            },
+            {
+              "ligGlyph": 18105,
+              "components": [
+                2013
+              ]
+            },
+            {
+              "ligGlyph": 18089,
+              "components": [
+                2012
+              ]
+            },
+            {
+              "ligGlyph": 18073,
+              "components": [
+                2011
+              ]
+            },
+            {
+              "ligGlyph": 18057,
+              "components": [
+                2010
+              ]
+            },
+            {
+              "ligGlyph": 18041,
+              "components": [
+                2009
+              ]
+            },
+            {
+              "ligGlyph": 18025,
+              "components": [
+                2008
+              ]
+            },
+            {
+              "ligGlyph": 18009,
+              "components": [
+                2007
+              ]
+            },
+            {
+              "ligGlyph": 17993,
+              "components": [
+                2006
+              ]
+            },
+            {
+              "ligGlyph": 17977,
+              "components": [
+                2005
+              ]
+            },
+            {
+              "ligGlyph": 17961,
+              "components": [
+                2000
+              ]
+            },
+            {
+              "ligGlyph": 17945,
+              "components": [
+                1999
+              ]
+            },
+            {
+              "ligGlyph": 17929,
+              "components": [
+                1998
+              ]
+            },
+            {
+              "ligGlyph": 17913,
+              "components": [
+                1997
+              ]
+            },
+            {
+              "ligGlyph": 17897,
+              "components": [
+                1996
+              ]
+            },
+            {
+              "ligGlyph": 17881,
+              "components": [
+                1995
+              ]
+            },
+            {
+              "ligGlyph": 17865,
+              "components": [
+                1994
+              ]
+            },
+            {
+              "ligGlyph": 17849,
+              "components": [
+                1993
+              ]
+            },
+            {
+              "ligGlyph": 17833,
+              "components": [
+                1992
+              ]
+            }
+          ],
+          [
+            {
+              "ligGlyph": 18410,
+              "components": [
+                2045
+              ]
+            },
+            {
+              "ligGlyph": 18394,
+              "components": [
+                2044
+              ]
+            },
+            {
+              "ligGlyph": 18378,
+              "components": [
+                2043
+              ]
+            },
+            {
+              "ligGlyph": 18362,
+              "components": [
+                2042
+              ]
+            },
+            {
+              "ligGlyph": 18346,
+              "components": [
+                2041
+              ]
+            },
+            {
+              "ligGlyph": 18330,
+              "components": [
+                2040
+              ]
+            },
+            {
+              "ligGlyph": 18314,
+              "components": [
+                2037
+              ]
+            },
+            {
+              "ligGlyph": 18298,
+              "components": [
+                2036
+              ]
+            },
+            {
+              "ligGlyph": 18282,
+              "components": [
+                2033
+              ]
+            },
+            {
+              "ligGlyph": 18266,
+              "components": [
+                2032
+              ]
+            },
+            {
+              "ligGlyph": 18250,
+              "components": [
+                2031
+              ]
+            },
+            {
+              "ligGlyph": 18234,
+              "components": [
+                2030
+              ]
+            },
+            {
+              "ligGlyph": 18218,
+              "components": [
+                2020
+              ]
+            },
+            {
+              "ligGlyph": 18202,
+              "components": [
+                2019
+              ]
+            },
+            {
+              "ligGlyph": 18186,
+              "components": [
+                2018
+              ]
+            },
+            {
+              "ligGlyph": 18170,
+              "components": [
+                2017
+              ]
+            },
+            {
+              "ligGlyph": 18154,
+              "components": [
+                2016
+              ]
+            },
+            {
+              "ligGlyph": 18138,
+              "components": [
+                2015
+              ]
+            },
+            {
+              "ligGlyph": 18122,
+              "components": [
+                2014
+              ]
+            },
+            {
+              "ligGlyph": 18106,
+              "components": [
+                2013
+              ]
+            },
+            {
+              "ligGlyph": 18090,
+              "components": [
+                2012
+              ]
+            },
+            {
+              "ligGlyph": 18074,
+              "components": [
+                2011
+              ]
+            },
+            {
+              "ligGlyph": 18058,
+              "components": [
+                2010
+              ]
+            },
+            {
+              "ligGlyph": 18042,
+              "components": [
+                2009
+              ]
+            },
+            {
+              "ligGlyph": 18026,
+              "components": [
+                2008
+              ]
+            },
+            {
+              "ligGlyph": 18010,
+              "components": [
+                2007
+              ]
+            },
+            {
+              "ligGlyph": 17994,
+              "components": [
+                2006
+              ]
+            },
+            {
+              "ligGlyph": 17978,
+              "components": [
+                2005
+              ]
+            },
+            {
+              "ligGlyph": 17962,
+              "components": [
+                2000
+              ]
+            },
+            {
+              "ligGlyph": 17946,
+              "components": [
+                1999
+              ]
+            },
+            {
+              "ligGlyph": 17930,
+              "components": [
+                1998
+              ]
+            },
+            {
+              "ligGlyph": 17914,
+              "components": [
+                1997
+              ]
+            },
+            {
+              "ligGlyph": 17898,
+              "components": [
+                1996
+              ]
+            },
+            {
+              "ligGlyph": 17882,
+              "components": [
+                1995
+              ]
+            },
+            {
+              "ligGlyph": 17866,
+              "components": [
+                1994
+              ]
+            },
+            {
+              "ligGlyph": 17850,
+              "components": [
+                1993
+              ]
+            },
+            {
+              "ligGlyph": 17834,
+              "components": [
+                1992
+              ]
+            }
+          ],
+          [
+            {
+              "ligGlyph": 18411,
+              "components": [
+                2045
+              ]
+            },
+            {
+              "ligGlyph": 18395,
+              "components": [
+                2044
+              ]
+            },
+            {
+              "ligGlyph": 18379,
+              "components": [
+                2043
+              ]
+            },
+            {
+              "ligGlyph": 18363,
+              "components": [
+                2042
+              ]
+            },
+            {
+              "ligGlyph": 18347,
+              "components": [
+                2041
+              ]
+            },
+            {
+              "ligGlyph": 18331,
+              "components": [
+                2040
+              ]
+            },
+            {
+              "ligGlyph": 18315,
+              "components": [
+                2037
+              ]
+            },
+            {
+              "ligGlyph": 18299,
+              "components": [
+                2036
+              ]
+            },
+            {
+              "ligGlyph": 18283,
+              "components": [
+                2033
+              ]
+            },
+            {
+              "ligGlyph": 18267,
+              "components": [
+                2032
+              ]
+            },
+            {
+              "ligGlyph": 18251,
+              "components": [
+                2031
+              ]
+            },
+            {
+              "ligGlyph": 18235,
+              "components": [
+                2030
+              ]
+            },
+            {
+              "ligGlyph": 18219,
+              "components": [
+                2020
+              ]
+            },
+            {
+              "ligGlyph": 18203,
+              "components": [
+                2019
+              ]
+            },
+            {
+              "ligGlyph": 18187,
+              "components": [
+                2018
+              ]
+            },
+            {
+              "ligGlyph": 18171,
+              "components": [
+                2017
+              ]
+            },
+            {
+              "ligGlyph": 18155,
+              "components": [
+                2016
+              ]
+            },
+            {
+              "ligGlyph": 18139,
+              "components": [
+                2015
+              ]
+            },
+            {
+              "ligGlyph": 18123,
+              "components": [
+                2014
+              ]
+            },
+            {
+              "ligGlyph": 18107,
+              "components": [
+                2013
+              ]
+            },
+            {
+              "ligGlyph": 18091,
+              "components": [
+                2012
+              ]
+            },
+            {
+              "ligGlyph": 18075,
+              "components": [
+                2011
+              ]
+            },
+            {
+              "ligGlyph": 18059,
+              "components": [
+                2010
+              ]
+            },
+            {
+              "ligGlyph": 18043,
+              "components": [
+                2009
+              ]
+            },
+            {
+              "ligGlyph": 18027,
+              "components": [
+                2008
+              ]
+            },
+            {
+              "ligGlyph": 18011,
+              "components": [
+                2007
+              ]
+            },
+            {
+              "ligGlyph": 17995,
+              "components": [
+                2006
+              ]
+            },
+            {
+              "ligGlyph": 17979,
+              "components": [
+                2005
+              ]
+            },
+            {
+              "ligGlyph": 17963,
+              "components": [
+                2000
+              ]
+            },
+            {
+              "ligGlyph": 17947,
+              "components": [
+                1999
+              ]
+            },
+            {
+              "ligGlyph": 17931,
+              "components": [
+                1998
+              ]
+            },
+            {
+              "ligGlyph": 17915,
+              "components": [
+                1997
+              ]
+            },
+            {
+              "ligGlyph": 17899,
+              "components": [
+                1996
+              ]
+            },
+            {
+              "ligGlyph": 17883,
+              "components": [
+                1995
+              ]
+            },
+            {
+              "ligGlyph": 17867,
+              "components": [
+                1994
+              ]
+            },
+            {
+              "ligGlyph": 17851,
+              "components": [
+                1993
+              ]
+            },
+            {
+              "ligGlyph": 17835,
+              "components": [
+                1992
+              ]
+            }
+          ],
+          [
+            {
+              "ligGlyph": 18412,
+              "components": [
+                2045
+              ]
+            },
+            {
+              "ligGlyph": 18396,
+              "components": [
+                2044
+              ]
+            },
+            {
+              "ligGlyph": 18380,
+              "components": [
+                2043
+              ]
+            },
+            {
+              "ligGlyph": 18364,
+              "components": [
+                2042
+              ]
+            },
+            {
+              "ligGlyph": 18348,
+              "components": [
+                2041
+              ]
+            },
+            {
+              "ligGlyph": 18332,
+              "components": [
+                2040
+              ]
+            },
+            {
+              "ligGlyph": 18316,
+              "components": [
+                2037
+              ]
+            },
+            {
+              "ligGlyph": 18300,
+              "components": [
+                2036
+              ]
+            },
+            {
+              "ligGlyph": 18284,
+              "components": [
+                2033
+              ]
+            },
+            {
+              "ligGlyph": 18268,
+              "components": [
+                2032
+              ]
+            },
+            {
+              "ligGlyph": 18252,
+              "components": [
+                2031
+              ]
+            },
+            {
+              "ligGlyph": 18236,
+              "components": [
+                2030
+              ]
+            },
+            {
+              "ligGlyph": 18220,
+              "components": [
+                2020
+              ]
+            },
+            {
+              "ligGlyph": 18204,
+              "components": [
+                2019
+              ]
+            },
+            {
+              "ligGlyph": 18188,
+              "components": [
+                2018
+              ]
+            },
+            {
+              "ligGlyph": 18172,
+              "components": [
+                2017
+              ]
+            },
+            {
+              "ligGlyph": 18156,
+              "components": [
+                2016
+              ]
+            },
+            {
+              "ligGlyph": 18140,
+              "components": [
+                2015
+              ]
+            },
+            {
+              "ligGlyph": 18124,
+              "components": [
+                2014
+              ]
+            },
+            {
+              "ligGlyph": 18108,
+              "components": [
+                2013
+              ]
+            },
+            {
+              "ligGlyph": 18092,
+              "components": [
+                2012
+              ]
+            },
+            {
+              "ligGlyph": 18076,
+              "components": [
+                2011
+              ]
+            },
+            {
+              "ligGlyph": 18060,
+              "components": [
+                2010
+              ]
+            },
+            {
+              "ligGlyph": 18044,
+              "components": [
+                2009
+              ]
+            },
+            {
+              "ligGlyph": 18028,
+              "components": [
+                2008
+              ]
+            },
+            {
+              "ligGlyph": 18012,
+              "components": [
+                2007
+              ]
+            },
+            {
+              "ligGlyph": 17996,
+              "components": [
+                2006
+              ]
+            },
+            {
+              "ligGlyph": 17980,
+              "components": [
+                2005
+              ]
+            },
+            {
+              "ligGlyph": 17964,
+              "components": [
+                2000
+              ]
+            },
+            {
+              "ligGlyph": 17948,
+              "components": [
+                1999
+              ]
+            },
+            {
+              "ligGlyph": 17932,
+              "components": [
+                1998
+              ]
+            },
+            {
+              "ligGlyph": 17916,
+              "components": [
+                1997
+              ]
+            },
+            {
+              "ligGlyph": 17900,
+              "components": [
+                1996
+              ]
+            },
+            {
+              "ligGlyph": 17884,
+              "components": [
+                1995
+              ]
+            },
+            {
+              "ligGlyph": 17868,
+              "components": [
+                1994
+              ]
+            },
+            {
+              "ligGlyph": 17852,
+              "components": [
+                1993
+              ]
+            },
+            {
+              "ligGlyph": 17836,
+              "components": [
+                1992
+              ]
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}
