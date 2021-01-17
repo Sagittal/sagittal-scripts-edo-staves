@@ -151,5 +151,7 @@ if (lookupTable.lookupType === lookupType) {
 // And asked this script group to use the text-to-svg one, which in turn uses the opentype.js one, so now generating
 // edo notations works, for the text-to-svg one of the two potential solution scripts I started in this repo
 // (the other one, not this one here!)
+// - WHat I should do is clean this up, and explain what to do, and link to posts and standardize around text-to-svg
+// as opposed to vectorize-text, in @sagittal/general too
 
 fs.writeFileSync("dist/edoStaves.svg", svgString)
