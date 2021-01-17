@@ -3,6 +3,7 @@ import {Canvas, createCanvas, registerFont} from "canvas"
 import fs from "fs"
 import {computeInputSentenceUnicode} from "staff-code"
 
+// TODO: When it gets to the finesse stage, Dave says there should be ~7; between the notes.
 const inputSentence = `
 ston Gcl ;
 c4 nt ; /| ; nt ;
