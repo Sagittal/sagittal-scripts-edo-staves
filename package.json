@@ -19,16 +19,16 @@
     "generate-edo-staves-text-to-svg": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateEdoStavesTextToSvg.ts"
   },
   "devDependencies": {
-    "@sagittal/general": "^1.0.88",
-    "@sagittal/system": "^1.0.28",
+    "@sagittal/general": "^1.0.90",
+    "@sagittal/system": "^1.0.29",
     "@types/jasmine": "^3.6.2",
     "@types/node": "^14.14.21",
     "@types/text-to-svg": "^3.1.0",
     "canvas": "^2.6.1",
     "jasmine": "^3.6.3",
     "jasmine-spec-reporter": "^5.0.2",
-    "staff-code": "^1.0.160",
-    "text-to-svg": "^3.1.5",
+    "staff-code": "^1.0.161",
+    "staff-code-text-to-svg": "^3.1.5-sc",
     "ts-node": "^9.1.1",
     "tslint": "^6.1.3",
     "typescript": "^4.1.3"

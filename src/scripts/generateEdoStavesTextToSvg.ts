@@ -1,7 +1,8 @@
 import {Io, Sentence} from "@sagittal/general"
 import * as fs from "fs"
 import {computeInputSentenceUnicode} from "staff-code"
-import TextToSVG from "text-to-svg"
+// @ts-ignore
+import TextToSVG from "staff-code-text-to-svg"
 
 const inputSentence = `
 ston Gcl ;
@@ -15,7 +16,7 @@ c5 \\! ; nt ; nt ;
 const unicode = computeInputSentenceUnicode(inputSentence as Io & Sentence)
 
 const textToSVG = TextToSVG.loadSync("./node_modules/staff-code/dist/package/assets/fonts/BravuraTextBB.otf")
-const options = {x: 0, y: 50, fontSize: 72, anchor: "top" as "top", attributes: {fill: "black", stroke: "black"}}
+const options = {x: 0, y: 50, fontSize: 72, anchor: "top" as "top", attributes: {fill: "black", stroke: "black"}, features: {liga: true}}
 const svgString = textToSVG.getSVG(unicode, options)
 
 // TODO: For whatever reason, this svgString's height is just = 72, which is dumb. That's just the font size.

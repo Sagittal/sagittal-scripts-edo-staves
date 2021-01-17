@@ -138,5 +138,18 @@ if (lookupTable.lookupType === lookupType) {
 		            	tables.push(mungedTable)
 		            }
  */
+// Okay, I have made the PR: https://github.com/shrhdk/text-to-svg/pull/63
+// A mystery solved: if you use https://opentype.js.org/font-inspector.html and upload Bravura Text BB,
+// then expand the "cmap", you can see e.g. that "60304":2369, which is another way of saying that the reason you see
+// you see start and end of 2639 and 2384 in the subtables.coverage.ranges objects is that those are the INDICES of the
+// CPSs in the font. 60304 in decimal is EB90 in hexadecimal, AKA the start of the CSP range. So that's why all the
+// offsets were completely different and unpredictable: because there are gaps in the font where there are no glyphs,
+// sometimes big gaps. Why they need to refer to all glyphs indirectly by their indices rather than directly by their
+// code points, I do not yet know.
+// -------
+// Okay, and so now I've just gone ahead and used a custom published npm package of both opentype.js and text-to-svg
+// And asked this script group to use the text-to-svg one, which in turn uses the opentype.js one, so now generating
+// edo notations works, for the text-to-svg one of the two potential solution scripts I started in this repo
+// (the other one, not this one here!)
 
 fs.writeFileSync("dist/edoStaves.svg", svgString)
