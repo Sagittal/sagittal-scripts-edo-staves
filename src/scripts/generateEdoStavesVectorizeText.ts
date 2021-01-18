@@ -13,7 +13,7 @@ g4 \\! ; nt ; nt ; /| ; nt ;
 a4 \\! ; nt ; nt ; /| ; nt ;
 c5 \\! ; nt ; nt ;
 `
-const unicode = computeInputSentenceUnicode(inputSentence as Io & Sentence)
+const unicodeSentence = computeInputSentenceUnicode(inputSentence as Io & Sentence)
 
 /*
 
@@ -33,7 +33,7 @@ registerFont("./node_modules/staff-code/dist/package/assets/fonts/BravuraTextBB.
 const canvas = createCanvas(width, height) as Canvas
 const context = canvas.getContext("2d")
 // TODO: update that Canvas type in vectorizeText to be either web Canvas or Node Canvas
-const pathString = vectorizeText(unicode, {font: "Bravura Text BB" as FontName, height, context, canvas})
+const pathString = vectorizeText(unicodeSentence, {font: "Bravura Text BB" as FontName, height, context, canvas})
 const svgString = `<svg xmlns="http://www.w3.org/2000/svg" height="${height}" width="${width}">${pathString}</svg>`
 
 // TODO: VECTORIZATION OF TEXT TO SVG IN NODE
