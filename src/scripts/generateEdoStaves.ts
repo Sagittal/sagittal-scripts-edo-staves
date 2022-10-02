@@ -2,7 +2,7 @@ import {Filename, Io, Sentence, textToSvg} from "@sagittal/general"
 import * as fs from "fs"
 import {computeInputSentenceUnicode} from "staff-code"
 
-const font = "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextBB.otf" as Filename
+const font = "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
 
 // TODO: When it gets to the finesse stage, Dave says there should be ~7; between the notes.
 const inputSentence = `
