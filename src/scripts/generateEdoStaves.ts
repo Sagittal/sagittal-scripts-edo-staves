@@ -52,7 +52,7 @@ en; bl
 interface Edo {
     evo: string[],
     // revo: string[],
-    n: Decimal<{ integer: true }>
+    n: number
 }
 
 interface StepNotation {
@@ -88,29 +88,29 @@ const getSagittal = (edo: Edo, sagittalIndex: Decimal<{ integer: true }>) => {
     if (sagittalIndex < 0) return NEGATIVE_SAGITTALS[edo.evo[-sagittalIndex - 1]]
 }
 
-const computeTrueSagittalIndex = ({ sagittalIndex, nominalIndex }, edo) => {
+const computeTrueSagittalIndex = ({ sagittalIndex, nominalIndex }: StepNotation, edo: Edo) => {
     if (sagittalIndex == 0) return 0
-    let trueSagitalIndex = sagittalIndex
-    const stepsToApotome = edo.evo.length
+    let trueSagitalIndex: Decimal<{ integer: true }> = sagittalIndex as Decimal<{ integer: true }>
+    const stepsToApotome: Decimal<{ integer: true }> = edo.evo.length as Decimal<{ integer: true }>
     if (trueSagitalIndex < 0) {
-        if (nominalIndex > 3 || nominalIndex < -3) trueSagitalIndex -= stepsToApotome
-        if (nominalIndex > 10 || nominalIndex < -10) trueSagitalIndex -= stepsToApotome    
+        if (nominalIndex > 3 || nominalIndex < -3) trueSagitalIndex = trueSagitalIndex - stepsToApotome as Decimal<{ integer: true }>
+        if (nominalIndex > 10 || nominalIndex < -10) trueSagitalIndex = trueSagitalIndex - stepsToApotome as Decimal<{ integer: true }>
     } else {
-        if (nominalIndex > 3 || nominalIndex < -3) trueSagitalIndex += stepsToApotome
-        if (nominalIndex > 10 || nominalIndex < -10) trueSagitalIndex += stepsToApotome    
+        if (nominalIndex > 3 || nominalIndex < -3) trueSagitalIndex = trueSagitalIndex + stepsToApotome as Decimal<{ integer: true }>
+        if (nominalIndex > 10 || nominalIndex < -10) trueSagitalIndex = trueSagitalIndex + stepsToApotome as Decimal<{ integer: true }>
     }
-    
+
     return trueSagitalIndex
 }
 
 const computeNotation = (edo: Edo) => {
     const stepSize: Cents = 1200 / edo.n as Cents
-    const stepSizes: Cents[] = computeRange(edo.n).map(step => step * stepSize as Cents)
+    const stepSizes: Cents[] = computeRange(edo.n as Decimal<{ integer: true }>).map(step => step * stepSize as Cents)
 
     const JI_FIFTH_SIZE: Cents = 701.955000865 as Cents
 
     let bestFifthError: Cents = 1200 as Cents
-    let bestFifthStep: Decimal<{ integer: true }> = edo.n
+    let bestFifthStep: Decimal<{ integer: true }> = edo.n as Decimal<{ integer: true }>
     stepSizes.forEach((stepSize: Cents, index) => {
         const fifthError: Cents = Math.abs(JI_FIFTH_SIZE - stepSize) as Cents
         if (fifthError < bestFifthError) {
@@ -213,41 +213,49 @@ const computeNotation = (edo: Edo) => {
     const stringNotation: string[] = finalNotation.map(({ nominalIndex, sagittalIndex }: StepNotation): string => `${nominals[nominalIndex + 17]}${getSagittal(edo, sagittalIndex)}`)
     console.log("string notation: ", stringNotation)
 
-//     const intention = `
-// ston
-// Gcl ;
-// c4                 7; nt ;  3; /| ; nt ;
-// 7; bl ;
-// d4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
-// 7; bl ;
-// e4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
-// 7; bl ;
-// g4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
-// 7; bl ;
-// a4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
-// 7; bl ;
-// c5  3; \\! ; nt ;  7; nt ;
-// en; bl
-// nl;
-// `
-//     console.log(intention)
+    //     const intention = `
+    // ston
+    // Gcl ;
+    // c4                 7; nt ;  3; /| ; nt ;
+    // 7; bl ;
+    // d4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
+    // 7; bl ;
+    // e4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
+    // 7; bl ;
+    // g4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
+    // 7; bl ;
+    // a4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
+    // 7; bl ;
+    // c5  3; \\! ; nt ;  7; nt ;
+    // en; bl
+    // nl;
+    // `
+    //     console.log(intention)
 
-    let output = "ston \nGcl ;\nc4 3; "
+    let output = "ston \n5; Gcl ; 5; \nc4 5; "
     let currentNominal = "c"
+    let noteCount = 0
+    let newlineTracker = 27
     stringNotation.forEach(stepStringNotation => {
         const nominal = stepStringNotation[0]
         if (nominal != currentNominal) {
             // if (currentNominal != "c") output += ""
             currentNominal = nominal
             let octave = currentNominal == "c" ? 5 : 4
-            output += `\n7; bl ;\n${nominal}${octave} `
+            output += `\n9; en; bl \n${nominal}${octave} `
+            if (noteCount > newlineTracker && nominal != "c") {
+                newlineTracker += 20
+                output += "nl;\n5; Gcl ; 5; "
+            } else {
+                output += "; 5;"
+            }
         }
 
         if (stepStringNotation.length > 2) {
             const sagittal = stepStringNotation.slice(2)
-            output += `3; ${sagittal} ; `
+            output += `5; ${sagittal} ; `
         } else {
-            output += "7; "
+            output += "9; "
         }
 
         if (stepStringNotation[1] == "#") output += "# ; "
@@ -256,9 +264,10 @@ const computeNotation = (edo: Edo) => {
         if (stepStringNotation[1] == "B") output += "bb ; "
 
         output += "nt ; "
+        noteCount++
     })
-    if (currentNominal != "c") output += "7; bl ;\nc5 "
-    output += "7; nt ;\n3; en; bl\nnl;"
+    if (currentNominal != "c") output += "9; bl ;\nc5 "
+    output += "9; nt ;\n3; en; bl\nnl;"
 
     return output
 }
@@ -269,24 +278,28 @@ const NEGATIVE_SAGITTALS = {
     "/|\\": "\\!/",
 }
 
+const edo5: Edo = { evo: [], n: 5 }
+
 const edo12: Edo = {
     evo: [],
     // revo: ["||\\"],
-    n: 12 as Decimal<{ integer: true }>
+    n: 12
 }
 const edo15: Edo = {
     evo: ["/|"],
     // revo: ["||\\"],
-    n: 15 as Decimal<{ integer: true }>
+    n: 15
 }
+
+const edo31: Edo = { evo: ["/|\\"], n: 31}
 
 const edo72: Edo = {
     evo: ["/|", "|)", "/|\\"],
-    n: 72 as Decimal<{ integer: true }>
+    n: 72
 }
 
 
-const inputSentence = computeNotation(edo72)
+const inputSentence = computeNotation(edo31)
 console.log(inputSentence)
 
 const unicodeSentence = computeInputSentenceUnicode(inputSentence as Io & Sentence)
