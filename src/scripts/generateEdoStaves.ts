@@ -4,51 +4,6 @@ import { computeInputSentenceUnicode } from "staff-code"
 
 const font = "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
 
-// TODO: When it gets to the finesse stage, Dave says there should be ~7; between the notes.
-const manualInputSentence = `
-ston
-
-Gcl ;
-c4                 7; nt ;  3; /| ; nt ;
-7; bl ;
-d4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
-7; bl ;
-e4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
-7; bl ;
-g4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
-7; bl ;
-a4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
-7; bl ;
-c5  3; \\! ; nt ;  7; nt ;
-en; bl
-nl;
-
-
-Gcl ;
-c4                 7; nt ;  3; /| ; nt ;
-7; bl ;
-d4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
-7; bl ;
-e4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
-7; bl ;
-g4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
-7; bl ;
-a4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
-7; bl ;
-c5  3; \\! ; nt ;  7; nt ;
-en; bl
-`
-// const unicodeSentence = computeInputSentenceUnicode(inputSentence as Io & Sentence)
-
-// const asyncGenerateEdoStaves = async (): Promise<void> => {
-//     const svgString = await textToSvg(unicodeSentence, { font })
-
-//     fs.writeFileSync("dist/edoStaves.svg", svgString)
-// }
-
-// asyncGenerateEdoStaves().then()
-
-
 interface Edo {
     evo: string[],
     // revo: string[],
@@ -56,11 +11,11 @@ interface Edo {
 }
 
 interface StepNotation {
-    nominalIndex: Decimal<{ integer: true }> // -3 to 3 for FCGDAEB
+    nominalIndex: Decimal<{ integer: true }> // 35 possibilities, -17 to 17, for FCGDAEB flanked by sharps and flats and doubles thereof
     sagittalIndex: Decimal<{ integer: true }> // 0 is none, 1 is the first sagittal in the sequence
 }
 
-const nominals = [
+const NOMINALS = [
     "fB", "cB", "gB", "dB", "aB", "eB", "bB",
     "fb", "cb", "gb", "db", "ab", "eb", "bb",
     "f-", "c-", "g-", "d-", "a-", "e-", "b-",
@@ -68,11 +23,11 @@ const nominals = [
     "fx", "cx", "gx", "dx", "ax", "ex", "bx",
 ]
 
-// Enum SagittalKeys = ["/|"]
-// const NEGATIVE_SAGITTALS = {
-//     "/|": "\\!"
-// }
-// console.log(Object.keys(NEGATIVE_SAGITTALS))
+const NEGATIVE_SAGITTALS = {
+    "/|": "\\!",
+    "|)": "!)",
+    "/|\\": "\\!/",
+}
 
 const notation: StepNotation[][] = []
 
@@ -89,10 +44,9 @@ const getSagittal = (edo: Edo, sagittalIndex: Decimal<{ integer: true }>) => {
 }
 
 const computeTrueSagittalIndex = ({ sagittalIndex, nominalIndex }: StepNotation, edo: Edo) => {
-    if (sagittalIndex == 0) return 0
     let trueSagitalIndex: Decimal<{ integer: true }> = sagittalIndex as Decimal<{ integer: true }>
     const stepsToApotome: Decimal<{ integer: true }> = edo.evo.length as Decimal<{ integer: true }>
-    if (trueSagitalIndex < 0) {
+    if (trueSagitalIndex <= 0) {
         if (nominalIndex > 3 || nominalIndex < -3) trueSagitalIndex = trueSagitalIndex - stepsToApotome as Decimal<{ integer: true }>
         if (nominalIndex > 10 || nominalIndex < -10) trueSagitalIndex = trueSagitalIndex - stepsToApotome as Decimal<{ integer: true }>
     } else {
@@ -131,7 +85,6 @@ const computeNotation = (edo: Edo) => {
 
     nominalSteps.forEach((nominalStep, fDoubleFlatBasedNominalIndex) => {
         const dBasedNominalIndex: Decimal<{ integer: true }> = fDoubleFlatBasedNominalIndex - 17 as Decimal<{ integer: true }>;
-        // console.log("d-based nominal index: ", dBasedNominalIndex)
 
         updateNotation(
             nominalStep as Decimal<{ integer: true }>,
@@ -140,27 +93,20 @@ const computeNotation = (edo: Edo) => {
 
         computeRange(edo.evo.length as Decimal<{ integer: true }>)
             .map(sagittalIndex => sagittalIndex + 1 as Decimal<{ integer: true }>)
-            // .map(sagittalIndex => sagittalIndex > edo.n ? sagittalIndex - edo.n as Decimal<{ integer: true }> : sagittalIndex)
             .forEach((sagittalIndex: Decimal<{ integer: true }>) => {
                 const step = (nominalStep + sagittalIndex) % edo.n as Decimal<{ integer: true }>
-
-                // if (sagittalIndex < edo.n) {
                 updateNotation(
                     step,
                     { nominalIndex: dBasedNominalIndex, sagittalIndex }
                 )
-                // }
             })
 
         computeRange(edo.evo.length as Decimal<{ integer: true }>)
             .map(sagittalIndex => sagittalIndex + 1 as Decimal<{ integer: true }>)
-            // .map(sagittalIndex => -sagittalIndex as Decimal<{ integer: true }>)
-            // .map(sagittalIndex => sagittalIndex < 0 ? sagittalIndex + edo.n as Decimal<{ integer: true }> : sagittalIndex)
             .forEach((sagittalIndex: Decimal<{ integer: true }>) => {
                 const step = sagittalIndex > nominalStep ?
                     edo.n - sagittalIndex as Decimal<{ integer: true }> :
                     nominalStep - sagittalIndex as Decimal<{ integer: true }>
-                // if (step >= 0) {
                 updateNotation(
                     step,
                     {
@@ -168,7 +114,6 @@ const computeNotation = (edo: Edo) => {
                         sagittalIndex: -sagittalIndex as Decimal<{ integer: true }>
                     }
                 )
-                // }
             })
     })
 
@@ -180,14 +125,13 @@ const computeNotation = (edo: Edo) => {
         // if not, then take the one with lowest abs value sagittal index
         // if tied, take the positive one
         // if more than one positive one, then take the nominal with the lowest abs val index
-
-
-
-        return stepNotations.reduce((selected, current) => {
-            // const currentSagittalIndex = current.sagittalIndex 
-            // const selectedSagittalIndex = selected.sagittalIndex 
+        console.log("\nstepNotations: ", stepNotations)
+        const result = stepNotations.reduce((selected, current) => {
             const currentSagittalIndex = computeTrueSagittalIndex(current, edo)
             const selectedSagittalIndex = computeTrueSagittalIndex(selected, edo)
+            console.log("selected notation: ", selected)
+            console.log("current notation: ", current)
+            console.log("selected 'true' sag index: ", selectedSagittalIndex, "current 'true' sag index: ", currentSagittalIndex)
 
             if (Math.abs(currentSagittalIndex) < Math.abs(selectedSagittalIndex)) {
                 return current;
@@ -207,30 +151,13 @@ const computeNotation = (edo: Edo) => {
                 }
             }
         });
+        console.log("result notation: ", result, "\n")
+        return result
     })
     console.log("final notation: ", finalNotation)
 
-    const stringNotation: string[] = finalNotation.map(({ nominalIndex, sagittalIndex }: StepNotation): string => `${nominals[nominalIndex + 17]}${getSagittal(edo, sagittalIndex)}`)
+    const stringNotation: string[] = finalNotation.map(({ nominalIndex, sagittalIndex }: StepNotation): string => `${NOMINALS[nominalIndex + 17]}${getSagittal(edo, sagittalIndex)}`)
     console.log("string notation: ", stringNotation)
-
-    //     const intention = `
-    // ston
-    // Gcl ;
-    // c4                 7; nt ;  3; /| ; nt ;
-    // 7; bl ;
-    // d4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
-    // 7; bl ;
-    // e4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
-    // 7; bl ;
-    // g4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
-    // 7; bl ;
-    // a4  3; \\! ; nt ;  7; nt ;  3; /| ; nt ;
-    // 7; bl ;
-    // c5  3; \\! ; nt ;  7; nt ;
-    // en; bl
-    // nl;
-    // `
-    //     console.log(intention)
 
     let output = "ston \n5; Gcl ; 5; \nc4 5; "
     let currentNominal = "c"
@@ -239,7 +166,6 @@ const computeNotation = (edo: Edo) => {
     stringNotation.forEach(stepStringNotation => {
         const nominal = stepStringNotation[0]
         if (nominal != currentNominal) {
-            // if (currentNominal != "c") output += ""
             currentNominal = nominal
             let octave = currentNominal == "c" ? 5 : 4
             output += `\n9; en; bl \n${nominal}${octave} `
@@ -272,41 +198,21 @@ const computeNotation = (edo: Edo) => {
     return output
 }
 
-const NEGATIVE_SAGITTALS = {
-    "/|": "\\!",
-    "|)": "!)",
-    "/|\\": "\\!/",
-}
-
 const edo5: Edo = { evo: [], n: 5 }
 
-const edo12: Edo = {
-    evo: [],
-    // revo: ["||\\"],
-    n: 12
-}
-const edo15: Edo = {
-    evo: ["/|"],
-    // revo: ["||\\"],
-    n: 15
-}
-
-const edo31: Edo = { evo: ["/|\\"], n: 31}
-
-const edo72: Edo = {
-    evo: ["/|", "|)", "/|\\"],
-    n: 72
-}
-
+const edo12: Edo = { evo: [], /* revo: ["||\\"], */ n: 12 }
+const edo15: Edo = { evo: ["/|"], /* revo: ["||\\"], */ n: 15 }
+const edo31: Edo = { evo: ["/|\\"], n: 31 }
+const edo72: Edo = { evo: ["/|", "|)", "/|\\"], n: 72 }
 
 const inputSentence = computeNotation(edo31)
+console.log("\ninput sentence:\n")
 console.log(inputSentence)
 
 const unicodeSentence = computeInputSentenceUnicode(inputSentence as Io & Sentence)
 
 const asyncGenerateEdoStaves = async (): Promise<void> => {
     const svgString = await textToSvg(unicodeSentence, { font })
-
     fs.writeFileSync("dist/edoStaves.svg", svgString)
 }
 
