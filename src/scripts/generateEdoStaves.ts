@@ -1,32 +1,52 @@
-import { Cents, computeRange, Decimal, Ed, Filename, Io, Sentence, textToSvg } from "@sagittal/general"
+import { APOTOME, Cents, computeRange, Decimal, Ed, Filename, Io, Sentence, textToSvg } from "@sagittal/general"
+import { Flavor, SymbolClassId, Accidental, HeadId, Sagitype, computeAccidentalSagitype, parseSagitype, Compatible } from "@sagittal/system"
+import { computeSagittalFromSymbolClassId } from "../../../../system/src/accidental"
+import { computeSymbolClassIdAndSectionFromSagittal } from "../../../../system/src/accidental/pitch/symbolClassIdAndSectionFromSagittal"
+import { computeRevoAccidentalFromCaptureZone } from "../../../../system/src/accidental/flavor/revo"
 import * as fs from "fs"
 import { computeInputSentenceUnicode } from "staff-code"
 
 const font = "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
 
 interface Edo {
-    evo: string[],
-    // revo: string[],
+    sagittals: Sagitype[],
     n: number
 }
 
 interface StepNotation {
-    nominalIndex: Decimal<{ integer: true }> // 35 possibilities, -17 to 17, for FCGDAEB flanked by sharps and flats and doubles thereof
+    linkIndex: Decimal<{ integer: true }> // 35 possibilities, -17 to 17, for FCGDAEB flanked by sharps and flats and doubles thereof
     sagittalIndex: Decimal<{ integer: true }> // 0 is none, 1 is the first sagittal in the sequence
 }
 
-const NOMINALS = [
-    "fB", "cB", "gB", "dB", "aB", "eB", "bB",
-    "fb", "cb", "gb", "db", "ab", "eb", "bb",
-    "f-", "c-", "g-", "d-", "a-", "e-", "b-",
-    "f#", "c#", "g#", "d#", "a#", "e#", "b#",
-    "fx", "cx", "gx", "dx", "ax", "ex", "bx",
-]
+// for convenience, these values are the ones used by StaffCode
+enum Apotome {
+    DOUBLE_SHARP = "x",
+    SHARP = "#",
+    NATURAL = " ",
+    FLAT = "b",
+    DOUBLE_FLAT = "B"
+}
 
-const NEGATIVE_SAGITTALS = {
-    "/|": "\\!",
-    "|)": "!)",
-    "/|\\": "\\!/",
+enum Nominal {
+    F = "f",
+    C = "c",
+    G = "g",
+    D = "d",
+    A = "a",
+    E = "e",
+    B = "b"
+}
+
+const LINKS: Link[] = Object.values(Apotome).map(apotome => {
+    return Object.values(Nominal).map(nominal => ({
+        apotome, nominal
+    }))
+}).flat()
+// console.log(LINKS)
+
+interface Link {
+    nominal: Nominal,
+    apotome: Apotome
 }
 
 const notation: StepNotation[][] = []
@@ -36,28 +56,71 @@ const updateNotation = (step: Decimal<{ integer: true }>, stepNotation: StepNota
     notation[step].push(stepNotation)
 }
 
-const getSagittal = (edo: Edo, sagittalIndex: Decimal<{ integer: true }>) => {
-    if (sagittalIndex == 0) return ""
-    if (sagittalIndex > 0) return edo.evo[sagittalIndex - 1]
-    // @ts-ignore
-    if (sagittalIndex < 0) return NEGATIVE_SAGITTALS[edo.evo[-sagittalIndex - 1]]
+const getNegativeSagittal = (sagitype: Sagitype): Sagitype => {
+    // console.log("need to flip: ", sagitype)
+    const accidental: Accidental = parseSagitype(sagitype)
+    accidental.down = true
+
+    // const sagittal = computeAccidental({headId: HeadId.ARC_AND_BOATHOOK, down: true})
+    // console.log(sagittal)
+    const result = computeAccidentalSagitype(accidental)
+    // console.log("flipped: ", result)
+    return result
+    // console.log(parseSagitype("\\!/" as Sagitype))
 }
 
-const computeTrueSagittalIndex = ({ sagittalIndex, nominalIndex }: StepNotation, edo: Edo) => {
+const getSagittal = (edo: Edo, sagittalIndex: Decimal<{ integer: true }>): Sagitype => {
+    if (sagittalIndex == 0) return "" as Sagitype
+    else if (sagittalIndex > 0) return edo.sagittals[sagittalIndex - 1]
+    // console.log('what')
+
+    return getNegativeSagittal(edo.sagittals[-sagittalIndex - 1])
+}
+
+const getRevoSagittal = (edo: Edo, sagittalIndex: Decimal<{ integer: true }>, apotome: Apotome): Sagitype => {
+    if (sagittalIndex == 0) return apotome as Sagitype
+    else if (sagittalIndex > 0) {
+        const accidental: Accidental = parseSagitype(edo.sagittals[sagittalIndex - 1])
+        if (apotome != Apotome.NATURAL) accidental.compatible = COMPATIBLE_FOR_APOTOME[apotome]
+        // convert to Revo!
+        console.log(accidental)
+        const [symbolClassId, section] = computeSymbolClassIdAndSectionFromSagittal(accidental)
+        const revo = computeRevoAccidentalFromCaptureZone(symbolClassId, section)
+        console.log("REVO!!!! ", revo)
+
+        return computeAccidentalSagitype(revo)
+    }
+
+    const accidental: Accidental = parseSagitype(edo.sagittals[-sagittalIndex - 1])
+    accidental.down = true
+    if (apotome != Apotome.NATURAL) accidental.compatible = COMPATIBLE_FOR_APOTOME[apotome]
+    // convert to Revo!
+    return computeAccidentalSagitype(accidental)
+}
+
+const COMPATIBLE_FOR_APOTOME = {
+    [Apotome.DOUBLE_SHARP]: Compatible.DOUBLE_SHARP,
+    [Apotome.SHARP]: Compatible.SHARP,
+    [Apotome.NATURAL]: Compatible.NATURAL,
+    [Apotome.FLAT]: Compatible.FLAT,
+    [Apotome.DOUBLE_FLAT]: Compatible.DOUBLE_FLAT
+}
+
+const computeTrueSagittalIndex = ({ sagittalIndex, linkIndex }: StepNotation, edo: Edo) => {
     let trueSagitalIndex: Decimal<{ integer: true }> = sagittalIndex as Decimal<{ integer: true }>
-    const stepsToApotome: Decimal<{ integer: true }> = edo.evo.length as Decimal<{ integer: true }>
+    const stepsToApotome: Decimal<{ integer: true }> = edo.sagittals.length as Decimal<{ integer: true }>
     if (trueSagitalIndex <= 0) {
-        if (nominalIndex > 3 || nominalIndex < -3) trueSagitalIndex = trueSagitalIndex - stepsToApotome as Decimal<{ integer: true }>
-        if (nominalIndex > 10 || nominalIndex < -10) trueSagitalIndex = trueSagitalIndex - stepsToApotome as Decimal<{ integer: true }>
+        if (linkIndex > 3 || linkIndex < -3) trueSagitalIndex = trueSagitalIndex - stepsToApotome as Decimal<{ integer: true }>
+        if (linkIndex > 10 || linkIndex < -10) trueSagitalIndex = trueSagitalIndex - stepsToApotome as Decimal<{ integer: true }>
     } else {
-        if (nominalIndex > 3 || nominalIndex < -3) trueSagitalIndex = trueSagitalIndex + stepsToApotome as Decimal<{ integer: true }>
-        if (nominalIndex > 10 || nominalIndex < -10) trueSagitalIndex = trueSagitalIndex + stepsToApotome as Decimal<{ integer: true }>
+        if (linkIndex > 3 || linkIndex < -3) trueSagitalIndex = trueSagitalIndex + stepsToApotome as Decimal<{ integer: true }>
+        if (linkIndex > 10 || linkIndex < -10) trueSagitalIndex = trueSagitalIndex + stepsToApotome as Decimal<{ integer: true }>
     }
 
     return trueSagitalIndex
 }
 
-const computeNotation = (edo: Edo) => {
+const computeNotation = (edo: Edo, flavor: Flavor) => {
     const stepSize: Cents = 1200 / edo.n as Cents
     const stepSizes: Cents[] = computeRange(edo.n as Decimal<{ integer: true }>).map(step => step * stepSize as Cents)
 
@@ -74,34 +137,34 @@ const computeNotation = (edo: Edo) => {
     })
 
     const fifthStep: Decimal<{ integer: true }> = bestFifthStep
-    console.log("fifth step: ", fifthStep)
+    // console.log("fifth step: ", fifthStep)
 
     const cBasedNominalRange = computeRange(-15 as Decimal<{ integer: true }>, 20 as Decimal<{ integer: true }>)
-    console.log("c-based nominal range: ", cBasedNominalRange)
+    // console.log("c-based nominal range: ", cBasedNominalRange)
     const nominalSteps = cBasedNominalRange
-        .map(nominalIndex => nominalIndex * fifthStep % edo.n)
+        .map(linkIndex => linkIndex * fifthStep % edo.n)
         .map(nominalStep => nominalStep < 0 ? nominalStep + edo.n : nominalStep)
-    console.log("nominal steps: ", nominalSteps)
+    // console.log("nominal steps: ", nominalSteps)
 
     nominalSteps.forEach((nominalStep, fDoubleFlatBasedNominalIndex) => {
         const dBasedNominalIndex: Decimal<{ integer: true }> = fDoubleFlatBasedNominalIndex - 17 as Decimal<{ integer: true }>;
 
         updateNotation(
             nominalStep as Decimal<{ integer: true }>,
-            { nominalIndex: dBasedNominalIndex, sagittalIndex: 0 as Decimal<{ integer: true }> }
+            { linkIndex: dBasedNominalIndex, sagittalIndex: 0 as Decimal<{ integer: true }> }
         )
 
-        computeRange(edo.evo.length as Decimal<{ integer: true }>)
+        computeRange(edo.sagittals.length as Decimal<{ integer: true }>)
             .map(sagittalIndex => sagittalIndex + 1 as Decimal<{ integer: true }>)
             .forEach((sagittalIndex: Decimal<{ integer: true }>) => {
                 const step = (nominalStep + sagittalIndex) % edo.n as Decimal<{ integer: true }>
                 updateNotation(
                     step,
-                    { nominalIndex: dBasedNominalIndex, sagittalIndex }
+                    { linkIndex: dBasedNominalIndex, sagittalIndex }
                 )
             })
 
-        computeRange(edo.evo.length as Decimal<{ integer: true }>)
+        computeRange(edo.sagittals.length as Decimal<{ integer: true }>)
             .map(sagittalIndex => sagittalIndex + 1 as Decimal<{ integer: true }>)
             .forEach((sagittalIndex: Decimal<{ integer: true }>) => {
                 const step = sagittalIndex > nominalStep ?
@@ -110,28 +173,27 @@ const computeNotation = (edo: Edo) => {
                 updateNotation(
                     step,
                     {
-                        nominalIndex: dBasedNominalIndex,
+                        linkIndex: dBasedNominalIndex,
                         sagittalIndex: -sagittalIndex as Decimal<{ integer: true }>
                     }
                 )
             })
     })
 
-    console.log("notation: ", notation)
-
+    // console.log("notation: ", notation)
 
     const finalNotation: StepNotation[] = notation.map((stepNotations: StepNotation[]): StepNotation => {
         // if only 1 step notation, take it
         // if not, then take the one with lowest abs value sagittal index
         // if tied, take the positive one
         // if more than one positive one, then take the nominal with the lowest abs val index
-        console.log("\nstepNotations: ", stepNotations)
+        // console.log("\nstepNotations: ", stepNotations)
         const result = stepNotations.reduce((selected, current) => {
             const currentSagittalIndex = computeTrueSagittalIndex(current, edo)
             const selectedSagittalIndex = computeTrueSagittalIndex(selected, edo)
-            console.log("selected notation: ", selected)
-            console.log("current notation: ", current)
-            console.log("selected 'true' sag index: ", selectedSagittalIndex, "current 'true' sag index: ", currentSagittalIndex)
+            // console.log("selected notation: ", selected)
+            // console.log("current notation: ", current)
+            // console.log("selected 'true' sag index: ", selectedSagittalIndex, "current 'true' sag index: ", currentSagittalIndex)
 
             if (Math.abs(currentSagittalIndex) < Math.abs(selectedSagittalIndex)) {
                 return current;
@@ -143,7 +205,7 @@ const computeNotation = (edo: Edo) => {
                 } else if (currentSagittalIndex < selectedSagittalIndex) {
                     return selected;
                 } else {
-                    if (Math.abs(current.nominalIndex) < Math.abs(selected.nominalIndex)) {
+                    if (Math.abs(current.linkIndex) < Math.abs(selected.linkIndex)) {
                         return current;
                     } else {
                         return selected;
@@ -151,13 +213,22 @@ const computeNotation = (edo: Edo) => {
                 }
             }
         });
-        console.log("result notation: ", result, "\n")
+        // console.log("result notation: ", result, "\n")
         return result
     })
-    console.log("final notation: ", finalNotation)
+    // console.log("final notation: ", finalNotation)
 
-    const stringNotation: string[] = finalNotation.map(({ nominalIndex, sagittalIndex }: StepNotation): string => `${NOMINALS[nominalIndex + 17]}${getSagittal(edo, sagittalIndex)}`)
-    console.log("string notation: ", stringNotation)
+    const stringNotation: string[] = finalNotation.map(({ linkIndex, sagittalIndex }: StepNotation): string => {
+        const link: Link = LINKS[linkIndex + 17]
+        // console.log("link.nominal: ", link.nominal)
+        // console.log("link.apotome: ", link.apotome)
+        if (flavor == Flavor.EVO) {
+            return `${link.nominal}${link.apotome}${getSagittal(edo, sagittalIndex)}`
+        } else {
+            return `${link.nominal} ${getRevoSagittal(edo, sagittalIndex, link.apotome)}`
+        }
+    })
+    // console.log("string notation: ", stringNotation)
 
     let output = "ston \n5; Gcl ; 5; \nc4 5; "
     let currentNominal = "c"
@@ -168,13 +239,14 @@ const computeNotation = (edo: Edo) => {
         if (nominal != currentNominal) {
             currentNominal = nominal
             let octave = currentNominal == "c" ? 5 : 4
-            output += `\n9; en; bl \n${nominal}${octave} `
+            output += `\n9; en; bl \n`
             if (noteCount > newlineTracker && nominal != "c") {
                 newlineTracker += 20
                 output += "nl;\n5; Gcl ; 5; "
             } else {
-                output += "; 5;"
+                output += "; 5; "
             }
+            output += `${nominal}${octave} `
         }
 
         if (stepStringNotation.length > 2) {
@@ -198,16 +270,16 @@ const computeNotation = (edo: Edo) => {
     return output
 }
 
-const edo5: Edo = { evo: [], n: 5 }
+const evo5: Edo = { sagittals: [], n: 5 }
+const evo12: Edo = { sagittals: [], n: 12 }
+const evo15: Edo = { sagittals: ["/|"] as Sagitype[], n: 15 }
+const evo31: Edo = { sagittals: ["/|\\"] as Sagitype[], n: 31 }
+const evo72: Edo = { sagittals: ["/|", "|)", "/|\\"] as Sagitype[], n: 72 }
+const revo72: Edo = { sagittals: ["/|", "|)", "/|\\", "||)", "||\\", "/||\\"] as Sagitype[], n: 72 }
 
-const edo12: Edo = { evo: [], /* revo: ["||\\"], */ n: 12 }
-const edo15: Edo = { evo: ["/|"], /* revo: ["||\\"], */ n: 15 }
-const edo31: Edo = { evo: ["/|\\"], n: 31 }
-const edo72: Edo = { evo: ["/|", "|)", "/|\\"], n: 72 }
-
-const inputSentence = computeNotation(edo31)
-console.log("\ninput sentence:\n")
-console.log(inputSentence)
+const inputSentence = computeNotation(evo72, Flavor.REVO)
+// console.log("\ninput sentence:\n")
+// console.log(inputSentence)
 
 const unicodeSentence = computeInputSentenceUnicode(inputSentence as Io & Sentence)
 
