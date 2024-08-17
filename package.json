@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@sagittal/general": "^1.0.120",
-    "@sagittal/system": "^1.0.34",
+    "@sagittal/system": "^1.0.38",
     "@types/jasmine": "^4.3.0",
     "@types/node": "^18.8.0",
     "jasmine": "^4.4.0",

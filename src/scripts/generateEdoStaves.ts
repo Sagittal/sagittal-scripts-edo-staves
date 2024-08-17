@@ -1,15 +1,19 @@
-import { APOTOME, Cents, computeRange, Decimal, Ed, Filename, Io, Sentence, textToSvg } from "@sagittal/general"
+import { APOTOME, Cents, computeRange, Decimal, Ed, Filename, Io, Sentence, textToSvg, Maybe } from "@sagittal/general"
 import { Flavor, SymbolClassId, Accidental, HeadId, Sagitype, computeAccidentalSagitype, parseSagitype, Compatible } from "@sagittal/system"
 import { computeSagittalFromSymbolClassId } from "../../../../system/src/accidental"
 import { computeSymbolClassIdAndSectionFromSagittal } from "../../../../system/src/accidental/pitch/symbolClassIdAndSectionFromSagittal"
 import { computeRevoAccidentalFromCaptureZone } from "../../../../system/src/accidental/flavor/revo"
 import * as fs from "fs"
 import { computeInputSentenceUnicode } from "staff-code"
+import { Sagittal } from "@sagittal/system/dist/cjs/accidental"
+import { SECTION_N1A, SECTION_N1T, SECTION_N2A, SECTION_N2T, SECTION_P1A, SECTION_P1T, SECTION_P2A, SECTION_P2T } from "@sagittal/system/dist/cjs/notation/sections"
+import { apotomeShift } from "../../../../system/src/accidental/sagittal"
 
 const font = "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
 
 interface Edo {
-    sagittals: Sagitype[],
+    sagitypes: Sagitype[],
+    // revo: Sagitype[],
     n: number
 }
 
@@ -44,6 +48,8 @@ const LINKS: Link[] = Object.values(Apotome).map(apotome => {
 }).flat()
 // console.log(LINKS)
 
+const ONLY_NOMINALS: Nominal[] = Object.values(Nominal)
+
 interface Link {
     nominal: Nominal,
     apotome: Apotome
@@ -56,59 +62,32 @@ const updateNotation = (step: Decimal<{ integer: true }>, stepNotation: StepNota
     notation[step].push(stepNotation)
 }
 
-const getNegativeSagittal = (sagitype: Sagitype): Sagitype => {
-    // console.log("need to flip: ", sagitype)
-    const accidental: Accidental = parseSagitype(sagitype)
-    accidental.down = true
+// const getNegativeSagittal = (sagittal: Sagittal): Sagittal => {
+//     // console.log("need to flip: ", sagitype)
+//     // const accidental: Accidental = parseSagitype(sagitype)
+//     // sagittal.down = true
 
-    // const sagittal = computeAccidental({headId: HeadId.ARC_AND_BOATHOOK, down: true})
-    // console.log(sagittal)
-    const result = computeAccidentalSagitype(accidental)
-    // console.log("flipped: ", result)
-    return result
-    // console.log(parseSagitype("\\!/" as Sagitype))
-}
+//     // const sagittal = computeAccidental({headId: HeadId.ARC_AND_BOATHOOK, down: true})
+//     // console.log(sagittal)
+//     // const result = computeAccidentalSagitype(sagittal)
+//     // console.log("flipped: ", result)
+//     // return result
+//     // console.log(parseSagitype("\\!/" as Sagitype))
+//     return {...sagittal, down: true}
+// }
 
-const getSagittal = (edo: Edo, sagittalIndex: Decimal<{ integer: true }>): Sagitype => {
-    if (sagittalIndex == 0) return "" as Sagitype
-    else if (sagittalIndex > 0) return edo.sagittals[sagittalIndex - 1]
+const getSagittal = (sagittals: Sagittal[], sagittalIndex: Decimal<{ integer: true }>): Maybe<Sagittal> => {
+    if (sagittalIndex > 0) return sagittals[sagittalIndex - 1]
     // console.log('what')
 
-    return getNegativeSagittal(edo.sagittals[-sagittalIndex - 1])
-}
+    else if (sagittalIndex < 0) return { ...sagittals[-sagittalIndex - 1], down: true }
 
-const getRevoSagittal = (edo: Edo, sagittalIndex: Decimal<{ integer: true }>, apotome: Apotome): Sagitype => {
-    if (sagittalIndex == 0) return apotome as Sagitype
-    else if (sagittalIndex > 0) {
-        const accidental: Accidental = parseSagitype(edo.sagittals[sagittalIndex - 1])
-        if (apotome != Apotome.NATURAL) accidental.compatible = COMPATIBLE_FOR_APOTOME[apotome]
-        // convert to Revo!
-        console.log(accidental)
-        const [symbolClassId, section] = computeSymbolClassIdAndSectionFromSagittal(accidental)
-        const revo = computeRevoAccidentalFromCaptureZone(symbolClassId, section)
-        console.log("REVO!!!! ", revo)
-
-        return computeAccidentalSagitype(revo)
-    }
-
-    const accidental: Accidental = parseSagitype(edo.sagittals[-sagittalIndex - 1])
-    accidental.down = true
-    if (apotome != Apotome.NATURAL) accidental.compatible = COMPATIBLE_FOR_APOTOME[apotome]
-    // convert to Revo!
-    return computeAccidentalSagitype(accidental)
-}
-
-const COMPATIBLE_FOR_APOTOME = {
-    [Apotome.DOUBLE_SHARP]: Compatible.DOUBLE_SHARP,
-    [Apotome.SHARP]: Compatible.SHARP,
-    [Apotome.NATURAL]: Compatible.NATURAL,
-    [Apotome.FLAT]: Compatible.FLAT,
-    [Apotome.DOUBLE_FLAT]: Compatible.DOUBLE_FLAT
+    return undefined
 }
 
 const computeTrueSagittalIndex = ({ sagittalIndex, linkIndex }: StepNotation, edo: Edo) => {
     let trueSagitalIndex: Decimal<{ integer: true }> = sagittalIndex as Decimal<{ integer: true }>
-    const stepsToApotome: Decimal<{ integer: true }> = edo.sagittals.length as Decimal<{ integer: true }>
+    const stepsToApotome: Decimal<{ integer: true }> = edo.sagitypes.length as Decimal<{ integer: true }>
     if (trueSagitalIndex <= 0) {
         if (linkIndex > 3 || linkIndex < -3) trueSagitalIndex = trueSagitalIndex - stepsToApotome as Decimal<{ integer: true }>
         if (linkIndex > 10 || linkIndex < -10) trueSagitalIndex = trueSagitalIndex - stepsToApotome as Decimal<{ integer: true }>
@@ -120,11 +99,98 @@ const computeTrueSagittalIndex = ({ sagittalIndex, linkIndex }: StepNotation, ed
     return trueSagitalIndex
 }
 
+const JI_FIFTH_SIZE: Cents = 701.955000865 as Cents
+
+
+const revoSagittal = (sagitype: Sagitype/*, sagittalIndex: number, apotome: Apotom*/): Sagittal => {
+    // if (sagittalIndex == 0) return apotome as Sagitype
+    // else if (sagittalIndex > 0) {
+        const accidental: Accidental = parseSagitype(sagitype)
+    // if (apotome != Apotome.NATURAL) sagittal.compatible = COMPATIBLE_FOR_APOTOME[apotome]
+    //     // convert to Revo!
+    //     console.log(accidental)
+    const [symbolClassId, _] = computeSymbolClassIdAndSectionFromSagittal(accidental)
+    // console.log(section)
+    let section
+    // if (apotome == Apotome.DOUBLE_FLAT) {
+    //     // if (sagittal.down) {
+    //     //     section = SECTION_N2T
+    //     // } else {
+    //         section = SECTION_N2T
+    //     // }
+    // } else if (apotome == Apotome.FLAT) {
+    //     if (sagittalIndex < 0) {
+    //         section = SECTION_N2A
+    //     } else {
+    //         section = SECTION_N1T
+    //     }
+    // } else if (apotome == Apotome.NATURAL) {
+    //     if (sagittalIndex < 0) {
+    //         section = SECTION_N1A
+    //     } else {
+    //         section = SECTION_P1A
+    //     }
+    // } else if (apotome == Apotome.SHARP) {
+        // if (sagittalIndex < 0) {
+            section = SECTION_P1T
+    //     } else {
+    //         section = SECTION_P2A
+    //     }
+    // } else {
+    //     section = SECTION_P2T
+    // }
+
+    const revo = computeRevoAccidentalFromCaptureZone(symbolClassId, section)
+
+    return revo
+    //     console.log("REVO!!!! ", revo)
+
+    //     return computeAccidentalSagitype(revo)
+    // }
+
+    // const accidental: Accidental = parseSagitype(edo.sagitypes[-sagittalIndex - 1])
+    // accidental.down = true
+    // if (apotome != Apotome.NATURAL) accidental.compatible = COMPATIBLE_FOR_APOTOME[apotome]
+    // // convert to Revo!
+    // return computeAccidentalSagitype(accidental)
+}
+
+const shiftedSagitypes = (sagitypes: Sagitype[]) => {
+    return sagitypes.map(parseSagitype).map(apotomeShift).map(computeAccidentalSagitype)
+}
+
+const computeRevoSagitypes = (edo: Edo, fifthStep: number): Sagitype[] => {
+    // edo.sagitypes
+    // edo.revo
+    
+    // determine sharpness
+    const sharpStep = fifthStep * 7 % edo.n
+    console.log("sharp step: ", sharpStep)
+    console.log("sagitypes.lenght: ", edo.sagitypes.length)
+    let sagitypes = edo.sagitypes.slice()
+    let j = 0
+    if (sharpStep - 2 > sagitypes.length) {
+        for (let i = sharpStep - 2; i >= sagitypes.length - 2; i--) {
+            const thing = revoSagittal(sagitypes[j])
+            j++;
+            const newthing = computeAccidentalSagitype(thing)
+            console.log(i, j, sagitypes[j], newthing)
+
+            sagitypes[i] = newthing
+        }
+    }
+    sagitypes[sharpStep - 1] = "/||\\" as Sagitype
+
+    sagitypes = sagitypes.concat(shiftedSagitypes(sagitypes))
+
+    console.log("revo sagitypes: ", sagitypes)
+    return sagitypes
+}
+
 const computeNotation = (edo: Edo, flavor: Flavor) => {
     const stepSize: Cents = 1200 / edo.n as Cents
     const stepSizes: Cents[] = computeRange(edo.n as Decimal<{ integer: true }>).map(step => step * stepSize as Cents)
 
-    const JI_FIFTH_SIZE: Cents = 701.955000865 as Cents
 
     let bestFifthError: Cents = 1200 as Cents
     let bestFifthStep: Decimal<{ integer: true }> = edo.n as Decimal<{ integer: true }>
@@ -135,11 +201,19 @@ const computeNotation = (edo: Edo, flavor: Flavor) => {
             bestFifthStep = index as Decimal<{ integer: true }>
         }
     })
-
     const fifthStep: Decimal<{ integer: true }> = bestFifthStep
     // console.log("fifth step: ", fifthStep)
 
-    const cBasedNominalRange = computeRange(-15 as Decimal<{ integer: true }>, 20 as Decimal<{ integer: true }>)
+
+    const sagitypes: Sagitype[] = flavor == Flavor.REVO ?
+        computeRevoSagitypes(edo, fifthStep) :
+        edo.sagitypes
+    const sagittals: Sagittal[] = sagitypes.map(parseSagitype)
+    console.log("sagittals: ", sagittals)
+
+    const cBasedNominalRange = flavor == Flavor.EVO ?
+        computeRange(-15 as Decimal<{ integer: true }>, 20 as Decimal<{ integer: true }>) :
+        computeRange(-1 as Decimal<{ integer: true }>, 6 as Decimal<{ integer: true }>)
     // console.log("c-based nominal range: ", cBasedNominalRange)
     const nominalSteps = cBasedNominalRange
         .map(linkIndex => linkIndex * fifthStep % edo.n)
@@ -147,14 +221,16 @@ const computeNotation = (edo: Edo, flavor: Flavor) => {
     // console.log("nominal steps: ", nominalSteps)
 
     nominalSteps.forEach((nominalStep, fDoubleFlatBasedNominalIndex) => {
-        const dBasedNominalIndex: Decimal<{ integer: true }> = fDoubleFlatBasedNominalIndex - 17 as Decimal<{ integer: true }>;
+        const dBasedNominalIndex: Decimal<{ integer: true }> = flavor == Flavor.EVO ?
+            fDoubleFlatBasedNominalIndex - 17 as Decimal<{ integer: true }> :
+            fDoubleFlatBasedNominalIndex - 3 as Decimal<{ integer: true }>
 
         updateNotation(
             nominalStep as Decimal<{ integer: true }>,
             { linkIndex: dBasedNominalIndex, sagittalIndex: 0 as Decimal<{ integer: true }> }
         )
 
-        computeRange(edo.sagittals.length as Decimal<{ integer: true }>)
+        computeRange(sagittals.length as Decimal<{ integer: true }>)
             .map(sagittalIndex => sagittalIndex + 1 as Decimal<{ integer: true }>)
             .forEach((sagittalIndex: Decimal<{ integer: true }>) => {
                 const step = (nominalStep + sagittalIndex) % edo.n as Decimal<{ integer: true }>
@@ -164,7 +240,7 @@ const computeNotation = (edo: Edo, flavor: Flavor) => {
                 )
             })
 
-        computeRange(edo.sagittals.length as Decimal<{ integer: true }>)
+        computeRange(sagittals.length as Decimal<{ integer: true }>)
             .map(sagittalIndex => sagittalIndex + 1 as Decimal<{ integer: true }>)
             .forEach((sagittalIndex: Decimal<{ integer: true }>) => {
                 const step = sagittalIndex > nominalStep ?
@@ -222,11 +298,59 @@ const computeNotation = (edo: Edo, flavor: Flavor) => {
         const link: Link = LINKS[linkIndex + 17]
         // console.log("link.nominal: ", link.nominal)
         // console.log("link.apotome: ", link.apotome)
-        if (flavor == Flavor.EVO) {
-            return `${link.nominal}${link.apotome}${getSagittal(edo, sagittalIndex)}`
+        // let maybeSagittal = getSagittal(sagittals, sagittalIndex)
+        // let sagitype
+        const maybeSagittal = getSagittal(sagittals, sagittalIndex)
+
+        if (flavor == Flavor.REVO) {
+            if (maybeSagittal) {
+                const accidental: Accidental = maybeSagittal
+                // if (link.apotome != Apotome.NATURAL) accidental.compatible = COMPATIBLE_FOR_APOTOME[link.apotome]
+                const result = computeAccidentalSagitype(accidental)
+                console.log("result: ", result)
+                return `${link.nominal} ${result}`
+            } else {
+                if (link.apotome == Apotome.NATURAL) {
+                    return `${link.nominal} `
+                } else {
+                    // @ts-ignore
+                    const result = computeAccidentalSagitype({ compatible: COMPATIBLE_FOR_APOTOME[link.apotome] })
+                    return `${link.nominal} ${result}`
+                }
+            }
         } else {
-            return `${link.nominal} ${getRevoSagittal(edo, sagittalIndex, link.apotome)}`
+            // const maybeSagittal = getSagittal(sagittals, sagittalIndex)
+            const sagitype = maybeSagittal ?
+                computeAccidentalSagitype(maybeSagittal) :
+                " "
+            return `${link.nominal}${link.apotome}${sagitype}`
         }
+
+
+        // if (maybeSagittal) {
+        //     if (flavor == Flavor.REVO) {
+        //         // console.log("yeah did it...")
+        //         maybeSagittal = revoSagittal(maybeSagittal, sagittalIndex, link.apotome)
+        //         sagitype = computeAccidentalSagitype(maybeSagittal)
+        //         return `${link.nominal} ${sagitype}`
+        //     } else {
+        //         sagitype = computeAccidentalSagitype(maybeSagittal)
+        //         return `${link.nominal}${link.apotome}${sagitype}`
+        //     }
+        // } else {
+        //     // sagitype = " "
+        //     return `${link.nominal}${link.apotome}`
+
+        // }
+
+        // if (flavor == Flavor.EVO) {
+
+
+
+        // } else {
+        //     return `${link.nominal} ${getRevoSagittal(edo, sagittalIndex, link.apotome)}`
+        // }
+        // return `${link.nominal}${link.apotome}${sagitype}`
     })
     // console.log("string notation: ", stringNotation)
 
@@ -270,14 +394,23 @@ const computeNotation = (edo: Edo, flavor: Flavor) => {
     return output
 }
 
-const evo5: Edo = { sagittals: [], n: 5 }
-const evo12: Edo = { sagittals: [], n: 12 }
-const evo15: Edo = { sagittals: ["/|"] as Sagitype[], n: 15 }
-const evo31: Edo = { sagittals: ["/|\\"] as Sagitype[], n: 31 }
-const evo72: Edo = { sagittals: ["/|", "|)", "/|\\"] as Sagitype[], n: 72 }
-const revo72: Edo = { sagittals: ["/|", "|)", "/|\\", "||)", "||\\", "/||\\"] as Sagitype[], n: 72 }
+const COMPATIBLE_FOR_APOTOME = {
+    [Apotome.DOUBLE_SHARP]: Compatible.DOUBLE_SHARP,
+    [Apotome.SHARP]: Compatible.SHARP,
+    [Apotome.NATURAL]: Compatible.NATURAL,
+    [Apotome.FLAT]: Compatible.FLAT,
+    [Apotome.DOUBLE_FLAT]: Compatible.DOUBLE_FLAT
+}
 
-const inputSentence = computeNotation(evo72, Flavor.REVO)
+const edo5: Edo = { sagitypes: [], /*revo: [],*/ n: 5 }
+const edo12: Edo = { sagitypes: [], /*revo: [],*/ n: 12 }
+const edo15: Edo = { sagitypes: ["/|"] as Sagitype[], /*revo: [],*/ n: 15 }
+const edo31: Edo = { sagitypes: ["/|\\"] as Sagitype[], /*revo: [],*/ n: 31 }
+const edo67: Edo = { sagitypes: [")|(", "/|)"] as Sagitype[], n: 67}
+const edo72: Edo = { sagitypes: ["/|", "|)", "/|\\"] as Sagitype[], /* revo: ["||)", "||\\"] as Sagitype[], */ n: 72 }
+// const revo72: Edo = { sagitypes: ["/|", "|)", "/|\\", "||)", "||\\", "/||\\"] as Sagitype[], n: 72 }
+
+const inputSentence = computeNotation(edo67, Flavor.REVO)
 // console.log("\ninput sentence:\n")
 // console.log(inputSentence)
 
