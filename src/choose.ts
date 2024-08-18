@@ -1,6 +1,7 @@
 import { Index } from "@sagittal/general"
 import { Sagittal } from "@sagittal/system"
 import { EdoStepNotation, EdoStep, EdoStepNotationPossibilities } from "./types"
+import { MAXIMUM_ABSOLUTE_VALUE_OF_NATURAL_WHORL_LINK_INDICES, MAXIMUM_ABSOLUTE_VALUE_OF_SHARP_OR_FLAT_WHORL_LINK_INDICES } from "./constants"
 
 // TODO: CLEANUP Steps from nominal instead of adjusted sagittal index
 // TODO: CLEANUP Have links be indices not the things themselves so no need to compute whorl index 
@@ -8,11 +9,23 @@ const computeAdjustedSagittalIndex = ({ sagittalIndex, linkIndex }: EdoStepNotat
     let adjustedSagitalIndex: Index<Sagittal> = sagittalIndex as Index<Sagittal>
 
     if (sagittalIndex <= 0) { // sagittal is down
-        if (linkIndex > 3 || linkIndex < -3) adjustedSagitalIndex = adjustedSagitalIndex - sharpStep as Index<Sagittal>
-        if (linkIndex > 10 || linkIndex < -10) adjustedSagitalIndex = adjustedSagitalIndex - sharpStep as Index<Sagittal>
+        if (
+            linkIndex > MAXIMUM_ABSOLUTE_VALUE_OF_NATURAL_WHORL_LINK_INDICES ||
+            linkIndex < -MAXIMUM_ABSOLUTE_VALUE_OF_NATURAL_WHORL_LINK_INDICES
+        ) adjustedSagitalIndex = adjustedSagitalIndex - sharpStep as Index<Sagittal>
+        if (
+            linkIndex > MAXIMUM_ABSOLUTE_VALUE_OF_SHARP_OR_FLAT_WHORL_LINK_INDICES ||
+            linkIndex < -MAXIMUM_ABSOLUTE_VALUE_OF_SHARP_OR_FLAT_WHORL_LINK_INDICES
+        ) adjustedSagitalIndex = adjustedSagitalIndex - sharpStep as Index<Sagittal>
     } else {
-        if (linkIndex > 3 || linkIndex < -3) adjustedSagitalIndex = adjustedSagitalIndex + sharpStep as Index<Sagittal>
-        if (linkIndex > 10 || linkIndex < -10) adjustedSagitalIndex = adjustedSagitalIndex + sharpStep as Index<Sagittal>
+        if (
+            linkIndex > MAXIMUM_ABSOLUTE_VALUE_OF_NATURAL_WHORL_LINK_INDICES ||
+            linkIndex < -MAXIMUM_ABSOLUTE_VALUE_OF_NATURAL_WHORL_LINK_INDICES
+        ) adjustedSagitalIndex = adjustedSagitalIndex + sharpStep as Index<Sagittal>
+        if (
+            linkIndex > MAXIMUM_ABSOLUTE_VALUE_OF_SHARP_OR_FLAT_WHORL_LINK_INDICES ||
+            linkIndex < -MAXIMUM_ABSOLUTE_VALUE_OF_SHARP_OR_FLAT_WHORL_LINK_INDICES
+        ) adjustedSagitalIndex = adjustedSagitalIndex + sharpStep as Index<Sagittal>
     }
 
     return adjustedSagitalIndex

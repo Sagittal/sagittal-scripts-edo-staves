@@ -1,6 +1,7 @@
 import { computeRange, Index } from "@sagittal/general"
-import { Flavor, Sagittal } from "@sagittal/system"
+import { Sagittal } from "@sagittal/system"
 import { EdoStepNotation, Edo, Link, EdoStep, EdoStepNotationPossibilities } from "./types"
+import { C_LINK_INDEX, REINDEX_LINK_FROM_D_TO_F_DOUBLE_FLAT, LINKS } from "./constants"
 
 const addEdoStepNotationPossibility = (
     edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[],
@@ -80,7 +81,7 @@ const addEdoStepNotationPossibilities = (
     sagittals: Sagittal[]
 ) => {
     // d is zero here because it's the center of FCGDAEB and so if we want to trim the nominals F and B first for low EDOs, we need them at the extremes
-    const dIsZeroLinkIndex: Index<Link> = fDoubleFlatIsZeroLinkIndex - 17 as Index<Link>
+    const dIsZeroLinkIndex: Index<Link> = fDoubleFlatIsZeroLinkIndex - REINDEX_LINK_FROM_D_TO_F_DOUBLE_FLAT as Index<Link>
 
     addEdoStepNotationPossibilityForLink(edoStepNotationPossibilitiesList, linkStep, dIsZeroLinkIndex)
     addEdoStepNotationPossibilitiesAboveLink(edoStepNotationPossibilitiesList, linkStep, dIsZeroLinkIndex, edo, sagittals)
@@ -90,7 +91,10 @@ const addEdoStepNotationPossibilities = (
 const computeEdoStepNotationPossibilitesList = (edo: Edo, fifthStep: EdoStep, sagittals: Sagittal[]) => {
     const edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[] = []
 
-    const cIsZeroLinkIndexRange = computeRange(-15 as Index<Link>, 20 as Index<Link>)
+    const cIsZeroLinkIndexRange = computeRange(
+        -(C_LINK_INDEX + REINDEX_LINK_FROM_D_TO_F_DOUBLE_FLAT) as Index<Link>,
+        LINKS.length - (C_LINK_INDEX + REINDEX_LINK_FROM_D_TO_F_DOUBLE_FLAT) as Index<Link>
+    )
 
     // c is zero here because we want the notation to be based on c 
     const linkSteps: EdoStep[] = cIsZeroLinkIndexRange
@@ -102,8 +106,7 @@ const computeEdoStepNotationPossibilitesList = (edo: Edo, fifthStep: EdoStep, sa
         addEdoStepNotationPossibilities(edoStepNotationPossibilitiesList, linkStep, fDoubleFlatIsZeroLinkIndex as Index<Link>, edo, sagittals)
     })
 
-    // TODO: CLEANUP constantize this and the other magic numbered link indices around here
-    const concludingEdoNotationOnC: EdoStepNotation = { linkIndex: -2 as Index<Link>, sagittalIndex: 0 as Index<Sagittal> }
+    const concludingEdoNotationOnC: EdoStepNotation = { linkIndex: C_LINK_INDEX, sagittalIndex: 0 as Index<Sagittal> }
     edoStepNotationPossibilitiesList.push([concludingEdoNotationOnC])
 
     return edoStepNotationPossibilitiesList

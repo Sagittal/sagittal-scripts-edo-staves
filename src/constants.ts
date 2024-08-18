@@ -1,4 +1,4 @@
-import { Cents, Count } from "@sagittal/general"
+import { Cents, Count, Index } from "@sagittal/general"
 import { Compatible, Sagitype } from "@sagittal/system"
 import { Section } from "../../../system/src/notation"
 import { Nominal, Whorl, Link } from "./types"
@@ -33,6 +33,14 @@ const REVO_VERSION_OF_WHORL: Record<Whorl, Sagitype> = {
 
 const NOTES_PER_SYSTEM: Count = 27 as Count
 
+const C_LINK_INDEX: Index<Link> = -2 as Index<Link>
+
+const REINDEX_LINK_FROM_D_TO_F_DOUBLE_FLAT: Index<Link> = 17 as Index<Link>
+
+const MAXIMUM_ABSOLUTE_VALUE_OF_NATURAL_WHORL_LINK_INDICES: Index<Link> = 3 as Index<Link>
+const MAXIMUM_ABSOLUTE_VALUE_OF_SHARP_OR_FLAT_WHORL_LINK_INDICES: Index<Link> = 10 as Index<Link>
+
+
 export {
     COMPATIBLE_FOR_WHORL,
     FIFTHS_UNTIL_SHARP,
@@ -41,4 +49,8 @@ export {
     NOTES_PER_SYSTEM,
     SECTION_BETWEEN_EVO_SAGITTALS_AND_SHARP,
     REVO_VERSION_OF_WHORL,
+    C_LINK_INDEX,
+    REINDEX_LINK_FROM_D_TO_F_DOUBLE_FLAT,
+    MAXIMUM_ABSOLUTE_VALUE_OF_NATURAL_WHORL_LINK_INDICES,
+    MAXIMUM_ABSOLUTE_VALUE_OF_SHARP_OR_FLAT_WHORL_LINK_INDICES
 }
