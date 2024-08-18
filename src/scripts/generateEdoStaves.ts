@@ -13,7 +13,7 @@ const unicodeSentence = computeInputSentenceUnicode(inputSentence)
 
 const asyncGenerateEdoStaves = async (): Promise<void> => {
     const svgString = await textToSvg(unicodeSentence, { font })
-    // TODO: CLEANUP it should make the dist folder, not crash the first time you run it
+    if (!fs.existsSync("dist")) fs.mkdirSync("dist")
     fs.writeFileSync("dist/edoStaves.svg", svgString)
 }
 
