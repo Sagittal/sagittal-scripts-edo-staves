@@ -23,36 +23,35 @@ const computeSagitypeString = (sagittal: Sagittal, flavor: Flavor, whorl: Whorl)
         return computeAccidentalSagitype(sagittal)
     }
 
-    // TODO: CLEANUP bug in @sagittal/system! it fucking mutates this shit, which is why I have to clone it here
-    let [symbolClassId, section] = computeSymbolClassIdAndSectionFromSagittal({ ...sagittal })
+    let [symbolClassId, section] = computeSymbolClassIdAndSectionFromSagittal(sagittal)
 
     let targetSection: Section
     if (whorl == Whorl.DOUBLE_FLAT) {
-        targetSection = { ...SECTION_N2T }
+        targetSection = SECTION_N2T
     } else if (whorl == Whorl.FLAT) {
         if (sagittal.down) {
-            targetSection = { ...SECTION_N2A }
+            targetSection = SECTION_N2A
         } else {
-            targetSection = { ...SECTION_N1T }
+            targetSection = SECTION_N1T
         }
     } else if (whorl == Whorl.NATURAL) {
         if (sagittal.down) {
-            targetSection = { ...SECTION_N1A }
+            targetSection = SECTION_N1A
         } else {
-            targetSection = { ...SECTION_P1A }
+            targetSection = SECTION_P1A
         }
     } else if (whorl == Whorl.SHARP) {
         if (sagittal.down) {
-            targetSection = { ...SECTION_P1T }
+            targetSection = SECTION_P1T
         } else {
-            targetSection = { ...SECTION_P2A }
+            targetSection = SECTION_P2A
         }
     } else {
-        targetSection = { ...SECTION_P2T }
+        targetSection = SECTION_P2T
     }
 
     if (section.mirrored) {
-        targetSection.mirrored = !targetSection.mirrored
+        targetSection = { ...targetSection, mirrored: !targetSection.mirrored }
     }
 
     return computeAccidentalSagitype(computeRevoAccidentalFromCaptureZone(symbolClassId, targetSection))
