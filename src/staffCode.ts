@@ -2,7 +2,7 @@ import { Io, Sentence, Count } from "@sagittal/general"
 import { NOTES_PER_SYSTEM } from "./constants"
 
 // TODO: CLEANUP perhaps there's some way to split this up into the three different things? I want the work of the previous step to have been
-// finally disentangling the linked fate of whorl and sagitype stuff
+// finally disentangling the linked fate of whorl and sagitype stuff. then return type back to argument where this is caleld
 const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, string>[]): Io & Sentence => {
     let inputSentence: Io & Sentence = "ston \n5; Gcl ; 5; \nc4 5; " as Io & Sentence
     let currentNominal: Io = "c"

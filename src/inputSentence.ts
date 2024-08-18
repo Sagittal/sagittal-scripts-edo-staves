@@ -16,7 +16,6 @@ const computeStaffCodeInputSentence = (edo: Edo, flavor: Flavor): Io & Sentence 
     const sagittals: Sagittal[] = computeSagittals(sagitypes, sharpStep)
     const edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[] = computeEdoStepNotationPossibilitesList(edo, fifthStep, sagittals)
     const edoStepNotations: EdoStepNotation[] = chooseOneEdoStepNotationPerEdoStep(edoStepNotationPossibilitiesList, sharpStep, sagittals)
-    // TODO: CLEANUP add this type back 
     const intermediateStringForm = resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation(edoStepNotations, sagittals, flavor)
 
     return assembleAsStaffCodeInputSentence(intermediateStringForm)
