@@ -1,7 +1,7 @@
 import { Sagitype } from "@sagittal/system"
 import { Edo } from "./types"
 
-const EDOS: Record<Edo, Sagitype[]> = {
+const EDO_SAGITYPES: Record<Edo, Sagitype[]> = {
     5: [],
     12: [],
     15: ["/|"],
@@ -11,5 +11,5 @@ const EDOS: Record<Edo, Sagitype[]> = {
 } as Record<Edo, Sagitype[]>
 
 export {
-    EDOS,
+    EDO_SAGITYPES,
 }

@@ -9,7 +9,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
         it("works for 5-EDO", (): void => {
             const actual = computeStaffCodeInputSentence(5 as Edo as Edo, flavor)
-    
+
             const expected = `
                 ston 
                 5; Gcl ; 5; 
@@ -26,7 +26,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 3; en; bl 
                 nl; 
             `
-    
+
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
@@ -36,13 +36,13 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected = `
             `
-    
+
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
         it("works for 12-EDO", (): void => {
             const actual = computeStaffCodeInputSentence(12 as Edo, flavor)
-    
+
             const expected = `
                 ston 
                 5; Gcl ; 5; 
@@ -63,13 +63,13 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 3; en; bl 
                 nl; 
             `
-    
+
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
         it("works for 15-EDO", (): void => {
             const actual = computeStaffCodeInputSentence(15 as Edo, flavor)
-    
+
             const expected = `
                 ston 
                 5; Gcl ; 5; 
@@ -87,13 +87,13 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 3; en; bl 
                 nl; 
             `
-    
+
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
         it("works for 31-EDO", (): void => {
             const actual = computeStaffCodeInputSentence(31 as Edo, flavor)
-    
+
             const expected = `
                 ston 
                 5; Gcl ; 5; 
@@ -115,31 +115,13 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 3; en; bl 
                 nl; 
             `
-    
+
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
-        // problem was: no this doesn't work, because it has #\!) instead of (|\ - need to add a layer that converts 
-        // #\!) -> (|\
-        // #(!) -> /|\
-        // #\!/ -> (|)
-        // #(!/ -> /|)
-        // actually it's all of these, though I'm not sure if all of these are used in EDO notations
-        // #)!\\ ->	)//|
-        // #(!/  ->	/|)
-        // #!//  ->	(|~
-        // #(!)  ->	/|\
-        // #!/)  ->	(/|
-        // #)\!/ ->	)/|\
-        // #(\!  ->	|\)
-        // #\!/  ->	(|)
-        // #(!~  ->	|\\
-        // #\!)  ->	(|\
-        // #)\\! -> )|\\
-        // and I think I've fixed that problem
         it("works for 67-EDO", (): void => {
             const actual = computeStaffCodeInputSentence(67 as Edo, flavor)
-    
+
             const expected = `
                 ston 
                 5; Gcl ; 5; 
@@ -163,13 +145,13 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 3; en; bl 
                 nl; 
             `
-    
+
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
         it("works for 72-EDO", (): void => {
             const actual = computeStaffCodeInputSentence(72 as Edo, flavor)
-    
+
             const expected = `
                 ston 
                 5; Gcl ; 5; 
@@ -193,11 +175,11 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 3; en; bl 
                 nl; 
             `
-    
+
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
     })
-    
+
     describe("Revo notations", () => {
         const flavor = Flavor.REVO
 
@@ -228,15 +210,10 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected = `
             `
-    
+
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
-        // problem was: it doesn't work because it makes everything /||\ instead of a mix of \!!/ and /||\
-        // so I need to redo the Revo logic so that it DOES again after all generate the nominals + sharps/flats out to ±17
-        // and figure out how to adapt what I've got to that. this is blocking the Revo 72-EDO notation, too
-        // okay well... I've got this one working now, but I broke everyone else
-        // and now i think that's fixed
         it("works for 12-EDO", (): void => {
             const actual = computeStaffCodeInputSentence(12 as Edo, flavor)
 
@@ -314,12 +291,9 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
-        // this one is pending solution to the #\!) instead of (|\ issue, I think
-        // I tried to fix it, but I couldn't figure it out without breaking other simpler stuff
-        // I suspect whatever i do to fix that one will affect this and this is more subtle maybe?
         it("works for 67-EDO", (): void => {
             const actual = computeStaffCodeInputSentence(67 as Edo, flavor)
-    
+
             const expected = `
                 ston 
                 5; Gcl ; 5; 
@@ -343,7 +317,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 3; en; bl 
                 nl; 
             `
-    
+
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
