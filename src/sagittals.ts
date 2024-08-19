@@ -5,7 +5,7 @@ import { EdoStep } from "./types"
 const computeSagittals = (sagitypes: Sagitype[], sharpStep: EdoStep): Sagittal[] => {
     const sagittals: Sagittal[] = sagitypes.map(parseSagitype)
 
-    // ESSACs
+    // TODO: remove ESSACs (and fix tests for 67-EDO)
     const extraSingleShaftApotomeComplements: Sagittal[] = sagittals
         .map(computeApotomeComplement)
         .reverse()
