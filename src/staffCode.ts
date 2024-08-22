@@ -4,47 +4,66 @@ import { NOTES_PER_SYSTEM } from "./constants"
 // TODO: CLEANUP this not necessarily example but just finally taking the moment to note this one down
 // should change signatures to use {} params rather than positional arguments when it's not obvious
 
-// TODO: CLEANUP perhaps there's some way to split this up into the three different things? I want the work of the previous step to have been
-// finally disentangling the linked fate of whorl and sagitype stuff. then return type back to argument where this is caleld
+const computeNominalPart = (
+    nominalString: string,
+    notationState: { noteCount: Count, noteCountPastWhichBreakSystem: Count, currentNominal: Io }
+): Io & Sentence => {
+    let nominalPart = "" as Io & Sentence
+
+    notationState.noteCount++
+
+    if (nominalString != notationState.currentNominal) {
+        notationState.currentNominal = nominalString
+        nominalPart = nominalPart + `\n9; en; bl \n` as Io & Sentence
+        if (notationState.noteCount > notationState.noteCountPastWhichBreakSystem && nominalString != "c") {
+            notationState.noteCountPastWhichBreakSystem = notationState.noteCountPastWhichBreakSystem + NOTES_PER_SYSTEM as Count
+            nominalPart = nominalPart + "nl; \n5; Gcl ; 5; " as Io & Sentence
+        } else {
+            nominalPart = nominalPart + "5; " as Io & Sentence
+        }
+        nominalPart = nominalPart + `${nominalString}${notationState.currentNominal == "c" ? 5 : 4} ` as Io & Sentence
+    }
+
+    return nominalPart
+}
+
+const computeSagittalPart = (sagitypeString: string): Io & Sentence => {
+    if (sagitypeString.length) {
+        return `5; ${sagitypeString} ; ` as Io & Sentence
+    } else {
+        return "9; " as Io & Sentence
+    }
+}
+
+const computeWhorlPart = (whorlString: string): Io & Sentence => {
+    if (whorlString == "#") return "# ; " as Io & Sentence
+    else if (whorlString == "x") return ".x ; " as Io & Sentence
+    else if (whorlString == "n") return "n ; " as Io & Sentence
+    else if (whorlString == "b") return "b ; " as Io & Sentence
+    else if (whorlString == "B") return "bb ; " as Io & Sentence
+    else return `${whorlString} ; ` as Io & Sentence
+}
+
 const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, string>[]): Io & Sentence => {
-    let inputSentence: Io & Sentence = "ston \n5; Gcl ; 5; \nc4 5; " as Io & Sentence
     let currentNominal: Io = "c"
     let noteCount: Count = 0 as Count
     let noteCountPastWhichBreakSystem: Count = NOTES_PER_SYSTEM
+    const notationState = {
+        currentNominal,
+        noteCount,
+        noteCountPastWhichBreakSystem,
+    }
 
-    intermediateStringForm.forEach(({ nominalString, whorlString, sagitypeString }: Record<any, string>): void => {
-        if (nominalString != currentNominal) {
-            currentNominal = nominalString
-            inputSentence = inputSentence + `\n9; en; bl \n` as Io & Sentence
-            if (noteCount > noteCountPastWhichBreakSystem && nominalString != "c") {
-                noteCountPastWhichBreakSystem = noteCountPastWhichBreakSystem + NOTES_PER_SYSTEM as Count
-                inputSentence = inputSentence + "nl; \n5; Gcl ; 5; " as Io & Sentence
-            } else {
-                inputSentence = inputSentence + "5; " as Io & Sentence
-            }
-            inputSentence = inputSentence + `${nominalString}${currentNominal == "c" ? 5 : 4} ` as Io & Sentence
-        }
-
-        if (sagitypeString.length) {
-            inputSentence = inputSentence + `5; ${sagitypeString} ; ` as Io & Sentence
-        } else {
-            inputSentence = inputSentence + "9; " as Io & Sentence
-        }
-
-        if (whorlString == "#") inputSentence = inputSentence + "# ; " as Io & Sentence
-        else if (whorlString == "x") inputSentence = inputSentence + ".x ; " as Io & Sentence
-        else if (whorlString == "n") inputSentence = inputSentence + "n ; " as Io & Sentence
-        else if (whorlString == "b") inputSentence = inputSentence + "b ; " as Io & Sentence
-        else if (whorlString == "B") inputSentence = inputSentence + "bb ; " as Io & Sentence
-        else inputSentence = inputSentence + `${whorlString} ; ` as Io & Sentence
-
-        inputSentence = inputSentence + "nt ; " as Io & Sentence
-        noteCount++
-    })
-
-    inputSentence = inputSentence + "\n3; en; bl \nnl; " as Io & Sentence
-
-    return inputSentence
+    return "ston \n5; Gcl ; 5; \nc4 5; " + intermediateStringForm.reduce(
+        (inputSentence, { nominalString, whorlString, sagitypeString }: Record<any, string>): Io & Sentence => {
+            return inputSentence +
+                computeNominalPart(nominalString, notationState) +
+                computeSagittalPart(sagitypeString) +
+                computeWhorlPart(whorlString) +
+                "nt ; " as Io & Sentence
+        },
+        "" as Io & Sentence
+    ) + "\n3; en; bl \nnl; " as Io & Sentence
 }
 
 export {
