@@ -3,6 +3,9 @@ import { Flavor, Sagittal } from "@sagittal/system"
 import { EdoStepNotation, Edo, Link, EdoStep, EdoStepNotationPossibilities } from "./types"
 import { C_LINK_INDEX } from "./constants"
 
+const computeUseOnlyPlainNominals = ({ flavor, isLimmaFraction }: { flavor: Flavor, isLimmaFraction: boolean }) =>
+    flavor == Flavor.REVO || isLimmaFraction
+
 const addEdoStepNotationPossibility = (
     edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[],
     step: EdoStep,
@@ -80,17 +83,17 @@ const addEdoStepNotationPossibilitiesBelowLink = (
 const addEdoStepNotationPossibilities = (
     edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[],
     linkStep: EdoStep,
-    { fDoubleFlatIsZeroLinkIndex, edo, sagittals, flavor }: {
+    { fDoubleFlatIsZeroLinkIndex, edo, sagittals, useOnlyPlainNominals }: {
         fDoubleFlatIsZeroLinkIndex: Index<Link>,
         edo: Edo,
         sagittals: Sagittal[],
-        flavor: Flavor,
+        useOnlyPlainNominals: boolean,
     }
 ) => {
     // d is zero here because it's the center of FCGDAEB and so if we want to trim the nominals F and B first for low EDOs, we need them at the extremes
-    const dIsZeroLinkIndex: Index<Link> = flavor == Flavor.EVO ?
-        fDoubleFlatIsZeroLinkIndex - 17 as Index<Link> :
-        fDoubleFlatIsZeroLinkIndex - 3 as Index<Link>
+    const dIsZeroLinkIndex: Index<Link> = useOnlyPlainNominals ?
+        fDoubleFlatIsZeroLinkIndex - 3 as Index<Link> :
+        fDoubleFlatIsZeroLinkIndex - 17 as Index<Link>
 
     addEdoStepNotationPossibilityForLink(edoStepNotationPossibilitiesList, linkStep, { dIsZeroLinkIndex })
     addEdoStepNotationPossibilitiesAboveLink(edoStepNotationPossibilitiesList, linkStep, { dIsZeroLinkIndex, edo, sagittals })
@@ -98,13 +101,21 @@ const addEdoStepNotationPossibilities = (
 }
 
 const computeEdoStepNotationPossibilitesList = (
-    { edo, fifthStep, sagittals, flavor }: { edo: Edo, fifthStep: EdoStep, sagittals: Sagittal[], flavor: Flavor }
+    { edo, fifthStep, sagittals, flavor, isLimmaFraction }: {
+        edo: Edo,
+        fifthStep: EdoStep,
+        sagittals: Sagittal[],
+        flavor: Flavor,
+        isLimmaFraction: boolean,
+    }
 ) => {
     const edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[] = []
 
-    const cIsZeroLinkIndexRange = flavor == Flavor.EVO ?
-        computeRange(-15 as Index<Link>, 20 as Index<Link>) :
-        computeRange(-1 as Index<Link>, 6 as Index<Link>)
+    const useOnlyPlainNominals: boolean = computeUseOnlyPlainNominals({ flavor, isLimmaFraction })
+
+    const cIsZeroLinkIndexRange = useOnlyPlainNominals ?
+        computeRange(-1 as Index<Link>, 6 as Index<Link>) :
+        computeRange(-15 as Index<Link>, 20 as Index<Link>)
 
     // c is zero here because we want the notation to be based on c 
     const linkSteps: EdoStep[] = cIsZeroLinkIndexRange
@@ -120,7 +131,7 @@ const computeEdoStepNotationPossibilitesList = (
                 fDoubleFlatIsZeroLinkIndex: fDoubleFlatIsZeroLinkIndex as Index<Link>,
                 edo,
                 sagittals,
-                flavor
+                useOnlyPlainNominals,
             })
     })
 

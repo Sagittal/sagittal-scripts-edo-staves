@@ -166,6 +166,35 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
+        it("works for 47-EDO", (): void => {
+            const actual = computeStaffCodeInputSentence(47 as Edo, flavor)
+
+            const expected = `
+                ston 
+                5; Gcl ; 5; 
+                c4 5; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 
+                9; en; bl 
+                5; d4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; n ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 
+                9; en; bl 
+                5; e4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; n ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 
+                9; en; bl 
+                5; f4 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; n ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 
+                9; en; bl 
+                5; g4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; n ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 
+                9; en; bl 
+                nl; 
+                5; Gcl ; 5; a4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; n ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 
+                9; en; bl 
+                5; b4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; n ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 
+                9; en; bl 
+                5; c5 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; n ; nt ; 
+                3; en; bl 
+                nl; 
+            `
+
+            expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
+        })
+
         it("works for 67-EDO", (): void => {
             const actual = computeStaffCodeInputSentence(67 as Edo, flavor)
 
@@ -382,6 +411,35 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 3; en; bl 
                 nl; 
             `
+            expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
+        })
+
+        it("works for 47-EDO", (): void => {
+            const actual = computeStaffCodeInputSentence(47 as Edo, flavor)
+
+            const expected = `
+                ston 
+                5; Gcl ; 5; 
+                c4 5; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 
+                9; en; bl 
+                5; d4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; n ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 
+                9; en; bl 
+                5; e4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; n ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 
+                9; en; bl 
+                5; f4 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; n ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 
+                9; en; bl 
+                5; g4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; n ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 
+                9; en; bl 
+                nl; 
+                5; Gcl ; 5; a4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; n ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 
+                9; en; bl 
+                5; b4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; n ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 
+                9; en; bl 
+                5; c5 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; n ; nt ; 
+                3; en; bl 
+                nl; 
+            `
+
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 

@@ -10,7 +10,7 @@ interface SubsetNotationDefinition {
 }
 
 interface NonSubsetNotationDefinition {
-    limmaFraction?: boolean,
+    isLimmaFraction?: boolean,
     sagitypes: Sagitype[],
 }
 
