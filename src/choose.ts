@@ -3,7 +3,10 @@ import { Flavor } from "@sagittal/system"
 import { EdoStepNotation, EdoStep, EdoStepNotationPossibilities, Whorl, Link } from "./types"
 import { MAXIMUM_ABSOLUTE_VALUE_OF_NATURAL_WHORL_LINK_INDICES, MAXIMUM_ABSOLUTE_VALUE_OF_SHARP_OR_FLAT_WHORL_LINK_INDICES } from "./constants"
 
-const computeStepCost = ({ linkIndex, sagittalIndex }: EdoStepNotation, sharpStep: EdoStep): Count<EdoStep> => {
+const computeStepCost = (
+    { linkIndex, sagittalIndex }: EdoStepNotation,
+    { sharpStep }: { sharpStep: EdoStep },
+): Count<EdoStep> => {
     let whorlIndex: Index<Whorl>
 
     if (linkIndex < -MAXIMUM_ABSOLUTE_VALUE_OF_SHARP_OR_FLAT_WHORL_LINK_INDICES) {
@@ -21,7 +24,10 @@ const computeStepCost = ({ linkIndex, sagittalIndex }: EdoStepNotation, sharpSte
     return Math.abs(whorlIndex) * sharpStep + Math.abs(sagittalIndex) as Count<EdoStep>
 }
 
-const computeLinksFromD = ({ linkIndex, sagittalIndex }: EdoStepNotation, flavor: Flavor, sharpStep: EdoStep): Count<Link> => {
+const computeLinksFromD = (
+    { linkIndex, sagittalIndex }: EdoStepNotation,
+    { flavor, sharpStep }: { flavor: Flavor, sharpStep: EdoStep },
+): Count<Link> => {
     if (flavor == Flavor.EVO) {
         return Math.abs(linkIndex) as Count<Link>
     } else if (Math.abs(sagittalIndex) == sharpStep * 2) {
@@ -33,19 +39,22 @@ const computeLinksFromD = ({ linkIndex, sagittalIndex }: EdoStepNotation, flavor
     }
 }
 
-const chooseOneEdoStepNotationPerEdoStep = (edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[], sharpStep: EdoStep, flavor: Flavor) => {
+const chooseOneEdoStepNotationPerEdoStep = (
+    edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[],
+    { sharpStep, flavor }: { sharpStep: EdoStep, flavor: Flavor }
+) => {
     return edoStepNotationPossibilitiesList.map((edoStepNotationPossibilities: EdoStepNotation[]): EdoStepNotation => {
         return edoStepNotationPossibilities.reduce((chosenEdoStepNotation: EdoStepNotation, candidateEdoStepNotation: EdoStepNotation): EdoStepNotation => {
-            const chosenStepCost: Count<EdoStep> = computeStepCost(chosenEdoStepNotation, sharpStep) as Count<EdoStep>
-            const candidateStepCost: Count<EdoStep> = computeStepCost(candidateEdoStepNotation, sharpStep) as Count<EdoStep>
+            const chosenStepCost: Count<EdoStep> = computeStepCost(chosenEdoStepNotation, { sharpStep }) as Count<EdoStep>
+            const candidateStepCost: Count<EdoStep> = computeStepCost(candidateEdoStepNotation, { sharpStep }) as Count<EdoStep>
 
             if (candidateStepCost > chosenStepCost) {
                 return chosenEdoStepNotation
             } else if (candidateStepCost < chosenStepCost) {
                 return candidateEdoStepNotation
             } else {
-                const chosenLinksFromD: Count<Link> = computeLinksFromD(chosenEdoStepNotation, flavor, sharpStep)
-                const candidateLinksFromD: Count<Link> = computeLinksFromD(candidateEdoStepNotation, flavor, sharpStep)
+                const chosenLinksFromD: Count<Link> = computeLinksFromD(chosenEdoStepNotation, { flavor, sharpStep })
+                const candidateLinksFromD: Count<Link> = computeLinksFromD(candidateEdoStepNotation, { flavor, sharpStep })
 
                 if (candidateLinksFromD > chosenLinksFromD) {
                     return chosenEdoStepNotation

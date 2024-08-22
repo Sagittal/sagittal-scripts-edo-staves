@@ -1,9 +1,6 @@
 import { Io, Sentence, Count } from "@sagittal/general"
 import { NOTES_PER_SYSTEM } from "./constants"
 
-// TODO: CLEANUP this not necessarily example but just finally taking the moment to note this one down
-// should change signatures to use {} params rather than positional arguments when it's not obvious
-
 const computeNominalPart = (
     nominalString: string,
     notationState: { noteCount: Count, noteCountPastWhichBreakSystem: Count, currentNominal: Io }
@@ -45,13 +42,10 @@ const computeWhorlPart = (whorlString: string): Io & Sentence => {
 }
 
 const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, string>[]): Io & Sentence => {
-    let currentNominal: Io = "c"
-    let noteCount: Count = 0 as Count
-    let noteCountPastWhichBreakSystem: Count = NOTES_PER_SYSTEM
     const notationState = {
-        currentNominal,
-        noteCount,
-        noteCountPastWhichBreakSystem,
+        currentNominal: "c",
+        noteCount: 0 as Count,
+        noteCountPastWhichBreakSystem: NOTES_PER_SYSTEM,
     }
 
     return "ston \n5; Gcl ; 5; \nc4 5; " + intermediateStringForm.reduce(

@@ -12,42 +12,43 @@ const computePositiveOrNegativeOrNullSagittal = (sagittals: Sagittal[], sagittal
     return undefined
 }
 
-const naturalOrNothing = (naturalRequiredOnPlainNominal: boolean, sagittalPresent: boolean) =>
+const naturalOrNothing = (
+    { naturalRequiredOnPlainNominal, sagittalPresent }: { naturalRequiredOnPlainNominal: boolean, sagittalPresent: boolean }
+) =>
     naturalRequiredOnPlainNominal && !sagittalPresent ?
         Whorl.NATURAL :
         " "
 
-const revoVersionOfWhorlOrNothing = (sagitalPresent: boolean, whorl: Whorl) =>
-    sagitalPresent ?
+const revoVersionOfWhorlOrNothing = ({ sagittalPresent, whorl }: { sagittalPresent: boolean, whorl: Whorl }) =>
+    sagittalPresent ?
         " " :
         REVO_VERSION_OF_WHORL[whorl]
 
 
 const resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation = (
     edoStepNotations: EdoStepNotation[],
-    sagittals: Sagittal[],
-    flavor: Flavor
+    { sagittals, flavor }: { sagittals: Sagittal[], flavor: Flavor }
 ): Record<any, string>[] => {
     let currentNominal: Nominal
     let naturalRequiredOnPlainNominal: boolean
     return edoStepNotations.map(({ linkIndex, sagittalIndex }: EdoStepNotation): Record<any, string> => {
         const maybeSagittal: Maybe<Sagittal> = computePositiveOrNegativeOrNullSagittal(sagittals, sagittalIndex)
         const { nominal, whorl }: Link = LINKS[linkIndex + REINDEX_LINK_FROM_D_TO_F_DOUBLE_FLAT]
-        const sagitalPresent: boolean = !!maybeSagittal
+        const sagittalPresent: boolean = !!maybeSagittal
 
         if (nominal != currentNominal) {
             currentNominal = nominal
             naturalRequiredOnPlainNominal = false
         }
-        if (sagitalPresent || whorl != Whorl.NATURAL) naturalRequiredOnPlainNominal = true
+        if (sagittalPresent || whorl != Whorl.NATURAL) naturalRequiredOnPlainNominal = true
 
         const sagitypeString: string = maybeSagittal ? computeAccidentalSagitype(maybeSagittal) : ""
 
         const whorlString: string = whorl == Whorl.NATURAL ?
-            naturalOrNothing(naturalRequiredOnPlainNominal, sagitalPresent) :
+            naturalOrNothing({ naturalRequiredOnPlainNominal, sagittalPresent }) :
             flavor == Flavor.EVO ?
                 whorl :
-                revoVersionOfWhorlOrNothing(sagitalPresent, whorl)
+                revoVersionOfWhorlOrNothing({ sagittalPresent, whorl })
 
         return {
             nominalString: nominal,
