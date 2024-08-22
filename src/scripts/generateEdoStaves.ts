@@ -7,7 +7,7 @@ import { Edo } from "../types"
 
 const font = "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
 
-const inputSentence = computeStaffCodeInputSentence(47 as Edo, Flavor.EVO)
+const inputSentence = computeStaffCodeInputSentence(72 as Edo, Flavor.REVO)
 console.log(inputSentence)
 const unicodeSentence = computeInputSentenceUnicode(inputSentence)
 

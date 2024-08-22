@@ -1,6 +1,9 @@
 import { Io, Sentence, Count } from "@sagittal/general"
 import { NOTES_PER_SYSTEM } from "./constants"
 
+// TODO: CLEANUP this not necessarily example but just finally taking the moment to note this one down
+// should change signatures to use {} params rather than positional arguments when it's not obvious
+
 // TODO: CLEANUP perhaps there's some way to split this up into the three different things? I want the work of the previous step to have been
 // finally disentangling the linked fate of whorl and sagitype stuff. then return type back to argument where this is caleld
 const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, string>[]): Io & Sentence => {
