@@ -30,11 +30,29 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
-        // TODO: handle subset EDOs
-        xit("works for 11-EDO", (): void => {
+        it("works for 11-EDO", (): void => {
             const actual = computeStaffCodeInputSentence(11 as Edo, flavor)
 
             const expected = `
+                ston 
+                5; Gcl ; 5; 
+                c4 5; 9;   ; nt ; 5; \\! ; # ; nt ; 
+                9; en; bl 
+                5; d4 9;   ; nt ; 
+                9; en; bl 
+                5; e4 5; /| ; b ; nt ; 9; n ; nt ; 
+                9; en; bl 
+                5; f4 5; /| ;   ; nt ; 
+                9; en; bl 
+                5; g4 5; \\! ;   ; nt ; 5; /| ;   ; nt ; 
+                9; en; bl 
+                5; a4 5; \\! ;   ; nt ; 5; /| ;   ; nt ; 
+                9; en; bl 
+                5; b4 5; \\! ;   ; nt ; 
+                9; en; bl 
+                5; c5 9;   ; nt ; 
+                3; en; bl 
+                nl; 
             `
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -234,10 +252,29 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
-        xit("works for 11-EDO", (): void => {
+        it("works for 11-EDO", (): void => {
             const actual = computeStaffCodeInputSentence(11 as Edo, flavor)
 
             const expected = `
+                ston 
+                5; Gcl ; 5; 
+                c4 5; 9;   ; nt ; 
+                9; en; bl 
+                5; d4 5; !!/ ;   ; nt ; 9; n ; nt ; 5; ||\\ ;   ; nt ; 
+                9; en; bl 
+                5; e4 9;   ; nt ; 
+                9; en; bl 
+                5; f4 5; /| ;   ; nt ; 
+                9; en; bl 
+                5; g4 5; \\! ;   ; nt ; 5; /| ;   ; nt ; 
+                9; en; bl 
+                5; a4 5; \\! ;   ; nt ; 5; /| ;   ; nt ; 
+                9; en; bl 
+                5; b4 5; \\! ;   ; nt ; 
+                9; en; bl 
+                5; c5 9;   ; nt ; 
+                3; en; bl 
+                nl; 
             `
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))

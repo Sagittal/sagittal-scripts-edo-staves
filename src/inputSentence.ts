@@ -1,21 +1,40 @@
 import { Io, Sentence } from "@sagittal/general"
-import { Flavor, Sagittal, parseSagitype } from "@sagittal/system"
-import { EdoStepNotation, Edo, EdoStep, EdoStepNotationPossibilities } from "./types"
+import { Flavor, Sagittal, Sagitype } from "@sagittal/system"
+import {
+    EdoStepNotation,
+    Edo,
+    EdoStep,
+    EdoStepNotationPossibilities,
+    EdoNotationDefinition,
+} from "./types"
 import { computeFifthStep, computeSharpStep } from "./steps"
-import { EDO_SAGITYPES } from "./edoSagitypes"
+import { EDO_NOTATION_DEFINITIONS } from "./definitions"
 import { computeEdoStepNotationPossibilitesList } from "./possibilities"
 import { chooseOneEdoStepNotationPerEdoStep } from "./choose"
 import { resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation } from "./resolve"
 import { assembleAsStaffCodeInputSentence } from "./staffCode"
 import { computeSagittals } from "./sagittals"
+import { isSubsetNotation, computeSubsetSagitypes, computeSubsetEdoStepNotations } from "./subset"
+
+const computeSagitypes = (edoNotationDefinition: EdoNotationDefinition): Sagitype[] =>
+    isSubsetNotation(edoNotationDefinition) ?
+        computeSubsetSagitypes(edoNotationDefinition) :
+        edoNotationDefinition.sagitypes
 
 const computeStaffCodeInputSentence = (edo: Edo, flavor: Flavor): Io & Sentence => {
-    const sagitypes = EDO_SAGITYPES[edo]
-    const fifthStep: EdoStep = computeFifthStep(edo)
-    const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
+    const edoNotationDefinition = EDO_NOTATION_DEFINITIONS[edo]
+    const sagitypes = computeSagitypes(edoNotationDefinition)
+    const notationEdo = isSubsetNotation(edoNotationDefinition) ? edoNotationDefinition.subset : edo
+    const fifthStep: EdoStep = computeFifthStep(notationEdo)
+    const sharpStep: EdoStep = computeSharpStep(notationEdo, fifthStep)
     const sagittals: Sagittal[] = computeSagittals({ sagitypes, flavor, sharpStep })
-    const edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[] = computeEdoStepNotationPossibilitesList({ edo, fifthStep, sagittals, flavor })
-    const edoStepNotations: EdoStepNotation[] = chooseOneEdoStepNotationPerEdoStep(edoStepNotationPossibilitiesList, { sharpStep, flavor })
+    const edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[] = computeEdoStepNotationPossibilitesList({ edo: notationEdo, fifthStep, sagittals, flavor })
+    let edoStepNotations: EdoStepNotation[] = chooseOneEdoStepNotationPerEdoStep(edoStepNotationPossibilitiesList, { sharpStep, flavor })
+
+    if (isSubsetNotation(edoNotationDefinition)) {
+        edoStepNotations = computeSubsetEdoStepNotations({ subsetNotationDefinition: edoNotationDefinition, edo, edoStepNotations })
+    }
+
     const intermediateStringForm = resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation(edoStepNotations, { sagittals, flavor })
 
     return assembleAsStaffCodeInputSentence(intermediateStringForm)

@@ -1,9 +1,20 @@
 import { Decimal, Ed, Index, Window } from "@sagittal/general"
-import { Sagittal } from "@sagittal/system"
+import { Sagittal, Sagitype } from "@sagittal/system"
 
 type EdoStep = Decimal<{ integer: true }> & { _EdoStepBrand: boolean }
 
 type Edo = Ed<{ of: Window<{ of: 2 }> }> & EdoStep
+
+interface SubsetNotationDefinition {
+    subset: Edo
+}
+
+interface NonSubsetNotationDefinition {
+    limmaFraction?: boolean,
+    sagitypes: Sagitype[],
+}
+
+type EdoNotationDefinition = SubsetNotationDefinition | NonSubsetNotationDefinition
 
 interface EdoStepNotation {
     linkIndex: Index<Link>              // 35 possibilities, -17 to 17, for FCGDAEB flanked by sharps and flats and doubles thereof
@@ -44,4 +55,7 @@ export {
     Whorl,
     Nominal,
     Link,
+    EdoNotationDefinition,
+    SubsetNotationDefinition,
+    NonSubsetNotationDefinition,
 }

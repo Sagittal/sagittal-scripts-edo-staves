@@ -42,7 +42,7 @@ const computeLinksFromD = (
 const chooseOneEdoStepNotationPerEdoStep = (
     edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[],
     { sharpStep, flavor }: { sharpStep: EdoStep, flavor: Flavor }
-) => {
+): EdoStepNotation[] => {
     return edoStepNotationPossibilitiesList.map((edoStepNotationPossibilities: EdoStepNotation[]): EdoStepNotation => {
         return edoStepNotationPossibilities.reduce((chosenEdoStepNotation: EdoStepNotation, candidateEdoStepNotation: EdoStepNotation): EdoStepNotation => {
             const chosenStepsFromNominal: Count<EdoStep> = computeStepsFromNominal(chosenEdoStepNotation, { sharpStep }) as Count<EdoStep>
