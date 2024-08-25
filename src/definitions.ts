@@ -4,6 +4,7 @@ const EDO_NOTATION_DEFINITIONS: Record<Edo, EdoNotationDefinition> = {
     5: { sagitypes: [] },
     6: { subset: 12 },
     7: { sagitypes: [] },
+    8: { subset: 24 },
     9: { sagitypes: ["|\\"] },
     10: { sagitypes: ["(|\\"] },
     11: { subset: 22 },

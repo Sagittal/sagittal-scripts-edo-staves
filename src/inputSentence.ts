@@ -37,7 +37,7 @@ const computeStaffCodeInputSentence = (edo: Edo, flavor: Flavor): Io & Sentence 
         flavor,
         isLimmaFraction: computeIsLimmaFraction(notationEdo)
     })
-    let edoStepNotations: EdoStepNotation[] = chooseOneEdoStepNotationPerEdoStep(edoStepNotationPossibilitiesList, { sharpStep, flavor })
+    let edoStepNotations: EdoStepNotation[] = chooseOneEdoStepNotationPerEdoStep(edoStepNotationPossibilitiesList, { sharpStep, flavor, evoSagittalsCount: sagitypes.length })
 
     if (isSubsetNotation(edoNotationDefinition)) {
         edoStepNotations = computeSubsetEdoStepNotations({ subsetNotationDefinition: edoNotationDefinition, edo, edoStepNotations })

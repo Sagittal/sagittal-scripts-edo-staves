@@ -1,3 +1,4 @@
+import { program } from "commander"
 import { Filename, Io, Sentence, textToSvg } from "@sagittal/general"
 import { Flavor } from "@sagittal/system"
 import * as fs from "fs"
@@ -7,7 +8,14 @@ import { Edo } from "../types"
 
 const font = "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
 
-const inputSentence = computeStaffCodeInputSentence(72 as Edo, Flavor.REVO)
+program
+    .option("-e, --edo <number>", "edo")
+    .option("-f, --flavor <string>", "flavor")
+
+program.parse()
+const { flavor, edo } = program.opts()
+
+const inputSentence = computeStaffCodeInputSentence(parseInt(edo) as Edo, flavor)
 console.log(inputSentence)
 const unicodeSentence = computeInputSentenceUnicode(inputSentence)
 

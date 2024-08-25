@@ -1,5 +1,5 @@
 import { Count, Index } from "@sagittal/general"
-import { Flavor } from "@sagittal/system"
+import { Flavor, Sagittal } from "@sagittal/system"
 import { EdoStepNotation, EdoStep, EdoStepNotationPossibilities, Whorl, Link } from "./types"
 import { MAXIMUM_ABSOLUTE_VALUE_OF_NATURAL_WHORL_LINK_INDICES, MAXIMUM_ABSOLUTE_VALUE_OF_SHARP_OR_FLAT_WHORL_LINK_INDICES } from "./constants"
 
@@ -26,22 +26,24 @@ const computeStepsFromNominal = (
 
 const computeLinksFromD = (
     { linkIndex, sagittalIndex }: EdoStepNotation,
-    { flavor, sharpStep }: { flavor: Flavor, sharpStep: EdoStep },
+    { flavor, sharpStep, evoSagittalsCount }: { flavor: Flavor, sharpStep: EdoStep, evoSagittalsCount: Count<Sagittal> },
 ): Count<Link> => {
     if (flavor == Flavor.EVO) {
         return Math.abs(linkIndex) as Count<Link>
-    } else if (Math.abs(sagittalIndex) == sharpStep * 2) {
-        return Math.abs(linkIndex + 14 * Math.sign(sagittalIndex)) as Count<Link>
-    } else if (Math.abs(sagittalIndex) >= sharpStep) {
-        return Math.abs(linkIndex + 7 * Math.sign(sagittalIndex)) as Count<Link>
     } else {
-        return Math.abs(linkIndex) as Count<Link>
+        if (Math.abs(sagittalIndex) > evoSagittalsCount + sharpStep) {
+            return Math.abs(linkIndex + 14 * Math.sign(sagittalIndex)) as Count<Link>
+        } else if (Math.abs(sagittalIndex) > evoSagittalsCount) {
+            return Math.abs(linkIndex + 7 * Math.sign(sagittalIndex)) as Count<Link>
+        } else {
+            return Math.abs(linkIndex) as Count<Link>
+        }
     }
 }
 
 const chooseOneEdoStepNotationPerEdoStep = (
     edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[],
-    { sharpStep, flavor }: { sharpStep: EdoStep, flavor: Flavor }
+    { sharpStep, flavor, evoSagittalsCount }: { sharpStep: EdoStep, flavor: Flavor, evoSagittalsCount: Count<Sagittal> }
 ): EdoStepNotation[] => {
     return edoStepNotationPossibilitiesList.map((edoStepNotationPossibilities: EdoStepNotation[]): EdoStepNotation => {
         return edoStepNotationPossibilities.reduce((chosenEdoStepNotation: EdoStepNotation, candidateEdoStepNotation: EdoStepNotation): EdoStepNotation => {
@@ -53,8 +55,8 @@ const chooseOneEdoStepNotationPerEdoStep = (
             } else if (candidateStepsFromNominal < chosenStepsFromNominal) {
                 return candidateEdoStepNotation
             } else {
-                const chosenLinksFromD: Count<Link> = computeLinksFromD(chosenEdoStepNotation, { flavor, sharpStep })
-                const candidateLinksFromD: Count<Link> = computeLinksFromD(candidateEdoStepNotation, { flavor, sharpStep })
+                const chosenLinksFromD: Count<Link> = computeLinksFromD(chosenEdoStepNotation, { flavor, sharpStep, evoSagittalsCount })
+                const candidateLinksFromD: Count<Link> = computeLinksFromD(candidateEdoStepNotation, { flavor, sharpStep, evoSagittalsCount })
 
                 if (candidateLinksFromD > chosenLinksFromD) {
                     return chosenEdoStepNotation

@@ -287,11 +287,11 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
             const expected = `
                 ston 
                 5; Gcl ; 5; 
-                c4 5; 9;   ; nt ; 
+                c4 5; 9;   ; nt ; 5; ||\\ ;   ; nt ; 
                 9; en; bl 
-                5; d4 5; !!/ ;   ; nt ; 9; n ; nt ; 5; ||\\ ;   ; nt ; 
+                5; d4 9;   ; nt ; 
                 9; en; bl 
-                5; e4 9;   ; nt ; 
+                5; e4 5; !!/ ;   ; nt ; 9; n ; nt ; 
                 9; en; bl 
                 5; f4 5; /| ;   ; nt ; 
                 9; en; bl 
@@ -365,23 +365,23 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
             const expected = `
                 ston 
                 5; Gcl ; 5; 
-                c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 
+                c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 5; ||\\ ;   ; nt ; 
                 9; en; bl 
-                5; d4 5; !!/ ;   ; nt ; 5; \\! ;   ; nt ; 9; n ; nt ; 5; /| ;   ; nt ; 5; ||\\ ;   ; nt ; 
+                5; d4 5; \\! ;   ; nt ; 9; n ; nt ; 5; /| ;   ; nt ; 
                 9; en; bl 
-                5; e4 5; \\! ;   ; nt ; 9; n ; nt ; 
+                5; e4 5; !!/ ;   ; nt ; 5; \\! ;   ; nt ; 9; n ; nt ; 
                 9; en; bl 
-                5; f4 9;   ; nt ; 5; /| ;   ; nt ; 
+                5; f4 9;   ; nt ; 5; /| ;   ; nt ; 5; ||\\ ;   ; nt ; 
                 9; en; bl 
-                5; g4 5; !!/ ;   ; nt ; 5; \\! ;   ; nt ; 9; n ; nt ; 5; /| ;   ; nt ; 5; ||\\ ;   ; nt ; 
+                5; g4 5; \\! ;   ; nt ; 9; n ; nt ; 5; /| ;   ; nt ; 5; ||\\ ;   ; nt ; 
                 9; en; bl 
-                5; a4 5; \\! ;   ; nt ; 9; n ; nt ; 5; /| ;   ; nt ; 5; ||\\ ;   ; nt ; 
+                5; a4 5; \\! ;   ; nt ; 9; n ; nt ; 5; /| ;   ; nt ; 
                 9; en; bl 
-                5; b4 5; \\! ;   ; nt ; 9; n ; nt ; 
+                5; b4 5; !!/ ;   ; nt ; 5; \\! ;   ; nt ; 9; n ; nt ; 
                 9; en; bl 
                 5; c5 9;   ; nt ; 
                 3; en; bl 
-                nl;
+                nl; 
             `
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
