@@ -1,6 +1,6 @@
 import { Maybe, Index, ZERO_ONE_INDEX_DIFF } from "@sagittal/general"
 import { Flavor, Sagittal, computeAccidentalSagitype } from "@sagittal/system"
-import { EdoStepNotation, Link, Whorl, Nominal } from "./types"
+import { Spelling, Link, Whorl, Nominal } from "./types"
 import { LINKS, REVO_VERSION_OF_WHORL, REINDEX_LINK_FROM_D_TO_F_DOUBLE_FLAT } from "./constants"
 
 const computePositiveOrNegativeOrNullSagittal = (sagittals: Sagittal[], sagittalIndex: Index<Sagittal>): Maybe<Sagittal> => {
@@ -25,13 +25,13 @@ const revoVersionOfWhorlOrNothing = ({ sagittalPresent, whorl }: { sagittalPrese
         REVO_VERSION_OF_WHORL[whorl]
 
 
-const resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation = (
-    edoStepNotations: EdoStepNotation[],
+const resolveSpellingsToIntermediateStringFormOfActualFinalVisualNotation = (
+    spellings: Spelling[],
     { sagittals, flavor }: { sagittals: Sagittal[], flavor: Flavor }
 ): Record<any, string>[] => {
     let currentNominal: Nominal
     let naturalRequiredOnPlainNominal: boolean
-    return edoStepNotations.map(({ linkIndex, sagittalIndex }: EdoStepNotation): Record<any, string> => {
+    return spellings.map(({ linkIndex, sagittalIndex }: Spelling): Record<any, string> => {
         const maybeSagittal: Maybe<Sagittal> = computePositiveOrNegativeOrNullSagittal(sagittals, sagittalIndex)
         const { nominal, whorl }: Link = LINKS[linkIndex + REINDEX_LINK_FROM_D_TO_F_DOUBLE_FLAT]
         const sagittalPresent: boolean = !!maybeSagittal
@@ -59,5 +59,5 @@ const resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation
 }
 
 export {
-    resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation,
+    resolveSpellingsToIntermediateStringFormOfActualFinalVisualNotation,
 }

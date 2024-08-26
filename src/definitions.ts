@@ -79,36 +79,28 @@ const EDO_NOTATION_DEFINITIONS: Record<Edo, EdoNotationDefinition> = {
     89: { sagitypes: ["/|", "|)", "/|)", "/|\\"] },
     94: { sagitypes: ["~|(", "/|", "(|(", "/|"] },
     99: { sagitypes: ["~|", "/|", "~|)", "//|", ")/|\\"] },
-    // 104: { sagitypes: [] }, // https://forum.sagittal.org/viewtopic.php?p=4751#p4751
     111: { sagitypes: [")|(", "/|", "|\\", "//|", "/|\\"] },
     112: { subset: 224 },
-    // 116: { sagitypes: [] }, // https://forum.sagittal.org/viewtopic.php?p=4751#p4751
     118: { sagitypes: [")|(", "/|", "|)", "//|", "/|\\"] },
-    // 121: { sagitypes: [] }, // https://forum.sagittal.org/viewtopic.php?p=4751#p4751
+    121: { sagitypes: [")|", "~|", "/|", "(|(", "~|\\", "/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=4751#p4751
     125: { sagitypes: ["|(", "/|", "|)", "//|", "/|)"] },
-    // 128: { sagitypes: [] }, // https://forum.sagittal.org/viewtopic.php?p=4751#p4751
+    128: { sagitypes: [")|", "~|", "/|", "(|(", "~|\\", "/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=4751#p4751
     130: { sagitypes: ["|(", "/|", "|)", "|\\", "/|)", "/|\\"] },
-    // 133: { sagitypes: [] }, // https://forum.sagittal.org/viewtopic.php?p=4751#p4751
     137: { sagitypes: ["|(", "/|", "|)", "|\\", "/|)", "/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=1743#p1743
-    // 140: { sagitypes: [] }, // https://forum.sagittal.org/viewtopic.php?p=4751#p4751
     142: { sagitypes: ["|(", "/|", "|)", "|\\", "/|)", "/|\\"] },
-    // 145: { sagitypes: [] }, // https://forum.sagittal.org/viewtopic.php?p=4751#p4751
-    // 150: { sagitypes: [] }, // https://forum.sagittal.org/viewtopic.php?p=4751#p4751
+    145: { sagitypes: [")|", ")~|", "|)", ")|)", "(|(", "~|\\", "/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=4749#p4749
     152: { sagitypes: [")|(", "~|(", "/|", "|\\", "(|(", "//|", "/|\\"] },
-    // 157: { sagitypes: [] }, // https://forum.sagittal.org/viewtopic.php?p=4751#p4751
-    // 162: { sagitypes: [] }, // https://forum.sagittal.org/viewtopic.php?p=4751#p4751
-    // 169: { sagitypes: [] }, // https://forum.sagittal.org/viewtopic.php?p=4751#p4751
     171: { sagitypes: ["|(", "~|(", "/|", "|)", "|\\", "//|", "/|)", "/|\\"] },
-    // 174: { sagitypes: [] }, // https://forum.sagittal.org/viewtopic.php?p=4751#p4751
+    174: { sagitypes: [")|", ")~|", "~~|", "/|", "~|)", "(|(", "~|\\", "/|\\", ")/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=4749#p4749
     176: { sagitypes: ["|(", "~|(", "/|", "|)", "|\\", "(|(", "/|)", "/|\\"] },
-    // 181: { sagitypes: [] }, // https://forum.sagittal.org/viewtopic.php?p=4751#p4751
+    181: { sagitypes: [")|", ")~|", "~~|", "/|", "~|)", "(|(", "~|\\", "/|\\", ")/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=4749#p4749
     183: { sagitypes: ["|(", "~|(", "/|", "|)", "|\\", "(|(", "/|)", "/|\\"] },
     217: { sagitypes: ["|(", "~|", "~|(", "/|", "|)", "|\\", "(|(", "//|", "/|)", "/|\\"] },
     224: { sagitypes: ["|(", ")|(", "~|(", "/|", "|)", "|\\", "(|(", "//|", "/|)", "/|\\"] },
     270: { sagitypes: ["|(", ")|(", "~|(", "~~|", "/|", "|)", "|\\", "~|)", "(|(", "/ /|", "/|)", "/|\\", ")/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=4408#p4408
     311: { sagitypes: ["|(", ")|(", ")~|", "~|(", "~~|", "/|", "|)", "|\\", "(|", "(|(", "~|\\", "//|", "/|)", "/|\\", ")/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=4408#p4408
-    // 494: { sagitypes: [] }, // https://forum.sagittal.org/viewtopic.php?p=877#p877
-    // 581: { sagitypes: [] }, // https://forum.sagittal.org/viewtopic.php?p=741#p741
+    494: { sagitypes: [")|", "|(", "~|", ")|(", ")~|", "~|(", "|~", ")|~", "/|", ")/|", "|)", ")|)", "|\\", "(|", "~|)", "/|~", "~|\\", "//|", ")//|", "/|)", "(|~", "/|\\", "(/|"] }, // https://forum.sagittal.org/viewtopic.php?p=877#p877
+    581: { sagitypes: ["'|", "|(", "')|", ")|(", "~|", ")~|", "|~", "~|(", "~~|", ",)/|", "|)", ",)|)", "|\\", ",~|)", "(|", "/|~", "(|(", "~|\\", "'~|\\", "//|", "')//|", "/|)", "'(|~", "/|\\", ",(/|"] }, // https://forum.sagittal.org/viewtopic.php?p=741#p741
 } as Record<Edo, EdoNotationDefinition>
 
 export {

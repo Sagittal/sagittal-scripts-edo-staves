@@ -1,27 +1,27 @@
 import { computeRange, Index } from "@sagittal/general"
 import { Flavor, Sagittal } from "@sagittal/system"
-import { EdoStepNotation, Edo, Link, EdoStep, EdoStepNotationPossibilities } from "./types"
+import { Spelling, Edo, Link, EdoStep, SpellingChoices } from "./types"
 import { C_LINK_INDEX } from "./constants"
 
 const computeUseOnlyPlainNominals = ({ flavor, isLimmaFraction }: { flavor: Flavor, isLimmaFraction: boolean }) =>
     flavor == Flavor.REVO || isLimmaFraction
 
-const addEdoStepNotationPossibility = (
-    edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[],
+const addSpelling = (
+    spellingChoicesList: SpellingChoices[],
     step: EdoStep,
-    stepNotationPossibility: EdoStepNotation
+    spelling: Spelling
 ): void => {
-    if (edoStepNotationPossibilitiesList[step] == null) edoStepNotationPossibilitiesList[step] = []
-    edoStepNotationPossibilitiesList[step].push(stepNotationPossibility)
+    if (spellingChoicesList[step] == null) spellingChoicesList[step] = []
+    spellingChoicesList[step].push(spelling)
 }
 
-const addEdoStepNotationPossibilityForLink = (
-    edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[],
+const addSpellingForLink = (
+    spellingChoicesList: SpellingChoices[],
     linkStep: EdoStep,
     { dIsZeroLinkIndex }: { dIsZeroLinkIndex: Index<Link> },
 ) => {
-    addEdoStepNotationPossibility(
-        edoStepNotationPossibilitiesList,
+    addSpelling(
+        spellingChoicesList,
         linkStep,
         {
             linkIndex: dIsZeroLinkIndex,
@@ -30,8 +30,8 @@ const addEdoStepNotationPossibilityForLink = (
     )
 }
 
-const addEdoStepNotationPossibilitiesAboveLink = (
-    edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[],
+const addSpellingChoicesAboveLink = (
+    spellingChoicesList: SpellingChoices[],
     linkStep: EdoStep,
     { dIsZeroLinkIndex, edo, sagittals }: {
         dIsZeroLinkIndex: Index<Link>,
@@ -43,8 +43,8 @@ const addEdoStepNotationPossibilitiesAboveLink = (
         .map((sagittalIndex: Index<Sagittal>): Index<Sagittal> => sagittalIndex + 1 as Index<Sagittal>)
         .forEach((sagittalIndex: Index<Sagittal>): void => {
             const step = (linkStep + sagittalIndex) % edo as EdoStep
-            addEdoStepNotationPossibility(
-                edoStepNotationPossibilitiesList,
+            addSpelling(
+                spellingChoicesList,
                 step,
                 {
                     linkIndex: dIsZeroLinkIndex,
@@ -54,8 +54,8 @@ const addEdoStepNotationPossibilitiesAboveLink = (
         })
 }
 
-const addEdoStepNotationPossibilitiesBelowLink = (
-    edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[],
+const addSpellingChoicesBelowLink = (
+    spellingChoicesList: SpellingChoices[],
     linkStep: EdoStep,
     { dIsZeroLinkIndex, edo, sagittals }: {
         dIsZeroLinkIndex: Index<Link>,
@@ -69,8 +69,8 @@ const addEdoStepNotationPossibilitiesBelowLink = (
             const step = sagittalIndex > linkStep ?
                 edo - sagittalIndex as EdoStep :
                 linkStep - sagittalIndex as EdoStep
-            addEdoStepNotationPossibility(
-                edoStepNotationPossibilitiesList,
+            addSpelling(
+                spellingChoicesList,
                 step,
                 {
                     linkIndex: dIsZeroLinkIndex,
@@ -80,8 +80,8 @@ const addEdoStepNotationPossibilitiesBelowLink = (
         })
 }
 
-const addEdoStepNotationPossibilities = (
-    edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[],
+const addSpellingChoices = (
+    spellingChoicesList: SpellingChoices[],
     linkStep: EdoStep,
     { fDoubleFlatIsZeroLinkIndex, edo, sagittals, useOnlyPlainNominals }: {
         fDoubleFlatIsZeroLinkIndex: Index<Link>,
@@ -95,12 +95,12 @@ const addEdoStepNotationPossibilities = (
         fDoubleFlatIsZeroLinkIndex - 3 as Index<Link> :
         fDoubleFlatIsZeroLinkIndex - 17 as Index<Link>
 
-    addEdoStepNotationPossibilityForLink(edoStepNotationPossibilitiesList, linkStep, { dIsZeroLinkIndex })
-    addEdoStepNotationPossibilitiesAboveLink(edoStepNotationPossibilitiesList, linkStep, { dIsZeroLinkIndex, edo, sagittals })
-    addEdoStepNotationPossibilitiesBelowLink(edoStepNotationPossibilitiesList, linkStep, { dIsZeroLinkIndex, edo, sagittals })
+    addSpellingForLink(spellingChoicesList, linkStep, { dIsZeroLinkIndex })
+    addSpellingChoicesAboveLink(spellingChoicesList, linkStep, { dIsZeroLinkIndex, edo, sagittals })
+    addSpellingChoicesBelowLink(spellingChoicesList, linkStep, { dIsZeroLinkIndex, edo, sagittals })
 }
 
-const computeEdoStepNotationPossibilitesList = (
+const computeSpellingChoicesList = (
     { edo, fifthStep, sagittals, flavor, isLimmaFraction }: {
         edo: Edo,
         fifthStep: EdoStep,
@@ -109,7 +109,7 @@ const computeEdoStepNotationPossibilitesList = (
         isLimmaFraction: boolean,
     }
 ) => {
-    const edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[] = []
+    const spellingChoicesList: SpellingChoices[] = []
 
     const useOnlyPlainNominals: boolean = computeUseOnlyPlainNominals({ flavor, isLimmaFraction })
 
@@ -124,8 +124,8 @@ const computeEdoStepNotationPossibilitesList = (
 
     // f double flat is zero here because that's the first link in the master list 
     linkSteps.forEach((linkStep: EdoStep, fDoubleFlatIsZeroLinkIndex: number): void => {
-        addEdoStepNotationPossibilities(
-            edoStepNotationPossibilitiesList,
+        addSpellingChoices(
+            spellingChoicesList,
             linkStep,
             {
                 fDoubleFlatIsZeroLinkIndex: fDoubleFlatIsZeroLinkIndex as Index<Link>,
@@ -135,12 +135,12 @@ const computeEdoStepNotationPossibilitesList = (
             })
     })
 
-    const concludingEdoNotationOnC: EdoStepNotation = { linkIndex: C_LINK_INDEX, sagittalIndex: 0 as Index<Sagittal> }
-    edoStepNotationPossibilitiesList.push([concludingEdoNotationOnC])
+    const concludingEdoNotationOnC: Spelling = { linkIndex: C_LINK_INDEX, sagittalIndex: 0 as Index<Sagittal> }
+    spellingChoicesList.push([concludingEdoNotationOnC])
 
-    return edoStepNotationPossibilitiesList
+    return spellingChoicesList
 }
 
 export {
-    computeEdoStepNotationPossibilitesList,
+    computeSpellingChoicesList,
 }

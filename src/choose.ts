@@ -1,10 +1,10 @@
 import { Count, Index } from "@sagittal/general"
 import { Flavor, Sagittal } from "@sagittal/system"
-import { EdoStepNotation, EdoStep, EdoStepNotationPossibilities, Whorl, Link } from "./types"
+import { Spelling, EdoStep, SpellingChoices, Whorl, Link } from "./types"
 import { MAXIMUM_ABSOLUTE_VALUE_OF_NATURAL_WHORL_LINK_INDICES, MAXIMUM_ABSOLUTE_VALUE_OF_SHARP_OR_FLAT_WHORL_LINK_INDICES } from "./constants"
 
 const computeStepsFromNominal = (
-    { linkIndex, sagittalIndex }: EdoStepNotation,
+    { linkIndex, sagittalIndex }: Spelling,
     { sharpStep }: { sharpStep: EdoStep },
 ): Count<EdoStep> => {
     let whorlIndex: Index<Whorl>
@@ -25,7 +25,7 @@ const computeStepsFromNominal = (
 }
 
 const computeLinksFromD = (
-    { linkIndex, sagittalIndex }: EdoStepNotation,
+    { linkIndex, sagittalIndex }: Spelling,
     { flavor, sharpStep, evoSagittalsCount }: { flavor: Flavor, sharpStep: EdoStep, evoSagittalsCount: Count<Sagittal> },
 ): Count<Link> => {
     if (flavor == Flavor.EVO) {
@@ -41,34 +41,34 @@ const computeLinksFromD = (
     }
 }
 
-const chooseOneEdoStepNotationPerEdoStep = (
-    edoStepNotationPossibilitiesList: EdoStepNotationPossibilities[],
+const chooseSingleSpellingPerEdoStep = (
+    spellingChoicesList: SpellingChoices[],
     { sharpStep, flavor, evoSagittalsCount }: { sharpStep: EdoStep, flavor: Flavor, evoSagittalsCount: Count<Sagittal> }
-): EdoStepNotation[] => {
-    return edoStepNotationPossibilitiesList.map((edoStepNotationPossibilities: EdoStepNotation[]): EdoStepNotation => {
-        return edoStepNotationPossibilities.reduce((chosenEdoStepNotation: EdoStepNotation, candidateEdoStepNotation: EdoStepNotation): EdoStepNotation => {
-            const chosenStepsFromNominal: Count<EdoStep> = computeStepsFromNominal(chosenEdoStepNotation, { sharpStep }) as Count<EdoStep>
-            const candidateStepsFromNominal: Count<EdoStep> = computeStepsFromNominal(candidateEdoStepNotation, { sharpStep }) as Count<EdoStep>
+): Spelling[] => {
+    return spellingChoicesList.map((spellingChoices: Spelling[]): Spelling => {
+        return spellingChoices.reduce((chosenSpelling: Spelling, candidateSpelling: Spelling): Spelling => {
+            const chosenStepsFromNominal: Count<EdoStep> = computeStepsFromNominal(chosenSpelling, { sharpStep }) as Count<EdoStep>
+            const candidateStepsFromNominal: Count<EdoStep> = computeStepsFromNominal(candidateSpelling, { sharpStep }) as Count<EdoStep>
 
             if (candidateStepsFromNominal > chosenStepsFromNominal) {
-                return chosenEdoStepNotation
+                return chosenSpelling
             } else if (candidateStepsFromNominal < chosenStepsFromNominal) {
-                return candidateEdoStepNotation
+                return candidateSpelling
             } else {
-                const chosenLinksFromD: Count<Link> = computeLinksFromD(chosenEdoStepNotation, { flavor, sharpStep, evoSagittalsCount })
-                const candidateLinksFromD: Count<Link> = computeLinksFromD(candidateEdoStepNotation, { flavor, sharpStep, evoSagittalsCount })
+                const chosenLinksFromD: Count<Link> = computeLinksFromD(chosenSpelling, { flavor, sharpStep, evoSagittalsCount })
+                const candidateLinksFromD: Count<Link> = computeLinksFromD(candidateSpelling, { flavor, sharpStep, evoSagittalsCount })
 
                 if (candidateLinksFromD > chosenLinksFromD) {
-                    return chosenEdoStepNotation
+                    return chosenSpelling
                 } else if (candidateLinksFromD < chosenLinksFromD) {
-                    return candidateEdoStepNotation
+                    return candidateSpelling
                 } else {
                     // tie-breaking in favor of positive sagittal
 
-                    if (chosenEdoStepNotation.sagittalIndex > candidateEdoStepNotation.sagittalIndex) {
-                        return chosenEdoStepNotation
+                    if (chosenSpelling.sagittalIndex > candidateSpelling.sagittalIndex) {
+                        return chosenSpelling
                     } else {
-                        return candidateEdoStepNotation
+                        return candidateSpelling
                     }
                 }
             }
@@ -77,5 +77,5 @@ const chooseOneEdoStepNotationPerEdoStep = (
 }
 
 export {
-    chooseOneEdoStepNotationPerEdoStep,
+    chooseSingleSpellingPerEdoStep,
 }

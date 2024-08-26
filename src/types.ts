@@ -16,12 +16,12 @@ interface NonSubsetNotationDefinition {
 
 type EdoNotationDefinition = SubsetNotationDefinition | NonSubsetNotationDefinition
 
-interface EdoStepNotation {
+interface Spelling {
     linkIndex: Index<Link>              // 35 possibilities, -17 to 17, for FCGDAEB flanked by sharps and flats and doubles thereof
     sagittalIndex: Index<Sagittal>      // 0 is none, 1 is the first sagittal in the sequence
 }
 
-type EdoStepNotationPossibilities = EdoStepNotation[]
+type SpellingChoices = Spelling[]
 
 // for convenience, these values are relatd to the ones used by StaffCode
 enum Whorl {
@@ -50,8 +50,8 @@ interface Link {
 export {
     Edo,
     EdoStep,
-    EdoStepNotation,
-    EdoStepNotationPossibilities,
+    Spelling,
+    SpellingChoices,
     Whorl,
     Nominal,
     Link,
