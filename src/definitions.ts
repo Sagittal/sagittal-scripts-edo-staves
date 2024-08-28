@@ -86,18 +86,23 @@ const EDO_NOTATION_DEFINITIONS: Record<Edo, EdoNotationDefinition> = {
     125: { sagitypes: ["|(", "/|", "|)", "//|", "/|)"] },
     128: { sagitypes: [")|", "~|", "/|", "(|(", "~|\\", "/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=4751#p4751
     130: { sagitypes: ["|(", "/|", "|)", "|\\", "/|)", "/|\\"] },
+    // 135: https://forum.sagittal.org/viewtopic.php?p=308#p308
     137: { sagitypes: ["|(", "/|", "|)", "|\\", "/|)", "/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=1743#p1743
+    // 140: https://forum.sagittal.org/viewtopic.php?p=308#p308
+    // 141: https://forum.sagittal.org/viewtopic.php?p=308#p308
     142: { sagitypes: ["|(", "/|", "|)", "|\\", "/|)", "/|\\"] },
     145: { sagitypes: [")|", ")~|", "|)", ")|)", "(|(", "~|\\", "/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=4749#p4749
+    // 147: https://forum.sagittal.org/viewtopic.php?p=308#p308
     152: { sagitypes: [")|(", "~|(", "/|", "|\\", "(|(", "//|", "/|\\"] },
     171: { sagitypes: ["|(", "~|(", "/|", "|)", "|\\", "//|", "/|)", "/|\\"] },
     174: { sagitypes: [")|", ")~|", "~~|", "/|", "~|)", "(|(", "~|\\", "/|\\", ")/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=4749#p4749
     176: { sagitypes: ["|(", "~|(", "/|", "|)", "|\\", "(|(", "/|)", "/|\\"] },
     181: { sagitypes: [")|", ")~|", "~~|", "/|", "~|)", "(|(", "~|\\", "/|\\", ")/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=4749#p4749
     183: { sagitypes: ["|(", "~|(", "/|", "|)", "|\\", "(|(", "/|)", "/|\\"] },
+    // 205: https://forum.sagittal.org/viewtopic.php?p=308#p308
     217: { sagitypes: ["|(", "~|", "~|(", "/|", "|)", "|\\", "(|(", "//|", "/|)", "/|\\"] },
     224: { sagitypes: ["|(", ")|(", "~|(", "/|", "|)", "|\\", "(|(", "//|", "/|)", "/|\\"] },
-    270: { sagitypes: ["|(", ")|(", "~|(", "~~|", "/|", "|)", "|\\", "~|)", "(|(", "/ /|", "/|)", "/|\\", ")/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=4408#p4408
+    270: { sagitypes: ["|(", ")|(", "~|(", "~~|", "/|", "|)", "|\\", "~|)", "(|(", "//|", "/|)", "/|\\", ")/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=4408#p4408
     311: { sagitypes: ["|(", ")|(", ")~|", "~|(", "~~|", "/|", "|)", "|\\", "(|", "(|(", "~|\\", "//|", "/|)", "/|\\", ")/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=4408#p4408
     494: { sagitypes: [")|", "|(", "~|", ")|(", ")~|", "~|(", "|~", ")|~", "/|", ")/|", "|)", ")|)", "|\\", "(|", "~|)", "/|~", "~|\\", "//|", ")//|", "/|)", "(|~", "/|\\", "(/|"] }, // https://forum.sagittal.org/viewtopic.php?p=877#p877
     581: { sagitypes: ["'|", "|(", "')|", ")|(", "~|", ")~|", "|~", "~|(", "~~|", ",)/|", "|)", ",)|)", "|\\", ",~|)", "(|", "/|~", "(|(", "~|\\", "'~|\\", "//|", "')//|", "/|)", "'(|~", "/|\\", ",(/|"] }, // https://forum.sagittal.org/viewtopic.php?p=741#p741
