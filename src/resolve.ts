@@ -42,44 +42,44 @@ const computePositiveOrNegativeOrNullSagittal = (sagittals: Sagittal[], sagittal
 
 
 const computeSagitypeString = (maybeSagittal: Maybe<Sagittal>, flavor: Flavor, whorl: Whorl): string => {
-    if (flavor == Flavor.EVO) {
+    // if (flavor == Flavor.EVO) {
         return !maybeSagittal ? "" : computeAccidentalSagitype(maybeSagittal)
-    }
+    // }
 
-    let [symbolClassId, section] = computeSymbolClassIdAndSectionFromSagittal(maybeSagittal)
+    // let [symbolClassId, section] = computeSymbolClassIdAndSectionFromSagittal(maybeSagittal)
 
-    let targetSection: Section
-    if (whorl == Whorl.DOUBLE_FLAT) {
-        targetSection = SECTION_N2T
-    } else if (whorl == Whorl.FLAT) {
-        if (maybeSagittal?.down) {
-            targetSection = SECTION_N2A
-        } else {
-            targetSection = SECTION_N1T
-        }
-    } else if (whorl == Whorl.NATURAL) {
-        if (!maybeSagittal) {
-            return ""
-        } else if (maybeSagittal?.down) {
-            targetSection = SECTION_N1A
-        } else {
-            targetSection = SECTION_P1A
-        }
-    } else if (whorl == Whorl.SHARP) {
-        if (maybeSagittal?.down) {
-            targetSection = SECTION_P1T
-        } else {
-            targetSection = SECTION_P2A
-        }
-    } else {
-        targetSection = SECTION_P2T
-    }
+    // let targetSection: Section
+    // if (whorl == Whorl.DOUBLE_FLAT) {
+    //     targetSection = SECTION_N2T
+    // } else if (whorl == Whorl.FLAT) {
+    //     if (maybeSagittal?.down) {
+    //         targetSection = SECTION_N2A
+    //     } else {
+    //         targetSection = SECTION_N1T
+    //     }
+    // } else if (whorl == Whorl.NATURAL) {
+    //     if (!maybeSagittal) {
+    //         return ""
+    //     } else if (maybeSagittal?.down) {
+    //         targetSection = SECTION_N1A
+    //     } else {
+    //         targetSection = SECTION_P1A
+    //     }
+    // } else if (whorl == Whorl.SHARP) {
+    //     if (maybeSagittal?.down) {
+    //         targetSection = SECTION_P1T
+    //     } else {
+    //         targetSection = SECTION_P2A
+    //     }
+    // } else {
+    //     targetSection = SECTION_P2T
+    // }
 
-    if (section.mirrored) {
-        targetSection = { ...targetSection, mirrored: !targetSection.mirrored }
-    }
+    // if (section.mirrored) {
+    //     targetSection = { ...targetSection, mirrored: !targetSection.mirrored }
+    // }
 
-    return computeAccidentalSagitype(computeRevoAccidentalFromCaptureZone(symbolClassId, targetSection))
+    // return computeAccidentalSagitype(computeRevoAccidentalFromCaptureZone(symbolClassId, targetSection))
 }
 
 const resolveSpellingsToIntermediateStringFormOfActualFinalVisualNotation = (
