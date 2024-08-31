@@ -1,5 +1,6 @@
 import { Io, Sentence, Count } from "@sagittal/general"
-import { NOTES_PER_SYSTEM } from "./constants"
+
+const NOTES_PER_SYSTEM: Count = 27 as Count
 
 const computeNominalPart = (
     nominalString: string,
@@ -24,22 +25,14 @@ const computeNominalPart = (
     return nominalPart
 }
 
-const computeSagittalPart = (sagitypeString: string): Io & Sentence => {
-    if (sagitypeString.length) {
-        return `5; ${sagitypeString} ; ` as Io & Sentence
-    } else {
-        return "9; " as Io & Sentence
-    }
-}
+const computeSagittalPart = (sagitypeString: string): Io & Sentence =>
+    sagitypeString.length ?
+        `5; ${sagitypeString} ; ` as Io & Sentence :
+        "9; " as Io & Sentence
 
-const computeWhorlPart = (whorlString: string): Io & Sentence => {
-    if (whorlString == "#") return "# ; " as Io & Sentence
-    else if (whorlString == "x") return ".x ; " as Io & Sentence
-    else if (whorlString == "n") return "n ; " as Io & Sentence
-    else if (whorlString == "b") return "b ; " as Io & Sentence
-    else if (whorlString == "B") return "bb ; " as Io & Sentence
-    else return `${whorlString} ; ` as Io & Sentence
-}
+
+const computeWhorlPart = (whorlString: string): Io & Sentence =>
+    `${whorlString} ; ` as Io & Sentence
 
 const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, string>[]): Io & Sentence => {
     const notationState = {

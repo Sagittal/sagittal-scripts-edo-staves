@@ -1,31 +1,29 @@
 import {
-    Spelling,
+    EdoStepNotation,
     Edo,
-    SubsetNotationDefinition,
+    SubsetEdoNotationDefinition,
     EdoNotationDefinition,
-    NonSubsetNotationDefinition,
+    NonSubsetEdoNotationDefinition,
 } from "./types"
 import { EDO_NOTATION_DEFINITIONS } from "./definitions"
 
-const isSubsetNotation = (edoNotationDefinition: EdoNotationDefinition): edoNotationDefinition is SubsetNotationDefinition =>
-    (<SubsetNotationDefinition>edoNotationDefinition).subset !== undefined
+const isSubsetNotation = (edoNotationDefinition: EdoNotationDefinition): edoNotationDefinition is SubsetEdoNotationDefinition =>
+    (<SubsetEdoNotationDefinition>edoNotationDefinition).supersetEdo !== undefined
 
-const computeSubsetSagitypes = (edoNotationDefinition: EdoNotationDefinition) => (<NonSubsetNotationDefinition>EDO_NOTATION_DEFINITIONS[edoNotationDefinition.subset]).sagitypes
+const computeSubsetSagitypes = (edoNotationDefinition: SubsetEdoNotationDefinition) => {
+    const nonSubsetEdoNotationDefinition: NonSubsetEdoNotationDefinition = EDO_NOTATION_DEFINITIONS[edoNotationDefinition.supersetEdo] as NonSubsetEdoNotationDefinition
 
-const computeSubsetSpellings = (
-    { subsetNotationDefinition, edo, spellings }: {
-        subsetNotationDefinition: SubsetNotationDefinition,
-        edo: Edo,
-        spellings: Spelling[],
-    },
-) => {
-    const subsetFactor = subsetNotationDefinition.subset / edo
+    return nonSubsetEdoNotationDefinition.sagitypes
+}
 
-    return spellings.filter((_, index) => index % subsetFactor == 0)
+const computeSubsetEdoStepNotations = ({ edo, subsetEdo, edoStepNotations }: { edo: Edo, subsetEdo: Edo, edoStepNotations: EdoStepNotation[] }) => {
+    const subsetFactor = edo / subsetEdo
+
+    return edoStepNotations.filter((_, index) => index % subsetFactor == 0)
 }
 
 export {
     isSubsetNotation,
     computeSubsetSagitypes,
-    computeSubsetSpellings,
+    computeSubsetEdoStepNotations,
 }

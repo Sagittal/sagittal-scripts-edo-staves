@@ -1,5 +1,5 @@
 import { program } from "commander"
-import { Filename, Io, Sentence, textToSvg } from "@sagittal/general"
+import { Filename, Io, Sentence, textToSvg, Unicode } from "@sagittal/general"
 import { Flavor } from "@sagittal/system"
 import * as fs from "fs"
 import { computeInputSentenceUnicode } from "staff-code"
@@ -10,39 +10,20 @@ const font = "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.
 
 program
     .option("-e, --edo <number>", "edo")
-    .option("-f, --flavor <string>", "flavor") // TODO: support case-insensitivity (e.g. currently "revo" works but "Revo" doesn't)
+    .option("-f, --flavor <string>", "flavor")
 
 program.parse()
-const { flavor, edo } = program.opts()
-// const inputSentence = computeStaffCodeInputSentence(parseInt(edo) as Edo, flavor)
-// console.log(inputSentence)
-const inputSentence = `
-                ston 
-                5; Gcl ; 5; 
-                c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 5; ||) ;   ; nt ; 5; ||\\ ;   ; nt ; 5; /||\\ ;   ; nt ; 5; /||| ;   ; nt ; 5; |||) ;   ; nt ; 
-                9; en; bl 
-                5; d4 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 
-                9; en; bl 
-                5; e4 5; !!!) ;   ; nt ; 5; \\!!! ;   ; nt ; 5; \\!!/ ;   ; nt ; 5; !!/ ;   ; nt ; 5; !!) ;   ; nt ; 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 
-                9; en; bl 
-                nl; 
-                5; Gcl ; 5; f4 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 5; ||) ;   ; nt ; 5; ||\\ ;   ; nt ; 5; /||\\ ;   ; nt ; 5; /||| ;   ; nt ; 5; |||) ;   ; nt ; 
-                9; en; bl 
-                5; g4 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 5; ||) ;   ; nt ; 5; ||\\ ;   ; nt ; 5; /||\\ ;   ; nt ; 5; /||| ;   ; nt ; 5; |||) ;   ; nt ; 
-                9; en; bl 
-                5; a4 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 
-                9; en; bl 
-                nl; 
-                5; Gcl ; 5; b4 5; !!!) ;   ; nt ; 5; \\!!! ;   ; nt ; 5; \\!!/ ;   ; nt ; 5; !!/ ;   ; nt ; 5; !!) ;   ; nt ; 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 
-                9; en; bl 
-                5; c5 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 
-                3; en; bl 
-                nl; 
-`
-const unicodeSentence = computeInputSentenceUnicode(inputSentence)
+const { edo: edoString, flavor: flavorString }: { edo: string, flavor: string } = program.opts()
+const edo: Edo = parseInt(edoString) as Edo
+const flavor: Flavor = flavorString.toLowerCase() as Flavor
+
+const inputSentence: Io & Sentence = computeStaffCodeInputSentence(edo, flavor)
+console.log(inputSentence)
+
+const unicodeSentence: Unicode & Sentence = computeInputSentenceUnicode(inputSentence)
 
 const asyncGenerateEdoStaves = async (): Promise<void> => {
-    const svgString = await textToSvg(unicodeSentence, { font })
+    const svgString: string = await textToSvg(unicodeSentence, { font })
     if (!fs.existsSync("dist")) fs.mkdirSync("dist")
     fs.writeFileSync("dist/edoStaves.svg", svgString)
 }

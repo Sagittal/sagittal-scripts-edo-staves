@@ -1,45 +1,31 @@
-import { Io, Sentence, Count } from "@sagittal/general"
+import { Io, Sentence } from "@sagittal/general"
 import { Flavor, Sagittal, Sagitype } from "@sagittal/system"
-import { Spelling, Edo, EdoStep, EdoNotationDefinition } from "./types"
+import { EdoStepNotation, Edo, EdoStep, EdoNotationDefinition } from "./types"
 import { computeFifthStep, computeSharpStep } from "./steps"
 import { EDO_NOTATION_DEFINITIONS } from "./definitions"
-import { computeSpellings } from "./spellings"
-// import { chooseSingleSpellingPerEdoStep } from "./choose"
-import { resolveSpellingsToIntermediateStringFormOfActualFinalVisualNotation } from "./resolve"
+import { computeEdoStepNotations } from "./edoStepNotations"
+import { resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation } from "./resolve"
 import { assembleAsStaffCodeInputSentence } from "./staffCode"
 import { computeSagittals } from "./sagittals"
-import { isSubsetNotation, computeSubsetSagitypes, computeSubsetSpellings } from "./subset"
-import { computeIsLimmaFraction } from "./limmaFraction"
+import { isSubsetNotation, computeSubsetSagitypes, computeSubsetEdoStepNotations } from "./subset"
 
 const computeSagitypes = (edoNotationDefinition: EdoNotationDefinition): Sagitype[] =>
     isSubsetNotation(edoNotationDefinition) ?
         computeSubsetSagitypes(edoNotationDefinition) :
         edoNotationDefinition.sagitypes
 
-const computeStaffCodeInputSentence = (edo: Edo, flavor: Flavor): Io & Sentence => {
-    const edoNotationDefinition = EDO_NOTATION_DEFINITIONS[edo]
-    const sagitypes = computeSagitypes(edoNotationDefinition)
-    const notationEdo = isSubsetNotation(edoNotationDefinition) ? edoNotationDefinition.subset : edo
-    const fifthStep: EdoStep = computeFifthStep(notationEdo)
-    const sharpStep: EdoStep = computeSharpStep(notationEdo, fifthStep)
+const computeStaffCodeInputSentence = (inputEdo: Edo, flavor: Flavor): Io & Sentence => {
+    const edoNotationDefinition: EdoNotationDefinition = EDO_NOTATION_DEFINITIONS[inputEdo]
+    const sagitypes: Sagitype[] = computeSagitypes(edoNotationDefinition)
+    const edo: Edo = isSubsetNotation(edoNotationDefinition) ? edoNotationDefinition.supersetEdo : inputEdo
+    const fifthStep: EdoStep = computeFifthStep(edo)
+    const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
     const sagittals: Sagittal[] = computeSagittals({ sagitypes, flavor, sharpStep })
-    let spellings: Spelling[] = computeSpellings({
-        edo: notationEdo,
-        fifthStep,
-        sagittals,
-        flavor,
-        isLimmaFraction: computeIsLimmaFraction(notationEdo)
-    })
-    // let spellings: Spelling[] = chooseSingleSpellingPerEdoStep(
-    //     spellingChoicesList,
-    //     { sharpStep, flavor, evoSagittalsCount: sagitypes.length as Count<Sagittal> }
-    // )
 
-    if (isSubsetNotation(edoNotationDefinition)) {
-        spellings = computeSubsetSpellings({ subsetNotationDefinition: edoNotationDefinition, edo, spellings })
-    }
+    let edoStepNotations: EdoStepNotation[] = computeEdoStepNotations({ edo, fifthStep, sagittals, flavor })
+    if (isSubsetNotation(edoNotationDefinition)) edoStepNotations = computeSubsetEdoStepNotations({ edo, subsetEdo: inputEdo, edoStepNotations })
 
-    const intermediateStringForm = resolveSpellingsToIntermediateStringFormOfActualFinalVisualNotation(spellings, { sagittals, flavor })
+    const intermediateStringForm = resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation(edoStepNotations, { sagittals, flavor })
 
     return assembleAsStaffCodeInputSentence(intermediateStringForm)
 }

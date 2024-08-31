@@ -1,6 +1,9 @@
-import { Cents, CENTS_PER_OCTAVE, computeRange } from "@sagittal/general"
+import { Cents, Count, CENTS_PER_OCTAVE, computeRange } from "@sagittal/general"
 import { Edo, EdoStep } from "./types"
-import { JI_FIFTH_SIZE, FIFTHS_UNTIL_SHARP } from "./constants"
+
+const FIFTHS_UNTIL_SHARP: Count = 7 as Count
+
+const JI_FIFTH_SIZE: Cents = 701.955000865 as Cents
 
 const computeFifthStep = (edo: Edo): EdoStep => {
     const stepSize: Cents = CENTS_PER_OCTAVE / edo as Cents
