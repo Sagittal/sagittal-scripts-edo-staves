@@ -21,7 +21,7 @@ interface Spelling {
     sagittalIndex: Index<Sagittal>      // 0 is none, 1 is the first sagittal in the sequence
 }
 
-type SpellingChoices = Spelling[]
+// type SpellingChoices = Spelling[]
 
 // for convenience, these values are relatd to the ones used by StaffCode
 enum Whorl {
@@ -51,7 +51,7 @@ export {
     Edo,
     EdoStep,
     Spelling,
-    SpellingChoices,
+    // SpellingChoices,
     Whorl,
     Nominal,
     Link,

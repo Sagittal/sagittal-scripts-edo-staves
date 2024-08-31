@@ -1,10 +1,10 @@
 import { Io, Sentence, Count } from "@sagittal/general"
 import { Flavor, Sagittal, Sagitype } from "@sagittal/system"
-import { Spelling, Edo, EdoStep, SpellingChoices, EdoNotationDefinition } from "./types"
+import { Spelling, Edo, EdoStep, EdoNotationDefinition } from "./types"
 import { computeFifthStep, computeSharpStep } from "./steps"
 import { EDO_NOTATION_DEFINITIONS } from "./definitions"
-import { computeSpellingChoicesList } from "./choices"
-import { chooseSingleSpellingPerEdoStep } from "./choose"
+import { computeSpellings } from "./spellings"
+// import { chooseSingleSpellingPerEdoStep } from "./choose"
 import { resolveSpellingsToIntermediateStringFormOfActualFinalVisualNotation } from "./resolve"
 import { assembleAsStaffCodeInputSentence } from "./staffCode"
 import { computeSagittals } from "./sagittals"
@@ -23,17 +23,17 @@ const computeStaffCodeInputSentence = (edo: Edo, flavor: Flavor): Io & Sentence 
     const fifthStep: EdoStep = computeFifthStep(notationEdo)
     const sharpStep: EdoStep = computeSharpStep(notationEdo, fifthStep)
     const sagittals: Sagittal[] = computeSagittals({ sagitypes, flavor, sharpStep })
-    const spellingChoicesList: SpellingChoices[] = computeSpellingChoicesList({
+    let spellings: Spelling[] = computeSpellings({
         edo: notationEdo,
         fifthStep,
         sagittals,
         flavor,
         isLimmaFraction: computeIsLimmaFraction(notationEdo)
     })
-    let spellings: Spelling[] = chooseSingleSpellingPerEdoStep(
-        spellingChoicesList,
-        { sharpStep, flavor, evoSagittalsCount: sagitypes.length as Count<Sagittal> }
-    )
+    // let spellings: Spelling[] = chooseSingleSpellingPerEdoStep(
+    //     spellingChoicesList,
+    //     { sharpStep, flavor, evoSagittalsCount: sagitypes.length as Count<Sagittal> }
+    // )
 
     if (isSubsetNotation(edoNotationDefinition)) {
         spellings = computeSubsetSpellings({ subsetNotationDefinition: edoNotationDefinition, edo, spellings })

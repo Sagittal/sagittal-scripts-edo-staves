@@ -10,11 +10,10 @@ const font = "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.
 
 program
     .option("-e, --edo <number>", "edo")
-    .option("-f, --flavor <string>", "flavor")
+    .option("-f, --flavor <string>", "flavor") // TODO: support case-insensitivity (e.g. currently "revo" works but "Revo" doesn't)
 
 program.parse()
 const { flavor, edo } = program.opts()
-
 const inputSentence = computeStaffCodeInputSentence(parseInt(edo) as Edo, flavor)
 console.log(inputSentence)
 const unicodeSentence = computeInputSentenceUnicode(inputSentence)
