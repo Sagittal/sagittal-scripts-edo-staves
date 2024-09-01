@@ -3,28 +3,25 @@ import { Nominal } from "./types"
 
 const NOTES_PER_SYSTEM: Count = 27 as Count
 
+const computeNominalStaffCode = (
+    notationState: { noteCount: Count, noteCountPastWhichBreakSystem: Count, currentNominal: Io, reachedC: boolean }
+): string => {
+    return `${notationState.currentNominal}${notationState.reachedC ? 5 : 4}`
+}
+
 const computeNominalPart = (
     nominalString: string,
-    { root, notationState }: {
-        root: Nominal,
+    { notationState }: {
         notationState: { noteCount: Count, noteCountPastWhichBreakSystem: Count, currentNominal: Io, reachedC: boolean }
     }
 ): Io & Sentence => {
     let nominalPart = "" as Io & Sentence
 
-    notationState.noteCount++
-
     if (nominalString != notationState.currentNominal) {
         notationState.currentNominal = nominalString
-        if (nominalString == Nominal.C) notationState.reachedC = true
-        nominalPart = nominalPart + `\n9; en; bl \n` as Io & Sentence
-        if (notationState.noteCount > notationState.noteCountPastWhichBreakSystem && nominalString != root) {
-            notationState.noteCountPastWhichBreakSystem = notationState.noteCountPastWhichBreakSystem + NOTES_PER_SYSTEM as Count
-            nominalPart = nominalPart + "nl; \n5; Gcl ; 5; " as Io & Sentence
-        } else {
-            nominalPart = nominalPart + "5; " as Io & Sentence
-        }
-        nominalPart = nominalPart + `${nominalString}${notationState.reachedC ? 5 : 4} ` as Io & Sentence
+        if (notationState.currentNominal == Nominal.C) notationState.reachedC = true
+
+        nominalPart = nominalPart + `${computeNominalStaffCode(notationState)} ` as Io & Sentence
     }
 
     return nominalPart
@@ -45,9 +42,35 @@ const computeSagittalPart = (sagitypeString: string): Io & Sentence =>
         `5; ${handleDiacritics(sagitypeString)} ; ` as Io & Sentence :
         "9; " as Io & Sentence
 
-
 const computeWhorlPart = (whorlString: string): Io & Sentence =>
-    `${whorlString} ; ` as Io & Sentence
+    whorlString.length ?
+        `${whorlString} ; ` as Io & Sentence :
+        "" as Io & Sentence
+
+const computeNotePart = (
+    { sagitypeString, whorlString, notationState }: {
+        sagitypeString: string,
+        whorlString: string,
+        notationState: { noteCount: Count, noteCountPastWhichBreakSystem: Count, currentNominal: Io, reachedC: boolean }
+    }
+): Io & Sentence => {
+    let notePart: Io & Sentence
+
+    if (!sagitypeString.length && !whorlString.length && notationState.noteCount != 0) {
+        if (notationState.noteCount > notationState.noteCountPastWhichBreakSystem) {
+            notationState.noteCountPastWhichBreakSystem = notationState.noteCountPastWhichBreakSystem + NOTES_PER_SYSTEM as Count
+            notePart = `en; bl nl; \n5; Gcl ${computeNominalStaffCode(notationState)} ; 20; nt ;` as Io & Sentence
+        } else {
+            notePart = "\nbl 9; nt ; " as Io & Sentence
+        }
+    } else {
+        notePart = "nt ; " as Io & Sentence
+    }
+
+    notationState.noteCount++
+
+    return notePart
+}
 
 const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, string>[], { root }: { root: Nominal }): Io & Sentence => {
     const notationState = {
@@ -60,13 +83,13 @@ const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, st
     return `ston \n5; Gcl ; 5; \n${root}4 5; ` + intermediateStringForm.reduce(
         (inputSentence, { nominalString, whorlString, sagitypeString }: Record<any, string>): Io & Sentence => {
             return inputSentence +
-                computeNominalPart(nominalString, { root, notationState }) +
+                computeNominalPart(nominalString, { notationState }) +
                 computeSagittalPart(sagitypeString) +
                 computeWhorlPart(whorlString) +
-                "nt ; " as Io & Sentence
+                computeNotePart({ sagitypeString, whorlString, notationState }) as Io & Sentence
         },
         "" as Io & Sentence
-    ) + "\n3; en; blfn \nnl; " as Io & Sentence
+    ) + "\n8; en; blfn \nnl; " as Io & Sentence
 }
 
 export {

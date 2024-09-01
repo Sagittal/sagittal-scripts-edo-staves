@@ -43,7 +43,7 @@ const computeSagitypeString = (maybeSagittal: Maybe<Sagittal>, { flavor }: { fla
 
 const computeWhorlString = (whorl: Whorl, { flavor }: { flavor: Flavor }) =>
     whorl == Whorl.NATURAL || flavor == Flavor.REVO ?
-        " " :
+        "" :
         whorl
 
 const resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation = (

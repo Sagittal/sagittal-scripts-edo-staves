@@ -10,6 +10,7 @@ const font = "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.
 const asyncGenerateDiagram = async ({ edo, flavor, root }: { edo: Edo, flavor: Flavor, root: Nominal }): Promise<void> => {
     const inputSentence: Io & Sentence = computeStaffCodeInputSentence(edo, flavor, { root })
     console.log(inputSentence)
+
     const unicodeSentence: Unicode & Sentence = computeInputSentenceUnicode(inputSentence)
 
     const svgString: string = await textToSvg(unicodeSentence, { font })
