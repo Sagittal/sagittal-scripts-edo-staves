@@ -1,8 +1,7 @@
-import { Maybe } from "@sagittal/general"
 import { Flavor, Sagittal } from "@sagittal/system"
 import { EdoStepNotation, Edo, EdoStep, NonSubsetEdoNotationDefinition, Nominal } from "../types"
 import { computeLinkEdoStepNotations } from "./links"
-import { addSagittalEdoStepNotations } from "./sagittals"
+import { placeSagittalEdoStepNotations } from "./sagittals"
 import { EDO_NOTATION_DEFINITIONS } from "../definitions";
 
 const computeIsLimmaNotation = (edo: Edo) =>
@@ -21,9 +20,9 @@ const computeEdoStepNotations = (
     }): EdoStepNotation[] => {
     const useOnlyPlainNominals: boolean = computeUseOnlyPlainNominals({ flavor, edo })
 
-    const linkEdoStepNotations: Maybe<EdoStepNotation>[] = computeLinkEdoStepNotations({ edo, fifthStep, useOnlyPlainNominals, root })
+    const linkEdoStepNotations: EdoStepNotation[] = computeLinkEdoStepNotations({ edo, fifthStep, useOnlyPlainNominals, root })
 
-    return addSagittalEdoStepNotations(linkEdoStepNotations, { edo, sagittals })
+    return placeSagittalEdoStepNotations(linkEdoStepNotations, { edo, sagittals })
 }
 
 export {

@@ -7,7 +7,7 @@ enum Direction {
 }
 
 interface Priority {
-    linkIndex: Index<Link>,
+    linkIndexRestriction?: Index<Link>,
     direction: Direction,
 }
 

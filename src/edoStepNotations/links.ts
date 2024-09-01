@@ -20,7 +20,7 @@ const computeLinkEdoStepNotations = ({ edo, fifthStep, useOnlyPlainNominals, roo
     fifthStep: EdoStep,
     useOnlyPlainNominals: boolean,
     root: Nominal,
-}): Maybe<EdoStepNotation>[] => {
+}): EdoStepNotation[] => {
     const dStep: EdoStep = computeDStep({ edo, fifthStep, root })
 
     let edoStepLinkIndices: Maybe<Index<Link>>[] = Array(edo)
