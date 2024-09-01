@@ -55,6 +55,9 @@ const resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation
         const { nominal, whorl }: Link = LINKS[linkIndex]
 
         return {
+            // TODO: possibly here we should handle the c4 vs c5 stuff, so that everything here is actually at least a staffcode Word. 
+            // but then the sagitype string would actually need to be a list thereof, and accents be handled here too. 
+            // and maybe it is better that this is left as a Nominal so the next layer can determine whether a nominal staffcode word is required...
             nominalString: nominal,
             whorlString: computeWhorlString(whorl, { flavor }),
             sagitypeString: computeSagitypeString(maybeSagittal, { flavor }),

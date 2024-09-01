@@ -1,3 +1,4 @@
+import { computeCodeWordWidth } from "staff-code"
 import { Io, Sentence, Count } from "@sagittal/general"
 import { Nominal } from "./types"
 
@@ -82,6 +83,8 @@ const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, st
 
     return `ston \n5; Gcl ; 5; \n${root}4 5; ` + intermediateStringForm.reduce(
         (inputSentence, { nominalString, whorlString, sagitypeString }: Record<any, string>): Io & Sentence => {
+            // TODO: clean up. this was just a proof of concept to see if we can get this info
+            // sagitypeString.length && console.log("sagitypeString: ", sagitypeString, " width: ", computeCodeWordWidth(sagitypeString))
             return inputSentence +
                 computeNominalPart(nominalString, { notationState }) +
                 computeSagittalPart(sagitypeString) +

@@ -27,6 +27,12 @@ const computeStaffCodeInputSentence = (inputEdo: Edo, flavor: Flavor, { root }: 
 
     const intermediateStringForm = resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation(edoStepNotations, { sagittals, flavor })
 
+    // TODO: here is where we'd:
+    // - compute which alignment pattern this EDO will use
+    // - arrange the intermediate stringform into an array of arrays according to it
+    // - for each column, determine the max width
+    // - then modify the `assemble...` function below to take this width and staff breaks into account
+
     return assembleAsStaffCodeInputSentence(intermediateStringForm, { root })
 }
 
