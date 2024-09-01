@@ -6,6 +6,7 @@ const extractKeyInfoFromInputSentence = (inputSentence: string) => {
         .replace(/ston/g, "")
         .replace(/Gcl/g, "")
         .replace(/en;/g, "")
+        .replace(/blfn/g, "")
         .replace(/bl/g, "")
         .replace(/nl;/g, "")
         .replace(/\n/g, "")

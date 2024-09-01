@@ -60,7 +60,7 @@ const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, st
                 "nt ; " as Io & Sentence
         },
         "" as Io & Sentence
-    ) + "\n3; en; bl \nnl; " as Io & Sentence
+    ) + "\n3; en; blfn \nnl; " as Io & Sentence
 }
 
 export {
