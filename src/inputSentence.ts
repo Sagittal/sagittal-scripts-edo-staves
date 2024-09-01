@@ -1,6 +1,6 @@
 import { Io, Sentence } from "@sagittal/general"
 import { Flavor, Sagittal, Sagitype } from "@sagittal/system"
-import { EdoStepNotation, Edo, EdoStep, EdoNotationDefinition } from "./types"
+import { EdoStepNotation, Edo, EdoStep, EdoNotationDefinition, Nominal } from "./types"
 import { computeFifthStep, computeSharpStep } from "./steps"
 import { EDO_NOTATION_DEFINITIONS } from "./definitions"
 import { computeEdoStepNotations } from "./edoStepNotations"
@@ -14,7 +14,7 @@ const computeSagitypes = (edoNotationDefinition: EdoNotationDefinition): Sagityp
         computeSubsetSagitypes(edoNotationDefinition) :
         edoNotationDefinition.sagitypes
 
-const computeStaffCodeInputSentence = (inputEdo: Edo, flavor: Flavor): Io & Sentence => {
+const computeStaffCodeInputSentence = (inputEdo: Edo, flavor: Flavor, { root }: { root: Nominal } = { root: Nominal.C }): Io & Sentence => {
     const edoNotationDefinition: EdoNotationDefinition = EDO_NOTATION_DEFINITIONS[inputEdo]
     const sagitypes: Sagitype[] = computeSagitypes(edoNotationDefinition)
     const edo: Edo = isSubsetNotation(edoNotationDefinition) ? edoNotationDefinition.supersetEdo : inputEdo
@@ -22,12 +22,12 @@ const computeStaffCodeInputSentence = (inputEdo: Edo, flavor: Flavor): Io & Sent
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
     const sagittals: Sagittal[] = computeSagittals({ sagitypes, flavor, sharpStep })
 
-    let edoStepNotations: EdoStepNotation[] = computeEdoStepNotations({ edo, fifthStep, sagittals, flavor })
+    let edoStepNotations: EdoStepNotation[] = computeEdoStepNotations({ edo, fifthStep, sagittals, flavor, root })
     if (isSubsetNotation(edoNotationDefinition)) edoStepNotations = computeSubsetEdoStepNotations({ edo, subsetEdo: inputEdo, edoStepNotations })
 
     const intermediateStringForm = resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation(edoStepNotations, { sagittals, flavor })
 
-    return assembleAsStaffCodeInputSentence(intermediateStringForm)
+    return assembleAsStaffCodeInputSentence(intermediateStringForm, { root })
 }
 
 export {

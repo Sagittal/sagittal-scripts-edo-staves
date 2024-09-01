@@ -1,18 +1,17 @@
 import { program } from "commander"
-import { Filename } from "@sagittal/general"
 import { Flavor } from "@sagittal/system"
 import { asyncGenerateDiagram } from "../diagram"
-import { Edo } from "../types"
-
-const font = "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
+import { Edo, Nominal } from "../types"
 
 program
-    .option("-e, --edo <number>", "edo")
-    .option("-f, --flavor <string>", "flavor")
+    .option("-e, --edo <number>", "edo number")
+    .option("-f, --flavor <string>", "flavor (Evo, Evo-SZ, or Revo)")
+    .option("-r, --root <string>", "root (F, C, G, D, A, E, or B; default C)", "c")
 
 program.parse()
-const { edo: edoString, flavor: flavorString }: { edo: string, flavor: string } = program.opts()
+const { edo: edoString, flavor: flavorString, root: rootString }: { edo: string, flavor: string, root: string } = program.opts()
 const edo: Edo = parseInt(edoString) as Edo
 const flavor: Flavor = flavorString.toLowerCase() as Flavor
+const root: Nominal = rootString.toLowerCase() as Nominal
 
-asyncGenerateDiagram({ edo, flavor }).then()
+asyncGenerateDiagram({ edo, flavor, root }).then()

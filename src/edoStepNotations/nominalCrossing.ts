@@ -2,7 +2,7 @@ import { Index, Maybe, Count } from "@sagittal/general"
 import { Link, Nominal, Whorl } from "../types"
 import { Difference } from "./types"
 import { NOMINALS } from "../constants"
-import { NOMINAL_COUNT } from "./constants"
+import { NOMINAL_COUNT, ENOUGH_WHORLS_TO_GUARANTEE_POSITIVE_VALUE_BEFORE_MODULUS } from "./constants"
 
 const NOMINALS_IN_CHROMATIC_ORDER: Nominal[] =
     NOMINALS.slice().sort()
@@ -14,8 +14,6 @@ const NOMINAL_INDEX_DIFFERENCE_FOR_NEXT_NOMINAL: Difference<Index<Nominal>> =
 const NOMINAL_INDEX_DIFFERENCE_FOR_NEXT_NOMINAL_WHEN_WRAPPING_FROM_G_BACK_TO_A: Difference<Index<Nominal>> =
     -6 as Difference<Index<Nominal>>
 
-const ENOUGH_WHORLS_TO_GUARANTEE_POSITIVE_VALUE_BEFORE_MODULUS: Count<Whorl> = 3 as Count<Whorl>
-
 const INDEX_OF_D_IN_NOMINALS_IN_CHROMATIC_ORDER: Index<Nominal> = NOMINALS_IN_CHROMATIC_ORDER.indexOf(Nominal.D) as Index<Nominal>
 
 const computeNominalIndex = (edoStepLinkIndex: Index<Link>): Index<Nominal> =>
@@ -25,7 +23,7 @@ const computeNominalIndex = (edoStepLinkIndex: Index<Link>): Index<Nominal> =>
         ]
     ) as Index<Nominal>
 
-const computeHaveNominalsCrossed = (edoStepLinkIndices: Maybe<Index<Link>>[]) => {
+const computeHaveNominalsCrossed = (edoStepLinkIndices: Maybe<Index<Link>>[]): boolean => {
     const edoStepLinkIndicesWithNoGaps: Index<Link>[] = edoStepLinkIndices.filter(
         (edoStepLinkIndex: Maybe<Index<Link>>): boolean =>
             edoStepLinkIndex !== undefined

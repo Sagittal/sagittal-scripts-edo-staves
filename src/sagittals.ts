@@ -1,3 +1,4 @@
+import { Count } from "@sagittal/general"
 import {
     Sagittal,
     parseSagitype,
@@ -9,9 +10,9 @@ import {
 } from "@sagittal/system";
 import { EdoStep } from "./types";
 
-const computeRequiredRevoSagittalCount = (sharpStep: EdoStep) => sharpStep % 2 == 0 ?
-    Math.floor(sharpStep / 2) - 1 :
-    Math.floor(sharpStep / 2)
+const computeRequiredRevoSagittalCount = (sharpStep: EdoStep): Count<Sagittal> => sharpStep % 2 == 0 ?
+    Math.floor(sharpStep / 2) - 1 as Count<Sagittal> :
+    Math.floor(sharpStep / 2) as Count<Sagittal>
 
 const computeSagittals = (
     { sagitypes, flavor, sharpStep }: { sagitypes: Sagitype[], flavor: Flavor, sharpStep: EdoStep }

@@ -11,7 +11,7 @@ const LINKS: Record<Index<Link>, Link> = Object.values(Whorl)
     )
     .flat()
     .reduce(
-        (links: Record<Index<Link>, Link>, link: Link, index: number) => {
+        (links: Record<Index<Link>, Link>, link: Link, index: number): Record<Index<Link>, Link> => {
             links[index + REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D as Index<Link>] = link
             return links
         },

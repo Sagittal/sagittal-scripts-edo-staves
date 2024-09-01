@@ -4,7 +4,7 @@ import { extractKeyInfoFromInputSentence } from "../helpers/extractKeyInfoFromIn
 import { Edo } from "../../src/types"
 
 describe("computeStaffCodeInputSentence computes the text as one would type into the StaffCode input box to produce a Sagittal EDO notation", (): void => {
-    describe("Evo notations", () => {
+    describe("Evo notations", (): void => {
         const flavor = Flavor.EVO
 
         it("works for 5-EDO Evo", (): void => {
@@ -247,7 +247,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         })
     })
 
-    describe("Evo-SZ notations", () => {
+    describe("Evo-SZ notations", (): void => {
         const flavor = Flavor.EVO_SZ
 
         it("works for 5-EDO Evo-SZ", (): void => {
@@ -490,7 +490,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         })
     })
 
-    describe("Revo notations", () => {
+    describe("Revo notations", (): void => {
         const flavor = Flavor.REVO
 
         it("works for 5-EDO Revo", (): void => {

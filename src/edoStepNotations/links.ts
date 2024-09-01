@@ -1,19 +1,27 @@
 import { Index, Maybe, Count } from "@sagittal/general"
-import { Edo, Link, EdoStep, EdoStepNotation } from "../types"
+import { Edo, Link, EdoStep, EdoStepNotation, Nominal } from "../types"
 import { Direction, ChainingState } from "./types"
 import { Sagittal } from "@sagittal/system"
 import { computeHaveNominalsCrossed } from "./nominalCrossing"
-import { NOMINAL_COUNT } from "./constants"
+import { NOMINAL_COUNT, ENOUGH_WHORLS_TO_GUARANTEE_POSITIVE_VALUE_BEFORE_MODULUS } from "./constants"
+import { NOMINALS } from "../constants"
+
+const computeDStep = ({ edo, fifthStep, root }: { edo: Edo, fifthStep: EdoStep, root: Nominal }) =>
+    (
+        ENOUGH_WHORLS_TO_GUARANTEE_POSITIVE_VALUE_BEFORE_MODULUS * edo +
+        fifthStep * (NOMINALS.indexOf(Nominal.D) - NOMINALS.indexOf(root))
+    ) % edo as EdoStep
 
 const computeLinkEdoStepNotationsFromEdoStepLinks = (edoStepLinkIndices: Index<Link>[]): EdoStepNotation[] =>
-    edoStepLinkIndices.map((linkIndex: Index<Link>) => ({ linkIndex, sagittalIndex: 0 as Index<Sagittal> }))
+    edoStepLinkIndices.map((linkIndex: Index<Link>): EdoStepNotation => ({ linkIndex, sagittalIndex: 0 as Index<Sagittal> }))
 
-const computeLinkEdoStepNotations = ({ edo, fifthStep, useOnlyPlainNominals }: {
+const computeLinkEdoStepNotations = ({ edo, fifthStep, useOnlyPlainNominals, root }: {
     edo: Edo,
     fifthStep: EdoStep,
     useOnlyPlainNominals: boolean,
+    root: Nominal,
 }): Maybe<EdoStepNotation>[] => {
-    const dStep: EdoStep = fifthStep * 2 % edo as EdoStep
+    const dStep: EdoStep = computeDStep({ edo, fifthStep, root })
 
     let edoStepLinkIndices: Maybe<Index<Link>>[] = Array(edo)
     edoStepLinkIndices[dStep] = 0 as Index<Link>

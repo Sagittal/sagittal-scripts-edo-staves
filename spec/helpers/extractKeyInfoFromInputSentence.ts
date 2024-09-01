@@ -1,4 +1,4 @@
-const extractKeyInfoFromInputSentence = (inputSentence: string) => {
+const extractKeyInfoFromInputSentence = (inputSentence: string): string => {
     return inputSentence
         .replace(/9;/g, "")
         .replace(/5;/g, "")

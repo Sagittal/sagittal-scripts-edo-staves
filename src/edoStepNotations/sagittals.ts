@@ -84,10 +84,10 @@ const addSagittalEdoStepNotations = (linkEdoStepNotations: Maybe<EdoStepNotation
         if (isNotationComplete) return
         const prioritySagittalIndex = sagittalZeroIndex + ZERO_ONE_INDEX_DIFF as Index<Sagittal>
 
-        LINK_RELATIVE_NOTATIONAL_PRIORITIES.forEach(({ linkIndex: priorityLinkIndex, direction }: Priority) => {
+        LINK_RELATIVE_NOTATIONAL_PRIORITIES.forEach(({ linkIndex: priorityLinkIndex, direction }: Priority): void => {
             if (isNotationComplete) return
 
-            edoStepNotations.forEach((edoStepNotation: Maybe<EdoStepNotation>, edoStep: number) => {
+            edoStepNotations.forEach((edoStepNotation: Maybe<EdoStepNotation>, edoStep: number): void => {
                 if (!edoStepNotation) return
 
                 const { linkIndex, sagittalIndex } = edoStepNotation
