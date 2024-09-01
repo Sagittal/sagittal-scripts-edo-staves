@@ -119,6 +119,8 @@ const placeAllOfGivenDirectedSagittal = (
 
         const { linkIndex, sagittalIndex } = edoStepNotation
         if (linkIndexRestriction !== undefined && linkIndex !== linkIndexRestriction) return
+        if (linkIndex >= 10 && way > 0) return
+        if (linkIndex <= -10 && way < 0) return
 
         if (way * sagittalIndex == placingSagittalIndex - 1) {
             const neighborIndex: Index<EdoStepNotation> = (edoStep + edo + way) % edo as Index<EdoStepNotation>

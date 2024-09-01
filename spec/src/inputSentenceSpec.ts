@@ -146,6 +146,26 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
+        it("works for 52-EDO Evo", (): void => {
+            const actual = computeStaffCodeInputSentence(52 as Edo, flavor)
+
+            const expected = `
+                ston 
+                5; Gcl ; 5; 
+                c4 5; 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; d4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; e4 9; bb ; nt ; 5; /|) ; bb ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; f4 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; g4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; en; bl nl; 
+                5; Gcl g4 ; 20; nt ;5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; a4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; b4 9; bb ; nt ; 5; /|) ; bb ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; c5 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 
+                8; en; blfn 
+                nl; 
+            `
+
+            expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
+        })
+
         it("works for 67-EDO Evo", (): void => {
             const actual = computeStaffCodeInputSentence(67 as Edo, flavor)
 
@@ -332,6 +352,26 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
+        it("works for 52-EDO Evo-SZ", (): void => {
+            const actual = computeStaffCodeInputSentence(52 as Edo, flavor)
+
+            const expected = `
+                ston 
+                5; Gcl ; 5; 
+                c4 5; 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; d4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; e4 9; bb ; nt ; 5; /|) ; bb ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; f4 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; g4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; en; bl nl; 
+                5; Gcl g4 ; 20; nt ;5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; a4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; b4 9; bb ; nt ; 5; /|) ; bb ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; c5 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 
+                8; en; blfn 
+                nl; 
+            `
+
+            expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
+        })
+
         it("works for 67-EDO Evo-SZ", (): void => {
             const actual = computeStaffCodeInputSentence(67 as Edo, flavor)
 
@@ -509,6 +549,26 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; b4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 9; en; bl 
                 5; c5 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 
                 3; en; bl 
+                nl; 
+            `
+
+            expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
+        })
+
+        it("works for 52-EDO Revo", (): void => {
+            const actual = computeStaffCodeInputSentence(52 as Edo, flavor)
+
+            const expected = `
+                ston 
+                5; Gcl ; 5; 
+                c4 5; 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; 5; /X\\ ; nt ; d4 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; 
+                bl 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; e4 5; \\Y/ ; nt ; 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; 
+                bl 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; f4 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; 
+                bl 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; 5; /X\\ ; nt ; g4 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; en; bl nl; 
+                5; Gcl g4 ; 20; nt ;5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; 5; /X\\ ; nt ; a4 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; 
+                bl 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; b4 5; \\Y/ ; nt ; 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; 
+                bl 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; c5 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 
+                8; en; blfn 
                 nl; 
             `
 
