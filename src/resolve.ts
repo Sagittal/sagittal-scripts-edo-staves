@@ -1,5 +1,5 @@
 import { Maybe, Index, ZERO_ONE_INDEX_DIFF } from "@sagittal/general"
-import { Flavor, Sagittal, computeAccidentalSagitype } from "@sagittal/system"
+import { FlagId, Shafts, Flavor, Sagittal, computeAccidentalSagitype } from "@sagittal/system"
 import { EdoStepNotation, Link, Whorl } from "./types"
 import { NOMINALS } from "./constants"
 
@@ -27,9 +27,24 @@ const computePositiveOrNegativeOrNullSagittal = (sagittals: Sagittal[], sagittal
     return undefined
 }
 
-const computeSagitypeString = (maybeSagittal: Maybe<Sagittal>): string => !maybeSagittal ? "" : computeAccidentalSagitype(maybeSagittal)
+const handleEvoSZ = (sagittal: Sagittal) =>
+    JSON.stringify(sagittal) == JSON.stringify({ shafts: Shafts.SINGLE, left: [FlagId.BARB], right: [FlagId.BARB] }) ? 
+        "t" : 
+        JSON.stringify(sagittal) == JSON.stringify({ shafts: Shafts.SINGLE, left: [FlagId.BARB], right: [FlagId.BARB], down: true }) ?
+            "d" :
+            computeAccidentalSagitype(sagittal)
 
-const computeWhorlString = (whorl: Whorl, { flavor }: { flavor: Flavor }) => whorl == Whorl.NATURAL || flavor == Flavor.REVO ? " " : whorl
+const computeSagitypeString = (maybeSagittal: Maybe<Sagittal>, { flavor }: { flavor: Flavor }): string =>
+    !maybeSagittal ?
+        "" :
+        flavor == Flavor.EVO_SZ ?
+            handleEvoSZ(maybeSagittal) :
+            computeAccidentalSagitype(maybeSagittal)
+
+const computeWhorlString = (whorl: Whorl, { flavor }: { flavor: Flavor }) =>
+    whorl == Whorl.NATURAL || flavor == Flavor.REVO ?
+        " " :
+        whorl
 
 const resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation = (
     edoStepNotations: EdoStepNotation[],
@@ -42,7 +57,7 @@ const resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation
         return {
             nominalString: nominal,
             whorlString: computeWhorlString(whorl, { flavor }),
-            sagitypeString: computeSagitypeString(maybeSagittal),
+            sagitypeString: computeSagitypeString(maybeSagittal, { flavor }),
         }
     })
 }
