@@ -27,7 +27,7 @@ enum Whorl {
     FLAT = "b",
     NATURAL = "n",
     SHARP = "#",
-    DOUBLE_SHARP = ".x",
+    DOUBLE_SHARP = "X",
 }
 
 enum Nominal {
