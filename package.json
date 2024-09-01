@@ -15,7 +15,8 @@
     "test-full": "node -r ts-node/register node_modules/jasmine/bin/jasmine --full=true",
     "test-full-names": "node -r ts-node/register node_modules/jasmine/bin/jasmine --full=true --names=true",
     "tmp": "node -r ts-node/register/transpile-only --max-old-space-size=131072 spec/helpers/shared/tmp/tmp.ts",
-    "generate-edo-staves": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateEdoStaves.ts"
+    "generate-edo-staves": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateEdoStaves.ts",
+    "generate-all-edo-staves": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateAllEdoStaves.ts"
   },
   "devDependencies": {
     "@sagittal/general": "^1.0.120",

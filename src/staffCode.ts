@@ -25,9 +25,19 @@ const computeNominalPart = (
     return nominalPart
 }
 
+// note: does not yet support Magrathean EDOs
+const handleDiacritics = (sagitypeString: string): string => 
+    sagitypeString
+        .replace(/'/g, "' ; ")
+        .replace(/\./g, ". ; ")
+        .replace(/``/g, "`` ; ")
+        .replace(/,,/g, ",, ; ")
+        .replace(/`/g, "` ; ")
+        .replace(/,/g, ", ; ")
+
 const computeSagittalPart = (sagitypeString: string): Io & Sentence =>
     sagitypeString.length ?
-        `5; ${sagitypeString} ; ` as Io & Sentence :
+        `5; ${handleDiacritics(sagitypeString)} ; ` as Io & Sentence :
         "9; " as Io & Sentence
 
 

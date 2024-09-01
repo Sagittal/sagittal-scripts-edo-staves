@@ -3,9 +3,9 @@ import { Edo, EdoNotationDefinition } from "./types"
 const EDO_NOTATION_DEFINITIONS: Record<Edo, EdoNotationDefinition> = {
     5: { sagitypes: [] },
     6: { supersetEdo: 12 },
-    7: { sagitypes: [] },
+    7: { isLimmaFraction: true, sagitypes: [] },
     8: { supersetEdo: 24 },
-    9: { sagitypes: ["|\\"] },
+    9: { isLimmaFraction: true, sagitypes: ["|\\"] },
     10: { sagitypes: ["(|\\"] },
     11: { supersetEdo: 22 },
     12: { sagitypes: [] },
@@ -105,7 +105,7 @@ const EDO_NOTATION_DEFINITIONS: Record<Edo, EdoNotationDefinition> = {
     270: { sagitypes: ["|(", ")|(", "~|(", "~~|", "/|", "|)", "|\\", "~|)", "(|(", "//|", "/|)", "/|\\", ")/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=4408#p4408
     311: { sagitypes: ["|(", ")|(", ")~|", "~|(", "~~|", "/|", "|)", "|\\", "(|", "(|(", "~|\\", "//|", "/|)", "/|\\", ")/|\\"] }, // https://forum.sagittal.org/viewtopic.php?p=4408#p4408
     494: { sagitypes: [")|", "|(", "~|", ")|(", ")~|", "~|(", "|~", ")|~", "/|", ")/|", "|)", ")|)", "|\\", "(|", "~|)", "/|~", "~|\\", "//|", ")//|", "/|)", "(|~", "/|\\", "(/|"] }, // https://forum.sagittal.org/viewtopic.php?p=877#p877
-    581: { sagitypes: ["'|", "|(", "')|", ")|(", "~|", ")~|", "|~", "~|(", "~~|", ",)/|", "|)", ",)|)", "|\\", ",~|)", "(|", "/|~", "(|(", "~|\\", "'~|\\", "//|", "')//|", "/|)", "'(|~", "/|\\", ",(/|"] }, // https://forum.sagittal.org/viewtopic.php?p=741#p741
+    581: { sagitypes: ["'|", "|(", "')|", ")|(", "~|", ")~|", "|~", "~|(", "~~|", ".)/|", "|)", ".)|)", "|\\", ".~|)", "(|", "/|~", "(|(", "~|\\", "'~|\\", "//|", "')//|", "/|)", "'(|~", "/|\\", ".(/|"] }, // https://forum.sagittal.org/viewtopic.php?p=741#p741
 } as Record<Edo, EdoNotationDefinition>
 
 export {
