@@ -1,14 +1,14 @@
 import { Index, Decimal } from "@sagittal/general";
 import { EdoStep, Link } from "../types"
 
-enum Direction {
+enum Way {
     UP = 1,
     DOWN = -1,
 }
 
 interface Priority {
     linkIndexRestriction?: Index<Link>,
-    direction: Direction,
+    way: Way,
 }
 
 interface ChainingState {
@@ -17,10 +17,10 @@ interface ChainingState {
 }
 
 type Difference<T = void> =
-    Decimal<{integer: true}> & {_DifferenceBrand: boolean} & (T extends void ? {} : {_DifferenceOfBrand: T})
+    Decimal<{ integer: true }> & { _DifferenceBrand: boolean } & (T extends void ? {} : { _DifferenceOfBrand: T })
 
 export {
-    Direction,
+    Way,
     Priority,
     ChainingState,
     Difference,

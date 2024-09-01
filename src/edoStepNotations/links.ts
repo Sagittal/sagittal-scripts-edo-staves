@@ -1,6 +1,6 @@
 import { Index, Maybe, Count } from "@sagittal/general"
 import { Edo, Link, EdoStep, EdoStepNotation, Nominal } from "../types"
-import { Direction, ChainingState } from "./types"
+import { Way, ChainingState } from "./types"
 import { Sagittal } from "@sagittal/system"
 import { computeHaveNominalsCrossed } from "./nominalCrossing"
 import { NOMINAL_COUNT, ENOUGH_WHORLS_TO_GUARANTEE_POSITIVE_VALUE_BEFORE_MODULUS } from "./constants"
@@ -28,10 +28,10 @@ const computeLinkEdoStepNotations = ({ edo, fifthStep, useOnlyPlainNominals, roo
     let candidateEdoStepLinkIndices: Maybe<Index<Link>>[] = Array(edo)
 
     let chainingState: ChainingState
-    let direction: Direction = Direction.UP
-    const chainingStates: Record<Direction, ChainingState> = {
-        [Direction.UP]: { edoStep: dStep, linkIndex: 0 as Index<Link> },
-        [Direction.DOWN]: { edoStep: dStep, linkIndex: 0 as Index<Link> },
+    let way: Way = Way.UP
+    const chainingStates: Record<Way, ChainingState> = {
+        [Way.UP]: { edoStep: dStep, linkIndex: 0 as Index<Link> },
+        [Way.DOWN]: { edoStep: dStep, linkIndex: 0 as Index<Link> },
     }
 
     let areLinksComplete: boolean = false
@@ -40,14 +40,14 @@ const computeLinkEdoStepNotations = ({ edo, fifthStep, useOnlyPlainNominals, roo
 
     while (!areLinksComplete) {
         candidateEdoStepLinkIndices = edoStepLinkIndices.slice()
-        chainingState = chainingStates[direction]
-        chainingState.edoStep = (chainingState.edoStep + edo + direction * fifthStep) % edo as EdoStep
+        chainingState = chainingStates[way]
+        chainingState.edoStep = (chainingState.edoStep + edo + way * fifthStep) % edo as EdoStep
 
         if (candidateEdoStepLinkIndices[chainingState.edoStep] !== undefined) {
             areLinksComplete = true
         } else {
             edoStepNotationsPlacedCount++
-            chainingState.linkIndex = chainingState.linkIndex + direction as Index<Link>
+            chainingState.linkIndex = chainingState.linkIndex + way as Index<Link>
             candidateEdoStepLinkIndices[chainingState.edoStep] = chainingState.linkIndex
         }
 
@@ -59,10 +59,10 @@ const computeLinkEdoStepNotations = ({ edo, fifthStep, useOnlyPlainNominals, roo
             edoStepLinkIndices = candidateEdoStepLinkIndices
         }
 
-        direction =
-            direction == Direction.UP ?
-                Direction.DOWN :
-                Direction.UP
+        way =
+            way == Way.UP ?
+                Way.DOWN :
+                Way.UP
     }
 
     return computeLinkEdoStepNotationsFromEdoStepLinks(
