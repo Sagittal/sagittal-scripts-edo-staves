@@ -1,4 +1,4 @@
-import { Maybe, Index, ZERO_ONE_INDEX_DIFF } from "@sagittal/general"
+import { Maybe, Index, ZERO_ONE_INDEX_DIFF, deepEquals } from "@sagittal/general"
 import { Flavor, Sagittal, computeAccidentalSagitype } from "@sagittal/system"
 import { EdoStepNotation, Link, Whorl } from "./types"
 import { NOMINALS, SAGITTAL_HALF_FLAT, SAGITTAL_HALF_SHARP } from "./constants"
@@ -28,9 +28,9 @@ const computePositiveOrNegativeOrNullSagittal = (sagittals: Sagittal[], sagittal
 }
 
 const handleEvoSZ = (sagittal: Sagittal) =>
-    JSON.stringify(sagittal) == JSON.stringify(SAGITTAL_HALF_SHARP) ? 
+    deepEquals(sagittal, SAGITTAL_HALF_SHARP) ? 
         "t" : 
-        JSON.stringify(sagittal) == JSON.stringify(SAGITTAL_HALF_FLAT) ?
+        deepEquals(sagittal, SAGITTAL_HALF_FLAT) ?
             "d" :
             computeAccidentalSagitype(sagittal)
 

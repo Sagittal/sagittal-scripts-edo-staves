@@ -1,19 +1,18 @@
 import { Count } from "@sagittal/general"
-import {
-    Sagittal,
-    parseSagitype,
-    Sagitype,
-    Flavor,
-    computeSymbolClassIdAndSectionFromSagittal,
-    computeRevoAccidentalFromCaptureZone,
-    SECTION_P1T,
-} from "@sagittal/system";
+import { Sagittal, parseSagitype, Sagitype, Flavor, computeApotomeComplement, Shafts } from "@sagittal/system";
 import { EdoStep } from "./types";
-import { SAGITTAL_SHARP } from "./constants" 
+import { SAGITTAL_SHARP } from "./constants"
 
 const computeRequiredRevoSagittalCount = (sharpStep: EdoStep): Count<Sagittal> => sharpStep % 2 == 0 ?
     Math.floor(sharpStep / 2) - 1 as Count<Sagittal> :
     Math.floor(sharpStep / 2) as Count<Sagittal>
+
+const shiftedSagittal = (sagittal: Sagittal): Sagittal => ({
+    ...sagittal,
+    shafts: sagittal.shafts == Shafts.SINGLE ?
+        Shafts.TRIPLE :
+        Shafts.EX
+})
 
 const computeSagittals = (
     { sagitypes, flavor, sharpStep }: { sagitypes: Sagitype[], flavor: Flavor, sharpStep: EdoStep }
@@ -24,17 +23,20 @@ const computeSagittals = (
         return sagittals
     }
 
-    sagittals.slice(0, computeRequiredRevoSagittalCount(sharpStep)).reverse().forEach((sagittal: Sagittal): void => {
-        const [symbolClassId, _] = computeSymbolClassIdAndSectionFromSagittal(sagittal)
-        sagittals.push(computeRevoAccidentalFromCaptureZone(symbolClassId, SECTION_P1T))
-    })
+    sagittals
+        .slice(0, computeRequiredRevoSagittalCount(sharpStep))
+        .reverse()
+        .forEach((sagittal: Sagittal): void => {
+            sagittals.push(computeApotomeComplement(sagittal) as Sagittal)
+        })
 
     sagittals.push(SAGITTAL_SHARP)
 
-    sagittals.slice().forEach((sagittal: Sagittal): void => {
-        const [symbolClassId, section] = computeSymbolClassIdAndSectionFromSagittal(sagittal)
-        sagittals.push(computeRevoAccidentalFromCaptureZone(symbolClassId, { ...section, shifted: true }))
-    })
+    sagittals
+        .slice()
+        .forEach((sagittal: Sagittal): void => {
+            sagittals.push(shiftedSagittal(sagittal))
+        })
 
     return sagittals
 }
