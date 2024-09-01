@@ -25,7 +25,7 @@ interface EdoStepNotation {
 enum Whorl {
     DOUBLE_FLAT = "bb",
     FLAT = "b",
-    NATURAL = "n",
+    NATURAL = "",
     SHARP = "#",
     DOUBLE_SHARP = "X",
 }

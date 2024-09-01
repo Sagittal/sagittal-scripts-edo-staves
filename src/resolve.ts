@@ -27,24 +27,49 @@ const computePositiveOrNegativeOrNullSagittal = (sagittals: Sagittal[], sagittal
     return undefined
 }
 
-const handleEvoSZ = (sagittal: Sagittal) =>
-    deepEquals(sagittal, SAGITTAL_HALF_SHARP) ? 
-        "t" : 
-        deepEquals(sagittal, SAGITTAL_HALF_FLAT) ?
-            "d" :
-            computeAccidentalSagitype(sagittal)
-
-const computeSagitypeString = (maybeSagittal: Maybe<Sagittal>, { flavor }: { flavor: Flavor }): string =>
+const computeSagitypeString = (maybeSagittal: Maybe<Sagittal>): string =>
     !maybeSagittal ?
         "" :
-        flavor == Flavor.EVO_SZ ?
-            handleEvoSZ(maybeSagittal) :
-            computeAccidentalSagitype(maybeSagittal)
+        computeAccidentalSagitype(maybeSagittal)
 
 const computeWhorlString = (whorl: Whorl, { flavor }: { flavor: Flavor }) =>
-    whorl == Whorl.NATURAL || flavor == Flavor.REVO ?
+    flavor == Flavor.REVO ?
         "" :
         whorl
+
+const handleGeneralSagitypeAndWhorlStrings = (
+    { maybeSagittal, whorl, flavor }: { maybeSagittal: Maybe<Sagittal>, whorl: Whorl, flavor: Flavor }
+): { sagitypeString: string, whorlString: string } =>
+    ({ sagitypeString: computeSagitypeString(maybeSagittal), whorlString: computeWhorlString(whorl, { flavor }) })
+
+
+const computeEvoSZSagitypeAndWhorlStrings = (
+    { maybeSagittal, whorl, flavor }: { maybeSagittal: Maybe<Sagittal>, whorl: Whorl, flavor: Flavor }
+): { sagitypeString: string, whorlString: string } => {
+    const isHalfSharp = deepEquals(maybeSagittal, SAGITTAL_HALF_SHARP);
+    const isHalfFlat = deepEquals(maybeSagittal, SAGITTAL_HALF_FLAT);
+
+    if (whorl === Whorl.DOUBLE_SHARP && isHalfFlat) {
+        return { sagitypeString: "", whorlString: "t#" };
+    } else if (whorl === Whorl.SHARP && (isHalfSharp || isHalfFlat)) {
+        return { sagitypeString: "", whorlString: isHalfSharp ? "t#" : "t" };
+    } else if (whorl === Whorl.NATURAL && (isHalfSharp || isHalfFlat)) {
+        return { sagitypeString: "", whorlString: isHalfSharp ? "t" : "d" };
+    } else if (whorl === Whorl.FLAT && (isHalfSharp || isHalfFlat)) {
+        return { sagitypeString: "", whorlString: isHalfSharp ? "d" : "db" };
+    } else if (whorl === Whorl.DOUBLE_FLAT && isHalfFlat) {
+        return { sagitypeString: "", whorlString: "db" };
+    } else {
+        return handleGeneralSagitypeAndWhorlStrings({ maybeSagittal, whorl, flavor })
+    }
+}
+
+const computeSagitypeAndWhorlStrings = (
+    { maybeSagittal, whorl, flavor }: { maybeSagittal: Maybe<Sagittal>, whorl: Whorl, flavor: Flavor }
+): { sagitypeString: string, whorlString: string } =>
+    flavor === Flavor.EVO_SZ ?
+        computeEvoSZSagitypeAndWhorlStrings({ maybeSagittal, whorl, flavor }) :
+        handleGeneralSagitypeAndWhorlStrings({ maybeSagittal, whorl, flavor })
 
 const resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation = (
     edoStepNotations: EdoStepNotation[],
@@ -54,13 +79,15 @@ const resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation
         const maybeSagittal: Maybe<Sagittal> = computePositiveOrNegativeOrNullSagittal(sagittals, sagittalIndex)
         const { nominal, whorl }: Link = LINKS[linkIndex]
 
+        const { sagitypeString, whorlString } = computeSagitypeAndWhorlStrings({ maybeSagittal, whorl, flavor })
+
         return {
             // TODO: possibly here we should handle the c4 vs c5 stuff, so that everything here is actually at least a staffcode Word. 
             // but then the sagitype string would actually need to be a list thereof, and accents be handled here too. 
             // and maybe it is better that this is left as a Nominal so the next layer can determine whether a nominal staffcode word is required...
             nominalString: nominal,
-            whorlString: computeWhorlString(whorl, { flavor }),
-            sagitypeString: computeSagitypeString(maybeSagittal, { flavor }),
+            whorlString,
+            sagitypeString,
         }
     })
 }

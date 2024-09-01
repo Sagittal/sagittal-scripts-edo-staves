@@ -361,15 +361,15 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
             const expected = `
                 ston 
                 5; Gcl ; 5; 
-                c4 5; 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; t ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 5; t ; # ; nt ; d4 5; !) ; nt ; 5; \\! ; nt ; 9; 
-                bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; t ; nt ; e4 5; !) ; b ; nt ; 5; \\! ; b ; nt ; 9; b ; nt ; 5; /| ; b ; nt ; 5; |) ; b ; nt ; 5; t ; b ; nt ; 5; !) ; nt ; 5; \\! ; nt ; 9; 
-                bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; t ; nt ; f4 5; !) ; nt ; 5; \\! ; nt ; 9; en; bl nl; 
-                5; Gcl f4 ; 20; nt ;5; /| ; nt ; 5; |) ; nt ; 5; t ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 5; t ; # ; nt ; g4 5; !) ; nt ; 5; \\! ; nt ; 9; 
-                bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; t ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 5; t ; # ; nt ; a4 5; !) ; nt ; 5; \\! ; nt ; 9; 
-                bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; t ; nt ; b4 5; !) ; b ; nt ; 5; \\! ; b ; nt ; 9; b ; nt ; 5; /| ; b ; nt ; 5; |) ; b ; nt ; 5; t ; b ; nt ; 5; !) ; nt ; 5; \\! ; nt ; 9; en; bl nl; 
-                5; Gcl b4 ; 20; nt ;5; /| ; nt ; 5; |) ; nt ; 5; t ; nt ; c5 5; !) ; nt ; 5; \\! ; nt ; 
+                c4 5; 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 9; t ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 9; t# ; nt ; d4 5; !) ; nt ; 5; \\! ; nt ; 9; 
+                bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 9; t ; nt ; e4 5; !) ; b ; nt ; 5; \\! ; b ; nt ; 9; b ; nt ; 5; /| ; b ; nt ; 5; |) ; b ; nt ; 9; d ; nt ; 5; !) ; nt ; 5; \\! ; nt ; 9; 
+                bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 9; t ; nt ; f4 5; !) ; nt ; 5; \\! ; nt ; 9; en; bl nl; 
+                5; Gcl f4 ; 20; nt ;5; /| ; nt ; 5; |) ; nt ; 9; t ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 9; t# ; nt ; g4 5; !) ; nt ; 5; \\! ; nt ; 9; 
+                bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 9; t ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 9; t# ; nt ; a4 5; !) ; nt ; 5; \\! ; nt ; 9; 
+                bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 9; t ; nt ; b4 5; !) ; b ; nt ; 5; \\! ; b ; nt ; 9; b ; nt ; 5; /| ; b ; nt ; 5; |) ; b ; nt ; 9; d ; nt ; 5; !) ; nt ; 5; \\! ; nt ; 9; en; bl nl; 
+                5; Gcl b4 ; 20; nt ;5; /| ; nt ; 5; |) ; nt ; 9; t ; nt ; c5 5; !) ; nt ; 5; \\! ; nt ; 
                 8; en; blfn 
-                nl; 
+                nl;
             `
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
