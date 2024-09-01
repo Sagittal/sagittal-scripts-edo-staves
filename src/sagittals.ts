@@ -9,6 +9,7 @@ import {
     SECTION_P1T,
 } from "@sagittal/system";
 import { EdoStep } from "./types";
+import { SAGITTAL_SHARP } from "./constants" 
 
 const computeRequiredRevoSagittalCount = (sharpStep: EdoStep): Count<Sagittal> => sharpStep % 2 == 0 ?
     Math.floor(sharpStep / 2) - 1 as Count<Sagittal> :
@@ -28,7 +29,7 @@ const computeSagittals = (
         sagittals.push(computeRevoAccidentalFromCaptureZone(symbolClassId, SECTION_P1T))
     })
 
-    sagittals.push(parseSagitype("/||\\" as Sagitype))
+    sagittals.push(SAGITTAL_SHARP)
 
     sagittals.slice().forEach((sagittal: Sagittal): void => {
         const [symbolClassId, section] = computeSymbolClassIdAndSectionFromSagittal(sagittal)

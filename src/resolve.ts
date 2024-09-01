@@ -1,7 +1,7 @@
 import { Maybe, Index, ZERO_ONE_INDEX_DIFF } from "@sagittal/general"
-import { FlagId, Shafts, Flavor, Sagittal, computeAccidentalSagitype } from "@sagittal/system"
+import { Flavor, Sagittal, computeAccidentalSagitype } from "@sagittal/system"
 import { EdoStepNotation, Link, Whorl } from "./types"
-import { NOMINALS } from "./constants"
+import { NOMINALS, SAGITTAL_HALF_FLAT, SAGITTAL_HALF_SHARP } from "./constants"
 
 const REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D: Index<Link> = -17 as Index<Link>
 
@@ -28,9 +28,9 @@ const computePositiveOrNegativeOrNullSagittal = (sagittals: Sagittal[], sagittal
 }
 
 const handleEvoSZ = (sagittal: Sagittal) =>
-    JSON.stringify(sagittal) == JSON.stringify({ shafts: Shafts.SINGLE, left: [FlagId.BARB], right: [FlagId.BARB] }) ? 
+    JSON.stringify(sagittal) == JSON.stringify(SAGITTAL_HALF_SHARP) ? 
         "t" : 
-        JSON.stringify(sagittal) == JSON.stringify({ shafts: Shafts.SINGLE, left: [FlagId.BARB], right: [FlagId.BARB], down: true }) ?
+        JSON.stringify(sagittal) == JSON.stringify(SAGITTAL_HALF_FLAT) ?
             "d" :
             computeAccidentalSagitype(sagittal)
 
