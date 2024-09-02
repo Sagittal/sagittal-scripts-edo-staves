@@ -1,7 +1,5 @@
 import { Maybe, Index, ZERO_ONE_INDEX_DIFF, deepEquals } from "@sagittal/general"
-import { Flavor, Sagittal, computeAccidentalSagitype } from "@sagittal/system"
-import { EdoStepNotation, Link, Whorl } from "./types"
-import { NOMINALS, SAGITTAL_HALF_FLAT, SAGITTAL_HALF_SHARP } from "./constants"
+import { Flavor, Sagittal, computeAccidentalSagitype, EdoStepNotation, Link, Whorl, NOMINALS, SAGITTAL_HALF_FLAT, SAGITTAL_HALF_SHARP } from "@sagittal/system"
 
 const REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D: Index<Link> = -17 as Index<Link>
 

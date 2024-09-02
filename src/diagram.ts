@@ -1,9 +1,10 @@
 import * as fs from "fs"
 import { computeInputSentenceUnicode } from "staff-code"
 import { Filename, Io, Sentence, textToSvg, Unicode } from "@sagittal/general"
-import { Flavor } from "@sagittal/system"
-import { Edo, Nominal } from "./types"
+import { Edo, Nominal, Flavor } from "@sagittal/system"
 import { computeStaffCodeInputSentence } from "./inputSentence"
+
+// TODO: use isUndefined
 
 const font = "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
 

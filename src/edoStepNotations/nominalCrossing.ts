@@ -1,7 +1,6 @@
-import { Index, Maybe, Count } from "@sagittal/general"
-import { Link, Nominal, Whorl } from "../types"
+import { Index, Maybe } from "@sagittal/general"
+import { Link, Nominal, NOMINALS } from "@sagittal/system"
 import { Difference } from "./types"
-import { NOMINALS } from "../constants"
 import { NOMINAL_COUNT, ENOUGH_WHORLS_TO_GUARANTEE_POSITIVE_VALUE_BEFORE_MODULUS } from "./constants"
 
 const NOMINALS_IN_CHROMATIC_ORDER: Nominal[] =

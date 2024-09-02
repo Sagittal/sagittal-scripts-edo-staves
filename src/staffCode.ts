@@ -1,6 +1,6 @@
 import { computeCodeWordWidth } from "staff-code"
 import { Io, Sentence, Count } from "@sagittal/general"
-import { Nominal } from "./types"
+import { Nominal } from "../../../system/src/notations/edo/types"
 
 const NOTES_PER_SYSTEM: Count = 27 as Count
 

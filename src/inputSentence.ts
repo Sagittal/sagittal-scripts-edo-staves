@@ -1,13 +1,24 @@
 import { Io, Sentence } from "@sagittal/general"
-import { Flavor, Sagittal, Sagitype } from "@sagittal/system"
-import { EdoStepNotation, Edo, EdoStep, EdoNotationDefinition, Nominal } from "./types"
-import { computeFifthStep, computeSharpStep } from "./steps"
-import { EDO_NOTATION_DEFINITIONS } from "./definitions"
+import {
+    Flavor,
+    Sagittal,
+    Sagitype,
+    EdoStepNotation,
+    Edo,
+    EdoStep,
+    EdoNotationDefinition,
+    Nominal,
+    computeFifthStep,
+    computeSharpStep,
+    EDO_NOTATION_DEFINITIONS,
+    computeSagittals,
+    isSubsetNotation,
+    computeSubsetSagitypes,
+    computeSubsetEdoStepNotations
+} from "@sagittal/system"
 import { computeEdoStepNotations } from "./edoStepNotations"
 import { resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation } from "./resolve"
 import { assembleAsStaffCodeInputSentence } from "./staffCode"
-import { computeSagittals } from "./sagittals"
-import { isSubsetNotation, computeSubsetSagitypes, computeSubsetEdoStepNotations } from "./subset"
 
 const computeSagitypes = (edoNotationDefinition: EdoNotationDefinition): Sagitype[] =>
     isSubsetNotation(edoNotationDefinition) ?

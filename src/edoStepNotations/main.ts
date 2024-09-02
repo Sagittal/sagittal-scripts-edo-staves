@@ -1,8 +1,6 @@
-import { Flavor, Sagittal } from "@sagittal/system"
-import { EdoStepNotation, Edo, EdoStep, NonSubsetEdoNotationDefinition, Nominal } from "../types"
+import { Flavor, Sagittal, EdoStepNotation, Edo, EdoStep, NonSubsetEdoNotationDefinition, Nominal, EDO_NOTATION_DEFINITIONS } from "@sagittal/system"
 import { computeLinkEdoStepNotations } from "./links"
 import { placeSagittalEdoStepNotations } from "./sagittals"
-import { EDO_NOTATION_DEFINITIONS } from "../definitions";
 
 const computeIsLimmaNotation = (edo: Edo) =>
     !!(<NonSubsetEdoNotationDefinition>EDO_NOTATION_DEFINITIONS[edo]).isLimmaFraction

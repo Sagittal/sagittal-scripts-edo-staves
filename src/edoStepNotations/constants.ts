@@ -1,6 +1,5 @@
 import { Count } from "@sagittal/general"
-import { NOMINALS } from "../constants"
-import { Nominal, Whorl } from "../types"
+import { NOMINALS, Nominal, Whorl } from "@sagittal/system"
 
 const NOMINAL_COUNT: Count<Nominal> = NOMINALS.length as Count<Nominal>
 

@@ -1,10 +1,8 @@
 import { Index, Maybe, Count } from "@sagittal/general"
-import { Edo, Link, EdoStep, EdoStepNotation, Nominal } from "../types"
+import { Sagittal, Edo, Link, EdoStep, EdoStepNotation, Nominal, NOMINALS } from "@sagittal/system"
 import { Way, ChainingState } from "./types"
-import { Sagittal } from "@sagittal/system"
 import { computeHaveNominalsCrossed } from "./nominalCrossing"
 import { NOMINAL_COUNT, ENOUGH_WHORLS_TO_GUARANTEE_POSITIVE_VALUE_BEFORE_MODULUS } from "./constants"
-import { NOMINALS } from "../constants"
 
 const computeDStep = ({ edo, fifthStep, root }: { edo: Edo, fifthStep: EdoStep, root: Nominal }) =>
     (

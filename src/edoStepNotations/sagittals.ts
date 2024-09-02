@@ -1,6 +1,5 @@
 import { Count, Index, ZERO_ONE_INDEX_DIFF, computeRange } from "@sagittal/general"
-import { Sagittal } from "@sagittal/system"
-import { Edo, EdoStep, EdoStepNotation, Link } from "../types"
+import { Edo, EdoStep, EdoStepNotation, Link, Sagittal } from "@sagittal/system"
 import { Priority, Way } from "./types"
 
 const WAY_PRIORITIES: Priority[] = Object.values(Way)

@@ -1,7 +1,7 @@
 import { program } from "commander"
 import { Flavor } from "@sagittal/system"
 import { asyncGenerateDiagram } from "../diagram"
-import { Edo, Nominal } from "../types"
+import { Edo, Nominal } from "../../../../system/src/notations/edo/types"
 
 program
     .option("-e, --edo <number>", "edo number")

@@ -1,7 +1,7 @@
 import { computeStaffCodeInputSentence } from "../../src/inputSentence"
 import { Flavor } from "@sagittal/system"
 import { extractKeyInfoFromInputSentence } from "../helpers/extractKeyInfoFromInputSentence"
-import { Edo } from "../../src/types"
+import { Edo } from "../../../../system/src/notations/edo/types"
 
 describe("computeStaffCodeInputSentence computes the text as one would type into the StaffCode input box to produce a Sagittal EDO notation", (): void => {
     describe("Evo notations", (): void => {
