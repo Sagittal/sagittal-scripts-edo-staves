@@ -33,6 +33,29 @@ const computeStaffCodeInputSentence = (inputEdo: Edo, flavor: Flavor, { root }: 
     // - for each column, determine the max width
     // - then modify the `assemble...` function below to take this width and staff breaks into account
 
+    const subsetFactor = edo / inputEdo
+
+    const wholeStep = 2 * fifthStep % edo
+    const limmaStep = (wholeStep + edo - sharpStep) % edo
+    const THING = [
+        { whole: 1, limma: 0 }, // large
+        { whole: 1, limma: 1 }, // medium-large
+        { whole: 2, limma: 1 }, // medium-medium
+        { whole: 3, limma: 2 }, // medium-small
+        { whole: 5, limma: 2 }, // small
+    ]
+    const MAX = 18
+    const THING_TYPES = ["large", "large-medium", "medium-medium", "small-medium", "small"]
+
+    let chosenThingIndex = 0
+    THING.forEach((thing, thingIndex) => {
+        if ((thing.whole * wholeStep + thing.limma * limmaStep) / subsetFactor <= MAX) {
+            chosenThingIndex = thingIndex
+        }
+    })
+    // if (chosenThingIndex == undefined) chosenThingIndex = 4
+    // console.log("edo: ", inputEdo, " CD: ", wholeStep, "EF: ", limmaStep, " thing: ", THING_TYPES[chosenThingIndex])
+
     return assembleAsStaffCodeInputSentence(intermediateStringForm, { root })
 }
 

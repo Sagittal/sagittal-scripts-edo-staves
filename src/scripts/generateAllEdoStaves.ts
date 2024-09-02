@@ -11,8 +11,20 @@ program.parse()
 const { root: rootString }: { root: string } = program.opts()
 const root: Nominal = rootString.toLowerCase() as Nominal
 
-Object.values(Flavor).forEach((flavor: Flavor) =>
-    Object.keys(EDO_NOTATION_DEFINITIONS).forEach(async (edoString: string): Promise<void> =>
-        await asyncGenerateDiagram({ edo: parseInt(edoString) as Edo, flavor, root })
-    )
-)
+const EDOS: Edo[] = Object.keys(EDO_NOTATION_DEFINITIONS)
+    .map((edoString: string): Edo => parseInt(edoString) as Edo);
+    // .sort((a, b) => a - b)
+    
+// console.log(EDOS)
+
+    // Object.values(Flavor).forEach(async (flavor: Flavor) => {
+    // Object.keys(EDO_NOTATION_DEFINITIONS).forEach(async (edoString: string): Promise<void> =>
+    //     await asyncGenerateDiagram({ edo: parseInt(edoString) as Edo, flavor, root })
+    // )
+    (async () => {
+        for (const edo of EDOS) {
+            // console.log(edo)
+            await asyncGenerateDiagram({ edo, flavor: Flavor.EVO, root })
+        }
+    })()
+// })

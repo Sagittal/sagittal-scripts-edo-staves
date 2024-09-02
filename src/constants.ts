@@ -8,6 +8,8 @@ const SAGITTAL_HALF_SHARP: Sagittal = { shafts: Shafts.SINGLE, left: [FlagId.BAR
 const SAGITTAL_FLAT: Sagittal = { ...SAGITTAL_SHARP, down: true }
 const SAGITTAL_HALF_FLAT: Sagittal = { ...SAGITTAL_HALF_SHARP, down: true }
 
+// TODO: use isUndefined
+
 export {
     NOMINALS,
     SAGITTAL_SHARP,
