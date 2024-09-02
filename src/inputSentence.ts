@@ -52,7 +52,7 @@ const computeStaffCodeInputSentence = (inputEdo: Edo, flavor: Flavor, { root }: 
         { whole: 1, limma: 0 }, // large
         { whole: 1, limma: 1 }, // medium-large
         { whole: 2, limma: 1 }, // medium-medium
-        { whole: 3, limma: 2 }, // medium-small
+        { whole: 3, limma: 1 }, // medium-small
         { whole: 5, limma: 2 }, // small
     ]
     const MAX = 18
