@@ -1,4 +1,4 @@
-import { Count, Index, ZERO_ONE_INDEX_DIFF, computeRange } from "@sagittal/general"
+import { Count, Index, ZERO_ONE_INDEX_DIFF, computeRange, isUndefined } from "@sagittal/general"
 import { Edo, EdoStep, EdoStepNotation, Link, Sagittal } from "@sagittal/system"
 import { Priority, Way } from "./types"
 
@@ -78,34 +78,25 @@ const computeIsNotationComplete = (edoStepNotations: EdoStepNotation[]) =>
         0 as Count<EdoStepNotation>
     ) == edoStepNotations.length as Count<EdoStepNotation>
 
-const equalGapsBetweenLinks = (linkEdoStepNotations: EdoStepNotation[]): boolean =>
-    computeRange(linkEdoStepNotations.length as Edo).reduce(
-        (
-            {
-                allPreviousGapSizes,
-                currentGapSize,
-                equalGapsBetweenLinks
-            }: { allPreviousGapSizes: Count<EdoStep>, currentGapSize: Count<EdoStep>, equalGapsBetweenLinks: boolean },
-            i: number
-        ): { allPreviousGapSizes: Count<EdoStep>, currentGapSize: Count<EdoStep>, equalGapsBetweenLinks: boolean } => {
-            if (!equalGapsBetweenLinks) return { allPreviousGapSizes, currentGapSize, equalGapsBetweenLinks }
+const equalGapsBetweenLinks = (linkEdoStepNotations: EdoStepNotation[]): boolean => {
+    let allPreviousGapSizes: Count<EdoStep>
+    let currentGapSize: Count<EdoStep> = 0 as Count<EdoStep>
+    let equalGapsBetweenLinks: boolean = true
 
-            if (linkEdoStepNotations[i]) {
-                if (!allPreviousGapSizes) allPreviousGapSizes = currentGapSize
-                if (currentGapSize != allPreviousGapSizes) equalGapsBetweenLinks = false
-                currentGapSize = 0 as Count<EdoStep>
-            } else {
-                currentGapSize++
-            }
+    computeRange(1 as EdoStep, linkEdoStepNotations.length as Edo).forEach((i: number): void => {
+        if (!equalGapsBetweenLinks) return
 
-            return { allPreviousGapSizes, currentGapSize, equalGapsBetweenLinks }
-        },
-        {
-            allPreviousGapSizes: undefined as any as Count<EdoStep>,
-            currentGapSize: 0 as Count<EdoStep>,
-            equalGapsBetweenLinks: true
+        if (linkEdoStepNotations[i]) {
+            if (isUndefined(allPreviousGapSizes)) allPreviousGapSizes = currentGapSize
+            if (currentGapSize != allPreviousGapSizes) equalGapsBetweenLinks = false
+            currentGapSize = 0 as Count<EdoStep>
+        } else {
+            currentGapSize++
         }
-    ).equalGapsBetweenLinks
+    })
+
+    return equalGapsBetweenLinks
+}
 
 const placeAllOfGivenDirectedSagittal = (
     edoStepNotations: EdoStepNotation[],
@@ -114,16 +105,16 @@ const placeAllOfGivenDirectedSagittal = (
     { edo, linkIndexRestriction }: { edo: Edo, linkIndexRestriction?: Index<Link> }
 ): void =>
     edoStepNotations.forEach((edoStepNotation: EdoStepNotation, edoStep: number): void => {
-        if (!edoStepNotation) return
+        if (isUndefined(edoStepNotation)) return
 
         const { linkIndex, sagittalIndex } = edoStepNotation
-        if (linkIndexRestriction !== undefined && linkIndex !== linkIndexRestriction) return
+        if (!isUndefined(linkIndexRestriction) && linkIndex !== linkIndexRestriction) return
         if (linkIndex >= 10 && way > 0) return
         if (linkIndex <= -10 && way < 0) return
 
         if (way * sagittalIndex == placingSagittalIndex - 1) {
             const neighborIndex: Index<EdoStepNotation> = (edoStep + edo + way) % edo as Index<EdoStepNotation>
-            if (!edoStepNotations[neighborIndex]) {
+            if (isUndefined(edoStepNotations[neighborIndex])) {
                 edoStepNotations[neighborIndex] = {
                     linkIndex,
                     sagittalIndex: way * placingSagittalIndex as Index<Sagittal>,

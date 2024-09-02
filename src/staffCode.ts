@@ -56,7 +56,7 @@ const computeNotePart = (
 ): Io & Sentence => {
     let notePart: Io & Sentence
 
-    if (!sagitypeString.length && !whorlString.length && notationState.noteCount != 0) {
+    if (sagitypeString.length == 0 && whorlString.length == 0 && notationState.noteCount != 0) {
         if (notationState.noteCount > notationState.noteCountPastWhichBreakSystem) {
             notationState.noteCountPastWhichBreakSystem = notationState.noteCountPastWhichBreakSystem + NOTES_PER_SYSTEM as Count
             notePart = `en; bl nl; \n5; Gcl ${computeNominalStaffCode(notationState)} ; 20; nt ;` as Io & Sentence
@@ -81,15 +81,12 @@ const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, st
     }
 
     return `ston \n5; Gcl ; 5; \n${root}4 5; ` + intermediateStringForm.reduce(
-        (inputSentence, { nominalString, whorlString, sagitypeString }: Record<any, string>): Io & Sentence => {
-            // TODO: clean up. this was just a proof of concept to see if we can get this info
-            // sagitypeString.length && console.log("sagitypeString: ", sagitypeString, " width: ", computeCodeWordWidth(sagitypeString))
-            return inputSentence +
-                computeNominalPart(nominalString, { notationState }) +
-                computeSagittalPart(sagitypeString) +
-                computeWhorlPart(whorlString) +
-                computeNotePart({ sagitypeString, whorlString, notationState }) as Io & Sentence
-        },
+        (inputSentence, { nominalString, whorlString, sagitypeString }: Record<any, string>): Io & Sentence =>
+            inputSentence +
+            computeNominalPart(nominalString, { notationState }) +
+            computeSagittalPart(sagitypeString) +
+            computeWhorlPart(whorlString) +
+            computeNotePart({ sagitypeString, whorlString, notationState }) as Io & Sentence,
         "" as Io & Sentence
     ) + "\n8; en; blfn \nnl; " as Io & Sentence
 }

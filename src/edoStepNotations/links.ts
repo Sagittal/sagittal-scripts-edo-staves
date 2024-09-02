@@ -1,4 +1,4 @@
-import { Index, Maybe, Count } from "@sagittal/general"
+import { Index, Maybe, Count, isUndefined } from "@sagittal/general"
 import { Sagittal, Edo, Link, EdoStep, EdoStepNotation, Nominal, NOMINALS } from "@sagittal/system"
 import { Way, ChainingState } from "./types"
 import { computeHaveNominalsCrossed } from "./nominalCrossing"
@@ -41,7 +41,7 @@ const computeLinkEdoStepNotations = ({ edo, fifthStep, useOnlyPlainNominals, roo
         chainingState = chainingStates[way]
         chainingState.edoStep = (chainingState.edoStep + edo + way * fifthStep) % edo as EdoStep
 
-        if (candidateEdoStepLinkIndices[chainingState.edoStep] !== undefined) {
+        if (!isUndefined(candidateEdoStepLinkIndices[chainingState.edoStep])) {
             areLinksComplete = true
         } else {
             edoStepNotationsPlacedCount++

@@ -5,8 +5,6 @@ import { Filename, Io, Sentence, textToSvg, Unicode } from "@sagittal/general"
 import { Edo, Nominal, Flavor } from "@sagittal/system"
 import { computeStaffCodeInputSentence } from "./inputSentence"
 
-// TODO: use isUndefined
-
 const font = "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
 
 const asyncGenerateDiagram = async ({ edo, flavor, root }: { edo: Edo, flavor: Flavor, root: Nominal }): Promise<void> => {
@@ -20,7 +18,7 @@ const asyncGenerateDiagram = async ({ edo, flavor, root }: { edo: Edo, flavor: F
     // const parser = new DOMParser();
     // const svgDoc = parser.parseFromString(svgString, "image/svg+xml");
     // const svg = svgDoc.getElementsByTagName("svg")[0]
-    // if (!svg) return
+    // if (isUndefined(svg)) return
     // svg.setAttribute("height", `${(parseInt(svg.getAttribute("height") || "0") * 2)}`)
     // svg.setAttribute("width", `${(parseInt(svg.getAttribute("width") || "0") * 2)}`)
     // const g = svgDoc.getElementsByTagName("g")[0]

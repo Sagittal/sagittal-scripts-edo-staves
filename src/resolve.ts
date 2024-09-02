@@ -1,4 +1,4 @@
-import { Maybe, Index, ZERO_ONE_INDEX_DIFF, deepEquals } from "@sagittal/general"
+import { Maybe, Index, ZERO_ONE_INDEX_DIFF, deepEquals, isUndefined } from "@sagittal/general"
 import { Flavor, Sagittal, computeAccidentalSagitype, EdoStepNotation, Link, Whorl, NOMINALS, SAGITTAL_HALF_FLAT, SAGITTAL_HALF_SHARP } from "@sagittal/system"
 
 const REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D: Index<Link> = -17 as Index<Link>
@@ -26,7 +26,7 @@ const computePositiveOrNegativeOrNullSagittal = (sagittals: Sagittal[], sagittal
 }
 
 const computeSagitypeString = (maybeSagittal: Maybe<Sagittal>): string =>
-    !maybeSagittal ?
+    isUndefined(maybeSagittal) ?
         "" :
         computeAccidentalSagitype(maybeSagittal)
 
@@ -80,9 +80,6 @@ const resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation
         const { sagitypeString, whorlString } = computeSagitypeAndWhorlStrings({ maybeSagittal, whorl, flavor })
 
         return {
-            // TODO: possibly here we should handle the c4 vs c5 stuff, so that everything here is actually at least a staffcode Word. 
-            // but then the sagitype string would actually need to be a list thereof, and accents be handled here too. 
-            // and maybe it is better that this is left as a Nominal so the next layer can determine whether a nominal staffcode word is required...
             nominalString: nominal,
             whorlString,
             sagitypeString,

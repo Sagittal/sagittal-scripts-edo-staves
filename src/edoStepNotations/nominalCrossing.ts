@@ -1,4 +1,4 @@
-import { Index, Maybe } from "@sagittal/general"
+import { Index, isUndefined, Maybe } from "@sagittal/general"
 import { Link, Nominal, NOMINALS } from "@sagittal/system"
 import { Difference } from "./types"
 import { NOMINAL_COUNT, ENOUGH_WHORLS_TO_GUARANTEE_POSITIVE_VALUE_BEFORE_MODULUS } from "./constants"
@@ -25,7 +25,7 @@ const computeNominalIndex = (edoStepLinkIndex: Index<Link>): Index<Nominal> =>
 const computeHaveNominalsCrossed = (edoStepLinkIndices: Maybe<Index<Link>>[]): boolean => {
     const edoStepLinkIndicesWithNoGaps: Index<Link>[] = edoStepLinkIndices.filter(
         (edoStepLinkIndex: Maybe<Index<Link>>): boolean =>
-            edoStepLinkIndex !== undefined
+            !isUndefined(edoStepLinkIndex)
     ) as Index<Link>[]
 
     if (edoStepLinkIndicesWithNoGaps.length <= NOMINAL_COUNT) return false

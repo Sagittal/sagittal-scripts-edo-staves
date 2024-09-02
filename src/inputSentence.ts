@@ -43,6 +43,10 @@ const computeStaffCodeInputSentence = (inputEdo: Edo, flavor: Flavor, { root }: 
     // - arrange the intermediate stringform into an array of arrays according to it
     // - for each column, determine the max width
     // - then modify the `assemble...` function below to take this width and staff breaks into account
+    // and then possibly in resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation also possibly 
+    // handle the c4 vs c5 stuff, so that everything there is actually at least a staffcode Word. 
+    // but then the sagitype string would actually need to be a list thereof, and accents be handled there too. 
+    // and maybe it is better that nominal is left as a Nominal so the next layer can determine whether a nominal staffcode word is required...
 
     const subsetFactor = edo / inputEdo
 
