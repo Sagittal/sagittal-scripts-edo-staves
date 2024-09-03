@@ -1,7 +1,8 @@
 import { computeStaffCodeInputSentence } from "../../src/inputSentence"
 import { Flavor } from "@sagittal/system"
-import { extractKeyInfoFromInputSentence } from "../helpers/extractKeyInfoFromInputSentence"
+import { extractKeyInfoFromInputSentence } from "../../src/compare"
 import { Edo } from "../../../../system/src/notations/edo/types"
+import { Io, Sentence } from "@sagittal/general"
 
 describe("computeStaffCodeInputSentence computes the text as one would type into the StaffCode input box to produce a Sagittal EDO notation", (): void => {
     describe("Evo notations", (): void => {
@@ -10,7 +11,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 5-EDO Evo", (): void => {
             const actual = computeStaffCodeInputSentence(5 as Edo as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 5;   ; nt ; 9; en; bl 
@@ -20,7 +21,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; a4 5;   ; nt ;
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -28,7 +29,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 11-EDO Evo", (): void => {
             const actual = computeStaffCodeInputSentence(11 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; \\! ; # ; nt ; 9; en; bl 
@@ -39,7 +40,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; b4 9; b ; nt ; 5; \\! ;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -47,7 +48,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 12-EDO Evo", (): void => {
             const actual = computeStaffCodeInputSentence(12 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 9; # ; nt ; 9; en; bl 
@@ -59,7 +60,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; b4 9; b ; nt ; 9;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -67,7 +68,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 15-EDO Evo", (): void => {
             const actual = computeStaffCodeInputSentence(15 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
@@ -78,7 +79,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; c5 5; \\! ;   ; nt ; 
                 3; en; bl 
                 nl;
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -86,7 +87,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 22-EDO Evo", (): void => {
             const actual = computeStaffCodeInputSentence(22 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 9; en; bl 
@@ -98,7 +99,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; b4 9; b ; nt ; 5; /| ; b ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -106,7 +107,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 31-EDO Evo", (): void => {
             const actual = computeStaffCodeInputSentence(31 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; /|\\ ;   ; nt ; 9; # ; nt ; 9; en; bl 
@@ -119,7 +120,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; c5 9; b ; nt ; 5; \\!/ ;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -127,7 +128,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 47-EDO Evo", (): void => {
             const actual = computeStaffCodeInputSentence(47 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
@@ -141,7 +142,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; c5 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -149,7 +150,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 52-EDO Evo", (): void => {
             const actual = computeStaffCodeInputSentence(52 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; d4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
@@ -161,7 +162,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; c5 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 
                 8; en; blfn 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -169,7 +170,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 67-EDO Evo", (): void => {
             const actual = computeStaffCodeInputSentence(67 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
@@ -184,7 +185,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; c5 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 
                 3; en; bl 
                 nl;
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -192,7 +193,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 72-EDO Evo", (): void => {
             const actual = computeStaffCodeInputSentence(72 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; /|\\ ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 5; /|\\ ; # ; nt ; d4 5; !) ; nt ; 5; \\! ; nt ; 9; 
@@ -204,7 +205,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; Gcl b4 ; 20; nt ;5; /| ; nt ; 5; |) ; nt ; 5; /|\\ ; nt ; c5 5; !) ; nt ; 5; \\! ; nt ; 
                 8; en; blfn 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -216,7 +217,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 5-EDO Evo-SZ", (): void => {
             const actual = computeStaffCodeInputSentence(5 as Edo as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 5;   ; nt ; 9; en; bl 
@@ -226,7 +227,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; a4 5;   ; nt ;
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -234,7 +235,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 11-EDO Evo-SZ", (): void => {
             const actual = computeStaffCodeInputSentence(11 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; \\! ; # ; nt ; 9; en; bl 
@@ -245,7 +246,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; b4 9; b ; nt ; 5; \\! ;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -253,7 +254,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 12-EDO Evo-SZ", (): void => {
             const actual = computeStaffCodeInputSentence(12 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 9; # ; nt ; 9; en; bl 
@@ -265,7 +266,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; b4 9; b ; nt ; 9;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -273,7 +274,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 15-EDO Evo-SZ", (): void => {
             const actual = computeStaffCodeInputSentence(15 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
@@ -284,7 +285,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; c5 5; \\! ;   ; nt ; 
                 3; en; bl 
                 nl;
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -292,7 +293,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 22-EDO Evo-SZ", (): void => {
             const actual = computeStaffCodeInputSentence(22 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 9; en; bl 
@@ -304,7 +305,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; b4 9; b ; nt ; 5; /| ; b ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -312,7 +313,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 31-EDO Evo-SZ", (): void => {
             const actual = computeStaffCodeInputSentence(31 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; t ;   ; nt ; 9; # ; nt ; 9; en; bl 
@@ -325,7 +326,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; c5 9; b ; nt ; 5; d ;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -333,7 +334,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 47-EDO Evo-SZ", (): void => {
             const actual = computeStaffCodeInputSentence(47 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
@@ -347,7 +348,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; c5 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -355,7 +356,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 52-EDO Evo-SZ", (): void => {
             const actual = computeStaffCodeInputSentence(52 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; d4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
@@ -367,7 +368,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; c5 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 
                 8; en; blfn 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -375,7 +376,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 67-EDO Evo-SZ", (): void => {
             const actual = computeStaffCodeInputSentence(67 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
@@ -390,7 +391,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; c5 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 
                 3; en; bl 
                 nl;
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -398,7 +399,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 72-EDO Evo-SZ", (): void => {
             const actual = computeStaffCodeInputSentence(72 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 9; t ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 9; t# ; nt ; d4 5; !) ; nt ; 5; \\! ; nt ; 9; 
@@ -410,7 +411,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; Gcl b4 ; 20; nt ;5; /| ; nt ; 5; |) ; nt ; 9; t ; nt ; c5 5; !) ; nt ; 5; \\! ; nt ; 
                 8; en; blfn 
                 nl;
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -422,7 +423,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 5-EDO Revo", (): void => {
             const actual = computeStaffCodeInputSentence(5 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 5;   ; nt ; 9; en; bl 
@@ -432,14 +433,15 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; a4 5;   ; nt ;
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
+
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
         it("works for 11-EDO Revo", (): void => {
             const actual = computeStaffCodeInputSentence(11 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; ||\\ ;   ; nt ; 9; en; bl 
@@ -451,7 +453,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; b4 5; \\! ;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -459,7 +461,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 12-EDO Revo", (): void => {
             const actual = computeStaffCodeInputSentence(12 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 9; /||\\ ; nt ; 9; en; bl 
@@ -471,14 +473,15 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; b4 9; \\!!/ ; nt ; 9;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
+
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
         it("works for 15-EDO Revo", (): void => {
             const actual = computeStaffCodeInputSentence(15 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
@@ -489,14 +492,15 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; c5 5; \\! ;   ; nt ; 
                 3; en; bl 
                 nl;
-            `
+            ` as Io & Sentence
+
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
         it("works for 22-EDO Revo", (): void => {
             const actual = computeStaffCodeInputSentence(22 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 5; ||\\ ;   ; nt ; 9; en; bl 
@@ -508,7 +512,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; b4 5; !!/ ;   ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -516,7 +520,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 31-EDO Revo", (): void => {
             const actual = computeStaffCodeInputSentence(31 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; /|\\ ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
@@ -529,14 +533,15 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; c5 5; \\!/ ;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
+
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
         it("works for 47-EDO Revo", (): void => {
             const actual = computeStaffCodeInputSentence(47 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
@@ -550,7 +555,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; c5 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -558,7 +563,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 52-EDO Revo", (): void => {
             const actual = computeStaffCodeInputSentence(52 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; 5; /X\\ ; nt ; d4 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; 
@@ -570,7 +575,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 bl 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; c5 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 
                 8; en; blfn 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -578,7 +583,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 67-EDO Revo", (): void => {
             const actual = computeStaffCodeInputSentence(67 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; (|\\ ;   ; nt ; 5; //|| ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
@@ -593,7 +598,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; c5 5; (!/ ;   ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
@@ -601,7 +606,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         it("works for 72-EDO Revo", (): void => {
             const actual = computeStaffCodeInputSentence(72 as Edo, flavor)
 
-            const expected = `
+            const expected: Io & Sentence = `
                 ston 
                 5; Gcl ; 5; 
                 c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 5; ||) ;   ; nt ; 5; ||\\ ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
@@ -616,7 +621,8 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; c5 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 
                 3; en; bl 
                 nl; 
-            `
+            ` as Io & Sentence
+
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
     })
