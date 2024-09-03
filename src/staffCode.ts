@@ -1,10 +1,8 @@
 import { Io, Sentence, Count } from "@sagittal/general"
 import { Nominal } from "@sagittal/system"
 
-const NOTES_PER_SYSTEM: Count = 27 as Count
-
 const computeNominalStaffCode = (
-    notationState: { noteCount: Count, noteCountPastWhichBreakSystem: Count, currentNominal: Io, reachedC: boolean }
+    notationState: { noteCount: Count, currentNominal: Io, reachedC: boolean }
 ): string => {
     return `${notationState.currentNominal}${notationState.reachedC ? 5 : 4}`
 }
@@ -12,7 +10,7 @@ const computeNominalStaffCode = (
 const computeNominalPart = (
     nominalString: string,
     { notationState }: {
-        notationState: { noteCount: Count, noteCountPastWhichBreakSystem: Count, currentNominal: Io, reachedC: boolean }
+        notationState: { noteCount: Count, currentNominal: Io, reachedC: boolean }
     }
 ): Io & Sentence => {
     let nominalPart = "" as Io & Sentence
@@ -38,9 +36,9 @@ const handleDiacritics = (sagitypeString: string): string =>
         .replace(/,/g, ", ; ")
 
 const computeSagittalPart = (sagitypeString: string): Io & Sentence =>
-    sagitypeString.length ?
-        `5; ${handleDiacritics(sagitypeString)} ; ` as Io & Sentence :
-        "9; " as Io & Sentence
+    sagitypeString.length ? // TODO: better for these to check explicitly for 0
+        `${handleDiacritics(sagitypeString)} ; ` as Io & Sentence :
+        "" as Io & Sentence
 
 const computeWhorlPart = (whorlString: string): Io & Sentence =>
     whorlString.length ?
@@ -48,21 +46,24 @@ const computeWhorlPart = (whorlString: string): Io & Sentence =>
         "" as Io & Sentence
 
 const computeNotePart = (
-    { sagitypeString, whorlString, notationState }: {
+    { sagitypeString, whorlString, notationState, pattern }: {
         sagitypeString: string,
         whorlString: string,
-        notationState: { noteCount: Count, noteCountPastWhichBreakSystem: Count, currentNominal: Io, reachedC: boolean }
+        notationState: { noteCount: Count, currentNominal: Io, reachedC: boolean },
+        pattern: number[],
     }
 ): Io & Sentence => {
     let notePart: Io & Sentence
 
-    if (sagitypeString.length == 0 && whorlString.length == 0 && notationState.noteCount != 0) {
-        if (notationState.noteCount > notationState.noteCountPastWhichBreakSystem) {
-            notationState.noteCountPastWhichBreakSystem = notationState.noteCountPastWhichBreakSystem + NOTES_PER_SYSTEM as Count
-            notePart = `en; bl nl; \n5; Gcl ${computeNominalStaffCode(notationState)} ; 20; nt ;` as Io & Sentence
-        } else {
-            notePart = "\nbl 9; nt ; " as Io & Sentence
-        }
+    // if (sagitypeString.length == 0 && whorlString.length == 0 && notationState.noteCount != 0) {
+    // if (true) {
+    if (timeToBreak(notationState.noteCount, pattern)) {
+
+        // TODO make sure this aligns w the first one
+        // 5; Gcl ; 5; \n${root}4 5; 
+        notePart = `en; bl nl; \n5; Gcl ${computeNominalStaffCode(notationState)} ; 15; nt ;` as Io & Sentence
+    } else if (sagitypeString.length == 0 && whorlString.length == 0 && notationState.noteCount != 0) {
+        notePart = "\nbl 9; nt ; " as Io & Sentence
     } else {
         notePart = "nt ; " as Io & Sentence
     }
@@ -72,11 +73,52 @@ const computeNotePart = (
     return notePart
 }
 
-const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, string>[], { root }: { root: Nominal }): Io & Sentence => {
+const timeToBreak = (noteCount, pattern) => {
+    let answer
+    let thing = 0
+    pattern.forEach(line => {
+        // if (answer) return
+        thing += line
+
+        if (noteCount == thing) answer = true
+        // if (line < thing) {
+        //     thing -= line
+        // } else if (line == thing) {
+        //     answer = true
+        // } else {
+        //     answer = false
+        // }
+    })
+    // if (answer) console.log("dsad", noteCount, pattern, thing)
+    return answer
+}
+
+const getCol = (noteCount, pattern) => {
+    let answer
+    let thing = noteCount
+    pattern.forEach(line => {
+        if (line <= thing) {
+            thing -= line
+        } else {
+            answer = thing
+        }
+    })
+    return answer
+}
+
+const computeWidthPart = ({ colWidths, pattern, notationState }) => {
+    const col = getCol(notationState.noteCount, pattern)
+    // console.log("col: ", col)
+    const width = colWidths[col]
+
+    return `${width + 5}; `
+}
+
+const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, string>[], { root, colWidths, pattern }: { root: Nominal, colWidths: number[], pattern: number[] }): Io & Sentence => {
     const notationState = {
         currentNominal: root,
         noteCount: 0 as Count,
-        noteCountPastWhichBreakSystem: NOTES_PER_SYSTEM,
+        // currentLine: NOTES_PER_SYSTEM,
         reachedC: false
     }
 
@@ -84,9 +126,10 @@ const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, st
         (inputSentence, { nominalString, whorlString, sagitypeString }: Record<any, string>): Io & Sentence =>
             inputSentence +
             computeNominalPart(nominalString, { notationState }) +
+            computeWidthPart({ colWidths, pattern, notationState }) +
             computeSagittalPart(sagitypeString) +
             computeWhorlPart(whorlString) +
-            computeNotePart({ sagitypeString, whorlString, notationState }) as Io & Sentence,
+            computeNotePart({ sagitypeString, whorlString, notationState, pattern }) as Io & Sentence,
         "" as Io & Sentence
     ) + "\n8; en; blfn \nnl; " as Io & Sentence
 }

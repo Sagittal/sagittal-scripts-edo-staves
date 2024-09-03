@@ -69,7 +69,7 @@ const computeSagitypeAndWhorlStrings = (
         computeEvoSZSagitypeAndWhorlStrings({ maybeSagittal, whorl, flavor }) :
         handleGeneralSagitypeAndWhorlStrings({ maybeSagittal, whorl, flavor })
 
-const resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation = (
+const resolveEdoStepNotationsToIntermediateStringFormsOfActualFinalVisualNotation = (
     edoStepNotations: EdoStepNotation[],
     { sagittals, flavor }: { sagittals: Sagittal[], flavor: Flavor }
 ): Record<any, string>[] => {
@@ -88,5 +88,5 @@ const resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation
 }
 
 export {
-    resolveEdoStepNotationsToIntermediateStringFormOfActualFinalVisualNotation,
+    resolveEdoStepNotationsToIntermediateStringFormsOfActualFinalVisualNotation,
 }
