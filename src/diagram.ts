@@ -23,6 +23,18 @@ const asyncGenerateDiagram = async ({ edo, flavor, root }: { edo: Edo, flavor: F
     // svg.setAttribute("width", `${(parseInt(svg.getAttribute("width") || "0") * 2)}`)
     // const g = svgDoc.getElementsByTagName("g")[0]
     // g?.setAttribute("transform", "translate(50 0)")
+
+    // const newText = svgDoc.createElement('text');
+    // newText.setAttribute('x', '10');
+    // newText.setAttribute('y', '90');
+    // newText.setAttribute('font-family', 'Sanomat-Semibold'); // Set font family
+    // newText.setAttribute('font-size', '32'); // Set font size
+    // newText.setAttribute('fill', 'black'); // Set text color
+
+    // const textNode = svgDoc.createTextNode('Sagittal REvo ntoaitnsdg');
+    // newText.appendChild(textNode);
+    // svgDoc.documentElement.appendChild(newText);
+
     // const serializer = new XMLSerializer()
     // const modifiedSvgString = serializer.serializeToString(svgDoc)
 
