@@ -1,5 +1,5 @@
 import { Maybe, Index, ZERO_ONE_INDEX_DIFF, deepEquals, isUndefined } from "@sagittal/general"
-import { Flavor, Sagittal, computeAccidentalSagitype, EdoStepNotation, Link, Whorl, NOMINALS, SAGITTAL_HALF_FLAT, SAGITTAL_HALF_SHARP } from "@sagittal/system"
+import { Flavor, Sagittal, computeAccidentalSagitype, EdoStepNotation, Link, Whorl, NOMINALS, SAGITTAL_SEMIFLAT, SAGITTAL_SEMISHARP } from "@sagittal/system"
 
 const REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D: Index<Link> = -17 as Index<Link>
 
@@ -44,8 +44,8 @@ const handleGeneralSagitypeAndWhorlStrings = (
 const computeEvoSZSagitypeAndWhorlStrings = (
     { maybeSagittal, whorl, flavor }: { maybeSagittal: Maybe<Sagittal>, whorl: Whorl, flavor: Flavor }
 ): { sagitypeString: string, whorlString: string } => {
-    const isHalfSharp = deepEquals(maybeSagittal, SAGITTAL_HALF_SHARP);
-    const isHalfFlat = deepEquals(maybeSagittal, SAGITTAL_HALF_FLAT);
+    const isHalfSharp = deepEquals(maybeSagittal, SAGITTAL_SEMISHARP);
+    const isHalfFlat = deepEquals(maybeSagittal, SAGITTAL_SEMIFLAT);
 
     if (whorl === Whorl.DOUBLE_SHARP && isHalfFlat) {
         return { sagitypeString: "", whorlString: "t#" };
