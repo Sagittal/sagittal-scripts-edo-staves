@@ -46,18 +46,18 @@ const computeWhorlPart = (whorlString: string): Io & Sentence =>
         "" as Io & Sentence
 
 const computeNotePart = (
-    { sagitypeString, whorlString, notationState, pattern }: {
+    { sagitypeString, whorlString, notationState, noteCountByStavePattern }: {
         sagitypeString: string,
         whorlString: string,
         notationState: { noteCount: Count, currentNominal: Io, reachedC: boolean },
-        pattern: number[],
+        noteCountByStavePattern: number[],
     }
 ): Io & Sentence => {
     let notePart: Io & Sentence
 
     // if (sagitypeString.length == 0 && whorlString.length == 0 && notationState.noteCount != 0) {
     // if (true) {
-    if (timeToBreak(notationState.noteCount, pattern)) {
+    if (timeToBreak(notationState.noteCount, noteCountByStavePattern)) {
 
         // TODO make sure this aligns w the first one
         // 5; Gcl ; 5; \n${root}4 5; 
@@ -73,10 +73,10 @@ const computeNotePart = (
     return notePart
 }
 
-const timeToBreak = (noteCount, pattern) => {
+const timeToBreak = (noteCount, noteCountByStavePattern) => {
     let answer
     let thing = 0
-    pattern.forEach(line => {
+    noteCountByStavePattern.forEach(line => {
         // if (answer) return
         thing += line
 
@@ -89,14 +89,14 @@ const timeToBreak = (noteCount, pattern) => {
         //     answer = false
         // }
     })
-    // if (answer) console.log("dsad", noteCount, pattern, thing)
+    // if (answer) console.log("dsad", noteCount, noteCountByStavePattern, thing)
     return answer
 }
 
-const getCol = (noteCount, pattern) => {
+const getCol = (noteCount, noteCountByStavePattern) => {
     let answer
     let thing = noteCount
-    pattern.forEach(line => {
+    noteCountByStavePattern.forEach(line => {
         if (line <= thing) {
             thing -= line
         } else {
@@ -106,15 +106,15 @@ const getCol = (noteCount, pattern) => {
     return answer
 }
 
-const computeWidthPart = ({ colWidths, pattern, notationState }) => {
-    const col = getCol(notationState.noteCount, pattern)
+const computeWidthPart = ({ colWidths, noteCountByStavePattern, notationState }) => {
+    const col = getCol(notationState.noteCount, noteCountByStavePattern)
     // console.log("col: ", col)
     const width = colWidths[col]
 
     return `${width + 5}; `
 }
 
-const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, string>[], { root, colWidths, pattern }: { root: Nominal, colWidths: number[], pattern: number[] }): Io & Sentence => {
+const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, string>[], { root, colWidths, noteCountByStavePattern }: { root: Nominal, colWidths: number[], noteCountByStavePattern: number[] }): Io & Sentence => {
     const notationState = {
         currentNominal: root,
         noteCount: 0 as Count,
@@ -126,10 +126,10 @@ const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, st
         (inputSentence, { nominalString, whorlString, sagitypeString }: Record<any, string>): Io & Sentence =>
             inputSentence +
             computeNominalPart(nominalString, { notationState }) +
-            computeWidthPart({ colWidths, pattern, notationState }) +
+            computeWidthPart({ colWidths, noteCountByStavePattern, notationState }) +
             computeSagittalPart(sagitypeString) +
             computeWhorlPart(whorlString) +
-            computeNotePart({ sagitypeString, whorlString, notationState, pattern }) as Io & Sentence,
+            computeNotePart({ sagitypeString, whorlString, notationState, noteCountByStavePattern }) as Io & Sentence,
         "" as Io & Sentence
     ) + "\n8; en; blfn \nnl; " as Io & Sentence
 }
