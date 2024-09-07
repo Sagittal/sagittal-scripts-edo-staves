@@ -1,1 +1,1 @@
-export { computeEdoStepNotations } from "./main"
+export { computeEdoStepNotations } from "./edoStepNotations"

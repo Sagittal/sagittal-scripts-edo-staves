@@ -1,4 +1,4 @@
-import { computeRange, Io, Sentence } from "@sagittal/general"
+import { Io, Sentence } from "@sagittal/general"
 import {
     Flavor,
     Sagittal,
@@ -21,7 +21,7 @@ import {
 import { computeEdoStepNotations } from "./edoStepNotations"
 import { resolveEdoStepNotationsToIntermediateFormsOfActualFinalVisualNotation } from "./resolve"
 import { computeNoteCountByStavePattern, computeColumnWidths } from "./alignment"
-import { assembleAsStaffCodeInputSentence } from "./staffCode"
+import { assembleAsStaffCodeInputSentence } from "./assemble"
 
 const computeStaffCodeInputSentence = (edo: Edo, flavor: Flavor, { root }: { root: Nominal } = { root: Nominal.C }): Io & Sentence => {
     const edoNotationDefinition: EdoNotationDefinition = EDO_NOTATION_DEFINITIONS[edo]

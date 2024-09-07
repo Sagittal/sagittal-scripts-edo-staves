@@ -1,13 +1,14 @@
+import { computeCodewordWidth, Octals, Code } from "staff-code"
 import { computeRange, Count, Decimal, Index, max, Max, Word, ZERO_ONE_INDEX_DIFF } from "@sagittal/general"
 import { EdoStep, computeWholeToneStep, computeLimmaStep, Edo } from "@sagittal/system"
-import { computeCodewordWidth, Octals, Code } from "staff-code"
-import { NoteCountParametersByStave, NoteCountByStavePattern, Note, EdoSizeCategory, IntermediateForm, Stave } from "./types"
+import { NoteCountParametersByStave, NoteCountByStavePattern, EdoSizeCategory, Stave } from "./types"
 import {
     MAX_NOTE_COUNT_PER_STAVE,
     NOTE_COUNT_PARAMETERS_BY_STAVE_BY_EDO_SIZE_CATEGORY,
     MAX_NOTE_COUNT_BY_STAVE_PARAMETERS_BY_DECREASING_EDO_SIZE_CATEGORY,
     EDO_SIZE_CATEGORIES,
 } from "./constants"
+import { IntermediateForm, Note } from "../types"
 
 // TODO: here is where we'd:
 // - compute which alignment pattern this EDO will use
@@ -85,13 +86,13 @@ const computeColumnWidths = (
             (maximumWidthOfNotationInThisColumn: Max<Octals>, patternedIntermediateFormsStave: IntermediateForm[]): Max<Octals> => {
                 if (!patternedIntermediateFormsStave[columnIndex]) return maximumWidthOfNotationInThisColumn
 
-                const { whorlCodewords, sagitypeCodewords } = patternedIntermediateFormsStave[columnIndex]
+                const { whorlCodewords, sagittalCodewords } = patternedIntermediateFormsStave[columnIndex]
                 // console.log("whorlCodewords: ", whorlCodewords, " patternedIntermediateFormsStave: ", patternedIntermediateFormsStave, " columnIndex: ", columnIndex)
                 const whorlWidth: Octals = whorlCodewords.reduce(
                     (totalWidth: Octals, whorlCodeword: Code & Word): Octals => totalWidth + computeCodewordWidth(whorlCodeword) as Octals,
                     0 as Octals
                 )
-                const sagitypeWidth: Octals = sagitypeCodewords.reduce(
+                const sagitypeWidth: Octals = sagittalCodewords.reduce(
                     (totalWidth: Octals, sagitypeCodeword: Code & Word): Octals => totalWidth + computeCodewordWidth(sagitypeCodeword) as Octals,
                     0 as Octals
                 )
