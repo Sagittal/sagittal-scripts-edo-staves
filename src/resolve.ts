@@ -5,6 +5,11 @@ import { IntermediateForm } from "./types"
 
 const REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D: Index<Link> = -17 as Index<Link>
 
+const SZ_SESQUISHARP: Code & Word = "t#" as Code & Word
+const SZ_SEMISHARP: Code & Word = "t" as Code & Word
+const SZ_SEMIFLAT: Code & Word = "d" as Code & Word
+const SZ_SESQUIFLAT: Code & Word = "d" as Code & Word
+
 const LINKS: Record<Index<Link>, Link> = Object.values(Whorl)
     .map(whorl => NOMINALS
         .map(nominal => ({ whorl, nominal }))
@@ -57,15 +62,15 @@ const computeEvoSZSagitypeAndWhorlStrings = (
     const isHalfFlat = deepEquals(maybeSagittal, SAGITTAL_SEMIFLAT);
 
     if (whorl === Whorl.DOUBLE_SHARP && isHalfFlat) {
-        return { sagittalCodewords: [], whorlCodewords: ["t#" as Code & Word] };
+        return { sagittalCodewords: [], whorlCodewords: [SZ_SESQUISHARP] };
     } else if (whorl === Whorl.SHARP && (isHalfSharp || isHalfFlat)) {
-        return { sagittalCodewords: [], whorlCodewords: isHalfSharp ? ["t#" as Code & Word] : ["t" as Code & Word] };
+        return { sagittalCodewords: [], whorlCodewords: isHalfSharp ? [SZ_SESQUISHARP] : [SZ_SEMISHARP] };
     } else if (whorl === Whorl.NATURAL && (isHalfSharp || isHalfFlat)) {
-        return { sagittalCodewords: [], whorlCodewords: isHalfSharp ? ["t" as Code & Word] : ["d" as Code & Word] };
+        return { sagittalCodewords: [], whorlCodewords: isHalfSharp ? [SZ_SEMISHARP] : [SZ_SEMIFLAT] };
     } else if (whorl === Whorl.FLAT && (isHalfSharp || isHalfFlat)) {
-        return { sagittalCodewords: [], whorlCodewords: isHalfSharp ? ["d" as Code & Word] : ["db" as Code & Word] };
+        return { sagittalCodewords: [], whorlCodewords: isHalfSharp ? [SZ_SEMIFLAT] : [SZ_SESQUIFLAT] };
     } else if (whorl === Whorl.DOUBLE_FLAT && isHalfFlat) {
-        return { sagittalCodewords: [], whorlCodewords: ["db" as Code & Word] }; // TODO: constantize these codewords
+        return { sagittalCodewords: [], whorlCodewords: [SZ_SESQUIFLAT] };
     } else {
         return handleGeneralSagitypeAndWhorlStrings({ maybeSagittal, whorl, flavor })
     }

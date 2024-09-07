@@ -4,7 +4,7 @@ import { Nominal } from "@sagittal/system"
 import { IntermediateForm, Note } from "../types"
 import { computeBreakAndOrBarClause } from "./breakAndOrBar"
 import { computeNominalClause } from "./nominal"
-import { CLEF, EARLIER_NOMINALS_OCTAVE } from "./constants"
+import { ACTIVATE_STAFF, CLEF, EARLIER_NOMINALS_OCTAVE, FINAL_BARLINE } from "./constants"
 import { computeLefthandSpaceClause } from "./space"
 import { computeSagittalClause } from "./sagittal"
 import { computeNoteAndRighthandSpaceClause } from "./note"
@@ -27,7 +27,7 @@ const assembleAsStaffCodeInputSentence = (
     }): Io & Sentence => {
     const notationState: NotationState = computeInitialNotationState(root)
 
-    return `ston${CLEF}${root}${EARLIER_NOMINALS_OCTAVE} ` + intermediateForms.reduce( // TODO: exttract the Gcl bit and the other one to helper functions
+    return `${ACTIVATE_STAFF}${CLEF}${root}${EARLIER_NOMINALS_OCTAVE} ` + intermediateForms.reduce(
         (inputClause, { nominal, whorlCodewords, sagittalCodewords }: IntermediateForm): Io & Sentence =>
             inputClause +
             computeBreakAndOrBarClause({ sagittalCodewords, whorlCodewords, noteCountByStavePattern, notationState }) +
@@ -37,7 +37,7 @@ const assembleAsStaffCodeInputSentence = (
             computeWhorlClause(whorlCodewords) +
             computeNoteAndRighthandSpaceClause({ notationState }) as Io & Sentence,
         "" as Io & Sentence
-    ) + "\nen; blfn" as Io & Sentence
+    ) + FINAL_BARLINE as Io & Sentence
 }
 
 export {

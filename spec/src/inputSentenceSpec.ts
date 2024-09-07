@@ -591,7 +591,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; Gcl; 5; b4 5; \\!!/ ;   ; nt ; 5; !!/ ;   ; nt ; 5; !!) ;   ; nt ; 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9; ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 9; en; bl 
                 5; c5 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 
                 3; en; bl 
-            ` as Io & Sentence // TODO: once everything is hunky dory, update all of these so you get the latest definition of nice formatting
+            ` as Io & Sentence 
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })

@@ -3,8 +3,7 @@ import { Edo, EDO_NOTATION_DEFINITIONS, Flavor, Nominal } from "@sagittal/system
 import { computeStaffCodeInputSentence } from "../inputSentence"
 import { Io, Sentence } from "@sagittal/general"
 import { extractKeyInfoFromInputSentence } from "../compare"
-import { generateEvoDiagram, generateEvoSZDiagram, generateGeneralDiagram, generateRevoDiagram } from "../generate"
-import { EVO_FLAVOR_INDEX, EVO_SZ_FLAVOR_INDEX, REVO_FLAVOR_INDEX } from "../constants"
+import { EVO_FLAVOR_INDEX, EVO_SZ_FLAVOR_INDEX, generateEvoDiagram, generateEvoSZDiagram, generateGeneralDiagram, generateRevoDiagram, REVO_FLAVOR_INDEX } from "../diagram"
 
 program
     .option("-r, --root <string>", "root (F, C, G, D, A, E, or B; default C)", "c")
@@ -14,8 +13,6 @@ const { root: rootString }: { root: string } = program.opts()
 const root: Nominal = rootString.toLowerCase() as Nominal
 
 const FLAVORS: Flavor[] = Object.values(Flavor)
-
-// TODO: this should create the archive (see staff-code deploy script for inspiration?) and names it according to existing ones 
 
 Object.keys(EDO_NOTATION_DEFINITIONS)
     .map((edoString: string): Edo => parseInt(edoString) as Edo)

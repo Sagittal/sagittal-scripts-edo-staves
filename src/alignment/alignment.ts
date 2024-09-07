@@ -10,19 +10,12 @@ import {
 } from "./constants"
 import { IntermediateForm, Note } from "../types"
 
-// TODO: here is where we'd:
-// - compute which alignment pattern this EDO will use
-// - arrange the intermediate stringform into an array of arrays according to it
-// - for each column, determine the max width
-// - then modify the `assemble...` function below to take this width and staff breaks into account
-// and then possibly in resolveEdoStepNotationsToIntermediateFormsOfActualFinalVisualNotation also possibly 
-// handle the c4 vs c5 stuff, so that everything there is actually at least a staffcode Word. 
-// but then the sagitype string would actually need to be a list thereof, and accents be handled there too. 
-// and maybe it is better that nominal is left as a Nominal so the next layer can determine whether a nominal staffcode word is required...
-
-// TODO: Actually do the spacing correctly using the alignment info ...
-
-// TODO: Subset notations are going to need to know what the deletion pattern is from their layouts 
+// TODO: ALIGNMENT Actually do the spacing correctly using the alignment info ...
+// you need to separately compute the individual cell widths,
+// and pass that on to the final step
+// and also use it to compute the max width
+// 
+// when that's done, update all of the tests so you get the latest definition of nice formatting
 
 const computeNoteCountByStavePattern = ({ edo, fifthStep }: { edo: Edo, fifthStep: EdoStep }): NoteCountByStavePattern => {
     const wholeToneStep: EdoStep = computeWholeToneStep(edo, fifthStep)
@@ -46,16 +39,6 @@ const computeNoteCountByStavePattern = ({ edo, fifthStep }: { edo: Edo, fifthSte
             wholeToneCount * wholeToneStep + limmaCount * limmaStep as Count<Note>
         )
 
-    // console.log("wholeToneStep", wholeToneStep)
-    // console.log("limmaStep", limmaStep)
-    // console.log("MAX_NOTE_COUNT_BY_STAVE_PARAMETERS_BY_DECREASING_EDO_SIZE_CATEGORY: ", MAX_NOTE_COUNT_BY_STAVE_PARAMETERS_BY_DECREASING_EDO_SIZE_CATEGORY)
-    // console.log("EDO_SIZE_CATEGORIES.length: ", EDO_SIZE_CATEGORIES.length)
-    // console.log("edoSizeCategoryInverseIndex: ", edoSizeCategoryInverseIndex)
-    // console.log("edoSizeCategoryIndex: ", edoSizeCategoryIndex)
-    // console.log("edoSizeCategory: ", edoSizeCategory)
-    // console.log("noteCountParametersByStavePattern: ", noteCountParametersByStavePattern)
-    // console.log("noteCountByStavePattern: ", noteCountByStavePattern)
-
     return noteCountByStavePattern
 }
 
@@ -75,10 +58,6 @@ const computeColumnWidths = (
             noteIndex = 0 as Index<Note>
         }
     })
-
-    // TODO: first you need to separately compute the individual cell widths,
-    // and pass that on to the final step
-    // and also use it to compute the max width
 
     const maxLineLength: Max<Count<Note>> = max(...patternedIntermediateForms.map((line: IntermediateForm[]) => line.length as Count<Note>))
     const columnWidths: Max<Octals>[] = computeRange(maxLineLength).map((columnIndex: number): Max<Octals> =>

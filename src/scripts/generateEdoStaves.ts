@@ -2,7 +2,7 @@ import { program } from "commander"
 import { Edo, Flavor, Nominal } from "@sagittal/system"
 import { computeStaffCodeInputSentence } from "../inputSentence"
 import { Io, Sentence } from "@sagittal/general"
-import { generateOneOffDiagram } from "../generate"
+import { generateOneOffDiagram } from "../diagram"
 
 program
     .option("-e, --edo <number>", "edo number")

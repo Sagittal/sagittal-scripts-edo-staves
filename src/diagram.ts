@@ -88,4 +88,7 @@ export {
     generateEvoSZDiagram,
     generateRevoDiagram,
     generateOneOffDiagram,
+    EVO_FLAVOR_INDEX,
+    EVO_SZ_FLAVOR_INDEX,
+    REVO_FLAVOR_INDEX,
 }

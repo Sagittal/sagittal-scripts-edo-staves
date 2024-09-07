@@ -3,11 +3,8 @@ import { Clause, Count, Word, Index, Decimal } from "@sagittal/general"
 import { Note } from "../types"
 import { NoteCountByStavePattern } from "../alignment"
 import { computeNominalCodeword } from "./nominal"
-import { CLEF } from "./constants"
+import { BARLINE, CLEF, STAVE_BREAK } from "./constants"
 import { AlignedColumn, NotationState } from "./types"
-
-const BARLINE: Code & Clause = "en; bl " as Code & Clause
-const STAVE_BREAK: Code & Clause = "nl; " as Code & Clause
 
 const computeTimeToBreakStaves = (noteCount: Count<Note>, noteCountByStavePattern: NoteCountByStavePattern): boolean => {
     let timeToBreakStaves: boolean = false

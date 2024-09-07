@@ -27,7 +27,19 @@ const computeStaffCodeInputSentence = (edo: Edo, flavor: Flavor, { root }: { roo
     const edoNotationDefinition: EdoNotationDefinition = EDO_NOTATION_DEFINITIONS[edo]
 
     if (isSubsetNotation(edoNotationDefinition)) {
-        // TODO: how much of this can be extracted, calling something with supersetEdo instead of edo?
+        // TODO: SUBSET NOTATIONS
+        // eventually this needs to be handled afterward
+        // this is what i had elsewhere, when the size category formula used the subsetfactor:
+        // probably need to redo how/when subset notations are taken,
+        // like compute this w / r / t to the superset and wait to drop half until the end,
+        // and leave lots of awkward blanks I guess so it actually look slike the 2n or 3n edo
+        // but with notes deleted from it like a checkerboard if the first row is odd or whatever
+        //
+        // Subset notations are going to need to know what the deletion pattern is from their layouts
+        //
+        // once this is all handled... see how much of this can be extracted, calling something with supersetEdo instead of edo?
+        // and don't forget to turn off xit for the 11-EDO tests
+
         const sagitypes: Sagitype[] = computeSubsetSagitypes(edoNotationDefinition)
         const supersetEdo: Edo = edoNotationDefinition.supersetEdo
         const fifthStep: EdoStep = computeFifthStep(supersetEdo)
@@ -36,12 +48,6 @@ const computeStaffCodeInputSentence = (edo: Edo, flavor: Flavor, { root }: { roo
         const subsetFactor: SubsetFactor = computeSubsetFactor({ edo, supersetEdo })
 
         const edoStepNotations = computeSubsetEdoStepNotations({ subsetFactor, edoStepNotations: computeEdoStepNotations({ edo, fifthStep, sagittals, flavor, root }) })
-        // TODO: eventually this needs to be handled afterward
-        // this is what i had elsewhere, when the size category formula used the subsetfactor:
-        // probably need to redo how/when subset notations are taken, 
-        // like compute this w / r / t to the superset and wait to drop half until the end, 
-        // and leave lots of awkward blanks I guess so it actually look slike the 2n or 3n edo 
-        // but with notes deleted from it like a checkerboard if the first row is odd or whatever
         const intermediateForms = resolveEdoStepNotationsToIntermediateFormsOfActualFinalVisualNotation(edoStepNotations, { sagittals, flavor })
 
         const noteCountByStavePattern = computeNoteCountByStavePattern({ edo: supersetEdo, fifthStep })
