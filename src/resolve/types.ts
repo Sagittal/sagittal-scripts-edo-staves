@@ -1,9 +1,10 @@
-import { Count } from "@sagittal/general"
+import { Count, Word } from "@sagittal/general"
 import { Note } from "../types"
+import { Nominal } from "@sagittal/system"
+import { Code, Octals } from "staff-code"
 
 type WholeTone = { _WholeToneBrand: boolean }
 type Limma = { _LimmaBrand: boolean }
-type Stave = { _StaveBrand: boolean }
 
 enum EdoSizeCategory {
     SMALL = "small",
@@ -20,11 +21,21 @@ interface NoteCountParametersByStave {
 
 type NoteCountByStavePattern = Count<Note>[]
 
+interface IntermediateForm {
+    nominal: Nominal,
+    sagittalCodewords: (Code & Word)[],
+    whorlCodewords: (Code & Word)[],
+    leftSpacingForAlignment: Octals,
+}
+
+type PatternedIntermediateForms = IntermediateForm[][]
+
 export {
     EdoSizeCategory,
     NoteCountParametersByStave,
     NoteCountByStavePattern,
     WholeTone,
     Limma,
-    Stave,
+    IntermediateForm,
+    PatternedIntermediateForms,
 }

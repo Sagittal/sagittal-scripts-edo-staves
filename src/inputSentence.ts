@@ -19,8 +19,7 @@ import {
     computeSubsetFactor
 } from "@sagittal/system"
 import { computeEdoStepNotations } from "./edoStepNotations"
-import { resolveEdoStepNotationsToIntermediateFormsOfActualFinalVisualNotation } from "./resolve"
-import { computeNoteCountByStavePattern, computeColumnWidths } from "./alignment"
+import { PatternedIntermediateForms, resolveEdoStepNotationsToPatternedIntermediateForms } from "./resolve"
 import { assembleAsStaffCodeInputSentence } from "./assemble"
 
 const computeStaffCodeInputSentence = (edo: Edo, flavor: Flavor, { root }: { root: Nominal } = { root: Nominal.C }): Io & Sentence => {
@@ -47,13 +46,10 @@ const computeStaffCodeInputSentence = (edo: Edo, flavor: Flavor, { root }: { roo
         const sagittals: Sagittal[] = computeSagittals({ sagitypes, flavor, sharpStep })
         const subsetFactor: SubsetFactor = computeSubsetFactor({ edo, supersetEdo })
 
-        const edoStepNotations = computeSubsetEdoStepNotations({ subsetFactor, edoStepNotations: computeEdoStepNotations({ edo, fifthStep, sagittals, flavor, root }) })
-        const intermediateForms = resolveEdoStepNotationsToIntermediateFormsOfActualFinalVisualNotation(edoStepNotations, { sagittals, flavor })
+        const edoStepNotations: EdoStepNotation[] = computeSubsetEdoStepNotations({ subsetFactor, edoStepNotations: computeEdoStepNotations({ edo: supersetEdo, fifthStep, sagittals, flavor, root }) })
+        const patternedIntermediateForms: PatternedIntermediateForms = resolveEdoStepNotationsToPatternedIntermediateForms(edoStepNotations, { sagittals, flavor, edo: supersetEdo, fifthStep })
 
-        const noteCountByStavePattern = computeNoteCountByStavePattern({ edo: supersetEdo, fifthStep })
-        const columnWidths = computeColumnWidths(intermediateForms, { noteCountByStavePattern })
-
-        return assembleAsStaffCodeInputSentence(intermediateForms, { root, columnWidths, noteCountByStavePattern })
+        return assembleAsStaffCodeInputSentence(patternedIntermediateForms, { root })
     } else {
         const sagitypes: Sagitype[] = edoNotationDefinition.sagitypes
         const fifthStep: EdoStep = computeFifthStep(edo)
@@ -61,12 +57,9 @@ const computeStaffCodeInputSentence = (edo: Edo, flavor: Flavor, { root }: { roo
         const sagittals: Sagittal[] = computeSagittals({ sagitypes, flavor, sharpStep })
 
         const edoStepNotations: EdoStepNotation[] = computeEdoStepNotations({ edo, fifthStep, sagittals, flavor, root })
-        const intermediateForms = resolveEdoStepNotationsToIntermediateFormsOfActualFinalVisualNotation(edoStepNotations, { sagittals, flavor })
+        const patternedIntermediateForms: PatternedIntermediateForms = resolveEdoStepNotationsToPatternedIntermediateForms(edoStepNotations, { sagittals, flavor, edo, fifthStep })
 
-        const noteCountByStavePattern = computeNoteCountByStavePattern({ edo, fifthStep })
-        const columnWidths = computeColumnWidths(intermediateForms, { noteCountByStavePattern })
-
-        return assembleAsStaffCodeInputSentence(intermediateForms, { root, columnWidths, noteCountByStavePattern })
+        return assembleAsStaffCodeInputSentence(patternedIntermediateForms, { root })
     }
 }
 

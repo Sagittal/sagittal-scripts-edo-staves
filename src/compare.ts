@@ -4,7 +4,7 @@ const extractKeyInfoFromInputSentence = (inputSentence: Io & Sentence): Sentence
     inputSentence
         .replace(/\d+;/g, "")
         .replace(/ston/g, "")
-        .replace(/Gcl;/g, "")
+        .replace(/trcl;/g, "")
         .replace(/en;/g, "")
         .replace(/blfn/g, "")
         .replace(/bl/g, "")

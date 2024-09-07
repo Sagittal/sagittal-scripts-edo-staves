@@ -13,6 +13,8 @@ program.parse()
 const { edo: edoString, flavor: flavorString, root: rootString }: { edo: string, flavor: string, root: string } = program.opts()
 const edo: Edo = parseInt(edoString) as Edo
 const flavor: Flavor = flavorString.toLowerCase() as Flavor
+// TODO: FIX OR COMPLETELY REMOVE ROOT 
+// okay shit but won't the choice of root affect which things align? I think for now I just need to totally rip out all the stuff about custom root
 const root: Nominal = rootString.toLowerCase() as Nominal
 
 const inputSentence: Io & Sentence = computeStaffCodeInputSentence(edo, flavor, { root })
