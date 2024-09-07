@@ -1,8 +1,6 @@
 import { computeRange, Count, Decimal, Index, max, Max, Word, ZERO_ONE_INDEX_DIFF } from "@sagittal/general"
 import { EdoStep, computeWholeToneStep, computeLimmaStep, Edo } from "@sagittal/system"
-import { computeCodeWordWidth } from "staff-code" // TODO: rename in there
-import { Octals } from "staff-code/dist/package/cjs/src/translate/smarts" // TODO: actually export this
-import { Code } from "staff-code/dist/package/cjs/bin" // TODO: actually export this and fix everywhere
+import { computeCodewordWidth, Octals, Code } from "staff-code"
 import { NoteCountParametersByStave, NoteCountByStavePattern, Note, EdoSizeCategory, IntermediateForm, Stave } from "./types"
 import {
     MAX_NOTE_COUNT_PER_STAVE,
@@ -20,6 +18,10 @@ import {
 // handle the c4 vs c5 stuff, so that everything there is actually at least a staffcode Word. 
 // but then the sagitype string would actually need to be a list thereof, and accents be handled there too. 
 // and maybe it is better that nominal is left as a Nominal so the next layer can determine whether a nominal staffcode word is required...
+
+// TODO: Actually do the spacing correctly using the alignment info ...
+
+// TODO: Subset notations are going to need to know what the deletion pattern is from their layouts 
 
 const computeNoteCountByStavePattern = ({ edo, fifthStep }: { edo: Edo, fifthStep: EdoStep }): NoteCountByStavePattern => {
     const wholeToneStep: EdoStep = computeWholeToneStep(edo, fifthStep)
@@ -86,11 +88,11 @@ const computeColumnWidths = (
                 const { whorlCodewords, sagitypeCodewords } = patternedIntermediateFormsStave[columnIndex]
                 // console.log("whorlCodewords: ", whorlCodewords, " patternedIntermediateFormsStave: ", patternedIntermediateFormsStave, " columnIndex: ", columnIndex)
                 const whorlWidth: Octals = whorlCodewords.reduce(
-                    (totalWidth: Octals, whorlCodeword: Code & Word): Octals => totalWidth + computeCodeWordWidth(whorlCodeword) as Octals,
+                    (totalWidth: Octals, whorlCodeword: Code & Word): Octals => totalWidth + computeCodewordWidth(whorlCodeword) as Octals,
                     0 as Octals
                 )
                 const sagitypeWidth: Octals = sagitypeCodewords.reduce(
-                    (totalWidth: Octals, sagitypeCodeword: Code & Word): Octals => totalWidth + computeCodeWordWidth(sagitypeCodeword) as Octals,
+                    (totalWidth: Octals, sagitypeCodeword: Code & Word): Octals => totalWidth + computeCodewordWidth(sagitypeCodeword) as Octals,
                     0 as Octals
                 )
 

@@ -1,7 +1,7 @@
+import { Code } from "staff-code"
 import { Maybe, Index, ZERO_ONE_INDEX_DIFF, deepEquals, isUndefined, Word } from "@sagittal/general"
 import { Flavor, Sagittal, computeAccidentalSagitype, EdoStepNotation, Link, Whorl, NOMINALS, SAGITTAL_SEMIFLAT, SAGITTAL_SEMISHARP, Sagitype } from "@sagittal/system"
 import { IntermediateForm } from "./types"
-import { Code } from "staff-code/dist/package/cjs/bin"
 
 const REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D: Index<Link> = -17 as Index<Link>
 

@@ -1,6 +1,6 @@
-import { Count, Io, Word } from "@sagittal/general"
+import { Code } from "staff-code"
+import { Count, Word } from "@sagittal/general"
 import { Nominal } from "@sagittal/system"
-import { Code } from "staff-code/dist/package/cjs/bin"
 
 type Note = { _NoteBrand: boolean }
 type WholeTone = { _WholeToneBrand: boolean }
@@ -14,6 +14,8 @@ interface NoteCountParametersByStave {
     wholeToneCount: Count<WholeTone>,
     limmaCount: Count<Limma>
 }
+
+// TODO: consider creating another nested folder for the alignment stuff
 
 enum EdoSizeCategory {
     SMALL = "small",

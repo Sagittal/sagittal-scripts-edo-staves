@@ -1,8 +1,7 @@
+import { Code, Octals } from "staff-code"
 import { Clause, Count, Word, Max, Index, Decimal, Sentence, Io } from "@sagittal/general"
 import { Nominal } from "@sagittal/system"
-import { Code } from "staff-code/dist/package/cjs/bin"
 import { AlignedColumn, IntermediateForm, NotationState, Note, NoteCountByStavePattern } from "./types"
-import { Octals } from "staff-code/dist/package/cjs/src/translate/smarts"
 
 const computeNominalCodeword = (notationState: NotationState): Code & Word =>
     `${notationState.currentNominal}${notationState.reachedC ? 5 : 4}` as Code & Word

@@ -1,8 +1,8 @@
 import { program } from "commander"
 import { Edo, Flavor, Nominal } from "@sagittal/system"
-import { asyncGenerateDiagram } from "../diagram"
 import { computeStaffCodeInputSentence } from "../inputSentence"
-import { Filename, Io, Sentence } from "@sagittal/general"
+import { Io, Sentence } from "@sagittal/general"
+import { generateOneOffDiagram } from "../generate"
 
 program
     .option("-e, --edo <number>", "edo number")
@@ -18,13 +18,4 @@ const root: Nominal = rootString.toLowerCase() as Nominal
 const inputSentence: Io & Sentence = computeStaffCodeInputSentence(edo, flavor, { root })
 console.log(inputSentence)
 
-const FORMATTED_FLAVOR_NAMES: Record<Flavor, string> = {
-    [Flavor.EVO]: "Evo",
-    [Flavor.EVO_SZ]: "Evo-SZ",
-    [Flavor.REVO]: "Revo",
-}
-
-const title: Io = `${FORMATTED_FLAVOR_NAMES[flavor]} Sagittal notation for ${edo}-EDO`
-const filename: Filename = `${edo}-EDO_${FORMATTED_FLAVOR_NAMES[flavor]}.svg` as Filename
-asyncGenerateDiagram(inputSentence, title, filename).then()
-console.log(`/Users/douglasblumeyer/playspace/sagittal-main/scripts/edoStaves/dist/${filename}`)
+generateOneOffDiagram(inputSentence, edo, { flavor })
