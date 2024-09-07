@@ -4,6 +4,7 @@ import { asyncGenerateDiagram } from "../diagram"
 import { computeStaffCodeInputSentence } from "../inputSentence"
 import { Filename, Index, Io, Sentence } from "@sagittal/general"
 import { extractKeyInfoFromInputSentence } from "../compare"
+import { Code } from "staff-code/dist/package/cjs/bin"
 
 program
     .option("-r, --root <string>", "root (F, C, G, D, A, E, or B; default C)", "c")
@@ -25,10 +26,10 @@ Object.keys(EDO_NOTATION_DEFINITIONS)
             computeStaffCodeInputSentence(edo, flavor, { root })
         )
 
-        const keyInfos: string[] = inputSentences.map(extractKeyInfoFromInputSentence)
+        const keyInfos: Sentence[] = inputSentences.map(extractKeyInfoFromInputSentence)
 
-        if (keyInfos[EVO] == keyInfos[EVO_SZ]) {
-            if (keyInfos[EVO] == keyInfos[REVO]) {
+        if (keyInfos[EVO] === keyInfos[EVO_SZ]) {
+            if (keyInfos[EVO] === keyInfos[REVO]) {
                 // case 2: all three identical, generate one big shared diagram
                 asyncGenerateDiagram(
                     inputSentences[EVO],
@@ -48,7 +49,7 @@ Object.keys(EDO_NOTATION_DEFINITIONS)
                     `${edo}-EDO_Revo.svg` as Filename
                 ).then()
             }
-        } else if (keyInfos[EVO] == keyInfos[REVO]) {
+        } else if (keyInfos[EVO] === keyInfos[REVO]) {
             // case 4: evo and revo identical, evo-sz different
             asyncGenerateDiagram(
                 inputSentences[EVO],

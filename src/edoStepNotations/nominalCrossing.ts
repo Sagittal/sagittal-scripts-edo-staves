@@ -1,7 +1,7 @@
-import { Index, isUndefined, Maybe } from "@sagittal/general"
+import { Index, isUndefined, Maybe, mod } from "@sagittal/general"
 import { Link, Nominal, NOMINALS } from "@sagittal/system"
 import { Difference } from "./types"
-import { NOMINAL_COUNT, ENOUGH_WHORLS_TO_GUARANTEE_POSITIVE_VALUE_BEFORE_MODULUS } from "./constants"
+import { NOMINAL_COUNT } from "./constants"
 
 const NOMINALS_IN_CHROMATIC_ORDER: Nominal[] =
     NOMINALS.slice().sort()
@@ -18,7 +18,7 @@ const INDEX_OF_D_IN_NOMINALS_IN_CHROMATIC_ORDER: Index<Nominal> = NOMINALS_IN_CH
 const computeNominalIndex = (edoStepLinkIndex: Index<Link>): Index<Nominal> =>
     NOMINALS_IN_CHROMATIC_ORDER.indexOf(
         NOMINALS[
-        (edoStepLinkIndex + NOMINAL_COUNT * ENOUGH_WHORLS_TO_GUARANTEE_POSITIVE_VALUE_BEFORE_MODULUS + INDEX_OF_D_IN_NOMINALS_IN_CHROMATIC_ORDER) % NOMINAL_COUNT
+        mod(edoStepLinkIndex + INDEX_OF_D_IN_NOMINALS_IN_CHROMATIC_ORDER, NOMINAL_COUNT)
         ]
     ) as Index<Nominal>
 
@@ -39,9 +39,9 @@ const computeHaveNominalsCrossed = (edoStepLinkIndices: Maybe<Index<Link>>[]): b
             nominalIndexDifference = computeNominalIndex(edoStepLinkIndex) - computeNominalIndex(previousEdoStepLinkIndex) as Difference<Index<Nominal>>
 
             if (
-                nominalIndexDifference != NOMINAL_INDEX_DIFFERENCE_FOR_SAME_NOMINAL &&
-                nominalIndexDifference != NOMINAL_INDEX_DIFFERENCE_FOR_NEXT_NOMINAL &&
-                nominalIndexDifference != NOMINAL_INDEX_DIFFERENCE_FOR_NEXT_NOMINAL_WHEN_WRAPPING_FROM_G_BACK_TO_A
+                nominalIndexDifference !== NOMINAL_INDEX_DIFFERENCE_FOR_SAME_NOMINAL &&
+                nominalIndexDifference !== NOMINAL_INDEX_DIFFERENCE_FOR_NEXT_NOMINAL &&
+                nominalIndexDifference !== NOMINAL_INDEX_DIFFERENCE_FOR_NEXT_NOMINAL_WHEN_WRAPPING_FROM_G_BACK_TO_A
             ) {
                 shouldStopPlacingLinksDueToNominalCrossing = true
             }

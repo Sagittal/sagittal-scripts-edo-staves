@@ -1,5 +1,7 @@
-import { Maybe, Index, ZERO_ONE_INDEX_DIFF, deepEquals, isUndefined } from "@sagittal/general"
-import { Flavor, Sagittal, computeAccidentalSagitype, EdoStepNotation, Link, Whorl, NOMINALS, SAGITTAL_SEMIFLAT, SAGITTAL_SEMISHARP } from "@sagittal/system"
+import { Maybe, Index, ZERO_ONE_INDEX_DIFF, deepEquals, isUndefined, Word } from "@sagittal/general"
+import { Flavor, Sagittal, computeAccidentalSagitype, EdoStepNotation, Link, Whorl, NOMINALS, SAGITTAL_SEMIFLAT, SAGITTAL_SEMISHARP, Sagitype } from "@sagittal/system"
+import { IntermediateForm } from "./types"
+import { Code } from "staff-code/dist/package/cjs/bin"
 
 const REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D: Index<Link> = -17 as Index<Link>
 
@@ -25,38 +27,53 @@ const computePositiveOrNegativeOrNullSagittal = (sagittals: Sagittal[], sagittal
     return undefined
 }
 
-const computeSagitypeString = (maybeSagittal: Maybe<Sagittal>): string =>
-    isUndefined(maybeSagittal) ?
-        "" :
-        computeAccidentalSagitype(maybeSagittal)
+const handleDiacritics = (sagitype: Sagitype): (Code & Word)[] => {
+    return sagitype.split(/(``|,,|`|,|'|\.)/) as (Code & Word)[]
+    // sagitypeString
+    // .replace(/'/g, "' ; ")
+    // .replace(/\./g, ". ; ")
+    // .replace(/``/g, "`` ; ")
+    // .replace(/,,/g, ",, ; ")
+    // .replace(/`/g, "` ; ")
+    // .replace(/,/g, ", ; ")
+}
 
-const computeWhorlString = (whorl: Whorl, { flavor }: { flavor: Flavor }) =>
-    flavor == Flavor.REVO ?
-        "" :
-        whorl
+const computeSagitypeCodewords = (maybeSagittal: Maybe<Sagittal>): (Code & Word)[] =>
+    isUndefined(maybeSagittal) ?
+        [] :
+        handleDiacritics(computeAccidentalSagitype(maybeSagittal)) // TODO: use Sagittal<Flavor> where possible
+
+const computeWhorlCodewords = (whorl: Whorl, { flavor }: { flavor: Flavor }): (Code & Word)[] =>
+    flavor === Flavor.REVO ?
+        [] :
+        whorl === Whorl.NATURAL ?
+            [] :
+            [whorl as Code & Word]
 
 const handleGeneralSagitypeAndWhorlStrings = (
     { maybeSagittal, whorl, flavor }: { maybeSagittal: Maybe<Sagittal>, whorl: Whorl, flavor: Flavor }
-): { sagitypeString: string, whorlString: string } =>
-    ({ sagitypeString: computeSagitypeString(maybeSagittal), whorlString: computeWhorlString(whorl, { flavor }) })
-
+): { sagitypeCodewords: (Code & Word)[], whorlCodewords: (Code & Word)[] } =>
+({
+    sagitypeCodewords: computeSagitypeCodewords(maybeSagittal),
+    whorlCodewords: computeWhorlCodewords(whorl, { flavor })
+})
 
 const computeEvoSZSagitypeAndWhorlStrings = (
     { maybeSagittal, whorl, flavor }: { maybeSagittal: Maybe<Sagittal>, whorl: Whorl, flavor: Flavor }
-): { sagitypeString: string, whorlString: string } => {
+): { sagitypeCodewords: (Code & Word)[], whorlCodewords: (Code & Word)[] } => {
     const isHalfSharp = deepEquals(maybeSagittal, SAGITTAL_SEMISHARP);
     const isHalfFlat = deepEquals(maybeSagittal, SAGITTAL_SEMIFLAT);
 
     if (whorl === Whorl.DOUBLE_SHARP && isHalfFlat) {
-        return { sagitypeString: "", whorlString: "t#" };
+        return { sagitypeCodewords: [], whorlCodewords: ["t#" as Code & Word] };
     } else if (whorl === Whorl.SHARP && (isHalfSharp || isHalfFlat)) {
-        return { sagitypeString: "", whorlString: isHalfSharp ? "t#" : "t" };
+        return { sagitypeCodewords: [], whorlCodewords: isHalfSharp ? ["t#" as Code & Word] : ["t" as Code & Word] };
     } else if (whorl === Whorl.NATURAL && (isHalfSharp || isHalfFlat)) {
-        return { sagitypeString: "", whorlString: isHalfSharp ? "t" : "d" };
+        return { sagitypeCodewords: [], whorlCodewords: isHalfSharp ? ["t" as Code & Word] : ["d" as Code & Word] };
     } else if (whorl === Whorl.FLAT && (isHalfSharp || isHalfFlat)) {
-        return { sagitypeString: "", whorlString: isHalfSharp ? "d" : "db" };
+        return { sagitypeCodewords: [], whorlCodewords: isHalfSharp ? ["d" as Code & Word] : ["db" as Code & Word] };
     } else if (whorl === Whorl.DOUBLE_FLAT && isHalfFlat) {
-        return { sagitypeString: "", whorlString: "db" };
+        return { sagitypeCodewords: [], whorlCodewords: ["db" as Code & Word] }; // TODO: constantize these codewords
     } else {
         return handleGeneralSagitypeAndWhorlStrings({ maybeSagittal, whorl, flavor })
     }
@@ -64,29 +81,29 @@ const computeEvoSZSagitypeAndWhorlStrings = (
 
 const computeSagitypeAndWhorlStrings = (
     { maybeSagittal, whorl, flavor }: { maybeSagittal: Maybe<Sagittal>, whorl: Whorl, flavor: Flavor }
-): { sagitypeString: string, whorlString: string } =>
+): { sagitypeCodewords: (Code & Word)[], whorlCodewords: (Code & Word)[] } =>
     flavor === Flavor.EVO_SZ ?
         computeEvoSZSagitypeAndWhorlStrings({ maybeSagittal, whorl, flavor }) :
         handleGeneralSagitypeAndWhorlStrings({ maybeSagittal, whorl, flavor })
 
-const resolveEdoStepNotationsToIntermediateStringFormsOfActualFinalVisualNotation = (
+const resolveEdoStepNotationsToIntermediateFormsOfActualFinalVisualNotation = (
     edoStepNotations: EdoStepNotation[],
     { sagittals, flavor }: { sagittals: Sagittal[], flavor: Flavor }
-): Record<any, string>[] => {
-    return edoStepNotations.map(({ linkIndex, sagittalIndex }: EdoStepNotation): Record<any, string> => {
+): IntermediateForm[] => {
+    return edoStepNotations.map(({ linkIndex, sagittalIndex }: EdoStepNotation): IntermediateForm => {
         const maybeSagittal: Maybe<Sagittal> = computePositiveOrNegativeOrNullSagittal(sagittals, sagittalIndex)
         const { nominal, whorl }: Link = LINKS[linkIndex]
 
-        const { sagitypeString, whorlString } = computeSagitypeAndWhorlStrings({ maybeSagittal, whorl, flavor })
+        const { sagitypeCodewords, whorlCodewords } = computeSagitypeAndWhorlStrings({ maybeSagittal, whorl, flavor })
 
         return {
-            nominalString: nominal,
-            whorlString,
-            sagitypeString,
+            nominal,
+            whorlCodewords,
+            sagitypeCodewords,
         }
     })
 }
 
 export {
-    resolveEdoStepNotationsToIntermediateStringFormsOfActualFinalVisualNotation,
+    resolveEdoStepNotationsToIntermediateFormsOfActualFinalVisualNotation,
 }

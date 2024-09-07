@@ -1,4 +1,4 @@
-import { Count, Index, ZERO_ONE_INDEX_DIFF, computeRange, isUndefined } from "@sagittal/general"
+import { Count, Index, ZERO_ONE_INDEX_DIFF, computeRange, isUndefined, mod } from "@sagittal/general"
 import { Edo, EdoStep, EdoStepNotation, Link, Sagittal } from "@sagittal/system"
 import { Priority, Way } from "./types"
 
@@ -76,7 +76,7 @@ const computeIsNotationComplete = (edoStepNotations: EdoStepNotation[]) =>
         (notatedStepCount: Count<EdoStepNotation>, edoStep: EdoStepNotation): Count<EdoStepNotation> =>
             notatedStepCount + (!!edoStep ? 1 : 0) as Count<EdoStepNotation>,
         0 as Count<EdoStepNotation>
-    ) == edoStepNotations.length as Count<EdoStepNotation>
+    ) === edoStepNotations.length as Count<EdoStepNotation>
 
 const equalGapsBetweenLinks = (linkEdoStepNotations: EdoStepNotation[]): boolean => {
     let allPreviousGapSizes: Count<EdoStep>
@@ -88,7 +88,7 @@ const equalGapsBetweenLinks = (linkEdoStepNotations: EdoStepNotation[]): boolean
 
         if (linkEdoStepNotations[i]) {
             if (isUndefined(allPreviousGapSizes)) allPreviousGapSizes = currentGapSize
-            if (currentGapSize != allPreviousGapSizes) equalGapsBetweenLinks = false
+            if (currentGapSize !== allPreviousGapSizes) equalGapsBetweenLinks = false
             currentGapSize = 0 as Count<EdoStep>
         } else {
             currentGapSize++
@@ -112,8 +112,8 @@ const placeAllOfGivenDirectedSagittal = (
         if (linkIndex >= 10 && way > 0) return
         if (linkIndex <= -10 && way < 0) return
 
-        if (way * sagittalIndex == placingSagittalIndex - 1) {
-            const neighborIndex: Index<EdoStepNotation> = (edoStep + edo + way) % edo as Index<EdoStepNotation>
+        if (way * sagittalIndex === placingSagittalIndex - 1) {
+            const neighborIndex: Index<EdoStepNotation> = mod(edoStep + way, edo) as Index<EdoStepNotation>
             if (isUndefined(edoStepNotations[neighborIndex])) {
                 edoStepNotations[neighborIndex] = {
                     linkIndex,

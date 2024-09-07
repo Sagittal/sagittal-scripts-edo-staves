@@ -1,7 +1,9 @@
-import { computeRange, Count, Index } from "@sagittal/general"
+import { computeRange, Count, Decimal, Index, max, Max, Word, ZERO_ONE_INDEX_DIFF } from "@sagittal/general"
 import { EdoStep, computeWholeToneStep, computeLimmaStep, Edo } from "@sagittal/system"
-import { computeCodeWordWidth } from "staff-code"
-import { NoteCountParametersByStave, NoteCountByStavePattern, Note, WholeTone, Limma, EdoSizeCategory } from "./types"
+import { computeCodeWordWidth } from "staff-code" // TODO: rename in there
+import { Octals } from "staff-code/dist/package/cjs/src/translate/smarts" // TODO: actually export this
+import { Code } from "staff-code/dist/package/cjs/bin" // TODO: actually export this and fix everywhere
+import { NoteCountParametersByStave, NoteCountByStavePattern, Note, EdoSizeCategory, IntermediateForm, Stave } from "./types"
 import {
     MAX_NOTE_COUNT_PER_STAVE,
     NOTE_COUNT_PARAMETERS_BY_STAVE_BY_EDO_SIZE_CATEGORY,
@@ -9,18 +11,17 @@ import {
     EDO_SIZE_CATEGORIES,
 } from "./constants"
 
-const computeAlignment = ({ edo, fifthStep, intermediateStringForms }: { edo: Edo, fifthStep: EdoStep }) => {
+// TODO: here is where we'd:
+// - compute which alignment pattern this EDO will use
+// - arrange the intermediate stringform into an array of arrays according to it
+// - for each column, determine the max width
+// - then modify the `assemble...` function below to take this width and staff breaks into account
+// and then possibly in resolveEdoStepNotationsToIntermediateFormsOfActualFinalVisualNotation also possibly 
+// handle the c4 vs c5 stuff, so that everything there is actually at least a staffcode Word. 
+// but then the sagitype string would actually need to be a list thereof, and accents be handled there too. 
+// and maybe it is better that nominal is left as a Nominal so the next layer can determine whether a nominal staffcode word is required...
 
-    // TODO: here is where we'd:
-    // - compute which alignment pattern this EDO will use
-    // - arrange the intermediate stringform into an array of arrays according to it
-    // - for each column, determine the max width
-    // - then modify the `assemble...` function below to take this width and staff breaks into account
-    // and then possibly in resolveEdoStepNotationsToIntermediateStringFormsOfActualFinalVisualNotation also possibly 
-    // handle the c4 vs c5 stuff, so that everything there is actually at least a staffcode Word. 
-    // but then the sagitype string would actually need to be a list thereof, and accents be handled there too. 
-    // and maybe it is better that nominal is left as a Nominal so the next layer can determine whether a nominal staffcode word is required...
-
+const computeNoteCountByStavePattern = ({ edo, fifthStep }: { edo: Edo, fifthStep: EdoStep }): NoteCountByStavePattern => {
     const wholeToneStep: EdoStep = computeWholeToneStep(edo, fifthStep)
     const limmaStep: EdoStep = computeLimmaStep(edo, fifthStep)
     const edoSizeCategoryInverseIndex: Index<EdoSizeCategory> = MAX_NOTE_COUNT_BY_STAVE_PARAMETERS_BY_DECREASING_EDO_SIZE_CATEGORY.reduce(
@@ -34,7 +35,7 @@ const computeAlignment = ({ edo, fifthStep, intermediateStringForms }: { edo: Ed
                 chosenEdoSizeCategoryInverseIndex,
         0 as Index<EdoSizeCategory>
     )
-    const edoSizeCategoryIndex: Index<EdoSizeCategory> = EDO_SIZE_CATEGORIES.length - edoSizeCategoryInverseIndex as Index<EdoSizeCategory>
+    const edoSizeCategoryIndex: Index<EdoSizeCategory> = EDO_SIZE_CATEGORIES.length - ZERO_ONE_INDEX_DIFF - edoSizeCategoryInverseIndex as Index<EdoSizeCategory>
     const edoSizeCategory: EdoSizeCategory = EDO_SIZE_CATEGORIES[edoSizeCategoryIndex]
     const noteCountParametersByStavePattern: NoteCountParametersByStave[] = NOTE_COUNT_PARAMETERS_BY_STAVE_BY_EDO_SIZE_CATEGORY[edoSizeCategory]
     const noteCountByStavePattern: NoteCountByStavePattern = noteCountParametersByStavePattern
@@ -42,40 +43,67 @@ const computeAlignment = ({ edo, fifthStep, intermediateStringForms }: { edo: Ed
             wholeToneCount * wholeToneStep + limmaCount * limmaStep as Count<Note>
         )
 
-    // console.log("pattern: ", pattern)
-    const output = [[]]
-    let i = 0
-    let patternI = 0
-    intermediateStringForms.forEach(intermediateStringForm => {
-        output[patternI].push(intermediateStringForm)
-        i++
-        if (i == noteCountByStavePattern[patternI]) {
-            patternI++
-            output[patternI] = []
-            i = 0
+    // console.log("wholeToneStep", wholeToneStep)
+    // console.log("limmaStep", limmaStep)
+    // console.log("MAX_NOTE_COUNT_BY_STAVE_PARAMETERS_BY_DECREASING_EDO_SIZE_CATEGORY: ", MAX_NOTE_COUNT_BY_STAVE_PARAMETERS_BY_DECREASING_EDO_SIZE_CATEGORY)
+    // console.log("EDO_SIZE_CATEGORIES.length: ", EDO_SIZE_CATEGORIES.length)
+    // console.log("edoSizeCategoryInverseIndex: ", edoSizeCategoryInverseIndex)
+    // console.log("edoSizeCategoryIndex: ", edoSizeCategoryIndex)
+    // console.log("edoSizeCategory: ", edoSizeCategory)
+    // console.log("noteCountParametersByStavePattern: ", noteCountParametersByStavePattern)
+    // console.log("noteCountByStavePattern: ", noteCountByStavePattern)
+
+    return noteCountByStavePattern
+}
+
+const computeColumnWidths = (
+    intermediateForms: IntermediateForm[],
+    { noteCountByStavePattern }: { noteCountByStavePattern: NoteCountByStavePattern }
+): Max<Octals>[] => {
+    const patternedIntermediateForms: IntermediateForm[][] = [[]]
+    let noteIndex: Index<Note> = 0 as Index<Note>
+    let staveIndex: Index<Stave> = 0 as Index<Stave>
+    intermediateForms.forEach((intermediateForm: IntermediateForm): void => {
+        patternedIntermediateForms[staveIndex].push(intermediateForm)
+        noteIndex++
+        if (noteIndex === noteCountByStavePattern[staveIndex] as Decimal<{ integer: true }> as Index<Note>) {
+            staveIndex++
+            patternedIntermediateForms[staveIndex] = []
+            noteIndex = 0 as Index<Note>
         }
     })
-    // console.log(output)
 
-    const maxLineLength = Math.max(...output.map(line => line.length))
-    const colWidths = computeRange(maxLineLength).map(colIndex => {
-        // console.log("col index ", colIndex)
-        return output.reduce(
-            (acc, line) => {
-                if (!line[colIndex]) return acc
-                const { whorlString, sagitypeString } = line[colIndex]
-                const whorlWidth = whorlString ? computeCodeWordWidth(whorlString) : 0
-                const sagitypeWidth = sagitypeString ? computeCodeWordWidth(sagitypeString) : 0 // TODO: handle accents; maybe just need to move handleDiacritics here sooner?
-                return Math.max(acc, whorlWidth + sagitypeWidth)
+    // TODO: first you need to separately compute the individual cell widths,
+    // and pass that on to the final step
+    // and also use it to compute the max width
+
+    const maxLineLength: Max<Count<Note>> = max(...patternedIntermediateForms.map((line: IntermediateForm[]) => line.length as Count<Note>))
+    const columnWidths: Max<Octals>[] = computeRange(maxLineLength).map((columnIndex: number): Max<Octals> =>
+        patternedIntermediateForms.reduce(
+            (maximumWidthOfNotationInThisColumn: Max<Octals>, patternedIntermediateFormsStave: IntermediateForm[]): Max<Octals> => {
+                if (!patternedIntermediateFormsStave[columnIndex]) return maximumWidthOfNotationInThisColumn
+
+                const { whorlCodewords, sagitypeCodewords } = patternedIntermediateFormsStave[columnIndex]
+                // console.log("whorlCodewords: ", whorlCodewords, " patternedIntermediateFormsStave: ", patternedIntermediateFormsStave, " columnIndex: ", columnIndex)
+                const whorlWidth: Octals = whorlCodewords.reduce(
+                    (totalWidth: Octals, whorlCodeword: Code & Word): Octals => totalWidth + computeCodeWordWidth(whorlCodeword) as Octals,
+                    0 as Octals
+                )
+                const sagitypeWidth: Octals = sagitypeCodewords.reduce(
+                    (totalWidth: Octals, sagitypeCodeword: Code & Word): Octals => totalWidth + computeCodeWordWidth(sagitypeCodeword) as Octals,
+                    0 as Octals
+                )
+
+                return Math.max(maximumWidthOfNotationInThisColumn, whorlWidth + sagitypeWidth) as Max<Octals>
             },
-            0)
-    })
+            0 as Max<Octals>
+        )
+    )
 
-    // console.log(colWidths)
-
-    return { colWidths, noteCountByStavePattern }
+    return columnWidths
 }
 
 export {
-    computeAlignment,
+    computeNoteCountByStavePattern,
+    computeColumnWidths,
 }

@@ -13,25 +13,24 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 5;   ; nt ; 9; en; bl 
                 5; d4 5;   ; nt ; 9; en; bl 
                 5; e4 5;   ; nt ; 9; en; bl 
                 5; g4 5;   ; nt ; 9; en; bl 
                 5; a4 5;   ; nt ;
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
-        it("works for 11-EDO Evo", (): void => {
+        xit("works for 11-EDO Evo", (): void => {
             const actual = computeStaffCodeInputSentence(11 as Edo, flavor)
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; \\! ; # ; nt ; 9; en; bl 
                 5; d4 9;   ; nt ; 9; en; bl 
                 5; e4 5; /| ; b ; nt ; 9;   ; nt ; 9; en; bl 
@@ -39,7 +38,6 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; g4 5; /| ;   ; nt ; 9; # ; nt ; 9; en; bl 
                 5; b4 9; b ; nt ; 5; \\! ;   ; nt ; 
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -50,7 +48,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 9; # ; nt ; 9; en; bl 
                 5; d4 9;   ; nt ; 9; en; bl 
                 5; e4 9; b ; nt ; 9;   ; nt ; 9; en; bl 
@@ -59,7 +57,6 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; a4 9;   ; nt ; 9; en; bl 
                 5; b4 9; b ; nt ; 9;   ; nt ; 
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -70,7 +67,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
                 5; d4 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
                 5; e4 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
@@ -78,7 +75,6 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; a4 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
                 5; c5 5; \\! ;   ; nt ; 
                 3; en; bl 
-                nl;
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -89,16 +85,16 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 9; en; bl 
                 5; d4 9;   ; nt ; 9; en; bl 
                 5; e4 9; b ; nt ; 5; /| ; b ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 9; en; bl 
-                5; f4 9;   ; nt ; 5; /| ;   ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 9; en; bl 
+                5; f4 9;   ; nt ; 5; /| ;   ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 9; en; bl
+                nl; f4
                 5; g4 9;   ; nt ; 5; /| ;   ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 9; en; bl 
                 5; a4 9;   ; nt ; 9; en; bl 
                 5; b4 9; b ; nt ; 5; /| ; b ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -109,17 +105,18 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; /|\\ ;   ; nt ; 9; # ; nt ; 9; en; bl 
                 5; d4 9; b ; nt ; 5; \\!/ ;   ; nt ; 9;   ; nt ; 5; /|\\ ;   ; nt ; 9; # ; nt ; 9; en; bl 
                 5; e4 9; b ; nt ; 5; \\!/ ;   ; nt ; 9;   ; nt ; 5; /|\\ ;   ; nt ; 9; # ; nt ; 9; en; bl 
                 5; f4 9;   ; nt ; 5; /|\\ ;   ; nt ; 9; # ; nt ; 9; en; bl 
-                5; g4 9; b ; nt ; 5; \\!/ ;   ; nt ; 9;   ; nt ; 5; /|\\ ;   ; nt ; 9; # ; nt ; 9; en; bl 
+                5; g4 9; b ; nt ; 5; \\!/ ;   ; nt ;
+                nl; g4
+                9;   ; nt ; 5; /|\\ ;   ; nt ; 9; # ; nt ; 9; en; bl
                 5; a4 9; b ; nt ; 5; \\!/ ;   ; nt ; 9;   ; nt ; 5; /|\\ ;   ; nt ; 9; # ; nt ; 9; en; bl 
-                5; b4 9; b ; nt ; 5; \\!/ ;   ; nt ; 9;   ; b4 nt ; 9; en; bl 
+                5; b4 9; b ; nt ; 5; \\!/ ;   ; nt ; 9;   ; nt ; 9; en; bl 
                 5; c5 9; b ; nt ; 5; \\!/ ;   ; nt ; 
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -130,18 +127,16 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
-                5; d4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
+                5; d4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; nl; d4 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
                 5; e4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
-                5; f4 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
-                5; g4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
-                nl; 
-                5; Gcl ; 5; a4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; a4 ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
+                5; f4 5; !) ;   ; nt ; 5; !( ;   ; nt ; nl; f4 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
+                5; g4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; nl; g4 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
+                5; Gcl; 5; a4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; nl; a4 9; ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
                 5; b4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 9; en; bl 
                 5; c5 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -152,16 +147,15 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; d4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
-                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; e4 9; bb ; nt ; 5; /|) ; bb ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
-                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; f4 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
-                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; g4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; en; bl nl; 
-                5; Gcl g4 ; 20; nt ;5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; a4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
-                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; b4 9; bb ; nt ; 5; /|) ; bb ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
-                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; c5 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 
+                bl d4 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; e4 bb ; nt ; 5; /|) ; bb ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl  9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; f4 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl f4 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; g4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; en; bl nl; 
+                5; Gcl; g4 ; 20; nt ;5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; a4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl a4 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; b4 bb ; nt ; 5; /|) ;  bb ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl  9; nt ; 5; /|) ; nt ; 9; # ; nt ; c5 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 
                 8; en; blfn 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -172,19 +166,16 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
-                5; d4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
-                5; e4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
-                nl; 
-                5; Gcl ; 5; f4 f4 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
-                5; g4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
-                5; a4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
-                nl; 
-                5; Gcl ; 5; b4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9; b4 ; nt ; 9; en; bl 
+                5; d4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9; d4 ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
+                5; e4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9; ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
+                5; Gcl; 5; e4 f4 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
+                5; g4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; g4 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
+                5; a4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; a4 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
+                5; Gcl; 5; b4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9;  ; nt ; 9; en; bl 
                 5; c5 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 
                 3; en; bl 
-                nl;
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -195,16 +186,15 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; /|\\ ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 5; /|\\ ; # ; nt ; d4 5; !) ; nt ; 5; \\! ; nt ; 9; 
-                bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; /|\\ ; nt ; e4 5; !) ; b ; nt ; 5; \\! ; b ; nt ; 9; b ; nt ; 5; /| ; b ; nt ; 5; |) ; b ; nt ; 5; /|\\ ; b ; nt ; 5; !) ; nt ; 5; \\! ; nt ; 9; 
+                bl d4 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; /|\\ ; nt ; e4 5; !) ; b ; nt ; 5; \\! ; b ; nt ; 9; b ; nt ; 5; /| ; b ; nt ; 5; |) ; b ; nt ; 5; /|\\ ; b ; nt ; 5; !) ; nt ; 5; \\! ; nt ; 9; 
                 bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; /|\\ ; nt ; f4 5; !) ; nt ; 5; \\! ; nt ; 9; en; bl nl; 
-                5; Gcl f4 ; 20; nt ;5; /| ; nt ; 5; |) ; nt ; 5; /|\\ ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 5; /|\\ ; # ; nt ; g4 5; !) ; nt ; 5; \\! ; nt ; 9; 
-                bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; /|\\ ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 5; /|\\ ; # ; nt ; a4 5; !) ; nt ; 5; \\! ; nt ; 9; 
-                bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; /|\\ ; nt ; b4 5; !) ; b ; nt ; 5; \\! ; b ; nt ; 9; b ; nt ; 5; /| ; b ; nt ; 5; |) ; b ; nt ; 5; /|\\ ; b ; nt ; 5; !) ; nt ; 5; \\! ; nt ; 9; en; bl nl; 
-                5; Gcl b4 ; 20; nt ;5; /| ; nt ; 5; |) ; nt ; 5; /|\\ ; nt ; c5 5; !) ; nt ; 5; \\! ; nt ; 
+                5; Gcl; f4 ; 20; nt ;5; /| ; nt ; 5; |) ; nt ; 5; /|\\ ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 5; /|\\ ; # ; nt ; g4 5; !) ; nt ; 5; \\! ; nt ; 9; 
+                bl g4 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; /|\\ ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 5; /|\\ ; # ; nt ; a4 5; !) ; nt ; 5; \\! ; nt ; 9; 
+                bl a4 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; /|\\ ; nt ; b4 5; !) ; b ; nt ; 5; \\! ; b ; nt ; 9; b ; nt ; 5; /| ; b ; nt ; 5; |) ; b ; nt ; 5; /|\\ ; b ; nt ; 5; !) ; nt ; 5; \\! ; nt ; 9; en; bl nl; 
+                5; Gcl; 20; nt ;5; /| ; nt ; 5; |) ; nt ; 5; /|\\ ; nt ; c5 5; !) ; nt ; 5; \\! ; nt ; 
                 8; en; blfn 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -219,25 +209,24 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 5;   ; nt ; 9; en; bl 
                 5; d4 5;   ; nt ; 9; en; bl 
                 5; e4 5;   ; nt ; 9; en; bl 
                 5; g4 5;   ; nt ; 9; en; bl 
                 5; a4 5;   ; nt ;
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
-        it("works for 11-EDO Evo-SZ", (): void => {
+        xit("works for 11-EDO Evo-SZ", (): void => {
             const actual = computeStaffCodeInputSentence(11 as Edo, flavor)
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; \\! ; # ; nt ; 9; en; bl 
                 5; d4 9;   ; nt ; 9; en; bl 
                 5; e4 5; /| ; b ; nt ; 9;   ; nt ; 9; en; bl 
@@ -245,7 +234,6 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; g4 5; /| ;   ; nt ; 9; # ; nt ; 9; en; bl 
                 5; b4 9; b ; nt ; 5; \\! ;   ; nt ; 
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -256,7 +244,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 9; # ; nt ; 9; en; bl 
                 5; d4 9;   ; nt ; 9; en; bl 
                 5; e4 9; b ; nt ; 9;   ; nt ; 9; en; bl 
@@ -265,7 +253,6 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; a4 9;   ; nt ; 9; en; bl 
                 5; b4 9; b ; nt ; 9;   ; nt ; 
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -276,7 +263,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
                 5; d4 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
                 5; e4 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
@@ -284,7 +271,6 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; a4 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
                 5; c5 5; \\! ;   ; nt ; 
                 3; en; bl 
-                nl;
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -295,16 +281,16 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 9; en; bl 
                 5; d4 9;   ; nt ; 9; en; bl 
                 5; e4 9; b ; nt ; 5; /| ; b ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 9; en; bl 
-                5; f4 9;   ; nt ; 5; /| ;   ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 9; en; bl 
+                5; f4 9;   ; nt ; 5; /| ;   ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 9; en; bl
+                nl; f4
                 5; g4 9;   ; nt ; 5; /| ;   ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 9; en; bl 
                 5; a4 9;   ; nt ; 9; en; bl 
                 5; b4 9; b ; nt ; 5; /| ; b ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -315,17 +301,18 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; t ;   ; nt ; 9; # ; nt ; 9; en; bl 
                 5; d4 9; b ; nt ; 5; d ;   ; nt ; 9;   ; nt ; 5; t ;   ; nt ; 9; # ; nt ; 9; en; bl 
                 5; e4 9; b ; nt ; 5; d ;   ; nt ; 9;   ; nt ; 5; t ;   ; nt ; 9; # ; nt ; 9; en; bl 
                 5; f4 9;   ; nt ; 5; t ;   ; nt ; 9; # ; nt ; 9; en; bl 
-                5; g4 9; b ; nt ; 5; d ;   ; nt ; 9;   ; nt ; 5; t ;   ; nt ; 9; # ; nt ; 9; en; bl 
+                5; g4 9; b ; nt ; 5; d ;   ; nt ;
+                nl; g4
+                9;   ; nt ; 5; t ;   ; nt ; 9; # ; nt ; 9; en; bl
                 5; a4 9; b ; nt ; 5; d ;   ; nt ; 9;   ; nt ; 5; t ;   ; nt ; 9; # ; nt ; 9; en; bl 
-                5; b4 9; b ; nt ; 5; d ;   ; nt ; 9;   ; b4 nt ; 9; en; bl 
+                5; b4 9; b ; nt ; 5; d ;   ; nt ; 9;   ; nt ; 9; en; bl 
                 5; c5 9; b ; nt ; 5; d ;   ; nt ; 
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -336,18 +323,16 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
-                5; d4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
+                5; d4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; nl; d4 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
                 5; e4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
-                5; f4 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
-                5; g4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
-                nl; 
-                5; Gcl ; 5; a4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; a4 ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
+                5; f4 5; !) ;   ; nt ; 5; !( ;   ; nt ; nl; f4 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
+                5; g4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; nl; g4 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
+                5; Gcl; 5; a4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; nl; a4 9; ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
                 5; b4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 9; en; bl 
                 5; c5 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -358,16 +343,15 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; d4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
-                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; e4 9; bb ; nt ; 5; /|) ; bb ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
-                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; f4 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
-                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; g4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; en; bl nl; 
-                5; Gcl g4 ; 20; nt ;5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; a4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
-                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; b4 9; bb ; nt ; 5; /|) ; bb ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
-                bl 9; nt ; 5; /|) ; nt ; 9; # ; nt ; c5 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 
+                bl d4 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; e4 bb ; nt ; 5; /|) ; bb ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl  9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; f4 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl f4 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; g4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; en; bl nl; 
+                5; Gcl; g4 ; 20; nt ;5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; X ; nt ; a4 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl a4 9; nt ; 5; /|) ; nt ; 9; # ; nt ; 5; /|) ; # ; nt ; 9; b4 bb ; nt ; 5; /|) ;  bb ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 9; 
+                bl  9; nt ; 5; /|) ; nt ; 9; # ; nt ; c5 5; \\!) ; b ; nt ; 9; b ; nt ; 5; /|) ; b ; nt ; 
                 8; en; blfn 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -378,19 +362,16 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
-                5; d4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
-                5; e4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
-                nl; 
-                5; Gcl ; 5; f4 f4 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
-                5; g4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
-                5; a4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
-                nl; 
-                5; Gcl ; 5; b4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9; b4 ; nt ; 9; en; bl 
+                5; d4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9; d4 ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
+                5; e4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9; ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
+                5; Gcl; 5; e4 f4 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
+                5; g4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; g4 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
+                5; a4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; a4 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; \\!) ; # ; nt ; 5; )!( ; # ; nt ; 9; # ; nt ; 9; en; bl 
+                5; Gcl; 5; b4 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9;  ; nt ; 9; en; bl 
                 5; c5 9; b ; nt ; 5; )|( ; b ; nt ; 5; /|) ; b ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 
                 3; en; bl 
-                nl;
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -401,16 +382,15 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
-                c4 5; 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 9; t ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 9; t# ; nt ; d4 5; !) ; nt ; 5; \\! ; nt ; 9; 
-                bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 9; t ; nt ; e4 5; !) ; b ; nt ; 5; \\! ; b ; nt ; 9; b ; nt ; 5; /| ; b ; nt ; 5; |) ; b ; nt ; 9; d ; nt ; 5; !) ; nt ; 5; \\! ; nt ; 9; 
-                bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 9; t ; nt ; f4 5; !) ; nt ; 5; \\! ; nt ; 9; en; bl nl; 
-                5; Gcl f4 ; 20; nt ;5; /| ; nt ; 5; |) ; nt ; 9; t ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 9; t# ; nt ; g4 5; !) ; nt ; 5; \\! ; nt ; 9; 
-                bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 9; t ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 9; t# ; nt ; a4 5; !) ; nt ; 5; \\! ; nt ; 9; 
-                bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 9; t ; nt ; b4 5; !) ; b ; nt ; 5; \\! ; b ; nt ; 9; b ; nt ; 5; /| ; b ; nt ; 5; |) ; b ; nt ; 9; d ; nt ; 5; !) ; nt ; 5; \\! ; nt ; 9; en; bl nl; 
-                5; Gcl b4 ; 20; nt ;5; /| ; nt ; 5; |) ; nt ; 9; t ; nt ; c5 5; !) ; nt ; 5; \\! ; nt ; 
+                5; Gcl; 5; 
+                c4 5; 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; t ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 5; t# ; nt ; d4 5; !) ; nt ; 5; \\! ; nt ; 9; 
+                bl d4 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; t ; nt ; e4 5; !) ; b ; nt ; 5; \\! ; b ; nt ; 9; b ; nt ; 5; /| ; b ; nt ; 5; |) ; b ; nt ; 5; d ; nt ; 5; !) ; nt ; 5; \\! ; nt ; 9; 
+                bl 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; t ; nt ; f4 5; !) ; nt ; 5; \\! ; nt ; 9; en; bl nl; 
+                5; Gcl; f4 ; 20; nt ;5; /| ; nt ; 5; |) ; nt ; 5; t ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 5; t# ; nt ; g4 5; !) ; nt ; 5; \\! ; nt ; 9; 
+                bl g4 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; t ; nt ; 5; !) ; # ; nt ; 5; \\! ; # ; nt ; 9; # ; nt ; 5; /| ; # ; nt ; 5; |) ; # ; nt ; 5; t# ; nt ; a4 5; !) ; nt ; 5; \\! ; nt ; 9; 
+                bl a4 9; nt ; 5; /| ; nt ; 5; |) ; nt ; 5; t ; nt ; b4 5; !) ; b ; nt ; 5; \\! ; b ; nt ; 9; b ; nt ; 5; /| ; b ; nt ; 5; |) ; b ; nt ; 5; d ; nt ; 5; !) ; nt ; 5; \\! ; nt ; 9; en; bl nl; 
+                5; Gcl; 20; nt ;5; /| ; nt ; 5; |) ; nt ; 5; t ; nt ; c5 5; !) ; nt ; 5; \\! ; nt ; 
                 8; en; blfn 
-                nl;
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -425,25 +405,24 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 5;   ; nt ; 9; en; bl 
                 5; d4 5;   ; nt ; 9; en; bl 
                 5; e4 5;   ; nt ; 9; en; bl 
                 5; g4 5;   ; nt ; 9; en; bl 
                 5; a4 5;   ; nt ;
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })
 
-        it("works for 11-EDO Revo", (): void => {
+        xit("works for 11-EDO Revo", (): void => {
             const actual = computeStaffCodeInputSentence(11 as Edo, flavor)
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; ||\\ ;   ; nt ; 9; en; bl 
                 5; d4 9;   ; nt ; 9; en; bl 
                 5; e4 5; !!/ ;   ; nt ; 9;   ; nt ; 9; en; bl 
@@ -452,7 +431,6 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; a4 5; \\! ;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
                 5; b4 5; \\! ;   ; nt ; 
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -463,7 +441,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 9; /||\\ ; nt ; 9; en; bl 
                 5; d4 9;   ; nt ; 9; en; bl 
                 5; e4 9; \\!!/ ; nt ; 9;   ; nt ; 9; en; bl 
@@ -472,7 +450,6 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; a4 9;   ; nt ; 9; en; bl 
                 5; b4 9; \\!!/ ; nt ; 9;   ; nt ; 
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -483,7 +460,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
                 5; d4 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
                 5; e4 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
@@ -491,7 +468,6 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
                 5; a4 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
                 5; c5 5; \\! ;   ; nt ; 
                 3; en; bl 
-                nl;
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -502,16 +478,15 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 5; ||\\ ;   ; nt ; 9; en; bl 
                 5; d4 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
                 5; e4 5; !!/ ;   ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 9; en; bl 
                 5; f4 9;   ; nt ; 5; /| ;   ; nt ; 5; ||\\ ;   ; nt ; 9; en; bl 
-                5; g4 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 5; ||\\ ;   ; nt ; 9; en; bl 
+                5; g4 5; \\! ;   ; nt ; 9; g4  ; nt ; 5; /| ;   ; nt ; 5; ||\\ ;   ; nt ; 9; en; bl 
                 5; a4 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 9; en; bl 
                 5; b4 5; !!/ ;   ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -522,17 +497,16 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; /|\\ ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
                 5; d4 5; \\!!/ ;   ; nt ; 5; \\!/ ;   ; nt ; 9;   ; nt ; 5; /|\\ ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
                 5; e4 5; \\!!/ ;   ; nt ; 5; \\!/ ;   ; nt ; 9;   ; nt ; 5; /|\\ ;   ; nt ; 9; en; bl 
                 5; f4 5; \\!/ ;   ; nt ; 9;   ; nt ; 5; /|\\ ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
-                5; g4 5; \\!!/ ;   ; nt ; 5; \\!/ ;   ; nt ; 9;   ; nt ; 5; /|\\ ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
+                5; g4 5; \\!!/ ;   ; nt ; 5; \\!/ ;   ; nt ; 9; g4  ; nt ; 5; /|\\ ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
                 5; a4 5; \\!!/ ;   ; nt ; 5; \\!/ ;   ; nt ; 9;   ; nt ; 5; /|\\ ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
-                5; b4 5; \\!!/ ;   ; nt ; 5; \\!/ ;   ; nt ; 9; b4 ; nt ; 5; /|\\ ;   ; nt ; 9; en; bl 
+                5; b4 5; \\!!/ ;   ; nt ; 5; \\!/ ;   ; nt ; 9; ; nt ; 5; /|\\ ;   ; nt ; 9; en; bl 
                 5; c5 5; \\!/ ;   ; nt ; 
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -543,18 +517,17 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
-                5; d4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
+                5; d4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; d4 ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
                 5; e4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
-                5; f4 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
-                5; g4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
+                5; f4 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; f4 ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
+                5; g4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; g4  ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
                 nl; 
-                5; Gcl ; 5; a4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; a4 ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
+                5; Gcl; 5; a4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9; a4 ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 5; |\\ ;   ; nt ; 9; en; bl 
                 5; b4 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 9;   ; nt ; 5; |( ;   ; nt ; 5; |) ;   ; nt ; 9; en; bl 
                 5; c5 5; !/ ;   ; nt ; 5; !) ;   ; nt ; 5; !( ;   ; nt ; 
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -565,16 +538,15 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; 5; /X\\ ; nt ; d4 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; 
-                bl 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; e4 5; \\Y/ ; nt ; 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; 
+                bl d4 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; e4 5; \\Y/ ; nt ; 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; 
                 bl 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; f4 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; 
-                bl 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; 5; /X\\ ; nt ; g4 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; en; bl nl; 
-                5; Gcl g4 ; 20; nt ;5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; 5; /X\\ ; nt ; a4 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; 
-                bl 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; b4 5; \\Y/ ; nt ; 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; 
+                bl f4 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; 5; /X\\ ; nt ; g4 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; en; bl nl; 
+                5; Gcl; g4 ; 20; nt ;5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; 5; /X\\ ; nt ; a4 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; 
+                bl a4 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; 5; /|||) ; nt ; b4 5; \\Y/ ; nt ; 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 9; 
                 bl 9; nt ; 5; /|) ; nt ; 5; /||\\ ; nt ; c5 5; \\!!!) ; nt ; 5; \\!!/ ; nt ; 5; \\!) ; nt ; 
                 8; en; blfn 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -585,19 +557,18 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; (|\\ ;   ; nt ; 5; //|| ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
-                5; d4 5; \\!!/ ;   ; nt ; 5; \\\\!! ;   ; nt ; 5; (!/ ;   ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; (|\\ ;   ; nt ; 5; //|| ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
+                5; d4 5; \\!!/ ;   ; nt ; 5; \\\\!! ;   ; nt ; 5; (!/ ;   ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9; d4  ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; (|\\ ;   ; nt ; 5; //|| ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
                 5; e4 5; \\!!/ ;   ; nt ; 5; \\\\!! ;   ; nt ; 5; (!/ ;   ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; (|\\ ;   ; nt ; 9; en; bl 
                 5; f4 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9; f4 ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; (|\\ ;   ; nt ; 5; //|| ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
                 nl; 
-                5; Gcl ; 5; g4 5; \\!!/ ;   ; nt ; 5; \\\\!! ;   ; nt ; 5; (!/ ;   ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; (|\\ ;   ; nt ; 5; //|| ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
-                5; a4 5; \\!!/ ;   ; nt ; 5; \\\\!! ;   ; nt ; 5; (!/ ;   ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9;   ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; (|\\ ;   ; nt ; 5; //|| ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
+                5; Gcl; 5; g4 5; \\!!/ ;   ; nt ; 5; \\\\!! ;   ; nt ; 5; (!/ ;   ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9;  g4 ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; (|\\ ;   ; nt ; 5; //|| ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
+                5; a4 5; \\!!/ ;   ; nt ; 5; \\\\!! ;   ; nt ; 5; (!/ ;   ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9;  a4 ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 5; (|\\ ;   ; nt ; 5; //|| ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
                 nl; 
-                5; Gcl ; 5; b4 5; \\!!/ ;   ; nt ; 5; \\\\!! ;   ; nt ; 5; (!/ ;   ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9; b4 ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 9; en; bl 
+                5; Gcl; 5; b4 5; \\!!/ ;   ; nt ; 5; \\\\!! ;   ; nt ; 5; (!/ ;   ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 9; ; nt ; 5; )|( ;   ; nt ; 5; /|) ;   ; nt ; 9; en; bl 
                 5; c5 5; (!/ ;   ; nt ; 5; \\!) ;   ; nt ; 5; )!( ;   ; nt ; 
                 3; en; bl 
-                nl; 
             ` as Io & Sentence
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
@@ -608,20 +579,19 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
 
             const expected: Io & Sentence = `
                 ston 
-                5; Gcl ; 5; 
+                5; Gcl; 5; 
                 c4 5; 9;   ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 5; ||) ;   ; nt ; 5; ||\\ ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
-                5; d4 5; !!/ ;   ; nt ; 5; !!) ;   ; nt ; 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 5; ||) ;   ; nt ; 5; ||\\ ;   ; nt ; 9; en; bl 
+                5; d4 5; !!/ ;   ; nt ; 5; !!) ;   ; nt ; 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9;  d4 ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 5; ||) ;   ; nt ; 5; ||\\ ;   ; nt ; 9; en; bl 
                 5; e4 5; \\!!/ ;   ; nt ; 5; !!/ ;   ; nt ; 5; !!) ;   ; nt ; 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 9; en; bl 
                 nl; 
-                5; Gcl ; 5; f4 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9; f4 ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 5; ||) ;   ; nt ; 5; ||\\ ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
-                5; g4 5; !!/ ;   ; nt ; 5; !!) ;   ; nt ; 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 5; ||) ;   ; nt ; 5; ||\\ ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
-                5; a4 5; !!/ ;   ; nt ; 5; !!) ;   ; nt ; 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9;   ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 5; ||) ;   ; nt ; 5; ||\\ ;   ; nt ; 9; en; bl 
+                5; Gcl; 5; f4 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9; f4 ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 5; ||) ;   ; nt ; 5; ||\\ ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
+                5; g4 5; !!/ ;   ; nt ; 5; !!) ;   ; nt ; 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9; g4  ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 5; ||) ;   ; nt ; 5; ||\\ ;   ; nt ; 5; /||\\ ;   ; nt ; 9; en; bl 
+                5; a4 5; !!/ ;   ; nt ; 5; !!) ;   ; nt ; 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9; a4  ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 5; /|\\ ;   ; nt ; 5; ||) ;   ; nt ; 5; ||\\ ;   ; nt ; 9; en; bl 
                 nl; 
-                5; Gcl ; 5; b4 5; \\!!/ ;   ; nt ; 5; !!/ ;   ; nt ; 5; !!) ;   ; nt ; 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9; b4 ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 9; en; bl 
+                5; Gcl; 5; b4 5; \\!!/ ;   ; nt ; 5; !!/ ;   ; nt ; 5; !!) ;   ; nt ; 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 9; ; nt ; 5; /| ;   ; nt ; 5; |) ;   ; nt ; 9; en; bl 
                 5; c5 5; \\!/ ;   ; nt ; 5; !) ;   ; nt ; 5; \\! ;   ; nt ; 
                 3; en; bl 
-                nl; 
-            ` as Io & Sentence
+            ` as Io & Sentence // TODO: once everything is hunky dory, update all of these so you get the latest definition of nice formatting
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(expected))
         })

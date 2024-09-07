@@ -1,137 +1,168 @@
-import { Io, Sentence, Count } from "@sagittal/general"
+import { Clause, Count, Word, Max, Index, Decimal, Sentence, Io } from "@sagittal/general"
 import { Nominal } from "@sagittal/system"
+import { Code } from "staff-code/dist/package/cjs/bin"
+import { AlignedColumn, IntermediateForm, NotationState, Note, NoteCountByStavePattern } from "./types"
+import { Octals } from "staff-code/dist/package/cjs/src/translate/smarts"
 
-const computeNominalStaffCode = (
-    notationState: { noteCount: Count, currentNominal: Io, reachedC: boolean }
-): string => {
-    return `${notationState.currentNominal}${notationState.reachedC ? 5 : 4}`
+const computeNominalCodeword = (notationState: NotationState): Code & Word =>
+    `${notationState.currentNominal}${notationState.reachedC ? 5 : 4}` as Code & Word
+
+const computeNominalClause = (
+    nominal: Nominal,
+    { notationState }: { notationState: NotationState }
+): Code & Clause => {
+    if (nominal !== notationState.currentNominal) {
+        notationState.currentNominal = nominal
+        if (notationState.currentNominal === Nominal.C) notationState.reachedC = true
+
+        return `\n${computeNominalCodeword(notationState)} ` as Code & Clause
+    }
+
+    return "" as Code & Clause
 }
 
-const computeNominalPart = (
-    nominalString: string,
-    { notationState }: {
-        notationState: { noteCount: Count, currentNominal: Io, reachedC: boolean }
+const computeSagittalClause = (sagitypeCodewords: (Code & Word)[]): Code & Clause =>
+    sagitypeCodewords.length === 0 ?
+        "" as Code & Clause :
+        sagitypeCodewords.reduce((acc: string, str: string) => acc + `${str}; `, "") as Code & Clause  // TODO: variable name improve
+
+const computeWhorlClause = (whorlCodewords: (Code & Word)[]): Code & Clause =>
+    whorlCodewords.length === 0 ?
+        "" as Code & Clause :
+        `${whorlCodewords[0]}; ` as Code & Clause
+
+// const computeNoteClause = (
+//     { sagitypeCodewords, whorlCodewords, notationState, noteCountByStavePattern }: {
+//         sagitypeCodewords: (Code & Word)[],
+//         whorlCodewords: (Code & Word)[],
+//         notationState: NotationState,
+//         noteCountByStavePattern: NoteCountByStavePattern,
+//     }
+// ): Code & Clause => {
+//     const notePart: Code & Clause =
+//         computeTimeToBreakStaves(notationState.noteCount, noteCountByStavePattern) ?
+//             // `en; bl nl; 5; Gcl; ${computeNominalCodeword(notationState)} 15; nt;` as Code & Clause :
+//             `en; bl nl; 5; Gcl; 15; nt;` as Code & Clause :
+//             sagitypeCodewords.length === 0 && whorlCodewords.length === 0 && notationState.noteCount !== 0 ?
+//                 "bl 9; nt ; " as Code & Clause :
+//                 "nt ; " as Code & Clause
+
+//     notationState.noteCount++
+
+//     return notePart
+// }
+
+const computeNoteClause = (
+    {  notationState }: {
+        // sagitypeCodewords: (Code & Word)[],
+        // whorlCodewords: (Code & Word)[],
+        notationState: NotationState,
+        // noteCountByStavePattern: NoteCountByStavePattern,
     }
-): Io & Sentence => {
-    let nominalPart = "" as Io & Sentence
-
-    if (nominalString != notationState.currentNominal) {
-        notationState.currentNominal = nominalString
-        if (notationState.currentNominal == Nominal.C) notationState.reachedC = true
-
-        nominalPart = nominalPart + `${computeNominalStaffCode(notationState)} ` as Io & Sentence
-    }
-
-    return nominalPart
-}
-
-// note: does not yet support Magrathean EDOs
-const handleDiacritics = (sagitypeString: string): string =>
-    sagitypeString
-        .replace(/'/g, "' ; ")
-        .replace(/\./g, ". ; ")
-        .replace(/``/g, "`` ; ")
-        .replace(/,,/g, ",, ; ")
-        .replace(/`/g, "` ; ")
-        .replace(/,/g, ", ; ")
-
-const computeSagittalPart = (sagitypeString: string): Io & Sentence =>
-    sagitypeString.length ? // TODO: better for these to check explicitly for 0
-        `${handleDiacritics(sagitypeString)} ; ` as Io & Sentence :
-        "" as Io & Sentence
-
-const computeWhorlPart = (whorlString: string): Io & Sentence =>
-    whorlString.length ?
-        `${whorlString} ; ` as Io & Sentence :
-        "" as Io & Sentence
-
-const computeNotePart = (
-    { sagitypeString, whorlString, notationState, noteCountByStavePattern }: {
-        sagitypeString: string,
-        whorlString: string,
-        notationState: { noteCount: Count, currentNominal: Io, reachedC: boolean },
-        noteCountByStavePattern: number[],
-    }
-): Io & Sentence => {
-    let notePart: Io & Sentence
-
-    // if (sagitypeString.length == 0 && whorlString.length == 0 && notationState.noteCount != 0) {
-    // if (true) {
-    if (timeToBreak(notationState.noteCount, noteCountByStavePattern)) {
-
-        // TODO make sure this aligns w the first one
-        // 5; Gcl ; 5; \n${root}4 5; 
-        notePart = `en; bl nl; \n5; Gcl ${computeNominalStaffCode(notationState)} ; 15; nt ;` as Io & Sentence
-    } else if (sagitypeString.length == 0 && whorlString.length == 0 && notationState.noteCount != 0) {
-        notePart = "\nbl 9; nt ; " as Io & Sentence
-    } else {
-        notePart = "nt ; " as Io & Sentence
-    }
+): Code & Clause => {
+    // const notePart: Code & Clause =
+    //         // `en; bl nl; 5; Gcl; ${computeNominalCodeword(notationState)} 15; nt;` as Code & Clause :
+    //         `en; bl nl; 5; Gcl; 15; nt;` as Code & Clause :
+    //         sagitypeCodewords.length === 0 && whorlCodewords.length === 0 && notationState.noteCount !== 0 ?
+    //             "bl 9; nt ; " as Code & Clause :
+    //             "nt ; " as Code & Clause
 
     notationState.noteCount++
 
-    return notePart
+    // return notePart
+    return "nt; 5; " as Code & Clause
 }
 
-const timeToBreak = (noteCount, noteCountByStavePattern) => {
-    let answer
-    let thing = 0
-    noteCountByStavePattern.forEach(line => {
-        // if (answer) return
-        thing += line
+const computeBreakAndOrBarClause = (
+    { sagitypeCodewords, whorlCodewords, notationState, noteCountByStavePattern }: {
+        sagitypeCodewords: (Code & Word)[],
+        whorlCodewords: (Code & Word)[],
+        notationState: NotationState,
+        noteCountByStavePattern: NoteCountByStavePattern,
+    }
+) => {
+    // const notePart: Code & Clause =
+   return computeTimeToBreakStaves(notationState.noteCount, noteCountByStavePattern) ?
+            // `en; bl nl; 5; Gcl; ${computeNominalCodeword(notationState)} 15; nt;` as Code & Clause :
+            `en; bl nl;\n5; Gcl; 15; ${computeNominalCodeword(notationState)} ` as Code & Clause :
+            sagitypeCodewords.length === 0 && whorlCodewords.length === 0 && notationState.noteCount !== 0 ?
+                "en; bl 9; " as Code & Clause :
+                "" as Code & Clause
 
-        if (noteCount == thing) answer = true
-        // if (line < thing) {
-        //     thing -= line
-        // } else if (line == thing) {
-        //     answer = true
-        // } else {
-        //     answer = false
-        // }
+
+    // return notePart
+}
+
+const computeTimeToBreakStaves = (noteCount: Count<Note>, noteCountByStavePattern: NoteCountByStavePattern): boolean => {
+    let timeToBreakStaves: boolean = false
+    let cursor: Index<AlignedColumn> = 0 as Index<AlignedColumn>
+    noteCountByStavePattern.forEach((staveNoteCount: Count<Note>): void => {
+        cursor = cursor + staveNoteCount as Index<AlignedColumn>
+
+        if (noteCount === cursor as Decimal<{ integer: true }> as Count<Note>) timeToBreakStaves = true
     })
-    // if (answer) console.log("dsad", noteCount, noteCountByStavePattern, thing)
-    return answer
+
+    return timeToBreakStaves
 }
 
-const getCol = (noteCount, noteCountByStavePattern) => {
-    let answer
-    let thing = noteCount
-    noteCountByStavePattern.forEach(line => {
-        if (line <= thing) {
-            thing -= line
+const getColumnIndex = (noteCount: Count<Note>, noteCountByStavePattern: NoteCountByStavePattern): Index<AlignedColumn> => {
+    let columnIndex: Index<AlignedColumn> = 0 as Index<AlignedColumn>
+
+    let cursor: Index<AlignedColumn> = noteCount as Decimal<{ integer: true }> as Index<AlignedColumn>
+
+    noteCountByStavePattern.forEach((staveNoteCount: Count<Note>): void => {
+        if (columnIndex) return
+
+        if (staveNoteCount <= cursor) {
+            cursor = cursor - staveNoteCount as Decimal<{ integer: true }> as Index<AlignedColumn>
         } else {
-            answer = thing
+            columnIndex = cursor
         }
     })
-    return answer
+
+    return columnIndex
 }
 
-const computeWidthPart = ({ colWidths, noteCountByStavePattern, notationState }) => {
-    const col = getCol(notationState.noteCount, noteCountByStavePattern)
-    // console.log("col: ", col)
-    const width = colWidths[col]
+const getColumnWidth = ({ columnWidths, noteCountByStavePattern, notationState }: {
+    columnWidths: Max<Octals>[],
+    noteCountByStavePattern: NoteCountByStavePattern,
+    notationState: NotationState,
+}): Octals =>
+    columnWidths[getColumnIndex(notationState.noteCount, noteCountByStavePattern)] as Octals
 
-    return `${width + 5}; `
-}
+const computeWidthPart = (
+    { columnWidths, noteCountByStavePattern, notationState }: {
+        columnWidths: Max<Octals>[],
+        noteCountByStavePattern: NoteCountByStavePattern,
+        notationState: NotationState,
+    }
+) =>
+    `${getColumnWidth({ columnWidths, noteCountByStavePattern, notationState }) + 5}; ` // TODO: extract magic constant, what is this, like a buffer?
 
-const assembleAsStaffCodeInputSentence = (intermediateStringForm: Record<any, string>[], { root, colWidths, noteCountByStavePattern }: { root: Nominal, colWidths: number[], noteCountByStavePattern: number[] }): Io & Sentence => {
-    const notationState = {
+const assembleAsStaffCodeInputSentence = (
+    intermediateForms: IntermediateForm[],
+    { root, columnWidths, noteCountByStavePattern }: {
+        root: Nominal,
+        columnWidths: Max<Octals>[],
+        noteCountByStavePattern: NoteCountByStavePattern,
+    }): Io & Sentence => {
+    const notationState: NotationState = {
         currentNominal: root,
-        noteCount: 0 as Count,
-        // currentLine: NOTES_PER_SYSTEM,
+        noteCount: 0 as Count<Note>,
         reachedC: false
     }
 
-    return `ston \n5; Gcl ; 5; \n${root}4 5; ` + intermediateStringForm.reduce(
-        (inputSentence, { nominalString, whorlString, sagitypeString }: Record<any, string>): Io & Sentence =>
-            inputSentence +
-            computeNominalPart(nominalString, { notationState }) +
-            computeWidthPart({ colWidths, noteCountByStavePattern, notationState }) +
-            computeSagittalPart(sagitypeString) +
-            computeWhorlPart(whorlString) +
-            computeNotePart({ sagitypeString, whorlString, notationState, noteCountByStavePattern }) as Io & Sentence,
+    return `ston\n5; Gcl; 15;\n${root}4 ` + intermediateForms.reduce( // TODO: exttract the Gcl bit and the other one to helper functions
+        (inputClause, { nominal, whorlCodewords, sagitypeCodewords }: IntermediateForm): Io & Sentence =>
+            inputClause +
+            computeBreakAndOrBarClause({ sagitypeCodewords, whorlCodewords, noteCountByStavePattern, notationState}) +
+            computeNominalClause(nominal, { notationState }) +
+            computeWidthPart({ columnWidths, noteCountByStavePattern, notationState }) +
+            computeSagittalClause(sagitypeCodewords) +
+            computeWhorlClause(whorlCodewords) +
+            computeNoteClause({ notationState }) as Io & Sentence,
         "" as Io & Sentence
-    ) + "\n8; en; blfn \nnl; " as Io & Sentence
+    ) + "\nen; blfn" as Io & Sentence
 }
 
 export {

@@ -1,14 +1,14 @@
-import { Index, Maybe, Count, isUndefined } from "@sagittal/general"
+import { Index, Maybe, Count, isUndefined, mod } from "@sagittal/general"
 import { Sagittal, Edo, Link, EdoStep, EdoStepNotation, Nominal, NOMINALS } from "@sagittal/system"
 import { Way, ChainingState } from "./types"
 import { computeHaveNominalsCrossed } from "./nominalCrossing"
-import { NOMINAL_COUNT, ENOUGH_WHORLS_TO_GUARANTEE_POSITIVE_VALUE_BEFORE_MODULUS } from "./constants"
+import { NOMINAL_COUNT } from "./constants"
 
-const computeDStep = ({ edo, fifthStep, root }: { edo: Edo, fifthStep: EdoStep, root: Nominal }) =>
-    (
-        ENOUGH_WHORLS_TO_GUARANTEE_POSITIVE_VALUE_BEFORE_MODULUS * edo +
-        fifthStep * (NOMINALS.indexOf(Nominal.D) - NOMINALS.indexOf(root))
-    ) % edo as EdoStep
+const computeDStep = ({ edo, fifthStep, root }: { edo: Edo, fifthStep: EdoStep, root: Nominal }): EdoStep =>
+    mod(
+        fifthStep * (NOMINALS.indexOf(Nominal.D) - NOMINALS.indexOf(root)),
+        edo
+    ) as EdoStep
 
 const computeLinkEdoStepNotationsFromEdoStepLinks = (edoStepLinkIndices: Index<Link>[]): EdoStepNotation[] =>
     edoStepLinkIndices.map((linkIndex: Index<Link>): EdoStepNotation => ({ linkIndex, sagittalIndex: 0 as Index<Sagittal> }))
@@ -39,7 +39,7 @@ const computeLinkEdoStepNotations = ({ edo, fifthStep, useOnlyPlainNominals, roo
     while (!areLinksComplete) {
         candidateEdoStepLinkIndices = edoStepLinkIndices.slice()
         chainingState = chainingStates[way]
-        chainingState.edoStep = (chainingState.edoStep + edo + way * fifthStep) % edo as EdoStep
+        chainingState.edoStep = mod(chainingState.edoStep + way * fifthStep, edo) as EdoStep
 
         if (!isUndefined(candidateEdoStepLinkIndices[chainingState.edoStep])) {
             areLinksComplete = true
@@ -49,7 +49,7 @@ const computeLinkEdoStepNotations = ({ edo, fifthStep, useOnlyPlainNominals, roo
             candidateEdoStepLinkIndices[chainingState.edoStep] = chainingState.linkIndex
         }
 
-        if (!areLinksComplete && useOnlyPlainNominals && edoStepNotationsPlacedCount as Count == NOMINAL_COUNT) areLinksComplete = true
+        if (!areLinksComplete && useOnlyPlainNominals && edoStepNotationsPlacedCount as Count === NOMINAL_COUNT) areLinksComplete = true
 
         if (!areLinksComplete && computeHaveNominalsCrossed(candidateEdoStepLinkIndices)) {
             areLinksComplete = true
@@ -58,7 +58,7 @@ const computeLinkEdoStepNotations = ({ edo, fifthStep, useOnlyPlainNominals, roo
         }
 
         way =
-            way == Way.UP ?
+            way === Way.UP ?
                 Way.DOWN :
                 Way.UP
     }

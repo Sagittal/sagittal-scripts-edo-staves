@@ -27,3 +27,4 @@ const FORMATTED_FLAVOR_NAMES: Record<Flavor, string> = {
 const title: Io = `${FORMATTED_FLAVOR_NAMES[flavor]} Sagittal notation for ${edo}-EDO`
 const filename: Filename = `${edo}-EDO_${FORMATTED_FLAVOR_NAMES[flavor]}.svg` as Filename
 asyncGenerateDiagram(inputSentence, title, filename).then()
+console.log(`/Users/douglasblumeyer/playspace/sagittal-main/scripts/edoStaves/dist/${filename}`)

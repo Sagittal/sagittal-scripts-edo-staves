@@ -6,7 +6,7 @@ const computeIsLimmaNotation = (edo: Edo) =>
     !!(<NonSubsetEdoNotationDefinition>EDO_NOTATION_DEFINITIONS[edo]).isLimmaFraction
 
 const computeUseOnlyPlainNominals = ({ flavor, edo }: { flavor: Flavor, edo: Edo }): boolean =>
-    flavor == Flavor.REVO || computeIsLimmaNotation(edo)
+    flavor === Flavor.REVO || computeIsLimmaNotation(edo)
 
 const computeEdoStepNotations = (
     { edo, fifthStep, sagittals, flavor, root }: {
