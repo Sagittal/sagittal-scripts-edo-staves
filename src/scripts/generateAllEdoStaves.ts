@@ -30,7 +30,7 @@ Object.keys(EDO_NOTATION_DEFINITIONS)
             generateEvoSZDiagram(inputSentences, edo)
         } else {
             // CASE 1: none identical; three separate diagrams
-            generateEvoDiagram
+            generateEvoDiagram(inputSentences, edo)
             generateEvoSZDiagram(inputSentences, edo)
             generateRevoDiagram(inputSentences, edo)
         }

@@ -12,7 +12,6 @@ import {
     SAGITTAL_SEMISHARP,
     Sagitype,
     SubsetFactor,
-    Nominal,
 } from "@sagittal/system"
 import { PartiallyHydratedEdoStepNotation } from "./types"
 import { Note } from "../types"
@@ -47,7 +46,7 @@ const computePositiveOrNegativeOrNullSagittal = (sagittals: Sagittal[], sagittal
 }
 
 const handleDiacritics = (sagitype: Sagitype): (Code & Word)[] =>
-    sagitype.split(/(``|,,|`|,|'|\.)/) as (Code & Word)[]
+    sagitype.split(/(``|,,|`|,|'|\.)/).filter(Boolean) as (Code & Word)[] // .filter(Boolean) filters out empty strings
 
 const computeSagittalCodewords = (maybeSagittal: Maybe<Sagittal>): (Code & Word)[] =>
     isUndefined(maybeSagittal) ?
@@ -61,7 +60,7 @@ const computeWhorlCodewords = (whorl: Whorl, { flavor }: { flavor: Flavor }): (C
             [] :
             [whorl as Code & Word]
 
-const handleGeneralSagitypeAndWhorlCodewords = (
+const handleGeneralSagittalAndWhorlCodewords = (
     { maybeSagittal, whorl, flavor }: { maybeSagittal: Maybe<Sagittal>, whorl: Whorl, flavor: Flavor }
 ): { sagittalCodewords: (Code & Word)[], whorlCodewords: (Code & Word)[] } =>
 ({
@@ -69,7 +68,7 @@ const handleGeneralSagitypeAndWhorlCodewords = (
     whorlCodewords: computeWhorlCodewords(whorl, { flavor })
 })
 
-const computeEvoSZSagitypeAndWhorlCodewords = (
+const computeEvoSZSagittalAndWhorlCodewords = (
     { maybeSagittal, whorl, flavor }: { maybeSagittal: Maybe<Sagittal>, whorl: Whorl, flavor: Flavor }
 ): { sagittalCodewords: (Code & Word)[], whorlCodewords: (Code & Word)[] } => {
     const isHalfSharp = deepEquals(maybeSagittal, SAGITTAL_SEMISHARP);
@@ -86,28 +85,28 @@ const computeEvoSZSagitypeAndWhorlCodewords = (
     } else if (whorl === Whorl.DOUBLE_FLAT && isHalfFlat) {
         return { sagittalCodewords: [], whorlCodewords: [SZ_SESQUIFLAT] };
     } else {
-        return handleGeneralSagitypeAndWhorlCodewords({ maybeSagittal, whorl, flavor })
+        return handleGeneralSagittalAndWhorlCodewords({ maybeSagittal, whorl, flavor })
     }
 }
 
-const computeSagitypeAndWhorlCodewords = (
+const computeSagittalAndWhorlCodewords = (
     { maybeSagittal, whorl, flavor }: { maybeSagittal: Maybe<Sagittal>, whorl: Whorl, flavor: Flavor }
 ): { sagittalCodewords: (Code & Word)[], whorlCodewords: (Code & Word)[] } =>
     flavor === Flavor.EVO_SZ ?
-        computeEvoSZSagitypeAndWhorlCodewords({ maybeSagittal, whorl, flavor }) :
-        handleGeneralSagitypeAndWhorlCodewords({ maybeSagittal, whorl, flavor })
+        computeEvoSZSagittalAndWhorlCodewords({ maybeSagittal, whorl, flavor }) :
+        handleGeneralSagittalAndWhorlCodewords({ maybeSagittal, whorl, flavor })
 
 const computeWidth = ({ sagittalCodewords, whorlCodewords }: { sagittalCodewords: (Code & Word)[], whorlCodewords: (Code & Word)[] }) => {
     const whorlWidth: Octals = whorlCodewords.reduce(
         (totalWidth: Octals, whorlCodeword: Code & Word): Octals => totalWidth + computeCodewordWidth(whorlCodeword) as Octals,
         0 as Octals
     )
-    const sagitypeWidth: Octals = sagittalCodewords.reduce(
-        (totalWidth: Octals, sagitypeCodeword: Code & Word): Octals => totalWidth + computeCodewordWidth(sagitypeCodeword) as Octals,
+    const sagittalWidth: Octals = sagittalCodewords.reduce(
+        (totalWidth: Octals, sagittalCodeword: Code & Word): Octals => totalWidth + computeCodewordWidth(sagittalCodeword) as Octals,
         0 as Octals
     )
 
-    return whorlWidth + sagitypeWidth as Octals
+    return whorlWidth + sagittalWidth as Octals
 }
 
 const partiallyHydrateEdoStepNotation = (
@@ -121,7 +120,7 @@ const partiallyHydrateEdoStepNotation = (
 ): PartiallyHydratedEdoStepNotation => {
     const maybeSagittal: Maybe<Sagittal> = computePositiveOrNegativeOrNullSagittal(sagittals, sagittalIndex)
     const { nominal, whorl }: Link = LINKS[linkIndex]
-    const { sagittalCodewords, whorlCodewords } = computeSagitypeAndWhorlCodewords({ maybeSagittal, whorl, flavor })
+    const { sagittalCodewords, whorlCodewords } = computeSagittalAndWhorlCodewords({ maybeSagittal, whorl, flavor })
     const width = computeWidth({ sagittalCodewords, whorlCodewords })
 
     if (!isUndefined(subsetFactor) && !dividesEvenly(noteIndex, subsetFactor)) {

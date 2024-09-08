@@ -56,7 +56,7 @@ const generateDiagram = (
     asyncGenerateDiagram(
         inputSentences[flavorIndex],
         `${formattedFlavorName} Sagittal notation for ${edo}-EDO`,
-        `${edo}-EDO_${formattedFlavorName}.svg` as Filename
+        `${edo}-EDO${formattedFlavorName.length === 0 ? "" : "_"}${formattedFlavorName}.svg` as Filename
     ).then()
 
 const generateOneOffDiagram = (
