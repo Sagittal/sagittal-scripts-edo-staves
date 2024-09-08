@@ -1,4 +1,4 @@
-import { Count, Sentence, Io, Index } from "@sagittal/general"
+import { Count, Sentence, Io, Index, Column } from "@sagittal/general"
 import { Nominal } from "@sagittal/system"
 import { Note, Stave } from "../types"
 import { computeBarClause } from "./bar"
@@ -27,9 +27,13 @@ const assembleAsStaffCodeInputSentence = (patternedIntermediateForms: PatternedI
             inputSentence +
             computeStaveBreakClause(staveIndex as Index<Stave>, { notationState }) +
             patternedIntermediateFormStave.reduce(
-                (inputSentenceMaterialFromThisStave, { nominal, whorlCodewords, sagittalCodewords, lefthandSpacingForAlignment }: IntermediateForm): Io & Sentence =>
+                (
+                    inputSentenceMaterialFromThisStave: Io & Sentence,
+                    { nominal, whorlCodewords, sagittalCodewords, lefthandSpacingForAlignment }: IntermediateForm,
+                    columnIndex: number,
+                ): Io & Sentence =>
                     inputSentenceMaterialFromThisStave +
-                    computeBarClause({ sagittalCodewords, whorlCodewords, notationState }) +
+                    computeBarClause({ sagittalCodewords, whorlCodewords, notationState, columnIndex: columnIndex as Index<Column> }) +
                     computeNominalClause(nominal, { notationState }) +
                     computeLefthandSpacingClause(lefthandSpacingForAlignment) +
                     computeSagittalClause(sagittalCodewords) +
