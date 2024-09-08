@@ -21,21 +21,19 @@ interface NoteCountParametersByStave {
 
 type NoteCountByStavePattern = Count<Note>[]
 
-interface IntermediateFormWithSimpleWidth {
+interface IntermediateFormBase { 
     nominal: Nominal,
     sagittalCodewords: (Code & Word)[],
     whorlCodewords: (Code & Word)[],
-    width: Octals,
     subsetExcluded?: boolean,
 }
 
-// TODO: clean up these types, having them extend a shared base
-interface IntermediateForm {
-    nominal: Nominal,
-    sagittalCodewords: (Code & Word)[],
-    whorlCodewords: (Code & Word)[],
+interface IntermediateFormWithSimpleWidth extends IntermediateFormBase {
+    width: Octals,
+}
+
+interface IntermediateForm extends IntermediateFormBase {
     lefthandSpacingForAlignment: Octals,
-    subsetExcluded?: boolean, 
 }
 
 type PatternedIntermediateForms = IntermediateForm[][]
