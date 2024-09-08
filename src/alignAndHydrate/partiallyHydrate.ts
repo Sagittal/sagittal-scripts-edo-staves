@@ -14,7 +14,7 @@ import {
     SubsetFactor,
     Nominal,
 } from "@sagittal/system"
-import { IntermediateFormWithSimpleWidth } from "./types"
+import { PartiallyHydratedEdoStepNotation } from "./types"
 import { Note } from "../types"
 
 const REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D: Index<Link> = -17 as Index<Link>
@@ -110,38 +110,38 @@ const computeWidth = ({ sagittalCodewords, whorlCodewords }: { sagittalCodewords
     return whorlWidth + sagitypeWidth as Octals
 }
 
-const convertToPatternedIntermediateFormsWithSimpleWidth = (patternedEdoStepNotations: EdoStepNotation[][], { sagittals, flavor, subsetFactor }: { sagittals: Sagittal[], flavor: Flavor, subsetFactor?: SubsetFactor }): IntermediateFormWithSimpleWidth[][] => {
-    let currentNote: Index<Note> = 0 as Index<Note>
-    
-    return patternedEdoStepNotations.map((patternedEdoStaveNotationsStave: EdoStepNotation[]): IntermediateFormWithSimpleWidth[] =>
-        patternedEdoStaveNotationsStave.map(({ linkIndex, sagittalIndex }: EdoStepNotation): IntermediateFormWithSimpleWidth => {
-            const maybeSagittal: Maybe<Sagittal> = computePositiveOrNegativeOrNullSagittal(sagittals, sagittalIndex)
-            const { nominal, whorl }: Link = LINKS[linkIndex]
-            const { sagittalCodewords, whorlCodewords } = computeSagitypeAndWhorlCodewords({ maybeSagittal, whorl, flavor })
-            const width = computeWidth({ sagittalCodewords, whorlCodewords })
+const partiallyHydrateEdoStepNotation = (
+    { linkIndex, sagittalIndex }: EdoStepNotation,
+    { noteIndex, sagittals, flavor, subsetFactor }: {
+        noteIndex: Index<Note>,
+        sagittals: Sagittal[],
+        flavor: Flavor,
+        subsetFactor?: SubsetFactor,
+    }
+): PartiallyHydratedEdoStepNotation => {
+    const maybeSagittal: Maybe<Sagittal> = computePositiveOrNegativeOrNullSagittal(sagittals, sagittalIndex)
+    const { nominal, whorl }: Link = LINKS[linkIndex]
+    const { sagittalCodewords, whorlCodewords } = computeSagitypeAndWhorlCodewords({ maybeSagittal, whorl, flavor })
+    const width = computeWidth({ sagittalCodewords, whorlCodewords })
 
-            currentNote++
-
-            if (!isUndefined(subsetFactor) && dividesEvenly(currentNote, subsetFactor)) {
-                return {
-                    nominal,
-                    whorlCodewords,
-                    sagittalCodewords,
-                    width: 0 as Octals,
-                    subsetExcluded: true,
-                }
-            } else {
-                return {
-                    nominal,
-                    whorlCodewords,
-                    sagittalCodewords,
-                    width,
-                }
-            }
-        })
-    )
+    if (!isUndefined(subsetFactor) && !dividesEvenly(noteIndex, subsetFactor)) {
+        return {
+            nominal,
+            whorlCodewords,
+            sagittalCodewords,
+            width: 0 as Octals,
+            subsetExcluded: true,
+        }
+    } else {
+        return {
+            nominal,
+            whorlCodewords,
+            sagittalCodewords,
+            width,
+        }
+    }
 }
 
 export {
-    convertToPatternedIntermediateFormsWithSimpleWidth,
+    partiallyHydrateEdoStepNotation,
 }

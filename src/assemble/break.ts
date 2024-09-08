@@ -1,6 +1,6 @@
 import { Clause, Index } from "@sagittal/general"
 import { Stave } from "../types"
-import { MIDSTAVE_BARLINE, CLEF, STAVE_BREAK } from "./constants"
+import { CLEF, STAVE_BREAK } from "./constants"
 import { computeNominalCodeword } from "./nominal"
 import { NotationState } from "./types"
 import { Code } from "staff-code"

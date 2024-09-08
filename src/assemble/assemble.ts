@@ -9,33 +9,30 @@ import { computeSagittalClause } from "./sagittal"
 import { computeNoteAndRighthandSpaceClause } from "./note"
 import { computeWhorlClause } from "./whorl"
 import { NotationState } from "./types"
-import { PatternedIntermediateForms } from "../resolve"
-import { IntermediateForm } from "../resolve/types"
+import { HydratedEdoStepNotation } from "../alignAndHydrate/types"
 import { computeStaveBreakClause } from "./break"
 
-const computeInitialNotationState = (root: Nominal): NotationState => ({
-    currentNominal: root,
-    noteCount: 0 as Count<Note>,
-    reachedC: false
-})
+const assembleAsStaffCodeInputSentence = (alignedHydratedEdoStepNotations: HydratedEdoStepNotation[][]): Io & Sentence => {
+    const notationState: NotationState = {
+        currentNominal: Nominal.C,
+        noteCount: 0 as Count<Note>,
+        reachedC: false
+    }
 
-const assembleAsStaffCodeInputSentence = (patternedIntermediateForms: PatternedIntermediateForms, { root }: { root: Nominal }): Io & Sentence => {
-    const notationState: NotationState = computeInitialNotationState(root)
-
-    return `${ACTIVATE_STAFF}${CLEF}${root}${EARLIER_NOMINALS_OCTAVE} ` + patternedIntermediateForms.reduce(
-        (inputSentence: Io & Sentence, patternedIntermediateFormStave: IntermediateForm[], staveIndex: number): Io & Sentence =>
+    return `${ACTIVATE_STAFF}${CLEF}${notationState.currentNominal}${EARLIER_NOMINALS_OCTAVE} ` + alignedHydratedEdoStepNotations.reduce(
+        (inputSentence: Io & Sentence, alignedHydratedEdoStepNotationStave: HydratedEdoStepNotation[], staveIndex: number): Io & Sentence =>
             inputSentence +
             computeStaveBreakClause(staveIndex as Index<Stave>, { notationState }) +
-            patternedIntermediateFormStave.reduce(
+            alignedHydratedEdoStepNotationStave.reduce(
                 (
                     inputSentenceMaterialFromThisStave: Io & Sentence,
-                    { nominal, whorlCodewords, sagittalCodewords, lefthandSpacingForAlignment, subsetExcluded = false }: IntermediateForm,
+                    { nominal, whorlCodewords, sagittalCodewords, lefthandSpacing, subsetExcluded = false }: HydratedEdoStepNotation,
                     columnIndex: number,
                 ): Io & Sentence =>
                     inputSentenceMaterialFromThisStave +
                     computeBarClause({ sagittalCodewords, whorlCodewords, notationState, columnIndex: columnIndex as Index<Column>, subsetExcluded }) +
                     computeNominalClause(nominal, { notationState, subsetExcluded }) +
-                    computeLefthandSpacingClause(lefthandSpacingForAlignment) +
+                    computeLefthandSpacingClause(lefthandSpacing) +
                     computeSagittalClause(sagittalCodewords, { subsetExcluded }) +
                     computeWhorlClause(whorlCodewords, { subsetExcluded }) +
                     computeNoteAndRighthandSpaceClause({ notationState, subsetExcluded }) as Io & Sentence,

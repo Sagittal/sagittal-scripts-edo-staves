@@ -1,5 +1,5 @@
-import { Count, Word } from "@sagittal/general"
-import { Note } from "../types"
+import { Count, Index, Word } from "@sagittal/general"
+import { Note, Stave } from "../types"
 import { Nominal } from "@sagittal/system"
 import { Code, Octals } from "staff-code"
 
@@ -19,32 +19,36 @@ interface NoteCountParametersByStave {
     limmaCount: Count<Limma>
 }
 
-type NoteCountByStavePattern = Count<Note>[]
+type Alignment = Count<Note>[]
 
-interface IntermediateFormBase { 
+interface HydratedEdoStepNotationBase {
     nominal: Nominal,
     sagittalCodewords: (Code & Word)[],
     whorlCodewords: (Code & Word)[],
     subsetExcluded?: boolean,
 }
 
-interface IntermediateFormWithSimpleWidth extends IntermediateFormBase {
+interface PartiallyHydratedEdoStepNotation extends HydratedEdoStepNotationBase {
     width: Octals,
 }
 
-interface IntermediateForm extends IntermediateFormBase {
-    lefthandSpacingForAlignment: Octals,
+interface HydratedEdoStepNotation extends HydratedEdoStepNotationBase {
+    lefthandSpacing: Octals,
 }
 
-type PatternedIntermediateForms = IntermediateForm[][]
+interface AlignmentState {
+    noteInStaveIndex: Index<Note>,
+    staveIndex: Index<Stave>,
+    noteIndex: Index<Note>,
+}
 
 export {
     EdoSizeCategory,
     NoteCountParametersByStave,
-    NoteCountByStavePattern,
+    Alignment,
     WholeTone,
     Limma,
-    IntermediateForm,
-    PatternedIntermediateForms,
-    IntermediateFormWithSimpleWidth,
+    HydratedEdoStepNotation,
+    PartiallyHydratedEdoStepNotation,
+    AlignmentState,
 }

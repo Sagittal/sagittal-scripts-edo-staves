@@ -7,7 +7,7 @@ const COLUMN_BUFFER_WIDTH: Octals = 4 as Octals
 const EARLIER_NOMINALS_OCTAVE: Index<Octave> = 4 as Index<Octave>
 const LATER_NOMINALS_OCTAVE: Index<Octave> = 5 as Index<Octave>
 
-const BARLINE: Code & Clause = "3; en; bl " as Code & Clause
+const BARLINE: Code & Clause = "\n3; en; bl " as Code & Clause
 const ACTIVATE_STAFF: Code & Clause = "ston " as Code & Clause
 const CLEF: Code & Clause = `\n4; trcl; 12;\n` as Code & Clause
 const MIDSTAVE_BARLINE: Code & Clause = `${BARLINE}10; ` as Code & Clause

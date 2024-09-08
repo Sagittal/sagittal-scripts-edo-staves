@@ -8,17 +8,10 @@ const computeIsLimmaNotation = (edo: Edo) =>
 const computeUseOnlyPlainNominals = ({ flavor, edo }: { flavor: Flavor, edo: Edo }): boolean =>
     flavor === Flavor.REVO || computeIsLimmaNotation(edo)
 
-const computeEdoStepNotations = (
-    { edo, fifthStep, sagittals, flavor, root }: {
-        edo: Edo,
-        fifthStep: EdoStep,
-        sagittals: Sagittal[],
-        flavor: Flavor,
-        root: Nominal,
-    }): EdoStepNotation[] => {
+const computeEdoStepNotations = ({ edo, fifthStep, sagittals, flavor }: { edo: Edo, fifthStep: EdoStep, sagittals: Sagittal[], flavor: Flavor }): EdoStepNotation[] => {
     const useOnlyPlainNominals: boolean = computeUseOnlyPlainNominals({ flavor, edo })
 
-    const linkEdoStepNotations: EdoStepNotation[] = computeLinkEdoStepNotations({ edo, fifthStep, useOnlyPlainNominals, root })
+    const linkEdoStepNotations: EdoStepNotation[] = computeLinkEdoStepNotations({ edo, fifthStep, useOnlyPlainNominals })
 
     return placeSagittalEdoStepNotations(linkEdoStepNotations, { edo, sagittals })
 }

@@ -4,22 +4,21 @@ import { Way, ChainingState } from "./types"
 import { computeHaveNominalsCrossed } from "./nominalCrossing"
 import { NOMINAL_COUNT } from "./constants"
 
-const computeDStep = ({ edo, fifthStep, root }: { edo: Edo, fifthStep: EdoStep, root: Nominal }): EdoStep =>
+const computeDStep = ({ edo, fifthStep }: { edo: Edo, fifthStep: EdoStep }): EdoStep =>
     mod(
-        fifthStep * (NOMINALS.indexOf(Nominal.D) - NOMINALS.indexOf(root)),
+        fifthStep * (NOMINALS.indexOf(Nominal.D) - NOMINALS.indexOf(Nominal.C)),
         edo
     ) as EdoStep
 
 const computeLinkEdoStepNotationsFromEdoStepLinks = (edoStepLinkIndices: Index<Link>[]): EdoStepNotation[] =>
     edoStepLinkIndices.map((linkIndex: Index<Link>): EdoStepNotation => ({ linkIndex, sagittalIndex: 0 as Index<Sagittal> }))
 
-const computeLinkEdoStepNotations = ({ edo, fifthStep, useOnlyPlainNominals, root }: {
+const computeLinkEdoStepNotations = ({ edo, fifthStep, useOnlyPlainNominals }: {
     edo: Edo,
     fifthStep: EdoStep,
     useOnlyPlainNominals: boolean,
-    root: Nominal,
 }): EdoStepNotation[] => {
-    const dStep: EdoStep = computeDStep({ edo, fifthStep, root })
+    const dStep: EdoStep = computeDStep({ edo, fifthStep })
 
     let edoStepLinkIndices: Maybe<Index<Link>>[] = Array(edo)
     edoStepLinkIndices[dStep] = 0 as Index<Link>
