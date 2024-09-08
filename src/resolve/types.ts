@@ -26,13 +26,16 @@ interface IntermediateFormWithSimpleWidth {
     sagittalCodewords: (Code & Word)[],
     whorlCodewords: (Code & Word)[],
     width: Octals,
+    subsetExcluded?: boolean,
 }
 
+// TODO: clean up these types, having them extend a shared base
 interface IntermediateForm {
     nominal: Nominal,
     sagittalCodewords: (Code & Word)[],
     whorlCodewords: (Code & Word)[],
     lefthandSpacingForAlignment: Octals,
+    subsetExcluded?: boolean, 
 }
 
 type PatternedIntermediateForms = IntermediateForm[][]

@@ -9,9 +9,9 @@ const computeNominalCodeword = (notationState: NotationState): Code & Word =>
 
 const computeNominalClause = (
     nominal: Nominal,
-    { notationState }: { notationState: NotationState }
+    { notationState, subsetExcluded }: { notationState: NotationState, subsetExcluded: boolean }
 ): Code & Clause => {
-    if (nominal !== notationState.currentNominal) {
+    if (!subsetExcluded && nominal !== notationState.currentNominal) {
         notationState.currentNominal = nominal
         if (notationState.currentNominal === Nominal.C) notationState.reachedC = true
 

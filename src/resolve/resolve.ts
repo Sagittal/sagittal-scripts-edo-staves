@@ -1,6 +1,6 @@
 import { Octals } from "staff-code"
 import { Max } from "@sagittal/general"
-import { Flavor, Sagittal, EdoStepNotation, Edo, EdoStep } from "@sagittal/system"
+import { Flavor, Sagittal, EdoStepNotation, Edo, EdoStep, SubsetFactor } from "@sagittal/system"
 import { NoteCountByStavePattern, PatternedIntermediateForms, IntermediateFormWithSimpleWidth } from "./types"
 import { computeNoteCountByStavePattern } from "./computePattern"
 import { applyNoteCountByStavePatternToEdoStepNotations } from "./applyPattern"
@@ -10,7 +10,7 @@ import { applyColumnWidths } from "./applyWidths"
 
 const resolveEdoStepNotationsToPatternedIntermediateForms = ( 
     edoStepNotations: EdoStepNotation[],
-    { sagittals, flavor, edo, fifthStep }: { sagittals: Sagittal[], flavor: Flavor, edo: Edo, fifthStep: EdoStep }
+    { sagittals, flavor, edo, fifthStep, subsetFactor }: { sagittals: Sagittal[], flavor: Flavor, edo: Edo, fifthStep: EdoStep, subsetFactor?: SubsetFactor }
 ): PatternedIntermediateForms => {
 
     // TODO: ALIGNMENT 
@@ -26,7 +26,7 @@ const resolveEdoStepNotationsToPatternedIntermediateForms = (
 
     const noteCountByStavePattern: NoteCountByStavePattern = computeNoteCountByStavePattern({ edo, fifthStep })
     const patternedEdoStepNotations: EdoStepNotation[][] = applyNoteCountByStavePatternToEdoStepNotations(edoStepNotations, { noteCountByStavePattern })
-    const patternedIntermediateFormsWithSimpleWidths: IntermediateFormWithSimpleWidth[][] = convertToPatternedIntermediateFormsWithSimpleWidth(patternedEdoStepNotations, { sagittals, flavor })
+    const patternedIntermediateFormsWithSimpleWidths: IntermediateFormWithSimpleWidth[][] = convertToPatternedIntermediateFormsWithSimpleWidth(patternedEdoStepNotations, { sagittals, flavor, subsetFactor })
     const columnWidths: Max<Octals>[] = computeColumnWidths(patternedIntermediateFormsWithSimpleWidths)
 
     return applyColumnWidths(patternedIntermediateFormsWithSimpleWidths, columnWidths)
