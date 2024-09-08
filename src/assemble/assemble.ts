@@ -27,11 +27,11 @@ const assembleAsStaffCodeInputSentence = (patternedIntermediateForms: PatternedI
             inputSentence +
             computeStaveBreakClause(staveIndex as Index<Stave>, { notationState }) +
             patternedIntermediateFormStave.reduce(
-                (inputSentenceMaterialFromThisStave, { nominal, whorlCodewords, sagittalCodewords, leftSpacingForAlignment }: IntermediateForm): Io & Sentence =>
+                (inputSentenceMaterialFromThisStave, { nominal, whorlCodewords, sagittalCodewords, lefthandSpacingForAlignment }: IntermediateForm): Io & Sentence =>
                     inputSentenceMaterialFromThisStave +
                     computeBarClause({ sagittalCodewords, whorlCodewords, notationState }) +
                     computeNominalClause(nominal, { notationState }) +
-                    computeLefthandSpacingClause(leftSpacingForAlignment) +
+                    computeLefthandSpacingClause(lefthandSpacingForAlignment) +
                     computeSagittalClause(sagittalCodewords) +
                     computeWhorlClause(whorlCodewords) +
                     computeNoteAndRighthandSpaceClause({ notationState }) as Io & Sentence,

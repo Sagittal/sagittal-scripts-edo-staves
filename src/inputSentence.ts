@@ -34,6 +34,11 @@ const computeStaffCodeInputSentence = (edo: Edo, flavor: Flavor, { root }: { roo
         // and leave lots of awkward blanks I guess so it actually look slike the 2n or 3n edo
         // but with notes deleted from it like a checkerboard if the first row is odd or whatever
         //
+        // OOOH OOOH what if we actually just add another property to the intermediate form which is subsetExcluded
+        // and that will say whether to ignore it in the max width calc,
+        // and also whether to render it in the assemble step, or just use the max widths, which does mean those will need to be returned separately
+        // that or include it on intermediate form too
+        //
         // Subset notations are going to need to know what the deletion pattern is from their layouts
         //
         // once this is all handled... see how much of this can be extracted, calling something with supersetEdo instead of edo?

@@ -1,7 +1,7 @@
-import { Count, Max } from "@sagittal/general"
-import { Limma, WholeTone } from "./types"
-import { EdoSizeCategory, NoteCountParametersByStave } from "./types"
+import { Index, ZERO_ONE_INDEX_DIFF, Count, Max } from "@sagittal/general"
+import { Edo, EdoStep, computeWholeToneStep, computeLimmaStep } from "@sagittal/system"
 import { Note } from "../types"
+import { NoteCountParametersByStave, NoteCountByStavePattern, EdoSizeCategory, Limma, WholeTone } from "./types"
 
 const MAX_NOTE_COUNT_PER_STAVE: Max<Count<Note>> = 18 as Max<Count<Note>>
 
@@ -46,9 +46,31 @@ const MAX_NOTE_COUNT_BY_STAVE_PARAMETERS_BY_DECREASING_EDO_SIZE_CATEGORY: NoteCo
 
 const EDO_SIZE_CATEGORIES: EdoSizeCategory[] = Object.values(EdoSizeCategory)
 
+const computeNoteCountByStavePattern = ({ edo, fifthStep }: { edo: Edo, fifthStep: EdoStep }): NoteCountByStavePattern => {
+    const wholeToneStep: EdoStep = computeWholeToneStep(edo, fifthStep)
+    const limmaStep: EdoStep = computeLimmaStep(edo, fifthStep)
+    const edoSizeCategoryInverseIndex: Index<EdoSizeCategory> = MAX_NOTE_COUNT_BY_STAVE_PARAMETERS_BY_DECREASING_EDO_SIZE_CATEGORY.reduce(
+        (
+            chosenEdoSizeCategoryInverseIndex: Index<EdoSizeCategory>,
+            { wholeToneCount, limmaCount }: NoteCountParametersByStave,
+            edoSizeCategoryInverseIndex: number
+        ): Index<EdoSizeCategory> =>
+            wholeToneCount * wholeToneStep + limmaCount * limmaStep <= MAX_NOTE_COUNT_PER_STAVE ?
+                edoSizeCategoryInverseIndex as Index<EdoSizeCategory> :
+                chosenEdoSizeCategoryInverseIndex,
+        0 as Index<EdoSizeCategory>
+    )
+    const edoSizeCategoryIndex: Index<EdoSizeCategory> = EDO_SIZE_CATEGORIES.length - ZERO_ONE_INDEX_DIFF - edoSizeCategoryInverseIndex as Index<EdoSizeCategory>
+    const edoSizeCategory: EdoSizeCategory = EDO_SIZE_CATEGORIES[edoSizeCategoryIndex]
+    const noteCountParametersByStavePattern: NoteCountParametersByStave[] = NOTE_COUNT_PARAMETERS_BY_STAVE_BY_EDO_SIZE_CATEGORY[edoSizeCategory]
+    const noteCountByStavePattern: NoteCountByStavePattern = noteCountParametersByStavePattern
+        .map(({ wholeToneCount, limmaCount }: NoteCountParametersByStave): Count<Note> =>
+            wholeToneCount * wholeToneStep + limmaCount * limmaStep as Count<Note>
+        )
+
+    return noteCountByStavePattern
+}
+
 export {
-    MAX_NOTE_COUNT_PER_STAVE,
-    NOTE_COUNT_PARAMETERS_BY_STAVE_BY_EDO_SIZE_CATEGORY,
-    MAX_NOTE_COUNT_BY_STAVE_PARAMETERS_BY_DECREASING_EDO_SIZE_CATEGORY,
-    EDO_SIZE_CATEGORIES,
+    computeNoteCountByStavePattern,
 }

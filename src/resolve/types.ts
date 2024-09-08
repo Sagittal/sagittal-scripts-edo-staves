@@ -21,11 +21,18 @@ interface NoteCountParametersByStave {
 
 type NoteCountByStavePattern = Count<Note>[]
 
+interface IntermediateFormWithSimpleWidth {
+    nominal: Nominal,
+    sagittalCodewords: (Code & Word)[],
+    whorlCodewords: (Code & Word)[],
+    width: Octals,
+}
+
 interface IntermediateForm {
     nominal: Nominal,
     sagittalCodewords: (Code & Word)[],
     whorlCodewords: (Code & Word)[],
-    leftSpacingForAlignment: Octals,
+    lefthandSpacingForAlignment: Octals,
 }
 
 type PatternedIntermediateForms = IntermediateForm[][]
@@ -38,4 +45,5 @@ export {
     Limma,
     IntermediateForm,
     PatternedIntermediateForms,
+    IntermediateFormWithSimpleWidth,
 }
