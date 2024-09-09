@@ -1,7 +1,7 @@
-import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "../../src/inputSentence"
+import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "../../../src/sentence"
 import { Flavor } from "@sagittal/system"
-import { extractKeyInfoFromInputSentence } from "../../src/diagram/keyInfo"
-import { Edo } from "../../../../system/src/notations/edo/types"
+import { extractKeyInfoFromInputSentence } from "../../../src/diagram/keyInfo"
+import { Edo } from "../../../../../system/src/notations/edo/types"
 import { Io, Sentence } from "@sagittal/general"
 
 const GENERAL_5_EDO_EXPECTED: Io & Sentence = `

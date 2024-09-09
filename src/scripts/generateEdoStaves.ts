@@ -1,7 +1,7 @@
 import { program } from "commander"
 import { Edo, Flavor } from "@sagittal/system"
-import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "../inputSentence"
 import { Io, Sentence } from "@sagittal/general"
+import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "../sentence"
 import { generateOneOffDiagram } from "../diagram"
 
 program

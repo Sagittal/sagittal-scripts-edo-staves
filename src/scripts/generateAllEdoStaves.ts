@@ -1,5 +1,5 @@
 import { Edo, EDO_NOTATION_DEFINITIONS, Flavor } from "@sagittal/system"
-import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "../inputSentence"
+import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "../sentence"
 import { Io, Sentence } from "@sagittal/general"
 import {
     extractKeyInfoFromInputSentence,
