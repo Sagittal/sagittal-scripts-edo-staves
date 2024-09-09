@@ -35,6 +35,7 @@ const computeDefaultSingleSpellingLinkEdoStepNotationIndicesList = ({ edo, fifth
 
     let edoStepNotationIndicesPlacedCount: Count<EdoStepNotationIndices> = 1 as Count<EdoStepNotationIndices>
 
+    // TODO: extract this and put more stuff on chaining state, to better parallel the other phases in this module
     while (!areLinksComplete) {
         candidateEdoStepLinkIndices = edoStepLinkIndices.slice()
         chainingState = chainingStates[way]
