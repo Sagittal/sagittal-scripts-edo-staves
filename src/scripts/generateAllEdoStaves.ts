@@ -1,37 +1,45 @@
 import { Edo, EDO_NOTATION_DEFINITIONS, Flavor } from "@sagittal/system"
-import { computeStaffCodeInputSentence } from "../inputSentence"
+import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "../inputSentence"
 import { Io, Sentence } from "@sagittal/general"
-import { extractKeyInfoFromInputSentence } from "../compare"
-import { EVO_FLAVOR_INDEX, EVO_SZ_FLAVOR_INDEX, generateEvoDiagram, generateEvoSZDiagram, generateGeneralDiagram, generateRevoDiagram, REVO_FLAVOR_INDEX } from "../diagram"
+import {
+    extractKeyInfoFromInputSentence,
+    EVO_FLAVOR_INDEX,
+    EVO_SZ_FLAVOR_INDEX,
+    generateEvoDiagram,
+    generateEvoSZDiagram,
+    generateGeneralDiagram,
+    generateRevoDiagram,
+    REVO_FLAVOR_INDEX
+} from "../diagram"
 
 const FLAVORS: Flavor[] = Object.values(Flavor)
 
 Object.keys(EDO_NOTATION_DEFINITIONS)
     .map((edoString: string): Edo => parseInt(edoString) as Edo)
     .forEach((edo: Edo): void => {
-        const inputSentences: (Io & Sentence)[] = FLAVORS.map((flavor: Flavor): Io & Sentence =>
-            computeStaffCodeInputSentence(edo, flavor)
+        const defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentences: (Io & Sentence)[] = FLAVORS.map((flavor: Flavor): Io & Sentence =>
+            computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(edo, flavor)
         )
 
-        const keyInfos: Sentence[] = inputSentences.map(extractKeyInfoFromInputSentence)
+        const keyInfos: Sentence[] = defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentences.map(extractKeyInfoFromInputSentence)
 
         if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[EVO_SZ_FLAVOR_INDEX]) {
             if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[REVO_FLAVOR_INDEX]) {
                 // CASE 2: all three identical, generate one big shared diagram
-                generateGeneralDiagram(inputSentences, edo)
+                generateGeneralDiagram(defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentences, edo)
             } else {
                 // CASE 3: evo and evo_sz identical, revo different
-                generateEvoDiagram(inputSentences, edo)
-                generateRevoDiagram(inputSentences, edo)
+                generateEvoDiagram(defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentences, edo)
+                generateRevoDiagram(defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentences, edo)
             }
         } else if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[REVO_FLAVOR_INDEX]) {
             // CASE 4: evo and revo identical, evo-sz different
-            generateGeneralDiagram(inputSentences, edo)
-            generateEvoSZDiagram(inputSentences, edo)
+            generateGeneralDiagram(defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentences, edo)
+            generateEvoSZDiagram(defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentences, edo)
         } else {
             // CASE 1: none identical; three separate diagrams
-            generateEvoDiagram(inputSentences, edo)
-            generateEvoSZDiagram(inputSentences, edo)
-            generateRevoDiagram(inputSentences, edo)
+            generateEvoDiagram(defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentences, edo)
+            generateEvoSZDiagram(defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentences, edo)
+            generateRevoDiagram(defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentences, edo)
         }
     })

@@ -1,6 +1,6 @@
 import { Count, Index, ZERO_ONE_INDEX_DIFF, computeRange, isUndefined, mod } from "@sagittal/general"
-import { Edo, EdoStep, EdoStepNotation, Link, Sagittal } from "@sagittal/system"
-import { Priority, Way } from "./types"
+import { Edo, EdoStep, Link, Sagittal } from "@sagittal/system"
+import { EdoStepNotationIndices, Priority, Way } from "./types"
 
 const WAY_PRIORITIES: Priority[] = Object.values(Way)
     .map((way: string | Way): Priority => ({ way: way as Way }))
@@ -71,22 +71,22 @@ const LINK_AND_WAY_PRIORITIES: Priority[] = [
     { linkIndexRestriction: -17, way: Way.UP },      // 56: Fbb up   
 ] as Priority[]
 
-const computeIsNotationComplete = (edoStepNotations: EdoStepNotation[]) =>
-    edoStepNotations.reduce(
-        (notatedStepCount: Count<EdoStepNotation>, edoStep: EdoStepNotation): Count<EdoStepNotation> =>
-            notatedStepCount + (!!edoStep ? 1 : 0) as Count<EdoStepNotation>,
-        0 as Count<EdoStepNotation>
-    ) === edoStepNotations.length as Count<EdoStepNotation>
+const computeIsNotationComplete = (edoStepNotationIndicesList: EdoStepNotationIndices[]) =>
+    edoStepNotationIndicesList.reduce(
+        (notatedStepCount: Count<EdoStepNotationIndices>, edoStepNotationIndices: EdoStepNotationIndices): Count<EdoStepNotationIndices> =>
+            notatedStepCount + (!!edoStepNotationIndices ? 1 : 0) as Count<EdoStepNotationIndices>,
+        0 as Count<EdoStepNotationIndices>
+    ) === edoStepNotationIndicesList.length as Count<EdoStepNotationIndices>
 
-const equalGapsBetweenLinks = (linkEdoStepNotations: EdoStepNotation[]): boolean => {
+const equalGapsBetweenLinks = (linkEdoStepNotationIndicesList: EdoStepNotationIndices[]): boolean => {
     let allPreviousGapSizes: Count<EdoStep>
     let currentGapSize: Count<EdoStep> = 0 as Count<EdoStep>
     let equalGapsBetweenLinks: boolean = true
 
-    computeRange(1 as EdoStep, linkEdoStepNotations.length as Edo).forEach((i: number): void => {
+    computeRange(1 as EdoStep, linkEdoStepNotationIndicesList.length as Edo).forEach((linkEdoStepNotationIndicesIndex: number): void => {
         if (!equalGapsBetweenLinks) return
 
-        if (linkEdoStepNotations[i]) {
+        if (linkEdoStepNotationIndicesList[linkEdoStepNotationIndicesIndex]) {
             if (isUndefined(allPreviousGapSizes)) allPreviousGapSizes = currentGapSize
             if (currentGapSize !== allPreviousGapSizes) equalGapsBetweenLinks = false
             currentGapSize = 0 as Count<EdoStep>
@@ -99,23 +99,23 @@ const equalGapsBetweenLinks = (linkEdoStepNotations: EdoStepNotation[]): boolean
 }
 
 const placeAllOfGivenDirectedSagittal = (
-    edoStepNotations: EdoStepNotation[],
+    edoStepNotationIndicesList: EdoStepNotationIndices[],
     placingSagittalIndex: Index<Sagittal>,
     way: Way,
     { edo, linkIndexRestriction }: { edo: Edo, linkIndexRestriction?: Index<Link> }
 ): void =>
-    edoStepNotations.forEach((edoStepNotation: EdoStepNotation, edoStep: number): void => {
-        if (isUndefined(edoStepNotation)) return
+    edoStepNotationIndicesList.forEach((edoStepNotationIndices: EdoStepNotationIndices, edoStep: number): void => {
+        if (isUndefined(edoStepNotationIndices)) return
 
-        const { linkIndex, sagittalIndex } = edoStepNotation
+        const { linkIndex, sagittalIndex } = edoStepNotationIndices
         if (!isUndefined(linkIndexRestriction) && linkIndex !== linkIndexRestriction) return
         if (linkIndex >= 10 && way > 0) return
         if (linkIndex <= -10 && way < 0) return
 
         if (way * sagittalIndex === placingSagittalIndex - 1) {
-            const neighborIndex: Index<EdoStepNotation> = mod(edoStep + way, edo) as Index<EdoStepNotation>
-            if (isUndefined(edoStepNotations[neighborIndex])) {
-                edoStepNotations[neighborIndex] = {
+            const neighborIndex: Index<EdoStepNotationIndices> = mod(edoStep + way, edo) as Index<EdoStepNotationIndices>
+            if (isUndefined(edoStepNotationIndicesList[neighborIndex])) {
+                edoStepNotationIndicesList[neighborIndex] = {
                     linkIndex,
                     sagittalIndex: way * placingSagittalIndex as Index<Sagittal>,
                 }
@@ -123,7 +123,7 @@ const placeAllOfGivenDirectedSagittal = (
         }
     })
 
-const placeSagittalsAccordingToPriorities = (edoStepNotations: EdoStepNotation[], sagittals: Sagittal[], priorities: Priority[], { edo }: { edo: Edo }) => {
+const placeSagittalsAccordingToPriorities = (edoStepNotationIndicesList: EdoStepNotationIndices[], sagittals: Sagittal[], priorities: Priority[], { edo }: { edo: Edo }) => {
     let isNotationComplete = false
 
     computeRange(sagittals.length as Count<Sagittal>).forEach((sagittalZeroIndex: number): void => {
@@ -133,23 +133,23 @@ const placeSagittalsAccordingToPriorities = (edoStepNotations: EdoStepNotation[]
         priorities.forEach(({ linkIndexRestriction, way }: Priority): void => {
             if (isNotationComplete) return
 
-            placeAllOfGivenDirectedSagittal(edoStepNotations, placingSagittalIndex, way, { linkIndexRestriction, edo })
+            placeAllOfGivenDirectedSagittal(edoStepNotationIndicesList, placingSagittalIndex, way, { linkIndexRestriction, edo })
 
-            isNotationComplete = computeIsNotationComplete(edoStepNotations)
+            isNotationComplete = computeIsNotationComplete(edoStepNotationIndicesList)
         })
     })
 
-    return edoStepNotations as EdoStepNotation[]
+    return edoStepNotationIndicesList as EdoStepNotationIndices[]
 }
 
-const placeSagittalEdoStepNotations = (linkEdoStepNotations: EdoStepNotation[], { edo, sagittals }: { edo: Edo, sagittals: Sagittal[] }): EdoStepNotation[] => {
-    const priorities = equalGapsBetweenLinks(linkEdoStepNotations) ?
+const placeDefaultSingleSpellingSagittalEdoStepNotationIndices = (linkEdoStepNotationIndicesList: EdoStepNotationIndices[], { edo, sagittals }: { edo: Edo, sagittals: Sagittal[] }): EdoStepNotationIndices[] => {
+    const priorities = equalGapsBetweenLinks(linkEdoStepNotationIndicesList) ?
         WAY_PRIORITIES :
         LINK_AND_WAY_PRIORITIES
 
-    return placeSagittalsAccordingToPriorities(linkEdoStepNotations, sagittals, priorities, { edo })
+    return placeSagittalsAccordingToPriorities(linkEdoStepNotationIndicesList, sagittals, priorities, { edo })
 }
 
 export {
-    placeSagittalEdoStepNotations,
+    placeDefaultSingleSpellingSagittalEdoStepNotationIndices,
 }

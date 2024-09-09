@@ -1,6 +1,6 @@
 import { Index, Maybe, Count, isUndefined, mod } from "@sagittal/general"
-import { Sagittal, Edo, Link, EdoStep, EdoStepNotation, Nominal, NOMINALS } from "@sagittal/system"
-import { Way, ChainingState } from "./types"
+import { Sagittal, Edo, Link, EdoStep, Nominal, NOMINALS } from "@sagittal/system"
+import { Way, ChainingState, EdoStepNotationIndices } from "./types"
 import { computeHaveNominalsCrossed } from "./nominalCrossing"
 import { NOMINAL_COUNT } from "./constants"
 
@@ -10,14 +10,14 @@ const computeDStep = ({ edo, fifthStep }: { edo: Edo, fifthStep: EdoStep }): Edo
         edo
     ) as EdoStep
 
-const computeLinkEdoStepNotationsFromEdoStepLinks = (edoStepLinkIndices: Index<Link>[]): EdoStepNotation[] =>
-    edoStepLinkIndices.map((linkIndex: Index<Link>): EdoStepNotation => ({ linkIndex, sagittalIndex: 0 as Index<Sagittal> }))
+const computeLinkEdoStepNotationIndicesListFromEdoStepLinks = (edoStepLinkIndices: Index<Link>[]): EdoStepNotationIndices[] =>
+    edoStepLinkIndices.map((linkIndex: Index<Link>): EdoStepNotationIndices => ({ linkIndex, sagittalIndex: 0 as Index<Sagittal> }))
 
-const computeLinkEdoStepNotations = ({ edo, fifthStep, useOnlyPlainNominals }: {
+const computeDefaultSingleSpellingLinkEdoStepNotationIndicesList = ({ edo, fifthStep, useOnlyPlainNominals }: {
     edo: Edo,
     fifthStep: EdoStep,
     useOnlyPlainNominals: boolean,
-}): EdoStepNotation[] => {
+}): EdoStepNotationIndices[] => {
     const dStep: EdoStep = computeDStep({ edo, fifthStep })
 
     let edoStepLinkIndices: Maybe<Index<Link>>[] = Array(edo)
@@ -33,7 +33,7 @@ const computeLinkEdoStepNotations = ({ edo, fifthStep, useOnlyPlainNominals }: {
 
     let areLinksComplete: boolean = false
 
-    let edoStepNotationsPlacedCount: Count<EdoStepNotation> = 1 as Count<EdoStepNotation>
+    let edoStepNotationIndicesPlacedCount: Count<EdoStepNotationIndices> = 1 as Count<EdoStepNotationIndices>
 
     while (!areLinksComplete) {
         candidateEdoStepLinkIndices = edoStepLinkIndices.slice()
@@ -43,12 +43,12 @@ const computeLinkEdoStepNotations = ({ edo, fifthStep, useOnlyPlainNominals }: {
         if (!isUndefined(candidateEdoStepLinkIndices[chainingState.edoStep])) {
             areLinksComplete = true
         } else {
-            edoStepNotationsPlacedCount++
+            edoStepNotationIndicesPlacedCount++
             chainingState.linkIndex = chainingState.linkIndex + way as Index<Link>
             candidateEdoStepLinkIndices[chainingState.edoStep] = chainingState.linkIndex
         }
 
-        if (!areLinksComplete && useOnlyPlainNominals && edoStepNotationsPlacedCount as Count === NOMINAL_COUNT) areLinksComplete = true
+        if (!areLinksComplete && useOnlyPlainNominals && edoStepNotationIndicesPlacedCount as Count === NOMINAL_COUNT) areLinksComplete = true
 
         if (!areLinksComplete && computeHaveNominalsCrossed(candidateEdoStepLinkIndices)) {
             areLinksComplete = true
@@ -62,12 +62,12 @@ const computeLinkEdoStepNotations = ({ edo, fifthStep, useOnlyPlainNominals }: {
                 Way.UP
     }
 
-    return computeLinkEdoStepNotationsFromEdoStepLinks(
+    return computeLinkEdoStepNotationIndicesListFromEdoStepLinks(
         edoStepLinkIndices as Index<Link>[]
     )
 }
 
 
 export {
-    computeLinkEdoStepNotations,
+    computeDefaultSingleSpellingLinkEdoStepNotationIndicesList,
 }

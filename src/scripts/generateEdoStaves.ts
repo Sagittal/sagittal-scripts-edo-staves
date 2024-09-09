@@ -1,6 +1,6 @@
 import { program } from "commander"
-import { Edo, Flavor, Nominal } from "@sagittal/system"
-import { computeStaffCodeInputSentence } from "../inputSentence"
+import { Edo, Flavor } from "@sagittal/system"
+import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "../inputSentence"
 import { Io, Sentence } from "@sagittal/general"
 import { generateOneOffDiagram } from "../diagram"
 
@@ -13,7 +13,7 @@ const { edo: edoString, flavor: flavorString }: { edo: string, flavor: string } 
 const edo: Edo = parseInt(edoString) as Edo
 const flavor: Flavor = flavorString.toLowerCase() as Flavor
 
-const inputSentence: Io & Sentence = computeStaffCodeInputSentence(edo, flavor)
-console.log(inputSentence)
+const defaultSingleSpellingPerStepNotationAsStaffCodeInputSentence: Io & Sentence = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(edo, flavor)
+console.log(defaultSingleSpellingPerStepNotationAsStaffCodeInputSentence)
 
-generateOneOffDiagram(inputSentence, edo, { flavor })
+generateOneOffDiagram(defaultSingleSpellingPerStepNotationAsStaffCodeInputSentence, edo, { flavor })

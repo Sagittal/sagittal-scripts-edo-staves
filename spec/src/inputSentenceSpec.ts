@@ -1,6 +1,6 @@
-import { computeStaffCodeInputSentence } from "../../src/inputSentence"
+import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "../../src/inputSentence"
 import { Flavor } from "@sagittal/system"
-import { extractKeyInfoFromInputSentence } from "../../src/compare"
+import { extractKeyInfoFromInputSentence } from "../../src/diagram/keyInfo"
 import { Edo } from "../../../../system/src/notations/edo/types"
 import { Io, Sentence } from "@sagittal/general"
 
@@ -179,42 +179,42 @@ const EVO_67_EDO_EXPECTED: Io & Sentence = `
     en; blfn
 ` as Io & Sentence
 
-describe("computeStaffCodeInputSentence computes the text as one would type into the StaffCode input box to produce a Sagittal EDO notation", (): void => {
+describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence computes the text as one would type into the StaffCode input box to produce a Sagittal EDO notation", (): void => {
     describe("Evo notations", (): void => {
         const flavor = Flavor.EVO
 
         it("works for 5-EDO Evo", (): void => {
-            const actual = computeStaffCodeInputSentence(5 as Edo as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(5 as Edo as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(GENERAL_5_EDO_EXPECTED))
         })
 
         it("works for 11-EDO Evo", (): void => {
-            const actual = computeStaffCodeInputSentence(11 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(11 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(EVO_11_EDO_EXPECTED))
         })
 
         it("works for 12-EDO Evo", (): void => {
-            const actual = computeStaffCodeInputSentence(12 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(12 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(EVO_12_EDO_EXPECTED))
         })
 
         it("works for 15-EDO Evo", (): void => {
-            const actual = computeStaffCodeInputSentence(15 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(15 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(GENERAL_15_EDO_EXPECTED))
         })
 
         it("works for 22-EDO Evo", (): void => {
-            const actual = computeStaffCodeInputSentence(22 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(22 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(EVO_22_EDO_EXPECTED))
         })
 
         it("works for 31-EDO Evo", (): void => {
-            const actual = computeStaffCodeInputSentence(31 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(31 as Edo, flavor)
 
             const expected: Io & Sentence = `
                 ston 
@@ -242,25 +242,25 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         })
 
         it("works for 47-EDO Evo", (): void => {
-            const actual = computeStaffCodeInputSentence(47 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(47 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(GENERAL_47_EDO_EXPECTED))
         })
 
         it("works for 52-EDO Evo", (): void => {
-            const actual = computeStaffCodeInputSentence(52 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(52 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(EVO_52_EDO_EXPECTED))
         })
 
         it("works for 67-EDO Evo", (): void => {
-            const actual = computeStaffCodeInputSentence(67 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(67 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(EVO_67_EDO_EXPECTED))
         })
 
         it("works for 72-EDO Evo", (): void => {
-            const actual = computeStaffCodeInputSentence(72 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(72 as Edo, flavor)
 
             const expected: Io & Sentence = `
                 ston 
@@ -298,37 +298,37 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         const flavor = Flavor.EVO_SZ
 
         it("works for 5-EDO Evo-SZ", (): void => {
-            const actual = computeStaffCodeInputSentence(5 as Edo as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(5 as Edo as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(GENERAL_5_EDO_EXPECTED))
         })
 
         it("works for 11-EDO Evo-SZ", (): void => {
-            const actual = computeStaffCodeInputSentence(11 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(11 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(EVO_11_EDO_EXPECTED))
         })
 
         it("works for 12-EDO Evo-SZ", (): void => {
-            const actual = computeStaffCodeInputSentence(12 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(12 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(EVO_12_EDO_EXPECTED))
         })
 
         it("works for 15-EDO Evo-SZ", (): void => {
-            const actual = computeStaffCodeInputSentence(15 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(15 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(GENERAL_15_EDO_EXPECTED))
         })
 
         it("works for 22-EDO Evo-SZ", (): void => {
-            const actual = computeStaffCodeInputSentence(22 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(22 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(EVO_22_EDO_EXPECTED))
         })
 
         it("works for 31-EDO Evo-SZ", (): void => {
-            const actual = computeStaffCodeInputSentence(31 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(31 as Edo, flavor)
 
             const expected: Io & Sentence = `
                 ston 
@@ -356,25 +356,25 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         })
 
         it("works for 47-EDO Evo-SZ", (): void => {
-            const actual = computeStaffCodeInputSentence(47 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(47 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(GENERAL_47_EDO_EXPECTED))
         })
 
         it("works for 52-EDO Evo-SZ", (): void => {
-            const actual = computeStaffCodeInputSentence(52 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(52 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(EVO_52_EDO_EXPECTED))
         })
 
         it("works for 67-EDO Evo-SZ", (): void => {
-            const actual = computeStaffCodeInputSentence(67 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(67 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(EVO_67_EDO_EXPECTED))
         })
 
         it("works for 72-EDO Evo-SZ", (): void => {
-            const actual = computeStaffCodeInputSentence(72 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(72 as Edo, flavor)
 
             const expected: Io & Sentence = `
                 ston 
@@ -412,13 +412,13 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         const flavor = Flavor.REVO
 
         it("works for 5-EDO Revo", (): void => {
-            const actual = computeStaffCodeInputSentence(5 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(5 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(GENERAL_5_EDO_EXPECTED))
         })
 
         it("works for 11-EDO Revo", (): void => {
-            const actual = computeStaffCodeInputSentence(11 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(11 as Edo, flavor)
 
             const expected: Io & Sentence = `
                 ston 
@@ -445,7 +445,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         })
 
         it("works for 12-EDO Revo", (): void => {
-            const actual = computeStaffCodeInputSentence(12 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(12 as Edo, flavor)
 
             const expected: Io & Sentence = `
                 ston 
@@ -470,13 +470,13 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         })
 
         it("works for 15-EDO Revo", (): void => {
-            const actual = computeStaffCodeInputSentence(15 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(15 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(GENERAL_15_EDO_EXPECTED))
         })
 
         it("works for 22-EDO Revo", (): void => {
-            const actual = computeStaffCodeInputSentence(22 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(22 as Edo, flavor)
 
             const expected: Io & Sentence = `
                 ston 
@@ -503,7 +503,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         })
 
         it("works for 31-EDO Revo", (): void => {
-            const actual = computeStaffCodeInputSentence(31 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(31 as Edo, flavor)
 
             const expected: Io & Sentence = `
                 ston 
@@ -531,13 +531,13 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         })
 
         it("works for 47-EDO Revo", (): void => {
-            const actual = computeStaffCodeInputSentence(47 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(47 as Edo, flavor)
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(extractKeyInfoFromInputSentence(GENERAL_47_EDO_EXPECTED))
         })
 
         it("works for 52-EDO Revo", (): void => {
-            const actual = computeStaffCodeInputSentence(52 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(52 as Edo, flavor)
 
             const expected: Io & Sentence = `
                 ston 
@@ -571,7 +571,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         })
 
         it("works for 67-EDO Revo", (): void => {
-            const actual = computeStaffCodeInputSentence(67 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(67 as Edo, flavor)
 
             const expected: Io & Sentence = `
                 ston 
@@ -605,7 +605,7 @@ describe("computeStaffCodeInputSentence computes the text as one would type into
         })
 
         it("works for 72-EDO Revo", (): void => {
-            const actual = computeStaffCodeInputSentence(72 as Edo, flavor)
+            const actual = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(72 as Edo, flavor)
 
             const expected: Io & Sentence = `
                 ston 

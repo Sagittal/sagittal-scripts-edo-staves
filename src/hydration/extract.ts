@@ -1,10 +1,9 @@
 import { computeCodewordWidth, Octals, Code } from "staff-code"
-import { Maybe, Index, ZERO_ONE_INDEX_DIFF, deepEquals, isUndefined, Word, mod, dividesEvenly } from "@sagittal/general"
+import { Maybe, Index, ZERO_ONE_INDEX_DIFF, deepEquals, isUndefined, Word, dividesEvenly } from "@sagittal/general"
 import {
     Flavor,
     Sagittal,
     computeAccidentalSagitype,
-    EdoStepNotation,
     Link,
     Whorl,
     NOMINALS,
@@ -12,9 +11,11 @@ import {
     SAGITTAL_SEMISHARP,
     Sagitype,
     SubsetFactor,
+    Nominal,
+    EdoStep,
 } from "@sagittal/system"
-import { PartiallyHydratedEdoStepNotation } from "./types"
-import { Note } from "../types"
+import { EdoStepNotationIndices } from "../chaining"
+import { EdoStepNotationCodewords } from "./types"
 
 const REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D: Index<Link> = -17 as Index<Link>
 
@@ -109,38 +110,26 @@ const computeWidth = ({ sagittalCodewords, whorlCodewords }: { sagittalCodewords
     return whorlWidth + sagittalWidth as Octals
 }
 
-const partiallyHydrateEdoStepNotation = (
-    { linkIndex, sagittalIndex }: EdoStepNotation,
-    { noteIndex, sagittals, flavor, subsetFactor }: {
-        noteIndex: Index<Note>,
+const extractEdoStepNotationParameters = (
+    { linkIndex, sagittalIndex }: EdoStepNotationIndices,
+    { step, sagittals, flavor, subsetFactor }: {
+        step: EdoStep,
         sagittals: Sagittal[],
         flavor: Flavor,
         subsetFactor?: SubsetFactor,
     }
-): PartiallyHydratedEdoStepNotation => {
+): { codewords: EdoStepNotationCodewords, width: Octals, nominal: Nominal, subsetExcluded?: true } => {
     const maybeSagittal: Maybe<Sagittal> = computePositiveOrNegativeOrNullSagittal(sagittals, sagittalIndex)
-    const { nominal, whorl }: Link = LINKS[linkIndex]
-    const { sagittalCodewords, whorlCodewords } = computeSagittalAndWhorlCodewords({ maybeSagittal, whorl, flavor })
-    const width = computeWidth({ sagittalCodewords, whorlCodewords })
+    const { whorl, nominal }: Link = LINKS[linkIndex]
+    const codewords = computeSagittalAndWhorlCodewords({ maybeSagittal, whorl, flavor })
 
-    if (!isUndefined(subsetFactor) && !dividesEvenly(noteIndex, subsetFactor)) {
-        return {
-            nominal,
-            whorlCodewords,
-            sagittalCodewords,
-            width: 0 as Octals,
-            subsetExcluded: true,
-        }
+    if (!isUndefined(subsetFactor) && !dividesEvenly(step, subsetFactor)) {
+        return { codewords, width: 0 as Octals, nominal, subsetExcluded: true }
     } else {
-        return {
-            nominal,
-            whorlCodewords,
-            sagittalCodewords,
-            width,
-        }
+        return { codewords, width: computeWidth(codewords), nominal }
     }
 }
 
 export {
-    partiallyHydrateEdoStepNotation,
+    extractEdoStepNotationParameters,
 }

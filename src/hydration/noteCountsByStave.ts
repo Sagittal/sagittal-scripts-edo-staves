@@ -1,7 +1,7 @@
 import { Index, ZERO_ONE_INDEX_DIFF, Count, Max } from "@sagittal/general"
 import { Edo, EdoStep, computeWholeToneStep, computeLimmaStep } from "@sagittal/system"
 import { Note } from "../types"
-import { NoteCountParametersByStave, Alignment, EdoSizeCategory, Limma, WholeTone } from "./types"
+import { NoteCountParametersByStave, NoteCountsByStave, EdoSizeCategory, Limma, WholeTone } from "./types"
 
 const MAX_NOTE_COUNT_PER_STAVE: Max<Count<Note>> = 18 as Max<Count<Note>>
 
@@ -46,7 +46,7 @@ const MAX_NOTE_COUNT_BY_STAVE_PARAMETERS_BY_DECREASING_EDO_SIZE_CATEGORY: NoteCo
 
 const EDO_SIZE_CATEGORIES: EdoSizeCategory[] = Object.values(EdoSizeCategory)
 
-const computeAlignment = ({ edo, fifthStep }: { edo: Edo, fifthStep: EdoStep }): Alignment => {
+const computeNoteCountsByStave = ({ edo, fifthStep }: { edo: Edo, fifthStep: EdoStep }): NoteCountsByStave => {
     const wholeToneStep: EdoStep = computeWholeToneStep(edo, fifthStep)
     const limmaStep: EdoStep = computeLimmaStep(edo, fifthStep)
 
@@ -63,16 +63,16 @@ const computeAlignment = ({ edo, fifthStep }: { edo: Edo, fifthStep: EdoStep }):
     )
     const edoSizeCategoryIndex: Index<EdoSizeCategory> = EDO_SIZE_CATEGORIES.length - ZERO_ONE_INDEX_DIFF - edoSizeCategoryInverseIndex as Index<EdoSizeCategory>
     const edoSizeCategory: EdoSizeCategory = EDO_SIZE_CATEGORIES[edoSizeCategoryIndex]
-    
+
     const noteCountParametersByStaves: NoteCountParametersByStave[] = NOTE_COUNT_PARAMETERS_BY_STAVE_BY_EDO_SIZE_CATEGORY[edoSizeCategory]
-    const alignment: Alignment = noteCountParametersByStaves
+    const noteCountsByStave: NoteCountsByStave = noteCountParametersByStaves
         .map(({ wholeToneCount, limmaCount }: NoteCountParametersByStave): Count<Note> =>
             wholeToneCount * wholeToneStep + limmaCount * limmaStep as Count<Note>
         )
 
-    return alignment
+    return noteCountsByStave
 }
 
 export {
-    computeAlignment,
+    computeNoteCountsByStave,
 }
