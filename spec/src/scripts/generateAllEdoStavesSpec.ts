@@ -1,4 +1,4 @@
-import { deepEquals, Filename, Io, readLines, runScriptAndGetConsoleOutput, slowTestOnlyRunInFullSuite } from "@sagittal/general"
+import { Filename, Io, readLines, runScriptAndGetConsoleOutput, slowTestOnlyRunInFullSuite } from "@sagittal/general"
 import { unlinkSync, writeFileSync } from "fs"
 
 describe("generate-all-edo-staves", (): void => {

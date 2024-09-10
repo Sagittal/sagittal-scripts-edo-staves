@@ -1327,31 +1327,6 @@ c5 4; \!; nt; 4;
 en; blfn
 
 
-Evo-SZ Sagittal notation for 39-EDO
-
-ston 
-4; trcl; 12;
-c4 4; nt; 4; 4; /|; nt; 4; 4; t; nt; 4; 4; t; nt; 4; 4; \!; #; nt; 4; 4; #; nt; 4; 
-d4 4; \!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; /|; nt; 4; 
-e4 4; b; nt; 4; 4; /|; b; nt; 4; 14; d; nt; 4; 7; d; nt; 4; 4; \!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; /|; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-e4  
-f4 4; nt; 4; 4; /|; nt; 4; 4; t; nt; 4; 4; t; nt; 4; 4; \!; #; nt; 4; 4; #; nt; 4; 
-g4 4; \!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-g4  4; nt; 4; 4; /|; nt; 4; 4; t; nt; 4; 4; t; nt; 4; 4; \!; #; nt; 4; 4; #; nt; 4; 
-a4 4; \!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; /|; nt; 4; 
-b4 4; b; nt; 4; 4; /|; b; nt; 4; 14; d; nt; 4; 7; d; nt; 4; 4; \!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 
-c5 4; \!; nt; 4; 
-en; blfn
-
-
 Revo Sagittal notation for 39-EDO
 
 ston 
@@ -1712,35 +1687,6 @@ c5 13; \!; nt; 4;
 en; blfn
 
 
-Evo-SZ Sagittal notation for 46-EDO
-
-ston 
-4; trcl; 12;
-c4 4; nt; 4; 4; /|; nt; 4; 12; t; nt; 4; 5; t; nt; 4; 4; \!; #; nt; 4; 4; #; nt; 4; 4; /|; #; nt; 4; 
-d4 4; \!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-d4  4; nt; 4; 4; /|; nt; 4; 
-e4 4; \!; b; nt; 4; 4; b; nt; 4; 5; /|; b; nt; 4; 7; d; nt; 4; 14; d; nt; 4; 4; \!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; /|; nt; 4; 
-f4 13; \!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-f4  4; nt; 4; 4; /|; nt; 4; 12; t; nt; 4; 5; t; nt; 4; 4; \!; #; nt; 4; 4; #; nt; 4; 4; /|; #; nt; 4; 
-g4 4; \!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-g4  4; nt; 4; 4; /|; nt; 4; 12; t; nt; 4; 5; t; nt; 4; 4; \!; #; nt; 4; 4; #; nt; 4; 4; /|; #; nt; 4; 
-a4 4; \!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-a4  4; nt; 4; 4; /|; nt; 4; 
-b4 4; \!; b; nt; 4; 4; b; nt; 4; 5; /|; b; nt; 4; 7; d; nt; 4; 14; d; nt; 4; 4; \!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; /|; nt; 4; 
-c5 13; \!; nt; 4; 
-en; blfn
-
-
 Revo Sagittal notation for 46-EDO
 
 ston 
@@ -1910,35 +1856,6 @@ a4 4; )!; nt; 4;
 4; trcl; 12;
 a4  4; nt; 4; 4; )|; nt; 4; 
 b4 4; b; nt; 4; 4; )|; b; nt; 4; 11; /|; b; nt; 4; 4; /|\; b; nt; 4; 7; \!/; nt; 4; 7; \!; nt; 4; 4; )!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 
-c5 4; )!; nt; 4; 
-en; blfn
-
-
-Evo-SZ Sagittal notation for 49-EDO
-
-ston 
-4; trcl; 12;
-c4 4; nt; 4; 4; )|; nt; 4; 6; /|; nt; 4; 11; t; nt; 4; 12; t; nt; 4; 4; \!; #; nt; 4; 4; )!; #; nt; 4; 4; #; nt; 4; 
-d4 4; )!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-d4  4; nt; 4; 4; )|; nt; 4; 
-e4 4; b; nt; 4; 4; )|; b; nt; 4; 4; /|; b; nt; 4; 14; d; nt; 4; 13; d; nt; 4; 7; \!; nt; 4; 4; )!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; )|; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-e4  
-f4 4; nt; 4; 4; )|; nt; 4; 6; /|; nt; 4; 11; t; nt; 4; 12; t; nt; 4; 4; \!; #; nt; 4; 4; )!; #; nt; 4; 4; #; nt; 4; 
-g4 4; )!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-g4  4; nt; 4; 4; )|; nt; 4; 6; /|; nt; 4; 11; t; nt; 4; 12; t; nt; 4; 4; \!; #; nt; 4; 4; )!; #; nt; 4; 4; #; nt; 4; 
-a4 4; )!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-a4  4; nt; 4; 4; )|; nt; 4; 
-b4 4; b; nt; 4; 4; )|; b; nt; 4; 4; /|; b; nt; 4; 14; d; nt; 4; 13; d; nt; 4; 7; \!; nt; 4; 4; )!; nt; 4; 
 3; en; bl 10; 4; nt; 4; 
 c5 4; )!; nt; 4; 
 en; blfn
@@ -2234,35 +2151,6 @@ c5 4; )!; nt; 4;
 en; blfn
 
 
-Evo-SZ Sagittal notation for 54-EDO
-
-ston 
-4; trcl; 12;
-c4 4; nt; 4; 4; )|; nt; 4; 6; /|; nt; 4; 11; t; nt; 4; 6; (|\; nt; 4; 4; t; nt; 4; 4; \!; #; nt; 4; 4; )!; #; nt; 4; 4; #; nt; 4; 
-d4 4; )!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-d4  4; nt; 4; 4; )|; nt; 4; 
-e4 4; b; nt; 4; 4; )|; b; nt; 4; 4; /|; b; nt; 4; 5; d; nt; 4; 7; (!/; nt; 4; 13; d; nt; 4; 7; \!; nt; 4; 4; )!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; )|; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-e4  
-f4 4; nt; 4; 4; )|; nt; 4; 6; /|; nt; 4; 11; t; nt; 4; 6; (|\; nt; 4; 4; t; nt; 4; 4; \!; #; nt; 4; 4; )!; #; nt; 4; 4; #; nt; 4; 
-g4 4; )!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-g4  4; nt; 4; 4; )|; nt; 4; 6; /|; nt; 4; 11; t; nt; 4; 6; (|\; nt; 4; 4; t; nt; 4; 4; \!; #; nt; 4; 4; )!; #; nt; 4; 4; #; nt; 4; 
-a4 4; )!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-a4  4; nt; 4; 4; )|; nt; 4; 
-b4 4; b; nt; 4; 4; )|; b; nt; 4; 4; /|; b; nt; 4; 5; d; nt; 4; 7; (!/; nt; 4; 13; d; nt; 4; 7; \!; nt; 4; 4; )!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 
-c5 4; )!; nt; 4; 
-en; blfn
-
-
 Revo Sagittal notation for 54-EDO
 
 ston 
@@ -2403,35 +2291,6 @@ a4 4; !); nt; 4;
 4; trcl; 12;
 a4  4; nt; 4; 4; |); nt; 4; 
 b4 4; !); b; nt; 4; 8; b; nt; 4; 11; |); b; nt; 4; 5; /|; b; nt; 4; 4; /|\; b; nt; 4; 4; \!/; nt; 4; 14; \!; nt; 4; 4; !); nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; |); nt; 4; 
-c5 13; !); nt; 4; 
-en; blfn
-
-
-Evo-SZ Sagittal notation for 56-EDO
-
-ston 
-4; trcl; 12;
-c4 4; nt; 4; 4; |); nt; 4; 13; /|; nt; 4; 5; t; nt; 4; 12; t; nt; 4; 4; \!; #; nt; 4; 4; !); #; nt; 4; 4; #; nt; 4; 4; |); #; nt; 4; 
-d4 4; !); nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-d4  4; nt; 4; 4; |); nt; 4; 
-e4 4; !); b; nt; 4; 4; b; nt; 4; 4; |); b; nt; 4; 5; /|; b; nt; 4; 14; d; nt; 4; 7; d; nt; 4; 14; \!; nt; 4; 4; !); nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; |); nt; 4; 
-f4 13; !); nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-f4  4; nt; 4; 4; |); nt; 4; 13; /|; nt; 4; 5; t; nt; 4; 12; t; nt; 4; 4; \!; #; nt; 4; 4; !); #; nt; 4; 4; #; nt; 4; 4; |); #; nt; 4; 
-g4 4; !); nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-g4  4; nt; 4; 4; |); nt; 4; 13; /|; nt; 4; 5; t; nt; 4; 12; t; nt; 4; 4; \!; #; nt; 4; 4; !); #; nt; 4; 4; #; nt; 4; 4; |); #; nt; 4; 
-a4 4; !); nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-a4  4; nt; 4; 4; |); nt; 4; 
-b4 4; !); b; nt; 4; 4; b; nt; 4; 4; |); b; nt; 4; 5; /|; b; nt; 4; 14; d; nt; 4; 7; d; nt; 4; 14; \!; nt; 4; 4; !); nt; 4; 
 3; en; bl 10; 4; nt; 4; 4; |); nt; 4; 
 c5 13; !); nt; 4; 
 en; blfn
@@ -2756,35 +2615,6 @@ c5 13; )!; nt; 4;
 en; blfn
 
 
-Evo-SZ Sagittal notation for 61-EDO
-
-ston 
-4; trcl; 12;
-c4 4; nt; 4; 4; )|; nt; 4; 12; /|; nt; 4; 5; t; nt; 4; 5; (|\; nt; 4; 12; t; nt; 4; 4; \!; #; nt; 4; 4; )!; #; nt; 4; 4; #; nt; 4; 4; )|; #; nt; 4; 
-d4 4; )!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-d4  4; nt; 4; 4; )|; nt; 4; 
-e4 4; )!; b; nt; 4; 4; b; nt; 4; 4; )|; b; nt; 4; 4; /|; b; nt; 4; 14; d; nt; 4; 6; (!/; nt; 4; 7; d; nt; 4; 13; \!; nt; 4; 4; )!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; )|; nt; 4; 
-f4 13; )!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-f4  4; nt; 4; 4; )|; nt; 4; 12; /|; nt; 4; 5; t; nt; 4; 5; (|\; nt; 4; 12; t; nt; 4; 4; \!; #; nt; 4; 4; )!; #; nt; 4; 4; #; nt; 4; 4; )|; #; nt; 4; 
-g4 4; )!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-g4  4; nt; 4; 4; )|; nt; 4; 12; /|; nt; 4; 5; t; nt; 4; 5; (|\; nt; 4; 12; t; nt; 4; 4; \!; #; nt; 4; 4; )!; #; nt; 4; 4; #; nt; 4; 4; )|; #; nt; 4; 
-a4 4; )!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-a4  4; nt; 4; 4; )|; nt; 4; 
-b4 4; )!; b; nt; 4; 4; b; nt; 4; 4; )|; b; nt; 4; 4; /|; b; nt; 4; 14; d; nt; 4; 6; (!/; nt; 4; 7; d; nt; 4; 13; \!; nt; 4; 4; )!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; )|; nt; 4; 
-c5 13; )!; nt; 4; 
-en; blfn
-
-
 Revo Sagittal notation for 61-EDO
 
 ston 
@@ -2925,35 +2755,6 @@ a4 4; \!; nt; 4; 4; !); nt; 4;
 4; trcl; 12;
 a4  4; nt; 4; 4; |); nt; 4; 4; /|; nt; 4; 
 b4 4; !); b; nt; 4; 18; b; nt; 4; 5; |); b; nt; 4; 5; /|; b; nt; 4; 4; /|\; b; nt; 4; 8; \!/; nt; 4; 4; \!; nt; 4; 4; !); nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; |); nt; 4; 
-c5 4; \!; nt; 4; 13; !); nt; 4; 
-en; blfn
-
-
-Evo-SZ Sagittal notation for 63-EDO
-
-ston 
-4; trcl; 12;
-c4 4; nt; 4; 4; |); nt; 4; 4; /|; nt; 4; 12; t; nt; 4; 5; t; nt; 4; 4; \!; #; nt; 4; 4; !); #; nt; 4; 4; #; nt; 4; 4; |); #; nt; 4; 
-d4 4; \!; nt; 4; 4; !); nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-d4  4; nt; 4; 4; |); nt; 4; 4; /|; nt; 4; 
-e4 4; !); b; nt; 4; 4; b; nt; 4; 5; |); b; nt; 4; 5; /|; b; nt; 4; 7; d; nt; 4; 14; d; nt; 4; 4; \!; nt; 4; 4; !); nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; |); nt; 4; 4; /|; nt; 4; 
-f4 13; !); nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-f4  4; nt; 4; 4; |); nt; 4; 4; /|; nt; 4; 12; t; nt; 4; 5; t; nt; 4; 4; \!; #; nt; 4; 4; !); #; nt; 4; 4; #; nt; 4; 4; |); #; nt; 4; 
-g4 4; \!; nt; 4; 4; !); nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-g4  4; nt; 4; 4; |); nt; 4; 4; /|; nt; 4; 12; t; nt; 4; 5; t; nt; 4; 4; \!; #; nt; 4; 4; !); #; nt; 4; 4; #; nt; 4; 4; |); #; nt; 4; 
-a4 4; \!; nt; 4; 4; !); nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-a4  4; nt; 4; 4; |); nt; 4; 4; /|; nt; 4; 
-b4 4; !); b; nt; 4; 4; b; nt; 4; 5; |); b; nt; 4; 5; /|; b; nt; 4; 7; d; nt; 4; 14; d; nt; 4; 4; \!; nt; 4; 4; !); nt; 4; 
 3; en; bl 10; 4; nt; 4; 4; |); nt; 4; 
 c5 4; \!; nt; 4; 13; !); nt; 4; 
 en; blfn
@@ -3278,35 +3079,6 @@ c5 4; \!; nt; 4; 13; !/; nt; 4;
 en; blfn
 
 
-Evo-SZ Sagittal notation for 68-EDO
-
-ston 
-4; trcl; 12;
-c4 4; nt; 4; 4; |\; nt; 4; 4; /|; nt; 4; 14; t; nt; 4; 4; (|\; nt; 4; 14; t; nt; 4; 4; \!; #; nt; 4; 4; !/; #; nt; 4; 8; #; nt; 4; 4; |\; #; nt; 4; 
-d4 4; \!; nt; 4; 4; !/; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-d4  4; nt; 4; 4; |\; nt; 4; 4; /|; nt; 4; 
-e4 4; !/; b; nt; 4; 9; b; nt; 4; 4; |\; b; nt; 4; 5; /|; b; nt; 4; 16; d; nt; 4; 4; (!/; nt; 4; 16; d; nt; 4; 4; \!; nt; 4; 4; !/; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; |\; nt; 4; 4; /|; nt; 4; 
-f4 13; !/; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-f4  4; nt; 4; 4; |\; nt; 4; 4; /|; nt; 4; 14; t; nt; 4; 4; (|\; nt; 4; 14; t; nt; 4; 4; \!; #; nt; 4; 4; !/; #; nt; 4; 8; #; nt; 4; 4; |\; #; nt; 4; 
-g4 4; \!; nt; 4; 4; !/; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-g4  4; nt; 4; 4; |\; nt; 4; 4; /|; nt; 4; 14; t; nt; 4; 4; (|\; nt; 4; 14; t; nt; 4; 4; \!; #; nt; 4; 4; !/; #; nt; 4; 8; #; nt; 4; 4; |\; #; nt; 4; 
-a4 4; \!; nt; 4; 4; !/; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-a4  4; nt; 4; 4; |\; nt; 4; 4; /|; nt; 4; 
-b4 4; !/; b; nt; 4; 9; b; nt; 4; 4; |\; b; nt; 4; 5; /|; b; nt; 4; 16; d; nt; 4; 4; (!/; nt; 4; 16; d; nt; 4; 4; \!; nt; 4; 4; !/; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; |\; nt; 4; 
-c5 4; \!; nt; 4; 13; !/; nt; 4; 
-en; blfn
-
-
 Revo Sagittal notation for 68-EDO
 
 ston 
@@ -3452,35 +3224,6 @@ c5 13; !/; nt; 4; 20; \!; nt; 4;
 en; blfn
 
 
-Evo-SZ Sagittal notation for 70-EDO
-
-ston 
-4; trcl; 12;
-c4 4; nt; 4; 4; /|; nt; 4; 4; |\; nt; 4; 14; t; nt; 4; 12; t; nt; 4; 4; !/; #; nt; 4; 4; \!; #; nt; 4; 12; #; nt; 4; 4; /|; #; nt; 4; 4; |\; #; nt; 4; 
-d4 4; !/; nt; 4; 4; \!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-d4  4; nt; 4; 4; /|; nt; 4; 4; |\; nt; 4; 
-e4 4; !/; b; nt; 4; 4; \!; b; nt; 4; 14; b; nt; 4; 5; /|; b; nt; 4; 4; |\; b; nt; 4; 14; d; nt; 4; 16; d; nt; 4; 4; !/; nt; 4; 4; \!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; /|; nt; 4; 4; |\; nt; 4; 
-f4 13; !/; nt; 4; 13; \!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-f4  4; nt; 4; 4; /|; nt; 4; 4; |\; nt; 4; 14; t; nt; 4; 12; t; nt; 4; 4; !/; #; nt; 4; 4; \!; #; nt; 4; 12; #; nt; 4; 4; /|; #; nt; 4; 4; |\; #; nt; 4; 
-g4 4; !/; nt; 4; 4; \!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-g4  4; nt; 4; 4; /|; nt; 4; 4; |\; nt; 4; 14; t; nt; 4; 12; t; nt; 4; 4; !/; #; nt; 4; 4; \!; #; nt; 4; 12; #; nt; 4; 4; /|; #; nt; 4; 4; |\; #; nt; 4; 
-a4 4; !/; nt; 4; 4; \!; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-a4  4; nt; 4; 4; /|; nt; 4; 4; |\; nt; 4; 
-b4 4; !/; b; nt; 4; 4; \!; b; nt; 4; 14; b; nt; 4; 5; /|; b; nt; 4; 4; |\; b; nt; 4; 14; d; nt; 4; 16; d; nt; 4; 4; !/; nt; 4; 4; \!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; /|; nt; 4; 4; |\; nt; 4; 
-c5 13; !/; nt; 4; 13; \!; nt; 4; 
-en; blfn
-
-
 Revo Sagittal notation for 70-EDO
 
 ston 
@@ -3534,35 +3277,6 @@ a4 4; !/; nt; 4;
 4; trcl; 12;
 a4  4; nt; 4; 4; |\; nt; 4; 
 b4 4; !/; b; nt; 4; 4; b; nt; 4; 4; |\; b; nt; 4; 4; )~|; b; nt; 4; 11; /|; b; nt; 4; 4; /|\; b; nt; 4; 10; \!); nt; 4; 10; \!/; nt; 4; 7; \!; nt; 4; 16; )~!; nt; 4; 4; !/; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; |\; nt; 4; 
-c5 13; !/; nt; 4; 
-en; blfn
-
-
-Evo-SZ Sagittal notation for 71-EDO
-
-ston 
-4; trcl; 12;
-c4 4; nt; 4; 4; |\; nt; 4; 15; )~|; nt; 4; 6; /|; nt; 4; 14; t; nt; 4; 9; /|); nt; 4; 12; t; nt; 4; 4; \!; #; nt; 4; 4; )~!; #; nt; 4; 4; !/; #; nt; 4; 4; #; nt; 4; 4; |\; #; nt; 4; 
-d4 4; !/; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-d4  4; nt; 4; 4; |\; nt; 4; 
-e4 4; !/; b; nt; 4; 4; b; nt; 4; 4; |\; b; nt; 4; 4; )~|; b; nt; 4; 4; /|; b; nt; 4; 14; d; nt; 4; 10; \!); nt; 4; 16; d; nt; 4; 7; \!; nt; 4; 16; )~!; nt; 4; 4; !/; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; |\; nt; 4; 
-f4 13; !/; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-f4  4; nt; 4; 4; |\; nt; 4; 15; )~|; nt; 4; 6; /|; nt; 4; 14; t; nt; 4; 9; /|); nt; 4; 12; t; nt; 4; 4; \!; #; nt; 4; 4; )~!; #; nt; 4; 4; !/; #; nt; 4; 4; #; nt; 4; 4; |\; #; nt; 4; 
-g4 4; !/; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-g4  4; nt; 4; 4; |\; nt; 4; 15; )~|; nt; 4; 6; /|; nt; 4; 14; t; nt; 4; 9; /|); nt; 4; 12; t; nt; 4; 4; \!; #; nt; 4; 4; )~!; #; nt; 4; 4; !/; #; nt; 4; 4; #; nt; 4; 4; |\; #; nt; 4; 
-a4 4; !/; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-a4  4; nt; 4; 4; |\; nt; 4; 
-b4 4; !/; b; nt; 4; 4; b; nt; 4; 4; |\; b; nt; 4; 4; )~|; b; nt; 4; 4; /|; b; nt; 4; 14; d; nt; 4; 10; \!); nt; 4; 16; d; nt; 4; 7; \!; nt; 4; 16; )~!; nt; 4; 4; !/; nt; 4; 
 3; en; bl 10; 4; nt; 4; 4; |\; nt; 4; 
 c5 13; !/; nt; 4; 
 en; blfn
