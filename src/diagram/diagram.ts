@@ -60,7 +60,7 @@ const generateDiagram = (
     }Sagittal notation for ${edo}-EDO`
     const filename: Filename = `${edo}-EDO${
         formattedFlavorName.length === 0 ? "" : "_"
-    }${formattedFlavorName}.svg` as Filename
+    }${formattedFlavorName.replace(/ /g, "_")}.svg` as Filename
 
     console.log(`\n\n${title}\n\n${inputSentence}`)
 
