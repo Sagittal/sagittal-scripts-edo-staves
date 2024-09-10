@@ -7,13 +7,15 @@ import {
     Index,
     textToSvg,
     Unicode,
-    isUndefined,
+    Px,
 } from "@sagittal/general"
 import { Edo, Flavor } from "@sagittal/system"
 import { addTitle } from "./title"
 
 const BRAVURA_TEXT_SC_FONT_FILE: Filename =
     "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
+
+const BRAVURA_TEXT_SC_FONT_SIZE: Px = 60 as Px 
 
 const FORMATTED_FLAVOR_NAMES: Record<Flavor, Io> = {
     [Flavor.EVO]: "Evo",
@@ -35,6 +37,7 @@ const asyncGenerateDiagram = async (
 
     const svgString: string = await textToSvg(unicodeSentence, {
         font: BRAVURA_TEXT_SC_FONT_FILE,
+        fontSize: BRAVURA_TEXT_SC_FONT_SIZE,
     })
     const modifiedSvgString: string = addTitle(svgString, title)
 
@@ -82,7 +85,7 @@ const generateGeneralDiagram = (
 ): void =>
     generateDiagram(inputSentences, edo, {
         formattedFlavorName: "",
-        flavorIndex: EVO_FLAVOR_INDEX,
+        flavorIndex: REVO_FLAVOR_INDEX,
         dryRun,
     })
 
@@ -119,12 +122,24 @@ const generateRevoDiagram = (
         dryRun,
     })
 
+const generateAlternativeEvoDiagram = (
+    inputSentences: (Io & Sentence)[],
+    edo: Edo,
+    { dryRun }: { dryRun: boolean },
+): void =>
+    generateDiagram(inputSentences, edo, {
+        formattedFlavorName: `Alternative ${FORMATTED_FLAVOR_NAMES[Flavor.EVO]}`,
+        flavorIndex: EVO_FLAVOR_INDEX,
+        dryRun,
+    })
+
 export {
     generateGeneralDiagram,
     generateEvoDiagram,
     generateEvoSZDiagram,
     generateRevoDiagram,
     generateOneOffDiagram,
+    generateAlternativeEvoDiagram,
     EVO_FLAVOR_INDEX,
     EVO_SZ_FLAVOR_INDEX,
     REVO_FLAVOR_INDEX,

@@ -4,9 +4,9 @@ import { Io, Px } from "@sagittal/general";
 const CANVAS_HEIGHT_EXPANSION_FACTOR: number = 2
 const CANVAS_WIDTH_EXPANSION_FACTOR: number = 2
 
-const LEFT_MARGIN: Px = 10 as Px
-const TOP_MARGIN: Px = 20 as Px
-const FONT_SIZE: Px = 8 as Px
+const LEFT_MARGIN: Px = 40 as Px
+const TOP_MARGIN: Px = 80 as Px
+const FONT_SIZE: Px = 30 as Px
 
 const SAGITTAL_FONT_NAME: string = "Sanomat-Semibold"
 

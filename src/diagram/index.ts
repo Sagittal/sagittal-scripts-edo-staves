@@ -8,4 +8,5 @@ export {
     generateGeneralDiagram,
     generateRevoDiagram,
     generateOneOffDiagram,
+    generateAlternativeEvoDiagram,
 } from "./diagram"

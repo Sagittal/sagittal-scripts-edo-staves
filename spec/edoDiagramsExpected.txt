@@ -360,7 +360,27 @@ c5 4; !); nt; 4;
 en; blfn
 
 
-Evo Sagittal notation for 17-EDO
+Sagittal notation for 17-EDO
+
+ston 
+4; trcl; 12;
+c4 4; nt; 4; 4; /|\; nt; 4; 
+d4 4; \!/; nt; 4; 
+3; en; bl 10; 4; nt; 4; 4; /|\; nt; 4; 
+e4 4; \!/; nt; 4; 
+3; en; bl 10; 4; nt; 4; 
+3; en; bl 10; 
+f4 4; nt; 4; 4; /|\; nt; 4; 
+g4 4; \!/; nt; 4; 
+3; en; bl 10; 4; nt; 4; 4; /|\; nt; 4; 
+a4 4; \!/; nt; 4; 
+3; en; bl 10; 4; nt; 4; 4; /|\; nt; 4; 
+b4 4; \!/; nt; 4; 
+3; en; bl 10; 4; nt; 4; 
+en; blfn
+
+
+Alternative Evo Sagittal notation for 17-EDO
 
 ston 
 4; trcl; 12;
@@ -396,26 +416,6 @@ g4 4; nt; 4; 4; t; nt; 4; 4; #; nt; 4;
 3; en; bl 10; 
 a4 4; nt; 4; 
 b4 4; b; nt; 4; 4; d; nt; 4; 
-3; en; bl 10; 4; nt; 4; 
-en; blfn
-
-
-Revo Sagittal notation for 17-EDO
-
-ston 
-4; trcl; 12;
-c4 4; nt; 4; 4; /|\; nt; 4; 
-d4 4; \!/; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; /|\; nt; 4; 
-e4 4; \!/; nt; 4; 
-3; en; bl 10; 4; nt; 4; 
-3; en; bl 10; 
-f4 4; nt; 4; 4; /|\; nt; 4; 
-g4 4; \!/; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; /|\; nt; 4; 
-a4 4; \!/; nt; 4; 
-3; en; bl 10; 4; nt; 4; 4; /|\; nt; 4; 
-b4 4; \!/; nt; 4; 
 3; en; bl 10; 4; nt; 4; 
 en; blfn
 
@@ -755,29 +755,7 @@ c5 4; \!!/; nt; 4;
 en; blfn
 
 
-Evo Sagittal notation for 27-EDO
-
-ston 
-4; trcl; 12;
-c4 4; nt; 4; 4; /|; nt; 4; 4; (|\; nt; 4; 4; \!; #; nt; 4; 4; #; nt; 4; 
-3; en; bl 10; 
-d4 4; nt; 4; 
-e4 4; b; nt; 4; 4; /|; b; nt; 4; 4; (!/; nt; 4; 4; \!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 
-3; en; bl 10; 
-f4 4; nt; 4; 4; /|; nt; 4; 4; (|\; nt; 4; 4; \!; #; nt; 4; 4; #; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-f4  
-g4 4; nt; 4; 4; /|; nt; 4; 4; (|\; nt; 4; 4; \!; #; nt; 4; 4; #; nt; 4; 
-3; en; bl 10; 
-a4 4; nt; 4; 
-b4 4; b; nt; 4; 4; /|; b; nt; 4; 4; (!/; nt; 4; 4; \!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 
-en; blfn
-
-
-Revo Sagittal notation for 27-EDO
+Sagittal notation for 27-EDO
 
 ston 
 4; trcl; 12;
@@ -795,6 +773,28 @@ g4  4; nt; 4; 4; /|; nt; 4; 4; (|\; nt; 4;
 a4 4; (!/; nt; 4; 4; \!; nt; 4; 
 3; en; bl 10; 4; nt; 4; 4; /|; nt; 4; 4; (|\; nt; 4; 
 b4 4; (!/; nt; 4; 4; \!; nt; 4; 
+3; en; bl 10; 4; nt; 4; 
+en; blfn
+
+
+Alternative Evo Sagittal notation for 27-EDO
+
+ston 
+4; trcl; 12;
+c4 4; nt; 4; 4; /|; nt; 4; 4; (|\; nt; 4; 4; \!; #; nt; 4; 4; #; nt; 4; 
+3; en; bl 10; 
+d4 4; nt; 4; 
+e4 4; b; nt; 4; 4; /|; b; nt; 4; 4; (!/; nt; 4; 4; \!; nt; 4; 
+3; en; bl 10; 4; nt; 4; 
+3; en; bl 10; 
+f4 4; nt; 4; 4; /|; nt; 4; 4; (|\; nt; 4; 4; \!; #; nt; 4; 4; #; nt; 4; 
+3; en; bl nl; 
+4; trcl; 12;
+f4  
+g4 4; nt; 4; 4; /|; nt; 4; 4; (|\; nt; 4; 4; \!; #; nt; 4; 4; #; nt; 4; 
+3; en; bl 10; 
+a4 4; nt; 4; 
+b4 4; b; nt; 4; 4; /|; b; nt; 4; 4; (!/; nt; 4; 4; \!; nt; 4; 
 3; en; bl 10; 4; nt; 4; 
 en; blfn
 
@@ -1179,31 +1179,7 @@ c5 7; !); nt; 4;
 en; blfn
 
 
-Evo Sagittal notation for 37-EDO
-
-ston 
-4; trcl; 12;
-c4 4; nt; 4; 4; )|; nt; 4; 4; /|; nt; 4; 4; (|\; nt; 4; 4; \!; #; nt; 4; 4; )!; #; nt; 4; 4; #; nt; 4; 
-3; en; bl 10; 
-d4 4; nt; 4; 
-e4 4; b; nt; 4; 4; )|; b; nt; 4; 4; /|; b; nt; 4; 7; (!/; nt; 4; 13; \!; nt; 4; 8; )!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-e4  
-f4 4; nt; 4; 4; )|; nt; 4; 4; /|; nt; 4; 4; (|\; nt; 4; 4; \!; #; nt; 4; 4; )!; #; nt; 4; 4; #; nt; 4; 
-3; en; bl nl; 
-4; trcl; 12;
-f4  
-g4 4; nt; 4; 4; )|; nt; 4; 4; /|; nt; 4; 4; (|\; nt; 4; 4; \!; #; nt; 4; 4; )!; #; nt; 4; 4; #; nt; 4; 
-3; en; bl 10; 
-a4 4; nt; 4; 
-b4 4; b; nt; 4; 4; )|; b; nt; 4; 4; /|; b; nt; 4; 7; (!/; nt; 4; 13; \!; nt; 4; 8; )!; nt; 4; 
-3; en; bl 10; 4; nt; 4; 
-en; blfn
-
-
-Revo Sagittal notation for 37-EDO
+Sagittal notation for 37-EDO
 
 ston 
 4; trcl; 12;
@@ -1223,6 +1199,30 @@ g4  4; nt; 4; 4; )|; nt; 4; 4; /|; nt; 4; 4; (|\; nt; 4;
 a4 4; (!/; nt; 4; 4; \!; nt; 4; 4; )!; nt; 4; 
 3; en; bl 10; 4; nt; 4; 4; )|; nt; 4; 4; /|; nt; 4; 4; (|\; nt; 4; 
 b4 4; (!/; nt; 4; 4; \!; nt; 4; 4; )!; nt; 4; 
+3; en; bl 10; 4; nt; 4; 
+en; blfn
+
+
+Alternative Evo Sagittal notation for 37-EDO
+
+ston 
+4; trcl; 12;
+c4 4; nt; 4; 4; )|; nt; 4; 4; /|; nt; 4; 4; (|\; nt; 4; 4; \!; #; nt; 4; 4; )!; #; nt; 4; 4; #; nt; 4; 
+3; en; bl 10; 
+d4 4; nt; 4; 
+e4 4; b; nt; 4; 4; )|; b; nt; 4; 4; /|; b; nt; 4; 7; (!/; nt; 4; 13; \!; nt; 4; 8; )!; nt; 4; 
+3; en; bl 10; 4; nt; 4; 
+3; en; bl nl; 
+4; trcl; 12;
+e4  
+f4 4; nt; 4; 4; )|; nt; 4; 4; /|; nt; 4; 4; (|\; nt; 4; 4; \!; #; nt; 4; 4; )!; #; nt; 4; 4; #; nt; 4; 
+3; en; bl nl; 
+4; trcl; 12;
+f4  
+g4 4; nt; 4; 4; )|; nt; 4; 4; /|; nt; 4; 4; (|\; nt; 4; 4; \!; #; nt; 4; 4; )!; #; nt; 4; 4; #; nt; 4; 
+3; en; bl 10; 
+a4 4; nt; 4; 
+b4 4; b; nt; 4; 4; )|; b; nt; 4; 4; /|; b; nt; 4; 7; (!/; nt; 4; 13; \!; nt; 4; 8; )!; nt; 4; 
 3; en; bl 10; 4; nt; 4; 
 en; blfn
 
