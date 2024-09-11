@@ -11,11 +11,12 @@ import {
 } from "@sagittal/general"
 import { Edo, Flavor } from "@sagittal/system"
 import { addTitle } from "./title"
+import { convertSvgToPng } from "./png"
 
 const BRAVURA_TEXT_SC_FONT_FILE: Filename =
     "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
 
-const BRAVURA_TEXT_SC_FONT_SIZE: Px = 60 as Px 
+const BRAVURA_TEXT_SC_FONT_SIZE: Px = 45 as Px 
 
 const FORMATTED_FLAVOR_NAMES: Record<Flavor, Io> = {
     [Flavor.EVO]: "Evo",
@@ -39,10 +40,12 @@ const asyncGenerateDiagram = async (
         font: BRAVURA_TEXT_SC_FONT_FILE,
         fontSize: BRAVURA_TEXT_SC_FONT_SIZE,
     })
-    const modifiedSvgString: string = addTitle(svgString, title)
+    const svgStringWithTitle: string = addTitle(svgString, title)
 
     if (!fs.existsSync("dist")) fs.mkdirSync("dist")
-    fs.writeFileSync(`dist/${filename}`, modifiedSvgString)
+    fs.writeFileSync(`dist/${filename}`, svgStringWithTitle)
+    
+    convertSvgToPng()
 }
 
 const generateDiagram = (

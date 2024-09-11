@@ -1,14 +1,11 @@
 import { DOMParser, XMLSerializer } from "xmldom"
 import { Io, Px } from "@sagittal/general";
 
-const CANVAS_HEIGHT_EXPANSION_FACTOR: number = 2
-const CANVAS_WIDTH_EXPANSION_FACTOR: number = 2
+const LEFT_MARGIN: Px = 30 as Px
+const TOP_MARGIN: Px = 60 as Px
+const FONT_SIZE: Px = 24 as Px
 
-const LEFT_MARGIN: Px = 40 as Px
-const TOP_MARGIN: Px = 80 as Px
-const FONT_SIZE: Px = 30 as Px
-
-const SAGITTAL_FONT_NAME: string = "Sanomat-Semibold"
+const SAGITTAL_FONT_NAME: string = "Sanomat"
 
 const addTitle = (svgString: string, title: Io): string => {
     // parse in
@@ -17,8 +14,10 @@ const addTitle = (svgString: string, title: Io): string => {
     const svg: SVGSVGElement = svgDocument.getElementsByTagName("svg")[0]
 
     // double canvas height and width to make space for title and tile 
-    svg.setAttribute("height", `${(parseInt(svg.getAttribute("height") || "0") * CANVAS_HEIGHT_EXPANSION_FACTOR)}`)
-    svg.setAttribute("width", `${(parseInt(svg.getAttribute("width") || "0") * CANVAS_WIDTH_EXPANSION_FACTOR)}`)
+    const height: Px = parseInt(svg.getAttribute("height") || "0") + TOP_MARGIN * 2 + FONT_SIZE as Px
+    const width: Px = parseInt(svg.getAttribute("width") || "0") + LEFT_MARGIN * 2 as Px
+    svg.setAttribute("height", height.toString())
+    svg.setAttribute("width", width.toString())
     
     // shift staves down to make space for title and tile, and slightly to the right
     Array.from(svgDocument.getElementsByTagName("g")).forEach((svgGroupElementForStave: SVGGElement) => {
@@ -31,8 +30,12 @@ const addTitle = (svgString: string, title: Io): string => {
     // actually add title
     const titleTextNode: Text = svgDocument.createTextNode(title)
     const titleTextElement: HTMLElement = svgDocument.createElement("text")
-    titleTextElement.setAttribute("x", `${LEFT_MARGIN}`)
-    titleTextElement.setAttribute("y", `${TOP_MARGIN}`)
+    // titleTextElement.setAttribute("x", `${LEFT_MARGIN}`)
+    // titleTextElement.setAttribute("y", `${TOP_MARGIN}`)
+    // needs to be
+    // <g transform="translate(30, 60)">
+	// 	<text font-family="Sanomat" font-size="24" fill="black" text-anchor="left">Revo Sagittal notation for 27-EDO</text>
+	// </g>
     titleTextElement.setAttribute("font-family", SAGITTAL_FONT_NAME) 
     titleTextElement.setAttribute("font-size", `${FONT_SIZE}`) 
     titleTextElement.setAttribute("fill", "black")
