@@ -30,17 +30,14 @@ const addTitle = (svgString: string, title: Io): string => {
     // actually add title
     const titleTextNode: Text = svgDocument.createTextNode(title)
     const titleTextElement: HTMLElement = svgDocument.createElement("text")
-    // titleTextElement.setAttribute("x", `${LEFT_MARGIN}`)
-    // titleTextElement.setAttribute("y", `${TOP_MARGIN}`)
-    // needs to be
-    // <g transform="translate(30, 60)">
-	// 	<text font-family="Sanomat" font-size="24" fill="black" text-anchor="left">Revo Sagittal notation for 27-EDO</text>
-	// </g>
+    const titleGroupElement: HTMLElement = svgDocument.createElement("g")
+    titleGroupElement.setAttribute("transform", `translate(${LEFT_MARGIN}, ${TOP_MARGIN})`)
     titleTextElement.setAttribute("font-family", SAGITTAL_FONT_NAME) 
     titleTextElement.setAttribute("font-size", `${FONT_SIZE}`) 
     titleTextElement.setAttribute("fill", "black")
     titleTextElement.appendChild(titleTextNode)
-    svgDocument.documentElement.appendChild(titleTextElement)
+    titleGroupElement.appendChild(titleTextElement)
+    svgDocument.documentElement.appendChild(titleGroupElement)
 
     // serialize out
     const serializer: XMLSerializer = new XMLSerializer()
