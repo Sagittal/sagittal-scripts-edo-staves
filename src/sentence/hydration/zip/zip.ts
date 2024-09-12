@@ -1,14 +1,14 @@
 import { Octals } from "staff-code"
 import { Index, Maybe } from "@sagittal/general"
 import { EdoStep, Nominal } from "@sagittal/system"
-import { Stave } from "../types"
+import { Stave } from "../../types"
 import {
     EdoStepNotationCodewords,
     EdoStepNotation,
     NoteCountsByStave,
-} from "./types"
+} from "../types"
 import { computeLefthandSpacing } from "./spacing"
-import { computeIsAlignedWithC4 } from "./alignedWithC"
+import { computeSituationReC4 } from "./alignedWithC"
 
 const zipEdoStepNotationPropertiesAndComputeLefthandSpacing = ({
     noteCountsByStave,
@@ -41,7 +41,7 @@ const zipEdoStepNotationPropertiesAndComputeLefthandSpacing = ({
                 step: step as EdoStep,
                 noteCountsByStave,
             }),
-            isAlignedWithC4: computeIsAlignedWithC4({
+            situationReC4: computeSituationReC4({
                 edoStepNotationAreC4s,
                 edoStep: step as EdoStep,
                 noteCountsByStave,

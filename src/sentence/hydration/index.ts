@@ -1,2 +1,2 @@
-export { EdoStepNotation } from "./types"
+export { EdoStepNotation, SituationReC4 } from "./types"
 export { hydrateEdoStepNotations } from "./hydrate"

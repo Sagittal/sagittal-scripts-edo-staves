@@ -1,12 +1,7 @@
 import { computeRange, Count, Index, max, Max } from "@sagittal/general"
-import { Edo, EdoStep, Link } from "@sagittal/system"
-import { NoteCountsByStave } from "./types"
-import { Note, Stave } from "../types"
-
-const C_LINK_INDICES: Index<Link>[] = [/*-16, -9, */ -2, 5, 12] as Index<Link>[] // TODO: make good
-
-const computeIsC4 = (linkIndex: Index<Link>, step: EdoStep, edo: Edo): boolean =>
-    C_LINK_INDICES.includes(linkIndex) && step < edo / 2 
+import { EdoStep } from "@sagittal/system"
+import { NoteCountsByStave, SituationReC4 } from "../types"
+import { Note, Stave } from "../../types"
 
 const computeColumnHasC4 = (
     columnHasC4s: boolean[],
@@ -16,21 +11,17 @@ const computeColumnHasC4 = (
     let cursor: EdoStep = step
     let staveIndex: Index<Stave> = 0 as Index<Stave>
 
-    // const columnWidths: Max<Octals>[] = computeColumnWidths(
-    //     edoStepNotationWidths,
-    //     noteCountsByStave,
-    // )
-
     while (noteCountsByStave[staveIndex] <= cursor) {
         cursor = (cursor - noteCountsByStave[staveIndex]) as EdoStep
         staveIndex++
     }
-    // console.log(columnHasC4s[cursor])
 
     return columnHasC4s[cursor] as boolean
 }
-// TODO: I don't think we should combine stuff from the zip and extract/gather steps. I think we should make subfolders with parallel named files
-const computeIsAlignedWithC4 = ({
+
+// TODO: dry all the stuff up in here with spacing.ts in the extractAndGather folder
+
+const computeSituationReC4 = ({
     edoStepNotationAreC4s,
     edoStep,
     noteCountsByStave,
@@ -38,18 +29,22 @@ const computeIsAlignedWithC4 = ({
     edoStepNotationAreC4s: boolean[]
     edoStep: EdoStep
     noteCountsByStave: NoteCountsByStave
-}): boolean => {
-    // TODO: dry up with spacing.ts
+}): SituationReC4 => {
+    if (edoStepNotationAreC4s[edoStep]) return SituationReC4.IS_C4
 
     let furthestNoteAligned: Index<Note> = 0 as Index<Note>
     const alignedEdoStepNotationAreCs: boolean[][] = noteCountsByStave.map(
         (noteCountByStave: Count<Note>): boolean[] => {
-            return edoStepNotationAreC4s.slice(
-                furthestNoteAligned,
-                (furthestNoteAligned += noteCountByStave),
-            )
-            // furthestNoteAligned += noteCountByStave
-            // return answer
+            const edoStepNotationAreC4sStave: boolean[] =
+                edoStepNotationAreC4s.slice(
+                    furthestNoteAligned,
+                    furthestNoteAligned + noteCountByStave,
+                )
+
+            furthestNoteAligned = (furthestNoteAligned +
+                noteCountByStave) as Index<Note>
+
+            return edoStepNotationAreC4sStave
         },
     )
 
@@ -62,15 +57,13 @@ const computeIsAlignedWithC4 = ({
                 },
             )
 
-            return columnAreC4s.some((isC) => !!isC) as boolean
+            return columnAreC4s.some((isC: boolean): boolean => isC)
         },
     )
 
-    // console.log("columnHasC4s: ", columnHasC4s)
-
     return computeColumnHasC4(columnHasC4s, edoStep, noteCountsByStave)
-
-    // return false
+        ? SituationReC4.ALIGNED_WITH_A_C4
+        : SituationReC4.NEITHER
 }
 
-export { computeIsC4, computeIsAlignedWithC4 }
+export { computeSituationReC4 }

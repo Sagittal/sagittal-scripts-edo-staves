@@ -24,8 +24,8 @@ import {
     EdoStep,
     Edo,
 } from "@sagittal/system"
-import { EdoStepNotationIndices } from "../chaining"
-import { EdoStepNotationCodewords } from "./types"
+import { EdoStepNotationIndices } from "../../chaining"
+import { EdoStepNotationCodewords } from "../types"
 import { computeWidth } from "./spacing"
 import { computeIsC4 } from "./alignedWithC"
 
@@ -229,7 +229,7 @@ const extractEdoStepNotationParameters = (
         whorl,
         flavor,
     })
-    const isC: boolean = computeIsC4(linkIndex, step, edo) // TODO: clean up args to be {}
+    const isC: boolean = computeIsC4(step, { linkIndex, edo })
 
     if (!isUndefined(subsetFactor) && !dividesEvenly(step, subsetFactor)) {
         return {

@@ -8,13 +8,13 @@ import {
     Sagittal,
     SubsetFactor,
 } from "@sagittal/system"
-import { Note, Stave } from "../types"
-import { EdoStepNotationIndices } from "../chaining"
+import { Note, Stave } from "../../types"
+import { EdoStepNotationIndices } from "../../chaining"
 import {
     NoteCountsByStave,
     HydrationState,
     EdoStepNotationCodewords,
-} from "./types"
+} from "../types"
 import { extractEdoStepNotationParameters } from "./extract"
 
 const gatherEdoStepNotationParameters = (

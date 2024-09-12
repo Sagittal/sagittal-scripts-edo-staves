@@ -5,7 +5,7 @@ import { EdoStepNotationIndices } from "../chaining"
 import { NoteCountsByStave, HydrationState, EdoStepNotation } from "./types"
 import { computeNoteCountsByStave } from "./noteCountsByStave"
 import { zipEdoStepNotationPropertiesAndComputeLefthandSpacing } from "./zip"
-import { gatherEdoStepNotationParameters } from "./gather"
+import { gatherEdoStepNotationParameters } from "./extractAndGather"
 
 const hydrateEdoStepNotations = (
     edoStepNotationIndicesList: EdoStepNotationIndices[],
@@ -55,7 +55,7 @@ const hydrateEdoStepNotations = (
                 maxStaveIndex,
                 noteCountsByStave,
                 sharpStep,
-                edo
+                edo,
             })
         },
     )

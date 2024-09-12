@@ -26,12 +26,18 @@ interface EdoStepNotationCodewords {
     whorlCodewords: (Code & Word)[]
 }
 
+enum SituationReC4 {
+    IS_C4,
+    ALIGNED_WITH_A_C4,
+    NEITHER,
+}
+
 interface EdoStepNotation extends EdoStepNotationCodewords {
     lefthandSpacing: Octals
     nominal: Nominal
     subsetExcluded?: boolean
     staveIndex: Index<Stave>
-    isAlignedWithC4: boolean
+    situationReC4: SituationReC4
 }
 
 interface HydrationState {
@@ -55,4 +61,5 @@ export {
     EdoStepNotation,
     HydrationState,
     EdoStepNotationCodewords,
+    SituationReC4,
 }

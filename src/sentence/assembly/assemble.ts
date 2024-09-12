@@ -8,7 +8,6 @@ import {
     CLEF,
     EARLIER_NOMINALS_OCTAVE,
     FINAL_BARLINE,
-    STAVE_BREAK,
 } from "./constants"
 import { computeLefthandSpacingClause } from "./spacing"
 import { computeSagittalClause } from "./sagittal"
@@ -39,7 +38,7 @@ const assembleAsStaffCodeInputSentence = (
                     lefthandSpacing,
                     subsetExcluded = false,
                     staveIndex,
-                    isAlignedWithC4,
+                    situationReC4,
                 }: EdoStepNotation,
             ): Io & Sentence => {
                 const startingNewStave: boolean =
@@ -61,9 +60,7 @@ const assembleAsStaffCodeInputSentence = (
                         subsetExcluded,
                     }) +
                     computeLefthandSpacingClause(lefthandSpacing, {
-                        isAlignedWithC4,
-                        assemblyState,
-                        nominal,
+                        situationReC4,
                     }) +
                     computeSagittalClause(sagittalCodewords, {
                         subsetExcluded,
@@ -72,7 +69,7 @@ const assembleAsStaffCodeInputSentence = (
                     computeNoteAndRighthandSpaceClause({
                         assemblyState,
                         subsetExcluded,
-                        nominal,
+                        situationReC4,
                     })) as Io & Sentence
             },
             "" as Io & Sentence,
