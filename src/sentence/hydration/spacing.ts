@@ -22,7 +22,7 @@ const computeColumnWidths = (
         (noteCountByStave: Count<Note>): Octals[] => {
             return edoStepNotationWidths.slice(
                 furthestNoteAligned,
-                (furthestNoteAligned += noteCountByStave),
+                (furthestNoteAligned += noteCountByStave), // TODO: this needs to be fixed to get CI to pass again
             )
             // furthestNoteAligned += noteCountByStave
             // return answer
