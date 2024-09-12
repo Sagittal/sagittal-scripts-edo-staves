@@ -1,6 +1,7 @@
 import { Octals } from "staff-code"
 import { Index, Decimal, Max } from "@sagittal/general"
 import {
+    Edo,
     EdoStep,
     Flavor,
     Nominal,
@@ -26,6 +27,7 @@ const gatherEdoStepNotationParameters = (
         maxStaveIndex,
         noteCountsByStave,
         sharpStep,
+        edo,
     }: {
         sagittals: Sagittal[]
         flavor: Flavor
@@ -34,6 +36,7 @@ const gatherEdoStepNotationParameters = (
         maxStaveIndex: Max<Index<Stave>>
         noteCountsByStave: NoteCountsByStave
         sharpStep: EdoStep
+        edo: Edo
     },
 ): void => {
     const {
@@ -41,23 +44,27 @@ const gatherEdoStepNotationParameters = (
         width,
         nominal,
         subsetExcluded,
+        isC,
     }: {
         codewords: EdoStepNotationCodewords
         width: Octals
         nominal: Nominal
-        subsetExcluded?: true
+        subsetExcluded?: boolean
+        isC: boolean
     } = extractEdoStepNotationParameters(edoStepNotationIndices, {
         step: hydrationState.step,
         sagittals,
         flavor,
         subsetFactor,
         sharpStep,
+        edo,
     })
     hydrationState.edoStepNotationCodewordsList.push(codewords)
     hydrationState.edoStepNotationWidths.push(width)
     hydrationState.edoStepNotationNominals.push(nominal)
     hydrationState.edoStepNotationSubsetExclusions.push(subsetExcluded)
     hydrationState.edoStepNotationStaveIndices.push(hydrationState.staveIndex)
+    hydrationState.edoStepNotationAreC4s.push(isC)
 
     hydrationState.noteInStaveIndex++
     hydrationState.step++

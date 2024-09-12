@@ -5,13 +5,10 @@ import { Nominal } from "@sagittal/system"
 type Octave = { _OctaveBrand: boolean }
 
 interface AssemblyState {
-    noteCount: Count<Note>,
-    currentNominal: Nominal,
-    reachedC: boolean
-    currentStave: Index<Stave>,
+    noteCount: Count<Note>
+    currentNominal: Nominal
+    reachedC5: boolean
+    currentStave: Index<Stave>
 }
 
-export {
-    Octave,
-    AssemblyState,
-}
+export { Octave, AssemblyState }

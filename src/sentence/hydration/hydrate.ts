@@ -42,6 +42,7 @@ const hydrateEdoStepNotations = (
         edoStepNotationNominals: [],
         edoStepNotationSubsetExclusions: [],
         edoStepNotationStaveIndices: [],
+        edoStepNotationAreC4s: [],
     }
 
     edoStepNotationIndicesList.forEach(
@@ -54,6 +55,7 @@ const hydrateEdoStepNotations = (
                 maxStaveIndex,
                 noteCountsByStave,
                 sharpStep,
+                edo
             })
         },
     )
@@ -67,6 +69,7 @@ const hydrateEdoStepNotations = (
         edoStepNotationSubsetExclusions:
             hydrationState.edoStepNotationSubsetExclusions,
         edoStepNotationStaveIndices: hydrationState.edoStepNotationStaveIndices,
+        edoStepNotationAreC4s: hydrationState.edoStepNotationAreC4s,
     })
 }
 

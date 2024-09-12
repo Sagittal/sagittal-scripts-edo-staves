@@ -1,4 +1,4 @@
-import { computeCodewordWidth, Octals, Code } from "staff-code"
+import { Octals, Code } from "staff-code"
 import {
     Maybe,
     Index,
@@ -22,9 +22,12 @@ import {
     SubsetFactor,
     Nominal,
     EdoStep,
+    Edo,
 } from "@sagittal/system"
 import { EdoStepNotationIndices } from "../chaining"
 import { EdoStepNotationCodewords } from "./types"
+import { computeWidth } from "./spacing"
+import { computeIsC4 } from "./alignedWithC"
 
 const REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D: Index<Link> = -17 as Index<Link>
 
@@ -115,8 +118,12 @@ const computeEvoSZSagittalAndWhorlCodewords = ({
     flavor: Flavor
 }): { sagittalCodewords: (Code & Word)[]; whorlCodewords: (Code & Word)[] } => {
     const sagittalSemisharpIsHalfApotome: boolean =
-        isEven(sharpStep) && deepEquals(sagittals[(sharpStep / 2) - ZERO_ONE_INDEX_DIFF], SAGITTAL_SEMISHARP)
-    
+        isEven(sharpStep) &&
+        deepEquals(
+            sagittals[sharpStep / 2 - ZERO_ONE_INDEX_DIFF],
+            SAGITTAL_SEMISHARP,
+        )
+
     if (!sagittalSemisharpIsHalfApotome) {
         return handleGeneralSagittalAndWhorlCodewords({
             maybeSagittal,
@@ -187,27 +194,6 @@ const computeSagittalAndWhorlCodewords = ({
           })
 }
 
-const computeWidth = ({
-    sagittalCodewords,
-    whorlCodewords,
-}: {
-    sagittalCodewords: (Code & Word)[]
-    whorlCodewords: (Code & Word)[]
-}) => {
-    const whorlWidth: Octals = whorlCodewords.reduce(
-        (totalWidth: Octals, whorlCodeword: Code & Word): Octals =>
-            (totalWidth + computeCodewordWidth(whorlCodeword)) as Octals,
-        0 as Octals,
-    )
-    const sagittalWidth: Octals = sagittalCodewords.reduce(
-        (totalWidth: Octals, sagittalCodeword: Code & Word): Octals =>
-            (totalWidth + computeCodewordWidth(sagittalCodeword)) as Octals,
-        0 as Octals,
-    )
-
-    return (whorlWidth + sagittalWidth) as Octals
-}
-
 const extractEdoStepNotationParameters = (
     { linkIndex, sagittalIndex }: EdoStepNotationIndices,
     {
@@ -216,32 +202,45 @@ const extractEdoStepNotationParameters = (
         sagittals,
         flavor,
         subsetFactor,
+        edo,
     }: {
         sharpStep: EdoStep
         step: EdoStep
         sagittals: Sagittal[]
         flavor: Flavor
         subsetFactor?: SubsetFactor
+        edo: Edo
     },
 ): {
     codewords: EdoStepNotationCodewords
     width: Octals
     nominal: Nominal
-    subsetExcluded?: true
+    subsetExcluded?: boolean
+    isC: boolean
 } => {
     const { whorl, nominal }: Link = LINKS[linkIndex]
-    const codewords = computeSagittalAndWhorlCodewords({
+    const codewords: {
+        sagittalCodewords: (Code & Word)[]
+        whorlCodewords: (Code & Word)[]
+    } = computeSagittalAndWhorlCodewords({
         sharpStep,
         sagittals,
         sagittalIndex,
         whorl,
         flavor,
     })
+    const isC: boolean = computeIsC4(linkIndex, step, edo) // TODO: clean up args to be {}
 
     if (!isUndefined(subsetFactor) && !dividesEvenly(step, subsetFactor)) {
-        return { codewords, width: 0 as Octals, nominal, subsetExcluded: true }
+        return {
+            codewords,
+            width: 0 as Octals,
+            nominal,
+            subsetExcluded: true,
+            isC,
+        }
     } else {
-        return { codewords, width: computeWidth(codewords), nominal }
+        return { codewords, width: computeWidth(codewords), nominal, isC }
     }
 }
 

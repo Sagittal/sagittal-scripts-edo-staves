@@ -15,33 +15,35 @@ enum EdoSizeCategory {
 }
 
 interface NoteCountParametersByStave {
-    wholeToneCount: Count<WholeTone>,
+    wholeToneCount: Count<WholeTone>
     limmaCount: Count<Limma>
 }
 
 type NoteCountsByStave = Count<Note>[]
 
 interface EdoStepNotationCodewords {
-    sagittalCodewords: (Code & Word)[],
-    whorlCodewords: (Code & Word)[],
+    sagittalCodewords: (Code & Word)[]
+    whorlCodewords: (Code & Word)[]
 }
 
 interface EdoStepNotation extends EdoStepNotationCodewords {
-    lefthandSpacing: Octals,
-    nominal: Nominal,
-    subsetExcluded?: boolean,
-    staveIndex: Index<Stave>,
+    lefthandSpacing: Octals
+    nominal: Nominal
+    subsetExcluded?: boolean
+    staveIndex: Index<Stave>
+    isAlignedWithC4: boolean
 }
 
 interface HydrationState {
-    noteInStaveIndex: Index<Note>,
-    staveIndex: Index<Stave>,
-    step: EdoStep,
-    edoStepNotationCodewordsList: EdoStepNotationCodewords[],
-    edoStepNotationWidths: Octals[],
-    edoStepNotationSubsetExclusions: Maybe<boolean>[],
-    edoStepNotationNominals: Nominal[],
-    edoStepNotationStaveIndices: Index<Stave>[],
+    noteInStaveIndex: Index<Note>
+    staveIndex: Index<Stave>
+    step: EdoStep
+    edoStepNotationCodewordsList: EdoStepNotationCodewords[]
+    edoStepNotationWidths: Octals[]
+    edoStepNotationSubsetExclusions: Maybe<boolean>[]
+    edoStepNotationNominals: Nominal[]
+    edoStepNotationStaveIndices: Index<Stave>[]
+    edoStepNotationAreC4s: boolean[]
 }
 
 export {
