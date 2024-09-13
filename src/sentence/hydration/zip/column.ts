@@ -1,21 +1,21 @@
 import { computeRange, Count, Index, max, Max } from "@sagittal/general"
-import { Note } from "../../types"
-import { NoteCountsByStave } from "../types"
+import { StepCountsByStave } from "../types"
+import { EdoStep } from "@sagittal/system"
 
 const alignEdoStepNotationDataByColumn = <T>(
     edoStepNotationData: T[],
-    noteCountsByStave: NoteCountsByStave,
+    stepCountsByStave: StepCountsByStave,
 ): T[][] => {
-    let furthestNoteAligned: Index<Note> = 0 as Index<Note>
+    let furthestStepAligned: Index<EdoStep> = 0 as Index<EdoStep>
 
-    return noteCountsByStave.map((noteCountByStave: Count<Note>): T[] => {
+    return stepCountsByStave.map((stepCountByStave: Count<EdoStep>): T[] => {
         const edoStepNotationDataStave: T[] = edoStepNotationData.slice(
-            furthestNoteAligned,
-            furthestNoteAligned + noteCountByStave,
+            furthestStepAligned,
+            furthestStepAligned + stepCountByStave,
         )
 
-        furthestNoteAligned = (furthestNoteAligned +
-            noteCountByStave) as Index<Note>
+        furthestStepAligned = (furthestStepAligned +
+            stepCountByStave) as Index<EdoStep>
 
         return edoStepNotationDataStave
     })
@@ -23,11 +23,11 @@ const alignEdoStepNotationDataByColumn = <T>(
 
 const applyByEdoStepNotationColumns = <T, U>(
     alignedEdoStepNotationData: T[][],
-    noteCountsByStave: NoteCountsByStave,
+    stepCountsByStave: StepCountsByStave,
     columnFunction: (column: T[]) => U,
     fallbackValue: T,
 ): U[] => {
-    const maxStaveLength: Max<Count<Note>> = max(...noteCountsByStave)
+    const maxStaveLength: Max<Count<EdoStep>> = max(...stepCountsByStave)
 
     return computeRange(maxStaveLength).map((columnIndex: number): U => {
         const edoStepNotationDataColumn: T[] = alignedEdoStepNotationData.map(
@@ -41,18 +41,18 @@ const applyByEdoStepNotationColumns = <T, U>(
 
 const computeResultByEdoStepNotationColumn = <T, U>(
     edoStepNotationData: T[],
-    noteCountsByStave: NoteCountsByStave,
+    stepCountsByStave: StepCountsByStave,
     columnFunction: (column: T[]) => U,
     fallbackValue: T,
 ): U[] =>
     applyByEdoStepNotationColumns(
-        alignEdoStepNotationDataByColumn(edoStepNotationData, noteCountsByStave),
-        noteCountsByStave,
+        alignEdoStepNotationDataByColumn(
+            edoStepNotationData,
+            stepCountsByStave,
+        ),
+        stepCountsByStave,
         columnFunction,
         fallbackValue,
     )
 
 export { computeResultByEdoStepNotationColumn }
-
-// TODO: not sure why it's note counts instead of step counts.
-// like, do we really need the Note type ?

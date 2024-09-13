@@ -1,6 +1,6 @@
 import { Count, Sentence, Io, Index } from "@sagittal/general"
-import { Nominal } from "@sagittal/system"
-import { Note, Stave } from "../types"
+import { EdoStep, Nominal } from "@sagittal/system"
+import { Stave } from "../types"
 import { computeBarClause } from "./bar"
 import { computeNominalClause } from "./nominal"
 import {
@@ -22,7 +22,7 @@ const assembleAsStaffCodeInputSentence = (
 ): Io & Sentence => {
     const assemblyState: AssemblyState = {
         currentNominal: Nominal.C,
-        noteCount: 0 as Count<Note>,
+        stepCount: 0 as Count<EdoStep>,
         reachedC5: false,
         currentStave: 0 as Index<Stave>,
     }

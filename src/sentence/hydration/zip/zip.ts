@@ -5,13 +5,13 @@ import { Stave } from "../../types"
 import {
     EdoStepNotationCodewords,
     EdoStepNotation,
-    NoteCountsByStave,
+    StepCountsByStave,
 } from "../types"
 import { computeLefthandSpacing } from "./spacing"
 import { computeSituationReC4 } from "./c4"
 
 const zipEdoStepNotationPropertiesAndComputeLefthandSpacing = ({
-    noteCountsByStave,
+    stepCountsByStave,
     edoStepNotationCodewordsList,
     edoStepNotationWidths,
     edoStepNotationNominals,
@@ -19,7 +19,7 @@ const zipEdoStepNotationPropertiesAndComputeLefthandSpacing = ({
     edoStepNotationStaveIndices,
     edoStepNotationAreC4s,
 }: {
-    noteCountsByStave: NoteCountsByStave
+    stepCountsByStave: StepCountsByStave
     edoStepNotationCodewordsList: EdoStepNotationCodewords[]
     edoStepNotationWidths: Octals[]
     edoStepNotationSubsetExclusions: Maybe<boolean>[]
@@ -39,12 +39,12 @@ const zipEdoStepNotationPropertiesAndComputeLefthandSpacing = ({
             lefthandSpacing: computeLefthandSpacing({
                 edoStepNotationWidths,
                 step: step as EdoStep,
-                noteCountsByStave,
+                stepCountsByStave,
             }),
             situationReC4: computeSituationReC4({
                 edoStepNotationAreC4s,
                 edoStep: step as EdoStep,
-                noteCountsByStave,
+                stepCountsByStave,
             }),
         }),
     )

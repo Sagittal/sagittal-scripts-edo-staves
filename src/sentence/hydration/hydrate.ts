@@ -1,9 +1,9 @@
 import { Index, Max } from "@sagittal/general"
 import { Edo, EdoStep, Flavor, Sagittal, SubsetFactor } from "@sagittal/system"
-import { Note, Stave } from "../types"
+import { Stave } from "../types"
 import { EdoStepNotationIndices } from "../chaining"
-import { NoteCountsByStave, HydrationState, EdoStepNotation } from "./types"
-import { computeNoteCountsByStave } from "./noteCountsByStave"
+import { StepCountsByStave, HydrationState, EdoStepNotation } from "./types"
+import { computeStepCountsByStave } from "./stepCountsByStave"
 import { zipEdoStepNotationPropertiesAndComputeLefthandSpacing } from "./zip"
 import { gatherEdoStepNotationParameters } from "./extractAndGather"
 
@@ -25,16 +25,16 @@ const hydrateEdoStepNotations = (
         sharpStep: EdoStep
     },
 ): EdoStepNotation[] => {
-    const noteCountsByStave: NoteCountsByStave = computeNoteCountsByStave({
+    const stepCountsByStave: StepCountsByStave = computeStepCountsByStave({
         edo,
         fifthStep,
     })
 
-    const maxStaveIndex: Max<Index<Stave>> = (noteCountsByStave.length -
+    const maxStaveIndex: Max<Index<Stave>> = (stepCountsByStave.length -
         1) as Max<Index<Stave>>
 
     const hydrationState: HydrationState = {
-        noteInStaveIndex: 0 as Index<Note>,
+        stepInStaveIndex: 0 as Index<EdoStep>,
         staveIndex: 0 as Index<Stave>,
         step: 0 as EdoStep,
         edoStepNotationCodewordsList: [],
@@ -53,7 +53,7 @@ const hydrateEdoStepNotations = (
                 subsetFactor,
                 hydrationState,
                 maxStaveIndex,
-                noteCountsByStave,
+                stepCountsByStave,
                 sharpStep,
                 edo,
             })
@@ -61,7 +61,7 @@ const hydrateEdoStepNotations = (
     )
 
     return zipEdoStepNotationPropertiesAndComputeLefthandSpacing({
-        noteCountsByStave,
+        stepCountsByStave,
         edoStepNotationCodewordsList:
             hydrationState.edoStepNotationCodewordsList,
         edoStepNotationWidths: hydrationState.edoStepNotationWidths,

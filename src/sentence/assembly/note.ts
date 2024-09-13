@@ -16,11 +16,12 @@ const computeNoteAndRighthandSpaceClause = ({
     subsetExcluded: boolean
     situationReC4: SituationReC4
 }): Code & Clause => {
-    assemblyState.noteCount++
+    assemblyState.stepCount++
 
-    const maybeLedgerLineAvoidanceSpacing: Code & Clause = situationReC4 === SituationReC4.IS_C4
-        ? (`${DO_NOT_TOUCH_LEDGER_LINE_SPACING}; ` as Code & Clause)
-        : ("" as Code & Clause)
+    const maybeLedgerLineAvoidanceSpacing: Code & Clause =
+        situationReC4 === SituationReC4.IS_C4
+            ? (`${DO_NOT_TOUCH_LEDGER_LINE_SPACING}; ` as Code & Clause)
+            : ("" as Code & Clause)
 
     const maybeNote: Code & Clause = subsetExcluded
         ? (`${NOTE_WIDTH}; ` as Code & Clause)

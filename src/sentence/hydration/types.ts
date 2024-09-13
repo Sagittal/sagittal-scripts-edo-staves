@@ -1,7 +1,7 @@
 import { Code, Octals } from "staff-code"
 import { Count, Index, Maybe, Word } from "@sagittal/general"
 import { EdoStep, Nominal } from "@sagittal/system"
-import { Note, Stave } from "../types"
+import { Stave } from "../types"
 
 type WholeTone = { _WholeToneBrand: boolean }
 type Limma = { _LimmaBrand: boolean }
@@ -14,12 +14,12 @@ enum EdoSizeCategory {
     LARGE = "large",
 }
 
-interface NoteCountParametersByStave {
+interface StepCountParametersByStave {
     wholeToneCount: Count<WholeTone>
     limmaCount: Count<Limma>
 }
 
-type NoteCountsByStave = Count<Note>[]
+type StepCountsByStave = Count<EdoStep>[]
 
 interface EdoStepNotationCodewords {
     sagittalCodewords: (Code & Word)[]
@@ -41,7 +41,7 @@ interface EdoStepNotation extends EdoStepNotationCodewords {
 }
 
 interface HydrationState {
-    noteInStaveIndex: Index<Note>
+    stepInStaveIndex: Index<EdoStep>
     staveIndex: Index<Stave>
     step: EdoStep
     edoStepNotationCodewordsList: EdoStepNotationCodewords[]
@@ -54,8 +54,8 @@ interface HydrationState {
 
 export {
     EdoSizeCategory,
-    NoteCountParametersByStave,
-    NoteCountsByStave,
+    StepCountParametersByStave,
+    StepCountsByStave,
     WholeTone,
     Limma,
     EdoStepNotation,

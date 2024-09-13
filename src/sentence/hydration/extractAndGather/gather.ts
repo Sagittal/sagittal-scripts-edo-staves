@@ -8,10 +8,10 @@ import {
     Sagittal,
     SubsetFactor,
 } from "@sagittal/system"
-import { Note, Stave } from "../../types"
+import { Stave } from "../../types"
 import { EdoStepNotationIndices } from "../../chaining"
 import {
-    NoteCountsByStave,
+    StepCountsByStave,
     HydrationState,
     EdoStepNotationCodewords,
 } from "../types"
@@ -25,7 +25,7 @@ const gatherEdoStepNotationParameters = (
         subsetFactor,
         hydrationState,
         maxStaveIndex,
-        noteCountsByStave,
+        stepCountsByStave,
         sharpStep,
         edo,
     }: {
@@ -34,7 +34,7 @@ const gatherEdoStepNotationParameters = (
         subsetFactor?: SubsetFactor
         hydrationState: HydrationState
         maxStaveIndex: Max<Index<Stave>>
-        noteCountsByStave: NoteCountsByStave
+        stepCountsByStave: StepCountsByStave
         sharpStep: EdoStep
         edo: Edo
     },
@@ -66,18 +66,18 @@ const gatherEdoStepNotationParameters = (
     hydrationState.edoStepNotationStaveIndices.push(hydrationState.staveIndex)
     hydrationState.edoStepNotationAreC4s.push(isC)
 
-    hydrationState.noteInStaveIndex++
+    hydrationState.stepInStaveIndex++
     hydrationState.step++
 
     if (
         hydrationState.staveIndex < maxStaveIndex &&
-        hydrationState.noteInStaveIndex ===
-            (noteCountsByStave[hydrationState.staveIndex] as Decimal<{
+        hydrationState.stepInStaveIndex ===
+            (stepCountsByStave[hydrationState.staveIndex] as Decimal<{
                 integer: true
-            }> as Index<Note>)
+            }> as Index<EdoStep>)
     ) {
         hydrationState.staveIndex++
-        hydrationState.noteInStaveIndex = 0 as Index<Note>
+        hydrationState.stepInStaveIndex = 0 as Index<EdoStep>
     }
 }
 
