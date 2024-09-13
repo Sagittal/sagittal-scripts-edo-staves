@@ -8,7 +8,7 @@ import {
     NoteCountsByStave,
 } from "../types"
 import { computeLefthandSpacing } from "./spacing"
-import { computeSituationReC4 } from "./alignedWithC"
+import { computeSituationReC4 } from "./c4"
 
 const zipEdoStepNotationPropertiesAndComputeLefthandSpacing = ({
     noteCountsByStave,

@@ -27,7 +27,7 @@ import {
 import { EdoStepNotationIndices } from "../../chaining"
 import { EdoStepNotationCodewords } from "../types"
 import { computeWidth } from "./spacing"
-import { computeIsC4 } from "./alignedWithC"
+import { computeIsC4 } from "./c4"
 
 const REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D: Index<Link> = -17 as Index<Link>
 
