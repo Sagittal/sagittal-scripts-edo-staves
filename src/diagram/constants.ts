@@ -1,0 +1,22 @@
+import { Filename, Px } from "@sagittal/general"
+
+const LEFT_AND_RIGHT_MARGIN: Px = 20 as Px
+const TOP_MARGIN: Px = 40 as Px
+const BOTTOM_MARGIN: Px = 20 as Px
+
+const TITLE_FONT_SIZE: Px = 20 as Px
+const TITLE_FONT_NAME: string = "Sanomat"
+
+const BRAVURA_TEXT_SC_TITLE_FONT_SIZE: Px = 40 as Px
+const BRAVURA_TEXT_SC_FONT_FILE: Filename =
+    "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
+
+export {
+    LEFT_AND_RIGHT_MARGIN,
+    TOP_MARGIN,
+    BOTTOM_MARGIN,
+    TITLE_FONT_NAME,
+    TITLE_FONT_SIZE,
+    BRAVURA_TEXT_SC_FONT_FILE,
+    BRAVURA_TEXT_SC_TITLE_FONT_SIZE,
+}

@@ -7,16 +7,14 @@ import {
     Index,
     textToSvg,
     Unicode,
-    Px,
 } from "@sagittal/general"
 import { Edo, Flavor } from "@sagittal/system"
 import { addTitle } from "./title"
 import { convertSvgToPng } from "./png"
-
-const BRAVURA_TEXT_SC_FONT_FILE: Filename =
-    "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
-
-const BRAVURA_TEXT_SC_FONT_SIZE: Px = 45 as Px
+import {
+    BRAVURA_TEXT_SC_FONT_FILE,
+    BRAVURA_TEXT_SC_TITLE_FONT_SIZE,
+} from "./constants"
 
 const FORMATTED_FLAVOR_NAMES: Record<Flavor, Io> = {
     [Flavor.EVO]: "Evo",
@@ -38,7 +36,7 @@ const asyncGenerateDiagram = async (
 
     const svgString: string = await textToSvg(unicodeSentence, {
         font: BRAVURA_TEXT_SC_FONT_FILE,
-        fontSize: BRAVURA_TEXT_SC_FONT_SIZE,
+        fontSize: BRAVURA_TEXT_SC_TITLE_FONT_SIZE,
     })
     const svgStringWithTitle: string = addTitle(svgString, title)
 
