@@ -16,7 +16,7 @@ import { convertSvgToPng } from "./png"
 const BRAVURA_TEXT_SC_FONT_FILE: Filename =
     "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
 
-const BRAVURA_TEXT_SC_FONT_SIZE: Px = 45 as Px 
+const BRAVURA_TEXT_SC_FONT_SIZE: Px = 45 as Px
 
 const FORMATTED_FLAVOR_NAMES: Record<Flavor, Io> = {
     [Flavor.EVO]: "Evo",
@@ -44,7 +44,7 @@ const asyncGenerateDiagram = async (
 
     if (!fs.existsSync("dist")) fs.mkdirSync("dist")
     fs.writeFileSync(`dist/${filename}`, svgStringWithTitle)
-    
+
     convertSvgToPng()
 }
 
@@ -81,10 +81,20 @@ const generateOneOffDiagram = (
         `one-off.svg` as Filename,
     ).then()
 
+const generateOneOffGeneralDiagram = (
+    inputSentences: (Io & Sentence)[],
+    edo: Edo,
+): Promise<void> =>
+    asyncGenerateDiagram(
+        inputSentences[EVO_FLAVOR_INDEX],
+        `Sagittal notation for ${edo}-EDO`,
+        `one-off.svg` as Filename,
+    ).then()
+
 const generateGeneralDiagram = (
     inputSentences: (Io & Sentence)[],
     edo: Edo,
-    { dryRun }: { dryRun: boolean },
+    { dryRun }: { dryRun: boolean } = { dryRun: false },
 ): void =>
     generateDiagram(inputSentences, edo, {
         formattedFlavorName: "",
@@ -131,7 +141,9 @@ const generateAlternativeEvoDiagram = (
     { dryRun }: { dryRun: boolean },
 ): void =>
     generateDiagram(inputSentences, edo, {
-        formattedFlavorName: `Alternative ${FORMATTED_FLAVOR_NAMES[Flavor.EVO]}`,
+        formattedFlavorName: `Alternative ${
+            FORMATTED_FLAVOR_NAMES[Flavor.EVO]
+        }`,
         flavorIndex: EVO_FLAVOR_INDEX,
         dryRun,
     })
@@ -142,6 +154,7 @@ export {
     generateEvoSZDiagram,
     generateRevoDiagram,
     generateOneOffDiagram,
+    generateOneOffGeneralDiagram,
     generateAlternativeEvoDiagram,
     EVO_FLAVOR_INDEX,
     EVO_SZ_FLAVOR_INDEX,

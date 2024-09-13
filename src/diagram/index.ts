@@ -10,3 +10,4 @@ export {
     generateOneOffDiagram,
     generateAlternativeEvoDiagram,
 } from "./diagram"
+export { computeRevoCouldBeEvo } from "./revoCouldBeEvo"
