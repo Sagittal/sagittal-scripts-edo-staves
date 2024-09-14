@@ -14,6 +14,9 @@ import {
     BRAVURA_TEXT_SC_FONT_FILE,
     BRAVURA_TEXT_SC_TITLE_FONT_SIZE,
 } from "./constants"
+import { getSvgDocumentFromString, getSvgStringFromDocument } from "./svg"
+import { setSvgSize } from "./size"
+import { shiftStavesDown } from "./shift"
 
 const FORMATTED_FLAVOR_NAMES: Record<Flavor, Io> = {
     [Flavor.EVO]: "Evo",
@@ -33,14 +36,18 @@ const asyncGenerateDiagram = async (
     const unicodeSentence: Unicode & Sentence =
         computeInputSentenceUnicode(inputSentence)
 
-    const svgString: string = await textToSvg(unicodeSentence, {
+    let svgString: string = await textToSvg(unicodeSentence, {
         font: BRAVURA_TEXT_SC_FONT_FILE,
         fontSize: BRAVURA_TEXT_SC_TITLE_FONT_SIZE,
     })
-    const svgStringWithTitle: string = addTitle(svgString, title)
+    const svgDocument: Document = getSvgDocumentFromString(svgString)
+    setSvgSize(svgDocument)
+    shiftStavesDown(svgDocument)
+    addTitle(svgDocument, title)
+    svgString = getSvgStringFromDocument(svgDocument)
 
     if (!fs.existsSync("dist")) fs.mkdirSync("dist")
-    fs.writeFileSync(`dist/${filename}`, svgStringWithTitle)
+    fs.writeFileSync(`dist/${filename}`, svgString)
 }
 
 const generateDiagram = (
