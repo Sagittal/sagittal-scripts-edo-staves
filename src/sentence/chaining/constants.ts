@@ -1,8 +1,18 @@
-import { Count } from "@sagittal/general"
-import { NOMINALS, Nominal } from "@sagittal/system"
+import { Count, Index, Max } from "@sagittal/general"
+import { Link, NOMINALS, Nominal } from "@sagittal/system"
 
 const NOMINAL_COUNT: Count<Nominal> = NOMINALS.length as Count<Nominal>
 
+const MAX_ABSOLUTE_LINK_INDEX_IN_NATURAL_WHORL: Max<Index<Link>> = 3 as Max<
+    Index<Link>
+>
+const MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL: Max<Index<Link>> =
+    (MAX_ABSOLUTE_LINK_INDEX_IN_NATURAL_WHORL + NOMINAL_COUNT) as Max<
+        Index<Link>
+    >
+
 export {
     NOMINAL_COUNT,
+    MAX_ABSOLUTE_LINK_INDEX_IN_NATURAL_WHORL,
+    MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL,
 }
