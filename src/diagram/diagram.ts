@@ -10,7 +10,6 @@ import {
 } from "@sagittal/general"
 import { Edo, Flavor } from "@sagittal/system"
 import { addTitle } from "./title"
-import { convertSvgToPng } from "./png"
 import {
     BRAVURA_TEXT_SC_FONT_FILE,
     BRAVURA_TEXT_SC_TITLE_FONT_SIZE,
@@ -42,8 +41,6 @@ const asyncGenerateDiagram = async (
 
     if (!fs.existsSync("dist")) fs.mkdirSync("dist")
     fs.writeFileSync(`dist/${filename}`, svgStringWithTitle)
-
-    convertSvgToPng()
 }
 
 const generateDiagram = (

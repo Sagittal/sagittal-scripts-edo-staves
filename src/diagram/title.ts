@@ -6,6 +6,7 @@ import {
     TITLE_FONT_NAME,
     TOP_MARGIN,
     BOTTOM_MARGIN,
+    OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION,
 } from "./constants"
 
 const BOTH_SIDES: number = 2
@@ -42,7 +43,7 @@ const addTitle = (svgString: string, title: Io): string => {
             svgGroupElementForStave?.setAttribute(
                 "transform",
                 `translate(${LEFT_AND_RIGHT_MARGIN} ${
-                    currentTransformY + TOP_MARGIN + TITLE_FONT_SIZE
+                    currentTransformY + TOP_MARGIN + TITLE_FONT_SIZE + OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION
                 })`,
             )
         },
