@@ -1,7 +1,5 @@
 import { Edo, EDO_NOTATION_DEFINITIONS } from "@sagittal/system"
-import {
-    computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-} from "../sentence"
+import { computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor } from "../sentence"
 import { Io, isUndefined, program, Sentence } from "@sagittal/general"
 import {
     extractKeyInfoFromInputSentence,
@@ -22,106 +20,117 @@ program.parse()
 const { dryRun: dryRunString }: { dryRun: string } = program.opts()
 const dryRun: boolean = !isUndefined(dryRunString)
 
+let useSecondBestFifth: boolean
+
 Object.keys(EDO_NOTATION_DEFINITIONS)
     .map((edoString: string): Edo => parseInt(edoString) as Edo)
     .forEach((edo: Edo): void => {
         if (edo > 72) return
 
-        const defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
-            Sentence)[] =
-            computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor(
-                edo,
-            )
+        EDO_NOTATION_DEFINITIONS[edo].forEach((def, idx) => {
+            useSecondBestFifth = idx === 1
 
-        const revoCouldBeEvo: boolean = computeRevoCouldBeEvo(edo)
-
-        const keyInfos: Sentence[] =
-            defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor.map(
-                extractKeyInfoFromInputSentence,
-            )
-
-        if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[EVO_SZ_FLAVOR_INDEX]) {
-            if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[REVO_FLAVOR_INDEX]) {
-                // CASE 2: all three identical, generate one big shared diagram
-                generateGeneralDiagram(
-                    defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+            const defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
+                Sentence)[] =
+                computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor(
                     edo,
-                    { dryRun },
+                    useSecondBestFifth,
                 )
-            } else {
-                if (revoCouldBeEvo) {
-                    // CASE 3.A:
+
+            const revoCouldBeEvo: boolean = computeRevoCouldBeEvo(edo)
+
+            const keyInfos: Sentence[] =
+                defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor.map(
+                    extractKeyInfoFromInputSentence,
+                )
+
+            if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[EVO_SZ_FLAVOR_INDEX]) {
+                if (
+                    keyInfos[EVO_FLAVOR_INDEX] === keyInfos[REVO_FLAVOR_INDEX]
+                ) {
+                    // CASE 2: all three identical, generate one big shared diagram
                     generateGeneralDiagram(
                         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
                         edo,
-                        { dryRun },
+                        { dryRun, useSecondBestFifth },
+                    )
+                } else {
+                    if (revoCouldBeEvo) {
+                        // CASE 3.A:
+                        generateGeneralDiagram(
+                            defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+                            edo,
+                            { dryRun, useSecondBestFifth },
+                        )
+                        generateAlternativeEvoDiagram(
+                            defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+                            edo,
+                            { dryRun, useSecondBestFifth },
+                        )
+                    } else {
+                        // CASE 3: evo and evo_sz identical, revo different
+                        generateEvoDiagram(
+                            defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+                            edo,
+                            { dryRun, useSecondBestFifth },
+                        )
+                        generateRevoDiagram(
+                            defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+                            edo,
+                            { dryRun, useSecondBestFifth },
+                        )
+                    }
+                }
+            } else if (
+                keyInfos[EVO_FLAVOR_INDEX] === keyInfos[REVO_FLAVOR_INDEX]
+            ) {
+                // CASE 4: evo and revo identical, evo-sz different
+                generateGeneralDiagram(
+                    defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+                    edo,
+                    { dryRun, useSecondBestFifth },
+                )
+                generateEvoSZDiagram(
+                    defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+                    edo,
+                    { dryRun, useSecondBestFifth },
+                )
+            } else {
+                if (revoCouldBeEvo) {
+                    // CASE 1.A:
+                    generateGeneralDiagram(
+                        defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+                        edo,
+                        { dryRun, useSecondBestFifth },
                     )
                     generateAlternativeEvoDiagram(
                         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
                         edo,
-                        { dryRun },
+                        { dryRun, useSecondBestFifth },
+                    )
+                    generateEvoSZDiagram(
+                        defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+                        edo,
+                        { dryRun, useSecondBestFifth },
                     )
                 } else {
-                    // CASE 3: evo and evo_sz identical, revo different
+                    // CASE 1: none identical; three separate diagrams
                     generateEvoDiagram(
                         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
                         edo,
-                        { dryRun },
+                        { dryRun, useSecondBestFifth },
+                    )
+                    generateEvoSZDiagram(
+                        defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+                        edo,
+                        { dryRun, useSecondBestFifth },
                     )
                     generateRevoDiagram(
                         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
                         edo,
-                        { dryRun },
+                        { dryRun, useSecondBestFifth },
                     )
                 }
             }
-        } else if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[REVO_FLAVOR_INDEX]) {
-            // CASE 4: evo and revo identical, evo-sz different
-            generateGeneralDiagram(
-                defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-                edo,
-                { dryRun },
-            )
-            generateEvoSZDiagram(
-                defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-                edo,
-                { dryRun },
-            )
-        } else {
-            if (revoCouldBeEvo) {
-                // CASE 1.A:
-                generateGeneralDiagram(
-                    defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-                    edo,
-                    { dryRun },
-                )
-                generateAlternativeEvoDiagram(
-                    defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-                    edo,
-                    { dryRun },
-                )
-                generateEvoSZDiagram(
-                    defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-                    edo,
-                    { dryRun },
-                )
-            } else {
-                // CASE 1: none identical; three separate diagrams
-                generateEvoDiagram(
-                    defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-                    edo,
-                    { dryRun },
-                )
-                generateEvoSZDiagram(
-                    defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-                    edo,
-                    { dryRun },
-                )
-                generateRevoDiagram(
-                    defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-                    edo,
-                    { dryRun },
-                )
-            }
-        }
+        })
     })

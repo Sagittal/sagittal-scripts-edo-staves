@@ -20,9 +20,9 @@ import {
     EdoStepNotationIndices,
 } from "../sentence"
 
-const computeRevoCouldBeEvo = (inputEdo: Edo) => {
+const computeRevoCouldBeEvo = (inputEdo: Edo, useSecondBestFifth: boolean = false) => {
     const edoNotationDefinition: EdoNotationDefinition =
-        EDO_NOTATION_DEFINITIONS[inputEdo]
+        EDO_NOTATION_DEFINITIONS[inputEdo][useSecondBestFifth ? 1 : 0]
     let edo: Edo = isSubsetNotation(edoNotationDefinition)
         ? edoNotationDefinition.supersetEdo
         : inputEdo
@@ -32,7 +32,7 @@ const computeRevoCouldBeEvo = (inputEdo: Edo) => {
     })
     const flavor: Flavor = Flavor.REVO
     const sagitypes: Sagitype[] = (
-        EDO_NOTATION_DEFINITIONS[edo] as NonSubsetEdoNotationDefinition
+        EDO_NOTATION_DEFINITIONS[edo][useSecondBestFifth ? 1 : 0] as NonSubsetEdoNotationDefinition
     ).sagitypes
     const fifthStep: EdoStep = computeFifthStep(edo)
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
@@ -48,6 +48,7 @@ const computeRevoCouldBeEvo = (inputEdo: Edo) => {
             fifthStep,
             sagittals,
             flavor,
+            useSecondBestFifth,
         })
     const usedEdoStepNotationIndicesList: EdoStepNotationIndices[] =
         defaultSingleSpellingEdoStepNotationIndicesList.filter(

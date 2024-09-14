@@ -3,21 +3,22 @@ import { computeDefaultSingleSpellingLinkEdoStepNotationIndicesList } from "./li
 import { placeDefaultSingleSpellingSagittalEdoStepNotationIndices } from "./sagittals"
 import { EdoStepNotationIndices } from "./types"
 
-const computeIsLimmaNotation = (edo: Edo) =>
-    !!(<NonSubsetEdoNotationDefinition>EDO_NOTATION_DEFINITIONS[edo]).isLimmaFraction
+const computeIsLimmaNotation = (edo: Edo, useSecondBestFifth: boolean = false) =>
+    !!(<NonSubsetEdoNotationDefinition>EDO_NOTATION_DEFINITIONS[edo][useSecondBestFifth ? 1 : 0]).isLimmaFraction
 
-const computeUseOnlyPlainNominals = ({ flavor, edo }: { flavor: Flavor, edo: Edo }): boolean =>
-    flavor === Flavor.REVO || computeIsLimmaNotation(edo)
+const computeUseOnlyPlainNominals = ({ flavor, edo, useSecondBestFifth }: { flavor: Flavor, edo: Edo, useSecondBestFifth: boolean }): boolean =>
+    flavor === Flavor.REVO || computeIsLimmaNotation(edo, useSecondBestFifth)
 
 const computeDefaultEdoStepNotationIndicesList = (
-    { edo, fifthStep, sagittals, flavor }: {
+    { edo, fifthStep, sagittals, flavor, useSecondBestFifth }: {
         edo: Edo,
         fifthStep: EdoStep,
         sagittals: Sagittal[],
         flavor: Flavor
+        useSecondBestFifth: boolean
     }
 ): EdoStepNotationIndices[] => {
-    const useOnlyPlainNominals: boolean = computeUseOnlyPlainNominals({ flavor, edo })
+    const useOnlyPlainNominals: boolean = computeUseOnlyPlainNominals({ flavor, edo, useSecondBestFifth })
 
     const defaultSingleSpellingLinkEdoStepNotationIndicesList: EdoStepNotationIndices[] = computeDefaultSingleSpellingLinkEdoStepNotationIndicesList({ edo, fifthStep, useOnlyPlainNominals })
 

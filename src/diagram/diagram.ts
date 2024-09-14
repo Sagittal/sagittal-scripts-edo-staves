@@ -57,15 +57,16 @@ const generateDiagram = (
         flavorIndex,
         formattedFlavorName,
         dryRun,
-    }: { flavorIndex: Index<Flavor>; formattedFlavorName: Io; dryRun: boolean },
+        useSecondBestFifth,
+    }: { flavorIndex: Index<Flavor>; formattedFlavorName: Io; dryRun: boolean, useSecondBestFifth: boolean },
 ): void => {
     const inputSentence: Io & Sentence = inputSentences[flavorIndex]
     const title: Io = `${formattedFlavorName}${
         formattedFlavorName.length === 0 ? "" : " "
-    }Sagittal notation for ${edo}-EDO`
+    }Sagittal notation for ${edo}-EDO${useSecondBestFifth ? " (w/ 2nd best fifth)" : ""}`
     const filename: Filename = `${edo}-EDO${
         formattedFlavorName.length === 0 ? "" : "_"
-    }${formattedFlavorName.replace(/ /g, "_")}.svg` as Filename
+    }${formattedFlavorName.replace(/ /g, "_")}${useSecondBestFifth ? "_b" : ""}.svg` as Filename
 
     console.log(`\n\n${title}\n\n${inputSentence}`)
 
@@ -75,72 +76,77 @@ const generateDiagram = (
 const generateOneOffDiagram = (
     inputSentence: Io & Sentence,
     edo: Edo,
-    { flavor }: { flavor: Flavor },
+    { flavor, useSecondBestFifth }: { flavor: Flavor, useSecondBestFifth: boolean },
 ): Promise<void> =>
     asyncGenerateDiagram(
         inputSentence,
-        `${FORMATTED_FLAVOR_NAMES[flavor]} Sagittal notation for ${edo}-EDO`,
+        `${FORMATTED_FLAVOR_NAMES[flavor]} Sagittal notation for ${edo}-EDO${useSecondBestFifth ? " (w/ 2nd best fifth)" : ""}`,
         `one-off.svg` as Filename,
     ).then()
 
 const generateOneOffGeneralDiagram = (
     inputSentences: (Io & Sentence)[],
     edo: Edo,
+    { useSecondBestFifth }: { useSecondBestFifth: boolean }
 ): Promise<void> =>
     asyncGenerateDiagram(
         inputSentences[EVO_FLAVOR_INDEX],
-        `Sagittal notation for ${edo}-EDO`,
+        `Sagittal notation for ${edo}-EDO${useSecondBestFifth ? " (w/ 2nd best fifth)" : ""}`, // TODO: DRY up
         `one-off.svg` as Filename,
     ).then()
 
 const generateGeneralDiagram = (
     inputSentences: (Io & Sentence)[],
     edo: Edo,
-    { dryRun }: { dryRun: boolean } = { dryRun: false },
+    { dryRun, useSecondBestFifth }: { dryRun: boolean, useSecondBestFifth: boolean },
 ): void =>
     generateDiagram(inputSentences, edo, {
         formattedFlavorName: "",
         flavorIndex: REVO_FLAVOR_INDEX,
         dryRun,
+        useSecondBestFifth,
     })
 
 const generateEvoDiagram = (
     inputSentences: (Io & Sentence)[],
     edo: Edo,
-    { dryRun }: { dryRun: boolean },
+    { dryRun, useSecondBestFifth }: { dryRun: boolean, useSecondBestFifth: boolean },
 ): void =>
     generateDiagram(inputSentences, edo, {
         formattedFlavorName: FORMATTED_FLAVOR_NAMES[Flavor.EVO],
         flavorIndex: EVO_FLAVOR_INDEX,
         dryRun,
+        useSecondBestFifth,
     })
 
 const generateEvoSZDiagram = (
     inputSentences: (Io & Sentence)[],
     edo: Edo,
-    { dryRun }: { dryRun: boolean },
+    { dryRun, useSecondBestFifth }: { dryRun: boolean, useSecondBestFifth: boolean },
 ): void =>
     generateDiagram(inputSentences, edo, {
         formattedFlavorName: FORMATTED_FLAVOR_NAMES[Flavor.EVO_SZ],
         flavorIndex: EVO_SZ_FLAVOR_INDEX,
         dryRun,
+        useSecondBestFifth,
     })
 
 const generateRevoDiagram = (
     inputSentences: (Io & Sentence)[],
     edo: Edo,
-    { dryRun }: { dryRun: boolean },
+    { dryRun, useSecondBestFifth }: { dryRun: boolean, useSecondBestFifth: boolean },
 ): void =>
     generateDiagram(inputSentences, edo, {
         formattedFlavorName: FORMATTED_FLAVOR_NAMES[Flavor.REVO],
         flavorIndex: REVO_FLAVOR_INDEX,
         dryRun,
+        useSecondBestFifth,
     })
 
 const generateAlternativeEvoDiagram = (
     inputSentences: (Io & Sentence)[],
     edo: Edo,
-    { dryRun }: { dryRun: boolean },
+    { dryRun, useSecondBestFifth }: { dryRun: boolean, useSecondBestFifth: boolean },
 ): void =>
     generateDiagram(inputSentences, edo, {
         formattedFlavorName: `Alternative ${
@@ -148,6 +154,7 @@ const generateAlternativeEvoDiagram = (
         }`,
         flavorIndex: EVO_FLAVOR_INDEX,
         dryRun,
+        useSecondBestFifth,
     })
 
 export {

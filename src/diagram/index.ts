@@ -8,6 +8,7 @@ export {
     generateGeneralDiagram,
     generateRevoDiagram,
     generateOneOffDiagram,
+    generateOneOffGeneralDiagram,
     generateAlternativeEvoDiagram,
 } from "./diagram"
 export { computeRevoCouldBeEvo } from "./revoCouldBeEvo"

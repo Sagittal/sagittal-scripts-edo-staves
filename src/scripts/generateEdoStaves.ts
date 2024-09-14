@@ -9,23 +9,28 @@ import {
     EVO_FLAVOR_INDEX,
     EVO_SZ_FLAVOR_INDEX,
     extractKeyInfoFromInputSentence,
-    generateGeneralDiagram,
     generateOneOffDiagram,
+    generateOneOffGeneralDiagram,
     REVO_FLAVOR_INDEX,
 } from "../diagram"
-import { generateOneOffGeneralDiagram } from "../diagram/diagram"
 
 program
     .option("-e, --edo <number>", "edo number")
     .option("-f, --flavor <string>", "flavor (Evo, Evo-SZ, or Revo)")
 
 program.parse()
-const {
+let {
     edo: edoString,
     flavor: flavorString,
 }: { edo: string; flavor: string } = program.opts()
 
 if (isUndefined(edoString)) throw new Error("You must provide an EDO.")
+
+let useSecondBestFifth: boolean = false
+if (edoString.match(/b/)) {
+    edoString = edoString.slice(0, edoString.length - 1)
+    useSecondBestFifth = true
+}
 const edo: Edo = parseInt(edoString) as Edo
 
 if (isUndefined(flavorString)) {
@@ -33,6 +38,7 @@ if (isUndefined(flavorString)) {
         Sentence)[] =
         computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor(
             edo,
+            useSecondBestFifth
         )
     const keyInfos: Sentence[] =
         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor.map(
@@ -46,6 +52,7 @@ if (isUndefined(flavorString)) {
         generateOneOffGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edo,
+            { useSecondBestFifth }
         )
     } else {
         throw new Error("The notations differ by flavor for this EDO. You must specify a flavor.")
@@ -59,11 +66,10 @@ if (isUndefined(flavorString)) {
             edo,
             flavor,
         )
-    console.log(defaultSingleSpellingPerStepNotationAsStaffCodeInputSentence)
 
     generateOneOffDiagram(
         defaultSingleSpellingPerStepNotationAsStaffCodeInputSentence,
         edo,
-        { flavor },
+        { flavor, useSecondBestFifth },
     )
 }

@@ -23,12 +23,13 @@ import { EdoStepNotationIndices } from "./chaining"
 const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
     edo: Edo,
     flavor: Flavor,
+    { useSecondBestFifth }: { useSecondBestFifth: boolean },
     subsetFactor?: SubsetFactor,
 ): Io & Sentence => {
     const sagitypes: Sagitype[] = (
-        EDO_NOTATION_DEFINITIONS[edo] as NonSubsetEdoNotationDefinition
+        EDO_NOTATION_DEFINITIONS[edo][useSecondBestFifth ? 1 : 0] as NonSubsetEdoNotationDefinition // TODO: clean and DRY up, also with revoCouldBeEvo
     ).sagitypes
-    const fifthStep: EdoStep = computeFifthStep(edo)
+    const fifthStep: EdoStep = computeFifthStep(edo, useSecondBestFifth)
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
     const sagittals: Sagittal[] = computeSagittals({
         sagitypes,
@@ -42,6 +43,7 @@ const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
             fifthStep,
             sagittals,
             flavor,
+            useSecondBestFifth,
         })
     const alignedEdoStepNotations: EdoStepNotation[] = hydrateEdoStepNotations(
         defaultSingleSpellingEdoStepNotationIndicesList,
@@ -54,9 +56,10 @@ const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
 const computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
     edo: Edo,
     flavor: Flavor,
+    { useSecondBestFifth }: { useSecondBestFifth: boolean } = { useSecondBestFifth: false },
 ): Io & Sentence => {
     const edoNotationDefinition: EdoNotationDefinition =
-        EDO_NOTATION_DEFINITIONS[edo]
+        EDO_NOTATION_DEFINITIONS[edo][useSecondBestFifth ? 1 : 0]
 
     if (isSubsetNotation(edoNotationDefinition)) {
         const supersetEdo = edoNotationDefinition.supersetEdo
@@ -64,12 +67,14 @@ const computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
         return doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
             supersetEdo,
             flavor,
+            { useSecondBestFifth },
             computeSubsetFactor({ edo, supersetEdo }),
         )
     } else {
         return doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
             edo,
             flavor,
+            { useSecondBestFifth },
         )
     }
 }
