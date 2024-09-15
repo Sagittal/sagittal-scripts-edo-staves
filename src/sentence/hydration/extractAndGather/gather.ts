@@ -6,19 +6,15 @@ import {
     Flavor,
     Nominal,
     Sagittal,
+    Spelling,
     SubsetFactor,
 } from "@sagittal/system"
 import { Stave } from "../../types"
-import { EdoStepNotationIndices } from "../../chaining"
-import {
-    StepCountsByStave,
-    HydrationState,
-    EdoStepNotationCodewords,
-} from "../types"
-import { extractEdoStepNotationParameters } from "./extract"
+import { StepCountsByStave, HydrationState, Codewords } from "../types"
+import { extractDiagramStepParameters } from "./extract"
 
-const gatherEdoStepNotationParameters = (
-    edoStepNotationIndices: EdoStepNotationIndices,
+const gatherDiagramStepParameters = (
+    spelling: Spelling,
     {
         sagittals,
         flavor,
@@ -46,12 +42,12 @@ const gatherEdoStepNotationParameters = (
         subsetExcluded,
         isC,
     }: {
-        codewords: EdoStepNotationCodewords
+        codewords: Codewords
         width: Octals
         nominal: Nominal
         subsetExcluded?: boolean
         isC: boolean
-    } = extractEdoStepNotationParameters(edoStepNotationIndices, {
+    } = extractDiagramStepParameters(spelling, {
         step: hydrationState.step,
         sagittals,
         flavor,
@@ -59,12 +55,12 @@ const gatherEdoStepNotationParameters = (
         sharpStep,
         edo,
     })
-    hydrationState.edoStepNotationCodewordsList.push(codewords)
-    hydrationState.edoStepNotationWidths.push(width)
-    hydrationState.edoStepNotationNominals.push(nominal)
-    hydrationState.edoStepNotationSubsetExclusions.push(subsetExcluded)
-    hydrationState.edoStepNotationStaveIndices.push(hydrationState.staveIndex)
-    hydrationState.edoStepNotationAreC4s.push(isC)
+    hydrationState.codewordsList.push(codewords)
+    hydrationState.widths.push(width)
+    hydrationState.nominals.push(nominal)
+    hydrationState.subsetExclusions.push(subsetExcluded)
+    hydrationState.staveIndices.push(hydrationState.staveIndex)
+    hydrationState.areC4s.push(isC)
 
     hydrationState.stepInStaveIndex++
     hydrationState.step++
@@ -81,4 +77,4 @@ const gatherEdoStepNotationParameters = (
     }
 }
 
-export { gatherEdoStepNotationParameters }
+export { gatherDiagramStepParameters }

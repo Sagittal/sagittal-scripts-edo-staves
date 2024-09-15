@@ -13,12 +13,10 @@ import {
     NonSubsetEdoNotationDefinition,
     Sagittal,
     Sagitype,
+    Spelling,
     SubsetFactor,
 } from "@sagittal/system"
-import {
-    computeDefaultEdoStepNotationIndicesList,
-    EdoStepNotationIndices,
-} from "../../sentence"
+import { computeDefaultSpellings } from "../../sentence"
 import { computeEdoNotationDefinition } from "../../definition"
 
 const computeRevoCouldBeEvo = (inputEdo: Edo, useSecondBestFifth: boolean) => {
@@ -47,24 +45,20 @@ const computeRevoCouldBeEvo = (inputEdo: Edo, useSecondBestFifth: boolean) => {
         sharpStep,
     })
 
-    const defaultSingleSpellingEdoStepNotationIndicesList: EdoStepNotationIndices[] =
-        computeDefaultEdoStepNotationIndicesList({
-            edo,
-            fifthStep,
-            sagittals,
-            flavor,
-            useSecondBestFifth,
-            limmaStep,
-        })
-    const usedEdoStepNotationIndicesList: EdoStepNotationIndices[] =
-        defaultSingleSpellingEdoStepNotationIndicesList.filter(
-            (_: EdoStepNotationIndices, step: number) =>
-                dividesEvenly(step, subsetFactor),
-        )
-    const absoluteSagittalIndices: Index<Sagittal>[] =
-        usedEdoStepNotationIndicesList.map(
-            ({ sagittalIndex }) => Math.abs(sagittalIndex) as Index<Sagittal>,
-        )
+    const defaultSingleSpellings: Spelling[] = computeDefaultSpellings({
+        edo,
+        fifthStep,
+        sagittals,
+        flavor,
+        useSecondBestFifth,
+        limmaStep,
+    })
+    const usedSpellings: Spelling[] = defaultSingleSpellings.filter(
+        (_: Spelling, step: number) => dividesEvenly(step, subsetFactor),
+    )
+    const absoluteSagittalIndices: Index<Sagittal>[] = usedSpellings.map(
+        ({ sagittalIndex }) => Math.abs(sagittalIndex) as Index<Sagittal>,
+    )
     const maxSagittalIndex: Max<Index<Sagittal>> = Math.max(
         ...absoluteSagittalIndices,
     ) as Max<Index<Sagittal>>

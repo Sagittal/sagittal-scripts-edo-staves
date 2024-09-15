@@ -7,8 +7,8 @@ import {
     isUndefined,
     mod,
 } from "@sagittal/general"
-import { Edo, EdoStep, Link, Sagittal } from "@sagittal/system"
-import { EdoStepNotationIndices, Priority, Way } from "./types"
+import { Edo, EdoStep, Link, Sagittal, Spelling } from "@sagittal/system"
+import {  Priority, Way } from "./types"
 import { chooseSpelling } from "./choose"
 import { MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL } from "./constants"
 
@@ -82,35 +82,32 @@ const LINK_AND_WAY_PRIORITIES: Priority[] = [
     { linkIndexRestriction: -17, way: Way.UP }, // 56: Fbb up
 ] as Priority[]
 
-const equalGapsBetweenLinks = (
-    linkEdoStepNotationIndicesList: EdoStepNotationIndices[],
-): boolean => {
+const equalGapsBetweenLinks = (linkSpellings: Spelling[]): boolean => {
     let allPreviousGapSizes: Count<EdoStep>
     let currentGapSize: Count<EdoStep> = 0 as Count<EdoStep>
     let equalGapsBetweenLinks: boolean = true
 
-    computeRange(
-        1 as EdoStep,
-        linkEdoStepNotationIndicesList.length as Edo,
-    ).forEach((linkEdoStepNotationIndicesIndex: number): void => {
-        if (!equalGapsBetweenLinks) return
+    computeRange(1 as EdoStep, linkSpellings.length as Edo).forEach(
+        (linkSpellingIndex: number): void => {
+            if (!equalGapsBetweenLinks) return
 
-        if (linkEdoStepNotationIndicesList[linkEdoStepNotationIndicesIndex]) {
-            if (isUndefined(allPreviousGapSizes))
-                allPreviousGapSizes = currentGapSize
-            if (currentGapSize !== allPreviousGapSizes)
-                equalGapsBetweenLinks = false
-            currentGapSize = 0 as Count<EdoStep>
-        } else {
-            currentGapSize++
-        }
-    })
+            if (linkSpellings[linkSpellingIndex]) {
+                if (isUndefined(allPreviousGapSizes))
+                    allPreviousGapSizes = currentGapSize
+                if (currentGapSize !== allPreviousGapSizes)
+                    equalGapsBetweenLinks = false
+                currentGapSize = 0 as Count<EdoStep>
+            } else {
+                currentGapSize++
+            }
+        },
+    )
 
     return equalGapsBetweenLinks
 }
 
 const placeAllOfGivenDirectedSagittal = (
-    edoStepNotationIndicesList: EdoStepNotationIndices[],
+    spellings: Spelling[],
     placingSagittalIndex: Index<Sagittal>,
     way: Way,
     {
@@ -118,61 +115,52 @@ const placeAllOfGivenDirectedSagittal = (
         linkIndexRestriction,
     }: { edo: Edo; linkIndexRestriction?: Index<Link> },
 ): void =>
-    edoStepNotationIndicesList.forEach(
-        (
-            edoStepNotationIndices: EdoStepNotationIndices,
-            edoStep: number,
-        ): void => {
-            if (isUndefined(edoStepNotationIndices)) return
+    spellings.forEach((spelling: Spelling, edoStep: number): void => {
+        if (isUndefined(spelling)) return
 
-            const { linkIndex, sagittalIndex } = edoStepNotationIndices
-            if (
-                !isUndefined(linkIndexRestriction) &&
-                linkIndex !== linkIndexRestriction
-            )
-                return
+        const { linkIndex, sagittalIndex } = spelling
+        if (
+            !isUndefined(linkIndexRestriction) &&
+            linkIndex !== linkIndexRestriction
+        )
+            return
 
-            // don't notate beyond the Edge of the World
-            if (
-                linkIndex >= MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL &&
-                way > 0
-            )
-                return
-            if (
-                linkIndex <= -MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL &&
-                way < 0
-            )
-                return
+        // don't notate beyond the Edge of the World
+        if (
+            linkIndex >= MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL &&
+            way > 0
+        )
+            return
+        if (
+            linkIndex <= -MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL &&
+            way < 0
+        )
+            return
 
-            if (way * sagittalIndex === placingSagittalIndex - 1) {
-                const neighborIndex: Index<EdoStepNotationIndices> = mod(
-                    edoStep + way,
-                    edo,
-                ) as Index<EdoStepNotationIndices>
-                const chosenEdoStepNotationIndices: Maybe<EdoStepNotationIndices> =
-                    edoStepNotationIndicesList[neighborIndex]
-                const candidateEdoStepNotationIndices: EdoStepNotationIndices =
-                    {
-                        linkIndex,
-                        sagittalIndex: (way *
-                            placingSagittalIndex) as Index<Sagittal>,
-                    }
-
-                if (isUndefined(chosenEdoStepNotationIndices)) {
-                    edoStepNotationIndicesList[neighborIndex] =
-                        candidateEdoStepNotationIndices
-                } else {
-                    edoStepNotationIndicesList[neighborIndex] = chooseSpelling(
-                        chosenEdoStepNotationIndices,
-                        candidateEdoStepNotationIndices,
-                    )
-                }
+        if (way * sagittalIndex === placingSagittalIndex - 1) {
+            const neighborIndex: Index<Spelling> = mod(
+                edoStep + way,
+                edo,
+            ) as Index<Spelling>
+            const chosenSpelling: Maybe<Spelling> = spellings[neighborIndex]
+            const candidateSpelling: Spelling = {
+                linkIndex,
+                sagittalIndex: (way * placingSagittalIndex) as Index<Sagittal>,
             }
-        },
-    )
+
+            if (isUndefined(chosenSpelling)) {
+                spellings[neighborIndex] = candidateSpelling
+            } else {
+                spellings[neighborIndex] = chooseSpelling(
+                    chosenSpelling,
+                    candidateSpelling,
+                )
+            }
+        }
+    })
 
 const placeSagittalsAccordingToPriorities = (
-    edoStepNotationIndicesList: EdoStepNotationIndices[],
+    spellings: Spelling[],
     sagittals: Sagittal[],
     priorities: Priority[],
     { edo }: { edo: Edo },
@@ -185,7 +173,7 @@ const placeSagittalsAccordingToPriorities = (
             priorities.forEach(
                 ({ linkIndexRestriction, way }: Priority): void => {
                     placeAllOfGivenDirectedSagittal(
-                        edoStepNotationIndicesList,
+                        spellings,
                         placingSagittalIndex,
                         way,
                         { linkIndexRestriction, edo },
@@ -195,23 +183,23 @@ const placeSagittalsAccordingToPriorities = (
         },
     )
 
-    return edoStepNotationIndicesList as EdoStepNotationIndices[]
+    return spellings as Spelling[]
 }
 
-const placeDefaultSingleSpellingSagittalEdoStepNotationIndices = (
-    linkEdoStepNotationIndicesList: EdoStepNotationIndices[],
+const placeDefaultSingleSpellingSagittalSpelling = (
+    linkSpellings: Spelling[],
     { edo, sagittals }: { edo: Edo; sagittals: Sagittal[] },
-): EdoStepNotationIndices[] => {
-    const priorities = equalGapsBetweenLinks(linkEdoStepNotationIndicesList)
+): Spelling[] => {
+    const priorities = equalGapsBetweenLinks(linkSpellings)
         ? WAY_PRIORITIES
         : LINK_AND_WAY_PRIORITIES
 
     return placeSagittalsAccordingToPriorities(
-        linkEdoStepNotationIndicesList,
+        linkSpellings,
         sagittals,
         priorities,
         { edo },
     )
 }
 
-export { placeDefaultSingleSpellingSagittalEdoStepNotationIndices }
+export { placeDefaultSingleSpellingSagittalSpelling }

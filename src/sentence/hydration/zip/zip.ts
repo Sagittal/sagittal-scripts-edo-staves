@@ -2,51 +2,44 @@ import { Octals } from "staff-code"
 import { Index, Maybe } from "@sagittal/general"
 import { EdoStep, Nominal } from "@sagittal/system"
 import { Stave } from "../../types"
-import {
-    EdoStepNotationCodewords,
-    EdoStepNotation,
-    StepCountsByStave,
-} from "../types"
+import { Codewords, DiagramStep, StepCountsByStave } from "../types"
 import { computeLefthandSpacing } from "./spacing"
 import { computeSituationReC4 } from "./c4"
 
-const zipEdoStepNotationPropertiesAndComputeLefthandSpacing = ({
+const computeDiagramStepsFromGatheredParameters = ({
     stepCountsByStave,
-    edoStepNotationCodewordsList,
-    edoStepNotationWidths,
-    edoStepNotationNominals,
-    edoStepNotationSubsetExclusions,
-    edoStepNotationStaveIndices,
-    edoStepNotationAreC4s,
+    codewordsList,
+    widths,
+    nominals,
+    subsetExclusions,
+    staveIndices,
+    areC4s,
 }: {
     stepCountsByStave: StepCountsByStave
-    edoStepNotationCodewordsList: EdoStepNotationCodewords[]
-    edoStepNotationWidths: Octals[]
-    edoStepNotationSubsetExclusions: Maybe<boolean>[]
-    edoStepNotationNominals: Nominal[]
-    edoStepNotationStaveIndices: Index<Stave>[]
-    edoStepNotationAreC4s: boolean[]
-}): EdoStepNotation[] =>
-    edoStepNotationCodewordsList.map(
-        (
-            edoStepNotationCodewords: EdoStepNotationCodewords,
-            step: number,
-        ): EdoStepNotation => ({
-            ...edoStepNotationCodewords,
-            nominal: edoStepNotationNominals[step],
-            subsetExcluded: edoStepNotationSubsetExclusions[step],
-            staveIndex: edoStepNotationStaveIndices[step],
+    codewordsList: Codewords[]
+    widths: Octals[]
+    subsetExclusions: Maybe<boolean>[]
+    nominals: Nominal[]
+    staveIndices: Index<Stave>[]
+    areC4s: boolean[]
+}): DiagramStep[] =>
+    codewordsList.map(
+        (codewords: Codewords, step: number): DiagramStep => ({
+            ...codewords,
+            nominal: nominals[step],
+            subsetExcluded: subsetExclusions[step],
+            staveIndex: staveIndices[step],
             lefthandSpacing: computeLefthandSpacing({
-                edoStepNotationWidths,
+                widths,
                 step: step as EdoStep,
                 stepCountsByStave,
             }),
             situationReC4: computeSituationReC4({
-                edoStepNotationAreC4s,
+                areC4s,
                 edoStep: step as EdoStep,
                 stepCountsByStave,
             }),
         }),
     )
 
-export { zipEdoStepNotationPropertiesAndComputeLefthandSpacing }
+export { computeDiagramStepsFromGatheredParameters }

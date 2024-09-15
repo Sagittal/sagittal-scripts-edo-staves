@@ -1,14 +1,13 @@
 import { Index, Max } from "@sagittal/general"
-import { Edo, EdoStep, Flavor, Sagittal, SubsetFactor } from "@sagittal/system"
+import { Edo, EdoStep, Flavor, Sagittal, Spelling, SubsetFactor } from "@sagittal/system"
 import { Stave } from "../types"
-import { EdoStepNotationIndices } from "../chaining"
-import { StepCountsByStave, HydrationState, EdoStepNotation } from "./types"
+import { StepCountsByStave, HydrationState, DiagramStep } from "./types"
 import { computeStepCountsByStave } from "./stepCountsByStave"
-import { zipEdoStepNotationPropertiesAndComputeLefthandSpacing } from "./zip"
-import { gatherEdoStepNotationParameters } from "./extractAndGather"
+import { computeDiagramStepsFromGatheredParameters } from "./zip"
+import { gatherDiagramStepParameters } from "./extractAndGather"
 
-const hydrateEdoStepNotations = (
-    edoStepNotationIndicesList: EdoStepNotationIndices[],
+const computeDiagramSteps = (
+    spellings: Spelling[],
     {
         sagittals,
         flavor,
@@ -26,7 +25,7 @@ const hydrateEdoStepNotations = (
         sharpStep: EdoStep
         limmaStep: EdoStep
     },
-): EdoStepNotation[] => {
+): DiagramStep[] => {
     const stepCountsByStave: StepCountsByStave = computeStepCountsByStave({
         edo,
         fifthStep,
@@ -40,40 +39,36 @@ const hydrateEdoStepNotations = (
         stepInStaveIndex: 0 as Index<EdoStep>,
         staveIndex: 0 as Index<Stave>,
         step: 0 as EdoStep,
-        edoStepNotationCodewordsList: [],
-        edoStepNotationWidths: [],
-        edoStepNotationNominals: [],
-        edoStepNotationSubsetExclusions: [],
-        edoStepNotationStaveIndices: [],
-        edoStepNotationAreC4s: [],
+        codewordsList: [],
+        widths: [],
+        nominals: [],
+        subsetExclusions: [],
+        staveIndices: [],
+        areC4s: [],
     }
 
-    edoStepNotationIndicesList.forEach(
-        (edoStepNotationIndices: EdoStepNotationIndices): void => {
-            gatherEdoStepNotationParameters(edoStepNotationIndices, {
-                sagittals,
-                flavor,
-                subsetFactor,
-                hydrationState,
-                maxStaveIndex,
-                stepCountsByStave,
-                sharpStep,
-                edo,
-            })
-        },
-    )
+    spellings.forEach((spelling: Spelling): void => {
+        gatherDiagramStepParameters(spelling, {
+            sagittals,
+            flavor,
+            subsetFactor,
+            hydrationState,
+            maxStaveIndex,
+            stepCountsByStave,
+            sharpStep,
+            edo,
+        })
+    })
 
-    return zipEdoStepNotationPropertiesAndComputeLefthandSpacing({
+    return computeDiagramStepsFromGatheredParameters({
         stepCountsByStave,
-        edoStepNotationCodewordsList:
-            hydrationState.edoStepNotationCodewordsList,
-        edoStepNotationWidths: hydrationState.edoStepNotationWidths,
-        edoStepNotationNominals: hydrationState.edoStepNotationNominals,
-        edoStepNotationSubsetExclusions:
-            hydrationState.edoStepNotationSubsetExclusions,
-        edoStepNotationStaveIndices: hydrationState.edoStepNotationStaveIndices,
-        edoStepNotationAreC4s: hydrationState.edoStepNotationAreC4s,
+        codewordsList: hydrationState.codewordsList,
+        widths: hydrationState.widths,
+        nominals: hydrationState.nominals,
+        subsetExclusions: hydrationState.subsetExclusions,
+        staveIndices: hydrationState.staveIndices,
+        areC4s: hydrationState.areC4s,
     })
 }
 
-export { hydrateEdoStepNotations }
+export { computeDiagramSteps }

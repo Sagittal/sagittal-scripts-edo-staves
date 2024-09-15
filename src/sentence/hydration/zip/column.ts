@@ -2,14 +2,14 @@ import { computeRange, Count, Index, max, Max } from "@sagittal/general"
 import { StepCountsByStave } from "../types"
 import { EdoStep } from "@sagittal/system"
 
-const alignEdoStepNotationDataByColumn = <T>(
-    edoStepNotationData: T[],
+const alignParametersByColumn = <T>(
+    diagramStepParameters: T[],
     stepCountsByStave: StepCountsByStave,
 ): T[][] => {
     let furthestStepAligned: Index<EdoStep> = 0 as Index<EdoStep>
 
     return stepCountsByStave.map((stepCountByStave: Count<EdoStep>): T[] => {
-        const edoStepNotationDataStave: T[] = edoStepNotationData.slice(
+        const diagramStepParametersStave: T[] = diagramStepParameters.slice(
             furthestStepAligned,
             furthestStepAligned + stepCountByStave,
         )
@@ -17,12 +17,12 @@ const alignEdoStepNotationDataByColumn = <T>(
         furthestStepAligned = (furthestStepAligned +
             stepCountByStave) as Index<EdoStep>
 
-        return edoStepNotationDataStave
+        return diagramStepParametersStave
     })
 }
 
-const applyByEdoStepNotationColumns = <T, U>(
-    alignedEdoStepNotationData: T[][],
+const applyByColumns = <T, U>(
+    aligneddiagramStepParameters: T[][],
     stepCountsByStave: StepCountsByStave,
     columnFunction: (column: T[]) => U,
     fallbackValue: T,
@@ -30,24 +30,24 @@ const applyByEdoStepNotationColumns = <T, U>(
     const maxStaveLength: Max<Count<EdoStep>> = max(...stepCountsByStave)
 
     return computeRange(maxStaveLength).map((columnIndex: number): U => {
-        const edoStepNotationDataColumn: T[] = alignedEdoStepNotationData.map(
-            (alignedEdoStepNotationDataStave: T[]): T =>
-                alignedEdoStepNotationDataStave[columnIndex] || fallbackValue,
+        const diagramStepParametersColumn: T[] = aligneddiagramStepParameters.map(
+            (aligneddiagramStepParametersStave: T[]): T =>
+                aligneddiagramStepParametersStave[columnIndex] || fallbackValue,
         )
 
-        return columnFunction(edoStepNotationDataColumn)
+        return columnFunction(diagramStepParametersColumn)
     })
 }
 
-const computeResultByEdoStepNotationColumn = <T, U>(
-    edoStepNotationData: T[],
+const computeResultByColumn = <T, U>(
+    diagramStepParameters: T[],
     stepCountsByStave: StepCountsByStave,
     columnFunction: (column: T[]) => U,
     fallbackValue: T,
 ): U[] =>
-    applyByEdoStepNotationColumns(
-        alignEdoStepNotationDataByColumn(
-            edoStepNotationData,
+    applyByColumns(
+        alignParametersByColumn(
+            diagramStepParameters,
             stepCountsByStave,
         ),
         stepCountsByStave,
@@ -55,4 +55,4 @@ const computeResultByEdoStepNotationColumn = <T, U>(
         fallbackValue,
     )
 
-export { computeResultByEdoStepNotationColumn }
+export { computeResultByColumn }

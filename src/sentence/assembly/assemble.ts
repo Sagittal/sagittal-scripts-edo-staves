@@ -14,11 +14,11 @@ import { computeSagittalClause } from "./sagittal"
 import { computeNoteAndRighthandSpaceClause } from "./note"
 import { computeWhorlClause } from "./whorl"
 import { AssemblyState } from "./types"
-import { EdoStepNotation } from "../hydration"
+import { DiagramStep } from "../hydration"
 import { computeStaveBreakClause } from "./break"
 
 const assembleAsStaffCodeInputSentence = (
-    alignedEdoStepNotations: EdoStepNotation[],
+    diagramSteps: DiagramStep[],
 ): Io & Sentence => {
     const assemblyState: AssemblyState = {
         currentNominal: Nominal.C,
@@ -28,9 +28,9 @@ const assembleAsStaffCodeInputSentence = (
     }
 
     return (`${ACTIVATE_STAFF}${CLEF}${assemblyState.currentNominal}${EARLIER_NOMINALS_OCTAVE} ` +
-        alignedEdoStepNotations.reduce(
+        diagramSteps.reduce(
             (
-                inputSentenceMaterialFromThisStave: Io & Sentence,
+                inputSentence: Io & Sentence,
                 {
                     nominal,
                     whorlCodewords,
@@ -39,12 +39,12 @@ const assembleAsStaffCodeInputSentence = (
                     subsetExcluded = false,
                     staveIndex,
                     situationReC4,
-                }: EdoStepNotation,
+                }: DiagramStep,
             ): Io & Sentence => {
                 const startingNewStave: boolean =
                     staveIndex > assemblyState.currentStave
 
-                return (inputSentenceMaterialFromThisStave +
+                return (inputSentence +
                     computeStaveBreakClause(startingNewStave, {
                         assemblyState,
                         staveIndex,

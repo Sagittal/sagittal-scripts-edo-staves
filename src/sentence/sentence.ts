@@ -14,11 +14,11 @@ import {
     computeSubsetFactor,
     NonSubsetEdoNotationDefinition,
     computeLimmaStep,
+    Spelling,
 } from "@sagittal/system"
-import { computeDefaultEdoStepNotationIndicesList } from "./chaining"
-import { hydrateEdoStepNotations, EdoStepNotation } from "./hydration"
+import { computeDefaultSpellings } from "./chaining"
+import { computeDiagramSteps, DiagramStep } from "./hydration"
 import { assembleAsStaffCodeInputSentence } from "./assembly"
-import { EdoStepNotationIndices } from "./chaining"
 import { computeEdoNotationDefinition } from "../definition"
 
 const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
@@ -42,18 +42,17 @@ const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
         sharpStep,
     })
 
-    const defaultSingleSpellingEdoStepNotationIndicesList: EdoStepNotationIndices[] =
-        computeDefaultEdoStepNotationIndicesList({
-            edo,
-            fifthStep,
-            sagittals,
-            flavor,
-            useSecondBestFifth,
-            limmaStep,
-        })
+    const defaultSingleSpellings: Spelling[] = computeDefaultSpellings({
+        edo,
+        fifthStep,
+        sagittals,
+        flavor,
+        useSecondBestFifth,
+        limmaStep,
+    })
 
-    const alignedEdoStepNotations: EdoStepNotation[] = hydrateEdoStepNotations(
-        defaultSingleSpellingEdoStepNotationIndicesList,
+    const diagramSteps: DiagramStep[] = computeDiagramSteps(
+        defaultSingleSpellings,
         {
             sagittals,
             flavor,
@@ -65,7 +64,7 @@ const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
         },
     )
 
-    return assembleAsStaffCodeInputSentence(alignedEdoStepNotations)
+    return assembleAsStaffCodeInputSentence(diagramSteps)
 }
 
 const computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (

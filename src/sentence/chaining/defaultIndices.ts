@@ -4,10 +4,10 @@ import {
     Edo,
     EdoStep,
     NonSubsetEdoNotationDefinition,
+    Spelling,
 } from "@sagittal/system"
-import { computeDefaultSingleSpellingLinkEdoStepNotationIndicesList } from "./links"
-import { placeDefaultSingleSpellingSagittalEdoStepNotationIndices } from "./sagittals"
-import { EdoStepNotationIndices } from "./types"
+import { computeDefaultSingleSpellingLinkSpellings } from "./links"
+import { placeDefaultSingleSpellingSagittalSpelling } from "./sagittals"
 import { computeEdoNotationDefinition } from "../../definition"
 
 const computeIsLimmaNotation = (edo: Edo, useSecondBestFifth: boolean) =>
@@ -26,7 +26,7 @@ const computeUseOnlyPlainNominals = ({
 }): boolean =>
     flavor === Flavor.REVO || computeIsLimmaNotation(edo, useSecondBestFifth)
 
-const computeDefaultEdoStepNotationIndicesList = ({
+const computeDefaultSpellings = ({
     edo,
     fifthStep,
     sagittals,
@@ -40,25 +40,25 @@ const computeDefaultEdoStepNotationIndicesList = ({
     flavor: Flavor
     useSecondBestFifth: boolean
     limmaStep: EdoStep
-}): EdoStepNotationIndices[] => {
+}): Spelling[] => {
     const useOnlyPlainNominals: boolean = computeUseOnlyPlainNominals({
         flavor,
         edo,
         useSecondBestFifth,
     })
 
-    const defaultSingleSpellingLinkEdoStepNotationIndicesList: EdoStepNotationIndices[] =
-        computeDefaultSingleSpellingLinkEdoStepNotationIndicesList({
+    const defaultSingleSpellingLinkSpellings: Spelling[] =
+        computeDefaultSingleSpellingLinkSpellings({
             edo,
             fifthStep,
             useOnlyPlainNominals,
             limmaStep,
         })
 
-    return placeDefaultSingleSpellingSagittalEdoStepNotationIndices(
-        defaultSingleSpellingLinkEdoStepNotationIndicesList,
+    return placeDefaultSingleSpellingSagittalSpelling(
+        defaultSingleSpellingLinkSpellings,
         { edo, sagittals },
     )
 }
 
-export { computeDefaultEdoStepNotationIndicesList }
+export { computeDefaultSpellings }

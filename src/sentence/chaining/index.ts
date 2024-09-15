@@ -1,2 +1,1 @@
-export { computeDefaultEdoStepNotationIndicesList } from "./defaultIndices"
-export { EdoStepNotationIndices } from "./types"
+export { computeDefaultSpellings } from "./defaultIndices"

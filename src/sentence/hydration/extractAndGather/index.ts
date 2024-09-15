@@ -1,1 +1,1 @@
-export { gatherEdoStepNotationParameters } from "./gather"
+export { gatherDiagramStepParameters } from "./gather"

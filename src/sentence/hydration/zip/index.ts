@@ -1,1 +1,1 @@
-export { zipEdoStepNotationPropertiesAndComputeLefthandSpacing } from "./zip"
+export { computeDiagramStepsFromGatheredParameters } from "./zip"

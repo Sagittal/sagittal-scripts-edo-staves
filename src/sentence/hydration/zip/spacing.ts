@@ -3,14 +3,14 @@ import { Index, Max } from "@sagittal/general"
 import { EdoStep } from "@sagittal/system"
 import { Stave } from "../../types"
 import { StepCountsByStave } from "../types"
-import { computeResultByEdoStepNotationColumn } from "./column"
+import { computeResultByColumn } from "./column"
 
 const computeColumnWidths = (
-    edoStepNotationWidths: Octals[],
+    widths: Octals[],
     stepCountsByStave: StepCountsByStave,
 ): Max<Octals>[] =>
-    computeResultByEdoStepNotationColumn(
-        edoStepNotationWidths,
+    computeResultByColumn(
+        widths,
         stepCountsByStave,
         (columnWidths: Octals[]) => Math.max(...columnWidths) as Max<Octals>,
         0 as Octals,
@@ -18,18 +18,18 @@ const computeColumnWidths = (
 
 const computeColumnWidth = ({
     stepCountsByStave,
-    edoStepNotationWidths,
+    widths,
     step,
 }: {
     stepCountsByStave: StepCountsByStave
-    edoStepNotationWidths: Octals[]
+    widths: Octals[]
     step: EdoStep
 }): Octals => {
     let cursor: EdoStep = step
     let staveIndex: Index<Stave> = 0 as Index<Stave>
 
     const columnWidths: Max<Octals>[] = computeColumnWidths(
-        edoStepNotationWidths,
+        widths,
         stepCountsByStave,
     )
 
@@ -42,15 +42,15 @@ const computeColumnWidth = ({
 }
 
 const computeLefthandSpacing = ({
-    edoStepNotationWidths,
+    widths,
     step,
     stepCountsByStave,
 }: {
     stepCountsByStave: StepCountsByStave
-    edoStepNotationWidths: Octals[]
+    widths: Octals[]
     step: EdoStep
 }): Octals =>
-    (computeColumnWidth({ stepCountsByStave, edoStepNotationWidths, step }) -
-        edoStepNotationWidths[step]) as Octals
+    (computeColumnWidth({ stepCountsByStave, widths, step }) -
+        widths[step]) as Octals
 
 export { computeLefthandSpacing }

@@ -2,7 +2,7 @@ import { Index } from "@sagittal/general"
 import { EdoStep } from "@sagittal/system"
 import { StepCountsByStave, SituationReC4 } from "../types"
 import { Stave } from "../../types"
-import { computeResultByEdoStepNotationColumn } from "./column"
+import { computeResultByColumn } from "./column"
 
 const computeColumnHasC4 = (
     columnHasC4s: boolean[],
@@ -21,18 +21,18 @@ const computeColumnHasC4 = (
 }
 
 const computeSituationReC4 = ({
-    edoStepNotationAreC4s,
+    areC4s,
     edoStep,
     stepCountsByStave,
 }: {
-    edoStepNotationAreC4s: boolean[]
+    areC4s: boolean[]
     edoStep: EdoStep
     stepCountsByStave: StepCountsByStave
 }): SituationReC4 => {
-    if (edoStepNotationAreC4s[edoStep]) return SituationReC4.IS_C4
+    if (areC4s[edoStep]) return SituationReC4.IS_C4
 
-    const columnHasC4s: boolean[] = computeResultByEdoStepNotationColumn(
-        edoStepNotationAreC4s,
+    const columnHasC4s: boolean[] = computeResultByColumn(
+        areC4s,
         stepCountsByStave,
         (columnAreC4s: boolean[]): boolean =>
             columnAreC4s.some((isC4: boolean): boolean => !!isC4),

@@ -1,7 +1,9 @@
 import { Index } from "@sagittal/general"
-import { Link, Whorl } from "@sagittal/system"
-import { EdoStepNotationIndices } from "./types"
-import { MAX_ABSOLUTE_LINK_INDEX_IN_NATURAL_WHORL, MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL } from "./constants"
+import { Link, Spelling, Whorl } from "@sagittal/system"
+import {
+    MAX_ABSOLUTE_LINK_INDEX_IN_NATURAL_WHORL,
+    MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL,
+} from "./constants"
 
 const NATURAL_WHORL_INDEX: Index<Whorl> = 0 as Index<Whorl>
 const SHARP_OR_FLAT_ABSOLUTE_WHORL_INDEX: Index<Whorl> = 1 as Index<Whorl>
@@ -18,13 +20,13 @@ const getAbsoluteWhorlIndex = (linkIndex: Index<Link>): Index<Whorl> => {
 }
 
 const chooseSpelling = (
-    chosenEdoStepNotationIndices: EdoStepNotationIndices,
-    candidateEdoStepNotationIndices: EdoStepNotationIndices,
-): EdoStepNotationIndices =>
-    getAbsoluteWhorlIndex(candidateEdoStepNotationIndices.linkIndex) <
-        getAbsoluteWhorlIndex(chosenEdoStepNotationIndices.linkIndex) &&
-    chosenEdoStepNotationIndices.sagittalIndex !== 0
-        ? candidateEdoStepNotationIndices
-        : chosenEdoStepNotationIndices
+    chosenSpelling: Spelling,
+    candidateSpelling: Spelling,
+): Spelling =>
+    getAbsoluteWhorlIndex(candidateSpelling.linkIndex) <
+        getAbsoluteWhorlIndex(chosenSpelling.linkIndex) &&
+    chosenSpelling.sagittalIndex !== 0
+        ? candidateSpelling
+        : chosenSpelling
 
 export { chooseSpelling }

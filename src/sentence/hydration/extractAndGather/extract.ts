@@ -23,9 +23,9 @@ import {
     Nominal,
     EdoStep,
     Edo,
+    Spelling,
 } from "@sagittal/system"
-import { EdoStepNotationIndices } from "../../chaining"
-import { EdoStepNotationCodewords } from "../types"
+import { Codewords } from "../types"
 import { computeWidth } from "./spacing"
 import { computeIsC4 } from "./c4"
 
@@ -194,8 +194,8 @@ const computeSagittalAndWhorlCodewords = ({
           })
 }
 
-const extractEdoStepNotationParameters = (
-    { linkIndex, sagittalIndex }: EdoStepNotationIndices,
+const extractDiagramStepParameters = (
+    { linkIndex, sagittalIndex }: Spelling,
     {
         sharpStep,
         step,
@@ -212,7 +212,7 @@ const extractEdoStepNotationParameters = (
         edo: Edo
     },
 ): {
-    codewords: EdoStepNotationCodewords
+    codewords: Codewords
     width: Octals
     nominal: Nominal
     subsetExcluded?: boolean
@@ -244,4 +244,4 @@ const extractEdoStepNotationParameters = (
     }
 }
 
-export { extractEdoStepNotationParameters }
+export { extractDiagramStepParameters }

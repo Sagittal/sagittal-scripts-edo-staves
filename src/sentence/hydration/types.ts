@@ -21,7 +21,7 @@ interface StepCountParametersByStave {
 
 type StepCountsByStave = Count<EdoStep>[]
 
-interface EdoStepNotationCodewords {
+interface Codewords {
     sagittalCodewords: (Code & Word)[]
     whorlCodewords: (Code & Word)[]
 }
@@ -32,7 +32,7 @@ enum SituationReC4 {
     NEITHER,
 }
 
-interface EdoStepNotation extends EdoStepNotationCodewords {
+interface DiagramStep extends Codewords {
     lefthandSpacing: Octals
     nominal: Nominal
     subsetExcluded?: boolean
@@ -44,12 +44,12 @@ interface HydrationState {
     stepInStaveIndex: Index<EdoStep>
     staveIndex: Index<Stave>
     step: EdoStep
-    edoStepNotationCodewordsList: EdoStepNotationCodewords[]
-    edoStepNotationWidths: Octals[]
-    edoStepNotationSubsetExclusions: Maybe<boolean>[]
-    edoStepNotationNominals: Nominal[]
-    edoStepNotationStaveIndices: Index<Stave>[]
-    edoStepNotationAreC4s: boolean[]
+    codewordsList: Codewords[]
+    widths: Octals[]
+    subsetExclusions: Maybe<boolean>[]
+    nominals: Nominal[]
+    staveIndices: Index<Stave>[]
+    areC4s: boolean[]
 }
 
 export {
@@ -58,8 +58,8 @@ export {
     StepCountsByStave,
     WholeTone,
     Limma,
-    EdoStepNotation,
+    DiagramStep,
     HydrationState,
-    EdoStepNotationCodewords,
+    Codewords,
     SituationReC4,
 }
