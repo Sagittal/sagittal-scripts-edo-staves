@@ -91,7 +91,7 @@ const generateOneOffGeneralDiagram = (
 ): Promise<void> =>
     asyncGenerateDiagram(
         inputSentences[EVO_FLAVOR_INDEX],
-        `Sagittal notation for ${edo}-EDO${useSecondBestFifth ? " (w/ 2nd best fifth)" : ""}`, // TODO: DRY up
+        `Sagittal notation for ${edo}-EDO${useSecondBestFifth ? " (w/ 2nd best fifth)" : ""}`,
         `one-off.svg` as Filename,
     ).then()
 

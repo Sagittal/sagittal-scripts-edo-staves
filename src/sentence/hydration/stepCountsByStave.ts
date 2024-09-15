@@ -3,7 +3,6 @@ import {
     Edo,
     EdoStep,
     computeWholeToneStep,
-    computeLimmaStep,
 } from "@sagittal/system"
 import {
     StepCountParametersByStave,
@@ -132,12 +131,13 @@ const EDO_SIZE_CATEGORIES: EdoSizeCategory[] = Object.values(EdoSizeCategory)
 const computeStepCountsByStave = ({
     edo,
     fifthStep,
+    limmaStep,
 }: {
     edo: Edo
     fifthStep: EdoStep
+    limmaStep: EdoStep
 }): StepCountsByStave => {
     const wholeToneStep: EdoStep = computeWholeToneStep(edo, fifthStep)
-    const limmaStep: EdoStep = computeLimmaStep(edo, fifthStep)
 
     const edoSizeCategoryInverseIndex: Index<EdoSizeCategory> =
         MAX_STEP_COUNT_BY_STAVE_PARAMETERS_BY_DECREASING_EDO_SIZE_CATEGORY.reduce(

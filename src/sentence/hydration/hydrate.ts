@@ -16,6 +16,7 @@ const hydrateEdoStepNotations = (
         edo,
         fifthStep,
         sharpStep,
+        limmaStep,
     }: {
         sagittals: Sagittal[]
         flavor: Flavor
@@ -23,11 +24,13 @@ const hydrateEdoStepNotations = (
         edo: Edo
         fifthStep: EdoStep
         sharpStep: EdoStep
+        limmaStep: EdoStep
     },
 ): EdoStepNotation[] => {
     const stepCountsByStave: StepCountsByStave = computeStepCountsByStave({
         edo,
         fifthStep,
+        limmaStep,
     })
 
     const maxStaveIndex: Max<Index<Stave>> = (stepCountsByStave.length -

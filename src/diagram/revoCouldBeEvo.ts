@@ -1,11 +1,11 @@
 import { dividesEvenly, Index, Max } from "@sagittal/general"
 import {
     computeFifthStep,
+    computeLimmaStep,
     computeSagittals,
     computeSharpStep,
     computeSubsetFactor,
     Edo,
-    EDO_NOTATION_DEFINITIONS,
     EdoNotationDefinition,
     EdoStep,
     Flavor,
@@ -19,10 +19,11 @@ import {
     computeDefaultEdoStepNotationIndicesList,
     EdoStepNotationIndices,
 } from "../sentence"
+import { computeEdoNotationDefinition } from "../definition"
 
 const computeRevoCouldBeEvo = (inputEdo: Edo, useSecondBestFifth: boolean) => {
     const edoNotationDefinition: EdoNotationDefinition =
-        EDO_NOTATION_DEFINITIONS[inputEdo][useSecondBestFifth ? 1 : 0]
+        computeEdoNotationDefinition(inputEdo, useSecondBestFifth)
     let edo: Edo = isSubsetNotation(edoNotationDefinition)
         ? edoNotationDefinition.supersetEdo
         : inputEdo
@@ -32,10 +33,14 @@ const computeRevoCouldBeEvo = (inputEdo: Edo, useSecondBestFifth: boolean) => {
     })
     const flavor: Flavor = Flavor.REVO
     const sagitypes: Sagitype[] = (
-        EDO_NOTATION_DEFINITIONS[edo][useSecondBestFifth ? 1 : 0] as NonSubsetEdoNotationDefinition
+        computeEdoNotationDefinition(
+            edo,
+            useSecondBestFifth,
+        ) as NonSubsetEdoNotationDefinition
     ).sagitypes
-    const fifthStep: EdoStep = computeFifthStep(edo)
+    const fifthStep: EdoStep = computeFifthStep(edo, useSecondBestFifth)
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
+    const limmaStep: EdoStep = computeLimmaStep(edo, fifthStep)
     const sagittals: Sagittal[] = computeSagittals({
         sagitypes,
         flavor,
@@ -49,16 +54,19 @@ const computeRevoCouldBeEvo = (inputEdo: Edo, useSecondBestFifth: boolean) => {
             sagittals,
             flavor,
             useSecondBestFifth,
+            limmaStep,
         })
     const usedEdoStepNotationIndicesList: EdoStepNotationIndices[] =
         defaultSingleSpellingEdoStepNotationIndicesList.filter(
             (_: EdoStepNotationIndices, step: number) =>
                 dividesEvenly(step, subsetFactor),
         )
-    const sagittalIndices: Index<Sagittal>[] =
-        usedEdoStepNotationIndicesList.map(({ sagittalIndex }) => sagittalIndex)
+    const absoluteSagittalIndices: Index<Sagittal>[] =
+        usedEdoStepNotationIndicesList.map(
+            ({ sagittalIndex }) => Math.abs(sagittalIndex) as Index<Sagittal>,
+        )
     const maxSagittalIndex: Max<Index<Sagittal>> = Math.max(
-        ...sagittalIndices,
+        ...absoluteSagittalIndices,
     ) as Max<Index<Sagittal>>
 
     return maxSagittalIndex <= sagitypes.length
