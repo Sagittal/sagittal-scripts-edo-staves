@@ -65,6 +65,7 @@ if (isUndefined(flavorString)) {
         computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
             edo,
             flavor,
+            { useSecondBestFifth }
         )
 
     generateOneOffDiagram(
