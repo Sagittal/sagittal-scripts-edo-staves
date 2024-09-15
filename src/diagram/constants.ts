@@ -1,4 +1,4 @@
-import { Filename, Index, Px } from "@sagittal/general"
+import { Filename, Index, Io, Px } from "@sagittal/general"
 import { Flavor } from "@sagittal/system"
 
 const LEFT_AND_RIGHT_MARGIN: Px = 20 as Px
