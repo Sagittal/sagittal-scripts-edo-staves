@@ -4,6 +4,8 @@ import {
     LEFT_AND_RIGHT_MARGIN,
     TITLE_FONT_NAME,
     TOP_MARGIN,
+    SUBTITLE_FONT_NAME,
+    SUBTITLE_FONT_SIZE,
 } from "./constants"
 
 const addTitle = (svgDocument: Document, title: Io): void => {
@@ -22,4 +24,20 @@ const addTitle = (svgDocument: Document, title: Io): void => {
     svgDocument.documentElement.appendChild(titleGroupElement)
 }
 
-export { addTitle }
+const addSubtitle = (svgDocument: Document, subtitle: Io): void => {
+    const subtitleTextNode: Text = svgDocument.createTextNode(subtitle)
+    const subtitleTextElement: HTMLElement = svgDocument.createElement("text")
+    const subtitleGroupElement: HTMLElement = svgDocument.createElement("g")
+    subtitleGroupElement.setAttribute(
+        "transform",
+        `translate(${LEFT_AND_RIGHT_MARGIN}, ${TOP_MARGIN + TITLE_FONT_SIZE})`,
+    )
+    subtitleTextElement.setAttribute("font-family", SUBTITLE_FONT_NAME)
+    subtitleTextElement.setAttribute("font-size", SUBTITLE_FONT_SIZE.toString())
+    subtitleTextElement.setAttribute("fill", "black")
+    subtitleTextElement.appendChild(subtitleTextNode)
+    subtitleGroupElement.appendChild(subtitleTextElement)
+    svgDocument.documentElement.appendChild(subtitleGroupElement)
+}
+
+export { addTitle, addSubtitle }

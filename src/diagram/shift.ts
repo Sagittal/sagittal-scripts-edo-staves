@@ -1,6 +1,7 @@
 import {
     LEFT_AND_RIGHT_MARGIN,
     OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION,
+    SUBTITLE_FONT_SIZE,
     TITLE_FONT_SIZE,
     TOP_MARGIN,
 } from "./constants"
@@ -22,6 +23,7 @@ const shiftStavesDown = (svgDocument: Document): void => {
                     currentTransformY +
                     TOP_MARGIN +
                     TITLE_FONT_SIZE +
+                    SUBTITLE_FONT_SIZE +
                     OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION
                 })`,
             )

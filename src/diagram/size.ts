@@ -2,6 +2,7 @@ import { Px } from "@sagittal/general"
 import {
     BOTTOM_MARGIN,
     LEFT_AND_RIGHT_MARGIN,
+    SUBTITLE_FONT_SIZE,
     TITLE_FONT_SIZE,
     TOP_MARGIN,
 } from "./constants"
@@ -15,6 +16,7 @@ const setSvgSize = (svgDocument: Document): void => {
     const height: Px = (parseInt(svg.getAttribute("height") || "0") +
         TOP_MARGIN +
         TITLE_FONT_SIZE +
+        SUBTITLE_FONT_SIZE +
         BOTTOM_MARGIN) as Px
     const width: Px = (parseInt(svg.getAttribute("width") || "0") +
         LEFT_AND_RIGHT_MARGIN * BOTH_SIDES) as Px
