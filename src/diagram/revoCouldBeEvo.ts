@@ -20,7 +20,7 @@ import {
     EdoStepNotationIndices,
 } from "../sentence"
 
-const computeRevoCouldBeEvo = (inputEdo: Edo, useSecondBestFifth: boolean = false) => {
+const computeRevoCouldBeEvo = (inputEdo: Edo, useSecondBestFifth: boolean) => {
     const edoNotationDefinition: EdoNotationDefinition =
         EDO_NOTATION_DEFINITIONS[inputEdo][useSecondBestFifth ? 1 : 0]
     let edo: Edo = isSubsetNotation(edoNotationDefinition)

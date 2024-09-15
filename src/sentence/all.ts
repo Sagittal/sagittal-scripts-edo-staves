@@ -5,7 +5,7 @@ import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } f
 const FLAVORS: Flavor[] = Object.values(Flavor)
 
 const computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor =
-    (edo: Edo, useSecondBestFifth: boolean = false): (Io & Sentence)[] =>
+    (edo: Edo, useSecondBestFifth: boolean): (Io & Sentence)[] =>
         FLAVORS.map((flavor: Flavor): Io & Sentence =>
             computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
                 edo,

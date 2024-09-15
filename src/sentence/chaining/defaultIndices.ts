@@ -3,7 +3,7 @@ import { computeDefaultSingleSpellingLinkEdoStepNotationIndicesList } from "./li
 import { placeDefaultSingleSpellingSagittalEdoStepNotationIndices } from "./sagittals"
 import { EdoStepNotationIndices } from "./types"
 
-const computeIsLimmaNotation = (edo: Edo, useSecondBestFifth: boolean = false) =>
+const computeIsLimmaNotation = (edo: Edo, useSecondBestFifth: boolean) =>
     !!(<NonSubsetEdoNotationDefinition>EDO_NOTATION_DEFINITIONS[edo][useSecondBestFifth ? 1 : 0]).isLimmaFraction
 
 const computeUseOnlyPlainNominals = ({ flavor, edo, useSecondBestFifth }: { flavor: Flavor, edo: Edo, useSecondBestFifth: boolean }): boolean =>

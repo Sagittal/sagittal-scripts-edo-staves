@@ -56,7 +56,7 @@ const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
 const computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
     edo: Edo,
     flavor: Flavor,
-    { useSecondBestFifth }: { useSecondBestFifth: boolean } = { useSecondBestFifth: false },
+    { useSecondBestFifth }: { useSecondBestFifth: boolean },
 ): Io & Sentence => {
     const edoNotationDefinition: EdoNotationDefinition =
         EDO_NOTATION_DEFINITIONS[edo][useSecondBestFifth ? 1 : 0]

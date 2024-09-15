@@ -37,7 +37,7 @@ Object.keys(EDO_NOTATION_DEFINITIONS)
                     useSecondBestFifth,
                 )
 
-            const revoCouldBeEvo: boolean = computeRevoCouldBeEvo(edo)
+            const revoCouldBeEvo: boolean = computeRevoCouldBeEvo(edo, useSecondBestFifth)
 
             const keyInfos: Sentence[] =
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor.map(
