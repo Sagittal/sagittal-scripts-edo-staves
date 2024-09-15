@@ -6,11 +6,11 @@ import {
     BRAVURA_TEXT_SC_FONT_FILE,
     BRAVURA_TEXT_SC_TITLE_FONT_SIZE,
 } from "./constants"
-import { getSvgDocumentFromString, getSvgStringFromDocument } from "./svg"
+import { getSvgDocumentFromString, getSvgStringFromDocument } from "./document"
 import { setSvgSize } from "./size"
 import { shiftStavesDown } from "./shift"
 
-const asyncGenerateDiagram = async (
+const writeDiagramSvg = async (
     inputSentence: Io & Sentence,
     title: Io,
     filename: Filename,
@@ -33,4 +33,4 @@ const asyncGenerateDiagram = async (
     fs.writeFileSync(`dist/${filename}`, svgString)
 }
 
-export { asyncGenerateDiagram }
+export { writeDiagramSvg }

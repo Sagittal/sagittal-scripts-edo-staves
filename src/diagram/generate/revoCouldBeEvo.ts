@@ -18,8 +18,8 @@ import {
 import {
     computeDefaultEdoStepNotationIndicesList,
     EdoStepNotationIndices,
-} from "../sentence"
-import { computeEdoNotationDefinition } from "../definition"
+} from "../../sentence"
+import { computeEdoNotationDefinition } from "../../definition"
 
 const computeRevoCouldBeEvo = (inputEdo: Edo, useSecondBestFifth: boolean) => {
     const edoNotationDefinition: EdoNotationDefinition =

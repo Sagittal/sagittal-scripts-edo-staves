@@ -1,8 +1,8 @@
 import { Io, Sentence } from "@sagittal/general"
 import { Edo, Flavor } from "@sagittal/system"
 import { FORMATTED_FLAVOR_NAMES } from "./constants"
-import { generateDiagram } from "./allOrOneOff"
-import { EVO_FLAVOR_INDEX, EVO_SZ_FLAVOR_INDEX, REVO_FLAVOR_INDEX } from "."
+import { EVO_FLAVOR_INDEX, EVO_SZ_FLAVOR_INDEX, REVO_FLAVOR_INDEX } from ".."
+import { generateDiagram } from "./all"
 
 const generateGeneralDiagram = (
     inputSentences: (Io & Sentence)[],
