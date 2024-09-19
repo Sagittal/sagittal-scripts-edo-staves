@@ -64,6 +64,8 @@ const addSharp = async (
     })
 }
 
+// TODO: drop steps when subset
+
 const addSteps = async (
     tileGroupElement: NodeElement<SVGGElement>,
     { edo, useSecondBestFifth }: { edo: Edo; useSecondBestFifth: boolean },
