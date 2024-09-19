@@ -7,11 +7,12 @@ import {
     TITLE_FONT_SIZE,
     TOP_MARGIN,
 } from "./constants"
+import { NodeElement } from "./types"
 
 const BOTH_SIDES: number = 2
 
 const setDiagramSizeAndGetDiagramWidth = (svgDocument: Document): Px => {
-    const svg: SVGSVGElement = svgDocument.getElementsByTagName("svg")[0]
+    const svg: NodeElement<SVGGElement> = svgDocument.getElementsByTagName("svg")[0] as NodeElement<SVGGElement>
 
     const height: Px = (parseInt(svg.getAttribute("height") || "0") +
         TOP_MARGIN +

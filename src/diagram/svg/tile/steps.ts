@@ -1,4 +1,3 @@
-import { Element } from "@xmldom/xmldom"
 import { HexColor, Px } from "@sagittal/general"
 import {
     computeFifthStep,
@@ -11,13 +10,14 @@ import {
 import { LIMMA_AND_SHARP_Y_OFFSET, OPEN_SANS_SEMIBOLD_FONT_FILE, STEP_FONT_SIZE, TILE_SIZE, WHOLE_TONE_X_OFFSET, WHOLE_TONE_Y_OFFSET } from "../constants"
 import { addText } from "../text"
 import { Justification } from "./types"
+import { NodeElement } from "../types"
 
 const LIMMA_COLOR: HexColor = "#769200" as HexColor
 const WHOLE_TONE_COLOR: HexColor = "#C00000" as HexColor
 const SHARP_COLOR: HexColor = "#0070C0" as HexColor
 
 const addWholeTone = async (
-    tileGroupElement: Element & SVGGElement,
+    tileGroupElement: NodeElement<SVGGElement>,
     { edo, fifthStep }: { edo: Edo; fifthStep: EdoStep },
 ): Promise<void> => {
     const wholeToneStep = computeWholeToneStep(edo, fifthStep)
@@ -33,7 +33,7 @@ const addWholeTone = async (
 }
 
 const addLimma = async (
-    tileGroupElement: Element & SVGGElement,
+    tileGroupElement: NodeElement<SVGGElement>,
     { edo, fifthStep }: { edo: Edo; fifthStep: EdoStep },
 ): Promise<void> => {
     const limmaStep = computeLimmaStep(edo, fifthStep)
@@ -49,7 +49,7 @@ const addLimma = async (
 }
 
 const addSharp = async (
-    tileGroupElement: Element & SVGGElement,
+    tileGroupElement: NodeElement<SVGGElement>,
     { edo, fifthStep }: { edo: Edo; fifthStep: EdoStep },
 ): Promise<void> => {
     const sharpStep = computeSharpStep(edo, fifthStep)
@@ -65,7 +65,7 @@ const addSharp = async (
 }
 
 const addSteps = async (
-    tileGroupElement: Element & SVGGElement,
+    tileGroupElement: NodeElement<SVGGElement>,
     { edo, useSecondBestFifth }: { edo: Edo; useSecondBestFifth: boolean },
 ): Promise<void> => {
     const fifthStep = computeFifthStep(edo, useSecondBestFifth)

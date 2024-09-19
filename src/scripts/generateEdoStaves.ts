@@ -33,6 +33,11 @@ if (edoString.match(/b/)) {
 }
 const edo: Edo = parseInt(edoString) as Edo
 
+// TODO: actually this should be even smarter, and even if you ask for e.g. Revo when Revo === Evo,
+// it should warn you of this on the console, then generate a diagram with a general name?
+// so always check all flavors, even when you give a flavor?
+// here's the plan: https://docs.google.com/spreadsheets/d/1qWXZb4KO2Y12HYF7Ln_XH1-dvDR2o5Ldwh4K_7dgM28/edit?gid=0#gid=0
+
 if (isUndefined(flavorString)) {
     const defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
         Sentence)[] =

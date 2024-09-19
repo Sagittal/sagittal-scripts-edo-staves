@@ -17,6 +17,7 @@ const generateGeneralDiagram = async (
     }: { dryRun: boolean; useSecondBestFifth: boolean },
 ): Promise<void> =>
     await generateDiagram(inputSentences, edo, {
+        // TODO: flavorTitlePart instead of formattedFlavorName
         formattedFlavorName: "",
         flavorIndex: REVO_FLAVOR_INDEX,
         dryRun,

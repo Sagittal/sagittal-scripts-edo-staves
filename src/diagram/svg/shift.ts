@@ -1,4 +1,4 @@
-import { Document, Node } from "@xmldom/xmldom"
+import { Document } from "@xmldom/xmldom"
 import {
     LEFT_AND_RIGHT_MARGIN,
     OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION,
@@ -6,12 +6,13 @@ import {
     TITLE_FONT_SIZE,
     TOP_MARGIN,
 } from "./constants"
+import { NodeElement } from "./types"
 
 // shift staves down to make space for title and tile, and slightly to the right
 const shiftStaves = (svgDocument: Document): void => {
-    const staveGroupElements: (Node & SVGGElement)[] = Array.from(svgDocument.getElementsByTagName("g")) as (Node & SVGGElement)[]
+    const staveGroupElements: NodeElement<SVGGElement>[] = Array.from(svgDocument.getElementsByTagName("g")) as NodeElement<SVGGElement>[]
     
-    staveGroupElements.forEach((staveGroupElement: Node & SVGGElement): void => {
+    staveGroupElements.forEach((staveGroupElement: NodeElement<SVGGElement>): void => {
         const currentTransform: string =
             staveGroupElement.getAttribute("transform")!
         const currentTransformXAndYRegExpMatches: null | RegExpMatchArray =

@@ -1,12 +1,12 @@
-import { Element } from "@xmldom/xmldom"
 import { Px } from "@sagittal/general"
 import { Edo } from "@sagittal/system"
 import { TILE_SIZE, TILE_TEXT_FONT_SIZE, SANOMAT_FONT_FILE, EDO_Y_OFFSET } from "../constants"
 import { addText } from "../text"
 import { Justification } from "./types"
+import { NodeElement } from "../types"
 
 const addEdo = async (
-    tileGroupElement: Element & SVGGElement,
+    tileGroupElement: NodeElement<SVGGElement>,
     { edo, useSecondBestFifth }: { edo: Edo; useSecondBestFifth: boolean },
 ): Promise<void> => {
     await addText(

@@ -1,8 +1,9 @@
-import { Element, Node } from "@xmldom/xmldom"
+import { Element } from "@xmldom/xmldom"
 import { Filename, HexColor, Io, Px } from "@sagittal/general"
 import { Justification } from "./tile/types"
 import { getGroupWidth } from "./tile/width"
 import { textToSvgGroupElement } from "./textToGroup"
+import { NodeElement } from "./types"
 
 const addText = async (
     parentElement: Element,
@@ -22,8 +23,8 @@ const addText = async (
         color?: HexColor
         justification?: Justification
     },
-): Promise<Node & SVGGElement> => {
-    const textGroupElement: Node & SVGGElement = await textToSvgGroupElement(
+): Promise<NodeElement<SVGGElement>> => {
+    const textGroupElement: NodeElement<SVGGElement> = await textToSvgGroupElement(
         text,
         {
             fontFile,

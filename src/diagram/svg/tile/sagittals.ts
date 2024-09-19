@@ -1,4 +1,3 @@
-import { Element, Node } from "@xmldom/xmldom"
 import { computeInputSentenceUnicode } from "staff-code"
 import { Count, Io, Px, Sentence, Unicode } from "@sagittal/general"
 import {
@@ -24,11 +23,12 @@ import { getGroupWidth } from "./width"
 import { addText } from "../text"
 import { Justification } from "./types"
 import { textToSvgGroupElement } from "../textToGroup"
+import { NodeElement } from "../types"
 
 const SAGITTALS_SCALER_CHANGE_FACTOR: number = 1.1
 
 const addSubset = async (
-    tileGroupElement: Element & SVGGElement,
+    tileGroupElement: NodeElement<SVGGElement>,
     { supersetEdo }: { supersetEdo: Edo },
 ): Promise<void> => {
     await addText(tileGroupElement, `ss${supersetEdo}`, {
@@ -41,7 +41,7 @@ const addSubset = async (
 }
 
 const addSagittals = async (
-    tileGroupElement: Element & SVGGElement,
+    tileGroupElement: NodeElement<SVGGElement>,
     { edo, useSecondBestFifth }: { edo: Edo; useSecondBestFifth: boolean },
 ): Promise<void> => {
     const sagitypes: Sagitype[] = (
@@ -62,7 +62,7 @@ const addSagittals = async (
     let scaleChangeCount: Count = 0 as Count
     let sagittalsHaveBeenPlaced: boolean = false
     while (!sagittalsHaveBeenPlaced) {
-        const sagittalsGroupElement: Node & SVGGElement = await textToSvgGroupElement(
+        const sagittalsGroupElement: NodeElement<SVGGElement> = await textToSvgGroupElement(
             unicodeSentence,
             {
                 fontFile: BRAVURA_TEXT_SC_FONT_FILE,
@@ -90,7 +90,7 @@ const addSagittals = async (
 }
 
 const addSagittalsOrSubset = async (
-    tileGroupElement: Element & SVGGElement,
+    tileGroupElement: NodeElement<SVGGElement>,
     { edo, useSecondBestFifth }: { edo: Edo; useSecondBestFifth: boolean },
 ): Promise<void> => {
     const edoNotationDefinition: EdoNotationDefinition =

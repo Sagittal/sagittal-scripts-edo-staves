@@ -1,4 +1,4 @@
-import { Document, Element } from "@xmldom/xmldom"
+import { Document } from "@xmldom/xmldom"
 import { HexColor, Px } from "@sagittal/general"
 import { computeSectionColor, Edo } from "@sagittal/system"
 import {
@@ -7,6 +7,7 @@ import {
     TILE_SIZE,
     TILE_TOP_MARGIN,
 } from "../constants"
+import { NodeElement } from "../types"
 
 const addTileSquare = ({
     svgDocument,
@@ -18,11 +19,9 @@ const addTileSquare = ({
     diagramWidth: Px
     edo: Edo
     useSecondBestFifth: boolean
-}): Element & SVGGElement => {
-    const tileGroupElement: Element & SVGGElement = svgDocument.createElementNS(
-        SVG_NS,
-        "g",
-    ) as Element & SVGGElement
+}): NodeElement<SVGGElement> => {
+    const tileGroupElement: NodeElement<SVGGElement> =
+        svgDocument.createElementNS(SVG_NS, "g") as NodeElement<SVGGElement>
     tileGroupElement.setAttribute(
         "transform",
         `translate(${
@@ -31,8 +30,11 @@ const addTileSquare = ({
     )
 
     const sectionColor: HexColor = computeSectionColor(edo, useSecondBestFifth)
-    const tileRectElement: Element & SVGRectElement =
-        svgDocument.createElementNS(SVG_NS, "rect") as Element & SVGRectElement
+    const tileRectElement: NodeElement<SVGRectElement> =
+        svgDocument.createElementNS(
+            SVG_NS,
+            "rect",
+        ) as NodeElement<SVGRectElement>
     tileRectElement.setAttribute("width", TILE_SIZE.toString())
     tileRectElement.setAttribute("height", TILE_SIZE.toString())
     tileRectElement.setAttribute("fill", sectionColor)
