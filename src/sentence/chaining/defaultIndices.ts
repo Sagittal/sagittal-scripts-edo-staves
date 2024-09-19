@@ -5,10 +5,10 @@ import {
     EdoStep,
     NonSubsetEdoNotationDefinition,
     Spelling,
+    computeEdoNotationDefinition,
 } from "@sagittal/system"
 import { computeDefaultSingleSpellingLinkSpellings } from "./links"
 import { placeDefaultSingleSpellingSagittalSpelling } from "./sagittals"
-import { computeEdoNotationDefinition } from "../../definition"
 
 const computeIsLimmaNotation = (edo: Edo, useSecondBestFifth: boolean) =>
     !!(<NonSubsetEdoNotationDefinition>(

@@ -7,7 +7,7 @@ const computeWidth = ({
 }: {
     sagittalCodewords: (Code & Word)[]
     whorlCodewords: (Code & Word)[]
-}) => {
+}): Octals => {
     const whorlWidth: Octals = whorlCodewords.reduce(
         (totalWidth: Octals, whorlCodeword: Code & Word): Octals =>
             (totalWidth + computeCodewordWidth(whorlCodeword)) as Octals,

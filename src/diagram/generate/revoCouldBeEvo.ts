@@ -1,66 +1,24 @@
-import { dividesEvenly, Index, Max } from "@sagittal/general"
-import {
-    computeFifthStep,
-    computeLimmaStep,
-    computeSagittals,
-    computeSharpStep,
-    computeSubsetFactor,
-    Edo,
-    EdoNotationDefinition,
-    EdoStep,
-    Flavor,
-    isSubsetNotation,
-    NonSubsetEdoNotationDefinition,
-    Sagittal,
-    Sagitype,
-    Spelling,
-    SubsetFactor,
-} from "@sagittal/system"
-import { computeDefaultSpellings } from "../../sentence"
-import { computeEdoNotationDefinition } from "../../definition"
+import { Index, Max } from "@sagittal/general"
+import { Edo, Sagittal, Sagitype } from "@sagittal/system"
+import { computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes } from "../usedSagittals"
 
-const computeRevoCouldBeEvo = (inputEdo: Edo, useSecondBestFifth: boolean) => {
-    const edoNotationDefinition: EdoNotationDefinition =
-        computeEdoNotationDefinition(inputEdo, useSecondBestFifth)
-    let edo: Edo = isSubsetNotation(edoNotationDefinition)
-        ? edoNotationDefinition.supersetEdo
-        : inputEdo
-    const subsetFactor: SubsetFactor = computeSubsetFactor({
-        edo: inputEdo,
-        supersetEdo: edo,
-    })
-    const flavor: Flavor = Flavor.REVO
-    const sagitypes: Sagitype[] = (
-        computeEdoNotationDefinition(
-            edo,
-            useSecondBestFifth,
-        ) as NonSubsetEdoNotationDefinition
-    ).sagitypes
-    const fifthStep: EdoStep = computeFifthStep(edo, useSecondBestFifth)
-    const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
-    const limmaStep: EdoStep = computeLimmaStep(edo, fifthStep)
-    const sagittals: Sagittal[] = computeSagittals({
+const computeRevoCouldBeEvo = (
+    edo: Edo,
+    useSecondBestFifth: boolean,
+): boolean => {
+    const {
+        uniqueUsedAbsoluteSagittalIndices,
         sagitypes,
-        flavor,
-        sharpStep,
-    })
-
-    const defaultSingleSpellings: Spelling[] = computeDefaultSpellings({
+    }: {
+        uniqueUsedAbsoluteSagittalIndices: Index<Sagittal>[]
+        sagitypes: Sagitype[]
+    } = computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes(
         edo,
-        fifthStep,
-        sagittals,
-        flavor,
         useSecondBestFifth,
-        limmaStep,
-    })
-    const usedSpellings: Spelling[] = defaultSingleSpellings.filter(
-        (_: Spelling, step: number) => dividesEvenly(step, subsetFactor),
     )
-    const absoluteSagittalIndices: Index<Sagittal>[] = usedSpellings.map(
-        ({ sagittalIndex }) => Math.abs(sagittalIndex) as Index<Sagittal>,
-    )
+
     const maxSagittalIndex: Max<Index<Sagittal>> = Math.max(
-        ...absoluteSagittalIndices,
+        ...uniqueUsedAbsoluteSagittalIndices,
     ) as Max<Index<Sagittal>>
 
     return maxSagittalIndex <= sagitypes.length

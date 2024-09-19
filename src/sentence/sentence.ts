@@ -15,11 +15,11 @@ import {
     NonSubsetEdoNotationDefinition,
     computeLimmaStep,
     Spelling,
+    computeEdoNotationDefinition,
 } from "@sagittal/system"
 import { computeDefaultSpellings } from "./chaining"
 import { computeDiagramSteps, DiagramStep } from "./hydration"
 import { assembleAsStaffCodeInputSentence } from "./assembly"
-import { computeEdoNotationDefinition } from "../definition"
 
 const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
     edo: Edo,

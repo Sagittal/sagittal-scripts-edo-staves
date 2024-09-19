@@ -1,3 +1,4 @@
+import { Document, Node } from "@xmldom/xmldom"
 import {
     LEFT_AND_RIGHT_MARGIN,
     OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION,
@@ -7,28 +8,28 @@ import {
 } from "./constants"
 
 // shift staves down to make space for title and tile, and slightly to the right
-const shiftStavesDown = (svgDocument: Document): void => {
-    Array.from(svgDocument.getElementsByTagName("g")).forEach(
-        (svgGroupElementForStave: SVGGElement) => {
-            const currentTransform: string =
-                svgGroupElementForStave.getAttribute("transform")!
-            const currentTransformXAndYRegExpMatches: null | RegExpMatchArray =
-                currentTransform?.match(/translate\((\d+)\s+(\d+)\)/)
-            const currentTransformY: number = currentTransformXAndYRegExpMatches
-                ? parseInt(currentTransformXAndYRegExpMatches[2])
-                : 0
-            svgGroupElementForStave?.setAttribute(
-                "transform",
-                `translate(${LEFT_AND_RIGHT_MARGIN} ${
-                    currentTransformY +
-                    TOP_MARGIN +
-                    TITLE_FONT_SIZE +
-                    SUBTITLE_FONT_SIZE +
-                    OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION
-                })`,
-            )
-        },
-    )
+const shiftStaves = (svgDocument: Document): void => {
+    const staveGroupElements: (Node & SVGGElement)[] = Array.from(svgDocument.getElementsByTagName("g")) as (Node & SVGGElement)[]
+    
+    staveGroupElements.forEach((staveGroupElement: Node & SVGGElement): void => {
+        const currentTransform: string =
+            staveGroupElement.getAttribute("transform")!
+        const currentTransformXAndYRegExpMatches: null | RegExpMatchArray =
+            currentTransform?.match(/translate\((\d+)\s+(\d+)\)/)
+        const currentTransformY: number = currentTransformXAndYRegExpMatches
+            ? parseInt(currentTransformXAndYRegExpMatches[2])
+            : 0
+        staveGroupElement?.setAttribute(
+            "transform",
+            `translate(${LEFT_AND_RIGHT_MARGIN} ${
+                currentTransformY +
+                TOP_MARGIN +
+                TITLE_FONT_SIZE +
+                SUBTITLE_FONT_SIZE +
+                OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION
+            })`,
+        )
+    })
 }
 
-export { shiftStavesDown }
+export { shiftStaves }

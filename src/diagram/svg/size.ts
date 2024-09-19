@@ -1,3 +1,4 @@
+import { Document } from "@xmldom/xmldom"
 import { Px } from "@sagittal/general"
 import {
     BOTTOM_MARGIN,
@@ -9,8 +10,7 @@ import {
 
 const BOTH_SIDES: number = 2
 
-// double canvas height and width to make space for title and tile
-const setSvgSize = (svgDocument: Document): void => {
+const setDiagramSizeAndGetDiagramWidth = (svgDocument: Document): Px => {
     const svg: SVGSVGElement = svgDocument.getElementsByTagName("svg")[0]
 
     const height: Px = (parseInt(svg.getAttribute("height") || "0") +
@@ -22,6 +22,8 @@ const setSvgSize = (svgDocument: Document): void => {
         LEFT_AND_RIGHT_MARGIN * BOTH_SIDES) as Px
     svg.setAttribute("height", height.toString())
     svg.setAttribute("width", width.toString())
+
+    return width
 }
 
-export { setSvgSize }
+export { setDiagramSizeAndGetDiagramWidth }

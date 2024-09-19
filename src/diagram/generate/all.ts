@@ -4,7 +4,7 @@ import { computeTitle } from "./title"
 import { writeDiagramSvg } from "../svg"
 import { computeFilename } from "./filename"
 
-const generateDiagram = (
+const generateDiagram = async (
     inputSentences: (Io & Sentence)[],
     edo: Edo,
     {
@@ -18,7 +18,7 @@ const generateDiagram = (
         dryRun: boolean
         useSecondBestFifth: boolean
     },
-): void => {
+): Promise<void> => {
     const inputSentence: Io & Sentence = inputSentences[flavorIndex]
     const title: Io = computeTitle({
         edo,
@@ -33,7 +33,14 @@ const generateDiagram = (
 
     console.log(`\n\n${title}\n\n${inputSentence}`)
 
-    if (!dryRun) writeDiagramSvg(inputSentence, title, filename).then()
+    if (!dryRun)
+        await writeDiagramSvg({
+            inputSentence,
+            title,
+            filename,
+            edo,
+            useSecondBestFifth,
+        })
 }
 
 export { generateDiagram }

@@ -1,4 +1,4 @@
-import { Edo, EDO_NOTATION_DEFINITIONS, EdoNotationDefinition } from "@sagittal/system"
+import { Edo, EDO_NOTATION_DEFINITIONS, EdoNotationDefinition, SECOND_BEST_FIFTH_EDO_NOTATION_DEFINITION_INDEX } from "@sagittal/system"
 import { computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor } from "../sentence"
 import { Io, isUndefined, program, Sentence } from "@sagittal/general"
 import {
@@ -13,7 +13,6 @@ import {
     REVO_FLAVOR_INDEX,
     computeRevoCouldBeEvo,
 } from "../diagram"
-import { SECOND_BEST_FIFTH_EDO_NOTATION_DEFINITION_INDEX } from "../constants"
 
 program.option("-d, --dry-run")
 

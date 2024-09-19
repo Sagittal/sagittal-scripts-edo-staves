@@ -1,78 +1,82 @@
 import { Io, Sentence } from "@sagittal/general"
 import { Edo, Flavor } from "@sagittal/system"
-import { FORMATTED_FLAVOR_NAMES } from "./constants"
-import { EVO_FLAVOR_INDEX, EVO_SZ_FLAVOR_INDEX, REVO_FLAVOR_INDEX } from ".."
+import {
+    EVO_FLAVOR_INDEX,
+    EVO_SZ_FLAVOR_INDEX,
+    FORMATTED_FLAVOR_NAMES,
+    REVO_FLAVOR_INDEX,
+} from "./constants"
 import { generateDiagram } from "./all"
 
-const generateGeneralDiagram = (
+const generateGeneralDiagram = async (
     inputSentences: (Io & Sentence)[],
     edo: Edo,
     {
         dryRun,
         useSecondBestFifth,
     }: { dryRun: boolean; useSecondBestFifth: boolean },
-): void =>
-    generateDiagram(inputSentences, edo, {
+): Promise<void> =>
+    await generateDiagram(inputSentences, edo, {
         formattedFlavorName: "",
         flavorIndex: REVO_FLAVOR_INDEX,
         dryRun,
         useSecondBestFifth,
     })
 
-const generateEvoDiagram = (
+const generateEvoDiagram = async (
     inputSentences: (Io & Sentence)[],
     edo: Edo,
     {
         dryRun,
         useSecondBestFifth,
     }: { dryRun: boolean; useSecondBestFifth: boolean },
-): void =>
-    generateDiagram(inputSentences, edo, {
+): Promise<void> =>
+    await generateDiagram(inputSentences, edo, {
         formattedFlavorName: FORMATTED_FLAVOR_NAMES[Flavor.EVO],
         flavorIndex: EVO_FLAVOR_INDEX,
         dryRun,
         useSecondBestFifth,
     })
 
-const generateEvoSZDiagram = (
+const generateEvoSZDiagram = async (
     inputSentences: (Io & Sentence)[],
     edo: Edo,
     {
         dryRun,
         useSecondBestFifth,
     }: { dryRun: boolean; useSecondBestFifth: boolean },
-): void =>
-    generateDiagram(inputSentences, edo, {
+): Promise<void> =>
+    await generateDiagram(inputSentences, edo, {
         formattedFlavorName: FORMATTED_FLAVOR_NAMES[Flavor.EVO_SZ],
         flavorIndex: EVO_SZ_FLAVOR_INDEX,
         dryRun,
         useSecondBestFifth,
     })
 
-const generateRevoDiagram = (
+const generateRevoDiagram = async (
     inputSentences: (Io & Sentence)[],
     edo: Edo,
     {
         dryRun,
         useSecondBestFifth,
     }: { dryRun: boolean; useSecondBestFifth: boolean },
-): void =>
-    generateDiagram(inputSentences, edo, {
+): Promise<void> =>
+    await generateDiagram(inputSentences, edo, {
         formattedFlavorName: FORMATTED_FLAVOR_NAMES[Flavor.REVO],
         flavorIndex: REVO_FLAVOR_INDEX,
         dryRun,
         useSecondBestFifth,
     })
 
-const generateAlternativeEvoDiagram = (
+const generateAlternativeEvoDiagram = async (
     inputSentences: (Io & Sentence)[],
     edo: Edo,
     {
         dryRun,
         useSecondBestFifth,
     }: { dryRun: boolean; useSecondBestFifth: boolean },
-): void =>
-    generateDiagram(inputSentences, edo, {
+): Promise<void> =>
+    await generateDiagram(inputSentences, edo, {
         formattedFlavorName: `Alternative ${
             FORMATTED_FLAVOR_NAMES[Flavor.EVO]
         }`,

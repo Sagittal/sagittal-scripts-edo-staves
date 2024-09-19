@@ -8,7 +8,7 @@ import {
     mod,
 } from "@sagittal/general"
 import { Edo, EdoStep, Link, Sagittal, Spelling } from "@sagittal/system"
-import {  Priority, Way } from "./types"
+import { Priority, Way } from "./types"
 import { chooseSpelling } from "./choose"
 import { MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL } from "./constants"
 
@@ -164,7 +164,7 @@ const placeSagittalsAccordingToPriorities = (
     sagittals: Sagittal[],
     priorities: Priority[],
     { edo }: { edo: Edo },
-) => {
+): Spelling[] => {
     computeRange(sagittals.length as Count<Sagittal>).forEach(
         (sagittalZeroIndex: number): void => {
             const placingSagittalIndex = (sagittalZeroIndex +

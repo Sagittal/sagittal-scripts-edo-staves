@@ -1,4 +1,4 @@
-import { DOMParser, XMLSerializer } from "xmldom"
+import { DOMParser, XMLSerializer, Document } from "@xmldom/xmldom"
 
 const getSvgDocumentFromString = (svgString: string): Document => {
     const parser: DOMParser = new DOMParser()

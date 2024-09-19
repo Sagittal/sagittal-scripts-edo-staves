@@ -1,43 +1,37 @@
-import { Io } from "@sagittal/general"
+import { Document } from "@xmldom/xmldom"
+import { Io, Px } from "@sagittal/general"
 import {
     TITLE_FONT_SIZE,
     LEFT_AND_RIGHT_MARGIN,
-    TITLE_FONT_NAME,
-    TOP_MARGIN,
-    SUBTITLE_FONT_NAME,
     SUBTITLE_FONT_SIZE,
+    SANOMAT_FONT_FILE,
+    OPEN_SANS_REGULAR_FONT_FILE,
+    TITLE_Y_OFFSET,
+    SUBTITLE_FURTHER_Y_OFFSET,
 } from "./constants"
+import { addText } from "./text"
 
-const addTitle = (svgDocument: Document, title: Io): void => {
-    const titleTextNode: Text = svgDocument.createTextNode(title)
-    const titleTextElement: HTMLElement = svgDocument.createElement("text")
-    const titleGroupElement: HTMLElement = svgDocument.createElement("g")
-    titleGroupElement.setAttribute(
-        "transform",
-        `translate(${LEFT_AND_RIGHT_MARGIN}, ${TOP_MARGIN})`,
-    )
-    titleTextElement.setAttribute("font-family", TITLE_FONT_NAME)
-    titleTextElement.setAttribute("font-size", TITLE_FONT_SIZE.toString())
-    titleTextElement.setAttribute("fill", "black")
-    titleTextElement.appendChild(titleTextNode)
-    titleGroupElement.appendChild(titleTextElement)
-    svgDocument.documentElement.appendChild(titleGroupElement)
+const addTitle = async (svgDocument: Document, title: Io): Promise<void> => {
+    await addText(svgDocument.documentElement!, title, {
+        fontFile: SANOMAT_FONT_FILE,
+        fontSize: TITLE_FONT_SIZE,
+        xOffset: LEFT_AND_RIGHT_MARGIN,
+        yOffset: TITLE_Y_OFFSET,
+    })
 }
 
-const addSubtitle = (svgDocument: Document, subtitle: Io): void => {
-    const subtitleTextNode: Text = svgDocument.createTextNode(subtitle)
-    const subtitleTextElement: HTMLElement = svgDocument.createElement("text")
-    const subtitleGroupElement: HTMLElement = svgDocument.createElement("g")
-    subtitleGroupElement.setAttribute(
-        "transform",
-        `translate(${LEFT_AND_RIGHT_MARGIN}, ${TOP_MARGIN + TITLE_FONT_SIZE})`,
-    )
-    subtitleTextElement.setAttribute("font-family", SUBTITLE_FONT_NAME)
-    subtitleTextElement.setAttribute("font-size", SUBTITLE_FONT_SIZE.toString())
-    subtitleTextElement.setAttribute("fill", "black")
-    subtitleTextElement.appendChild(subtitleTextNode)
-    subtitleGroupElement.appendChild(subtitleTextElement)
-    svgDocument.documentElement.appendChild(subtitleGroupElement)
+const addSubtitle = async (
+    svgDocument: Document,
+    subtitle: Io,
+): Promise<void> => {
+    await addText(svgDocument.documentElement!, subtitle, {
+        fontFile: OPEN_SANS_REGULAR_FONT_FILE,
+        fontSize: SUBTITLE_FONT_SIZE,
+        xOffset: LEFT_AND_RIGHT_MARGIN,
+        yOffset: (TITLE_Y_OFFSET +
+            TITLE_FONT_SIZE +
+            SUBTITLE_FURTHER_Y_OFFSET) as Px,
+    })
 }
 
 export { addTitle, addSubtitle }
