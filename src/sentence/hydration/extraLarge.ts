@@ -1,6 +1,6 @@
 import { computeWholeToneStep, Edo, EdoStep } from "@sagittal/system"
 import { MAX_STEP_COUNT_PER_STAVE } from "./constants"
-import { StepCountsByStave } from "./types"
+import { Folding } from "./types"
 import { Count, Decimal } from "@sagittal/general"
 
 const computeIsExtraLargeEdo = (
@@ -8,20 +8,20 @@ const computeIsExtraLargeEdo = (
     { fifthStep }: { fifthStep: EdoStep },
 ) => computeWholeToneStep(edo, fifthStep) > MAX_STEP_COUNT_PER_STAVE
 
-const computeExtraLargeEdoStepCountsByStave = (edo: Edo): StepCountsByStave => {
-    const stepCountsByStave: StepCountsByStave = []
+const computeExtraLargeEdoFolding = (edo: Edo): Folding => {
+    const folding: Folding = []
     let remainingSteps: Count<EdoStep> = edo as Decimal<{
         integer: true
     }> as Count<EdoStep>
 
     while (remainingSteps >= MAX_STEP_COUNT_PER_STAVE) {
-        stepCountsByStave.push(MAX_STEP_COUNT_PER_STAVE)
+        folding.push(MAX_STEP_COUNT_PER_STAVE)
         remainingSteps = (remainingSteps -
             MAX_STEP_COUNT_PER_STAVE) as Count<EdoStep>
     }
-    stepCountsByStave.push(remainingSteps)
+    folding.push(remainingSteps)
 
-    return stepCountsByStave
+    return folding
 }
 
-export { computeIsExtraLargeEdo, computeExtraLargeEdoStepCountsByStave }
+export { computeIsExtraLargeEdo, computeExtraLargeEdoFolding }

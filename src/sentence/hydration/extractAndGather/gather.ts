@@ -10,7 +10,7 @@ import {
     SubsetFactor,
 } from "@sagittal/system"
 import { Stave } from "../../types"
-import { StepCountsByStave, HydrationState, Codewords } from "../types"
+import { Folding, HydrationState, Codewords } from "../types"
 import { extractDiagramStepParameters } from "./extract"
 
 const gatherDiagramStepParameters = (
@@ -21,7 +21,7 @@ const gatherDiagramStepParameters = (
         subsetFactor,
         hydrationState,
         maxStaveIndex,
-        stepCountsByStave,
+        folding,
         sharpStep,
         edo,
     }: {
@@ -30,7 +30,7 @@ const gatherDiagramStepParameters = (
         subsetFactor?: SubsetFactor
         hydrationState: HydrationState
         maxStaveIndex: Max<Index<Stave>>
-        stepCountsByStave: StepCountsByStave
+        folding: Folding
         sharpStep: EdoStep
         edo: Edo
     },
@@ -68,7 +68,7 @@ const gatherDiagramStepParameters = (
     if (
         hydrationState.staveIndex < maxStaveIndex &&
         hydrationState.stepInStaveIndex ===
-            (stepCountsByStave[hydrationState.staveIndex] as Decimal<{
+            (folding[hydrationState.staveIndex] as Decimal<{
                 integer: true
             }> as Index<EdoStep>)
     ) {

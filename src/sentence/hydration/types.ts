@@ -6,7 +6,7 @@ import { Stave } from "../types"
 type WholeTone = { _WholeToneBrand: boolean }
 type Limma = { _LimmaBrand: boolean }
 
-enum EdoSizeCategory {
+enum FoldingCategory {
     SMALL = "small",
     SMALL_MEDIUM = "small medium",
     MEDIUM = "medium",
@@ -14,12 +14,12 @@ enum EdoSizeCategory {
     LARGE = "large",
 }
 
-interface StepCountParametersByStave {
+interface FoldingParameters {
     wholeToneCount: Count<WholeTone>
     limmaCount: Count<Limma>
 }
 
-type StepCountsByStave = Count<EdoStep>[]
+type Folding = Count<EdoStep>[]
 
 interface Codewords {
     sagittalCodewords: (Code & Word)[]
@@ -53,9 +53,9 @@ interface HydrationState {
 }
 
 export {
-    EdoSizeCategory,
-    StepCountParametersByStave,
-    StepCountsByStave,
+    FoldingCategory,
+    FoldingParameters,
+    Folding,
     WholeTone,
     Limma,
     DiagramStep,

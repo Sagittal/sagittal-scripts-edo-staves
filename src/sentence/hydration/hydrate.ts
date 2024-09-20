@@ -8,8 +8,8 @@ import {
     SubsetFactor,
 } from "@sagittal/system"
 import { Stave } from "../types"
-import { StepCountsByStave, HydrationState, DiagramStep } from "./types"
-import { computeStepCountsByStave } from "./stepCountsByStave"
+import { Folding, HydrationState, DiagramStep } from "./types"
+import { computeFolding } from "./folding"
 import { computeDiagramStepsFromGatheredParameters } from "./zip"
 import { gatherDiagramStepParameters } from "./extractAndGather"
 
@@ -35,15 +35,16 @@ const computeDiagramSteps = (
         isExtraLargeEdo: boolean
     },
 ): DiagramStep[] => {
-    const stepCountsByStave: StepCountsByStave = computeStepCountsByStave({
+    const folding: Folding = computeFolding({
         edo,
         fifthStep,
         limmaStep,
         isExtraLargeEdo,
     })
 
-    const maxStaveIndex: Max<Index<Stave>> = (stepCountsByStave.length -
-        1) as Max<Index<Stave>>
+    const maxStaveIndex: Max<Index<Stave>> = (folding.length - 1) as Max<
+        Index<Stave>
+    >
 
     const hydrationState: HydrationState = {
         stepInStaveIndex: 0 as Index<EdoStep>,
@@ -64,14 +65,14 @@ const computeDiagramSteps = (
             subsetFactor,
             hydrationState,
             maxStaveIndex,
-            stepCountsByStave,
+            folding,
             sharpStep,
             edo,
         })
     })
 
     return computeDiagramStepsFromGatheredParameters({
-        stepCountsByStave,
+        folding,
         codewordsList: hydrationState.codewordsList,
         widths: hydrationState.widths,
         nominals: hydrationState.nominals,

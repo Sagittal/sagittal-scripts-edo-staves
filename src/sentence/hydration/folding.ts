@@ -1,26 +1,26 @@
 import { Index, ZERO_ONE_INDEX_DIFF, Count } from "@sagittal/general"
 import { Edo, EdoStep, computeWholeToneStep } from "@sagittal/system"
 import {
-    StepCountParametersByStave,
-    StepCountsByStave,
-    EdoSizeCategory,
+    FoldingParameters,
+    Folding,
+    FoldingCategory,
     Limma,
     WholeTone,
 } from "./types"
 import { MAX_STEP_COUNT_PER_STAVE } from "./constants"
-import { computeExtraLargeEdoStepCountsByStave } from "./extraLarge"
+import { computeExtraLargeEdoFolding } from "./extraLarge"
 
-const STEP_COUNT_PARAMETERS_BY_STAVE_BY_EDO_SIZE_CATEGORY: Record<
-    EdoSizeCategory,
-    StepCountParametersByStave[]
+const FOLDING_PARAMETERS_BY_CATEGORY: Record<
+    FoldingCategory,
+    FoldingParameters[]
 > = {
-    [EdoSizeCategory.SMALL]: [
+    [FoldingCategory.SMALL]: [
         {
             wholeToneCount: 5 as Count<WholeTone>,
             limmaCount: 2 as Count<Limma>,
         },
     ],
-    [EdoSizeCategory.SMALL_MEDIUM]: [
+    [FoldingCategory.SMALL_MEDIUM]: [
         {
             wholeToneCount: 3 as Count<WholeTone>,
             limmaCount: 1 as Count<Limma>,
@@ -30,7 +30,7 @@ const STEP_COUNT_PARAMETERS_BY_STAVE_BY_EDO_SIZE_CATEGORY: Record<
             limmaCount: 1 as Count<Limma>,
         },
     ],
-    [EdoSizeCategory.MEDIUM]: [
+    [FoldingCategory.MEDIUM]: [
         {
             wholeToneCount: 2 as Count<WholeTone>,
             limmaCount: 1 as Count<Limma>,
@@ -44,7 +44,7 @@ const STEP_COUNT_PARAMETERS_BY_STAVE_BY_EDO_SIZE_CATEGORY: Record<
             limmaCount: 1 as Count<Limma>,
         },
     ],
-    [EdoSizeCategory.LARGE_MEDIUM]: [
+    [FoldingCategory.LARGE_MEDIUM]: [
         {
             wholeToneCount: 1 as Count<WholeTone>,
             limmaCount: 0 as Count<Limma>,
@@ -66,7 +66,7 @@ const STEP_COUNT_PARAMETERS_BY_STAVE_BY_EDO_SIZE_CATEGORY: Record<
             limmaCount: 1 as Count<Limma>,
         },
     ],
-    [EdoSizeCategory.LARGE]: [
+    [FoldingCategory.LARGE]: [
         {
             wholeToneCount: 1 as Count<WholeTone>,
             limmaCount: 0 as Count<Limma>,
@@ -98,7 +98,7 @@ const STEP_COUNT_PARAMETERS_BY_STAVE_BY_EDO_SIZE_CATEGORY: Record<
     ],
 }
 
-const MAX_STEP_COUNT_BY_STAVE_PARAMETERS_BY_DECREASING_EDO_SIZE_CATEGORY: StepCountParametersByStave[] =
+const FOLDING_PARAMETERS_BY_DECREASING_EDO_SIZE_FOLDING_CATEGORY: FoldingParameters[] =
     [
         {
             wholeToneCount: 1 as Count<WholeTone>,
@@ -122,11 +122,9 @@ const MAX_STEP_COUNT_BY_STAVE_PARAMETERS_BY_DECREASING_EDO_SIZE_CATEGORY: StepCo
         }, // small
     ]
 
-const EDO_SIZE_CATEGORIES: EdoSizeCategory[] = Object.values(EdoSizeCategory)
+const FOLDING_CATEGORIES: FoldingCategory[] = Object.values(FoldingCategory)
 
-// TODO: Dave calls these foldings
-
-const computeStepCountsByStave = ({
+const computeFolding = ({
     edo,
     isExtraLargeEdo,
     fifthStep,
@@ -136,44 +134,40 @@ const computeStepCountsByStave = ({
     isExtraLargeEdo: boolean
     fifthStep: EdoStep
     limmaStep: EdoStep
-}): StepCountsByStave => {
-    if (isExtraLargeEdo) return computeExtraLargeEdoStepCountsByStave(edo)
+}): Folding => {
+    if (isExtraLargeEdo) return computeExtraLargeEdoFolding(edo)
 
     const wholeToneStep: EdoStep = computeWholeToneStep(edo, fifthStep)
 
-    const edoSizeCategoryInverseIndex: Index<EdoSizeCategory> =
-        MAX_STEP_COUNT_BY_STAVE_PARAMETERS_BY_DECREASING_EDO_SIZE_CATEGORY.reduce(
+    const foldingCategoryInverseIndex: Index<FoldingCategory> =
+        FOLDING_PARAMETERS_BY_DECREASING_EDO_SIZE_FOLDING_CATEGORY.reduce(
             (
-                chosenEdoSizeCategoryInverseIndex: Index<EdoSizeCategory>,
-                { wholeToneCount, limmaCount }: StepCountParametersByStave,
-                edoSizeCategoryInverseIndex: number,
-            ): Index<EdoSizeCategory> =>
+                chosenFoldingCategoryInverseIndex: Index<FoldingCategory>,
+                { wholeToneCount, limmaCount }: FoldingParameters,
+                foldingCategoryInverseIndex: number,
+            ): Index<FoldingCategory> =>
                 wholeToneCount * wholeToneStep + limmaCount * limmaStep <=
                 MAX_STEP_COUNT_PER_STAVE
-                    ? (edoSizeCategoryInverseIndex as Index<EdoSizeCategory>)
-                    : chosenEdoSizeCategoryInverseIndex,
-            0 as Index<EdoSizeCategory>,
+                    ? (foldingCategoryInverseIndex as Index<FoldingCategory>)
+                    : chosenFoldingCategoryInverseIndex,
+            0 as Index<FoldingCategory>,
         )
-    const edoSizeCategoryIndex: Index<EdoSizeCategory> =
-        (EDO_SIZE_CATEGORIES.length -
+    const foldingCategoryIndex: Index<FoldingCategory> =
+        (FOLDING_CATEGORIES.length -
             ZERO_ONE_INDEX_DIFF -
-            edoSizeCategoryInverseIndex) as Index<EdoSizeCategory>
-    const edoSizeCategory: EdoSizeCategory =
-        EDO_SIZE_CATEGORIES[edoSizeCategoryIndex]
+            foldingCategoryInverseIndex) as Index<FoldingCategory>
+    const foldingCategory: FoldingCategory =
+        FOLDING_CATEGORIES[foldingCategoryIndex]
 
-    const stepCountParametersByStaves: StepCountParametersByStave[] =
-        STEP_COUNT_PARAMETERS_BY_STAVE_BY_EDO_SIZE_CATEGORY[edoSizeCategory]
-    const stepCountsByStave: StepCountsByStave =
-        stepCountParametersByStaves.map(
-            ({
-                wholeToneCount,
-                limmaCount,
-            }: StepCountParametersByStave): Count<EdoStep> =>
-                (wholeToneCount * wholeToneStep +
-                    limmaCount * limmaStep) as Count<EdoStep>,
-        )
+    const foldingParameters: FoldingParameters[] =
+        FOLDING_PARAMETERS_BY_CATEGORY[foldingCategory]
+    const folding: Folding = foldingParameters.map(
+        ({ wholeToneCount, limmaCount }: FoldingParameters): Count<EdoStep> =>
+            (wholeToneCount * wholeToneStep +
+                limmaCount * limmaStep) as Count<EdoStep>,
+    )
 
-    return stepCountsByStave
+    return folding
 }
 
-export { computeStepCountsByStave }
+export { computeFolding }

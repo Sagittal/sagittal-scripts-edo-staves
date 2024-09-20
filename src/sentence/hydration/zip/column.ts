@@ -1,14 +1,14 @@
 import { computeRange, Count, Index, max, Max } from "@sagittal/general"
-import { StepCountsByStave } from "../types"
+import { Folding } from "../types"
 import { EdoStep } from "@sagittal/system"
 
 const alignParametersByColumn = <T>(
     diagramStepParameters: T[],
-    stepCountsByStave: StepCountsByStave,
+    folding: Folding,
 ): T[][] => {
     let furthestStepAligned: Index<EdoStep> = 0 as Index<EdoStep>
 
-    return stepCountsByStave.map((stepCountByStave: Count<EdoStep>): T[] => {
+    return folding.map((stepCountByStave: Count<EdoStep>): T[] => {
         const diagramStepParametersStave: T[] = diagramStepParameters.slice(
             furthestStepAligned,
             furthestStepAligned + stepCountByStave,
@@ -22,18 +22,20 @@ const alignParametersByColumn = <T>(
 }
 
 const applyByColumns = <T, U>(
-    aligneddiagramStepParameters: T[][],
-    stepCountsByStave: StepCountsByStave,
+    alignedDiagramStepParameters: T[][],
+    folding: Folding,
     columnFunction: (column: T[]) => U,
     fallbackValue: T,
 ): U[] => {
-    const maxStaveLength: Max<Count<EdoStep>> = max(...stepCountsByStave)
+    const maxStaveLength: Max<Count<EdoStep>> = max(...folding)
 
     return computeRange(maxStaveLength).map((columnIndex: number): U => {
-        const diagramStepParametersColumn: T[] = aligneddiagramStepParameters.map(
-            (aligneddiagramStepParametersStave: T[]): T =>
-                aligneddiagramStepParametersStave[columnIndex] || fallbackValue,
-        )
+        const diagramStepParametersColumn: T[] =
+            alignedDiagramStepParameters.map(
+                (alignedDiagramStepParametersStave: T[]): T =>
+                    alignedDiagramStepParametersStave[columnIndex] ||
+                    fallbackValue,
+            )
 
         return columnFunction(diagramStepParametersColumn)
     })
@@ -41,16 +43,13 @@ const applyByColumns = <T, U>(
 
 const computeResultByColumn = <T, U>(
     diagramStepParameters: T[],
-    stepCountsByStave: StepCountsByStave,
+    folding: Folding,
     columnFunction: (column: T[]) => U,
     fallbackValue: T,
 ): U[] =>
     applyByColumns(
-        alignParametersByColumn(
-            diagramStepParameters,
-            stepCountsByStave,
-        ),
-        stepCountsByStave,
+        alignParametersByColumn(diagramStepParameters, folding),
+        folding,
         columnFunction,
         fallbackValue,
     )

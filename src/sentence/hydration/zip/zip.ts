@@ -2,12 +2,12 @@ import { Octals } from "staff-code"
 import { Index, Maybe } from "@sagittal/general"
 import { EdoStep, Nominal } from "@sagittal/system"
 import { Stave } from "../../types"
-import { Codewords, DiagramStep, StepCountsByStave } from "../types"
+import { Codewords, DiagramStep, Folding } from "../types"
 import { computeLefthandSpacing } from "./spacing"
 import { computeSituationReC4 } from "./c4"
 
 const computeDiagramStepsFromGatheredParameters = ({
-    stepCountsByStave,
+    folding,
     codewordsList,
     widths,
     nominals,
@@ -15,7 +15,7 @@ const computeDiagramStepsFromGatheredParameters = ({
     staveIndices,
     areC4s,
 }: {
-    stepCountsByStave: StepCountsByStave
+    folding: Folding
     codewordsList: Codewords[]
     widths: Octals[]
     subsetExclusions: Maybe<boolean>[]
@@ -32,12 +32,12 @@ const computeDiagramStepsFromGatheredParameters = ({
             lefthandSpacing: computeLefthandSpacing({
                 widths,
                 step: step as EdoStep,
-                stepCountsByStave,
+                folding,
             }),
             situationReC4: computeSituationReC4({
                 areC4s,
                 edoStep: step as EdoStep,
-                stepCountsByStave,
+                folding,
             }),
         }),
     )
