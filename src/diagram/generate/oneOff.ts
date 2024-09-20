@@ -2,7 +2,7 @@ import { Filename, Io, Sentence } from "@sagittal/general"
 import { EdoName, Flavor } from "@sagittal/system"
 import { computeTitle } from "./title"
 import { writeDiagramSvg } from "../svg"
-import { EVO_FLAVOR_INDEX, FORMATTED_FLAVOR_NAMES } from "./constants"
+import { EVO_FLAVOR_INDEX, FORMATTED_FLAVOR_NAMES, GENERAL_FLAVOR_INDEX } from "./constants"
 
 const ONE_OFF_FILENAME: Filename = `one-off.svg` as Filename
 
@@ -29,7 +29,7 @@ const generateOneOffGeneralDiagram = async (
     inputSentences: (Io & Sentence)[],
     edoName: EdoName,
 ): Promise<void> => {
-    const inputSentence: Io & Sentence = inputSentences[EVO_FLAVOR_INDEX]
+    const inputSentence: Io & Sentence = inputSentences[GENERAL_FLAVOR_INDEX]
     const title: Io = computeTitle({
         edoName,
         flavorTitlePart: "",
@@ -44,4 +44,23 @@ const generateOneOffGeneralDiagram = async (
     })
 }
 
-export { generateOneOffDiagram, generateOneOffGeneralDiagram }
+const generateOneOffAlternateEvoDiagram = async (
+    inputSentences: (Io & Sentence)[],
+    edoName: EdoName,
+): Promise<void> => {
+    const inputSentence: Io & Sentence = inputSentences[EVO_FLAVOR_INDEX]
+    const title: Io = computeTitle({
+        edoName,
+        flavorTitlePart: `Alternative ${FORMATTED_FLAVOR_NAMES[Flavor.EVO]}`,
+    })
+    const filename = ONE_OFF_FILENAME
+
+    await writeDiagramSvg({
+        inputSentence,
+        title,
+        filename,
+        edoName,
+    })
+}
+
+export { generateOneOffDiagram, generateOneOffGeneralDiagram, generateOneOffAlternateEvoDiagram }

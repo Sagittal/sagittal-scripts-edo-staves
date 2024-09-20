@@ -4,10 +4,8 @@ import {
     EdoName,
     parseEdoName,
 } from "@sagittal/system"
-import { computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor } from "../sentence"
 import { Io, isUndefined, Max, program, Sentence } from "@sagittal/general"
 import {
-    extractKeyInfoFromInputSentence,
     EVO_FLAVOR_INDEX,
     EVO_SZ_FLAVOR_INDEX,
     generateEvoDiagram,
@@ -16,8 +14,8 @@ import {
     generateRevoDiagram,
     generateAlternativeEvoDiagram,
     REVO_FLAVOR_INDEX,
-    computeRevoCouldBeEvo,
 } from "../diagram"
+import { getInfos } from "../diagram/generate/infos"
 
 program
     .option("-d, --dry-run")
@@ -39,18 +37,16 @@ edoNames.forEach((edoName: EdoName): void => {
     const edo: Edo = parseEdoName(edoName).edo
     if (edo > maxEdo) return
 
-    const defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
-        Sentence)[] =
-        computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor(
-            edoName,
-        )
-
-    const revoCouldBeEvo: boolean = computeRevoCouldBeEvo(edoName)
-
-    const keyInfos: Sentence[] =
-        defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor.map(
-            extractKeyInfoFromInputSentence,
-        )
+    const {
+        defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+        revoCouldBeEvo,
+        keyInfos,
+    }: {
+        defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
+            Sentence)[]
+        revoCouldBeEvo: boolean
+        keyInfos: Sentence[]
+    } = getInfos(edoName)
 
     if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[EVO_SZ_FLAVOR_INDEX]) {
         if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[REVO_FLAVOR_INDEX]) {
@@ -62,7 +58,8 @@ edoNames.forEach((edoName: EdoName): void => {
             )
         } else {
             if (revoCouldBeEvo) {
-                // CASE 3.A:
+                // CASE 3.A: Evo and Evo-SZ identical, Revo different, 
+                // but Revo could be Evo, so Revo is general, and Evo(-SZ) is alt. Evo
                 generateGeneralDiagram(
                     defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
                     edoName,
@@ -74,7 +71,7 @@ edoNames.forEach((edoName: EdoName): void => {
                     { dryRun },
                 )
             } else {
-                // CASE 3: evo and evo_sz identical, revo different
+                // CASE 3: Evo and Evo-SZ identical, Revo different
                 generateEvoDiagram(
                     defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
                     edoName,
@@ -88,7 +85,7 @@ edoNames.forEach((edoName: EdoName): void => {
             }
         }
     } else if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[REVO_FLAVOR_INDEX]) {
-        // CASE 4: evo and revo identical, evo-sz different
+        // CASE 4: Evo and Revo identical, Evo-SZ different (note: no current occurrences)
         generateGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoName,
@@ -101,7 +98,8 @@ edoNames.forEach((edoName: EdoName): void => {
         )
     } else {
         if (revoCouldBeEvo) {
-            // CASE 1.A:
+            // CASE 1.A: none identical, but Revo could be Evo, 
+            // so Revo is general, Evo is alt. Evo, and Evo-SZ is Evo-SZ
             generateGeneralDiagram(
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
                 edoName,

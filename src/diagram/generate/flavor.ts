@@ -5,6 +5,7 @@ import {
     EVO_SZ_FLAVOR_INDEX,
     FORMATTED_FLAVOR_NAMES,
     REVO_FLAVOR_INDEX,
+    GENERAL_FLAVOR_INDEX,
 } from "./constants"
 import { generateDiagram } from "./all"
 
@@ -15,7 +16,7 @@ const generateGeneralDiagram = async (
 ): Promise<void> =>
     await generateDiagram(inputSentences, edoName, {
         flavorTitlePart: "",
-        flavorIndex: REVO_FLAVOR_INDEX,
+        flavorIndex: GENERAL_FLAVOR_INDEX,
         dryRun,
     })
 
