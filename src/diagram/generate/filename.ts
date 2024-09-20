@@ -1,19 +1,23 @@
 import { Filename, Io } from "@sagittal/general"
-import { Edo } from "@sagittal/system"
+import { Edo, EdoName, parseEdoName } from "@sagittal/system"
 import { embedEdoPart, embedFormattedFlavorName } from "./embed"
 
 const computeFilename = ({
-    edo,
-    useSecondBestFifth,
+    edoName,
     flavorTitlePart,
 }: {
-    edo: Edo
-    useSecondBestFifth: boolean
+    edoName: EdoName
     flavorTitlePart: Io
-}): Filename =>
-    `${edo}${embedEdoPart(useSecondBestFifth)}${embedFormattedFlavorName(
+}): Filename => {
+    const {
+        edo,
+        useSecondBestFifth,
+    }: { edo: Edo; useSecondBestFifth: boolean } = parseEdoName(edoName)
+
+    return `${edo}${embedEdoPart(useSecondBestFifth)}${embedFormattedFlavorName(
         flavorTitlePart,
         { useUnderscores: true },
     )}.svg` as Filename
+}
 
 export { computeFilename }

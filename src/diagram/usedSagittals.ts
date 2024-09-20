@@ -1,12 +1,13 @@
-import { computeDeepDistinct, dividesEvenly, Ed, Index, Max } from "@sagittal/general"
+import { computeDeepDistinct, dividesEvenly, Index } from "@sagittal/general"
 import {
-    computeEdoNotationDefinition,
     computeFifthStep,
     computeLimmaStep,
     computeSagittals,
     computeSharpStep,
     computeSubsetFactor,
     Edo,
+    EDO_NOTATION_DEFINITIONS,
+    EdoName,
     EdoNotationDefinition,
     EdoStep,
     Flavor,
@@ -18,28 +19,29 @@ import {
     SubsetFactor,
 } from "@sagittal/system"
 import { computeDefaultSpellings } from "../sentence"
+import { parseEdoName } from "@sagittal/system/dist/cjs/notations"
 
 const computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes = (
-    edo: Edo,
-    useSecondBestFifth: boolean,
+    edoName: EdoName,
 ): {
     uniqueUsedAbsoluteSagittalIndices: Index<Sagittal>[]
     sagitypes: Sagitype[]
 } => {
     const edoNotationDefinition: EdoNotationDefinition =
-        computeEdoNotationDefinition(edo, useSecondBestFifth)
-    let supersetEdo: Edo = isSubsetNotation(edoNotationDefinition)
-        ? edoNotationDefinition.supersetEdo
-        : edo
+        EDO_NOTATION_DEFINITIONS[edoName]
+    const edo: Edo = parseEdoName(edoName).edo
+    let supersetEdoName: EdoName = isSubsetNotation(edoNotationDefinition)
+        ? edoNotationDefinition.supersetEdoName
+        : edoName
+    const supersetEdo: Edo = parseEdoName(supersetEdoName).edo
     const subsetFactor: SubsetFactor = computeSubsetFactor({ edo, supersetEdo })
     const flavor: Flavor = Flavor.REVO
     const sagitypes: Sagitype[] = (
-        computeEdoNotationDefinition(
-            supersetEdo,
-            useSecondBestFifth,
-        ) as NonSubsetEdoNotationDefinition
+        EDO_NOTATION_DEFINITIONS[
+            supersetEdoName
+        ] as NonSubsetEdoNotationDefinition
     ).sagitypes
-    const fifthStep: EdoStep = computeFifthStep(supersetEdo, useSecondBestFifth)
+    const fifthStep: EdoStep = computeFifthStep(supersetEdoName)
     const sharpStep: EdoStep = computeSharpStep(supersetEdo, fifthStep)
     const limmaStep: EdoStep = computeLimmaStep(supersetEdo, fifthStep)
     const sagittals: Sagittal[] = computeSagittals({
@@ -49,11 +51,10 @@ const computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes = (
     })
 
     const defaultSingleSpellings: Spelling[] = computeDefaultSpellings({
-        edo: supersetEdo,
+        edoName: supersetEdoName,
         fifthStep,
         sagittals,
         flavor,
-        useSecondBestFifth,
         limmaStep,
     })
     const usedSpellings: Spelling[] = defaultSingleSpellings.filter(
@@ -64,11 +65,12 @@ const computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes = (
     )
 
     return {
-        uniqueUsedAbsoluteSagittalIndices: computeDeepDistinct(usedAbsoluteSagittalIndices)
-            .filter(
-                (usedAbsoluteSagittalIndex: Index<Sagittal>) =>
-                    usedAbsoluteSagittalIndex !== 0,
-            ),
+        uniqueUsedAbsoluteSagittalIndices: computeDeepDistinct(
+            usedAbsoluteSagittalIndices,
+        ).filter(
+            (usedAbsoluteSagittalIndex: Index<Sagittal>) =>
+                usedAbsoluteSagittalIndex !== 0,
+        ),
         sagitypes,
     }
 }

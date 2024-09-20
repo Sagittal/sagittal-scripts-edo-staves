@@ -1,13 +1,15 @@
 import { HexColor, Px } from "@sagittal/general"
 import {
-    computeEdoNotationDefinition,
     computeFifthStep,
     computeLimmaStep,
     computeSharpStep,
     computeWholeToneStep,
     Edo,
+    EDO_NOTATION_DEFINITIONS,
+    EdoName,
     EdoStep,
     isSubsetNotation,
+    parseEdoName,
 } from "@sagittal/system"
 import {
     LIMMA_AND_SHARP_Y_OFFSET,
@@ -75,13 +77,13 @@ const addSharp = async (
 
 const addSteps = async (
     tileGroupElement: NodeElement<SVGGElement>,
-    { edo, useSecondBestFifth }: { edo: Edo; useSecondBestFifth: boolean },
+    { edoName }: { edoName: EdoName },
 ): Promise<void> => {
-    if (isSubsetNotation(computeEdoNotationDefinition(edo, useSecondBestFifth)))
-        return
+    if (isSubsetNotation(EDO_NOTATION_DEFINITIONS[edoName])) return
 
-    const fifthStep = computeFifthStep(edo, useSecondBestFifth)
-
+    const fifthStep = computeFifthStep(edoName)
+    
+    const edo: Edo = parseEdoName(edoName).edo
     await addWholeTone(tileGroupElement, { edo, fifthStep })
     await addLimma(tileGroupElement, { edo, fifthStep })
     await addSharp(tileGroupElement, { edo, fifthStep })

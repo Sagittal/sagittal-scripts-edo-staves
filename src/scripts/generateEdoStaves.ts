@@ -1,5 +1,5 @@
 import { program } from "commander"
-import { Edo, Flavor } from "@sagittal/system"
+import { Flavor } from "@sagittal/system"
 import { Io, isUndefined, Sentence } from "@sagittal/general"
 import {
     computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence,
@@ -13,6 +13,7 @@ import {
     generateOneOffGeneralDiagram,
     REVO_FLAVOR_INDEX,
 } from "../diagram"
+import { EdoName, parseEdoName } from "@sagittal/system/dist/cjs/notations"
 
 program
     .option("-e, --edo <number>", "edo number")
@@ -20,18 +21,11 @@ program
 
 program.parse()
 let {
-    edo: edoString,
+    edo: edoName,
     flavor: flavorString,
-}: { edo: string; flavor: string } = program.opts()
+}: { edo: EdoName; flavor: string } = program.opts()
 
-if (isUndefined(edoString)) throw new Error("You must provide an EDO.")
-
-let useSecondBestFifth: boolean = false
-if (edoString.match(/b/)) {
-    edoString = edoString.slice(0, edoString.length - 1)
-    useSecondBestFifth = true
-}
-const edo: Edo = parseInt(edoString) as Edo
+if (isUndefined(edoName)) throw new Error("You must provide an EDO.")
 
 // TODO: actually this should be even smarter, and even if you ask for e.g. Revo when Revo === Evo,
 // it should warn you of this on the console, then generate a diagram with a general name?
@@ -41,10 +35,7 @@ const edo: Edo = parseInt(edoString) as Edo
 if (isUndefined(flavorString)) {
     const defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
         Sentence)[] =
-        computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor(
-            edo,
-            useSecondBestFifth
-        )
+        computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor(edoName)
     const keyInfos: Sentence[] =
         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor.map(
             extractKeyInfoFromInputSentence,
@@ -56,8 +47,7 @@ if (isUndefined(flavorString)) {
     ) {
         generateOneOffGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-            edo,
-            { useSecondBestFifth }
+            edoName,
         )
     } else {
         throw new Error("The notations differ by flavor for this EDO. You must specify a flavor.")
@@ -68,14 +58,13 @@ if (isUndefined(flavorString)) {
     const defaultSingleSpellingPerStepNotationAsStaffCodeInputSentence: Io &
         Sentence =
         computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-            edo,
+            edoName,
             flavor,
-            { useSecondBestFifth }
         )
 
     generateOneOffDiagram(
         defaultSingleSpellingPerStepNotationAsStaffCodeInputSentence,
-        edo,
-        { flavor, useSecondBestFifth },
+        edoName,
+        flavor,
     )
 }

@@ -1,8 +1,8 @@
 import { computeInputSentenceUnicode } from "staff-code"
 import { Count, Io, Px, Sentence, Unicode } from "@sagittal/general"
 import {
-    computeEdoNotationDefinition,
-    Edo,
+    EDO_NOTATION_DEFINITIONS,
+    EdoName,
     EdoNotationDefinition,
     isSubsetNotation,
     NonSubsetEdoNotationDefinition,
@@ -28,9 +28,9 @@ const SAGITTALS_SCALER_CHANGE_FACTOR: number = 1.1
 
 const addSubset = async (
     tileGroupElement: NodeElement<SVGGElement>,
-    { supersetEdo }: { supersetEdo: Edo },
+    { supersetEdoName }: { supersetEdoName: EdoName },
 ): Promise<void> => {
-    await addText(tileGroupElement, `ss${supersetEdo}`, {
+    await addText(tileGroupElement, `ss${supersetEdoName}`, {
         fontFile: SANOMAT_FONT_FILE,
         fontSize: TILE_TEXT_FONT_SIZE,
         xOffset: (TILE_SIZE / 2) as Px,
@@ -41,13 +41,10 @@ const addSubset = async (
 
 const addSagittals = async (
     tileGroupElement: NodeElement<SVGGElement>,
-    { edo, useSecondBestFifth }: { edo: Edo; useSecondBestFifth: boolean },
+    edoName: EdoName,
 ): Promise<void> => {
     const sagitypes: Sagitype[] = (
-        computeEdoNotationDefinition(
-            edo,
-            useSecondBestFifth,
-        ) as NonSubsetEdoNotationDefinition
+        EDO_NOTATION_DEFINITIONS[edoName] as NonSubsetEdoNotationDefinition
     ).sagitypes
 
     if (sagitypes.length === 0) return
@@ -61,13 +58,12 @@ const addSagittals = async (
     let scaleChangeCount: Count = 0 as Count
     let sagittalsHaveBeenPlaced: boolean = false
     while (!sagittalsHaveBeenPlaced) {
-        const sagittalsGroupElement: NodeElement<SVGGElement> = await textToSvgGroupElement(
-            unicodeSentence,
-            {
+        const sagittalsGroupElement: NodeElement<SVGGElement> =
+            await textToSvgGroupElement(unicodeSentence, {
                 fontFile: BRAVURA_TEXT_SC_FONT_FILE,
-                fontSize: (BRAVURA_TEXT_SC_TITLE_FONT_SIZE * sagittalsScaler) as Px,
-            },
-        )
+                fontSize: (BRAVURA_TEXT_SC_TITLE_FONT_SIZE *
+                    sagittalsScaler) as Px,
+            })
         sagittalsWidth = getGroupWidth(sagittalsGroupElement)
 
         if (sagittalsWidth > SAGITTALS_MAX_WIDTH) {
@@ -90,17 +86,17 @@ const addSagittals = async (
 
 const addSagittalsOrSubset = async (
     tileGroupElement: NodeElement<SVGGElement>,
-    { edo, useSecondBestFifth }: { edo: Edo; useSecondBestFifth: boolean },
+    { edoName }: { edoName: EdoName },
 ): Promise<void> => {
     const edoNotationDefinition: EdoNotationDefinition =
-        computeEdoNotationDefinition(edo, useSecondBestFifth)
+        EDO_NOTATION_DEFINITIONS[edoName]
 
     if (isSubsetNotation(edoNotationDefinition)) {
         await addSubset(tileGroupElement, {
-            supersetEdo: edoNotationDefinition.supersetEdo,
+            supersetEdoName: edoNotationDefinition.supersetEdoName,
         })
     } else {
-        await addSagittals(tileGroupElement, { edo, useSecondBestFifth })
+        await addSagittals(tileGroupElement, edoName)
     }
 }
 

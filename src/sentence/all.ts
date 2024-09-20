@@ -1,16 +1,15 @@
 import { Io, Sentence } from "@sagittal/general"
-import { Edo, Flavor } from "@sagittal/system"
+import { EdoName, Flavor } from "@sagittal/system"
 import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "./sentence"
 
 const FLAVORS: Flavor[] = Object.values(Flavor)
 
 const computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor =
-    (edo: Edo, useSecondBestFifth: boolean): (Io & Sentence)[] =>
+    (edoName: EdoName): (Io & Sentence)[] =>
         FLAVORS.map((flavor: Flavor): Io & Sentence =>
             computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                edo,
+                edoName,
                 flavor,
-                { useSecondBestFifth }
             ),
         )
 

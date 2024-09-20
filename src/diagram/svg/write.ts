@@ -9,6 +9,7 @@ import {
     textToSvg,
     Unicode,
 } from "@sagittal/general"
+import { EdoName } from "@sagittal/system"
 import { addSubtitle, addTitle } from "./titles"
 import {
     BRAVURA_TEXT_SC_FONT_FILE,
@@ -18,20 +19,17 @@ import { getSvgDocumentFromString, getSvgStringFromDocument } from "./document"
 import { setDiagramSizeAndGetDiagramWidth } from "./size"
 import { makeNicelyPngifiable, shiftStaves } from "./shift"
 import { addTile } from "./tile"
-import { Edo } from "@sagittal/system"
 
 const writeDiagramSvg = async ({
     inputSentence,
     title,
     filename,
-    edo,
-    useSecondBestFifth,
+    edoName,
 }: {
     inputSentence: Io & Sentence
     title: Io
     filename: Filename
-    edo: Edo
-    useSecondBestFifth: boolean
+    edoName: EdoName
 }): Promise<void> => {
     const unicodeSentence: Unicode & Sentence =
         computeInputSentenceUnicode(inputSentence)
@@ -46,7 +44,7 @@ const writeDiagramSvg = async ({
     shiftStaves(svgDocument)
     await addTitle(svgDocument, title)
     await addSubtitle(svgDocument, "(default spellings)")
-    await addTile(svgDocument, { edo, useSecondBestFifth, diagramWidth })
+    await addTile(svgDocument, { edoName, diagramWidth })
     makeNicelyPngifiable(svgDocument)
 
     svgString = getSvgStringFromDocument(svgDocument)

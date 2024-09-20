@@ -1,6 +1,6 @@
 import { Document } from "@xmldom/xmldom"
 import { Px } from "@sagittal/general"
-import { Edo } from "@sagittal/system"
+import { EdoName } from "@sagittal/system"
 import { addTileSquare } from "./square"
 import { addEdo } from "./edo"
 import { addSagittalsOrSubset } from "./sagittals"
@@ -11,38 +11,26 @@ import { NodeElement } from "../types"
 // TODO: need to account for e.g. 5-EDO where the title is longer than the stave
 // and needs to push the tile out to the right
 
-// TODO: perhaps I should add another type, EdoName, that is a branded string,
-// which could includes the "b" so I don't have to pass around this "useSecondBestFifth" so much
-
 const addTile = async (
     svgDocument: Document,
-    {
-        edo,
-        useSecondBestFifth,
-        diagramWidth,
-    }: { edo: Edo; useSecondBestFifth: boolean; diagramWidth: Px },
+    { edoName, diagramWidth }: { edoName: EdoName; diagramWidth: Px },
 ): Promise<void> => {
     const tileGroupElement: NodeElement<SVGGElement> = addTileSquare({
         svgDocument,
-        edo,
-        useSecondBestFifth,
+        edoName,
         diagramWidth,
     })
 
-    await addEdo(tileGroupElement, { edo, useSecondBestFifth })
+    await addEdo(tileGroupElement, { edoName })
 
-    await addSagittalsOrSubset(tileGroupElement, {
-        edo,
-        useSecondBestFifth,
-    })
+    await addSagittalsOrSubset(tileGroupElement, { edoName })
 
     maybeAddCornerTriangle(tileGroupElement, {
         svgDocument,
-        edo,
-        useSecondBestFifth,
+        edoName,
     })
 
-    await addSteps(tileGroupElement, { edo, useSecondBestFifth })
+    await addSteps(tileGroupElement, { edoName })
 }
 
 export { addTile }

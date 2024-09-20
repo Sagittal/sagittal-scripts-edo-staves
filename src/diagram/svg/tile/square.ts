@@ -1,6 +1,6 @@
 import { Document } from "@xmldom/xmldom"
 import { HexColor, Px } from "@sagittal/general"
-import { computeSectionColor, Edo } from "@sagittal/system"
+import { computeSectionColor, EdoName } from "@sagittal/system"
 import {
     LEFT_AND_RIGHT_MARGIN,
     SVG_NS,
@@ -12,13 +12,11 @@ import { NodeElement } from "../types"
 const addTileSquare = ({
     svgDocument,
     diagramWidth,
-    edo,
-    useSecondBestFifth,
+    edoName,
 }: {
     svgDocument: Document
     diagramWidth: Px
-    edo: Edo
-    useSecondBestFifth: boolean
+    edoName: EdoName
 }): NodeElement<SVGGElement> => {
     const tileGroupElement: NodeElement<SVGGElement> =
         svgDocument.createElementNS(SVG_NS, "g") as NodeElement<SVGGElement>
@@ -29,7 +27,7 @@ const addTileSquare = ({
         } ${TILE_TOP_MARGIN})`,
     )
 
-    const sectionColor: HexColor = computeSectionColor(edo, useSecondBestFifth)
+    const sectionColor: HexColor = computeSectionColor(edoName)
     const tileRectElement: NodeElement<SVGRectElement> =
         svgDocument.createElementNS(
             SVG_NS,

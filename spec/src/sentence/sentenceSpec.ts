@@ -1,4 +1,4 @@
-import { Edo, Flavor } from "@sagittal/system"
+import { Edo, EdoName, Flavor } from "@sagittal/system"
 import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "../../../src/sentence"
 import { extractKeyInfoFromInputSentence } from "../../../src/diagram"
 import { Io, Sentence } from "@sagittal/general"
@@ -185,9 +185,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 5-EDO Evo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    5 as Edo as Edo,
+                    "5" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -198,9 +197,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 11-EDO Evo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    11 as Edo,
+                    "11" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -211,9 +209,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 12-EDO Evo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    12 as Edo,
+                    "12" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -224,9 +221,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 15-EDO Evo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    15 as Edo,
+                    "15" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -237,9 +233,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 22-EDO Evo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    22 as Edo,
+                    "22" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -250,9 +245,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 31-EDO Evo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    31 as Edo,
+                    "31" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             const expected: Io & Sentence = `
@@ -285,9 +279,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 47-EDO Evo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    47 as Edo,
+                    "47" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -298,9 +291,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 52-EDO Evo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    52 as Edo,
+                    "52" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -311,9 +303,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 67-EDO Evo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    67 as Edo,
+                    "67" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -324,9 +315,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 72-EDO Evo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    72 as Edo,
+                    "72" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             const expected: Io & Sentence = `
@@ -369,9 +359,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 5-EDO Evo-SZ", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    5 as Edo as Edo,
+                    "5" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -382,9 +371,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 11-EDO Evo-SZ", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    11 as Edo,
+                    "11" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -395,9 +383,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 12-EDO Evo-SZ", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    12 as Edo,
+                    "12" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -408,9 +395,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 15-EDO Evo-SZ", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    15 as Edo,
+                    "15" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -421,9 +407,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 22-EDO Evo-SZ", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    22 as Edo,
+                    "22" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -434,9 +419,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 31-EDO Evo-SZ", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    31 as Edo,
+                    "31" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             const expected: Io & Sentence = `
@@ -469,9 +453,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 47-EDO Evo-SZ", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    47 as Edo,
+                    "47" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -482,9 +465,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 52-EDO Evo-SZ", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    52 as Edo,
+                    "52" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -495,9 +477,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 67-EDO Evo-SZ", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    67 as Edo,
+                    "67" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -508,9 +489,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 72-EDO Evo-SZ", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    72 as Edo,
+                    "72" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             const expected: Io & Sentence = `
@@ -553,9 +533,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 5-EDO Revo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    5 as Edo,
+                    "5" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -566,9 +545,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 11-EDO Revo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    11 as Edo,
+                    "11" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             const expected: Io & Sentence = `
@@ -600,9 +578,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 12-EDO Revo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    12 as Edo,
+                    "12" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             const expected: Io & Sentence = `
@@ -632,9 +609,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 15-EDO Revo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    15 as Edo,
+                    "15" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -645,9 +621,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 22-EDO Revo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    22 as Edo,
+                    "22" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             const expected: Io & Sentence = `
@@ -679,9 +654,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 31-EDO Revo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    31 as Edo,
+                    "31" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             const expected: Io & Sentence = `
@@ -714,9 +688,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 47-EDO Revo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    47 as Edo,
+                    "47" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             expect(extractKeyInfoFromInputSentence(actual)).toEqual(
@@ -727,9 +700,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 52-EDO Revo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    52 as Edo,
+                    "52" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             const expected: Io & Sentence = `
@@ -768,9 +740,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 67-EDO Revo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    67 as Edo,
+                    "67" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             const expected: Io & Sentence = `
@@ -809,9 +780,8 @@ describe("computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence co
         it("works for 72-EDO Revo", (): void => {
             const actual =
                 computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                    72 as Edo,
+                    "72" as EdoName,
                     flavor,
-                    { useSecondBestFifth: false },
                 )
 
             const expected: Io & Sentence = `

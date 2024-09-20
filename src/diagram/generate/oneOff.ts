@@ -1,5 +1,5 @@
 import { Filename, Io, Sentence } from "@sagittal/general"
-import { Edo, EdoStep, Flavor } from "@sagittal/system"
+import { EdoName, Flavor } from "@sagittal/system"
 import { computeTitle } from "./title"
 import { writeDiagramSvg } from "../svg"
 import { EVO_FLAVOR_INDEX, FORMATTED_FLAVOR_NAMES } from "./constants"
@@ -8,16 +8,12 @@ const ONE_OFF_FILENAME: Filename = `one-off.svg` as Filename
 
 const generateOneOffDiagram = async (
     inputSentence: Io & Sentence,
-    edo: Edo,
-    {
-        flavor,
-        useSecondBestFifth,
-    }: { flavor: Flavor; useSecondBestFifth: boolean },
+    edoName: EdoName,
+    flavor: Flavor,
 ): Promise<void> => {
     const title: Io = computeTitle({
-        edo,
+        edoName,
         flavorTitlePart: FORMATTED_FLAVOR_NAMES[flavor],
-        useSecondBestFifth,
     })
     const filename = ONE_OFF_FILENAME
 
@@ -25,21 +21,18 @@ const generateOneOffDiagram = async (
         inputSentence,
         title,
         filename,
-        edo,
-        useSecondBestFifth,
+        edoName,
     })
 }
 
 const generateOneOffGeneralDiagram = async (
     inputSentences: (Io & Sentence)[],
-    edo: Edo,
-    { useSecondBestFifth }: { useSecondBestFifth: boolean },
+    edoName: EdoName,
 ): Promise<void> => {
     const inputSentence: Io & Sentence = inputSentences[EVO_FLAVOR_INDEX]
     const title: Io = computeTitle({
-        edo,
+        edoName,
         flavorTitlePart: "",
-        useSecondBestFifth,
     })
     const filename = ONE_OFF_FILENAME
 
@@ -47,8 +40,7 @@ const generateOneOffGeneralDiagram = async (
         inputSentence,
         title,
         filename,
-        edo,
-        useSecondBestFifth,
+        edoName,
     })
 }
 

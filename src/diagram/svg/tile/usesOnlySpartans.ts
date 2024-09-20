@@ -1,23 +1,17 @@
 import { Index, isUndefined, ZERO_ONE_INDEX_DIFF } from "@sagittal/general"
-import { Edo, Sagittal, Sagitype } from "@sagittal/system"
+import { Edo, EdoName, Sagittal, Sagitype } from "@sagittal/system"
 import { computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes } from "../../usedSagittals"
 
 const SPARTAN_SAGITYPES: Sagitype[] = ["/|", "|)", "/|\\"] as Sagitype[]
 
-const computeUsesOnlySpartans = (
-    edo: Edo,
-    useSecondBestFifth: boolean,
-): boolean => {
+const computeUsesOnlySpartans = (edoName: EdoName): boolean => {
     const {
         uniqueUsedAbsoluteSagittalIndices,
         sagitypes,
     }: {
         uniqueUsedAbsoluteSagittalIndices: Index<Sagittal>[]
         sagitypes: Sagitype[]
-    } = computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes(
-        edo,
-        useSecondBestFifth,
-    )
+    } = computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes(edoName)
 
     const uniqueUsedSagitypes: Sagitype[] = uniqueUsedAbsoluteSagittalIndices
         .map(

@@ -15,25 +15,24 @@ import {
     NonSubsetEdoNotationDefinition,
     computeLimmaStep,
     Spelling,
-    computeEdoNotationDefinition,
+    EdoName,
+    parseEdoName,
+    EDO_NOTATION_DEFINITIONS,
 } from "@sagittal/system"
 import { computeDefaultSpellings } from "./chaining"
 import { computeDiagramSteps, DiagramStep } from "./hydration"
 import { assembleAsStaffCodeInputSentence } from "./assembly"
 
 const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
-    edo: Edo,
+    edoName: EdoName,
     flavor: Flavor,
-    { useSecondBestFifth }: { useSecondBestFifth: boolean },
     subsetFactor?: SubsetFactor,
 ): Io & Sentence => {
     const sagitypes: Sagitype[] = (
-        computeEdoNotationDefinition(
-            edo,
-            useSecondBestFifth,
-        ) as NonSubsetEdoNotationDefinition
+        EDO_NOTATION_DEFINITIONS[edoName] as NonSubsetEdoNotationDefinition
     ).sagitypes
-    const fifthStep: EdoStep = computeFifthStep(edo, useSecondBestFifth)
+    const fifthStep: EdoStep = computeFifthStep(edoName)
+    const edo: Edo = parseEdoName(edoName).edo
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
     const limmaStep: EdoStep = computeLimmaStep(edo, fifthStep)
     const sagittals: Sagittal[] = computeSagittals({
@@ -43,11 +42,10 @@ const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
     })
 
     const defaultSingleSpellings: Spelling[] = computeDefaultSpellings({
-        edo,
+        edoName,
         fifthStep,
         sagittals,
         flavor,
-        useSecondBestFifth,
         limmaStep,
     })
 
@@ -68,27 +66,27 @@ const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
 }
 
 const computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
-    edo: Edo,
+    edoName: EdoName,
     flavor: Flavor,
-    { useSecondBestFifth }: { useSecondBestFifth: boolean },
 ): Io & Sentence => {
     const edoNotationDefinition: EdoNotationDefinition =
-        computeEdoNotationDefinition(edo, useSecondBestFifth)
+        EDO_NOTATION_DEFINITIONS[edoName]
 
     if (isSubsetNotation(edoNotationDefinition)) {
-        const supersetEdo = edoNotationDefinition.supersetEdo
+        const supersetEdoName: EdoName = edoNotationDefinition.supersetEdoName
+
+        const edo: Edo = parseEdoName(edoName).edo
+        const supersetEdo: Edo = parseEdoName(supersetEdoName).edo
 
         return doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-            supersetEdo,
+            supersetEdoName,
             flavor,
-            { useSecondBestFifth },
             computeSubsetFactor({ edo, supersetEdo }),
         )
     } else {
         return doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-            edo,
+            edoName,
             flavor,
-            { useSecondBestFifth },
         )
     }
 }
