@@ -1,5 +1,12 @@
 import { Index, Max } from "@sagittal/general"
-import { Edo, EdoStep, Flavor, Sagittal, Spelling, SubsetFactor } from "@sagittal/system"
+import {
+    Edo,
+    EdoStep,
+    Flavor,
+    Sagittal,
+    Spelling,
+    SubsetFactor,
+} from "@sagittal/system"
 import { Stave } from "../types"
 import { StepCountsByStave, HydrationState, DiagramStep } from "./types"
 import { computeStepCountsByStave } from "./stepCountsByStave"
@@ -16,6 +23,7 @@ const computeDiagramSteps = (
         fifthStep,
         sharpStep,
         limmaStep,
+        isExtraLargeEdo,
     }: {
         sagittals: Sagittal[]
         flavor: Flavor
@@ -24,12 +32,14 @@ const computeDiagramSteps = (
         fifthStep: EdoStep
         sharpStep: EdoStep
         limmaStep: EdoStep
+        isExtraLargeEdo: boolean
     },
 ): DiagramStep[] => {
     const stepCountsByStave: StepCountsByStave = computeStepCountsByStave({
         edo,
         fifthStep,
         limmaStep,
+        isExtraLargeEdo,
     })
 
     const maxStaveIndex: Max<Index<Stave>> = (stepCountsByStave.length -

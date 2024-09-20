@@ -8,12 +8,15 @@ const computeBarClause = ({
     whorlCodewords,
     assemblyState,
     startingNewStave,
+    isExtraLargeEdo,
 }: {
     sagittalCodewords: (Code & Word)[]
     whorlCodewords: (Code & Word)[]
     assemblyState: AssemblyState
     startingNewStave: boolean
+    isExtraLargeEdo: boolean
 }) =>
+    !isExtraLargeEdo &&
     !startingNewStave &&
     sagittalCodewords.length === 0 &&
     whorlCodewords.length === 0 &&

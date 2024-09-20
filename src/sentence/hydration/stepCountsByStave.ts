@@ -1,9 +1,5 @@
-import { Index, ZERO_ONE_INDEX_DIFF, Count, Max } from "@sagittal/general"
-import {
-    Edo,
-    EdoStep,
-    computeWholeToneStep,
-} from "@sagittal/system"
+import { Index, ZERO_ONE_INDEX_DIFF, Count } from "@sagittal/general"
+import { Edo, EdoStep, computeWholeToneStep } from "@sagittal/system"
 import {
     StepCountParametersByStave,
     StepCountsByStave,
@@ -11,8 +7,8 @@ import {
     Limma,
     WholeTone,
 } from "./types"
-
-const MAX_STEP_COUNT_PER_STAVE: Max<Count<EdoStep>> = 18 as Max<Count<EdoStep>>
+import { MAX_STEP_COUNT_PER_STAVE } from "./constants"
+import { computeExtraLargeEdoStepCountsByStave } from "./extraLarge"
 
 const STEP_COUNT_PARAMETERS_BY_STAVE_BY_EDO_SIZE_CATEGORY: Record<
     EdoSizeCategory,
@@ -128,15 +124,21 @@ const MAX_STEP_COUNT_BY_STAVE_PARAMETERS_BY_DECREASING_EDO_SIZE_CATEGORY: StepCo
 
 const EDO_SIZE_CATEGORIES: EdoSizeCategory[] = Object.values(EdoSizeCategory)
 
+// TODO: Dave calls these foldings
+
 const computeStepCountsByStave = ({
     edo,
+    isExtraLargeEdo,
     fifthStep,
     limmaStep,
 }: {
     edo: Edo
+    isExtraLargeEdo: boolean
     fifthStep: EdoStep
     limmaStep: EdoStep
 }): StepCountsByStave => {
+    if (isExtraLargeEdo) return computeExtraLargeEdoStepCountsByStave(edo)
+
     const wholeToneStep: EdoStep = computeWholeToneStep(edo, fifthStep)
 
     const edoSizeCategoryInverseIndex: Index<EdoSizeCategory> =

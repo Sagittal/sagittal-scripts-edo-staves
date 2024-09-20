@@ -14,8 +14,6 @@ import { makeNicelyPngifiable, shiftStaves } from "./shift"
 import { addTile } from "./tile"
 import { textToSvgDocument } from "./element"
 
-// TODO: consider renaming this repo to emphasize the default spellings of it, like, it's not designed for anyone to use for whatever
-
 const writeDiagramSvg = async ({
     inputSentence,
     title,

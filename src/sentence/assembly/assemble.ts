@@ -19,6 +19,7 @@ import { computeStaveBreakClause } from "./break"
 
 const assembleAsStaffCodeInputSentence = (
     diagramSteps: DiagramStep[],
+    { isExtraLargeEdo }: { isExtraLargeEdo: boolean },
 ): Io & Sentence => {
     const assemblyState: AssemblyState = {
         currentNominal: Nominal.C,
@@ -54,6 +55,7 @@ const assembleAsStaffCodeInputSentence = (
                         whorlCodewords,
                         assemblyState,
                         startingNewStave,
+                        isExtraLargeEdo,
                     }) +
                     computeNominalClause(nominal, {
                         assemblyState,

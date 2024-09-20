@@ -3,7 +3,7 @@ import { unlinkSync, writeFileSync } from "fs"
 
 describe("generate-all-edo-staves", (): void => {
     it("generates the correct notations with the correct titles", (): void => {
-        const actual: Io[] = runScriptAndGetConsoleOutput("npm run generate-all-edo-staves -- --dry-run" as Io)
+        const actual: Io[] = runScriptAndGetConsoleOutput("npm run generate-all-edo-staves -- --dry-run --max-edo 72" as Io)
         writeFileSync("spec/edoDiagramsActual.txt", actual.join("\n"))
 
         const expected: Io[] = readLines("spec/edoDiagramsExpected.txt" as Filename)

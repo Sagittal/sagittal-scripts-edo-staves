@@ -5,7 +5,7 @@ import {
     parseEdoName,
 } from "@sagittal/system"
 import { computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor } from "../sentence"
-import { Io, isUndefined, program, Sentence } from "@sagittal/general"
+import { Io, isUndefined, Max, program, Sentence } from "@sagittal/general"
 import {
     extractKeyInfoFromInputSentence,
     EVO_FLAVOR_INDEX,
@@ -19,20 +19,25 @@ import {
     computeRevoCouldBeEvo,
 } from "../diagram"
 
-program.option("-d, --dry-run")
+program
+    .option("-d, --dry-run")
+    .option("-m, --max-edo <number>", "max EDO to generate diagram for")
 
 program.parse()
-const { dryRun: dryRunString }: { dryRun: string } = program.opts()
+const {
+    dryRun: dryRunString,
+    maxEdo: maxEdoString,
+}: { dryRun: string; maxEdo: string } = program.opts()
 const dryRun: boolean = !isUndefined(dryRunString)
+const maxEdo: Max<Edo> = isUndefined(maxEdoString)
+    ? (Infinity as Max<Edo>)
+    : (parseInt(maxEdoString) as Max<Edo>)
 
 const edoNames: EdoName[] = Object.keys(EDO_NOTATION_DEFINITIONS) as EdoName[]
 
 edoNames.forEach((edoName: EdoName): void => {
     const edo: Edo = parseEdoName(edoName).edo
-
-    // TODO: make sure it does works up to 581-EDO, using Dave's further size categories
-    // maybe past a certain point it just goes into non-aligned 18 size rows
-    if (edo > 72) return
+    if (edo > maxEdo) return
 
     const defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
         Sentence)[] =

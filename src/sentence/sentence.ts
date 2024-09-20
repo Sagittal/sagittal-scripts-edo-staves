@@ -22,6 +22,7 @@ import {
 import { computeDefaultSpellings } from "./chaining"
 import { computeDiagramSteps, DiagramStep } from "./hydration"
 import { assembleAsStaffCodeInputSentence } from "./assembly"
+import { computeIsExtraLargeEdo } from "./hydration/extraLarge"
 
 const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
     edoName: EdoName,
@@ -49,6 +50,8 @@ const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
         limmaStep,
     })
 
+    const isExtraLargeEdo: boolean = computeIsExtraLargeEdo(edo, { fifthStep })
+
     const diagramSteps: DiagramStep[] = computeDiagramSteps(
         defaultSingleSpellings,
         {
@@ -59,10 +62,11 @@ const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
             subsetFactor,
             sharpStep,
             limmaStep,
+            isExtraLargeEdo,
         },
     )
 
-    return assembleAsStaffCodeInputSentence(diagramSteps)
+    return assembleAsStaffCodeInputSentence(diagramSteps, { isExtraLargeEdo })
 }
 
 const computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
