@@ -16,7 +16,7 @@ import {
 } from "./constants"
 import { getSvgDocumentFromString, getSvgStringFromDocument } from "./document"
 import { setDiagramSizeAndGetDiagramWidth } from "./size"
-import { shiftStaves } from "./shift"
+import { makeNicelyPngifiable, shiftStaves } from "./shift"
 import { addTile } from "./tile"
 import { Edo } from "@sagittal/system"
 
@@ -41,13 +41,15 @@ const writeDiagramSvg = async ({
         fontSize: BRAVURA_TEXT_SC_TITLE_FONT_SIZE,
     })
     const svgDocument: Document = getSvgDocumentFromString(svgString)
+
     const diagramWidth: Px = setDiagramSizeAndGetDiagramWidth(svgDocument)
     shiftStaves(svgDocument)
     await addTitle(svgDocument, title)
     await addSubtitle(svgDocument, "(default spellings)")
     await addTile(svgDocument, { edo, useSecondBestFifth, diagramWidth })
-    svgString = getSvgStringFromDocument(svgDocument)
+    makeNicelyPngifiable(svgDocument)
 
+    svgString = getSvgStringFromDocument(svgDocument)
     if (!fs.existsSync("dist")) fs.mkdirSync("dist")
     fs.writeFileSync(`dist/${filename}`, svgString)
 }

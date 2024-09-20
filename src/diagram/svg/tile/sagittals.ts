@@ -11,7 +11,6 @@ import {
 import {
     BRAVURA_TEXT_SC_FONT_FILE,
     BRAVURA_TEXT_SC_TITLE_FONT_SIZE,
-    OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION,
     SAGITTAL_Y_OFFSETS_BASED_ON_HOW_MANY_TIMES_SCALE_NEEDED_TO_CHANGE,
     SAGITTALS_MAX_WIDTH,
     SANOMAT_FONT_FILE,
@@ -77,10 +76,10 @@ const addSagittals = async (
         } else {
             sagittalsGroupElement.setAttribute(
                 "transform",
-                `translate(${TILE_SIZE / 2 - sagittalsWidth / 2}, ${
+                `translate(${TILE_SIZE / 2 - sagittalsWidth / 2} ${
                     SAGITTAL_Y_OFFSETS_BASED_ON_HOW_MANY_TIMES_SCALE_NEEDED_TO_CHANGE[
                         scaleChangeCount
-                    ] + OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION
+                    ]
                 })`,
             )
             tileGroupElement.appendChild(sagittalsGroupElement)

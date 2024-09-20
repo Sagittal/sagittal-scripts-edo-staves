@@ -16,7 +16,7 @@ const generateOneOffDiagram = async (
 ): Promise<void> => {
     const title: Io = computeTitle({
         edo,
-        formattedFlavorName: FORMATTED_FLAVOR_NAMES[flavor],
+        flavorTitlePart: FORMATTED_FLAVOR_NAMES[flavor],
         useSecondBestFifth,
     })
     const filename = ONE_OFF_FILENAME
@@ -38,7 +38,7 @@ const generateOneOffGeneralDiagram = async (
     const inputSentence: Io & Sentence = inputSentences[EVO_FLAVOR_INDEX]
     const title: Io = computeTitle({
         edo,
-        formattedFlavorName: "",
+        flavorTitlePart: "",
         useSecondBestFifth,
     })
     const filename = ONE_OFF_FILENAME

@@ -17,8 +17,7 @@ const generateGeneralDiagram = async (
     }: { dryRun: boolean; useSecondBestFifth: boolean },
 ): Promise<void> =>
     await generateDiagram(inputSentences, edo, {
-        // TODO: flavorTitlePart instead of formattedFlavorName
-        formattedFlavorName: "",
+        flavorTitlePart: "",
         flavorIndex: REVO_FLAVOR_INDEX,
         dryRun,
         useSecondBestFifth,
@@ -33,7 +32,7 @@ const generateEvoDiagram = async (
     }: { dryRun: boolean; useSecondBestFifth: boolean },
 ): Promise<void> =>
     await generateDiagram(inputSentences, edo, {
-        formattedFlavorName: FORMATTED_FLAVOR_NAMES[Flavor.EVO],
+        flavorTitlePart: FORMATTED_FLAVOR_NAMES[Flavor.EVO],
         flavorIndex: EVO_FLAVOR_INDEX,
         dryRun,
         useSecondBestFifth,
@@ -48,7 +47,7 @@ const generateEvoSZDiagram = async (
     }: { dryRun: boolean; useSecondBestFifth: boolean },
 ): Promise<void> =>
     await generateDiagram(inputSentences, edo, {
-        formattedFlavorName: FORMATTED_FLAVOR_NAMES[Flavor.EVO_SZ],
+        flavorTitlePart: FORMATTED_FLAVOR_NAMES[Flavor.EVO_SZ],
         flavorIndex: EVO_SZ_FLAVOR_INDEX,
         dryRun,
         useSecondBestFifth,
@@ -63,7 +62,7 @@ const generateRevoDiagram = async (
     }: { dryRun: boolean; useSecondBestFifth: boolean },
 ): Promise<void> =>
     await generateDiagram(inputSentences, edo, {
-        formattedFlavorName: FORMATTED_FLAVOR_NAMES[Flavor.REVO],
+        flavorTitlePart: FORMATTED_FLAVOR_NAMES[Flavor.REVO],
         flavorIndex: REVO_FLAVOR_INDEX,
         dryRun,
         useSecondBestFifth,
@@ -78,9 +77,7 @@ const generateAlternativeEvoDiagram = async (
     }: { dryRun: boolean; useSecondBestFifth: boolean },
 ): Promise<void> =>
     await generateDiagram(inputSentences, edo, {
-        formattedFlavorName: `Alternative ${
-            FORMATTED_FLAVOR_NAMES[Flavor.EVO]
-        }`,
+        flavorTitlePart: `Alternative ${FORMATTED_FLAVOR_NAMES[Flavor.EVO]}`,
         flavorIndex: EVO_FLAVOR_INDEX,
         dryRun,
         useSecondBestFifth,

@@ -1,13 +1,22 @@
 import { HexColor, Px } from "@sagittal/general"
 import {
+    computeEdoNotationDefinition,
     computeFifthStep,
     computeLimmaStep,
     computeSharpStep,
     computeWholeToneStep,
     Edo,
     EdoStep,
+    isSubsetNotation,
 } from "@sagittal/system"
-import { LIMMA_AND_SHARP_Y_OFFSET, OPEN_SANS_SEMIBOLD_FONT_FILE, STEP_FONT_SIZE, TILE_SIZE, WHOLE_TONE_X_OFFSET, WHOLE_TONE_Y_OFFSET } from "../constants"
+import {
+    LIMMA_AND_SHARP_Y_OFFSET,
+    OPEN_SANS_SEMIBOLD_FONT_FILE,
+    STEP_FONT_SIZE,
+    TILE_SIZE,
+    WHOLE_TONE_X_OFFSET,
+    WHOLE_TONE_Y_OFFSET,
+} from "../constants"
 import { addText } from "../text"
 import { Justification } from "./types"
 import { NodeElement } from "../types"
@@ -41,8 +50,8 @@ const addLimma = async (
     await addText(tileGroupElement, `EF=${limmaStep}`, {
         fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
         fontSize: STEP_FONT_SIZE,
-        xOffset: 0 as Px,   
-        yOffset: TILE_SIZE + LIMMA_AND_SHARP_Y_OFFSET as Px,
+        xOffset: 0 as Px,
+        yOffset: (TILE_SIZE + LIMMA_AND_SHARP_Y_OFFSET) as Px,
         color: LIMMA_COLOR,
         justification: Justification.CENTER,
     })
@@ -58,18 +67,19 @@ const addSharp = async (
         fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
         fontSize: STEP_FONT_SIZE,
         xOffset: TILE_SIZE as Px,
-        yOffset: TILE_SIZE + LIMMA_AND_SHARP_Y_OFFSET as Px,
+        yOffset: (TILE_SIZE + LIMMA_AND_SHARP_Y_OFFSET) as Px,
         color: SHARP_COLOR,
         justification: Justification.CENTER,
     })
 }
 
-// TODO: drop steps when subset
-
 const addSteps = async (
     tileGroupElement: NodeElement<SVGGElement>,
     { edo, useSecondBestFifth }: { edo: Edo; useSecondBestFifth: boolean },
 ): Promise<void> => {
+    if (isSubsetNotation(computeEdoNotationDefinition(edo, useSecondBestFifth)))
+        return
+
     const fifthStep = computeFifthStep(edo, useSecondBestFifth)
 
     await addWholeTone(tileGroupElement, { edo, fifthStep })

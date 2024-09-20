@@ -1,6 +1,6 @@
 import { Px } from "@sagittal/general"
 
-const PATH_COMMANDS_RELEVANT_TO_X_POSITION: string[] = ["M", "L", "H"]
+const PATH_COMMANDS_RELEVANT_TO_X_POSITION: string[] = ["M", "L", "H", "C"]
 
 const getGroupWidth = (groupElement: SVGGElement): Px => {
     const pathElement: SVGPathElement =

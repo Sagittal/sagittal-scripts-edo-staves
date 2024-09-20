@@ -5,14 +5,14 @@ import { embedEdoPart, embedFormattedFlavorName } from "./embed"
 const computeTitle = ({
     edo,
     useSecondBestFifth,
-    formattedFlavorName,
+    flavorTitlePart,
 }: {
     edo: Edo
     useSecondBestFifth: boolean
-    formattedFlavorName: Io
+    flavorTitlePart: Io
 }): Io =>
     `${edo}${embedEdoPart(useSecondBestFifth)}${embedFormattedFlavorName(
-        formattedFlavorName,
+        flavorTitlePart,
     )} Sagittal notation`
 
 export { computeTitle }

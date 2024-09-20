@@ -9,12 +9,12 @@ const generateDiagram = async (
     edo: Edo,
     {
         flavorIndex,
-        formattedFlavorName,
+        flavorTitlePart,
         dryRun,
         useSecondBestFifth,
     }: {
         flavorIndex: Index<Flavor>
-        formattedFlavorName: Io
+        flavorTitlePart: Io
         dryRun: boolean
         useSecondBestFifth: boolean
     },
@@ -22,12 +22,12 @@ const generateDiagram = async (
     const inputSentence: Io & Sentence = inputSentences[flavorIndex]
     const title: Io = computeTitle({
         edo,
-        formattedFlavorName,
+        flavorTitlePart,
         useSecondBestFifth,
     })
     const filename: Filename = computeFilename({
         edo,
-        formattedFlavorName,
+        flavorTitlePart,
         useSecondBestFifth,
     })
 

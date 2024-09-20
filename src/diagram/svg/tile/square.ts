@@ -26,7 +26,7 @@ const addTileSquare = ({
         "transform",
         `translate(${
             diagramWidth - LEFT_AND_RIGHT_MARGIN - TILE_SIZE
-        }, ${TILE_TOP_MARGIN})`,
+        } ${TILE_TOP_MARGIN})`,
     )
 
     const sectionColor: HexColor = computeSectionColor(edo, useSecondBestFifth)

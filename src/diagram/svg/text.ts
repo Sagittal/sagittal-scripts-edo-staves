@@ -38,18 +38,18 @@ const addText = async (
         if (justification === Justification.CENTER) {
             textGroupElement.setAttribute(
                 "transform",
-                `translate(${xOffset - groupWidth / 2}, ${yOffset})`,
+                `translate(${xOffset - groupWidth / 2} ${yOffset})`,
             )
         } else {
             textGroupElement.setAttribute(
                 "transform",
-                `translate(${xOffset - groupWidth}, ${yOffset})`,
+                `translate(${xOffset - groupWidth} ${yOffset})`,
             )
         }
     } else {
         textGroupElement.setAttribute(
             "transform",
-            `translate(${xOffset}, ${yOffset})`,
+            `translate(${xOffset} ${yOffset})`,
         )
     }
 

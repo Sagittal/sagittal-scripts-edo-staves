@@ -1,12 +1,12 @@
 import { Io } from "@sagittal/general"
 
 const embedFormattedFlavorName = (
-    formattedFlavorName: Io,
+    flavorTitlePart: Io,
     { useUnderscores }: { useUnderscores: boolean } = { useUnderscores: false },
 ): Io => {
     const embeddedFormattedFlavorName = `${
-        formattedFlavorName.length === 0 ? "" : " "
-    }${formattedFlavorName}`
+        flavorTitlePart.length === 0 ? "" : " "
+    }${flavorTitlePart}`
 
     return useUnderscores
         ? embeddedFormattedFlavorName.replace(/ /g, "_")

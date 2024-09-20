@@ -25,8 +25,8 @@ let useSecondBestFifth: boolean
 Object.keys(EDO_NOTATION_DEFINITIONS)
     .map((edoString: string): Edo => parseInt(edoString) as Edo)
     .forEach((edo: Edo): void => {
-        // TODO: make sure it does works u to 500-EDO or whatever, using Dave's further size categories
-        // maybe past a certain point it just goes into non aligned 18 size rows 
+        // TODO: make sure it does works up to 581-EDO, using Dave's further size categories
+        // maybe past a certain point it just goes into non-aligned 18 size rows 
         if (edo > 72) return
 
         EDO_NOTATION_DEFINITIONS[edo].forEach((_edoNotationDefinition: EdoNotationDefinition, edoNotationDefinitionIndex: number): void => { 

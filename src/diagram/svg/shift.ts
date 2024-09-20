@@ -7,30 +7,60 @@ import {
     TOP_MARGIN,
 } from "./constants"
 import { NodeElement } from "./types"
+import { Index, Px } from "@sagittal/general"
 
-// shift staves down to make space for title and tile, and slightly to the right
-const shiftStaves = (svgDocument: Document): void => {
-    const staveGroupElements: NodeElement<SVGGElement>[] = Array.from(svgDocument.getElementsByTagName("g")) as NodeElement<SVGGElement>[]
-    
-    staveGroupElements.forEach((staveGroupElement: NodeElement<SVGGElement>): void => {
-        const currentTransform: string =
-            staveGroupElement.getAttribute("transform")!
+const INDEX_OF_X_TRANSFORM: Index = 1 as Index
+const INDEX_OF_Y_TRANSFORM: Index = 2 as Index
+
+const shiftAllGroupElements = (
+    svgDocument: Document,
+    xOffset: Px,
+    yOffset: Px,
+): void => {
+    const groupElements: NodeElement<SVGGElement>[] = Array.from(
+        svgDocument.getElementsByTagName("g"),
+    ) as NodeElement<SVGGElement>[]
+
+    groupElements.forEach((groupElement: NodeElement<SVGGElement>): void => {
+        const currentTransform: string = groupElement.getAttribute("transform")!
         const currentTransformXAndYRegExpMatches: null | RegExpMatchArray =
-            currentTransform?.match(/translate\((\d+)\s+(\d+)\)/)
-        const currentTransformY: number = currentTransformXAndYRegExpMatches
-            ? parseInt(currentTransformXAndYRegExpMatches[2])
-            : 0
-        staveGroupElement?.setAttribute(
+            currentTransform?.match(
+                /translate\((-?\d+\.?\d*)\s+(-?\d+\.?\d*)\)/,
+            )
+        const currentTransformX: Px = currentTransformXAndYRegExpMatches
+            ? (parseInt(
+                  currentTransformXAndYRegExpMatches[INDEX_OF_X_TRANSFORM],
+              ) as Px)
+            : (0 as Px)
+        const currentTransformY: Px = currentTransformXAndYRegExpMatches
+            ? (parseInt(
+                  currentTransformXAndYRegExpMatches[INDEX_OF_Y_TRANSFORM],
+              ) as Px)
+            : (0 as Px)
+        groupElement?.setAttribute(
             "transform",
-            `translate(${LEFT_AND_RIGHT_MARGIN} ${
-                currentTransformY +
-                TOP_MARGIN +
-                TITLE_FONT_SIZE +
-                SUBTITLE_FONT_SIZE +
-                OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION
+            `translate(${currentTransformX + xOffset} ${
+                currentTransformY + yOffset
             })`,
         )
     })
 }
 
-export { shiftStaves }
+// shift staves down to make space for title and tile, and slightly to the right
+// relies on these being the only group elements in the SVG at this time;
+// the titles and tile have not yet been added
+const shiftStaves = (svgDocument: Document): void =>
+    shiftAllGroupElements(
+        svgDocument,
+        LEFT_AND_RIGHT_MARGIN,
+        (TOP_MARGIN + TITLE_FONT_SIZE + SUBTITLE_FONT_SIZE) as Px,
+    )
+
+const makeNicelyPngifiable = (svgDocument: Document): void =>
+    shiftAllGroupElements(
+        svgDocument,
+        0 as Px,
+        OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION,
+    )
+
+export { shiftStaves, makeNicelyPngifiable }

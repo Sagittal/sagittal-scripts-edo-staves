@@ -13,12 +13,11 @@ const TOP_MARGIN: Px = 40 as Px
 const BOTTOM_MARGIN: Px = 20 as Px
 const TILE_TOP_MARGIN: Px = 18 as Px
 
-// TODO: apply this 0.5 shift to EVERYTHING, in one pass at the end?
 const OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION: Px = 0.5 as Px
 
+const BRAVURA_TEXT_SC_TITLE_FONT_SIZE: Px = 40 as Px
 const TITLE_FONT_SIZE: Px = 19 as Px
 const SUBTITLE_FONT_SIZE: Px = 10 as Px
-const BRAVURA_TEXT_SC_TITLE_FONT_SIZE: Px = 40 as Px
 const TILE_TEXT_FONT_SIZE: Px = TITLE_FONT_SIZE
 const STEP_FONT_SIZE: Px = 13 as Px
 
@@ -41,8 +40,6 @@ const CORNER_TRIANGLE_SIZE: Px = 6 as Px
 
 const TILE_MARGIN: Px = 2 as Px
 const SAGITTALS_MAX_WIDTH: Px = TILE_SIZE - TILE_MARGIN * 2 as Px
-
-// TODO: seek patterns in constantized sizes and encode them
 
 export {
     SVG_NS,
