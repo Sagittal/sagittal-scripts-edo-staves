@@ -8,10 +8,6 @@ import { addSteps } from "./steps"
 import { maybeAddCornerTriangle } from "./cornerTriangle"
 import { NodeElement } from "../types"
 
-// TODO: need to account for e.g. 5-EDO where the title is longer than the stave
-// and needs to push the tile out to the right
-// also, the EF=1 touches the stem of A for 7-EDO, so it should be pushed down a bit more
-
 const addTile = async (
     svgDocument: Document,
     { edoName, diagramWidth }: { edoName: EdoName; diagramWidth: Px },

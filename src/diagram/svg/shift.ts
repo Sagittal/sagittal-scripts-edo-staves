@@ -5,6 +5,7 @@ import {
     SUBTITLE_FONT_SIZE,
     TITLE_FONT_SIZE,
     TOP_MARGIN,
+    EXTRA_SPACE_TO_COMFORTABLY_CLEAR_TILE,
 } from "./constants"
 import { NodeElement } from "./types"
 import { Index, Px } from "@sagittal/general"
@@ -49,11 +50,11 @@ const shiftAllGroupElements = (
 // shift staves down to make space for title and tile, and slightly to the right
 // relies on these being the only group elements in the SVG at this time;
 // the titles and tile have not yet been added
-const shiftStaves = (svgDocument: Document): void =>
+const shiftStavesDown = (svgDocument: Document): void =>
     shiftAllGroupElements(
         svgDocument,
         LEFT_AND_RIGHT_MARGIN,
-        (TOP_MARGIN + TITLE_FONT_SIZE + SUBTITLE_FONT_SIZE) as Px,
+        (TOP_MARGIN + TITLE_FONT_SIZE + SUBTITLE_FONT_SIZE + EXTRA_SPACE_TO_COMFORTABLY_CLEAR_TILE) as Px,
     )
 
 const makeNicelyPngifiable = (svgDocument: Document): void =>
@@ -63,4 +64,4 @@ const makeNicelyPngifiable = (svgDocument: Document): void =>
         OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION,
     )
 
-export { shiftStaves, makeNicelyPngifiable }
+export { shiftStavesDown, makeNicelyPngifiable }

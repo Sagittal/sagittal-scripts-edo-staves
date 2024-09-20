@@ -3,14 +3,14 @@ import { Document } from "@xmldom/xmldom"
 import { computeInputSentenceUnicode } from "staff-code"
 import { Filename, Io, Px, Sentence, Unicode } from "@sagittal/general"
 import { EdoName } from "@sagittal/system"
-import { addSubtitle, addTitle } from "./titles"
+import { addSubtitle, addTitleAndGetWidth } from "./titles"
 import {
     BRAVURA_TEXT_SC_FONT_FILE,
     BRAVURA_TEXT_SC_TITLE_FONT_SIZE,
 } from "./constants"
 import { getSvgStringFromDocument } from "./document"
 import { setDiagramSizeAndGetDiagramWidth } from "./size"
-import { makeNicelyPngifiable, shiftStaves } from "./shift"
+import { makeNicelyPngifiable, shiftStavesDown } from "./shift"
 import { addTile } from "./tile"
 import { textToSvgDocument } from "./element"
 
@@ -33,11 +33,14 @@ const writeDiagramSvg = async ({
         fontSize: BRAVURA_TEXT_SC_TITLE_FONT_SIZE,
     })
 
-    const diagramWidth: Px = setDiagramSizeAndGetDiagramWidth(svgDocument)
-    shiftStaves(svgDocument)
-    await addTitle(svgDocument, title)
+    shiftStavesDown(svgDocument)
+    
+    const titleWidth: Px = await addTitleAndGetWidth(svgDocument, title)
+    const diagramWidth: Px = setDiagramSizeAndGetDiagramWidth(svgDocument, { titleWidth })
+
     await addSubtitle(svgDocument, "(default spellings)")
     await addTile(svgDocument, { edoName, diagramWidth })
+    
     makeNicelyPngifiable(svgDocument)
 
     const svgString = getSvgStringFromDocument(svgDocument)

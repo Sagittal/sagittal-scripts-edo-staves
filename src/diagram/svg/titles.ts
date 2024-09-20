@@ -10,14 +10,18 @@ import {
     SUBTITLE_FURTHER_Y_OFFSET,
 } from "./constants"
 import { addText } from "./text"
+import { getGroupWidth } from "./tile/width"
+import { NodeElement } from "./types"
 
-const addTitle = async (svgDocument: Document, title: Io): Promise<void> => {
-    await addText(svgDocument.documentElement!, title, {
+const addTitleAndGetWidth = async (svgDocument: Document, title: Io): Promise<Px> => {
+    const titleGroupElement: NodeElement<SVGGElement> = await addText(svgDocument.documentElement!, title, {
         fontFile: SANOMAT_FONT_FILE,
         fontSize: TITLE_FONT_SIZE,
         xOffset: LEFT_AND_RIGHT_MARGIN,
         yOffset: TITLE_Y_OFFSET,
     })
+
+    return getGroupWidth(titleGroupElement)
 }
 
 const addSubtitle = async (
@@ -34,4 +38,4 @@ const addSubtitle = async (
     })
 }
 
-export { addTitle, addSubtitle }
+export { addTitleAndGetWidth, addSubtitle }
