@@ -21,7 +21,7 @@ import {
 import { getGroupWidth } from "./width"
 import { addText } from "../text"
 import { Justification } from "./types"
-import { textToSvgGroupElement } from "../textToGroup"
+import { textToSvgGroupElement } from "../element"
 import { NodeElement } from "../types"
 
 const SAGITTALS_SCALER_CHANGE_FACTOR: number = 1.1

@@ -2,7 +2,7 @@ import { Element } from "@xmldom/xmldom"
 import { Filename, HexColor, Io, Px } from "@sagittal/general"
 import { Justification } from "./tile/types"
 import { getGroupWidth } from "./tile/width"
-import { textToSvgGroupElement } from "./textToGroup"
+import { textToSvgGroupElement } from "./element"
 import { NodeElement } from "./types"
 
 const addText = async (
@@ -24,13 +24,11 @@ const addText = async (
         justification?: Justification
     },
 ): Promise<NodeElement<SVGGElement>> => {
-    const textGroupElement: NodeElement<SVGGElement> = await textToSvgGroupElement(
-        text,
-        {
+    const textGroupElement: NodeElement<SVGGElement> =
+        await textToSvgGroupElement(text, {
             fontFile,
             fontSize,
-        },
-    )
+        })
     textGroupElement.setAttribute("fill", color)
 
     if (justification !== Justification.LEFT) {

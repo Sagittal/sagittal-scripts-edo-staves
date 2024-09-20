@@ -1,24 +1,20 @@
 import * as fs from "fs"
 import { Document } from "@xmldom/xmldom"
 import { computeInputSentenceUnicode } from "staff-code"
-import {
-    Filename,
-    Io,
-    Px,
-    Sentence,
-    textToSvg,
-    Unicode,
-} from "@sagittal/general"
+import { Filename, Io, Px, Sentence, Unicode } from "@sagittal/general"
 import { EdoName } from "@sagittal/system"
 import { addSubtitle, addTitle } from "./titles"
 import {
     BRAVURA_TEXT_SC_FONT_FILE,
     BRAVURA_TEXT_SC_TITLE_FONT_SIZE,
 } from "./constants"
-import { getSvgDocumentFromString, getSvgStringFromDocument } from "./document"
+import { getSvgStringFromDocument } from "./document"
 import { setDiagramSizeAndGetDiagramWidth } from "./size"
 import { makeNicelyPngifiable, shiftStaves } from "./shift"
 import { addTile } from "./tile"
+import { textToSvgDocument } from "./element"
+
+// TODO: consider renaming this repo to emphasize the default spellings of it, like, it's not designed for anyone to use for whatever
 
 const writeDiagramSvg = async ({
     inputSentence,
@@ -34,11 +30,10 @@ const writeDiagramSvg = async ({
     const unicodeSentence: Unicode & Sentence =
         computeInputSentenceUnicode(inputSentence)
 
-    let svgString: string = await textToSvg(unicodeSentence, {
-        font: BRAVURA_TEXT_SC_FONT_FILE,
+    const svgDocument: Document = await textToSvgDocument(unicodeSentence, {
+        fontFile: BRAVURA_TEXT_SC_FONT_FILE,
         fontSize: BRAVURA_TEXT_SC_TITLE_FONT_SIZE,
     })
-    const svgDocument: Document = getSvgDocumentFromString(svgString)
 
     const diagramWidth: Px = setDiagramSizeAndGetDiagramWidth(svgDocument)
     shiftStaves(svgDocument)
@@ -47,7 +42,7 @@ const writeDiagramSvg = async ({
     await addTile(svgDocument, { edoName, diagramWidth })
     makeNicelyPngifiable(svgDocument)
 
-    svgString = getSvgStringFromDocument(svgDocument)
+    const svgString = getSvgStringFromDocument(svgDocument)
     if (!fs.existsSync("dist")) fs.mkdirSync("dist")
     fs.writeFileSync(`dist/${filename}`, svgString)
 }
