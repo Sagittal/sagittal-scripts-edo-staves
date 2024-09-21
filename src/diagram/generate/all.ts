@@ -35,6 +35,7 @@ const generateDiagram = async (
             title,
             filename,
             edoName,
+            flavor: Object.values(Flavor)[flavorIndex]
         })
 }
 

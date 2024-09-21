@@ -1,6 +1,6 @@
 import { Document } from "@xmldom/xmldom"
 import { Px } from "@sagittal/general"
-import { EdoName } from "@sagittal/system"
+import { EdoName, Flavor } from "@sagittal/system"
 import { addTileSquare } from "./square"
 import { addEdo } from "./edo"
 import { addSagittalsOrSubset } from "./sagittals"
@@ -10,7 +10,7 @@ import { NodeElement } from "../types"
 
 const addTile = async (
     svgDocument: Document,
-    { edoName, diagramWidth }: { edoName: EdoName; diagramWidth: Px },
+    { edoName, diagramWidth, flavor }: { edoName: EdoName; diagramWidth: Px, flavor: Flavor },
 ): Promise<void> => {
     const tileGroupElement: NodeElement<SVGGElement> = addTileSquare({
         svgDocument,
@@ -20,7 +20,7 @@ const addTile = async (
 
     await addEdo(tileGroupElement, { edoName })
 
-    await addSagittalsOrSubset(tileGroupElement, { edoName })
+    await addSagittalsOrSubset(tileGroupElement, { edoName, flavor })
 
     maybeAddCornerTriangle(tileGroupElement, {
         svgDocument,

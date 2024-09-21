@@ -22,6 +22,7 @@ const generateOneOffDiagram = async (
         title,
         filename,
         edoName,
+        flavor,
     })
 }
 
@@ -41,6 +42,7 @@ const generateOneOffGeneralDiagram = async (
         title,
         filename,
         edoName,
+        flavor: Flavor.REVO, // anything but Evo-SZ is okay here, to prevent the /|\ → t
     })
 }
 
@@ -60,6 +62,7 @@ const generateOneOffAlternateEvoDiagram = async (
         title,
         filename,
         edoName,
+        flavor: Flavor.EVO,
     })
 }
 

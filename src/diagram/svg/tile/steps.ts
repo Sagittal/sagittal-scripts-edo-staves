@@ -1,4 +1,4 @@
-import { HexColor, Px } from "@sagittal/general"
+import { HexColor, Io, Px } from "@sagittal/general"
 import {
     computeFifthStep,
     computeLimmaStep,
@@ -27,13 +27,16 @@ const LIMMA_COLOR: HexColor = "#769200" as HexColor
 const WHOLE_TONE_COLOR: HexColor = "#C00000" as HexColor
 const SHARP_COLOR: HexColor = "#0070C0" as HexColor
 
+const equalsPositiveOrLessThanZero = (step: EdoStep): Io =>
+    step < 0 ? "<0" : `=${step}`
+
 const addWholeTone = async (
     tileGroupElement: NodeElement<SVGGElement>,
     { edo, fifthStep }: { edo: Edo; fifthStep: EdoStep },
 ): Promise<void> => {
-    const wholeToneStep = computeWholeToneStep(edo, fifthStep)
+    const wholeToneStep: EdoStep = computeWholeToneStep(edo, fifthStep)
 
-    await addText(tileGroupElement, `CD=${wholeToneStep}`, {
+    await addText(tileGroupElement, `CD${equalsPositiveOrLessThanZero(wholeToneStep)}`, {
         fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
         fontSize: STEP_FONT_SIZE,
         xOffset: WHOLE_TONE_X_OFFSET,
@@ -47,9 +50,9 @@ const addLimma = async (
     tileGroupElement: NodeElement<SVGGElement>,
     { edo, fifthStep }: { edo: Edo; fifthStep: EdoStep },
 ): Promise<void> => {
-    const limmaStep = computeLimmaStep(edo, fifthStep)
+    const limmaStep: EdoStep = computeLimmaStep(edo, fifthStep)
 
-    await addText(tileGroupElement, `EF=${limmaStep}`, {
+    await addText(tileGroupElement, `EF${equalsPositiveOrLessThanZero(limmaStep)}`, {
         fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
         fontSize: STEP_FONT_SIZE,
         xOffset: 0 as Px,
@@ -63,9 +66,9 @@ const addSharp = async (
     tileGroupElement: NodeElement<SVGGElement>,
     { edo, fifthStep }: { edo: Edo; fifthStep: EdoStep },
 ): Promise<void> => {
-    const sharpStep = computeSharpStep(edo, fifthStep)
+    const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
 
-    await addText(tileGroupElement, `#=${sharpStep}`, {
+    await addText(tileGroupElement, `#${equalsPositiveOrLessThanZero(sharpStep)}`, {
         fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
         fontSize: STEP_FONT_SIZE,
         xOffset: TILE_SIZE as Px,
@@ -81,8 +84,8 @@ const addSteps = async (
 ): Promise<void> => {
     if (isSubsetNotation(EDO_NOTATION_DEFINITIONS[edoName])) return
 
-    const fifthStep = computeFifthStep(edoName)
-    
+    const fifthStep: EdoStep = computeFifthStep(edoName)
+
     const edo: Edo = parseEdoName(edoName).edo
     await addWholeTone(tileGroupElement, { edo, fifthStep })
     await addLimma(tileGroupElement, { edo, fifthStep })

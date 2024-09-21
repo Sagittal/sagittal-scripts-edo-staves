@@ -2,7 +2,7 @@ import * as fs from "fs"
 import { Document } from "@xmldom/xmldom"
 import { computeInputSentenceUnicode } from "staff-code"
 import { Filename, Io, Px, Sentence, Unicode } from "@sagittal/general"
-import { EdoName } from "@sagittal/system"
+import { EdoName, Flavor } from "@sagittal/system"
 import { addSubtitle, addTitleAndGetWidth } from "./titles"
 import {
     BRAVURA_TEXT_SC_FONT_FILE,
@@ -19,11 +19,13 @@ const writeDiagramSvg = async ({
     title,
     filename,
     edoName,
+    flavor,
 }: {
     inputSentence: Io & Sentence
     title: Io
     filename: Filename
     edoName: EdoName
+    flavor: Flavor
 }): Promise<void> => {
     const unicodeSentence: Unicode & Sentence =
         computeInputSentenceUnicode(inputSentence)
@@ -34,13 +36,15 @@ const writeDiagramSvg = async ({
     })
 
     shiftStavesDown(svgDocument)
-    
+
     const titleWidth: Px = await addTitleAndGetWidth(svgDocument, title)
-    const diagramWidth: Px = setDiagramSizeAndGetDiagramWidth(svgDocument, { titleWidth })
+    const diagramWidth: Px = setDiagramSizeAndGetDiagramWidth(svgDocument, {
+        titleWidth,
+    })
 
     await addSubtitle(svgDocument, "(default spellings)")
-    await addTile(svgDocument, { edoName, diagramWidth })
-    
+    await addTile(svgDocument, { edoName, diagramWidth, flavor })
+
     makeNicelyPngifiable(svgDocument)
 
     const svgString = getSvgStringFromDocument(svgDocument)

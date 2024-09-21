@@ -1,11 +1,26 @@
 import { computeInputSentenceUnicode } from "staff-code"
-import { Count, Io, Px, Sentence, Unicode } from "@sagittal/general"
 import {
+    Count,
+    deepEquals,
+    Io,
+    isEven,
+    Px,
+    Sentence,
+    Unicode,
+    ZERO_ONE_INDEX_DIFF,
+} from "@sagittal/general"
+import {
+    computeFifthStep,
+    computeSharpStep,
+    Edo,
     EDO_NOTATION_DEFINITIONS,
     EdoName,
     EdoNotationDefinition,
+    EdoStep,
+    Flavor,
     isSubsetNotation,
     NonSubsetEdoNotationDefinition,
+    parseEdoName,
     Sagitype,
 } from "@sagittal/system"
 import {
@@ -16,7 +31,7 @@ import {
     SANOMAT_FONT_FILE,
     SUBSET_Y_OFFSET,
     TILE_SIZE,
-    TILE_TEXT_FONT_SIZE,
+    SUBSET_TEXT_FONT_SIZE,
 } from "../constants"
 import { getGroupWidth } from "./width"
 import { addText } from "../text"
@@ -32,22 +47,41 @@ const addSubset = async (
 ): Promise<void> => {
     await addText(tileGroupElement, `ss${supersetEdoName}`, {
         fontFile: SANOMAT_FONT_FILE,
-        fontSize: TILE_TEXT_FONT_SIZE,
+        fontSize: SUBSET_TEXT_FONT_SIZE,
         xOffset: (TILE_SIZE / 2) as Px,
         yOffset: SUBSET_Y_OFFSET,
         justification: Justification.CENTER,
     })
 }
 
+const handleEvoSzSagitypes = (
+    sagitypes: Sagitype[],
+    { edoName }: { edoName: EdoName },
+): void => {
+    const fifthStep: EdoStep = computeFifthStep(edoName)
+    const edo: Edo = parseEdoName(edoName).edo
+    const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
+    if (
+        isEven(sharpStep) &&
+        sagitypes[sharpStep / 2 - ZERO_ONE_INDEX_DIFF] === "/|\\"
+    ) {
+        sagitypes[sharpStep / 2 - ZERO_ONE_INDEX_DIFF] = "t" as Sagitype
+    }
+}
+
 const addSagittals = async (
     tileGroupElement: NodeElement<SVGGElement>,
-    edoName: EdoName,
+    { edoName, flavor }: { edoName: EdoName; flavor: Flavor },
 ): Promise<void> => {
     const sagitypes: Sagitype[] = (
         EDO_NOTATION_DEFINITIONS[edoName] as NonSubsetEdoNotationDefinition
     ).sagitypes
 
     if (sagitypes.length === 0) return
+
+    if (flavor === Flavor.EVO_SZ) {
+        handleEvoSzSagitypes(sagitypes, { edoName })
+    }
 
     const unicodeSentence: Unicode & Sentence = computeInputSentenceUnicode(
         (sagitypes.join("; 2; ") + ";") as Io & Sentence,
@@ -86,7 +120,7 @@ const addSagittals = async (
 
 const addSagittalsOrSubset = async (
     tileGroupElement: NodeElement<SVGGElement>,
-    { edoName }: { edoName: EdoName },
+    { edoName, flavor }: { edoName: EdoName; flavor: Flavor },
 ): Promise<void> => {
     const edoNotationDefinition: EdoNotationDefinition =
         EDO_NOTATION_DEFINITIONS[edoName]
@@ -96,7 +130,7 @@ const addSagittalsOrSubset = async (
             supersetEdoName: edoNotationDefinition.supersetEdoName,
         })
     } else {
-        await addSagittals(tileGroupElement, edoName)
+        await addSagittals(tileGroupElement, { edoName, flavor })
     }
 }
 
