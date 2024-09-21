@@ -8,44 +8,77 @@ import {
     EXTRA_SPACE_TO_COMFORTABLY_CLEAR_TILE,
 } from "./constants"
 import { NodeElement } from "./types"
-import { Index, Px } from "@sagittal/general"
+import { Index, Px, round } from "@sagittal/general"
 
 const INDEX_OF_X_TRANSFORM: Index = 1 as Index
 const INDEX_OF_Y_TRANSFORM: Index = 2 as Index
+
+const roundAllTranslations = (tileGroupElement: NodeElement<SVGGElement>): void => {
+    const groupElements: NodeElement<SVGGElement>[] = getAllTopLevelGroupElements(tileGroupElement)
+
+    groupElements.forEach((groupElement: NodeElement<SVGGElement>, groupElementIndex: number): void => {
+        const { existingX, existingY }: { existingX: Px, existingY: Px } = computeExistingTransform(groupElement)
+
+        groupElement.setAttribute(
+            "transform",
+            `translate(${round(existingX)} ${round(existingY)})`,
+        )
+    })
+}
+
+const computeExistingTransform = (
+    groupElement: NodeElement<SVGGElement>,
+): { existingX: Px; existingY: Px } => {
+    const existingTransform: string = groupElement.getAttribute("transform")!
+    const existingXAndYRegExpMatches: null | RegExpMatchArray =
+        existingTransform?.match(/translate\((-?\d+\.?\d*)\s+(-?\d+\.?\d*)\)/)
+    const existingX: Px = existingXAndYRegExpMatches
+        ? (parseInt(existingXAndYRegExpMatches[INDEX_OF_X_TRANSFORM]) as Px)
+        : (0 as Px)
+    const existingY: Px = existingXAndYRegExpMatches
+        ? (parseInt(existingXAndYRegExpMatches[INDEX_OF_Y_TRANSFORM]) as Px)
+        : (0 as Px)
+
+    return { existingX, existingY }
+}
+
+const shiftGroupElement = (
+    groupElement: NodeElement<SVGGElement>,
+    xOffset: Px,
+    yOffset: Px,
+): void => {
+    const { existingX, existingY }: { existingX: Px; existingY: Px } =
+        computeExistingTransform(groupElement)
+
+    groupElement?.setAttribute(
+        "transform",
+        `translate(${existingX + xOffset} ${existingY + yOffset})`,
+    )
+}
+
+const getAllTopLevelGroupElements = (nodeElement: NodeElement<SVGElement>) => {
+    const childElements: NodeElement<SVGElement>[] = Array.from(
+        nodeElement.childNodes,
+    ) as NodeElement<SVGElement>[]
+
+    return childElements.filter(
+        (childElement: NodeElement<SVGElement>): boolean =>
+            childElement.tagName === "g",
+    ) as NodeElement<SVGGElement>[]
+}
 
 const shiftAllTopLevelGroupElements = (
     svgDocument: Document,
     xOffset: Px,
     yOffset: Px,
 ): void => {
-    const root: NodeElement<SVGElement> = svgDocument.documentElement! as NodeElement<SVGElement>
-    const childElements: NodeElement<SVGElement>[] = Array.from(root.childNodes) as NodeElement<SVGElement>[]
-    const groupElements: NodeElement<SVGGElement>[] = childElements.filter((childElement: NodeElement<SVGElement>): boolean => 
-        childElement.tagName === "g" && childElement.parentNode === root
-    ) as NodeElement<SVGGElement>[]
+    const groupElements: NodeElement<SVGGElement>[] =
+        getAllTopLevelGroupElements(
+            svgDocument.documentElement! as NodeElement<SVGElement>,
+        )
 
     groupElements.forEach((groupElement: NodeElement<SVGGElement>): void => {
-        const currentTransform: string = groupElement.getAttribute("transform")!
-        const currentTransformXAndYRegExpMatches: null | RegExpMatchArray =
-            currentTransform?.match(
-                /translate\((-?\d+\.?\d*)\s+(-?\d+\.?\d*)\)/,
-            )
-        const currentTransformX: Px = currentTransformXAndYRegExpMatches
-            ? (parseInt(
-                  currentTransformXAndYRegExpMatches[INDEX_OF_X_TRANSFORM],
-              ) as Px)
-            : (0 as Px)
-        const currentTransformY: Px = currentTransformXAndYRegExpMatches
-            ? (parseInt(
-                  currentTransformXAndYRegExpMatches[INDEX_OF_Y_TRANSFORM],
-              ) as Px)
-            : (0 as Px)
-        groupElement?.setAttribute(
-            "transform",
-            `translate(${currentTransformX + xOffset} ${
-                currentTransformY + yOffset
-            })`,
-        )
+        shiftGroupElement(groupElement, xOffset, yOffset)
     })
 }
 
@@ -56,7 +89,10 @@ const shiftStavesDown = (svgDocument: Document): void =>
     shiftAllTopLevelGroupElements(
         svgDocument,
         LEFT_AND_RIGHT_MARGIN,
-        (TOP_MARGIN + TITLE_FONT_SIZE + SUBTITLE_FONT_SIZE + EXTRA_SPACE_TO_COMFORTABLY_CLEAR_TILE) as Px,
+        (TOP_MARGIN +
+            TITLE_FONT_SIZE +
+            SUBTITLE_FONT_SIZE +
+            EXTRA_SPACE_TO_COMFORTABLY_CLEAR_TILE) as Px,
     )
 
 const makeNicelyPngifiable = (svgDocument: Document): void =>
@@ -66,4 +102,11 @@ const makeNicelyPngifiable = (svgDocument: Document): void =>
         OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION,
     )
 
-export { shiftStavesDown, makeNicelyPngifiable }
+export {
+    shiftStavesDown,
+    makeNicelyPngifiable,
+    shiftGroupElement,
+    computeExistingTransform,
+    getAllTopLevelGroupElements,
+    roundAllTranslations,
+}

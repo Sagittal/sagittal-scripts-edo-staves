@@ -1,5 +1,5 @@
 import { Io, Sentence } from "@sagittal/general"
-import { Edo, EdoName, Flavor } from "@sagittal/system"
+import { EdoName, Flavor } from "@sagittal/system"
 import {
     EVO_FLAVOR_INDEX,
     EVO_SZ_FLAVOR_INDEX,

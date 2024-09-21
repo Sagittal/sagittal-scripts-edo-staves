@@ -6,13 +6,13 @@ import { EdoName, Flavor } from "@sagittal/system"
 import { addSubtitle, addTitleAndGetWidth } from "./titles"
 import {
     BRAVURA_TEXT_SC_FONT_FILE,
-    BRAVURA_TEXT_SC_TITLE_FONT_SIZE,
+    BRAVURA_TEXT_SC_FONT_SIZE,
 } from "./constants"
 import { getSvgStringFromDocument } from "./document"
 import { setDiagramSizeAndGetDiagramWidth } from "./size"
 import { makeNicelyPngifiable, shiftStavesDown } from "./shift"
 import { addTile } from "./tile"
-import { textToSvgDocument } from "./element"
+import { textToSvgDocument } from "./text"
 
 const writeDiagramSvg = async ({
     inputSentence,
@@ -32,7 +32,7 @@ const writeDiagramSvg = async ({
 
     const svgDocument: Document = await textToSvgDocument(unicodeSentence, {
         fontFile: BRAVURA_TEXT_SC_FONT_FILE,
-        fontSize: BRAVURA_TEXT_SC_TITLE_FONT_SIZE,
+        fontSize: BRAVURA_TEXT_SC_FONT_SIZE,
     })
 
     shiftStavesDown(svgDocument)

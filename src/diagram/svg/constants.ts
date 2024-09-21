@@ -4,9 +4,12 @@ const SVG_NS = "http://www.w3.org/2000/svg"
 
 const BRAVURA_TEXT_SC_FONT_FILE: Filename =
     "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
-const SANOMAT_FONT_FILE: Filename = "/Users/douglasblumeyer/Library/Fonts/Sanomat-Semibold.otf" as Filename
-const OPEN_SANS_REGULAR_FONT_FILE: Filename = "/Users/douglasblumeyer/Library/Fonts/OpenSans-Regular.ttf" as Filename
-const OPEN_SANS_SEMIBOLD_FONT_FILE: Filename = "/Users/douglasblumeyer/Library/Fonts/OpenSans-SemiBold.ttf" as Filename
+const SANOMAT_FONT_FILE: Filename =
+    "/Users/douglasblumeyer/Library/Fonts/Sanomat-Semibold.otf" as Filename
+const OPEN_SANS_REGULAR_FONT_FILE: Filename =
+    "/Users/douglasblumeyer/Library/Fonts/OpenSans-Regular.ttf" as Filename
+const OPEN_SANS_SEMIBOLD_FONT_FILE: Filename =
+    "/Users/douglasblumeyer/Library/Fonts/OpenSans-SemiBold.ttf" as Filename
 
 const LEFT_AND_RIGHT_MARGIN: Px = 20 as Px
 const TOP_MARGIN: Px = 40 as Px
@@ -18,7 +21,8 @@ const A_LITTLE_EXTRA_ROOM_FOR_SHARP_SIZE: Px = 15 as Px
 
 const OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION: Px = 0.5 as Px
 
-const BRAVURA_TEXT_SC_TITLE_FONT_SIZE: Px = 40 as Px
+const BRAVURA_TEXT_SC_FONT_SIZE: Px = 40 as Px
+const BRAVURA_TEXT_SC_FONT_SIZE_FOR_SZ_SEMISHARP: Px = 33 as Px
 const TITLE_FONT_SIZE: Px = 19 as Px
 const SUBTITLE_FONT_SIZE: Px = 10 as Px
 const TILE_EDO_TEXT_FONT_SIZE: Px = TITLE_FONT_SIZE
@@ -43,7 +47,7 @@ const LIMMA_AND_SHARP_Y_OFFSET: Px = -4 as Px
 const CORNER_TRIANGLE_SIZE: Px = 6 as Px
 
 const TILE_MARGIN: Px = 2 as Px
-const SAGITTALS_MAX_WIDTH: Px = TILE_SIZE - TILE_MARGIN * 2 as Px
+const SAGITTALS_MAX_WIDTH: Px = (TILE_SIZE - TILE_MARGIN * 2) as Px
 
 export {
     SVG_NS,
@@ -54,7 +58,7 @@ export {
     TITLE_FONT_SIZE,
     SUBTITLE_FONT_SIZE,
     BRAVURA_TEXT_SC_FONT_FILE,
-    BRAVURA_TEXT_SC_TITLE_FONT_SIZE,
+    BRAVURA_TEXT_SC_FONT_SIZE,
     TILE_SIZE,
     TILE_TOP_MARGIN,
     TILE_EDO_TEXT_FONT_SIZE,
@@ -76,4 +80,5 @@ export {
     TOTAL_WIDTH_NEEDED_FOR_TILE,
     A_LITTLE_EXTRA_ROOM_FOR_SHARP_SIZE,
     SUBSET_TEXT_FONT_SIZE,
+    BRAVURA_TEXT_SC_FONT_SIZE_FOR_SZ_SEMISHARP,
 }

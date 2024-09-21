@@ -20,8 +20,7 @@ import {
     WHOLE_TONE_Y_OFFSET,
 } from "../constants"
 import { addText } from "../text"
-import { Justification } from "./types"
-import { NodeElement } from "../types"
+import { Justification, NodeElement } from "../types"
 
 const LIMMA_COLOR: HexColor = "#769200" as HexColor
 const WHOLE_TONE_COLOR: HexColor = "#C00000" as HexColor

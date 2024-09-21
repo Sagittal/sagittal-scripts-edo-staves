@@ -1,9 +1,88 @@
-import { Element } from "@xmldom/xmldom"
-import { Filename, HexColor, Io, Px } from "@sagittal/general"
-import { Justification } from "./tile/types"
-import { getGroupWidth } from "./tile/width"
-import { textToSvgGroupElement } from "./element"
-import { NodeElement } from "./types"
+import { Element, Document } from "@xmldom/xmldom"
+import {
+    Filename,
+    HexColor,
+    Io,
+    Px,
+    textToSvgPathString,
+    Index,
+    Max,
+    max,
+} from "@sagittal/general"
+import { NodeElement, Justification, Font } from "./types"
+import { getGroupWidth } from "./width"
+import { getSvgDocumentFromString } from "./document"
+import { SVG_NS } from "./constants"
+import { shiftGroupElement } from "./shift"
+
+const FONT_SIZE_DIFFERENTIAL_Y_SHIFT_FACTOR: number = 27 / 20
+
+const textsToSvgGroupElement = async (
+    svgDocument: Document,
+    texts: Io[],
+    fonts: Font[],
+    fontIndices: Index<Font>[],
+): Promise<NodeElement<SVGGElement>> => {
+    let textsWidth = 0 as Px
+    const maxFontSize: Max<Px> = max(
+        ...fonts.map(({ fontSize }: Font): Px => fontSize),
+    )
+
+    return texts.reduce(
+        async (
+            textsGroupElementPromise: Promise<NodeElement<SVGGElement>>,
+            text: Io,
+            textsIndex: number,
+        ): Promise<NodeElement<SVGGElement>> => {
+            const fontIndex: Index<Font> = fontIndices[textsIndex]
+            const font: Font = fonts[fontIndex]
+            const textsGroupElement: NodeElement<SVGGElement> =
+                await textsGroupElementPromise
+            const textGroupElement: NodeElement<SVGGElement> =
+                await textToSvgGroupElement(text, font)
+
+            shiftGroupElement(
+                textGroupElement,
+                textsWidth as Px,
+                ((maxFontSize - font.fontSize) *
+                    FONT_SIZE_DIFFERENTIAL_Y_SHIFT_FACTOR) as Px,
+            )
+            const textWidth: Px = getGroupWidth(textGroupElement)
+            textsWidth = (textsWidth + textWidth) as Px
+
+            textsGroupElement.appendChild(textGroupElement)
+
+            return textsGroupElement
+        },
+        Promise.resolve(svgDocument.createElementNS(SVG_NS, "g")) as Promise<
+            NodeElement<SVGGElement>
+        >,
+    )
+}
+
+const textToSvgDocument = async (
+    text: Io,
+    { fontFile, fontSize }: Font,
+): Promise<Document> => {
+    const svgString: string = await textToSvgPathString(text, {
+        font: fontFile,
+        fontSize,
+    })
+
+    return getSvgDocumentFromString(svgString)
+}
+
+const textToSvgGroupElement = async (
+    text: Io,
+    { fontFile, fontSize }: Font,
+): Promise<NodeElement<SVGGElement>> => {
+    const svgDocument: Document = await textToSvgDocument(text, {
+        fontFile,
+        fontSize,
+    })
+
+    return svgDocument.getElementsByTagName("g")[0] as NodeElement<SVGGElement>
+}
 
 const addText = async (
     parentElement: Element,
@@ -36,7 +115,7 @@ const addText = async (
         if (justification === Justification.CENTER) {
             textGroupElement.setAttribute(
                 "transform",
-                `translate(${xOffset - Math.round(groupWidth / 2)} ${yOffset})`,
+                `translate(${xOffset - groupWidth / 2} ${yOffset})`,
             )
         } else {
             textGroupElement.setAttribute(
@@ -56,4 +135,9 @@ const addText = async (
     return textGroupElement
 }
 
-export { addText }
+export {
+    addText,
+    textToSvgGroupElement,
+    textToSvgDocument,
+    textsToSvgGroupElement,
+}

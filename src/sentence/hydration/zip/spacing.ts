@@ -1,5 +1,5 @@
 import { Octals } from "staff-code"
-import { Index, Max } from "@sagittal/general"
+import { Index, max, Max } from "@sagittal/general"
 import { EdoStep } from "@sagittal/system"
 import { Stave } from "../../types"
 import { Folding } from "../types"
@@ -12,7 +12,7 @@ const computeColumnWidths = (
     computeResultByColumn(
         widths,
         folding,
-        (columnWidths: Octals[]) => Math.max(...columnWidths) as Max<Octals>,
+        (columnWidths: Octals[]) => max(...columnWidths),
         0 as Octals,
     )
 

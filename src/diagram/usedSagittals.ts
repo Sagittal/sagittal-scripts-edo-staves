@@ -1,4 +1,9 @@
-import { computeDeepDistinct, dividesEvenly, Index } from "@sagittal/general"
+import {
+    abs,
+    computeDeepDistinct,
+    dividesEvenly,
+    Index,
+} from "@sagittal/general"
 import {
     computeFifthStep,
     computeLimmaStep,
@@ -61,7 +66,7 @@ const computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes = (
         (_: Spelling, step: number) => dividesEvenly(step, subsetFactor),
     )
     const usedAbsoluteSagittalIndices: Index<Sagittal>[] = usedSpellings.map(
-        ({ sagittalIndex }) => Math.abs(sagittalIndex) as Index<Sagittal>,
+        ({ sagittalIndex }) => abs(sagittalIndex),
     )
 
     return {

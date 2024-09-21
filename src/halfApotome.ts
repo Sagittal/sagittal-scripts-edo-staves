@@ -12,13 +12,4 @@ const getMaybeHalfApotome = <T = Sagittal | Sagitype>(
         ? sagittalsOrSagitypes[computeHalfApotomeIndex(sharpStep)]
         : undefined
 
-const setHalfApotome = <T = Sagittal | Sagitype>(
-    sagittalsOrSagitypes: T[],
-    sharpStep: EdoStep,
-    halfApotomeSagitalOrSagitype: T,
-): void => {
-    sagittalsOrSagitypes[computeHalfApotomeIndex(sharpStep)] =
-        halfApotomeSagitalOrSagitype
-}
-
-export { getMaybeHalfApotome, setHalfApotome }
+export { getMaybeHalfApotome }
