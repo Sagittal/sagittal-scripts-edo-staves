@@ -13,13 +13,15 @@ import { Index, Px } from "@sagittal/general"
 const INDEX_OF_X_TRANSFORM: Index = 1 as Index
 const INDEX_OF_Y_TRANSFORM: Index = 2 as Index
 
-const shiftAllGroupElements = (
+const shiftAllTopLevelGroupElements = (
     svgDocument: Document,
     xOffset: Px,
     yOffset: Px,
 ): void => {
-    const groupElements: NodeElement<SVGGElement>[] = Array.from(
-        svgDocument.getElementsByTagName("g"),
+    const root: NodeElement<SVGElement> = svgDocument.documentElement! as NodeElement<SVGElement>
+    const childElements: NodeElement<SVGElement>[] = Array.from(root.childNodes) as NodeElement<SVGElement>[]
+    const groupElements: NodeElement<SVGGElement>[] = childElements.filter((childElement: NodeElement<SVGElement>): boolean => 
+        childElement.tagName === "g" && childElement.parentNode === root
     ) as NodeElement<SVGGElement>[]
 
     groupElements.forEach((groupElement: NodeElement<SVGGElement>): void => {
@@ -51,14 +53,14 @@ const shiftAllGroupElements = (
 // relies on these being the only group elements in the SVG at this time;
 // the titles and tile have not yet been added
 const shiftStavesDown = (svgDocument: Document): void =>
-    shiftAllGroupElements(
+    shiftAllTopLevelGroupElements(
         svgDocument,
         LEFT_AND_RIGHT_MARGIN,
         (TOP_MARGIN + TITLE_FONT_SIZE + SUBTITLE_FONT_SIZE + EXTRA_SPACE_TO_COMFORTABLY_CLEAR_TILE) as Px,
     )
 
 const makeNicelyPngifiable = (svgDocument: Document): void =>
-    shiftAllGroupElements(
+    shiftAllTopLevelGroupElements(
         svgDocument,
         0 as Px,
         OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION,

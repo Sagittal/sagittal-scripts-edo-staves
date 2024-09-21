@@ -4,7 +4,7 @@ import {
     EdoName,
     parseEdoName,
 } from "@sagittal/system"
-import { Io, isUndefined, Max, program, Sentence } from "@sagittal/general"
+import { Io, isUndefined, Max, program, scriptSettings, Sentence } from "@sagittal/general"
 import {
     EVO_FLAVOR_INDEX,
     EVO_SZ_FLAVOR_INDEX,
@@ -16,6 +16,8 @@ import {
     REVO_FLAVOR_INDEX,
 } from "../diagram"
 import { getInfos } from "../diagram/generate/infos"
+
+scriptSettings.disableColors = true
 
 program
     .option("-d, --dry-run")

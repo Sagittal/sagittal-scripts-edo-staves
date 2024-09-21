@@ -1,6 +1,6 @@
 import { program } from "commander"
 import { Flavor } from "@sagittal/system"
-import { Io, isUndefined, Sentence } from "@sagittal/general"
+import { Io, isUndefined, saveLog, scriptSettings, Sentence } from "@sagittal/general"
 import {
     EVO_FLAVOR_INDEX,
     EVO_SZ_FLAVOR_INDEX,
@@ -11,6 +11,8 @@ import {
 import { EdoName } from "@sagittal/system/dist/cjs/notations"
 import { generateOneOffAlternateEvoDiagram } from "../diagram/generate/oneOff"
 import { getInfos } from "../diagram/generate/infos"
+
+scriptSettings.disableColors = true
 
 program
     .option("-e, --edo <number>", "edo number")
@@ -60,7 +62,7 @@ if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[EVO_SZ_FLAVOR_INDEX]) {
     if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[REVO_FLAVOR_INDEX]) {
         // CASE 2: all three identical, generate one big shared diagram
         if (!isUndefined(flavorString))
-            console.log(ALL_IDENTICAL_MESSAGE_FOR_ANY)
+            saveLog(ALL_IDENTICAL_MESSAGE_FOR_ANY)
 
         generateOneOffGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
@@ -74,7 +76,7 @@ if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[EVO_SZ_FLAVOR_INDEX]) {
             const flavor: Flavor = flavorString.toLowerCase() as Flavor
 
             if (flavor === Flavor.REVO) {
-                console.log(REVO_COULD_BE_EVO_MESSAGE_FOR_REVO)
+                saveLog(REVO_COULD_BE_EVO_MESSAGE_FOR_REVO)
 
                 generateOneOffGeneralDiagram(
                     defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
@@ -82,9 +84,9 @@ if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[EVO_SZ_FLAVOR_INDEX]) {
                 )
             } else {
                 if (flavor === Flavor.EVO) {
-                    console.log(REVO_COULD_BE_EVO_MESSAGE_FOR_EVO)
+                    saveLog(REVO_COULD_BE_EVO_MESSAGE_FOR_EVO)
                 } else if (flavor === Flavor.EVO_SZ) {
-                    console.log(REVO_COULD_BE_EVO_MESSAGE_FOR_EVO_SZ)
+                    saveLog(REVO_COULD_BE_EVO_MESSAGE_FOR_EVO_SZ)
                 }
 
                 generateOneOffAlternateEvoDiagram(
@@ -107,7 +109,7 @@ if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[EVO_SZ_FLAVOR_INDEX]) {
                 )
             } else {
                 if (flavor === Flavor.EVO_SZ) {
-                    console.log(EVO_SZ_COULD_BE_EVO_MESSAGE_FOR_EVO_SZ)
+                    saveLog(EVO_SZ_COULD_BE_EVO_MESSAGE_FOR_EVO_SZ)
                 }
                 generateOneOffDiagram(
                     defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
@@ -133,7 +135,7 @@ if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[EVO_SZ_FLAVOR_INDEX]) {
             flavor,
         )
     } else {
-        console.log(EVO_AND_REVO_IDENTICAL_MESSAGE_FOR_EITHER)
+        saveLog(EVO_AND_REVO_IDENTICAL_MESSAGE_FOR_EITHER)
 
         generateOneOffGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
@@ -156,14 +158,14 @@ if (keyInfos[EVO_FLAVOR_INDEX] === keyInfos[EVO_SZ_FLAVOR_INDEX]) {
                 flavor,
             )
         } else if (flavor === Flavor.EVO) {
-            console.log(REVO_COULD_BE_EVO_MESSAGE_FOR_EVO)
+            saveLog(REVO_COULD_BE_EVO_MESSAGE_FOR_EVO)
 
             generateOneOffAlternateEvoDiagram(
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
                 edoName,
             )
         } else if (flavor === Flavor.REVO) {
-            console.log(REVO_COULD_BE_EVO_MESSAGE_FOR_REVO)
+            saveLog(REVO_COULD_BE_EVO_MESSAGE_FOR_REVO)
 
             generateOneOffGeneralDiagram(
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,

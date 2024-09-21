@@ -1,14 +1,5 @@
 import { computeInputSentenceUnicode } from "staff-code"
-import {
-    Count,
-    deepEquals,
-    Io,
-    isEven,
-    Px,
-    Sentence,
-    Unicode,
-    ZERO_ONE_INDEX_DIFF,
-} from "@sagittal/general"
+import { Count, Io, Px, Sentence, Unicode } from "@sagittal/general"
 import {
     computeFifthStep,
     computeSharpStep,
@@ -38,6 +29,7 @@ import { addText } from "../text"
 import { Justification } from "./types"
 import { textToSvgGroupElement } from "../element"
 import { NodeElement } from "../types"
+import { getMaybeHalfApotome, setHalfApotome } from "../../../halfApotome"
 
 const SAGITTALS_SCALER_CHANGE_FACTOR: number = 1.1
 
@@ -48,7 +40,7 @@ const addSubset = async (
     await addText(tileGroupElement, `ss${supersetEdoName}`, {
         fontFile: SANOMAT_FONT_FILE,
         fontSize: SUBSET_TEXT_FONT_SIZE,
-        xOffset: (TILE_SIZE / 2) as Px,
+        xOffset: Math.round(TILE_SIZE / 2) as Px,
         yOffset: SUBSET_Y_OFFSET,
         justification: Justification.CENTER,
     })
@@ -61,11 +53,8 @@ const handleEvoSzSagitypes = (
     const fifthStep: EdoStep = computeFifthStep(edoName)
     const edo: Edo = parseEdoName(edoName).edo
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
-    if (
-        isEven(sharpStep) &&
-        sagitypes[sharpStep / 2 - ZERO_ONE_INDEX_DIFF] === "/|\\"
-    ) {
-        sagitypes[sharpStep / 2 - ZERO_ONE_INDEX_DIFF] = "t" as Sagitype
+    if (getMaybeHalfApotome(sagitypes, sharpStep) === "/|\\") {
+        setHalfApotome(sagitypes, sharpStep, "t" as Sagitype)
     }
 }
 
@@ -106,7 +95,7 @@ const addSagittals = async (
         } else {
             sagittalsGroupElement.setAttribute(
                 "transform",
-                `translate(${TILE_SIZE / 2 - sagittalsWidth / 2} ${
+                `translate(${Math.round(TILE_SIZE / 2 - sagittalsWidth / 2)} ${
                     SAGITTAL_Y_OFFSETS_BASED_ON_HOW_MANY_TIMES_SCALE_NEEDED_TO_CHANGE[
                         scaleChangeCount
                     ]

@@ -15,7 +15,7 @@ const addEdo = async (
         {
             fontFile: SANOMAT_FONT_FILE,
             fontSize: TILE_EDO_TEXT_FONT_SIZE,
-            xOffset: (TILE_SIZE / 2) as Px,
+            xOffset: Math.round(TILE_SIZE / 2) as Px,
             yOffset: EDO_Y_OFFSET,
             justification: Justification.CENTER,
         },

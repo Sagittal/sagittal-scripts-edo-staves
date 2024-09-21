@@ -1,4 +1,4 @@
-import { Filename, Io, Sentence, Index } from "@sagittal/general"
+import { Filename, Io, Sentence, Index, saveLog } from "@sagittal/general"
 import { EdoName, Flavor } from "@sagittal/system"
 import { computeTitle } from "./title"
 import { writeDiagramSvg } from "../svg"
@@ -27,7 +27,7 @@ const generateDiagram = async (
         flavorTitlePart,
     })
 
-    console.log(`\n\n${title}\n\n${inputSentence}`)
+    saveLog(`\n\n${title}\n\n${inputSentence}`)
 
     if (!dryRun)
         await writeDiagramSvg({
