@@ -1,6 +1,14 @@
 import { Document } from "@xmldom/xmldom"
-import { computeInputSentenceUnicode } from "staff-code"
-import { Count, deepClone, Index, Io, Px, Sentence } from "@sagittal/general"
+import { Code, computeInputSentenceUnicode } from "staff-code"
+import {
+    Count,
+    deepClone,
+    Index,
+    Io,
+    Px,
+    Sentence,
+    Word,
+} from "@sagittal/general"
 import {
     computeFifthStep,
     computeSharpStep,
@@ -30,6 +38,7 @@ import { getGroupWidth } from "../width"
 import { addText, textsToSvgGroupElement } from "../text"
 import { Font, Justification, NodeElement } from "../types"
 import { getMaybeHalfApotome } from "../../../halfApotome"
+import { splitAccents } from "../../../accents"
 
 const SAGITTALS_SCALER_CHANGE_FACTOR: number = 1.1
 
@@ -82,8 +91,16 @@ const computeTexts = (sagitypes: Sagitype[]): (Io & Sentence)[] => [
     computeInputSentenceUnicode(computeSagitypeSentence(sagitypes)),
 ]
 
-const computeSagitypeSentence = (sagitypes: Sagitype[]): Io & Sentence =>
-    (sagitypes.join("; 2; ") + ";") as Io & Sentence
+const computeSagitypeSentence = (sagitypes: Sagitype[]): Io & Sentence => {
+    const sagittalWordsList: (Code & Word)[][] = sagitypes.map(splitAccents)
+    const sagittalPhrases = sagittalWordsList.map(
+        (sagittalWords: (Code & Word)[]): string => {
+            return sagittalWords.join("; ") + ";"
+        },
+    )
+
+    return (sagittalPhrases.join(" 2; ") + ";") as Io & Sentence
+}
 
 const addSagittals = async (
     tileGroupElement: NodeElement<SVGGElement>,
