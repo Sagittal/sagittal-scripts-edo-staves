@@ -28,7 +28,7 @@ import {
 import { Codewords } from "../types"
 import { computeWidth } from "./spacing"
 import { computeIsC4 } from "./c4"
-import { getMaybeHalfApotome } from "../../../halfApotome"
+import { computeIsSagittalSemisharpTheHalfApotome } from "../../../halfApotome"
 import { splitAccents } from "../../../accents"
 
 const REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D: Index<Link> = -17 as Index<Link>
@@ -116,12 +116,10 @@ const computeEvoSZSagittalAndWhorlCodewords = ({
     whorl: Whorl
     flavor: Flavor
 }): { sagittalCodewords: (Code & Word)[]; whorlCodewords: (Code & Word)[] } => {
-    const sagittalSemisharpIsHalfApotome: boolean = deepEquals(
-        getMaybeHalfApotome(sagittals, sharpStep),
-        SAGITTAL_SEMISHARP,
-    )
+    const sagittalSemisharpIsTheHalfApotome: boolean =
+        computeIsSagittalSemisharpTheHalfApotome(sagittals, sharpStep)
 
-    if (!sagittalSemisharpIsHalfApotome) {
+    if (!sagittalSemisharpIsTheHalfApotome) {
         return handleGeneralSagittalAndWhorlCodewords({
             maybeSagittal,
             whorl,

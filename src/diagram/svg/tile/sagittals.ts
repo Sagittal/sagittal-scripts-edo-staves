@@ -37,7 +37,7 @@ import {
 import { getGroupWidth } from "../width"
 import { addText, textsToSvgGroupElement } from "../text"
 import { Font, Justification, NodeElement } from "../types"
-import { getMaybeHalfApotome } from "../../../halfApotome"
+import { computeIsSagittalSemisharpTheHalfApotome } from "../../../halfApotome"
 import { splitAccents } from "../../../accents"
 
 const SAGITTALS_SCALER_CHANGE_FACTOR: number = 1.1
@@ -75,7 +75,7 @@ const computeShouldReplaceSagittalSemisharpWithSzInTile = ({
     const edo: Edo = parseEdoName(edoName).edo
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
 
-    return getMaybeHalfApotome(sagitypes, sharpStep) === "/|\\"
+    return computeIsSagittalSemisharpTheHalfApotome(sagitypes, sharpStep)
 }
 
 const computeSzTexts = (sagitypes: Sagitype[]): (Io & Sentence)[] => [

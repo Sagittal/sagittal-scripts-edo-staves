@@ -5,7 +5,7 @@ import {
     SUBTITLE_FONT_SIZE,
     TITLE_FONT_SIZE,
     TOP_MARGIN,
-    EXTRA_SPACE_TO_COMFORTABLY_CLEAR_TILE,
+    EXTRA_SPACE_TO_COMFORTABLY_CLEAR_TILE_AND_EXPRESSIONS,
 } from "./constants"
 import { NodeElement } from "./types"
 import { Index, Px, round } from "@sagittal/general"
@@ -13,11 +13,15 @@ import { Index, Px, round } from "@sagittal/general"
 const INDEX_OF_X_TRANSFORM: Index = 1 as Index
 const INDEX_OF_Y_TRANSFORM: Index = 2 as Index
 
-const roundAllTranslations = (tileGroupElement: NodeElement<SVGGElement>): void => {
-    const groupElements: NodeElement<SVGGElement>[] = getAllTopLevelGroupElements(tileGroupElement)
+const roundAllTranslations = (
+    tileGroupElement: NodeElement<SVGGElement>,
+): void => {
+    const groupElements: NodeElement<SVGGElement>[] =
+        getAllTopLevelGroupElements(tileGroupElement)
 
     groupElements.forEach((groupElement: NodeElement<SVGGElement>): void => {
-        const { existingX, existingY }: { existingX: Px, existingY: Px } = computeExistingTransform(groupElement)
+        const { existingX, existingY }: { existingX: Px; existingY: Px } =
+            computeExistingTransform(groupElement)
 
         groupElement.setAttribute(
             "transform",
@@ -92,7 +96,7 @@ const shiftStavesDown = (svgDocument: Document): void =>
         (TOP_MARGIN +
             TITLE_FONT_SIZE +
             SUBTITLE_FONT_SIZE +
-            EXTRA_SPACE_TO_COMFORTABLY_CLEAR_TILE) as Px,
+            EXTRA_SPACE_TO_COMFORTABLY_CLEAR_TILE_AND_EXPRESSIONS) as Px,
     )
 
 const makeNicelyPngifiable = (svgDocument: Document): void =>

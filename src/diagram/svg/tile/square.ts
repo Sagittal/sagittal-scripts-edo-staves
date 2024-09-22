@@ -9,6 +9,7 @@ import {
     TILE_TOP_MARGIN,
 } from "../constants"
 import { NodeElement } from "../types"
+import { append } from "../append"
 
 const addTileSquare = ({
     svgDocument,
@@ -41,7 +42,7 @@ const addTileSquare = ({
     tileRectElement.setAttribute("stroke", "black")
     tileGroupElement.appendChild(tileRectElement)
 
-    svgDocument.documentElement!.appendChild(tileGroupElement)
+    append(svgDocument, tileGroupElement)
 
     return tileGroupElement
 }

@@ -38,14 +38,19 @@ const getGroupWithOnlyOnePathWidth = (
     return (maxX - (includeLefthandWhitespace ? 0 : minX)) as Px
 }
 
-const getGroupWidth = (groupElement: NodeElement<SVGGElement>): Px => {
+const getGroupWidth = (
+    groupElement: NodeElement<SVGGElement>,
+    { includeLefthandWhitespace }: { includeLefthandWhitespace: boolean } = {
+        includeLefthandWhitespace: false,
+    },
+): Px => {
     const groupElements: NodeElement<SVGGElement>[] = Array.from(
         groupElement.getElementsByTagName("g"),
     ) as NodeElement<SVGGElement>[]
 
     if (groupElements.length === 0)
         return getGroupWithOnlyOnePathWidth(groupElement, {
-            includeLefthandWhitespace: false,
+            includeLefthandWhitespace,
         })
 
     const widths: Px[] = groupElements.map(

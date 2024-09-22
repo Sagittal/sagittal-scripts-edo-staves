@@ -1,5 +1,6 @@
-import { Filename, Px } from "@sagittal/general"
+import { Filename, Index, Io, Px, Sentence } from "@sagittal/general"
 import { Node, Element } from "@xmldom/xmldom"
+import { Code } from "staff-code"
 
 type NodeElement<T> = Node & Element & T
 
@@ -10,8 +11,8 @@ enum Justification {
 }
 
 interface Font {
-    fontFile: Filename,
-    fontSize: Px,
+    fontFile: Filename
+    fontSize: Px
 }
 
 export { NodeElement, Justification, Font }

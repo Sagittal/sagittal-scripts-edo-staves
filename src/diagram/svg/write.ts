@@ -13,6 +13,7 @@ import { setDiagramSizeAndGetDiagramWidth } from "./size"
 import { makeNicelyPngifiable, shiftStavesDown } from "./shift"
 import { addTile } from "./tile"
 import { textToSvgDocument } from "./text"
+import { addExpressionsAndGetWidth } from "./expressions"
 
 const writeDiagramSvg = async ({
     inputSentence,
@@ -38,11 +39,16 @@ const writeDiagramSvg = async ({
     shiftStavesDown(svgDocument)
 
     const titleWidth: Px = await addTitleAndGetWidth(svgDocument, title)
-    const diagramWidth: Px = setDiagramSizeAndGetDiagramWidth(svgDocument, {
-        titleWidth,
-    })
 
     await addSubtitle(svgDocument, "(default spellings)")
+
+    const expressionsWidth: Px = await addExpressionsAndGetWidth(svgDocument, { edoName, flavor })
+
+    const diagramWidth: Px = setDiagramSizeAndGetDiagramWidth(svgDocument, {
+        titleWidth,
+        expressionsWidth,
+    })
+
     await addTile(svgDocument, { edoName, diagramWidth, flavor })
 
     makeNicelyPngifiable(svgDocument)
