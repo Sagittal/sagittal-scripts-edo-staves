@@ -21,7 +21,7 @@ const setDiagramSizeAndGetDiagramWidth = (
         "svg",
     )[0] as NodeElement<SVGGElement>
 
-    const existingHeight: Px = parseInt(svg.getAttribute("height")!) as Px
+    const existingHeight: Px = parseFloat(svg.getAttribute("height")!) as Px
     const height: Px = (existingHeight +
         TOP_MARGIN +
         TITLE_FONT_SIZE +
@@ -29,7 +29,7 @@ const setDiagramSizeAndGetDiagramWidth = (
         BOTTOM_MARGIN) as Px
     svg.setAttribute("height", height.toString())
 
-    const existingWidth: Px = parseInt(svg.getAttribute("width")!) as Px
+    const existingWidth: Px = parseFloat(svg.getAttribute("width")!) as Px
     const widthAssumingStavesLongerEnoughThanTitle: Px = (existingWidth + LEFT_AND_RIGHT_MARGIN * BOTH_SIDES) as Px
     let width: Px
     if (widthAssumingStavesLongerEnoughThanTitle > titleWidth + TOTAL_WIDTH_NEEDED_FOR_TILE) {

@@ -98,8 +98,9 @@ const computeSagitypeSentence = (sagitypes: Sagitype[]): Io & Sentence => {
             return sagittalWords.join("; ") + ";"
         },
     )
+    const spacing: Px = sagittalPhrases.length >= 5 ? (1 as Px) : (2 as Px)
 
-    return (sagittalPhrases.join(" 2; ") + ";") as Io & Sentence
+    return (sagittalPhrases.join(` ${spacing}; `) + ";") as Io & Sentence
 }
 
 const addSagittals = async (

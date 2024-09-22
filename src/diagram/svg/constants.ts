@@ -38,12 +38,12 @@ const EDO_Y_OFFSET: Px = -10 as Px
 
 const SAGITTAL_Y_OFFSETS_BASED_ON_HOW_MANY_TIMES_SCALE_NEEDED_TO_CHANGE: Px[] =
     [
-        -6, // 48
-        -1, // 54
-        5, // 64b
-        12, // 71
-        19, // 145
-        25, // 224
+        -6, // 17
+        -1, // 64b
+        5, // 71
+        12, // 145
+        19, // 224
+        25, // 311
         30, // 494
         34, // 581
     ] as Px[]
@@ -55,7 +55,7 @@ const LIMMA_AND_SHARP_Y_OFFSET: Px = -4 as Px
 
 const CORNER_TRIANGLE_SIZE: Px = 6 as Px
 
-const TILE_MARGIN: Px = 2 as Px
+const TILE_MARGIN: Px = 1 as Px
 const SAGITTALS_MAX_WIDTH: Px = (TILE_SIZE - TILE_MARGIN * 2) as Px
 
 export {

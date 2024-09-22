@@ -16,7 +16,7 @@ const INDEX_OF_Y_TRANSFORM: Index = 2 as Index
 const roundAllTranslations = (tileGroupElement: NodeElement<SVGGElement>): void => {
     const groupElements: NodeElement<SVGGElement>[] = getAllTopLevelGroupElements(tileGroupElement)
 
-    groupElements.forEach((groupElement: NodeElement<SVGGElement>, groupElementIndex: number): void => {
+    groupElements.forEach((groupElement: NodeElement<SVGGElement>): void => {
         const { existingX, existingY }: { existingX: Px, existingY: Px } = computeExistingTransform(groupElement)
 
         groupElement.setAttribute(
@@ -33,10 +33,10 @@ const computeExistingTransform = (
     const existingXAndYRegExpMatches: null | RegExpMatchArray =
         existingTransform?.match(/translate\((-?\d+\.?\d*)\s+(-?\d+\.?\d*)\)/)
     const existingX: Px = existingXAndYRegExpMatches
-        ? (parseInt(existingXAndYRegExpMatches[INDEX_OF_X_TRANSFORM]) as Px)
+        ? (parseFloat(existingXAndYRegExpMatches[INDEX_OF_X_TRANSFORM]) as Px)
         : (0 as Px)
     const existingY: Px = existingXAndYRegExpMatches
-        ? (parseInt(existingXAndYRegExpMatches[INDEX_OF_Y_TRANSFORM]) as Px)
+        ? (parseFloat(existingXAndYRegExpMatches[INDEX_OF_Y_TRANSFORM]) as Px)
         : (0 as Px)
 
     return { existingX, existingY }
