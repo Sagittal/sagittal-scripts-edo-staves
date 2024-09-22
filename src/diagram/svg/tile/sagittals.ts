@@ -1,12 +1,6 @@
 import { Document } from "@xmldom/xmldom"
 import { computeInputSentenceUnicode } from "staff-code"
-import {
-    Count,
-    Index,
-    Io,
-    Px,
-    Sentence,
-} from "@sagittal/general"
+import { Count, deepClone, Index, Io, Px, Sentence } from "@sagittal/general"
 import {
     computeFifthStep,
     computeSharpStep,
@@ -116,11 +110,14 @@ const addSagittals = async (
         })
     ) {
         texts = computeSzTexts(sagitypes)
-        fonts = [TILE_SAGITTALS_FONT, TILE_SZ_SEMISHARP_FONT]
+        fonts = [
+            deepClone(TILE_SAGITTALS_FONT),
+            deepClone(TILE_SZ_SEMISHARP_FONT),
+        ]
         fontIndices = [0, 1] as Index<Font>[]
     } else {
         texts = computeTexts(sagitypes)
-        fonts = [TILE_SAGITTALS_FONT]
+        fonts = [deepClone(TILE_SAGITTALS_FONT)]
         fontIndices = [0] as Index<Font>[]
     }
 

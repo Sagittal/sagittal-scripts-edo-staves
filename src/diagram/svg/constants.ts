@@ -37,7 +37,16 @@ const TILE_SIZE: Px = 45 as Px
 const EDO_Y_OFFSET: Px = -10 as Px
 
 const SAGITTAL_Y_OFFSETS_BASED_ON_HOW_MANY_TIMES_SCALE_NEEDED_TO_CHANGE: Px[] =
-    [-7, -4, -1, 2, 5] as Px[]
+    [
+        -6, // 48
+        -1, // 54
+        5, // 64b
+        12, // 71
+        19, // 145
+        25, // 224
+        30, // 494
+        34, // 581
+    ] as Px[]
 const SUBSET_Y_OFFSET: Px = 14 as Px
 
 const WHOLE_TONE_X_OFFSET: Px = -7 as Px
