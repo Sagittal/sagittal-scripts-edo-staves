@@ -16,6 +16,9 @@ import { computeIsSagittalSemisharpTheHalfApotome } from "../../../halfApotome"
 const SAGITTAL_SEMISHARP_SMUFL_UNICODE_MATCHER: RegExp = //g
 const SZ_SEMISHARP_SMUFL_UNICODE = ""
 
+const SAGITTAL_SEMIFLAT_SMUFL_UNICODE_MATCHER: RegExp = //g
+const SZ_SEMIFLAT_SMUFL_UNICODE = ""
+
 const handleSzForExpressions = (
     texts: Io[],
     { edoName }: { edoName: EdoName },
@@ -40,6 +43,10 @@ const handleSzForExpressions = (
         texts[textsIndex] = texts[textsIndex].replace(
             SAGITTAL_SEMISHARP_SMUFL_UNICODE_MATCHER,
             SZ_SEMISHARP_SMUFL_UNICODE,
+        )
+        texts[textsIndex] = texts[textsIndex].replace(
+            SAGITTAL_SEMIFLAT_SMUFL_UNICODE_MATCHER,
+            SZ_SEMIFLAT_SMUFL_UNICODE,
         )
     }
 }
