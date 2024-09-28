@@ -38,7 +38,7 @@ const addTile = async (
 
     roundAllTranslations(tileGroupElement)
 
-    await addSteps(tileGroupElement, { edoName })
+    await addSteps(tileGroupElement, { svgDocument, edoName, flavor })
 }
 
 export { addTile }

@@ -1,4 +1,5 @@
-import { HexColor, Io, Px } from "@sagittal/general"
+import { Document } from "@xmldom/xmldom"
+import { HexColor, Index, Io, Px, Sentence } from "@sagittal/general"
 import {
     computeFifthStep,
     computeLimmaStep,
@@ -8,19 +9,26 @@ import {
     EDO_NOTATION_DEFINITIONS,
     EdoName,
     EdoStep,
+    Flavor,
     isSubsetNotation,
     parseEdoName,
 } from "@sagittal/system"
 import {
+    BRAVURA_TEXT_SC_FONT_FILE,
+    BRAVURA_TEXT_SC_FONT_SIZE_FOR_SHARP_IN_STEPS,
     LIMMA_AND_SHARP_Y_OFFSET,
     OPEN_SANS_SEMIBOLD_FONT_FILE,
+    SHARP_SYMBOL_Y_OFFSET,
+    SHARP_TEXT_Y_OFFSET,
     STEP_FONT_SIZE,
     TILE_SIZE,
     WHOLE_TONE_X_OFFSET,
     WHOLE_TONE_Y_OFFSET,
 } from "../constants"
-import { addText } from "../text"
-import { Justification, NodeElement } from "../types"
+import { addText, textsToSvgGroupElement } from "../text"
+import { Font, Justification, NodeElement } from "../types"
+import { computeInputSentenceUnicode } from "staff-code"
+import { getGroupWidth } from "../width"
 
 const LIMMA_COLOR: HexColor = "#769200" as HexColor
 const WHOLE_TONE_COLOR: HexColor = "#C00000" as HexColor
@@ -51,35 +59,81 @@ const addLimma = async (
 ): Promise<void> => {
     const limmaStep: EdoStep = computeLimmaStep(edo, fifthStep)
 
-    await addText(tileGroupElement, `EF${equalsPositiveOrLessThanZero(limmaStep)}`, {
-        fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
-        fontSize: STEP_FONT_SIZE,
-        xOffset: 0 as Px,
-        yOffset: (TILE_SIZE + LIMMA_AND_SHARP_Y_OFFSET) as Px,
-        color: LIMMA_COLOR,
-        justification: Justification.CENTER,
-    })
+    await addText(
+        tileGroupElement,
+        `EF${equalsPositiveOrLessThanZero(limmaStep)}`,
+        {
+            fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
+            fontSize: STEP_FONT_SIZE,
+            xOffset: 0 as Px,
+            yOffset: (TILE_SIZE + LIMMA_AND_SHARP_Y_OFFSET) as Px,
+            color: LIMMA_COLOR,
+            justification: Justification.CENTER,
+        },
+    )
 }
 
 const addSharp = async (
     tileGroupElement: NodeElement<SVGGElement>,
-    { edo, fifthStep }: { edo: Edo; fifthStep: EdoStep },
+    {
+        edo,
+        fifthStep,
+        svgDocument,
+        flavor,
+    }: { edo: Edo; fifthStep: EdoStep; svgDocument: Document; flavor: Flavor },
 ): Promise<void> => {
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
 
-    await addText(tileGroupElement, `#${equalsPositiveOrLessThanZero(sharpStep)}`, {
-        fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
-        fontSize: STEP_FONT_SIZE,
-        xOffset: TILE_SIZE as Px,
-        yOffset: (TILE_SIZE + LIMMA_AND_SHARP_Y_OFFSET) as Px,
-        color: SHARP_COLOR,
-        justification: Justification.CENTER,
-    })
+    const texts: Io[] = [
+        computeInputSentenceUnicode(
+            (flavor === Flavor.REVO ? "/||\\;" : "#;") as Io & Sentence,
+        ),
+        equalsPositiveOrLessThanZero(sharpStep),
+    ]
+    const fonts: Font[] = [
+        {
+            fontFile: BRAVURA_TEXT_SC_FONT_FILE,
+            fontSize: BRAVURA_TEXT_SC_FONT_SIZE_FOR_SHARP_IN_STEPS as Px,
+        },
+        {
+            fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
+            fontSize: STEP_FONT_SIZE,
+        },
+    ]
+    const fontIndices: Index<Font>[] = [0, 1] as Index<Font>[]
+    const additionalYOffsets: Px[] = [
+        SHARP_SYMBOL_Y_OFFSET,
+        SHARP_TEXT_Y_OFFSET,
+    ] as Px[]
+    const sharpStepGroupElement: NodeElement<SVGGElement> =
+        await textsToSvgGroupElement(
+            svgDocument,
+            texts,
+            fonts,
+            fontIndices,
+            additionalYOffsets,
+        )
+
+    sharpStepGroupElement.setAttribute("fill", SHARP_COLOR)
+
+    const groupWidth = getGroupWidth(sharpStepGroupElement)
+    sharpStepGroupElement.setAttribute(
+        "transform",
+        `translate(${TILE_SIZE - groupWidth / 2} ${
+            TILE_SIZE + LIMMA_AND_SHARP_Y_OFFSET
+        })`,
+    )
+
+    tileGroupElement.appendChild(sharpStepGroupElement)
 }
 
 const addSteps = async (
     tileGroupElement: NodeElement<SVGGElement>,
-    { edoName }: { edoName: EdoName },
+    {
+        edoName,
+        svgDocument,
+        flavor,
+    }: { edoName: EdoName; svgDocument: Document; flavor: Flavor },
 ): Promise<void> => {
     if (isSubsetNotation(EDO_NOTATION_DEFINITIONS[edoName])) return
 
@@ -88,7 +142,7 @@ const addSteps = async (
     const edo: Edo = parseEdoName(edoName).edo
     await addWholeTone(tileGroupElement, { edo, fifthStep })
     await addLimma(tileGroupElement, { edo, fifthStep })
-    await addSharp(tileGroupElement, { edo, fifthStep })
+    await addSharp(tileGroupElement, { edo, fifthStep, svgDocument, flavor })
 }
 
 export { addSteps }
