@@ -17,6 +17,7 @@ import {
     BRAVURA_TEXT_SC_FONT_FILE,
     BRAVURA_TEXT_SC_FONT_SIZE_FOR_SHARP_IN_STEPS,
     LIMMA_AND_SHARP_Y_OFFSET,
+    OPEN_SANS_REGULAR_FONT_FILE,
     OPEN_SANS_SEMIBOLD_FONT_FILE,
     SHARP_SYMBOL_Y_OFFSET,
     SHARP_TEXT_Y_OFFSET,
@@ -43,14 +44,18 @@ const addWholeTone = async (
 ): Promise<void> => {
     const wholeToneStep: EdoStep = computeWholeToneStep(edo, fifthStep)
 
-    await addText(tileGroupElement, `CD${equalsPositiveOrLessThanZero(wholeToneStep)}`, {
-        fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
-        fontSize: STEP_FONT_SIZE,
-        xOffset: WHOLE_TONE_X_OFFSET,
-        yOffset: WHOLE_TONE_Y_OFFSET,
-        color: WHOLE_TONE_COLOR,
-        justification: Justification.RIGHT,
-    })
+    await addText(
+        tileGroupElement,
+        `CD${equalsPositiveOrLessThanZero(wholeToneStep)}`,
+        {
+            fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
+            fontSize: STEP_FONT_SIZE,
+            xOffset: WHOLE_TONE_X_OFFSET,
+            yOffset: WHOLE_TONE_Y_OFFSET,
+            color: WHOLE_TONE_COLOR,
+            justification: Justification.RIGHT,
+        },
+    )
 }
 
 const addLimma = async (
@@ -127,6 +132,25 @@ const addSharp = async (
     tileGroupElement.appendChild(sharpStepGroupElement)
 }
 
+const addFifth = async (
+    tileGroupElement: NodeElement<SVGGElement>,
+    { fifthStep }: { fifthStep: EdoStep },
+): Promise<void> => {
+    await addText(
+        tileGroupElement,
+        `CG${equalsPositiveOrLessThanZero(fifthStep)}`,
+        {
+            fontFile: OPEN_SANS_REGULAR_FONT_FILE,
+            fontSize: STEP_FONT_SIZE,
+            // xOffset: (TILE_SIZE / 2) as Px,
+            // yOffset: -27 as Px,
+            xOffset: TILE_SIZE + 24 as Px,
+            yOffset: WHOLE_TONE_Y_OFFSET, // TODO: rename if this works, and clean up above
+            justification: Justification.CENTER,
+        },
+    )
+}
+
 const addSteps = async (
     tileGroupElement: NodeElement<SVGGElement>,
     {
@@ -138,8 +162,9 @@ const addSteps = async (
     if (isSubsetNotation(EDO_NOTATION_DEFINITIONS[edoName])) return
 
     const fifthStep: EdoStep = computeFifthStep(edoName)
-
     const edo: Edo = parseEdoName(edoName).edo
+
+    await addFifth(tileGroupElement, { fifthStep })
     await addWholeTone(tileGroupElement, { edo, fifthStep })
     await addLimma(tileGroupElement, { edo, fifthStep })
     await addSharp(tileGroupElement, { edo, fifthStep, svgDocument, flavor })

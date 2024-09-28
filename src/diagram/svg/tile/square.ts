@@ -2,7 +2,8 @@ import { Document } from "@xmldom/xmldom"
 import { HexColor, Px } from "@sagittal/general"
 import { computeSectionColor, EdoName } from "@sagittal/system"
 import {
-    A_LITTLE_EXTRA_ROOM_FOR_SHARP_SIZE,
+    // A_LITTLE_EXTRA_ROOM_FOR_SHARP_SIZE,
+    EXTRA_ROOM_FOR_FIFTH_SIZE,
     LEFT_AND_RIGHT_MARGIN,
     SVG_NS,
     TILE_SIZE,
@@ -25,7 +26,7 @@ const addTileSquare = ({
     tileGroupElement.setAttribute(
         "transform",
         `translate(${
-            diagramWidth - LEFT_AND_RIGHT_MARGIN - TILE_SIZE - A_LITTLE_EXTRA_ROOM_FOR_SHARP_SIZE
+            diagramWidth - LEFT_AND_RIGHT_MARGIN - TILE_SIZE - EXTRA_ROOM_FOR_FIFTH_SIZE
         } ${TILE_TOP_MARGIN})`,
     )
 
