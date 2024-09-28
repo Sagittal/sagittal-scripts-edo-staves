@@ -21,6 +21,7 @@ import {
     isSubsetNotation,
     NonSubsetEdoNotationDefinition,
     parseEdoName,
+    Sagittal,
     Sagitype,
 } from "@sagittal/system"
 import {
@@ -50,6 +51,9 @@ const TILE_SZ_SEMISHARP_FONT: Font = {
     fontFile: BRAVURA_TEXT_SC_FONT_FILE,
     fontSize: BRAVURA_TEXT_SC_FONT_SIZE_FOR_SZ_SEMISHARP,
 }
+
+const COMPRESS_SPACING_BEYOND_THIS_SAGITTAL_COUNT: Count<Sagittal> =
+    3 as Count<Sagittal>
 
 const addSubset = async (
     tileGroupElement: NodeElement<SVGGElement>,
@@ -98,7 +102,10 @@ const computeSagitypeSentence = (sagitypes: Sagitype[]): Io & Sentence => {
             return sagittalWords.join("; ") + ";"
         },
     )
-    const spacing: Px = sagittalPhrases.length >= 5 ? (1 as Px) : (2 as Px)
+    const spacing: Px =
+        sagittalPhrases.length > COMPRESS_SPACING_BEYOND_THIS_SAGITTAL_COUNT
+            ? (1 as Px)
+            : (2 as Px)
 
     return (sagittalPhrases.join(` ${spacing}; `) + ";") as Io & Sentence
 }
