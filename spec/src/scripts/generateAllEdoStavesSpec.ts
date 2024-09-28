@@ -1,9 +1,10 @@
-import { Filename, Io, readLines, runScriptAndGetConsoleOutput, slowTestOnlyRunInFullSuite } from "@sagittal/general"
+import { Filename, Io, readLines, runScriptAndGetConsoleOutput } from "@sagittal/general"
 import { unlinkSync, writeFileSync } from "fs"
+import { MAX_PERIODIC_TABLE_EDO } from "../../../src/constants"
 
 describe("generate-all-edo-staves", (): void => {
     it("generates the correct notations with the correct titles", (): void => {
-        const actual: Io[] = runScriptAndGetConsoleOutput("npm run generate-all-edo-staves -- --dry-run --max-edo 72" as Io)
+        const actual: Io[] = runScriptAndGetConsoleOutput(`npm run generate-all-edo-staves -- --dry-run --max-edo ${MAX_PERIODIC_TABLE_EDO}` as Io)
         writeFileSync("spec/edoDiagramsActual.txt", actual.join("\n"))
 
         const expected: Io[] = readLines("spec/edoDiagramsExpected.txt" as Filename)
