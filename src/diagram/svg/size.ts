@@ -7,7 +7,6 @@ import {
     TITLE_FONT_SIZE,
     TOP_MARGIN,
     TOTAL_WIDTH_NEEDED_FOR_TILE,
-    // A_LITTLE_EXTRA_ROOM_FOR_SHARP_SIZE,
     EXTRA_ROOM_FOR_FIFTH_SIZE
 } from "./constants"
 import { NodeElement } from "./types"

@@ -2,7 +2,6 @@ import { Document } from "@xmldom/xmldom"
 import { HexColor, Px } from "@sagittal/general"
 import { computeSectionColor, EdoName } from "@sagittal/system"
 import {
-    // A_LITTLE_EXTRA_ROOM_FOR_SHARP_SIZE,
     EXTRA_ROOM_FOR_FIFTH_SIZE,
     LEFT_AND_RIGHT_MARGIN,
     SVG_NS,

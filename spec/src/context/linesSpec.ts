@@ -43,7 +43,7 @@ describe("computeSetsLine", (): void => {
         const setsLine = computeSetsLine(edoName)
 
         expect(setsLine).toBe(
-            "This notation uses the same sagittal sequence as [[35-EDO#Sagittal notation|35b]].", // TODO: should this one be to the b notation?
+            "This notation uses the same sagittal sequence as [[35-EDO#Sagittal notation|35b]].",
         )
     })
 

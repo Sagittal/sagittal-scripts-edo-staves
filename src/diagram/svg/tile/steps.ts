@@ -24,7 +24,8 @@ import {
     STEP_FONT_SIZE,
     TILE_SIZE,
     WHOLE_TONE_X_OFFSET,
-    WHOLE_TONE_Y_OFFSET,
+    WHOLE_TONE_AND_FIFTH_Y_OFFSET,
+    FIFTH_X_OFFSET,
 } from "../constants"
 import { addText, textsToSvgGroupElement } from "../text"
 import { Font, Justification, NodeElement } from "../types"
@@ -51,7 +52,7 @@ const addWholeTone = async (
             fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
             fontSize: STEP_FONT_SIZE,
             xOffset: WHOLE_TONE_X_OFFSET,
-            yOffset: WHOLE_TONE_Y_OFFSET,
+            yOffset: WHOLE_TONE_AND_FIFTH_Y_OFFSET,
             color: WHOLE_TONE_COLOR,
             justification: Justification.RIGHT,
         },
@@ -142,10 +143,8 @@ const addFifth = async (
         {
             fontFile: OPEN_SANS_REGULAR_FONT_FILE,
             fontSize: STEP_FONT_SIZE,
-            // xOffset: (TILE_SIZE / 2) as Px,
-            // yOffset: -27 as Px,
-            xOffset: TILE_SIZE + 24 as Px,
-            yOffset: WHOLE_TONE_Y_OFFSET, // TODO: rename if this works, and clean up above
+            xOffset: FIFTH_X_OFFSET,
+            yOffset: WHOLE_TONE_AND_FIFTH_Y_OFFSET,
             justification: Justification.CENTER,
         },
     )
