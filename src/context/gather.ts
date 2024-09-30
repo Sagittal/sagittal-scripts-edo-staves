@@ -13,7 +13,7 @@ import {
 const gatherSubsectionsForEdoName = (
     edoName: EdoName,
     subsections: Subsection[],
-) => {
+): void => {
     // TODO: well now maybe the thing to DRY up instead of `getInfos` is just getting these two things?
     const defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
         Sentence)[] =
