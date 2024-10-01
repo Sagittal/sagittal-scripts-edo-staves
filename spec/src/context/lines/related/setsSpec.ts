@@ -1,7 +1,7 @@
 import { computeDeepDistinct, isUndefined, Maybe } from "@sagittal/general"
 import { EdoName, parseEdoName } from "@sagittal/system"
-import { computeSupersetEdoNames } from "../../../src/context/sets"
-import { MAX_PERIODIC_TABLE_EDO } from "../../../src/constants"
+import { computeSupersetEdoNames } from "../../../../../src/context/lines/related/sets"
+import { MAX_PERIODIC_TABLE_EDO } from "../../../../../src/constants"
 
 const EXPECTED_DIRECT_SUPERSETS: Record<EdoName, EdoName[]> = {
     // 5n

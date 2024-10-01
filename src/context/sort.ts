@@ -2,7 +2,7 @@ import { Subsection } from "./types"
 
 const SUFFICIENT_AND_SIMPLE_FACTOR_TO_SORT_BY_DIAGRAM_TYPE_FIRST_THEN_B_NOTATION: number = 10
 
-const sortSubsections = (subsections: Subsection[]) => {
+const sortSubsections = (subsections: Subsection[]): Subsection[] =>
     subsections.sort(
         (
             {
@@ -24,6 +24,5 @@ const sortSubsections = (subsections: Subsection[]) => {
             )
         },
     )
-}
 
 export { sortSubsections }

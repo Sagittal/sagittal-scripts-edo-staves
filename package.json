@@ -18,7 +18,7 @@
     "generate-edo-staves": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateEdoStaves.ts",
     "generate-all-edo-staves": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateAllEdoStaves.ts",
     "generate-edo-context": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateEdoContext.ts",
-    "generate-all-edo-context": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateAllEdoContexts.ts",
+    "generate-all-edo-contexts": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateAllEdoContexts.ts",
     "size-reversals": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/sizeReversals.ts"
   },
   "devDependencies": {

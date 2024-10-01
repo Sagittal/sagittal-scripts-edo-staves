@@ -36,7 +36,7 @@ const REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D: Index<Link> = -17 as Index<Link>
 const SZ_SESQUISHARP: Code & Word = "t#" as Code & Word
 const SZ_SEMISHARP: Code & Word = "t" as Code & Word
 const SZ_SEMIFLAT: Code & Word = "d" as Code & Word
-const SZ_SESQUIFLAT: Code & Word = "d" as Code & Word
+const SZ_SESQUIFLAT: Code & Word = "db" as Code & Word
 
 const LINKS: Record<Index<Link>, Link> = Object.values(Whorl)
     .map((whorl) => NOMINALS.map((nominal) => ({ whorl, nominal })))

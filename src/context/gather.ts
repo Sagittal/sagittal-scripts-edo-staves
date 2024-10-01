@@ -13,6 +13,7 @@ import {
 const gatherSubsectionsForEdoName = (
     edoName: EdoName,
     subsections: Subsection[],
+    { isSecondBestNotation = false }: { isSecondBestNotation?: boolean } = {},
 ): void => {
     // TODO: well now maybe the thing to DRY up instead of `getInfos` is just getting these two things?
     const defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
@@ -35,6 +36,7 @@ const gatherSubsectionsForEdoName = (
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                     EVO_FLAVOR_INDEX
                 ],
+            isSecondBestNotation,
         })
         subsections.push({
             diagramType: DiagramType.REVO,
@@ -42,6 +44,7 @@ const gatherSubsectionsForEdoName = (
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                     REVO_FLAVOR_INDEX
                 ],
+            isSecondBestNotation,
         })
         subsections.push({
             diagramType: DiagramType.EVO_SZ,
@@ -49,6 +52,7 @@ const gatherSubsectionsForEdoName = (
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                     EVO_SZ_FLAVOR_INDEX
                 ],
+            isSecondBestNotation,
         })
     } else if (
         differenceCase === DifferenceCase._1A_ALL_DIFFERENT_REVO_COULD_BE_EVO
@@ -59,6 +63,7 @@ const gatherSubsectionsForEdoName = (
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                     REVO_FLAVOR_INDEX
                 ],
+            isSecondBestNotation,
         })
         subsections.push({
             diagramType: DiagramType.ALTERNATE_EVO,
@@ -66,6 +71,7 @@ const gatherSubsectionsForEdoName = (
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                     EVO_FLAVOR_INDEX
                 ],
+            isSecondBestNotation,
         })
         subsections.push({
             diagramType: DiagramType.EVO_SZ,
@@ -73,6 +79,7 @@ const gatherSubsectionsForEdoName = (
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                     EVO_SZ_FLAVOR_INDEX
                 ],
+            isSecondBestNotation,
         })
     } else if (differenceCase === DifferenceCase._2_NONE_DIFFERENT) {
         subsections.push({
@@ -81,6 +88,7 @@ const gatherSubsectionsForEdoName = (
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                     REVO_FLAVOR_INDEX
                 ],
+            isSecondBestNotation,
         })
     } else if (differenceCase === DifferenceCase._3_REVO_DIFFERENT) {
         subsections.push({
@@ -89,6 +97,7 @@ const gatherSubsectionsForEdoName = (
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                     EVO_FLAVOR_INDEX
                 ],
+            isSecondBestNotation,
         })
         subsections.push({
             diagramType: DiagramType.REVO,
@@ -96,6 +105,7 @@ const gatherSubsectionsForEdoName = (
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                     REVO_FLAVOR_INDEX
                 ],
+            isSecondBestNotation,
         })
     } else if (
         differenceCase === DifferenceCase._3A_REVO_DIFFERENT_REVO_COULD_BE_EVO
@@ -106,13 +116,15 @@ const gatherSubsectionsForEdoName = (
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                     REVO_FLAVOR_INDEX
                 ],
+            isSecondBestNotation,
         })
         subsections.push({
-            diagramType: DiagramType.EVO,
+            diagramType: DiagramType.ALTERNATE_EVO,
             notation:
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                     EVO_FLAVOR_INDEX
                 ],
+            isSecondBestNotation,
         })
     } else if (differenceCase === DifferenceCase._4_EVO_SZ_DIFFERENT) {
         subsections.push({
@@ -121,6 +133,7 @@ const gatherSubsectionsForEdoName = (
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                     REVO_FLAVOR_INDEX
                 ],
+            isSecondBestNotation,
         })
         subsections.push({
             diagramType: DiagramType.EVO_SZ,
@@ -128,6 +141,7 @@ const gatherSubsectionsForEdoName = (
                 defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                     EVO_SZ_FLAVOR_INDEX
                 ],
+            isSecondBestNotation,
         })
     }
 }

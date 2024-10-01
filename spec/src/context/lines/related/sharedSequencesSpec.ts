@@ -1,7 +1,7 @@
 import { EdoName, parseEdoName } from "@sagittal/system"
-import { MAX_PERIODIC_TABLE_EDO } from "../../../src/constants"
+import { MAX_PERIODIC_TABLE_EDO } from "../../../../../src/constants"
 import { computeCombinations, Count, isUndefined } from "@sagittal/general"
-import { computeSharedSagittalSequenceEdoNames } from "../../../src/context/sharedSequences"
+import { computeSharedSagittalSequenceEdoNames } from "../../../../../src/context/lines/related/sharedSequences"
 
 const EXPECTED_SHARED_SAGITTAL_SEQUENCES: EdoName[][] = [
     ["9", "14"],

@@ -18,12 +18,9 @@ import {
     parseEdoName,
     SubsetFactor,
 } from "@sagittal/system"
-import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "../sentence"
-import { extractKeyInfoFromInputSentence } from "../diagram"
-
-const DEFINED_EDOS: Edo[] = (Object.keys(EDO_NOTATION_DEFINITIONS) as EdoName[])
-    .map(parseEdoName)
-    .map(({ edo }: { edo: Edo }): Edo => edo)
+import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "../../../sentence"
+import { extractKeyInfoFromInputSentence } from "../../../diagram"
+import { DEFINED_EDOS } from "../../constants"
 
 const MAX_DEFINED_EDO: Max<Edo> = max(...DEFINED_EDOS)
 const MIN_DEFINED_EDO: Min<Edo> = min(...DEFINED_EDOS)

@@ -1,4 +1,4 @@
-import { deepEquals, Index, ZERO_ONE_INDEX_DIFF } from "@sagittal/general"
+import { deepEquals, Index, saveLog, scriptSettings, ZERO_ONE_INDEX_DIFF } from "@sagittal/general"
 import {
     computeSymbolClassIdAndSectionFromSagittal,
     EDO_NOTATION_DEFINITIONS,
@@ -12,6 +12,8 @@ import {
     SECTION_P1T,
     SymbolClassId,
 } from "@sagittal/system"
+
+scriptSettings.disableColors = true
 
 const edoNotationDefinitionsEntries: [EdoName, EdoNotationDefinition][] =
     Object.entries(EDO_NOTATION_DEFINITIONS) as [
@@ -51,7 +53,7 @@ edoNotationDefinitionsEntries.forEach(
             .sort((a, b) => a - b)
 
         if (!deepEquals(sagittalIndices, sortedSagittalIndices)) {
-            console.log(
+            saveLog(
                 `EDO ${edoName} has unsorted sagittal indices: ${sagittalIndices}`,
             )
         }

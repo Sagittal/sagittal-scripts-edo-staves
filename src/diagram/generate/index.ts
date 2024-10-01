@@ -13,3 +13,4 @@ export {
     EVO_SZ_FLAVOR_INDEX,
     REVO_FLAVOR_INDEX,
 } from "./constants"
+export { computeTitle } from "./title"

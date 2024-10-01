@@ -1,6 +1,6 @@
 import { EdoName, parseEdoName } from "@sagittal/system"
 import { computeSharedSagittalSequenceEdoNames } from "./sharedSequences"
-import { Io } from "@sagittal/general"
+import { Io, Maybe } from "@sagittal/general"
 import { computeSubsetEdoNames, computeSupersetEdoNames } from "./sets"
 
 const formatEdoName = (
@@ -37,13 +37,13 @@ const formatEdoNameList = (edoNames: EdoName[]): Io => {
 const maybePlural = (edoNames: EdoName[]): Io =>
     edoNames.length > 1 ? "s" : ""
 
-const computeSetsLine = (edoName: EdoName): Io => {
+const computeRelatedEdosLine = (edoName: EdoName): Maybe<Io> => {
     const sharedSequenceEdoNames =
         computeSharedSagittalSequenceEdoNames(edoName)
     const supersetEdoNames = computeSupersetEdoNames(edoName)
     const subsetEdoNames = computeSubsetEdoNames(edoName)
 
-    let setsLine = "" as Io
+    let setsLine = undefined
     if (
         sharedSequenceEdoNames.length > 0 &&
         supersetEdoNames.length > 0 &&
@@ -98,4 +98,4 @@ const computeSetsLine = (edoName: EdoName): Io => {
     return setsLine
 }
 
-export { computeSetsLine }
+export { computeRelatedEdosLine }
