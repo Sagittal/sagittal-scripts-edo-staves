@@ -1,20 +1,20 @@
 ===Sagittal notation===
 This notation is a subset of the notations for EDOs [[10-EDO#Sagittal notation|10]], [[15-EDO#Sagittal notation|15]], [[20-EDO#Sagittal notation|20]], [[25-EDO#Sagittal notation|25]], [[30-EDO#Sagittal notation|30]], and [[35-EDO#Sagittal notation|35b]].
 [[File:5-EDO.svg]]
-Because it includes no Sagittal symbols, this notation is also a conventional notation.
+Because it includes no Sagittal symbols, this Sagittal notation is also a conventional notation.
 
 ===Sagittal notation===
 This notation is a subset of the notations for EDOs [[12-EDO#Sagittal notation|12]], [[18-EDO#Sagittal notation|18]], [[24-EDO#Sagittal notation|24]], [[36-EDO#Sagittal notation|36]], [[48-EDO#Sagittal notation|48]], [[60-EDO#Sagittal notation|60]], [[72-EDO#Sagittal notation|72]], and [[84-EDO#Sagittal notation|84]].
 ====Evo flavor====
 [[File:6-EDO_Evo.svg]]
-Because it includes no Sagittal symbols, this Evo notation is also a conventional notation.
+Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
 ====Revo flavor====
 [[File:6-EDO_Revo.svg]]
 
 ===Sagittal notation===
 This notation is a subset of the notations for EDOs [[14-EDO#Sagittal notation|14]], [[21-EDO#Sagittal notation|21]], [[28-EDO#Sagittal notation|28]], [[35-EDO#Sagittal notation|35]], and [[42-EDO#Sagittal notation|42b]].
 [[File:7-EDO.svg]]
-Because it includes no Sagittal symbols, this notation is also a conventional notation.
+Because it includes no Sagittal symbols, this Sagittal notation is also a conventional notation.
 
 ===Sagittal notation===
 This notation is a subset of the notations for EDOs [[24-EDO#Sagittal notation|24]], [[48-EDO#Sagittal notation|48]], and [[72-EDO#Sagittal notation|72]].
@@ -24,7 +24,7 @@ This notation is a subset of the notations for EDOs [[24-EDO#Sagittal notation|2
 [[File:8-EDO_Revo.svg]]
 ====Evo-SZ flavor====
 [[File:8-EDO_Evo-SZ.svg]]
-Because it contains no Sagittal symbols, this Evo-SZ notation is also a Stein-Zimmerman notation.
+Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as [[14-EDO#Sagittal notation|14-EDO]].
@@ -45,7 +45,7 @@ This notation is a subset of the notations for EDOs [[22-EDO#Sagittal notation|2
 This notation is a subset of the notations for EDOs [[24-EDO#Sagittal notation|24]], [[36-EDO#Sagittal notation|36]], [[48-EDO#Sagittal notation|48]], [[60-EDO#Sagittal notation|60]], [[72-EDO#Sagittal notation|72]], and [[84-EDO#Sagittal notation|84]] and a superset of the notation for [[6-EDO#Sagittal notation|6-EDO]].
 ====Evo flavor====
 [[File:12-EDO_Evo.svg]]
-Because it includes no Sagittal symbols, this Evo notation is also a conventional notation.
+Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
 ====Revo flavor====
 [[File:12-EDO_Revo.svg]]
 
@@ -53,7 +53,7 @@ Because it includes no Sagittal symbols, this Evo notation is also a conventiona
 This notation is a subset of the notations for EDOs [[26-EDO#Sagittal notation|26]] and [[52-EDO#Sagittal notation|52]].
 ====Evo flavor====
 [[File:13-EDO_Evo.svg]]
-Because it includes no Sagittal symbols, this Evo notation is also a conventional notation.
+Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
 ====Revo flavor====
 [[File:13-EDO_Revo.svg]]
 
@@ -83,7 +83,7 @@ This notation is a subset of the notations for EDOs [[36-EDO#Sagittal notation|3
 This notation is a subset of the notations for EDOs [[38-EDO#Sagittal notation|38]] and [[57-EDO#Sagittal notation|57]].
 ====Evo flavor====
 [[File:19-EDO_Evo.svg]]
-Because it includes no Sagittal symbols, this Evo notation is also a conventional notation.
+Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
 ====Revo flavor====
 [[File:19-EDO_Revo.svg]]
 
@@ -118,7 +118,7 @@ This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation
 [[File:24-EDO_Revo.svg]]
 ====Evo-SZ flavor====
 [[File:24-EDO_Evo-SZ.svg]]
-Because it contains no Sagittal symbols, this Evo-SZ notation is also a Stein-Zimmerman notation.
+Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as [[32-EDO#Sagittal notation|32-EDO]], and is a superset of the notation for [[5-EDO#Sagittal notation|5-EDO]].
@@ -128,7 +128,7 @@ This notation uses the same sagittal sequence as [[32-EDO#Sagittal notation|32-E
 This notation is a subset of the notation for [[52-EDO#Sagittal notation|52-EDO]] and a superset of the notation for [[13-EDO#Sagittal notation|13-EDO]].
 ====Evo flavor====
 [[File:26-EDO_Evo.svg]]
-Because it includes no Sagittal symbols, this Evo notation is also a conventional notation.
+Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
 ====Revo flavor====
 [[File:26-EDO_Revo.svg]]
 
@@ -165,7 +165,7 @@ This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation
 [[File:31-EDO_Revo.svg]]
 ====Evo-SZ flavor====
 [[File:31-EDO_Evo-SZ.svg]]
-Because it contains no Sagittal symbols, this Evo-SZ notation is also a Stein-Zimmerman notation.
+Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as [[25-EDO#Sagittal notation|25-EDO]], and is a subset of the notation for [[64-EDO#Sagittal notation|64b]].
@@ -216,7 +216,7 @@ This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation
 [[File:38-EDO_Revo.svg]]
 ====Evo-SZ flavor====
 [[File:38-EDO_Evo-SZ.svg]]
-Because it contains no Sagittal symbols, this Evo-SZ notation is also a Stein-Zimmerman notation.
+Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as [[46-EDO#Sagittal notation|46-EDO]].
