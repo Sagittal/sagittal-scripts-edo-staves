@@ -1,4 +1,10 @@
-import { deepEquals, Index, saveLog, scriptSettings, ZERO_ONE_INDEX_DIFF } from "@sagittal/general"
+import {
+    deepEquals,
+    Index,
+    saveLog,
+    scriptSettings,
+    ZERO_ONE_INDEX_DIFF,
+} from "@sagittal/general"
 import {
     computeSymbolClassIdAndSectionFromSagittal,
     EDO_NOTATION_DEFINITIONS,
@@ -50,7 +56,7 @@ edoNotationDefinitionsEntries.forEach(
 
         const sortedSagittalIndices: Index<Sagittal>[] = sagittalIndices
             .slice()
-            .sort((a, b) => a - b)
+            .sort((a: Index<Sagittal>, b: Index<Sagittal>): number => a - b)
 
         if (!deepEquals(sagittalIndices, sortedSagittalIndices)) {
             saveLog(

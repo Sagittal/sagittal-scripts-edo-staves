@@ -9,23 +9,59 @@ import {
     computeSubsectionHeadingLine,
 } from "./lines"
 
-const generateContext = (edo: Edo, subsections: Subsection[], dryRun: boolean = false): void => {
+const generateContext = (
+    edo: Edo,
+    subsectionsForEachFifth: Subsection[][],
+    dryRun: boolean = false,
+): void => {
     let lines: Maybe<Io>[] = ["===Sagittal notation==="]
 
-    subsections.forEach(
-        ({ diagramType, notation, isSecondBestNotation }: Subsection): void => {
-            lines.push(computeSubsectionHeadingLine({ diagramType }))
-            lines.push(
-                computeDiagramLine({ edo, diagramType, isSecondBestNotation }),
-            )
+    const hasSecondBestFifthNotation: boolean =
+        subsectionsForEachFifth.length === 2
+
+    subsectionsForEachFifth.forEach(
+        (subsections: Subsection[], subsectionsIndex: number): void => {
+            const isSecondBestFifthNotation: boolean = subsectionsIndex === 1
+
+            if (hasSecondBestFifthNotation) {
+                lines.push(
+                    isSecondBestFifthNotation
+                        ? "====Second best fifth notation===="
+                        : "====Best fifth notation====",
+                )
+            }
+
             lines.push(
                 computeRelatedEdosLine(
-                    isSecondBestNotation
+                    isSecondBestFifthNotation
                         ? (`${edo}b` as EdoName)
                         : (edo.toString() as EdoName),
                 ),
             )
-            lines.push(computeEquivalentNotationsLine({ notation }))
+
+            subsections.forEach(
+                ({ diagramType, notation }: Subsection): void => {
+                    lines.push(
+                        computeSubsectionHeadingLine({
+                            diagramType,
+                            hasSecondBestFifthNotation,
+                        }),
+                    )
+                    lines.push(
+                        computeDiagramLine({
+                            edo,
+                            diagramType,
+                            isSecondBestFifthNotation,
+                        }),
+                    )
+                    lines.push(
+                        computeEquivalentNotationsLine({
+                            notation,
+                            diagramType,
+                        }),
+                    )
+                },
+            )
         },
     )
 

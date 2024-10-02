@@ -1,330 +1,299 @@
 ===Sagittal notation===
-[[File:5-EDO.svg]]
 This notation is a subset of the notations for EDOs [[10-EDO#Sagittal notation|10]], [[15-EDO#Sagittal notation|15]], [[20-EDO#Sagittal notation|20]], [[25-EDO#Sagittal notation|25]], [[30-EDO#Sagittal notation|30]], and [[35-EDO#Sagittal notation|35b]].
-Because it includes no Sagittal symbols, this notation could also be considered to be a conventional notation.
+[[File:5-EDO.svg]]
+Because it includes no Sagittal symbols, this notation is also a conventional notation.
 
 ===Sagittal notation===
+This notation is a subset of the notations for EDOs [[12-EDO#Sagittal notation|12]], [[18-EDO#Sagittal notation|18]], [[24-EDO#Sagittal notation|24]], [[36-EDO#Sagittal notation|36]], [[48-EDO#Sagittal notation|48]], [[60-EDO#Sagittal notation|60]], [[72-EDO#Sagittal notation|72]], and [[84-EDO#Sagittal notation|84]].
 ====Evo flavor====
 [[File:6-EDO_Evo.svg]]
-This notation is a subset of the notations for EDOs [[12-EDO#Sagittal notation|12]], [[18-EDO#Sagittal notation|18]], [[24-EDO#Sagittal notation|24]], [[36-EDO#Sagittal notation|36]], [[48-EDO#Sagittal notation|48]], [[60-EDO#Sagittal notation|60]], [[72-EDO#Sagittal notation|72]], and [[84-EDO#Sagittal notation|84]].
-Because it includes no Sagittal symbols, this notation could also be considered to be a conventional notation.
+Because it includes no Sagittal symbols, this Evo notation is also a conventional notation.
 ====Revo flavor====
 [[File:6-EDO_Revo.svg]]
-This notation is a subset of the notations for EDOs [[12-EDO#Sagittal notation|12]], [[18-EDO#Sagittal notation|18]], [[24-EDO#Sagittal notation|24]], [[36-EDO#Sagittal notation|36]], [[48-EDO#Sagittal notation|48]], [[60-EDO#Sagittal notation|60]], [[72-EDO#Sagittal notation|72]], and [[84-EDO#Sagittal notation|84]].
 
 ===Sagittal notation===
-[[File:7-EDO.svg]]
 This notation is a subset of the notations for EDOs [[14-EDO#Sagittal notation|14]], [[21-EDO#Sagittal notation|21]], [[28-EDO#Sagittal notation|28]], [[35-EDO#Sagittal notation|35]], and [[42-EDO#Sagittal notation|42b]].
-Because it includes no Sagittal symbols, this notation could also be considered to be a conventional notation.
+[[File:7-EDO.svg]]
+Because it includes no Sagittal symbols, this notation is also a conventional notation.
 
 ===Sagittal notation===
+This notation is a subset of the notations for EDOs [[24-EDO#Sagittal notation|24]], [[48-EDO#Sagittal notation|48]], and [[72-EDO#Sagittal notation|72]].
 ====Evo flavor====
 [[File:8-EDO_Evo.svg]]
-This notation is a subset of the notations for EDOs [[24-EDO#Sagittal notation|24]], [[48-EDO#Sagittal notation|48]], and [[72-EDO#Sagittal notation|72]].
 ====Revo flavor====
 [[File:8-EDO_Revo.svg]]
-This notation is a subset of the notations for EDOs [[24-EDO#Sagittal notation|24]], [[48-EDO#Sagittal notation|48]], and [[72-EDO#Sagittal notation|72]].
 ====Evo-SZ flavor====
 [[File:8-EDO_Evo-SZ.svg]]
-This notation is a subset of the notations for EDOs [[24-EDO#Sagittal notation|24]], [[48-EDO#Sagittal notation|48]], and [[72-EDO#Sagittal notation|72]].
-Because it contains no Sagittal symbols, this notation could also be considered to be a Stein-Zimmerman notation.
+Because it contains no Sagittal symbols, this Evo-SZ notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
-[[File:9-EDO.svg]]
 This notation uses the same sagittal sequence as [[14-EDO#Sagittal notation|14-EDO]].
+[[File:9-EDO.svg]]
 
 ===Sagittal notation===
-[[File:10-EDO.svg]]
 This notation is a subset of the notations for EDOs [[20-EDO#Sagittal notation|20]] and [[30-EDO#Sagittal notation|30]] and a superset of the notation for [[5-EDO#Sagittal notation|5-EDO]].
+[[File:10-EDO.svg]]
 
 ===Sagittal notation===
+This notation is a subset of the notations for EDOs [[22-EDO#Sagittal notation|22]], [[44-EDO#Sagittal notation|44]], and [[66-EDO#Sagittal notation|66]].
 ====Evo flavor====
 [[File:11-EDO_Evo.svg]]
-This notation is a subset of the notations for EDOs [[22-EDO#Sagittal notation|22]], [[44-EDO#Sagittal notation|44]], and [[66-EDO#Sagittal notation|66]].
 ====Revo flavor====
 [[File:11-EDO_Revo.svg]]
-This notation is a subset of the notations for EDOs [[22-EDO#Sagittal notation|22]], [[44-EDO#Sagittal notation|44]], and [[66-EDO#Sagittal notation|66]].
 
 ===Sagittal notation===
+This notation is a subset of the notations for EDOs [[24-EDO#Sagittal notation|24]], [[36-EDO#Sagittal notation|36]], [[48-EDO#Sagittal notation|48]], [[60-EDO#Sagittal notation|60]], [[72-EDO#Sagittal notation|72]], and [[84-EDO#Sagittal notation|84]] and a superset of the notation for [[6-EDO#Sagittal notation|6-EDO]].
 ====Evo flavor====
 [[File:12-EDO_Evo.svg]]
-This notation is a subset of the notations for EDOs [[24-EDO#Sagittal notation|24]], [[36-EDO#Sagittal notation|36]], [[48-EDO#Sagittal notation|48]], [[60-EDO#Sagittal notation|60]], [[72-EDO#Sagittal notation|72]], and [[84-EDO#Sagittal notation|84]] and a superset of the notation for [[6-EDO#Sagittal notation|6-EDO]].
-Because it includes no Sagittal symbols, this notation could also be considered to be a conventional notation.
+Because it includes no Sagittal symbols, this Evo notation is also a conventional notation.
 ====Revo flavor====
 [[File:12-EDO_Revo.svg]]
-This notation is a subset of the notations for EDOs [[24-EDO#Sagittal notation|24]], [[36-EDO#Sagittal notation|36]], [[48-EDO#Sagittal notation|48]], [[60-EDO#Sagittal notation|60]], [[72-EDO#Sagittal notation|72]], and [[84-EDO#Sagittal notation|84]] and a superset of the notation for [[6-EDO#Sagittal notation|6-EDO]].
 
 ===Sagittal notation===
+This notation is a subset of the notations for EDOs [[26-EDO#Sagittal notation|26]] and [[52-EDO#Sagittal notation|52]].
 ====Evo flavor====
 [[File:13-EDO_Evo.svg]]
-This notation is a subset of the notations for EDOs [[26-EDO#Sagittal notation|26]] and [[52-EDO#Sagittal notation|52]].
-Because it includes no Sagittal symbols, this notation could also be considered to be a conventional notation.
+Because it includes no Sagittal symbols, this Evo notation is also a conventional notation.
 ====Revo flavor====
 [[File:13-EDO_Revo.svg]]
-This notation is a subset of the notations for EDOs [[26-EDO#Sagittal notation|26]] and [[52-EDO#Sagittal notation|52]].
 
 ===Sagittal notation===
-[[File:14-EDO.svg]]
 This notation uses the same sagittal sequence as [[9-EDO#Sagittal notation|9-EDO]], is a subset of the notations for EDOs [[28-EDO#Sagittal notation|28]] and [[42-EDO#Sagittal notation|42b]], and is a superset of the notation for [[7-EDO#Sagittal notation|7-EDO]].
+[[File:14-EDO.svg]]
 
 ===Sagittal notation===
-[[File:15-EDO.svg]]
 This notation uses the same sagittal sequence as EDOs [[22-EDO#Sagittal notation|22]] and [[29-EDO#Sagittal notation|29]], is a subset of the notation for [[30-EDO#Sagittal notation|30-EDO]], and is a superset of the notation for [[5-EDO#Sagittal notation|5-EDO]].
+[[File:15-EDO.svg]]
 
 ===Sagittal notation===
-[[File:16-EDO.svg]]
 This notation uses the same sagittal sequence as [[21-EDO#Sagittal notation|21-EDO]].
+[[File:16-EDO.svg]]
 
 ===Sagittal notation===
-[[File:17-EDO.svg]]
 This notation uses the same sagittal sequence as EDOs [[24-EDO#Sagittal notation|24]], [[31-EDO#Sagittal notation|31]], and [[38-EDO#Sagittal notation|38]], and is a subset of the notation for [[34-EDO#Sagittal notation|34-EDO]].
-====Alternate Evo flavor====
-[[File:17-EDO_Alternative_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[24-EDO#Sagittal notation|24]], [[31-EDO#Sagittal notation|31]], and [[38-EDO#Sagittal notation|38]], and is a subset of the notation for [[34-EDO#Sagittal notation|34-EDO]].
-====Evo-SZ flavor====
-[[File:17-EDO_Evo-SZ.svg]]
-This notation uses the same sagittal sequence as EDOs [[24-EDO#Sagittal notation|24]], [[31-EDO#Sagittal notation|31]], and [[38-EDO#Sagittal notation|38]], and is a subset of the notation for [[34-EDO#Sagittal notation|34-EDO]].
-Because it contains no Sagittal symbols, this notation could also be considered to be a Stein-Zimmerman notation.
 
 ===Sagittal notation===
+This notation is a subset of the notations for EDOs [[36-EDO#Sagittal notation|36]] and [[72-EDO#Sagittal notation|72]] and a superset of the notation for [[6-EDO#Sagittal notation|6-EDO]].
 ====Evo flavor====
 [[File:18-EDO_Evo.svg]]
-This notation is a subset of the notations for EDOs [[36-EDO#Sagittal notation|36]] and [[72-EDO#Sagittal notation|72]] and a superset of the notation for [[6-EDO#Sagittal notation|6-EDO]].
 ====Revo flavor====
 [[File:18-EDO_Revo.svg]]
-This notation is a subset of the notations for EDOs [[36-EDO#Sagittal notation|36]] and [[72-EDO#Sagittal notation|72]] and a superset of the notation for [[6-EDO#Sagittal notation|6-EDO]].
 
 ===Sagittal notation===
+This notation is a subset of the notations for EDOs [[38-EDO#Sagittal notation|38]] and [[57-EDO#Sagittal notation|57]].
 ====Evo flavor====
 [[File:19-EDO_Evo.svg]]
-This notation is a subset of the notations for EDOs [[38-EDO#Sagittal notation|38]] and [[57-EDO#Sagittal notation|57]].
-Because it includes no Sagittal symbols, this notation could also be considered to be a conventional notation.
+Because it includes no Sagittal symbols, this Evo notation is also a conventional notation.
 ====Revo flavor====
 [[File:19-EDO_Revo.svg]]
-This notation is a subset of the notations for EDOs [[38-EDO#Sagittal notation|38]] and [[57-EDO#Sagittal notation|57]].
 
 ===Sagittal notation===
-[[File:20-EDO.svg]]
 This notation is a superset of the notations for EDOs [[10-EDO#Sagittal notation|10]] and [[5-EDO#Sagittal notation|5]].
+[[File:20-EDO.svg]]
 
 ===Sagittal notation===
-[[File:21-EDO.svg]]
 This notation uses the same sagittal sequence as [[16-EDO#Sagittal notation|16-EDO]], is a subset of the notation for [[42-EDO#Sagittal notation|42b]], and is a superset of the notation for [[7-EDO#Sagittal notation|7-EDO]].
+[[File:21-EDO.svg]]
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[15-EDO#Sagittal notation|15]] and [[29-EDO#Sagittal notation|29]], is a subset of the notations for EDOs [[44-EDO#Sagittal notation|44]] and [[66-EDO#Sagittal notation|66]], and is a superset of the notation for [[11-EDO#Sagittal notation|11-EDO]].
 ====Evo flavor====
 [[File:22-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[15-EDO#Sagittal notation|15]] and [[29-EDO#Sagittal notation|29]], is a subset of the notations for EDOs [[44-EDO#Sagittal notation|44]] and [[66-EDO#Sagittal notation|66]], and is a superset of the notation for [[11-EDO#Sagittal notation|11-EDO]].
 ====Revo flavor====
 [[File:22-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as EDOs [[15-EDO#Sagittal notation|15]] and [[29-EDO#Sagittal notation|29]], is a subset of the notations for EDOs [[44-EDO#Sagittal notation|44]] and [[66-EDO#Sagittal notation|66]], and is a superset of the notation for [[11-EDO#Sagittal notation|11-EDO]].
 
 ===Sagittal notation===
-[[File:23-EDO.svg]]
+====Best fifth notation====
 This notation uses the same sagittal sequence as EDOs [[28-EDO#Sagittal notation|28]] and [[33-EDO#Sagittal notation|33]].
-[[File:23b.svg]]
+[[File:23-EDO.svg]]
+====Second best fifth notation====
 This notation uses the same sagittal sequence as EDOs [[30-EDO#Sagittal notation|30]], [[37-EDO#Sagittal notation|37]], and [[44-EDO#Sagittal notation|44]].
+[[File:23b.svg]]
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[31-EDO#Sagittal notation|31]], and [[38-EDO#Sagittal notation|38]], is a subset of the notations for EDOs [[48-EDO#Sagittal notation|48]] and [[72-EDO#Sagittal notation|72]], and is a superset of the notations for EDOs [[12-EDO#Sagittal notation|12]], [[8-EDO#Sagittal notation|8]], and [[6-EDO#Sagittal notation|6]].
 ====Evo flavor====
 [[File:24-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[31-EDO#Sagittal notation|31]], and [[38-EDO#Sagittal notation|38]], is a subset of the notations for EDOs [[48-EDO#Sagittal notation|48]] and [[72-EDO#Sagittal notation|72]], and is a superset of the notations for EDOs [[12-EDO#Sagittal notation|12]], [[8-EDO#Sagittal notation|8]], and [[6-EDO#Sagittal notation|6]].
 ====Revo flavor====
 [[File:24-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[31-EDO#Sagittal notation|31]], and [[38-EDO#Sagittal notation|38]], is a subset of the notations for EDOs [[48-EDO#Sagittal notation|48]] and [[72-EDO#Sagittal notation|72]], and is a superset of the notations for EDOs [[12-EDO#Sagittal notation|12]], [[8-EDO#Sagittal notation|8]], and [[6-EDO#Sagittal notation|6]].
 ====Evo-SZ flavor====
 [[File:24-EDO_Evo-SZ.svg]]
-This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[31-EDO#Sagittal notation|31]], and [[38-EDO#Sagittal notation|38]], is a subset of the notations for EDOs [[48-EDO#Sagittal notation|48]] and [[72-EDO#Sagittal notation|72]], and is a superset of the notations for EDOs [[12-EDO#Sagittal notation|12]], [[8-EDO#Sagittal notation|8]], and [[6-EDO#Sagittal notation|6]].
-Because it contains no Sagittal symbols, this notation could also be considered to be a Stein-Zimmerman notation.
+Because it contains no Sagittal symbols, this Evo-SZ notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
-[[File:25-EDO.svg]]
 This notation uses the same sagittal sequence as [[32-EDO#Sagittal notation|32-EDO]], and is a superset of the notation for [[5-EDO#Sagittal notation|5-EDO]].
+[[File:25-EDO.svg]]
 
 ===Sagittal notation===
+This notation is a subset of the notation for [[52-EDO#Sagittal notation|52-EDO]] and a superset of the notation for [[13-EDO#Sagittal notation|13-EDO]].
 ====Evo flavor====
 [[File:26-EDO_Evo.svg]]
-This notation is a subset of the notation for [[52-EDO#Sagittal notation|52-EDO]] and a superset of the notation for [[13-EDO#Sagittal notation|13-EDO]].
-Because it includes no Sagittal symbols, this notation could also be considered to be a conventional notation.
+Because it includes no Sagittal symbols, this Evo notation is also a conventional notation.
 ====Revo flavor====
 [[File:26-EDO_Revo.svg]]
-This notation is a subset of the notation for [[52-EDO#Sagittal notation|52-EDO]] and a superset of the notation for [[13-EDO#Sagittal notation|13-EDO]].
 
 ===Sagittal notation===
-[[File:27-EDO.svg]]
 This notation is a subset of the notation for [[54-EDO#Sagittal notation|54-EDO]].
+[[File:27-EDO.svg]]
 ====Alternate Evo flavor====
 [[File:27-EDO_Alternative_Evo.svg]]
-This notation is a subset of the notation for [[54-EDO#Sagittal notation|54-EDO]].
 
 ===Sagittal notation===
-[[File:28-EDO.svg]]
 This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation|23]] and [[33-EDO#Sagittal notation|33]], and is a superset of the notations for EDOs [[14-EDO#Sagittal notation|14]] and [[7-EDO#Sagittal notation|7]].
+[[File:28-EDO.svg]]
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[15-EDO#Sagittal notation|15]] and [[22-EDO#Sagittal notation|22]].
 ====Evo flavor====
 [[File:29-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[15-EDO#Sagittal notation|15]] and [[22-EDO#Sagittal notation|22]].
 ====Revo flavor====
 [[File:29-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as EDOs [[15-EDO#Sagittal notation|15]] and [[22-EDO#Sagittal notation|22]].
 
 ===Sagittal notation===
-[[File:30-EDO.svg]]
+====Best fifth notation====
 This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation|23b]], [[37-EDO#Sagittal notation|37]], and [[44-EDO#Sagittal notation|44]], and is a superset of the notations for EDOs [[15-EDO#Sagittal notation|15]], [[10-EDO#Sagittal notation|10]], and [[5-EDO#Sagittal notation|5]].
-[[File:30b.svg]]
+[[File:30-EDO.svg]]
+====Second best fifth notation====
 This notation uses the same sagittal sequence as EDOs [[35-EDO#Sagittal notation|35]] and [[40-EDO#Sagittal notation|40]].
+[[File:30b.svg]]
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[24-EDO#Sagittal notation|24]], and [[38-EDO#Sagittal notation|38]], and is a subset of the notation for [[62-EDO#Sagittal notation|62-EDO]].
 ====Evo flavor====
 [[File:31-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[24-EDO#Sagittal notation|24]], and [[38-EDO#Sagittal notation|38]], and is a subset of the notation for [[62-EDO#Sagittal notation|62-EDO]].
 ====Revo flavor====
 [[File:31-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[24-EDO#Sagittal notation|24]], and [[38-EDO#Sagittal notation|38]], and is a subset of the notation for [[62-EDO#Sagittal notation|62-EDO]].
 ====Evo-SZ flavor====
 [[File:31-EDO_Evo-SZ.svg]]
-This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[24-EDO#Sagittal notation|24]], and [[38-EDO#Sagittal notation|38]], and is a subset of the notation for [[62-EDO#Sagittal notation|62-EDO]].
-Because it contains no Sagittal symbols, this notation could also be considered to be a Stein-Zimmerman notation.
+Because it contains no Sagittal symbols, this Evo-SZ notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as [[25-EDO#Sagittal notation|25-EDO]], and is a subset of the notation for [[64-EDO#Sagittal notation|64b]].
 ====Evo flavor====
 [[File:32-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[25-EDO#Sagittal notation|25-EDO]], and is a subset of the notation for [[64-EDO#Sagittal notation|64b]].
 ====Revo flavor====
 [[File:32-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[25-EDO#Sagittal notation|25-EDO]], and is a subset of the notation for [[64-EDO#Sagittal notation|64b]].
 
 ===Sagittal notation===
-[[File:33-EDO.svg]]
 This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation|23]] and [[28-EDO#Sagittal notation|28]].
+[[File:33-EDO.svg]]
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as [[41-EDO#Sagittal notation|41-EDO]], and is a superset of the notation for [[17-EDO#Sagittal notation|17-EDO]].
 ====Evo flavor====
 [[File:34-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[41-EDO#Sagittal notation|41-EDO]], and is a superset of the notation for [[17-EDO#Sagittal notation|17-EDO]].
 ====Revo flavor====
 [[File:34-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[41-EDO#Sagittal notation|41-EDO]], and is a superset of the notation for [[17-EDO#Sagittal notation|17-EDO]].
 ====Evo-SZ flavor====
 [[File:34-EDO_Evo-SZ.svg]]
-This notation uses the same sagittal sequence as [[41-EDO#Sagittal notation|41-EDO]], and is a superset of the notation for [[17-EDO#Sagittal notation|17-EDO]].
 
 ===Sagittal notation===
-[[File:35-EDO.svg]]
+====Best fifth notation====
 This notation uses the same sagittal sequence as EDOs [[30-EDO#Sagittal notation|30b]] and [[40-EDO#Sagittal notation|40]], and is a superset of the notation for [[7-EDO#Sagittal notation|7-EDO]].
-[[File:35b.svg]]
+[[File:35-EDO.svg]]
+====Second best fifth notation====
 This notation uses the same sagittal sequence as [[42-EDO#Sagittal notation|42-EDO]], and is a superset of the notation for [[5-EDO#Sagittal notation|5-EDO]].
+[[File:35b.svg]]
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as [[43-EDO#Sagittal notation|43-EDO]], is a subset of the notation for [[72-EDO#Sagittal notation|72-EDO]], and is a superset of the notations for EDOs [[18-EDO#Sagittal notation|18]], [[12-EDO#Sagittal notation|12]], and [[6-EDO#Sagittal notation|6]].
 ====Evo flavor====
 [[File:36-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[43-EDO#Sagittal notation|43-EDO]], is a subset of the notation for [[72-EDO#Sagittal notation|72-EDO]], and is a superset of the notations for EDOs [[18-EDO#Sagittal notation|18]], [[12-EDO#Sagittal notation|12]], and [[6-EDO#Sagittal notation|6]].
 ====Revo flavor====
 [[File:36-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[43-EDO#Sagittal notation|43-EDO]], is a subset of the notation for [[72-EDO#Sagittal notation|72-EDO]], and is a superset of the notations for EDOs [[18-EDO#Sagittal notation|18]], [[12-EDO#Sagittal notation|12]], and [[6-EDO#Sagittal notation|6]].
 
 ===Sagittal notation===
-[[File:37-EDO.svg]]
 This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation|23b]], [[30-EDO#Sagittal notation|30]], and [[44-EDO#Sagittal notation|44]].
+[[File:37-EDO.svg]]
 ====Alternate Evo flavor====
 [[File:37-EDO_Alternative_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation|23b]], [[30-EDO#Sagittal notation|30]], and [[44-EDO#Sagittal notation|44]].
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[24-EDO#Sagittal notation|24]], and [[31-EDO#Sagittal notation|31]], and is a superset of the notation for [[19-EDO#Sagittal notation|19-EDO]].
 ====Evo flavor====
 [[File:38-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[24-EDO#Sagittal notation|24]], and [[31-EDO#Sagittal notation|31]], and is a superset of the notation for [[19-EDO#Sagittal notation|19-EDO]].
 ====Revo flavor====
 [[File:38-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[24-EDO#Sagittal notation|24]], and [[31-EDO#Sagittal notation|31]], and is a superset of the notation for [[19-EDO#Sagittal notation|19-EDO]].
 ====Evo-SZ flavor====
 [[File:38-EDO_Evo-SZ.svg]]
-This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[24-EDO#Sagittal notation|24]], and [[31-EDO#Sagittal notation|31]], and is a superset of the notation for [[19-EDO#Sagittal notation|19-EDO]].
-Because it contains no Sagittal symbols, this notation could also be considered to be a Stein-Zimmerman notation.
+Because it contains no Sagittal symbols, this Evo-SZ notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as [[46-EDO#Sagittal notation|46-EDO]].
 ====Evo flavor====
 [[File:39-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[46-EDO#Sagittal notation|46-EDO]].
 ====Revo flavor====
 [[File:39-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[46-EDO#Sagittal notation|46-EDO]].
 
 ===Sagittal notation===
-[[File:40-EDO.svg]]
 This notation uses the same sagittal sequence as EDOs [[30-EDO#Sagittal notation|30b]] and [[35-EDO#Sagittal notation|35]].
+[[File:40-EDO.svg]]
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as [[34-EDO#Sagittal notation|34-EDO]].
 ====Evo flavor====
 [[File:41-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[34-EDO#Sagittal notation|34-EDO]].
 ====Revo flavor====
 [[File:41-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[34-EDO#Sagittal notation|34-EDO]].
 ====Evo-SZ flavor====
 [[File:41-EDO_Evo-SZ.svg]]
-This notation uses the same sagittal sequence as [[34-EDO#Sagittal notation|34-EDO]].
 
 ===Sagittal notation===
-[[File:42b.svg]]
-This notation uses the same sagittal sequence as [[47-EDO#Sagittal notation|47-EDO]], and is a superset of the notations for EDOs [[21-EDO#Sagittal notation|21]], [[14-EDO#Sagittal notation|14]], and [[7-EDO#Sagittal notation|7]].
-====Evo flavor====
+====Best fifth notation====
+This notation uses the same sagittal sequence as [[35-EDO#Sagittal notation|35b]].
+=====Evo flavor=====
 [[File:42-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[35-EDO#Sagittal notation|35b]].
-====Revo flavor====
+=====Revo flavor=====
 [[File:42-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[35-EDO#Sagittal notation|35b]].
+====Second best fifth notation====
+This notation uses the same sagittal sequence as [[47-EDO#Sagittal notation|47-EDO]], and is a superset of the notations for EDOs [[21-EDO#Sagittal notation|21]], [[14-EDO#Sagittal notation|14]], and [[7-EDO#Sagittal notation|7]].
+[[File:42b.svg]]
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as [[36-EDO#Sagittal notation|36-EDO]].
 ====Evo flavor====
 [[File:43-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[36-EDO#Sagittal notation|36-EDO]].
 ====Revo flavor====
 [[File:43-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[36-EDO#Sagittal notation|36-EDO]].
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation|23b]], [[30-EDO#Sagittal notation|30]], and [[37-EDO#Sagittal notation|37]], and is a superset of the notations for EDOs [[22-EDO#Sagittal notation|22]] and [[11-EDO#Sagittal notation|11]].
 ====Evo flavor====
 [[File:44-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation|23b]], [[30-EDO#Sagittal notation|30]], and [[37-EDO#Sagittal notation|37]], and is a superset of the notations for EDOs [[22-EDO#Sagittal notation|22]] and [[11-EDO#Sagittal notation|11]].
 ====Revo flavor====
 [[File:44-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation|23b]], [[30-EDO#Sagittal notation|30]], and [[37-EDO#Sagittal notation|37]], and is a superset of the notations for EDOs [[22-EDO#Sagittal notation|22]] and [[11-EDO#Sagittal notation|11]].
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[52-EDO#Sagittal notation|52]] and [[59-EDO#Sagittal notation|59b]].
 ====Evo flavor====
 [[File:45-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[52-EDO#Sagittal notation|52]] and [[59-EDO#Sagittal notation|59b]].
 ====Revo flavor====
 [[File:45-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as EDOs [[52-EDO#Sagittal notation|52]] and [[59-EDO#Sagittal notation|59b]].
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as [[39-EDO#Sagittal notation|39-EDO]].
 ====Evo flavor====
 [[File:46-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[39-EDO#Sagittal notation|39-EDO]].
 ====Revo flavor====
 [[File:46-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[39-EDO#Sagittal notation|39-EDO]].
 
 ===Sagittal notation===
-[[File:47-EDO.svg]]
+====Best fifth notation====
 This notation uses the same sagittal sequence as [[42-EDO#Sagittal notation|42b]].
+[[File:47-EDO.svg]]
+====Second best fifth notation====
 [[File:47b.svg]]
-====Alternate Evo flavor====
+=====Alternate Evo flavor=====
 [[File:47b_Alternative_Evo.svg]]
 
 ===Sagittal notation===
+This notation is a superset of the notations for EDOs [[24-EDO#Sagittal notation|24]], [[12-EDO#Sagittal notation|12]], [[8-EDO#Sagittal notation|8]], and [[6-EDO#Sagittal notation|6]].
 ====Evo flavor====
 [[File:48-EDO_Evo.svg]]
-This notation is a superset of the notations for EDOs [[24-EDO#Sagittal notation|24]], [[12-EDO#Sagittal notation|12]], [[8-EDO#Sagittal notation|8]], and [[6-EDO#Sagittal notation|6]].
 ====Revo flavor====
 [[File:48-EDO_Revo.svg]]
-This notation is a superset of the notations for EDOs [[24-EDO#Sagittal notation|24]], [[12-EDO#Sagittal notation|12]], [[8-EDO#Sagittal notation|8]], and [[6-EDO#Sagittal notation|6]].
 ====Evo-SZ flavor====
 [[File:48-EDO_Evo-SZ.svg]]
-This notation is a superset of the notations for EDOs [[24-EDO#Sagittal notation|24]], [[12-EDO#Sagittal notation|12]], [[8-EDO#Sagittal notation|8]], and [[6-EDO#Sagittal notation|6]].
 
 ===Sagittal notation===
 ====Evo flavor====
@@ -333,12 +302,11 @@ This notation is a superset of the notations for EDOs [[24-EDO#Sagittal notation
 [[File:49-EDO_Revo.svg]]
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[57-EDO#Sagittal notation|57]], [[64-EDO#Sagittal notation|64]], and [[71-EDO#Sagittal notation|71b]].
 ====Evo flavor====
 [[File:50-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[57-EDO#Sagittal notation|57]], [[64-EDO#Sagittal notation|64]], and [[71-EDO#Sagittal notation|71b]].
 ====Revo flavor====
 [[File:50-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as EDOs [[57-EDO#Sagittal notation|57]], [[64-EDO#Sagittal notation|64]], and [[71-EDO#Sagittal notation|71b]].
 
 ===Sagittal notation===
 ====Evo flavor====
@@ -347,12 +315,11 @@ This notation uses the same sagittal sequence as EDOs [[57-EDO#Sagittal notation
 [[File:51-EDO_Revo.svg]]
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[45-EDO#Sagittal notation|45]] and [[59-EDO#Sagittal notation|59b]], and is a superset of the notations for EDOs [[26-EDO#Sagittal notation|26]] and [[13-EDO#Sagittal notation|13]].
 ====Evo flavor====
 [[File:52-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[45-EDO#Sagittal notation|45]] and [[59-EDO#Sagittal notation|59b]], and is a superset of the notations for EDOs [[26-EDO#Sagittal notation|26]] and [[13-EDO#Sagittal notation|13]].
 ====Revo flavor====
 [[File:52-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as EDOs [[45-EDO#Sagittal notation|45]] and [[59-EDO#Sagittal notation|59b]], and is a superset of the notations for EDOs [[26-EDO#Sagittal notation|26]] and [[13-EDO#Sagittal notation|13]].
 
 ===Sagittal notation===
 ====Evo flavor====
@@ -361,12 +328,11 @@ This notation uses the same sagittal sequence as EDOs [[45-EDO#Sagittal notation
 [[File:53-EDO_Revo.svg]]
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as [[61-EDO#Sagittal notation|61-EDO]], and is a superset of the notation for [[27-EDO#Sagittal notation|27-EDO]].
 ====Evo flavor====
 [[File:54-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[61-EDO#Sagittal notation|61-EDO]], and is a superset of the notation for [[27-EDO#Sagittal notation|27-EDO]].
 ====Revo flavor====
 [[File:54-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[61-EDO#Sagittal notation|61-EDO]], and is a superset of the notation for [[27-EDO#Sagittal notation|27-EDO]].
 
 ===Sagittal notation===
 ====Evo flavor====
@@ -377,20 +343,18 @@ This notation uses the same sagittal sequence as [[61-EDO#Sagittal notation|61-E
 [[File:55-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as [[63-EDO#Sagittal notation|63-EDO]].
 ====Evo flavor====
 [[File:56-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[63-EDO#Sagittal notation|63-EDO]].
 ====Revo flavor====
 [[File:56-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[63-EDO#Sagittal notation|63-EDO]].
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[50-EDO#Sagittal notation|50]], [[64-EDO#Sagittal notation|64]], and [[71-EDO#Sagittal notation|71b]], and is a superset of the notation for [[19-EDO#Sagittal notation|19-EDO]].
 ====Evo flavor====
 [[File:57-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[50-EDO#Sagittal notation|50]], [[64-EDO#Sagittal notation|64]], and [[71-EDO#Sagittal notation|71b]], and is a superset of the notation for [[19-EDO#Sagittal notation|19-EDO]].
 ====Revo flavor====
 [[File:57-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as EDOs [[50-EDO#Sagittal notation|50]], [[64-EDO#Sagittal notation|64]], and [[71-EDO#Sagittal notation|71b]], and is a superset of the notation for [[19-EDO#Sagittal notation|19-EDO]].
 
 ===Sagittal notation===
 ====Evo flavor====
@@ -401,86 +365,78 @@ This notation uses the same sagittal sequence as EDOs [[50-EDO#Sagittal notation
 [[File:58-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-====Evo flavor====
+====Best fifth notation====
+This notation uses the same sagittal sequence as [[66-EDO#Sagittal notation|66-EDO]].
+=====Evo flavor=====
 [[File:59-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[66-EDO#Sagittal notation|66-EDO]].
-====Evo flavor====
-[[File:59b_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[45-EDO#Sagittal notation|45]] and [[52-EDO#Sagittal notation|52]].
-====Revo flavor====
+=====Revo flavor=====
 [[File:59-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[66-EDO#Sagittal notation|66-EDO]].
-====Revo flavor====
-[[File:59b_Revo.svg]]
+====Second best fifth notation====
 This notation uses the same sagittal sequence as EDOs [[45-EDO#Sagittal notation|45]] and [[52-EDO#Sagittal notation|52]].
+=====Evo flavor=====
+[[File:59b_Evo.svg]]
+=====Revo flavor=====
+[[File:59b_Revo.svg]]
 
 ===Sagittal notation===
+This notation is a superset of the notations for EDOs [[12-EDO#Sagittal notation|12]] and [[6-EDO#Sagittal notation|6]].
 ====Evo flavor====
 [[File:60-EDO_Evo.svg]]
-This notation is a superset of the notations for EDOs [[12-EDO#Sagittal notation|12]] and [[6-EDO#Sagittal notation|6]].
 ====Revo flavor====
 [[File:60-EDO_Revo.svg]]
-This notation is a superset of the notations for EDOs [[12-EDO#Sagittal notation|12]] and [[6-EDO#Sagittal notation|6]].
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as [[54-EDO#Sagittal notation|54-EDO]].
 ====Evo flavor====
 [[File:61-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[54-EDO#Sagittal notation|54-EDO]].
 ====Revo flavor====
 [[File:61-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[54-EDO#Sagittal notation|54-EDO]].
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as [[69-EDO#Sagittal notation|69-EDO]], and is a superset of the notation for [[31-EDO#Sagittal notation|31-EDO]].
 ====Evo flavor====
 [[File:62-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[69-EDO#Sagittal notation|69-EDO]], and is a superset of the notation for [[31-EDO#Sagittal notation|31-EDO]].
 ====Revo flavor====
 [[File:62-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[69-EDO#Sagittal notation|69-EDO]], and is a superset of the notation for [[31-EDO#Sagittal notation|31-EDO]].
 ====Evo-SZ flavor====
 [[File:62-EDO_Evo-SZ.svg]]
-This notation uses the same sagittal sequence as [[69-EDO#Sagittal notation|69-EDO]], and is a superset of the notation for [[31-EDO#Sagittal notation|31-EDO]].
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as [[56-EDO#Sagittal notation|56-EDO]].
 ====Evo flavor====
 [[File:63-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[56-EDO#Sagittal notation|56-EDO]].
 ====Revo flavor====
 [[File:63-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[56-EDO#Sagittal notation|56-EDO]].
 
 ===Sagittal notation===
-====Evo flavor====
+====Best fifth notation====
+This notation uses the same sagittal sequence as EDOs [[50-EDO#Sagittal notation|50]], [[57-EDO#Sagittal notation|57]], and [[71-EDO#Sagittal notation|71b]].
+=====Evo flavor=====
 [[File:64-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[50-EDO#Sagittal notation|50]], [[57-EDO#Sagittal notation|57]], and [[71-EDO#Sagittal notation|71b]].
-====Evo flavor====
-[[File:64b_Evo.svg]]
-This notation is a superset of the notation for [[32-EDO#Sagittal notation|32-EDO]].
-====Revo flavor====
+=====Revo flavor=====
 [[File:64-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as EDOs [[50-EDO#Sagittal notation|50]], [[57-EDO#Sagittal notation|57]], and [[71-EDO#Sagittal notation|71b]].
-====Revo flavor====
-[[File:64b_Revo.svg]]
+====Second best fifth notation====
 This notation is a superset of the notation for [[32-EDO#Sagittal notation|32-EDO]].
+=====Evo flavor=====
+[[File:64b_Evo.svg]]
+=====Revo flavor=====
+[[File:64b_Revo.svg]]
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[72-EDO#Sagittal notation|72]] and [[79-EDO#Sagittal notation|79]].
 ====Evo flavor====
 [[File:65-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[72-EDO#Sagittal notation|72]] and [[79-EDO#Sagittal notation|79]].
 ====Revo flavor====
 [[File:65-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as EDOs [[72-EDO#Sagittal notation|72]] and [[79-EDO#Sagittal notation|79]].
 ====Evo-SZ flavor====
 [[File:65-EDO_Evo-SZ.svg]]
-This notation uses the same sagittal sequence as EDOs [[72-EDO#Sagittal notation|72]] and [[79-EDO#Sagittal notation|79]].
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as [[59-EDO#Sagittal notation|59-EDO]], and is a superset of the notations for EDOs [[22-EDO#Sagittal notation|22]] and [[11-EDO#Sagittal notation|11]].
 ====Evo flavor====
 [[File:66-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[59-EDO#Sagittal notation|59-EDO]], and is a superset of the notations for EDOs [[22-EDO#Sagittal notation|22]] and [[11-EDO#Sagittal notation|11]].
 ====Revo flavor====
 [[File:66-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[59-EDO#Sagittal notation|59-EDO]], and is a superset of the notations for EDOs [[22-EDO#Sagittal notation|22]] and [[11-EDO#Sagittal notation|11]].
 
 ===Sagittal notation===
 ====Evo flavor====
@@ -489,23 +445,20 @@ This notation uses the same sagittal sequence as [[59-EDO#Sagittal notation|59-E
 [[File:67-EDO_Revo.svg]]
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as [[75-EDO#Sagittal notation|75-EDO]].
 ====Evo flavor====
 [[File:68-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[75-EDO#Sagittal notation|75-EDO]].
 ====Revo flavor====
 [[File:68-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[75-EDO#Sagittal notation|75-EDO]].
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as [[62-EDO#Sagittal notation|62-EDO]].
 ====Evo flavor====
 [[File:69-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as [[62-EDO#Sagittal notation|62-EDO]].
 ====Revo flavor====
 [[File:69-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as [[62-EDO#Sagittal notation|62-EDO]].
 ====Evo-SZ flavor====
 [[File:69-EDO_Evo-SZ.svg]]
-This notation uses the same sagittal sequence as [[62-EDO#Sagittal notation|62-EDO]].
 
 ===Sagittal notation===
 ====Evo flavor====
@@ -514,25 +467,24 @@ This notation uses the same sagittal sequence as [[62-EDO#Sagittal notation|62-E
 [[File:70-EDO_Revo.svg]]
 
 ===Sagittal notation===
-====Evo flavor====
+====Best fifth notation====
+=====Evo flavor=====
 [[File:71-EDO_Evo.svg]]
-====Evo flavor====
-[[File:71b_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[50-EDO#Sagittal notation|50]], [[57-EDO#Sagittal notation|57]], and [[64-EDO#Sagittal notation|64]].
-====Revo flavor====
+=====Revo flavor=====
 [[File:71-EDO_Revo.svg]]
-====Revo flavor====
-[[File:71b_Revo.svg]]
+====Second best fifth notation====
 This notation uses the same sagittal sequence as EDOs [[50-EDO#Sagittal notation|50]], [[57-EDO#Sagittal notation|57]], and [[64-EDO#Sagittal notation|64]].
+=====Evo flavor=====
+[[File:71b_Evo.svg]]
+=====Revo flavor=====
+[[File:71b_Revo.svg]]
 
 ===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[65-EDO#Sagittal notation|65]] and [[79-EDO#Sagittal notation|79]], and is a superset of the notations for EDOs [[36-EDO#Sagittal notation|36]], [[24-EDO#Sagittal notation|24]], [[18-EDO#Sagittal notation|18]], [[12-EDO#Sagittal notation|12]], [[8-EDO#Sagittal notation|8]], and [[6-EDO#Sagittal notation|6]].
 ====Evo flavor====
 [[File:72-EDO_Evo.svg]]
-This notation uses the same sagittal sequence as EDOs [[65-EDO#Sagittal notation|65]] and [[79-EDO#Sagittal notation|79]], and is a superset of the notations for EDOs [[36-EDO#Sagittal notation|36]], [[24-EDO#Sagittal notation|24]], [[18-EDO#Sagittal notation|18]], [[12-EDO#Sagittal notation|12]], [[8-EDO#Sagittal notation|8]], and [[6-EDO#Sagittal notation|6]].
 ====Revo flavor====
 [[File:72-EDO_Revo.svg]]
-This notation uses the same sagittal sequence as EDOs [[65-EDO#Sagittal notation|65]] and [[79-EDO#Sagittal notation|79]], and is a superset of the notations for EDOs [[36-EDO#Sagittal notation|36]], [[24-EDO#Sagittal notation|24]], [[18-EDO#Sagittal notation|18]], [[12-EDO#Sagittal notation|12]], [[8-EDO#Sagittal notation|8]], and [[6-EDO#Sagittal notation|6]].
 ====Evo-SZ flavor====
 [[File:72-EDO_Evo-SZ.svg]]
-This notation uses the same sagittal sequence as EDOs [[65-EDO#Sagittal notation|65]] and [[79-EDO#Sagittal notation|79]], and is a superset of the notations for EDOs [[36-EDO#Sagittal notation|36]], [[24-EDO#Sagittal notation|24]], [[18-EDO#Sagittal notation|18]], [[12-EDO#Sagittal notation|12]], [[8-EDO#Sagittal notation|8]], and [[6-EDO#Sagittal notation|6]].
 

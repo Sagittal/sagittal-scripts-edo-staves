@@ -13,13 +13,13 @@ const FORMATTED_FLAVOR_NAMES_BY_DIAGRAM_TYPE: Record<DiagramType, Maybe<Io>> = {
 const computeDiagramLine = ({
     edo,
     diagramType,
-    isSecondBestNotation = false,
+    isSecondBestFifthNotation = false,
 }: {
     edo: Edo
     diagramType: DiagramType
-    isSecondBestNotation?: Maybe<boolean>
+    isSecondBestFifthNotation?: Maybe<boolean>
 }) =>
-    `[[File:${edo}${isSecondBestNotation ? `b` : `-EDO`}${
+    `[[File:${edo}${isSecondBestFifthNotation ? `b` : `-EDO`}${
         diagramType === DiagramType.GENERAL ? "" : "_"
     }${FORMATTED_FLAVOR_NAMES_BY_DIAGRAM_TYPE[diagramType]}.svg]]`
 // TODO: still haven't figured out how I'm going to size these things, which will especially matter for image-maps

@@ -1,4 +1,4 @@
-import { Io, Maybe } from "@sagittal/general"
+import { Io, isUndefined, Maybe } from "@sagittal/general"
 import { DiagramType } from "../../types"
 
 const SUBSECTION_HEADINGS: Record<DiagramType, Maybe<Io>> = {
@@ -11,8 +11,15 @@ const SUBSECTION_HEADINGS: Record<DiagramType, Maybe<Io>> = {
 
 const computeSubsectionHeadingLine = ({
     diagramType,
+    hasSecondBestFifthNotation,
 }: {
     diagramType: DiagramType
-}): Maybe<Io> => SUBSECTION_HEADINGS[diagramType]
+    hasSecondBestFifthNotation: boolean
+}): Maybe<Io> =>
+    hasSecondBestFifthNotation
+        ? isUndefined(SUBSECTION_HEADINGS[diagramType])
+            ? undefined
+            : `=${SUBSECTION_HEADINGS[diagramType]}=`
+        : SUBSECTION_HEADINGS[diagramType]
 
 export { computeSubsectionHeadingLine }

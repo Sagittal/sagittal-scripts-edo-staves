@@ -1,6 +1,6 @@
 import { Edo } from "@sagittal/system"
 import { generateContext } from "../context/context"
-import { computeSubsections, Subsection } from "../context"
+import { computeSubsectionsForEachFifth, Subsection } from "../context"
 import { DEFINED_EDOS } from "../context/constants"
 import { isUndefined, Max, program, scriptSettings } from "@sagittal/general"
 
@@ -23,6 +23,6 @@ const maxEdo: Max<Edo> = isUndefined(maxEdoString)
 DEFINED_EDOS.forEach((edo: Edo): void => {
     if (edo > maxEdo) return
 
-    const subsections: Subsection[] = computeSubsections(edo)
-    generateContext(edo, subsections, dryRun)
+    const subsectionsForEachFifth: Subsection[][] = computeSubsectionsForEachFifth(edo)
+    generateContext(edo, subsectionsForEachFifth, dryRun)
 })
