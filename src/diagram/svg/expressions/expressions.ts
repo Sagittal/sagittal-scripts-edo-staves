@@ -1,6 +1,6 @@
 import { Document } from "@xmldom/xmldom"
 import { deepClone, isUndefined, Px } from "@sagittal/general"
-import { EdoName, Flavor } from "@sagittal/system"
+import { EdoName } from "@sagittal/system"
 import { PathifiableTexts } from "./types"
 import {
     BRAVURA_TEXT_SC_FONT_FILE,
@@ -17,6 +17,7 @@ import { getGroupWidth } from "../width"
 import { Font, NodeElement } from "../types"
 import { PATHIFIABLE_TEXTS_BY_EDO_NAME } from "./pathifiableTexts"
 import { handleSzForExpressions } from "./evo_sz"
+import { DiagramType } from "../../../types"
 
 const DEFINIENDUM_FONT: Font = {
     fontFile: BRAVURA_TEXT_SC_FONT_FILE,
@@ -30,7 +31,7 @@ const FONTS = [DEFINIENDUM_FONT, DEFINIENS_FONT]
 
 const addExpressionsAndGetWidth = async (
     svgDocument: Document,
-    { edoName, flavor }: { edoName: EdoName; flavor: Flavor },
+    { edoName, diagramType }: { edoName: EdoName; diagramType: DiagramType },
 ): Promise<Px> => {
     const pathifiableTexts: PathifiableTexts =
         PATHIFIABLE_TEXTS_BY_EDO_NAME[edoName]
@@ -40,7 +41,8 @@ const addExpressionsAndGetWidth = async (
     const { texts, fontIndices, additionalYOffsets } =
         deepClone(pathifiableTexts)
 
-    if (flavor === Flavor.EVO_SZ) handleSzForExpressions(texts, { edoName })
+    if (diagramType === DiagramType.EVO_SZ)
+        handleSzForExpressions(texts, { edoName })
 
     const expressionsGroupElement: NodeElement<SVGGElement> =
         await textsToSvgGroupElement(

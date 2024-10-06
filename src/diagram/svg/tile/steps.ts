@@ -9,7 +9,6 @@ import {
     EDO_NOTATION_DEFINITIONS,
     EdoName,
     EdoStep,
-    Flavor,
     isSubsetNotation,
     parseEdoName,
 } from "@sagittal/system"
@@ -32,6 +31,7 @@ import { Font, Justification, NodeElement } from "../types"
 import { computeInputSentenceUnicode } from "staff-code"
 import { getGroupWidth } from "../width"
 import { computeTileRowCountScaleFactor } from "./rowCount"
+import { DiagramType } from "../../../types"
 
 const LIMMA_COLOR: HexColor = "#769200" as HexColor
 const WHOLE_TONE_COLOR: HexColor = "#C00000" as HexColor
@@ -96,13 +96,13 @@ const addSharp = async (
         edo,
         fifthStep,
         svgDocument,
-        flavor,
+        diagramType,
         tileRowCountScaleFactor,
     }: {
         edo: Edo
         fifthStep: EdoStep
         svgDocument: Document
-        flavor: Flavor
+        diagramType: DiagramType
         tileRowCountScaleFactor: number
     },
 ): Promise<void> => {
@@ -110,7 +110,8 @@ const addSharp = async (
 
     const texts: Io[] = [
         computeInputSentenceUnicode(
-            (flavor === Flavor.REVO ? "/||\\;" : "#;") as Io & Sentence,
+            (diagramType === DiagramType.REVO ? "/||\\;" : "#;") as Io &
+                Sentence,
         ),
         equalsPositiveOrLessThanZero(sharpStep),
     ]
@@ -178,12 +179,12 @@ const addSteps = async (
     {
         edoName,
         tileWrapperGroupElement,
-        flavor,
+        diagramType,
         tileRowCount,
     }: {
         edoName: EdoName
         tileWrapperGroupElement: NodeElement<SVGGElement>
-        flavor: Flavor
+        diagramType: DiagramType
         tileRowCount: Count
     },
 ): Promise<void> => {
@@ -212,7 +213,7 @@ const addSteps = async (
         edo,
         fifthStep,
         svgDocument,
-        flavor,
+        diagramType,
         tileRowCountScaleFactor,
     })
 }

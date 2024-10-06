@@ -1,7 +1,6 @@
 import { Io, Sentence } from "@sagittal/general"
 import { EdoName } from "@sagittal/system"
-import { computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor } from "../sentence"
-import { computeDifferenceCase } from "../difference"
+import { computeSentencesAndDifferenceCase } from "../difference"
 import { Subsection } from "./types"
 import { DiagramType, DifferenceCase } from "../types"
 import {
@@ -11,17 +10,14 @@ import {
 } from "../diagram"
 
 const gatherSubsectionsForEdoName = (edoName: EdoName): Subsection[] => {
-    // TODO: well now maybe the thing to DRY up instead of `getInfos` is just getting these two things?
-    const defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
-        Sentence)[] =
-        computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor(
-            edoName,
-        )
-
-    const differenceCase: DifferenceCase = computeDifferenceCase(
-        edoName,
+    const {
         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-    )
+        differenceCase,
+    }: {
+        defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
+            Sentence)[]
+        differenceCase: DifferenceCase
+    } = computeSentencesAndDifferenceCase(edoName)
 
     if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
         return [

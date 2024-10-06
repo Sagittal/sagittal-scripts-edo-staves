@@ -1,6 +1,6 @@
 import { Document } from "@xmldom/xmldom"
 import { Count, Px } from "@sagittal/general"
-import { EdoName, Flavor } from "@sagittal/system"
+import { EdoName } from "@sagittal/system"
 import { addTileSquare } from "./square"
 import { addEdo } from "./edo"
 import { addSagittalsOrSubset } from "./sagittals"
@@ -17,17 +17,18 @@ import {
 } from "../constants"
 import { computeTileRowCountScaleFactor } from "./rowCount"
 import { append } from "../append"
+import { DiagramType } from "../../../types"
 
 const addTileItself = async (
     svgDocument: Document,
     {
         edoName,
-        flavor,
+        diagramType,
         tileWrapperGroupElement,
         tileRowCount,
     }: {
         edoName: EdoName
-        flavor: Flavor
+        diagramType: DiagramType
         tileWrapperGroupElement: NodeElement<SVGGElement>
         tileRowCount: Count
     },
@@ -45,7 +46,7 @@ const addTileItself = async (
     await addSagittalsOrSubset(tileGroupElement, {
         svgDocument,
         edoName,
-        flavor,
+        diagramType,
         tileRowCount,
     })
 
@@ -69,12 +70,12 @@ const addTile = async (
     {
         edoName,
         diagramWidth,
-        flavor,
+        diagramType,
         tileRowCount,
     }: {
         edoName: EdoName
         diagramWidth: Px
-        flavor: Flavor
+        diagramType: DiagramType
         tileRowCount: Count
     },
 ): Promise<void> => {
@@ -95,14 +96,14 @@ const addTile = async (
     await addTileItself(svgDocument, {
         tileWrapperGroupElement,
         edoName,
-        flavor,
+        diagramType,
         tileRowCount,
     })
 
     await addSteps(svgDocument, {
         tileWrapperGroupElement,
         edoName,
-        flavor,
+        diagramType,
         tileRowCount,
     })
 

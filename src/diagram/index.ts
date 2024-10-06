@@ -6,7 +6,6 @@ export {
     generateRevoDiagram,
     generateAlternativeEvoDiagram,
     generateOneOffDiagram,
-    generateOneOffGeneralDiagram,
     computeRevoCouldBeEvo,
     EVO_FLAVOR_INDEX,
     EVO_SZ_FLAVOR_INDEX,

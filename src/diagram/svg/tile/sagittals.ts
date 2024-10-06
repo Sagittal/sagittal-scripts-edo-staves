@@ -17,7 +17,6 @@ import {
     EdoName,
     EdoNotationDefinition,
     EdoStep,
-    Flavor,
     isSubsetNotation,
     NonSubsetEdoNotationDefinition,
     parseEdoName,
@@ -40,6 +39,7 @@ import { addText, textsToSvgGroupElement } from "../text"
 import { Font, Justification, NodeElement } from "../types"
 import { computeIsSagittalSemisharpTheHalfApotome } from "../../../halfApotome"
 import { splitAccents } from "../../../accents"
+import { DiagramType } from "../../../types"
 
 const SAGITTALS_SCALER_CHANGE_FACTOR: number = 1.1
 
@@ -115,8 +115,8 @@ const addSagittals = async (
     {
         svgDocument,
         edoName,
-        flavor,
-    }: { svgDocument: Document; edoName: EdoName; flavor: Flavor },
+        diagramType,
+    }: { svgDocument: Document; edoName: EdoName; diagramType: DiagramType },
 ): Promise<void> => {
     const sagitypes: Sagitype[] = (
         EDO_NOTATION_DEFINITIONS[edoName] as NonSubsetEdoNotationDefinition
@@ -128,7 +128,7 @@ const addSagittals = async (
     let fonts: Font[]
     let fontIndices: Index<Font>[]
     if (
-        flavor === Flavor.EVO_SZ &&
+        diagramType === DiagramType.EVO_SZ &&
         computeShouldReplaceSagittalSemisharpWithSzInTile({
             edoName,
             sagitypes,
@@ -183,12 +183,12 @@ const addSagittalsOrSubset = async (
     {
         svgDocument,
         edoName,
-        flavor,
+        diagramType,
         tileRowCount,
     }: {
         svgDocument: Document
         edoName: EdoName
-        flavor: Flavor
+        diagramType: DiagramType
         tileRowCount: Count
     },
 ): Promise<void> => {
@@ -200,7 +200,11 @@ const addSagittalsOrSubset = async (
             supersetEdoName: edoNotationDefinition.supersetEdoName,
         })
     } else {
-        await addSagittals(tileGroupElement, { svgDocument, edoName, flavor })
+        await addSagittals(tileGroupElement, {
+            svgDocument,
+            edoName,
+            diagramType,
+        })
     }
 }
 

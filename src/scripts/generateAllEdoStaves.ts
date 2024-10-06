@@ -12,8 +12,7 @@ import {
     generateRevoDiagram,
     generateAlternativeEvoDiagram,
 } from "../diagram"
-import { computeDifferenceCase } from "../difference"
-import { computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor } from "../sentence"
+import { computeSentencesAndDifferenceCase } from "../difference"
 import { DifferenceCase } from "../types"
 
 scriptSettings.disableColors = true
@@ -38,19 +37,16 @@ edoNames.forEach((edoName: EdoName): void => {
     const edo: Edo = parseEdoName(edoName).edo
     if (edo > maxEdo) return
 
-    const defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
-        Sentence)[] =
-        computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor(
-            edoName,
-        )
-    
-    const differenceCase: DifferenceCase = computeDifferenceCase(
-        edoName,
+    const {
         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-    )
+        differenceCase,
+    }: {
+        defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
+            Sentence)[]
+        differenceCase: DifferenceCase
+    } = computeSentencesAndDifferenceCase(edoName)
     
     if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
-        // CASE 1: none identical; three separate diagrams
         generateEvoDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoName,
@@ -69,8 +65,6 @@ edoNames.forEach((edoName: EdoName): void => {
     } else if (
         differenceCase === DifferenceCase._1A_ALL_DIFFERENT_REVO_COULD_BE_EVO
     ) {
-        // CASE 1.A: none identical, but Revo could be Evo, 
-        // so Revo is general, Evo is alt. Evo, and Evo-SZ is Evo-SZ
         generateGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoName,
@@ -87,14 +81,12 @@ edoNames.forEach((edoName: EdoName): void => {
             { dryRun },
         )
     } else if (differenceCase === DifferenceCase._2_NONE_DIFFERENT) {
-        // CASE 2: all three identical, generate one big shared diagram
         generateGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoName,
             { dryRun },
         )
     } else if (differenceCase === DifferenceCase._3_REVO_DIFFERENT) {
-        // CASE 3: Evo and Evo-SZ identical, Revo different
         generateEvoDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoName,
@@ -108,8 +100,6 @@ edoNames.forEach((edoName: EdoName): void => {
     } else if (
         differenceCase === DifferenceCase._3A_REVO_DIFFERENT_REVO_COULD_BE_EVO
     ) {
-        // CASE 3.A: Evo and Evo-SZ identical, Revo different, 
-        // but Revo could be Evo, so Revo is general, and Evo(-SZ) is alt. Evo
         generateGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoName,
@@ -121,7 +111,6 @@ edoNames.forEach((edoName: EdoName): void => {
             { dryRun },
         )
     } else if (differenceCase === DifferenceCase._4_EVO_SZ_DIFFERENT) {
-        // CASE 4: Evo and Revo identical, Evo-SZ different (note: no current occurrences)
         generateGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoName,

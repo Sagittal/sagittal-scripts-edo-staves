@@ -11,14 +11,20 @@ import {
     EVO_FLAVOR_INDEX,
     EVO_SZ_FLAVOR_INDEX,
     generateOneOffDiagram,
-    generateOneOffGeneralDiagram,
     REVO_FLAVOR_INDEX,
 } from "../diagram"
 import { EdoName } from "@sagittal/system/dist/cjs/notations"
-import { generateOneOffAlternateEvoDiagram } from "../diagram/generate/oneOff"
-import { computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor } from "../sentence"
-import { computeDifferenceCase } from "../difference"
-import { DifferenceCase } from "../types"
+import { computeSentencesAndDifferenceCase } from "../difference"
+import { DiagramType, DifferenceCase } from "../types"
+import { FLAVOR_INDEX_FOR_GENERAL_DIAGRAM_TYPE } from "../diagram/generate/constants"
+
+const DIAGRAM_TYPE_FOR_FLAVOR: Record<Flavor, DiagramType> = {
+    [Flavor.EVO]: DiagramType.EVO,
+    [Flavor.REVO]: DiagramType.REVO,
+    [Flavor.EVO_SZ]: DiagramType.EVO_SZ,
+}
+
+// TODO: oops 581 actually pushed the staves off the bottom of the screen!
 
 const ALL_IDENTICAL_MESSAGE_FOR_ANY: Io =
     "Every flavor has the same default notation for this EDO, so a general diagram has been generated."
@@ -47,18 +53,16 @@ const { edo: edoName, flavor: flavorString }: { edo: EdoName; flavor: string } =
 
 if (isUndefined(edoName)) throw new Error("You must provide an EDO.")
 
-const defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
-    Sentence)[] =
-    computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor(
-        edoName,
-    )
-
-const differenceCase: DifferenceCase = computeDifferenceCase(
-    edoName,
+const {
     defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-)
+    differenceCase,
+}: {
+    defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
+        Sentence)[]
+    differenceCase: DifferenceCase
+} = computeSentencesAndDifferenceCase(edoName)
 
-const maybeThrowError = (flavorString: string) => {
+const maybeThrowError = (flavorString: string): void => {
     if (isUndefined(flavorString)) {
         throw new Error(
             "The notations differ by flavor for this EDO. You must specify a flavor.",
@@ -67,7 +71,6 @@ const maybeThrowError = (flavorString: string) => {
 }
 
 if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
-    // CASE 1: none identical; three separate diagrams
     maybeThrowError(flavorString)
     const flavor: Flavor = flavorString.toLowerCase() as Flavor
     generateOneOffDiagram(
@@ -75,13 +78,11 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             Object.values(Flavor).indexOf(flavor)
         ],
         edoName,
-        flavor,
+        DIAGRAM_TYPE_FOR_FLAVOR[flavor],
     )
 } else if (
     differenceCase === DifferenceCase._1A_ALL_DIFFERENT_REVO_COULD_BE_EVO
 ) {
-    // CASE 1.A: none identical, but Revo could be Evo,
-    // so Revo is general, Evo is alt. Evo, and Evo-SZ is Evo-SZ
     maybeThrowError(flavorString)
 
     const flavor: Flavor = flavorString.toLowerCase() as Flavor
@@ -91,33 +92,40 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
                 EVO_SZ_FLAVOR_INDEX
             ],
             edoName,
-            flavor,
+            DiagramType.EVO_SZ,
         )
     } else if (flavor === Flavor.EVO) {
         saveLog(REVO_COULD_BE_EVO_MESSAGE_FOR_EVO)
 
-        generateOneOffAlternateEvoDiagram(
-            defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+        generateOneOffDiagram(
+            defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
+                EVO_FLAVOR_INDEX
+            ],
             edoName,
+            DiagramType.ALTERNATE_EVO,
         )
     } else if (flavor === Flavor.REVO) {
         saveLog(REVO_COULD_BE_EVO_MESSAGE_FOR_REVO)
 
-        generateOneOffGeneralDiagram(
-            defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+        generateOneOffDiagram(
+            defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
+                REVO_FLAVOR_INDEX
+            ],
             edoName,
+            DiagramType.GENERAL,
         )
     }
 } else if (differenceCase === DifferenceCase._2_NONE_DIFFERENT) {
-    // CASE 2: all three identical, generate one big shared diagram
     if (!isUndefined(flavorString)) saveLog(ALL_IDENTICAL_MESSAGE_FOR_ANY)
 
-    generateOneOffGeneralDiagram(
-        defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+    generateOneOffDiagram(
+        defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
+            FLAVOR_INDEX_FOR_GENERAL_DIAGRAM_TYPE
+        ],
         edoName,
+        DiagramType.GENERAL,
     )
 } else if (differenceCase === DifferenceCase._3_REVO_DIFFERENT) {
-    // CASE 3: Evo and Evo-SZ identical, Revo different
     maybeThrowError(flavorString)
 
     const flavor: Flavor = flavorString.toLowerCase() as Flavor
@@ -127,7 +135,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
                 REVO_FLAVOR_INDEX
             ],
             edoName,
-            flavor,
+            DiagramType.REVO,
         )
     } else {
         if (flavor === Flavor.EVO_SZ) {
@@ -138,23 +146,24 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
                 EVO_FLAVOR_INDEX
             ],
             edoName,
-            Flavor.EVO,
+            DiagramType.EVO,
         )
     }
 } else if (
     differenceCase === DifferenceCase._3A_REVO_DIFFERENT_REVO_COULD_BE_EVO
 ) {
-    // CASE 3.A: Evo and Evo-SZ identical, Revo different,
-    // but Revo could be Evo, so Revo is general, and Evo(-SZ) is alt. Evo
     maybeThrowError(flavorString)
     const flavor: Flavor = flavorString.toLowerCase() as Flavor
 
     if (flavor === Flavor.REVO) {
         saveLog(REVO_COULD_BE_EVO_MESSAGE_FOR_REVO)
 
-        generateOneOffGeneralDiagram(
-            defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+        generateOneOffDiagram(
+            defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
+                REVO_FLAVOR_INDEX
+            ],
             edoName,
+            DiagramType.GENERAL,
         )
     } else {
         if (flavor === Flavor.EVO) {
@@ -163,13 +172,15 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             saveLog(REVO_COULD_BE_EVO_MESSAGE_FOR_EVO_SZ)
         }
 
-        generateOneOffAlternateEvoDiagram(
-            defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+        generateOneOffDiagram(
+            defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
+                EVO_FLAVOR_INDEX
+            ],
             edoName,
+            DiagramType.ALTERNATE_EVO,
         )
     }
-} else if (differenceCase === DifferenceCase._4_EVO_SZ_DIFFERENT) { // TODO: audit these CASE messages
-    // CASE 4: Evo and Revo identical, Evo-SZ different (note: no current occurrences)
+} else if (differenceCase === DifferenceCase._4_EVO_SZ_DIFFERENT) {
     maybeThrowError(flavorString)
 
     const flavor: Flavor = flavorString.toLowerCase() as Flavor
@@ -179,14 +190,17 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
                 EVO_SZ_FLAVOR_INDEX
             ],
             edoName,
-            flavor,
+            DiagramType.EVO_SZ,
         )
     } else {
         saveLog(EVO_AND_REVO_IDENTICAL_MESSAGE_FOR_EITHER)
 
-        generateOneOffGeneralDiagram(
-            defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+        generateOneOffDiagram(
+            defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
+                FLAVOR_INDEX_FOR_GENERAL_DIAGRAM_TYPE
+            ],
             edoName,
+            DiagramType.GENERAL,
         )
     }
 }

@@ -8,6 +8,7 @@ import {
 } from "./diagram"
 import { Io, Sentence } from "@sagittal/general"
 import { DifferenceCase } from "./types"
+import { computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor } from "./sentence"
 
 const computeDifferenceCase = (
     edoName: EdoName,
@@ -50,4 +51,26 @@ const computeDifferenceCase = (
     }
 }
 
-export { computeDifferenceCase }
+const computeSentencesAndDifferenceCase = (edoName: EdoName): {
+    defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io & Sentence)[],
+    differenceCase: DifferenceCase,
+} => {
+    // TODO: well now maybe the thing to DRY up instead of `getInfos` is just getting these two things?
+    const defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
+        Sentence)[] =
+        computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor(
+            edoName,
+        )
+
+    const differenceCase: DifferenceCase = computeDifferenceCase(
+        edoName,
+        defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+    )
+
+    return {
+        defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
+        differenceCase,
+    }
+}
+
+export { computeSentencesAndDifferenceCase }

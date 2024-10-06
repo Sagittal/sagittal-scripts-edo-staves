@@ -22,8 +22,5 @@ const computeDiagramLine = ({
     `[[File:${edo}${isSecondBestFifthNotation ? `b` : `-EDO`}${
         diagramType === DiagramType.GENERAL ? "" : "_"
     }${FORMATTED_FLAVOR_NAMES_BY_DIAGRAM_TYPE[diagramType]}.svg]]`
-// TODO: still haven't figured out how I'm going to size these things, which will especially matter for image-maps
-//  except that Dave has told me that image-maps are smart enough I don't have to worry about that
-//  and also we're not going to resize any of the diagrams anyway
 
 export { computeDiagramLine }
