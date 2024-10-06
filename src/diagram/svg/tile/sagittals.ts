@@ -184,7 +184,13 @@ const addSagittalsOrSubset = async (
         svgDocument,
         edoName,
         flavor,
-    }: { svgDocument: Document; edoName: EdoName; flavor: Flavor },
+        tileRowCount,
+    }: {
+        svgDocument: Document
+        edoName: EdoName
+        flavor: Flavor
+        tileRowCount: Count
+    },
 ): Promise<void> => {
     const edoNotationDefinition: EdoNotationDefinition =
         EDO_NOTATION_DEFINITIONS[edoName]

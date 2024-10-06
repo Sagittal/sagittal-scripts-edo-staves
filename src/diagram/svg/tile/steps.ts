@@ -40,13 +40,13 @@ const equalsPositiveOrLessThanZero = (step: EdoStep): Io =>
     step < 0 ? "<0" : `=${step}`
 
 const addWholeTone = async (
-    tileGroupElement: NodeElement<SVGGElement>,
+    tileWrapperGroupElement: NodeElement<SVGGElement>,
     { edo, fifthStep }: { edo: Edo; fifthStep: EdoStep },
 ): Promise<void> => {
     const wholeToneStep: EdoStep = computeWholeToneStep(edo, fifthStep)
 
     await addText(
-        tileGroupElement,
+        tileWrapperGroupElement,
         `CD${equalsPositiveOrLessThanZero(wholeToneStep)}`,
         {
             fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
@@ -60,13 +60,13 @@ const addWholeTone = async (
 }
 
 const addLimma = async (
-    tileGroupElement: NodeElement<SVGGElement>,
+    tileWrapperGroupElement: NodeElement<SVGGElement>,
     { edo, fifthStep }: { edo: Edo; fifthStep: EdoStep },
 ): Promise<void> => {
     const limmaStep: EdoStep = computeLimmaStep(edo, fifthStep)
 
     await addText(
-        tileGroupElement,
+        tileWrapperGroupElement,
         `EF${equalsPositiveOrLessThanZero(limmaStep)}`,
         {
             fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
@@ -80,7 +80,7 @@ const addLimma = async (
 }
 
 const addSharp = async (
-    tileGroupElement: NodeElement<SVGGElement>,
+    tileWrapperGroupElement: NodeElement<SVGGElement>,
     {
         edo,
         fifthStep,
@@ -130,43 +130,47 @@ const addSharp = async (
         })`,
     )
 
-    tileGroupElement.appendChild(sharpStepGroupElement)
+    tileWrapperGroupElement.appendChild(sharpStepGroupElement)
 }
 
 const addFifth = async (
-    tileGroupElement: NodeElement<SVGGElement>,
+    tileWrapperGroupElement: NodeElement<SVGGElement>,
     { fifthStep }: { fifthStep: EdoStep },
 ): Promise<void> => {
     await addText(
-        tileGroupElement,
+        tileWrapperGroupElement,
         `CG${equalsPositiveOrLessThanZero(fifthStep)}`,
         {
             fontFile: OPEN_SANS_REGULAR_FONT_FILE,
             fontSize: STEP_FONT_SIZE,
             xOffset: FIFTH_X_OFFSET,
             yOffset: WHOLE_TONE_AND_FIFTH_Y_OFFSET,
-            justification: Justification.CENTER,
+            justification: Justification.LEFT,
         },
     )
 }
 
 const addSteps = async (
-    tileGroupElement: NodeElement<SVGGElement>,
+    svgDocument: Document,
     {
         edoName,
-        svgDocument,
+        tileWrapperGroupElement,
         flavor,
-    }: { edoName: EdoName; svgDocument: Document; flavor: Flavor },
+    }: {
+        edoName: EdoName
+        tileWrapperGroupElement: NodeElement<SVGGElement>
+        flavor: Flavor
+    },
 ): Promise<void> => {
     if (isSubsetNotation(EDO_NOTATION_DEFINITIONS[edoName])) return
 
     const fifthStep: EdoStep = computeFifthStep(edoName)
     const edo: Edo = parseEdoName(edoName).edo
 
-    await addFifth(tileGroupElement, { fifthStep })
-    await addWholeTone(tileGroupElement, { edo, fifthStep })
-    await addLimma(tileGroupElement, { edo, fifthStep })
-    await addSharp(tileGroupElement, { edo, fifthStep, svgDocument, flavor })
+    await addFifth(tileWrapperGroupElement, { fifthStep })
+    await addWholeTone(tileWrapperGroupElement, { edo, fifthStep })
+    await addLimma(tileWrapperGroupElement, { edo, fifthStep })
+    await addSharp(tileWrapperGroupElement, { edo, fifthStep, svgDocument, flavor })
 }
 
 export { addSteps }

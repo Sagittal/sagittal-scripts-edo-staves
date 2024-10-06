@@ -11,24 +11,16 @@ import {
 import { NodeElement } from "../types"
 import { append } from "../append"
 
-const addTileSquare = ({
-    svgDocument,
-    diagramWidth,
-    edoName,
-}: {
-    svgDocument: Document
-    diagramWidth: Px
-    edoName: EdoName
-}): NodeElement<SVGGElement> => {
-    const tileGroupElement: NodeElement<SVGGElement> =
-        svgDocument.createElementNS(SVG_NS, "g") as NodeElement<SVGGElement>
-    tileGroupElement.setAttribute(
-        "transform",
-        `translate(${
-            diagramWidth - LEFT_AND_RIGHT_MARGIN - TILE_SIZE - EXTRA_ROOM_FOR_FIFTH_SIZE
-        } ${TILE_TOP_MARGIN})`,
-    )
-
+const addTileSquare = (
+    tileGroupElement: NodeElement<SVGGElement>,
+    {
+        svgDocument,
+        edoName,
+    }: {
+        svgDocument: Document
+        edoName: EdoName
+    },
+): void => {
     const sectionColor: HexColor = computeSectionColor(edoName)
     const tileRectElement: NodeElement<SVGRectElement> =
         svgDocument.createElementNS(
@@ -41,10 +33,6 @@ const addTileSquare = ({
     tileRectElement.setAttribute("stroke-width", "1")
     tileRectElement.setAttribute("stroke", "black")
     tileGroupElement.appendChild(tileRectElement)
-
-    append(svgDocument, tileGroupElement)
-
-    return tileGroupElement
 }
 
 export { addTileSquare }

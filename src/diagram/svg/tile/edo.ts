@@ -1,4 +1,4 @@
-import { Px, round } from "@sagittal/general"
+import { Count, Px, round } from "@sagittal/general"
 import { EdoName } from "@sagittal/system"
 import { TILE_SIZE, TILE_EDO_TEXT_FONT_SIZE, SANOMAT_FONT_FILE, EDO_Y_OFFSET } from "../constants"
 import { addText } from "../text"
@@ -6,7 +6,7 @@ import { Justification, NodeElement } from "../types"
 
 const addEdo = async (
     tileGroupElement: NodeElement<SVGGElement>,
-    { edoName }: { edoName: EdoName },
+    { edoName, tileRowCount }: { edoName: EdoName, tileRowCount: Count },
 ): Promise<void> => {
     await addText(
         tileGroupElement,
