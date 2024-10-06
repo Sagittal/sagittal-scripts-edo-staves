@@ -24,8 +24,6 @@ const DIAGRAM_TYPE_FOR_FLAVOR: Record<Flavor, DiagramType> = {
     [Flavor.EVO_SZ]: DiagramType.EVO_SZ,
 }
 
-// TODO: oops 581 actually pushed the staves off the bottom of the screen!
-
 const ALL_IDENTICAL_MESSAGE_FOR_ANY: Io =
     "Every flavor has the same default notation for this EDO, so a general diagram has been generated."
 const EVO_AND_REVO_IDENTICAL_MESSAGE_FOR_EITHER: Io =

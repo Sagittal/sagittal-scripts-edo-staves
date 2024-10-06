@@ -1,13 +1,11 @@
 import { Document } from "@xmldom/xmldom"
 import { Count, Px } from "@sagittal/general"
 import {
-    BOTTOM_MARGIN,
     LEFT_AND_RIGHT_MARGIN,
-    SUBTITLE_FONT_SIZE,
-    TITLE_FONT_SIZE,
     TOP_MARGIN,
     TOTAL_WIDTH_NEEDED_FOR_TILE,
     EXTRA_ROOM_FOR_FIFTH_SIZE,
+    TILE_SIZE,
 } from "./constants"
 import { NodeElement } from "./types"
 import { computeTileRowCountScaleFactor } from "./tile/rowCount"
@@ -29,9 +27,7 @@ const setDiagramSizeAndGetDiagramWidth = (
     const existingHeight: Px = parseFloat(svg.getAttribute("height")!) as Px
     const height: Px = (existingHeight +
         TOP_MARGIN +
-        TITLE_FONT_SIZE +
-        SUBTITLE_FONT_SIZE +
-        BOTTOM_MARGIN) as Px
+        TILE_SIZE * computeTileRowCountScaleFactor(tileRowCount)) as Px
     svg.setAttribute("height", height.toString())
 
     const existingWidth: Px = parseFloat(svg.getAttribute("width")!) as Px

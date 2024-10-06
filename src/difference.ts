@@ -55,7 +55,6 @@ const computeSentencesAndDifferenceCase = (edoName: EdoName): {
     defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io & Sentence)[],
     differenceCase: DifferenceCase,
 } => {
-    // TODO: well now maybe the thing to DRY up instead of `getInfos` is just getting these two things?
     const defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
         Sentence)[] =
         computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor(
