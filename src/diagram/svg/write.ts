@@ -1,7 +1,7 @@
 import * as fs from "fs"
 import { Document } from "@xmldom/xmldom"
 import { computeInputSentenceUnicode } from "staff-code"
-import { Filename, Io, Px, Sentence, Unicode } from "@sagittal/general"
+import { Count, Filename, Io, Px, Sentence, Unicode } from "@sagittal/general"
 import { EdoName, Flavor } from "@sagittal/system"
 import { addSubtitle, addTitleAndGetWidth } from "./titles"
 import {
@@ -14,6 +14,7 @@ import { makeNicelyPngifiable, shiftStavesDown } from "./shift"
 import { addTile } from "./tile"
 import { textToSvgDocument } from "./text"
 import { addExpressionsAndGetWidth } from "./expressions"
+import { computeTileRowCount } from "./tile/rowCount"
 
 const writeDiagramSvg = async ({
     inputSentence,
@@ -36,20 +37,26 @@ const writeDiagramSvg = async ({
         fontSize: BRAVURA_TEXT_SC_FONT_SIZE,
     })
 
-    shiftStavesDown(svgDocument)
+    const tileRowCount: Count = computeTileRowCount({ edoName })
+
+    shiftStavesDown(svgDocument, { tileRowCount })
 
     const titleWidth: Px = await addTitleAndGetWidth(svgDocument, title)
 
     await addSubtitle(svgDocument, "(default spellings)")
 
-    const expressionsWidth: Px = await addExpressionsAndGetWidth(svgDocument, { edoName, flavor })
+    const expressionsWidth: Px = await addExpressionsAndGetWidth(svgDocument, {
+        edoName,
+        flavor,
+    })
 
     const diagramWidth: Px = setDiagramSizeAndGetDiagramWidth(svgDocument, {
         titleWidth,
         expressionsWidth,
+        tileRowCount,
     })
 
-    await addTile(svgDocument, { edoName, diagramWidth, flavor })
+    await addTile(svgDocument, { edoName, diagramWidth, flavor, tileRowCount })
 
     makeNicelyPngifiable(svgDocument)
 

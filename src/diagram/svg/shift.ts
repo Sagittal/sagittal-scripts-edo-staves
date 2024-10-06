@@ -2,13 +2,12 @@ import { Document } from "@xmldom/xmldom"
 import {
     LEFT_AND_RIGHT_MARGIN,
     OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION,
-    SUBTITLE_FONT_SIZE,
-    TITLE_FONT_SIZE,
     TOP_MARGIN,
-    EXTRA_SPACE_TO_COMFORTABLY_CLEAR_TILE_AND_EXPRESSIONS,
+    TILE_SIZE,
 } from "./constants"
 import { NodeElement } from "./types"
-import { Index, Px, round } from "@sagittal/general"
+import { Count, Index, Px, round } from "@sagittal/general"
+import { computeTileRowCountScaleFactor } from "./tile/rowCount"
 
 const INDEX_OF_X_TRANSFORM: Index = 1 as Index
 const INDEX_OF_Y_TRANSFORM: Index = 2 as Index
@@ -89,14 +88,15 @@ const shiftAllTopLevelGroupElements = (
 // shift staves down to make space for title and tile, and slightly to the right
 // relies on these being the only group elements in the SVG at this time;
 // the titles and tile have not yet been added
-const shiftStavesDown = (svgDocument: Document): void =>
+const shiftStavesDown = (
+    svgDocument: Document,
+    { tileRowCount }: { tileRowCount: Count },
+): void =>
     shiftAllTopLevelGroupElements(
         svgDocument,
         LEFT_AND_RIGHT_MARGIN,
         (TOP_MARGIN +
-            TITLE_FONT_SIZE +
-            SUBTITLE_FONT_SIZE +
-            EXTRA_SPACE_TO_COMFORTABLY_CLEAR_TILE_AND_EXPRESSIONS) as Px,
+            TILE_SIZE * computeTileRowCountScaleFactor(tileRowCount)) as Px,
     )
 
 const makeNicelyPngifiable = (svgDocument: Document): void =>

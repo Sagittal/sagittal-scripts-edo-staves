@@ -7,16 +7,20 @@ import {
     Sagittal,
 } from "@sagittal/system"
 
-const BASIC_TILE_ROW_COUNT_WITH_ONE_ROW_FOR_EDO_AND_ONE_FOR_SAGITTALS_OR_SUBSET: Count =
+const DEFAULT_TILE_ROW_COUNT_WITH_ONE_ROW_FOR_EDO_AND_ONE_FOR_SAGITTALS_OR_SUBSET: Count =
     2 as Count
 const TILE_ROW_FOR_EDO: Count = 1 as Count
 
+const computeTileRowCountScaleFactor = (tileRowCount: Count): number =>
+    tileRowCount /
+    DEFAULT_TILE_ROW_COUNT_WITH_ONE_ROW_FOR_EDO_AND_ONE_FOR_SAGITTALS_OR_SUBSET
+
 const computeTileRowCount = ({ edoName }: { edoName: EdoName }): Count => {
     let tileRowCount: Count =
-        BASIC_TILE_ROW_COUNT_WITH_ONE_ROW_FOR_EDO_AND_ONE_FOR_SAGITTALS_OR_SUBSET
+        DEFAULT_TILE_ROW_COUNT_WITH_ONE_ROW_FOR_EDO_AND_ONE_FOR_SAGITTALS_OR_SUBSET
     const edoNotationDefinition: EdoNotationDefinition =
         EDO_NOTATION_DEFINITIONS[edoName]
-    if (isSubsetNotation(edoNotationDefinition)) return 2 as Count
+    if (isSubsetNotation(edoNotationDefinition)) return tileRowCount
 
     const sagittalCount: Count<Sagittal> = edoNotationDefinition.sagitypes
         .length as Count<Sagittal>
@@ -39,12 +43,17 @@ const computeTileRowCount = ({ edoName }: { edoName: EdoName }): Count => {
             tileRowCountForSagittals) as Max<Count<Sagittal>>
     }
 
-    // 2 tile rows (1 sagittal row )  fits up to  6 =  6 * 1 sagittals
+    // 2 tile rows (1 sagittal row ) fits up to  6 =  6 * 1 sagittals
     // 3 tile rows (2 sagittal rows) fit  up to 16 =  8 * 2 sagittals
     // 4 tile rows (3 sagittal rows) fit  up to 30 = 10 * 3 sagittals
     // 5 tile rows (4 sagittal rows) fit  up to 48 = 12 * 4 sagittals
+    // etc.
 
     return tileRowCount
 }
 
-export { computeTileRowCount }
+export {
+    computeTileRowCount,
+    DEFAULT_TILE_ROW_COUNT_WITH_ONE_ROW_FOR_EDO_AND_ONE_FOR_SAGITTALS_OR_SUBSET,
+    computeTileRowCountScaleFactor,
+}

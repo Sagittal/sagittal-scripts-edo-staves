@@ -1,5 +1,5 @@
 import { Document } from "@xmldom/xmldom"
-import { Px } from "@sagittal/general"
+import { Count, Px } from "@sagittal/general"
 import {
     BOTTOM_MARGIN,
     LEFT_AND_RIGHT_MARGIN,
@@ -7,15 +7,20 @@ import {
     TITLE_FONT_SIZE,
     TOP_MARGIN,
     TOTAL_WIDTH_NEEDED_FOR_TILE,
-    EXTRA_ROOM_FOR_FIFTH_SIZE
+    EXTRA_ROOM_FOR_FIFTH_SIZE,
 } from "./constants"
 import { NodeElement } from "./types"
+import { computeTileRowCountScaleFactor } from "./tile/rowCount"
 
 const BOTH_SIDES: number = 2
 
 const setDiagramSizeAndGetDiagramWidth = (
     svgDocument: Document,
-    { titleWidth, expressionsWidth }: { titleWidth: Px; expressionsWidth: Px },
+    {
+        titleWidth,
+        expressionsWidth,
+        tileRowCount,
+    }: { titleWidth: Px; expressionsWidth: Px; tileRowCount: Count },
 ): Px => {
     const svg: NodeElement<SVGGElement> = svgDocument.getElementsByTagName(
         "svg",
@@ -33,16 +38,22 @@ const setDiagramSizeAndGetDiagramWidth = (
     const widthAssumingStavesLongerEnoughThanTitleAndExpressions: Px =
         (existingWidth + LEFT_AND_RIGHT_MARGIN * BOTH_SIDES) as Px
     let width: Px
+
+    const tileRowCountScaleFactor: number =
+        computeTileRowCountScaleFactor(tileRowCount)
+    const totalWidthNeededForTile: Px = (TOTAL_WIDTH_NEEDED_FOR_TILE *
+        tileRowCountScaleFactor) as Px
+
     if (
         widthAssumingStavesLongerEnoughThanTitleAndExpressions <
-        titleWidth + TOTAL_WIDTH_NEEDED_FOR_TILE
+        titleWidth + totalWidthNeededForTile
     ) {
-        width = (titleWidth + TOTAL_WIDTH_NEEDED_FOR_TILE) as Px
+        width = (titleWidth + totalWidthNeededForTile) as Px
     } else if (
         widthAssumingStavesLongerEnoughThanTitleAndExpressions <
-        expressionsWidth + TOTAL_WIDTH_NEEDED_FOR_TILE
+        expressionsWidth + totalWidthNeededForTile
     ) {
-        width = (expressionsWidth + TOTAL_WIDTH_NEEDED_FOR_TILE) as Px
+        width = (expressionsWidth + totalWidthNeededForTile) as Px
     } else {
         width = widthAssumingStavesLongerEnoughThanTitleAndExpressions
     }

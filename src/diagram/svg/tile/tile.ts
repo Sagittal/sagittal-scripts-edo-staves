@@ -15,7 +15,7 @@ import {
     TILE_SIZE,
     TILE_TOP_MARGIN,
 } from "../constants"
-import { computeTileRowCount } from "./rowCount"
+import { computeTileRowCountScaleFactor } from "./rowCount"
 import { append } from "../append"
 
 const addTileItself = async (
@@ -24,10 +24,12 @@ const addTileItself = async (
         edoName,
         flavor,
         tileWrapperGroupElement,
+        tileRowCount,
     }: {
         edoName: EdoName
         flavor: Flavor
         tileWrapperGroupElement: NodeElement<SVGGElement>
+        tileRowCount: Count
     },
 ): Promise<void> => {
     const tileGroupElement: NodeElement<SVGGElement> =
@@ -37,8 +39,6 @@ const addTileItself = async (
         svgDocument,
         edoName,
     })
-
-    const tileRowCount: Count = computeTileRowCount({ edoName })
 
     await addEdo(tileGroupElement, { edoName, tileRowCount })
 
@@ -56,6 +56,11 @@ const addTileItself = async (
 
     roundAllTranslations(tileGroupElement)
 
+    tileGroupElement.setAttribute(
+        "transform",
+        `scale(${computeTileRowCountScaleFactor(tileRowCount)})`,
+    )
+
     tileWrapperGroupElement.appendChild(tileGroupElement)
 }
 
@@ -65,16 +70,24 @@ const addTile = async (
         edoName,
         diagramWidth,
         flavor,
-    }: { edoName: EdoName; diagramWidth: Px; flavor: Flavor },
+        tileRowCount,
+    }: {
+        edoName: EdoName
+        diagramWidth: Px
+        flavor: Flavor
+        tileRowCount: Count
+    },
 ): Promise<void> => {
     const tileWrapperGroupElement: NodeElement<SVGGElement> =
         svgDocument.createElementNS(SVG_NS, "g") as NodeElement<SVGGElement>
+    const tileRowCountScaleFactor: number =
+        computeTileRowCountScaleFactor(tileRowCount)
     tileWrapperGroupElement.setAttribute(
         "transform",
         `translate(${
             diagramWidth -
             LEFT_AND_RIGHT_MARGIN -
-            TILE_SIZE -
+            TILE_SIZE * tileRowCountScaleFactor -
             EXTRA_ROOM_FOR_FIFTH_SIZE
         } ${TILE_TOP_MARGIN})`,
     )
@@ -83,9 +96,15 @@ const addTile = async (
         tileWrapperGroupElement,
         edoName,
         flavor,
+        tileRowCount,
     })
 
-    await addSteps(svgDocument, { tileWrapperGroupElement, edoName, flavor })
+    await addSteps(svgDocument, {
+        tileWrapperGroupElement,
+        edoName,
+        flavor,
+        tileRowCount,
+    })
 
     append(svgDocument, tileWrapperGroupElement)
 }
