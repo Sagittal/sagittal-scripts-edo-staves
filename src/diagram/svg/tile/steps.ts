@@ -117,9 +117,9 @@ const addSharp = async (
               ]
             : diagramType === DiagramType.GENERAL
             ? [
-                  computeInputSentenceUnicode("/||\\;" as Io & Sentence),
+                  computeInputSentenceUnicode("#;" as Io & Sentence),
                   " or",
-                  computeInputSentenceUnicode("5; #;" as Io & Sentence),
+                  computeInputSentenceUnicode("5; /||\\;" as Io & Sentence),
                   equalsPositiveOrLessThanZero(sharpStep),
               ]
             : [
