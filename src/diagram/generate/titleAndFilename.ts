@@ -1,6 +1,11 @@
 import { Filename, Io } from "@sagittal/general"
 import { Edo, EdoNotationName } from "@sagittal/system"
-import { parseEdoNotationName } from "@sagittal/system/dist/cjs/notations"
+import {
+    EDO_NOTATION_DEFINITIONS,
+    EdoNotationDefinition,
+    isSubsetNotation,
+    parseEdoNotationName,
+} from "@sagittal/system/dist/cjs/notations"
 import { DiagramType } from "../../types"
 
 const FORMATTED_DIAGRAM_TYPE: Record<DiagramType, Io> = {
@@ -25,6 +30,25 @@ const embedDiagramType = (
 const embedEdoPart = (useSecondBestFifth: boolean): Io =>
     useSecondBestFifth ? "b" : "-EDO"
 
+const computeSubtitle = ({
+    edoNotationName,
+}: {
+    edoNotationName: EdoNotationName
+}): Io => {
+    const { useSecondBestFifth }: { useSecondBestFifth: boolean } =
+        parseEdoNotationName(edoNotationName)
+    const edoNotationDefinition: EdoNotationDefinition =
+        EDO_NOTATION_DEFINITIONS[edoNotationName]
+
+    return `${
+        isSubsetNotation(edoNotationDefinition)
+            ? `As a subset of ${edoNotationDefinition.supersetEdoNotationName}-EDO `
+            : ""
+    }${
+        useSecondBestFifth ? "Using the second-best fifth " : ""
+    }(default spellings)`
+}
+
 const computeFilename = ({
     edoNotationName,
     diagramType,
@@ -40,7 +64,9 @@ const computeFilename = ({
 
     return `${edo}${embedEdoPart(useSecondBestFifth)}${embedDiagramType(
         diagramType,
-        { useUnderscores: true },
+        {
+            useUnderscores: true,
+        },
     )}.svg` as Filename
 }
 
@@ -51,15 +77,9 @@ const computeTitle = ({
     edoNotationName: EdoNotationName
     diagramType: DiagramType
 }): Io => {
-    const {
-        edo,
-        useSecondBestFifth,
-    }: { edo: Edo; useSecondBestFifth: boolean } =
-        parseEdoNotationName(edoNotationName)
+    const { edo }: { edo: Edo } = parseEdoNotationName(edoNotationName)
 
-    return `${edo}${embedEdoPart(useSecondBestFifth)}${embedDiagramType(
-        diagramType,
-    )} Sagittal notation`
+    return `${edo}-EDO${embedDiagramType(diagramType)} Sagittal notation`
 }
 
-export { computeTitle, computeFilename }
+export { computeTitle, computeSubtitle, computeFilename }

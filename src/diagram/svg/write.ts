@@ -20,12 +20,14 @@ import { DiagramType } from "../../types"
 const writeDiagramSvg = async ({
     inputSentence,
     title,
+    subtitle,
     filename,
     edoNotationName,
     diagramType,
 }: {
     inputSentence: Io & Sentence
     title: Io
+    subtitle: Io
     filename: Filename
     edoNotationName: EdoNotationName
     diagramType: DiagramType
@@ -44,7 +46,7 @@ const writeDiagramSvg = async ({
 
     const titleWidth: Px = await addTitleAndGetWidth(svgDocument, title)
 
-    await addSubtitle(svgDocument, "(default spellings)")
+    await addSubtitle(svgDocument, subtitle)
 
     const expressionsWidth: Px = await addExpressionsAndGetWidth(svgDocument, {
         edoNotationName,

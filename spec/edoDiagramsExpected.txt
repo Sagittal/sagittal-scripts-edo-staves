@@ -1,6 +1,7 @@
 
 
 5-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -17,6 +18,7 @@ en; blfn
 
 
 6-EDO Evo Sagittal notation
+As a subset of 12-EDO (default spellings)
 
 ston 
 4; trcl; 12;
@@ -36,6 +38,7 @@ en; blfn
 
 
 6-EDO Revo Sagittal notation
+As a subset of 12-EDO (default spellings)
 
 ston 
 4; trcl; 12;
@@ -55,6 +58,7 @@ en; blfn
 
 
 7-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -75,6 +79,7 @@ en; blfn
 
 
 8-EDO Evo Sagittal notation
+As a subset of 24-EDO (default spellings)
 
 ston 
 4; trcl; 12;
@@ -97,6 +102,7 @@ en; blfn
 
 
 8-EDO Evo-SZ Sagittal notation
+As a subset of 24-EDO (default spellings)
 
 ston 
 4; trcl; 12;
@@ -119,6 +125,7 @@ en; blfn
 
 
 8-EDO Revo Sagittal notation
+As a subset of 24-EDO (default spellings)
 
 ston 
 4; trcl; 12;
@@ -141,6 +148,7 @@ en; blfn
 
 
 9-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -162,6 +170,7 @@ en; blfn
 
 
 10-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -178,6 +187,7 @@ en; blfn
 
 
 11-EDO Evo Sagittal notation
+As a subset of 22-EDO (default spellings)
 
 ston 
 4; trcl; 12;
@@ -199,6 +209,7 @@ en; blfn
 
 
 11-EDO Revo Sagittal notation
+As a subset of 22-EDO (default spellings)
 
 ston 
 4; trcl; 12;
@@ -221,6 +232,7 @@ en; blfn
 
 
 12-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -241,6 +253,7 @@ en; blfn
 
 
 12-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -261,6 +274,7 @@ en; blfn
 
 
 13-EDO Evo Sagittal notation
+As a subset of 26-EDO (default spellings)
 
 ston 
 4; trcl; 12;
@@ -283,6 +297,7 @@ en; blfn
 
 
 13-EDO Revo Sagittal notation
+As a subset of 26-EDO (default spellings)
 
 ston 
 4; trcl; 12;
@@ -305,6 +320,7 @@ en; blfn
 
 
 14-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -325,6 +341,7 @@ en; blfn
 
 
 15-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -342,6 +359,7 @@ en; blfn
 
 
 16-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -363,6 +381,7 @@ en; blfn
 
 
 17-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -383,6 +402,7 @@ en; blfn
 
 
 17-EDO Alternative Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -403,6 +423,7 @@ en; blfn
 
 
 17-EDO Evo-SZ Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -423,6 +444,7 @@ en; blfn
 
 
 18-EDO Evo Sagittal notation
+As a subset of 36-EDO (default spellings)
 
 ston 
 4; trcl; 12;
@@ -447,6 +469,7 @@ en; blfn
 
 
 18-EDO Revo Sagittal notation
+As a subset of 36-EDO (default spellings)
 
 ston 
 4; trcl; 12;
@@ -471,6 +494,7 @@ en; blfn
 
 
 19-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -494,6 +518,7 @@ en; blfn
 
 
 19-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -517,6 +542,7 @@ en; blfn
 
 
 20-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -536,6 +562,7 @@ en; blfn
 
 
 21-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -559,6 +586,7 @@ en; blfn
 
 
 22-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -581,6 +609,7 @@ en; blfn
 
 
 22-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -603,6 +632,7 @@ en; blfn
 
 
 23-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -626,6 +656,7 @@ en; blfn
 
 
 24-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -648,6 +679,7 @@ en; blfn
 
 
 24-EDO Evo-SZ Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -670,6 +702,7 @@ en; blfn
 
 
 24-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -693,6 +726,7 @@ en; blfn
 
 
 25-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -712,6 +746,7 @@ en; blfn
 
 
 26-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -735,6 +770,7 @@ en; blfn
 
 
 26-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -758,6 +794,7 @@ en; blfn
 
 
 27-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -780,6 +817,7 @@ en; blfn
 
 
 27-EDO Alternative Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -802,6 +840,7 @@ en; blfn
 
 
 28-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -825,6 +864,7 @@ en; blfn
 
 
 29-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -848,6 +888,7 @@ en; blfn
 
 
 29-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -871,6 +912,7 @@ en; blfn
 
 
 30-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -890,6 +932,7 @@ en; blfn
 
 
 31-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -913,6 +956,7 @@ en; blfn
 
 
 31-EDO Evo-SZ Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -936,6 +980,7 @@ en; blfn
 
 
 31-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -959,6 +1004,7 @@ en; blfn
 
 
 32-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -983,6 +1029,7 @@ en; blfn
 
 
 32-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1007,6 +1054,7 @@ en; blfn
 
 
 33-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1032,6 +1080,7 @@ en; blfn
 
 
 34-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1057,6 +1106,7 @@ en; blfn
 
 
 34-EDO Evo-SZ Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1082,6 +1132,7 @@ en; blfn
 
 
 34-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1107,6 +1158,7 @@ en; blfn
 
 
 35-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1132,6 +1184,7 @@ en; blfn
 
 
 36-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1157,6 +1210,7 @@ en; blfn
 
 
 36-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1182,6 +1236,7 @@ en; blfn
 
 
 37-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1206,6 +1261,7 @@ en; blfn
 
 
 37-EDO Alternative Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1230,6 +1286,7 @@ en; blfn
 
 
 38-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1255,6 +1312,7 @@ en; blfn
 
 
 38-EDO Evo-SZ Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1280,6 +1338,7 @@ en; blfn
 
 
 38-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1305,6 +1364,7 @@ en; blfn
 
 
 39-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1330,6 +1390,7 @@ en; blfn
 
 
 39-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1355,6 +1416,7 @@ en; blfn
 
 
 40-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1380,6 +1442,7 @@ en; blfn
 
 
 41-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1405,6 +1468,7 @@ en; blfn
 
 
 41-EDO Evo-SZ Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1430,6 +1494,7 @@ en; blfn
 
 
 41-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1455,6 +1520,7 @@ en; blfn
 
 
 42-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1479,6 +1545,7 @@ en; blfn
 
 
 42-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1503,6 +1570,7 @@ en; blfn
 
 
 43-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1528,6 +1596,7 @@ en; blfn
 
 
 43-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1553,6 +1622,7 @@ en; blfn
 
 
 44-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1578,6 +1648,7 @@ en; blfn
 
 
 44-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1603,6 +1674,7 @@ en; blfn
 
 
 45-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1632,6 +1704,7 @@ en; blfn
 
 
 45-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1661,6 +1734,7 @@ en; blfn
 
 
 46-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1690,6 +1764,7 @@ en; blfn
 
 
 46-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1719,6 +1794,7 @@ en; blfn
 
 
 47-EDO Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1748,6 +1824,7 @@ en; blfn
 
 
 48-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1777,6 +1854,7 @@ en; blfn
 
 
 48-EDO Evo-SZ Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1806,6 +1884,7 @@ en; blfn
 
 
 48-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1835,6 +1914,7 @@ en; blfn
 
 
 49-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1864,6 +1944,7 @@ en; blfn
 
 
 49-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1893,6 +1974,7 @@ en; blfn
 
 
 50-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1922,6 +2004,7 @@ en; blfn
 
 
 50-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1951,6 +2034,7 @@ en; blfn
 
 
 51-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -1980,6 +2064,7 @@ en; blfn
 
 
 51-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2009,6 +2094,7 @@ en; blfn
 
 
 52-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2038,6 +2124,7 @@ en; blfn
 
 
 52-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2067,6 +2154,7 @@ en; blfn
 
 
 53-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2096,6 +2184,7 @@ en; blfn
 
 
 53-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2125,6 +2214,7 @@ en; blfn
 
 
 54-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2154,6 +2244,7 @@ en; blfn
 
 
 54-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2183,6 +2274,7 @@ en; blfn
 
 
 55-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2212,6 +2304,7 @@ en; blfn
 
 
 55-EDO Evo-SZ Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2241,6 +2334,7 @@ en; blfn
 
 
 55-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2270,6 +2364,7 @@ en; blfn
 
 
 56-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2299,6 +2394,7 @@ en; blfn
 
 
 56-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2328,6 +2424,7 @@ en; blfn
 
 
 57-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2357,6 +2454,7 @@ en; blfn
 
 
 57-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2386,6 +2484,7 @@ en; blfn
 
 
 58-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2415,6 +2514,7 @@ en; blfn
 
 
 58-EDO Evo-SZ Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2444,6 +2544,7 @@ en; blfn
 
 
 58-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2473,6 +2574,7 @@ en; blfn
 
 
 59-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2502,6 +2604,7 @@ en; blfn
 
 
 59-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2531,6 +2634,7 @@ en; blfn
 
 
 60-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2560,6 +2664,7 @@ en; blfn
 
 
 60-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2589,6 +2694,7 @@ en; blfn
 
 
 61-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2618,6 +2724,7 @@ en; blfn
 
 
 61-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2647,6 +2754,7 @@ en; blfn
 
 
 62-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2676,6 +2784,7 @@ en; blfn
 
 
 62-EDO Evo-SZ Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2705,6 +2814,7 @@ en; blfn
 
 
 62-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2734,6 +2844,7 @@ en; blfn
 
 
 63-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2763,6 +2874,7 @@ en; blfn
 
 
 63-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2792,6 +2904,7 @@ en; blfn
 
 
 64-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2821,6 +2934,7 @@ en; blfn
 
 
 64-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2850,6 +2964,7 @@ en; blfn
 
 
 65-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2879,6 +2994,7 @@ en; blfn
 
 
 65-EDO Evo-SZ Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2908,6 +3024,7 @@ en; blfn
 
 
 65-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2937,6 +3054,7 @@ en; blfn
 
 
 66-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2966,6 +3084,7 @@ en; blfn
 
 
 66-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2995,6 +3114,7 @@ en; blfn
 
 
 67-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -3024,6 +3144,7 @@ en; blfn
 
 
 67-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -3053,6 +3174,7 @@ en; blfn
 
 
 68-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -3082,6 +3204,7 @@ en; blfn
 
 
 68-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -3111,6 +3234,7 @@ en; blfn
 
 
 69-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -3140,6 +3264,7 @@ en; blfn
 
 
 69-EDO Evo-SZ Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -3169,6 +3294,7 @@ en; blfn
 
 
 69-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -3198,6 +3324,7 @@ en; blfn
 
 
 70-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -3227,6 +3354,7 @@ en; blfn
 
 
 70-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -3256,6 +3384,7 @@ en; blfn
 
 
 71-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -3285,6 +3414,7 @@ en; blfn
 
 
 71-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -3314,6 +3444,7 @@ en; blfn
 
 
 72-EDO Evo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -3343,6 +3474,7 @@ en; blfn
 
 
 72-EDO Evo-SZ Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -3372,6 +3504,7 @@ en; blfn
 
 
 72-EDO Revo Sagittal notation
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -3400,7 +3533,8 @@ c5 4; \!/; nt; 4; 4; !); nt; 4; 4; \!; nt; 4;
 en; blfn
 
 
-23b Sagittal notation
+23-EDO Sagittal notation
+Using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3419,7 +3553,8 @@ c5 5; )!; nt; 4;
 en; blfn
 
 
-30b Sagittal notation
+30-EDO Sagittal notation
+Using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3442,7 +3577,8 @@ c5 4; !); nt; 4; 4; !(; nt; 4;
 en; blfn
 
 
-35b Sagittal notation
+35-EDO Sagittal notation
+Using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3463,7 +3599,8 @@ c5 4; \!); nt; 4; 4; \!; nt; 4; 4; )!; nt; 4;
 en; blfn
 
 
-42b Sagittal notation
+42-EDO Sagittal notation
+Using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3488,7 +3625,8 @@ c5 4; !); nt; 4; 4; !(; nt; 4;
 en; blfn
 
 
-47b Sagittal notation
+47-EDO Sagittal notation
+Using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3516,7 +3654,8 @@ b4 4; (!/; nt; 4; 4; \!; nt; 4; 4; )~!; nt; 4; 4; )!; nt; 4;
 en; blfn
 
 
-47b Alternative Evo Sagittal notation
+47-EDO Alternative Evo Sagittal notation
+Using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3544,7 +3683,8 @@ b4 2; 4; b; nt; 4; 2; 4; )|; b; nt; 4; 2; 4; )~|; b; nt; 4; 2; 4; /|; b; nt; 4; 
 en; blfn
 
 
-59b Evo Sagittal notation
+59-EDO Evo Sagittal notation
+Using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3573,7 +3713,8 @@ c5 10; bb; nt; 4; 4; \!); b; nt; 4; 4; b; nt; 4; 4; \!); nt; 4;
 en; blfn
 
 
-59b Revo Sagittal notation
+59-EDO Revo Sagittal notation
+Using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3602,7 +3743,8 @@ c5 4; \!!!); nt; 4; 4; \!!/; nt; 4; 4; \!); nt; 4;
 en; blfn
 
 
-64b Evo Sagittal notation
+64-EDO Evo Sagittal notation
+Using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3631,7 +3773,8 @@ c5 4; )!; nt; 4;
 en; blfn
 
 
-64b Revo Sagittal notation
+64-EDO Revo Sagittal notation
+Using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3660,7 +3803,8 @@ c5 4; )!; nt; 4;
 en; blfn
 
 
-71b Evo Sagittal notation
+71-EDO Evo Sagittal notation
+Using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3693,7 +3837,8 @@ c5 2; 5; \!); b; nt; 4; 2; 19; b; nt; 4; 2; 10; /|); b; nt; 4; 13; \!); nt; 4;
 en; blfn
 
 
-71b Revo Sagittal notation
+71-EDO Revo Sagittal notation
+Using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;

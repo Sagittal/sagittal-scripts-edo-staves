@@ -7,7 +7,7 @@ import {
     REVO_FLAVOR_INDEX,
 } from "./constants"
 import { DiagramType } from "../../types"
-import { computeFilename, computeTitle } from "./titleAndFilename"
+import { computeFilename, computeSubtitle, computeTitle } from "./titleAndFilename"
 import { writeDiagramSvg } from "../svg"
 
 const ONE_OFF_FILENAME: Filename = `one-off.svg` as Filename
@@ -27,17 +27,21 @@ const generateDiagram = async ({
         edoNotationName,
         diagramType,
     })
+    const subtitle: Io = computeSubtitle({
+        edoNotationName,
+    })
     const filename: Filename = computeFilename({
         edoNotationName,
         diagramType,
     })
 
-    saveLog(`\n\n${title}\n\n${inputSentence}`)
+    saveLog(`\n\n${title}\n${subtitle}\n\n${inputSentence}`)
 
     if (!dryRun)
         await writeDiagramSvg({
             inputSentence,
             title,
+            subtitle,
             filename,
             edoNotationName,
             diagramType,
@@ -113,11 +117,15 @@ const generateOneOffDiagram = async (
         edoNotationName,
         diagramType,
     })
+    const subtitle: Io = computeSubtitle({
+        edoNotationName,
+    })
     const filename = ONE_OFF_FILENAME
 
     await writeDiagramSvg({
         inputSentence,
         title,
+        subtitle,
         filename,
         edoNotationName,
         diagramType,
