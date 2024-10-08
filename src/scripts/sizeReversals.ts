@@ -8,7 +8,7 @@ import {
 import {
     computeSymbolClassIdAndSectionFromSagittal,
     EDO_NOTATION_DEFINITIONS,
-    EdoName,
+    EdoNotationName,
     EdoNotationDefinition,
     isSubsetNotation,
     JI_NOTATION,
@@ -21,19 +21,21 @@ import {
 
 scriptSettings.disableColors = true
 
-const edoNotationDefinitionsEntries: [EdoName, EdoNotationDefinition][] =
-    Object.entries(EDO_NOTATION_DEFINITIONS) as [
-        EdoName,
-        EdoNotationDefinition,
-    ][]
+const edoNotationDefinitionsEntries: [
+    EdoNotationName,
+    EdoNotationDefinition,
+][] = Object.entries(EDO_NOTATION_DEFINITIONS) as [
+    EdoNotationName,
+    EdoNotationDefinition,
+][]
 
 edoNotationDefinitionsEntries.forEach(
-    ([edoName, edoNotationDefinition]: [
-        EdoName,
+    ([edoNotationName, edoNotationDefinition]: [
+        EdoNotationName,
         EdoNotationDefinition,
     ]): void => {
         if (isSubsetNotation(edoNotationDefinition)) return
-        if (edoName === "581") return // this crap code can't handle accents
+        if (edoNotationName === "581") return // this crap code can't handle accents
         const { sagitypes }: { sagitypes: Sagitype[] } = edoNotationDefinition
 
         const sagittalIndices: Index<Sagittal>[] = sagitypes.map(
@@ -60,7 +62,7 @@ edoNotationDefinitionsEntries.forEach(
 
         if (!deepEquals(sagittalIndices, sortedSagittalIndices)) {
             saveLog(
-                `EDO ${edoName} has unsorted sagittal indices: ${sagittalIndices}`,
+                `EDO ${edoNotationName} has unsorted sagittal indices: ${sagittalIndices}`,
             )
         }
     },

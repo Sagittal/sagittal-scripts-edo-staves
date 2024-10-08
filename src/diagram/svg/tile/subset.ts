@@ -1,5 +1,10 @@
 import { Document } from "@xmldom/xmldom"
-import { EDO_NOTATION_DEFINITIONS, EdoName, EdoNotationDefinition, isSubsetNotation } from "@sagittal/system"
+import {
+    EDO_NOTATION_DEFINITIONS,
+    EdoNotationName,
+    EdoNotationDefinition,
+    isSubsetNotation,
+} from "@sagittal/system"
 import { Justification, NodeElement } from "../types"
 import { addText } from "../text"
 import {
@@ -14,9 +19,9 @@ import { DiagramType } from "../../../types"
 
 const addSubset = async (
     tileGroupElement: NodeElement<SVGGElement>,
-    { supersetEdoName }: { supersetEdoName: EdoName },
+    { supersetEdoNotationName }: { supersetEdoNotationName: EdoNotationName },
 ): Promise<void> => {
-    await addText(tileGroupElement, `ss${supersetEdoName}`, {
+    await addText(tileGroupElement, `ss${supersetEdoNotationName}`, {
         fontFile: SANOMAT_FONT_FILE,
         fontSize: SUBSET_TEXT_FONT_SIZE,
         xOffset: (TILE_SIZE / 2) as Px,
@@ -29,27 +34,28 @@ const addSagittalsOrSubset = async (
     tileGroupElement: NodeElement<SVGGElement>,
     {
         svgDocument,
-        edoName,
+        edoNotationName,
         diagramType,
         tileRowCount,
     }: {
         svgDocument: Document
-        edoName: EdoName
+        edoNotationName: EdoNotationName
         diagramType: DiagramType
         tileRowCount: Count
     },
 ): Promise<void> => {
     const edoNotationDefinition: EdoNotationDefinition =
-        EDO_NOTATION_DEFINITIONS[edoName]
+        EDO_NOTATION_DEFINITIONS[edoNotationName]
 
     if (isSubsetNotation(edoNotationDefinition)) {
         await addSubset(tileGroupElement, {
-            supersetEdoName: edoNotationDefinition.supersetEdoName,
+            supersetEdoNotationName:
+                edoNotationDefinition.supersetEdoNotationName,
         })
     } else {
         await addSagittals(tileGroupElement, {
             svgDocument,
-            edoName,
+            edoNotationName,
             diagramType,
             tileRowCount,
         })

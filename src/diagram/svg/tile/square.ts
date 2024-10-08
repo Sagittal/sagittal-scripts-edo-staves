@@ -1,6 +1,6 @@
 import { Document } from "@xmldom/xmldom"
 import { HexColor, Px } from "@sagittal/general"
-import { computeSectionColor, EdoName } from "@sagittal/system"
+import { computeSectionColor, EdoNotationName } from "@sagittal/system"
 import {
     EXTRA_ROOM_FOR_FIFTH_SIZE,
     LEFT_AND_RIGHT_MARGIN,
@@ -15,13 +15,13 @@ const addTileSquare = (
     tileGroupElement: NodeElement<SVGGElement>,
     {
         svgDocument,
-        edoName,
+        edoNotationName,
     }: {
         svgDocument: Document
-        edoName: EdoName
+        edoNotationName: EdoNotationName
     },
 ): void => {
-    const sectionColor: HexColor = computeSectionColor(edoName)
+    const sectionColor: HexColor = computeSectionColor(edoNotationName)
     const tileRectElement: NodeElement<SVGRectElement> =
         svgDocument.createElementNS(
             SVG_NS,

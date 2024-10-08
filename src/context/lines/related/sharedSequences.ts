@@ -4,54 +4,61 @@ import {
     computeLimmaStep,
     computeSharpStep,
     EDO_NOTATION_DEFINITIONS,
-    EdoName,
+    EdoNotationName,
     EdoNotationDefinition,
     isSubsetNotation,
-    parseEdoName,
+    parseEdoNotationName,
     Sagitype,
 } from "@sagittal/system"
 
-const EDO_NOTATION_DEFINITIONS_ENTRIES: [EdoName, EdoNotationDefinition][] =
-    Object.entries(EDO_NOTATION_DEFINITIONS) as [
-        EdoName,
-        EdoNotationDefinition,
-    ][]
+const EDO_NOTATION_DEFINITIONS_ENTRIES: [
+    EdoNotationName,
+    EdoNotationDefinition,
+][] = Object.entries(EDO_NOTATION_DEFINITIONS) as [
+    EdoNotationName,
+    EdoNotationDefinition,
+][]
 
-const computeSharedSagittalSequenceEdoNames = (edoName: EdoName): EdoName[] => {
-    const edoNotationDefinition = EDO_NOTATION_DEFINITIONS[edoName]
+const computeSharedSagittalSequenceEdoNotationNames = (
+    edoNotationName: EdoNotationName,
+): EdoNotationName[] => {
+    const edoNotationDefinition = EDO_NOTATION_DEFINITIONS[edoNotationName]
     if (isSubsetNotation(edoNotationDefinition)) return []
 
     const { sagitypes, isLimmaFraction } = edoNotationDefinition
     if (sagitypes.length === 0) return []
 
     return isLimmaFraction
-        ? computeLimmaFractionSharedSagittalSequenceEdoNames(edoName, sagitypes)
-        : computeApotomeFractionSharedSagittalSequenceEdoNames(
-              edoName,
+        ? computeLimmaFractionSharedSagittalSequenceEdoNotationNames(
+              edoNotationName,
+              sagitypes,
+          )
+        : computeApotomeFractionSharedSagittalSequenceEdoNotationNames(
+              edoNotationName,
               sagitypes,
           )
 }
 
-const computeLimmaFractionSharedSagittalSequenceEdoNames = (
-    edoName: EdoName,
+const computeLimmaFractionSharedSagittalSequenceEdoNotationNames = (
+    edoNotationName: EdoNotationName,
     sagitypes: Sagitype[],
 ) => {
-    const fifthStep = computeFifthStep(edoName)
-    const edo = parseEdoName(edoName).edo
+    const fifthStep = computeFifthStep(edoNotationName)
+    const edo = parseEdoNotationName(edoNotationName).edo
     const limmaStep = computeLimmaStep(edo, fifthStep)
     const relevantSagitypes = sagitypes.slice(0, floor(limmaStep / 2))
 
     return EDO_NOTATION_DEFINITIONS_ENTRIES.filter(
-        ([otherEdoName, otherEdoNotationDefinition]) => {
+        ([otherEdoNotationName, otherEdoNotationDefinition]) => {
             if (
-                otherEdoName === edoName ||
+                otherEdoNotationName === edoNotationName ||
                 isSubsetNotation(otherEdoNotationDefinition) ||
                 !otherEdoNotationDefinition.isLimmaFraction
             )
                 return false
 
-            const otherFifthStep = computeFifthStep(otherEdoName)
-            const otherEdo = parseEdoName(otherEdoName).edo
+            const otherFifthStep = computeFifthStep(otherEdoNotationName)
+            const otherEdo = parseEdoNotationName(otherEdoNotationName).edo
             const otherLimmaStep = computeLimmaStep(otherEdo, otherFifthStep)
 
             if (otherLimmaStep !== limmaStep!) return false
@@ -64,30 +71,30 @@ const computeLimmaFractionSharedSagittalSequenceEdoNames = (
             return deepEquals(otherRelevantSagitypes, relevantSagitypes)
         },
     )
-        .map(([otherEdoName, _]) => otherEdoName)
+        .map(([otherEdoNotationName, _]) => otherEdoNotationName)
         .sort()
 }
 
-const computeApotomeFractionSharedSagittalSequenceEdoNames = (
-    edoName: EdoName,
+const computeApotomeFractionSharedSagittalSequenceEdoNotationNames = (
+    edoNotationName: EdoNotationName,
     sagitypes: Sagitype[],
 ) => {
-    const fifthStep = computeFifthStep(edoName)
-    const edo = parseEdoName(edoName).edo
+    const fifthStep = computeFifthStep(edoNotationName)
+    const edo = parseEdoNotationName(edoNotationName).edo
     const sharpStep = computeSharpStep(edo, fifthStep)
     const relevantSagitypes = sagitypes.slice(0, floor(sharpStep / 2))
 
     return EDO_NOTATION_DEFINITIONS_ENTRIES.filter(
-        ([otherEdoName, otherEdoNotationDefinition]) => {
+        ([otherEdoNotationName, otherEdoNotationDefinition]) => {
             if (
-                otherEdoName === edoName ||
+                otherEdoNotationName === edoNotationName ||
                 isSubsetNotation(otherEdoNotationDefinition) ||
                 otherEdoNotationDefinition.isLimmaFraction
             )
                 return false
 
-            const otherFifthStep = computeFifthStep(otherEdoName)
-            const otherEdo = parseEdoName(otherEdoName).edo
+            const otherFifthStep = computeFifthStep(otherEdoNotationName)
+            const otherEdo = parseEdoNotationName(otherEdoNotationName).edo
             const otherSharpStep = computeSharpStep(otherEdo, otherFifthStep)
 
             if (otherSharpStep !== sharpStep!) return false
@@ -97,12 +104,12 @@ const computeApotomeFractionSharedSagittalSequenceEdoNames = (
                     0,
                     floor(otherSharpStep / 2),
                 )
-            
+
             return deepEquals(otherRelevantSagitypes, relevantSagitypes)
         },
     )
-        .map(([otherEdoName, _]) => otherEdoName)
+        .map(([otherEdoNotationName, _]) => otherEdoNotationName)
         .sort()
 }
 
-export { computeSharedSagittalSequenceEdoNames }
+export { computeSharedSagittalSequenceEdoNotationNames }

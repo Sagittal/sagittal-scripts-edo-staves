@@ -1,5 +1,5 @@
 import { Filename, Io, saveLog, Sentence } from "@sagittal/general"
-import { EdoName } from "@sagittal/system"
+import { EdoNotationName } from "@sagittal/system"
 import {
     EVO_FLAVOR_INDEX,
     EVO_SZ_FLAVOR_INDEX,
@@ -14,21 +14,21 @@ const ONE_OFF_FILENAME: Filename = `one-off.svg` as Filename
 
 const generateDiagram = async ({
     inputSentence,
-    edoName,
+    edoNotationName,
     diagramType,
     dryRun,
 }: {
     inputSentence: Io & Sentence
-    edoName: EdoName
+    edoNotationName: EdoNotationName
     diagramType: DiagramType
     dryRun: boolean
 }): Promise<void> => {
     const title: Io = computeTitle({
-        edoName,
+        edoNotationName,
         diagramType,
     })
     const filename: Filename = computeFilename({
-        edoName,
+        edoNotationName,
         diagramType,
     })
 
@@ -39,18 +39,18 @@ const generateDiagram = async ({
             inputSentence,
             title,
             filename,
-            edoName,
+            edoNotationName,
             diagramType,
         })
 }
 
 const generateGeneralDiagram = async (
     inputSentences: (Io & Sentence)[],
-    edoName: EdoName,
+    edoNotationName: EdoNotationName,
     { dryRun }: { dryRun: boolean },
 ): Promise<void> =>
     await generateDiagram({
-        edoName,
+        edoNotationName,
         dryRun,
         inputSentence: inputSentences[FLAVOR_INDEX_FOR_GENERAL_DIAGRAM_TYPE],
         diagramType: DiagramType.GENERAL,
@@ -58,11 +58,11 @@ const generateGeneralDiagram = async (
 
 const generateEvoDiagram = async (
     inputSentences: (Io & Sentence)[],
-    edoName: EdoName,
+    edoNotationName: EdoNotationName,
     { dryRun }: { dryRun: boolean },
 ): Promise<void> =>
     await generateDiagram({
-        edoName,
+        edoNotationName,
         dryRun,
         inputSentence: inputSentences[EVO_FLAVOR_INDEX],
         diagramType: DiagramType.EVO,
@@ -70,11 +70,11 @@ const generateEvoDiagram = async (
 
 const generateEvoSZDiagram = async (
     inputSentences: (Io & Sentence)[],
-    edoName: EdoName,
+    edoNotationName: EdoNotationName,
     { dryRun }: { dryRun: boolean },
 ): Promise<void> =>
     await generateDiagram({
-        edoName,
+        edoNotationName,
         dryRun,
         inputSentence: inputSentences[EVO_SZ_FLAVOR_INDEX],
         diagramType: DiagramType.EVO_SZ,
@@ -82,11 +82,11 @@ const generateEvoSZDiagram = async (
 
 const generateRevoDiagram = async (
     inputSentences: (Io & Sentence)[],
-    edoName: EdoName,
+    edoNotationName: EdoNotationName,
     { dryRun }: { dryRun: boolean },
 ): Promise<void> =>
     await generateDiagram({
-        edoName,
+        edoNotationName,
         dryRun,
         inputSentence: inputSentences[REVO_FLAVOR_INDEX],
         diagramType: DiagramType.REVO,
@@ -94,11 +94,11 @@ const generateRevoDiagram = async (
 
 const generateAlternativeEvoDiagram = async (
     inputSentences: (Io & Sentence)[],
-    edoName: EdoName,
+    edoNotationName: EdoNotationName,
     { dryRun }: { dryRun: boolean },
 ): Promise<void> =>
     await generateDiagram({
-        edoName,
+        edoNotationName,
         dryRun,
         inputSentence: inputSentences[EVO_FLAVOR_INDEX],
         diagramType: DiagramType.ALTERNATE_EVO,
@@ -106,11 +106,11 @@ const generateAlternativeEvoDiagram = async (
 
 const generateOneOffDiagram = async (
     inputSentence: Io & Sentence,
-    edoName: EdoName,
+    edoNotationName: EdoNotationName,
     diagramType: DiagramType,
 ): Promise<void> => {
     const title: Io = computeTitle({
-        edoName,
+        edoNotationName,
         diagramType,
     })
     const filename = ONE_OFF_FILENAME
@@ -119,7 +119,7 @@ const generateOneOffDiagram = async (
         inputSentence,
         title,
         filename,
-        edoName,
+        edoNotationName,
         diagramType,
     })
 }

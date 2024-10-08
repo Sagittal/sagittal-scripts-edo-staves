@@ -1,6 +1,6 @@
 import { Document } from "@xmldom/xmldom"
 import { deepClone, isUndefined, Px } from "@sagittal/general"
-import { EdoName } from "@sagittal/system"
+import { EdoNotationName } from "@sagittal/system"
 import { PathifiableTexts } from "./types"
 import {
     BRAVURA_TEXT_SC_FONT_FILE,
@@ -31,10 +31,13 @@ const FONTS = [DEFINIENDUM_FONT, DEFINIENS_FONT]
 
 const addExpressionsAndGetWidth = async (
     svgDocument: Document,
-    { edoName, diagramType }: { edoName: EdoName; diagramType: DiagramType },
+    {
+        edoNotationName,
+        diagramType,
+    }: { edoNotationName: EdoNotationName; diagramType: DiagramType },
 ): Promise<Px> => {
     const pathifiableTexts: PathifiableTexts =
-        PATHIFIABLE_TEXTS_BY_EDO_NAME[edoName]
+        PATHIFIABLE_TEXTS_BY_EDO_NAME[edoNotationName]
 
     if (isUndefined(pathifiableTexts)) return 0 as Px
 
@@ -42,7 +45,7 @@ const addExpressionsAndGetWidth = async (
         deepClone(pathifiableTexts)
 
     if (diagramType === DiagramType.EVO_SZ)
-        handleSzForExpressions(texts, { edoName })
+        handleSzForExpressions(texts, { edoNotationName })
 
     const expressionsGroupElement: NodeElement<SVGGElement> =
         await textsToSvgGroupElement(

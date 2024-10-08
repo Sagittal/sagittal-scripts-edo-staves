@@ -1,5 +1,5 @@
 import * as fs from "fs"
-import { Edo, EdoName } from "@sagittal/system"
+import { Edo, EdoNotationName } from "@sagittal/system"
 import { Subsection } from "./types"
 import { Io, isUndefined, Maybe, saveLog } from "@sagittal/general"
 import {
@@ -34,8 +34,8 @@ const generateContext = (
             lines.push(
                 computeRelatedEdosLine(
                     isSecondBestFifthNotation
-                        ? (`${edo}b` as EdoName)
-                        : (edo.toString() as EdoName),
+                        ? (`${edo}b` as EdoNotationName)
+                        : (edo.toString() as EdoNotationName),
                 ),
             )
 

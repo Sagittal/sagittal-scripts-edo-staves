@@ -1,10 +1,17 @@
 import {
     Edo,
     EDO_NOTATION_DEFINITIONS,
-    EdoName,
-    parseEdoName,
+    EdoNotationName,
+    parseEdoNotationName,
 } from "@sagittal/system"
-import { Io, isUndefined, Max, program, scriptSettings, Sentence } from "@sagittal/general"
+import {
+    Io,
+    isUndefined,
+    Max,
+    program,
+    scriptSettings,
+    Sentence,
+} from "@sagittal/general"
 import {
     generateEvoDiagram,
     generateEvoSZDiagram,
@@ -31,10 +38,12 @@ const maxEdo: Max<Edo> = isUndefined(maxEdoString)
     ? (Infinity as Max<Edo>)
     : (parseInt(maxEdoString) as Max<Edo>)
 
-const edoNames: EdoName[] = Object.keys(EDO_NOTATION_DEFINITIONS) as EdoName[]
+const edoNotationNames: EdoNotationName[] = Object.keys(
+    EDO_NOTATION_DEFINITIONS,
+) as EdoNotationName[]
 
-edoNames.forEach((edoName: EdoName): void => {
-    const edo: Edo = parseEdoName(edoName).edo
+edoNotationNames.forEach((edoNotationName: EdoNotationName): void => {
+    const edo: Edo = parseEdoNotationName(edoNotationName).edo
     if (edo > maxEdo) return
 
     const {
@@ -44,22 +53,22 @@ edoNames.forEach((edoName: EdoName): void => {
         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
             Sentence)[]
         differenceCase: DifferenceCase
-    } = computeSentencesAndDifferenceCase(edoName)
-    
+    } = computeSentencesAndDifferenceCase(edoNotationName)
+
     if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
         generateEvoDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-            edoName,
+            edoNotationName,
             { dryRun },
         )
         generateEvoSZDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-            edoName,
+            edoNotationName,
             { dryRun },
         )
         generateRevoDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-            edoName,
+            edoNotationName,
             { dryRun },
         )
     } else if (
@@ -67,34 +76,34 @@ edoNames.forEach((edoName: EdoName): void => {
     ) {
         generateGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-            edoName,
+            edoNotationName,
             { dryRun },
         )
         generateAlternativeEvoDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-            edoName,
+            edoNotationName,
             { dryRun },
         )
         generateEvoSZDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-            edoName,
+            edoNotationName,
             { dryRun },
         )
     } else if (differenceCase === DifferenceCase._2_NONE_DIFFERENT) {
         generateGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-            edoName,
+            edoNotationName,
             { dryRun },
         )
     } else if (differenceCase === DifferenceCase._3_REVO_DIFFERENT) {
         generateEvoDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-            edoName,
+            edoNotationName,
             { dryRun },
         )
         generateRevoDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-            edoName,
+            edoNotationName,
             { dryRun },
         )
     } else if (
@@ -102,23 +111,23 @@ edoNames.forEach((edoName: EdoName): void => {
     ) {
         generateGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-            edoName,
+            edoNotationName,
             { dryRun },
         )
         generateAlternativeEvoDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-            edoName,
+            edoNotationName,
             { dryRun },
         )
     } else if (differenceCase === DifferenceCase._4_EVO_SZ_DIFFERENT) {
         generateGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-            edoName,
+            edoNotationName,
             { dryRun },
         )
         generateEvoSZDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
-            edoName,
+            edoNotationName,
             { dryRun },
         )
     }

@@ -7,10 +7,10 @@ import {
     computeWholeToneStep,
     Edo,
     EDO_NOTATION_DEFINITIONS,
-    EdoName,
+    EdoNotationName,
     EdoStep,
     isSubsetNotation,
-    parseEdoName,
+    parseEdoNotationName,
 } from "@sagittal/system"
 import {
     BRAVURA_TEXT_SC_FONT_FILE,
@@ -199,21 +199,21 @@ const addFifth = async (
 const addSteps = async (
     svgDocument: Document,
     {
-        edoName,
+        edoNotationName,
         tileWrapperGroupElement,
         diagramType,
         tileRowCount,
     }: {
-        edoName: EdoName
+        edoNotationName: EdoNotationName
         tileWrapperGroupElement: NodeElement<SVGGElement>
         diagramType: DiagramType
         tileRowCount: Count
     },
 ): Promise<void> => {
-    if (isSubsetNotation(EDO_NOTATION_DEFINITIONS[edoName])) return
+    if (isSubsetNotation(EDO_NOTATION_DEFINITIONS[edoNotationName])) return
 
-    const fifthStep: EdoStep = computeFifthStep(edoName)
-    const edo: Edo = parseEdoName(edoName).edo
+    const fifthStep: EdoStep = computeFifthStep(edoNotationName)
+    const edo: Edo = parseEdoNotationName(edoNotationName).edo
     const tileRowCountScaleFactor: number =
         computeTileRowCountScaleFactor(tileRowCount)
 

@@ -1,6 +1,6 @@
 import { Document } from "@xmldom/xmldom"
 import { Count, Px } from "@sagittal/general"
-import { EdoName } from "@sagittal/system"
+import { EdoNotationName } from "@sagittal/system"
 import { addTileSquare } from "./square"
 import { addEdo } from "./edo"
 import { addSagittalsOrSubset } from "./subset"
@@ -22,12 +22,12 @@ import { DiagramType } from "../../../types"
 const addTileItself = async (
     svgDocument: Document,
     {
-        edoName,
+        edoNotationName,
         diagramType,
         tileWrapperGroupElement,
         tileRowCount,
     }: {
-        edoName: EdoName
+        edoNotationName: EdoNotationName
         diagramType: DiagramType
         tileWrapperGroupElement: NodeElement<SVGGElement>
         tileRowCount: Count
@@ -38,21 +38,21 @@ const addTileItself = async (
 
     addTileSquare(tileGroupElement, {
         svgDocument,
-        edoName,
+        edoNotationName,
     })
 
-    await addEdo(tileGroupElement, { edoName, tileRowCount })
+    await addEdo(tileGroupElement, { edoNotationName, tileRowCount })
 
     await addSagittalsOrSubset(tileGroupElement, {
         svgDocument,
-        edoName,
+        edoNotationName,
         diagramType,
         tileRowCount,
     })
 
     maybeAddCornerTriangle(tileGroupElement, {
         svgDocument,
-        edoName,
+        edoNotationName,
     })
 
     roundAllTranslations(tileGroupElement)
@@ -68,12 +68,12 @@ const addTileItself = async (
 const addTile = async (
     svgDocument: Document,
     {
-        edoName,
+        edoNotationName,
         diagramWidth,
         diagramType,
         tileRowCount,
     }: {
-        edoName: EdoName
+        edoNotationName: EdoNotationName
         diagramWidth: Px
         diagramType: DiagramType
         tileRowCount: Count
@@ -95,14 +95,14 @@ const addTile = async (
 
     await addTileItself(svgDocument, {
         tileWrapperGroupElement,
-        edoName,
+        edoNotationName,
         diagramType,
         tileRowCount,
     })
 
     await addSteps(svgDocument, {
         tileWrapperGroupElement,
-        edoName,
+        edoNotationName,
         diagramType,
         tileRowCount,
     })

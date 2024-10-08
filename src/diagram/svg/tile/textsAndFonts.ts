@@ -2,9 +2,9 @@ import {
     computeFifthStep,
     computeSharpStep,
     Edo,
-    EdoName,
+    EdoNotationName,
     EdoStep,
-    parseEdoName,
+    parseEdoNotationName,
     Sagittal,
     Sagitype,
 } from "@sagittal/system"
@@ -52,7 +52,7 @@ const computeSagitypeSentence = (sagitypes: Sagitype[]): Io & Sentence => {
         },
     )
     const spacing: Px =
-        sagittalPhrases.length > COMPRESS_SPACING_BEYOND_THIS_SAGITTAL_COUNT // TODO: may not do this anymore
+        sagittalPhrases.length > COMPRESS_SPACING_BEYOND_THIS_SAGITTAL_COUNT
             ? (1 as Px)
             : (2 as Px)
 
@@ -60,17 +60,17 @@ const computeSagitypeSentence = (sagitypes: Sagitype[]): Io & Sentence => {
 }
 
 const computeShouldReplaceSagittalSemisharpWithSzInTile = ({
-    edoName,
-    sagitypes,
+    edoNotationName,
+    sagitypesForRow,
 }: {
-    edoName: EdoName
-    sagitypes: Sagitype[]
+    edoNotationName: EdoNotationName
+    sagitypesForRow: Sagitype[]
 }): boolean => {
-    const fifthStep: EdoStep = computeFifthStep(edoName)
-    const edo: Edo = parseEdoName(edoName).edo
+    const fifthStep: EdoStep = computeFifthStep(edoNotationName)
+    const edo: Edo = parseEdoNotationName(edoNotationName).edo
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
 
-    return computeIsSagittalSemisharpTheHalfApotome(sagitypes, sharpStep)
+    return computeIsSagittalSemisharpTheHalfApotome(sagitypesForRow, sharpStep)
 }
 
 const computeSzTexts = (sagitypes: Sagitype[]): (Io & Sentence)[] => [
@@ -83,35 +83,42 @@ const computeSzTexts = (sagitypes: Sagitype[]): (Io & Sentence)[] => [
 ]
 
 const computeTextsAndFonts = ({
-    edoName,
-    sagitypes,
+    edoNotationName,
+    sagitypesForRow,
     diagramType,
+    tileRowCountScaleFactor,
 }: {
-    edoName: EdoName
-    sagitypes: Sagitype[]
+    edoNotationName: EdoNotationName
+    sagitypesForRow: Sagitype[]
     diagramType: DiagramType
+    tileRowCountScaleFactor: number
 }) => {
     let texts: (Io & Sentence)[]
     let fonts: Font[]
     let fontIndices: Index<Font>[]
+
     if (
         diagramType === DiagramType.EVO_SZ &&
         computeShouldReplaceSagittalSemisharpWithSzInTile({
-            edoName,
-            sagitypes,
+            edoNotationName,
+            sagitypesForRow,
         })
     ) {
-        texts = computeSzTexts(sagitypes)
+        texts = computeSzTexts(sagitypesForRow)
         fonts = [
             deepClone(TILE_SAGITTALS_FONT),
             deepClone(TILE_SZ_SEMISHARP_FONT),
         ]
         fontIndices = [0, 1] as Index<Font>[]
     } else {
-        texts = computeTexts(sagitypes)
+        texts = computeTexts(sagitypesForRow)
         fonts = [deepClone(TILE_SAGITTALS_FONT)]
         fontIndices = [0] as Index<Font>[]
     }
+
+    fonts.forEach((font: Font): void => {
+        font.fontSize = (font.fontSize / tileRowCountScaleFactor) as Px
+    })
 
     return { texts, fonts, fontIndices }
 }

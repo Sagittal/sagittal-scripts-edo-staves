@@ -12,7 +12,7 @@ import {
     computeSubsetFactor,
     Edo,
     EDO_NOTATION_DEFINITIONS,
-    EdoName,
+    EdoNotationName,
     EdoNotationDefinition,
     EdoStep,
     Flavor,
@@ -24,29 +24,31 @@ import {
     SubsetFactor,
 } from "@sagittal/system"
 import { computeDefaultSpellings } from "../sentence"
-import { parseEdoName } from "@sagittal/system/dist/cjs/notations"
+import { parseEdoNotationName } from "@sagittal/system/dist/cjs/notations"
 
 const computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes = (
-    edoName: EdoName,
+    edoNotationName: EdoNotationName,
 ): {
     uniqueUsedAbsoluteSagittalIndices: Index<Sagittal>[]
     sagitypes: Sagitype[]
 } => {
     const edoNotationDefinition: EdoNotationDefinition =
-        EDO_NOTATION_DEFINITIONS[edoName]
-    const edo: Edo = parseEdoName(edoName).edo
-    let supersetEdoName: EdoName = isSubsetNotation(edoNotationDefinition)
-        ? edoNotationDefinition.supersetEdoName
-        : edoName
-    const supersetEdo: Edo = parseEdoName(supersetEdoName).edo
+        EDO_NOTATION_DEFINITIONS[edoNotationName]
+    const edo: Edo = parseEdoNotationName(edoNotationName).edo
+    let supersetEdoNotationName: EdoNotationName = isSubsetNotation(
+        edoNotationDefinition,
+    )
+        ? edoNotationDefinition.supersetEdoNotationName
+        : edoNotationName
+    const supersetEdo: Edo = parseEdoNotationName(supersetEdoNotationName).edo
     const subsetFactor: SubsetFactor = computeSubsetFactor({ edo, supersetEdo })
     const flavor: Flavor = Flavor.REVO
     const sagitypes: Sagitype[] = (
         EDO_NOTATION_DEFINITIONS[
-            supersetEdoName
+            supersetEdoNotationName
         ] as NonSubsetEdoNotationDefinition
     ).sagitypes
-    const fifthStep: EdoStep = computeFifthStep(supersetEdoName)
+    const fifthStep: EdoStep = computeFifthStep(supersetEdoNotationName)
     const sharpStep: EdoStep = computeSharpStep(supersetEdo, fifthStep)
     const limmaStep: EdoStep = computeLimmaStep(supersetEdo, fifthStep)
     const sagittals: Sagittal[] = computeSagittals({
@@ -56,7 +58,7 @@ const computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes = (
     })
 
     const defaultSingleSpellings: Spelling[] = computeDefaultSpellings({
-        edoName: supersetEdoName,
+        edoNotationName: supersetEdoNotationName,
         fifthStep,
         sagittals,
         flavor,

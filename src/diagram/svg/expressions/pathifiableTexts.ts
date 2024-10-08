@@ -1,4 +1,4 @@
-import { EdoName } from "@sagittal/system"
+import { EdoNotationName } from "@sagittal/system"
 import { Expression, PathifiableTexts } from "./types"
 import { Code, computeInputSentenceUnicode } from "staff-code"
 import { Index, Io, Px, Sentence } from "@sagittal/general"
@@ -104,34 +104,41 @@ const parseExpression = (
     return { definiendum, definiens }
 }
 
-const computeExpressionsByEdoName = (
+const computeExpressionsByEdoNotationName = (
     lines: string[],
-): Record<EdoName, Expression[]> =>
+): Record<EdoNotationName, Expression[]> =>
     lines.reduce(
         (
-            expressionsByEdoName: Record<EdoName, Expression[]>,
+            expressionsByEdoNotationName: Record<EdoNotationName, Expression[]>,
             line: string,
-        ): Record<EdoName, Expression[]> => {
-            const [edoName, ...rawExpressions]: string[] = line.split(" 12; ")
+        ): Record<EdoNotationName, Expression[]> => {
+            const [edoNotationName, ...rawExpressions]: string[] =
+                line.split(" 12; ")
 
-            expressionsByEdoName[edoName as EdoName] =
+            expressionsByEdoNotationName[edoNotationName as EdoNotationName] =
                 rawExpressions.map(parseExpression)
 
-            return expressionsByEdoName
+            return expressionsByEdoNotationName
         },
-        {} as Record<EdoName, Expression[]>,
+        {} as Record<EdoNotationName, Expression[]>,
     )
 
 const convertToPathifiableTexts = (
-    expressionsByEdoName: Record<EdoName, Expression[]>,
-): Record<EdoName, PathifiableTexts> => {
-    const expressionsByEdoNameEntries: [EdoName, Expression[]][] =
-        Object.entries(expressionsByEdoName) as [EdoName, Expression[]][]
+    expressionsByEdoNotationName: Record<EdoNotationName, Expression[]>,
+): Record<EdoNotationName, PathifiableTexts> => {
+    const expressionsByEdoNotationNameEntries: [EdoNotationName, Expression[]][] =
+        Object.entries(expressionsByEdoNotationName) as [
+            EdoNotationName,
+            Expression[],
+        ][]
 
-    return expressionsByEdoNameEntries.reduce(
+    return expressionsByEdoNotationNameEntries.reduce(
         (
-            pathifiableTextsByEdoName: Record<EdoName, PathifiableTexts>,
-            [edoName, expressions]: [EdoName, Expression[]],
+            pathifiableTextsByEdoNotationName: Record<
+                EdoNotationName,
+                PathifiableTexts
+            >,
+            [edoNotationName, expressions]: [EdoNotationName, Expression[]],
         ) => {
             const texts: Io[] = []
             const fontIndices: Index<Font>[] = []
@@ -148,33 +155,33 @@ const convertToPathifiableTexts = (
                 },
             )
 
-            pathifiableTextsByEdoName[edoName] = {
+            pathifiableTextsByEdoNotationName[edoNotationName] = {
                 texts,
                 fontIndices,
                 additionalYOffsets,
             }
 
-            return pathifiableTextsByEdoName
+            return pathifiableTextsByEdoNotationName
         },
-        {} as Record<EdoName, PathifiableTexts>,
+        {} as Record<EdoNotationName, PathifiableTexts>,
     )
 }
 
-const computePathifiableTextsByEdoNameFromRawExpressionData = (
+const computePathifiableTextsByEdoNotationNameFromRawExpressionData = (
     rawExpressionData: string,
-): Record<EdoName, PathifiableTexts> => {
+): Record<EdoNotationName, PathifiableTexts> => {
     const lines: string[] = rawExpressionData
         .split("\n")
         .map((line: string): string => line.replace(/ nl;/g, ""))
         .filter((line: string): boolean => line.length > 0)
 
-    const expressionsByEdoName: Record<EdoName, Expression[]> =
-        computeExpressionsByEdoName(lines)
+    const expressionsByEdoNotationName: Record<EdoNotationName, Expression[]> =
+        computeExpressionsByEdoNotationName(lines)
 
-    return convertToPathifiableTexts(expressionsByEdoName)
+    return convertToPathifiableTexts(expressionsByEdoNotationName)
 }
 
-const PATHIFIABLE_TEXTS_BY_EDO_NAME: Record<EdoName, PathifiableTexts> =
-    computePathifiableTextsByEdoNameFromRawExpressionData(RAW_EXPRESSION_DATA)
+const PATHIFIABLE_TEXTS_BY_EDO_NAME: Record<EdoNotationName, PathifiableTexts> =
+    computePathifiableTextsByEdoNotationNameFromRawExpressionData(RAW_EXPRESSION_DATA)
 
 export { PATHIFIABLE_TEXTS_BY_EDO_NAME }

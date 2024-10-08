@@ -1,5 +1,5 @@
 import { Io, Sentence } from "@sagittal/general"
-import { EdoName } from "@sagittal/system"
+import { EdoNotationName } from "@sagittal/system"
 import { computeSentencesAndDifferenceCase } from "../difference"
 import { Subsection } from "./types"
 import { DiagramType, DifferenceCase } from "../types"
@@ -9,7 +9,9 @@ import {
     REVO_FLAVOR_INDEX,
 } from "../diagram"
 
-const gatherSubsectionsForEdoName = (edoName: EdoName): Subsection[] => {
+const gatherSubsectionsForEdoNotationName = (
+    edoNotationName: EdoNotationName,
+): Subsection[] => {
     const {
         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
         differenceCase,
@@ -17,7 +19,7 @@ const gatherSubsectionsForEdoName = (edoName: EdoName): Subsection[] => {
         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
             Sentence)[]
         differenceCase: DifferenceCase
-    } = computeSentencesAndDifferenceCase(edoName)
+    } = computeSentencesAndDifferenceCase(edoNotationName)
 
     if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
         return [
@@ -137,4 +139,4 @@ const gatherSubsectionsForEdoName = (edoName: EdoName): Subsection[] => {
     return []
 }
 
-export { gatherSubsectionsForEdoName }
+export { gatherSubsectionsForEdoNotationName }

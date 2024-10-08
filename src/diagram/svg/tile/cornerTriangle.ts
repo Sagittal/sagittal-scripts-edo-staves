@@ -1,5 +1,5 @@
 import { Document } from "@xmldom/xmldom"
-import { EdoName } from "@sagittal/system"
+import { EdoNotationName } from "@sagittal/system"
 import { CORNER_TRIANGLE_SIZE, SVG_NS } from "../constants"
 import { computeUsesOnlySpartans } from "./usesOnlySpartans"
 import { NodeElement } from "../types"
@@ -8,10 +8,10 @@ const maybeAddCornerTriangle = (
     tileGroupElement: NodeElement<SVGGElement>,
     {
         svgDocument,
-        edoName,
-    }: { svgDocument: Document; edoName: EdoName },
+        edoNotationName,
+    }: { svgDocument: Document; edoNotationName: EdoNotationName },
 ): void => {
-    if (computeUsesOnlySpartans(edoName)) {
+    if (computeUsesOnlySpartans(edoNotationName)) {
         const cornerTriangle: NodeElement<SVGPolygonElement> =
             svgDocument.createElementNS(
                 SVG_NS,

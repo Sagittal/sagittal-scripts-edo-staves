@@ -1,9 +1,9 @@
 import { computeDeepDistinct, isUndefined, Maybe } from "@sagittal/general"
-import { EdoName, parseEdoName } from "@sagittal/system"
-import { computeSupersetEdoNames } from "../../../../../src/context/lines/related/sets"
+import { EdoNotationName, parseEdoNotationName } from "@sagittal/system"
+import { computeSupersetEdoNotationNames } from "../../../../../src/context/lines/related/sets"
 import { MAX_PERIODIC_TABLE_EDO } from "../../../../../src/constants"
 
-const EXPECTED_DIRECT_SUPERSETS: Record<EdoName, EdoName[]> = {
+const EXPECTED_DIRECT_SUPERSETS: Record<EdoNotationName, EdoNotationName[]> = {
     // 5n
     "5": ["10", "15", "25", "35b"],
     "10": ["20", "30"],
@@ -44,18 +44,20 @@ const EXPECTED_DIRECT_SUPERSETS: Record<EdoName, EdoName[]> = {
 
     // 32n
     "32": ["64b"],
-} as Record<EdoName, EdoName[]>
+} as Record<EdoNotationName, EdoNotationName[]>
 
-const computeRecursiveSupersets = (edoNames: EdoName[]): EdoName[] => {
+const computeRecursiveSupersets = (
+    edoNotationNames: EdoNotationName[],
+): EdoNotationName[] => {
     return computeDeepDistinct(
-        edoNames
-            .map((edoName: EdoName): EdoName[] => {
-                const directSupersets: Maybe<EdoName[]> =
-                    EXPECTED_DIRECT_SUPERSETS[edoName]
+        edoNotationNames
+            .map((edoNotationName: EdoNotationName): EdoNotationName[] => {
+                const directSupersets: Maybe<EdoNotationName[]> =
+                    EXPECTED_DIRECT_SUPERSETS[edoNotationName]
 
                 return isUndefined(directSupersets)
-                    ? edoNames
-                    : edoNames.concat(
+                    ? edoNotationNames
+                    : edoNotationNames.concat(
                           computeRecursiveSupersets(directSupersets),
                       )
             })
@@ -65,51 +67,63 @@ const computeRecursiveSupersets = (edoNames: EdoName[]): EdoName[] => {
 }
 
 const computeExpectedSupersetsFromExpectedDirectSuperset = (
-    expectedDirectSupersets: Record<EdoName, EdoName[]>,
-): Record<EdoName, EdoName[]> => {
-    const expectedDirectSupersetsEntries: [EdoName, EdoName[]][] =
-        Object.entries(expectedDirectSupersets) as [EdoName, EdoName[]][]
+    expectedDirectSupersets: Record<EdoNotationName, EdoNotationName[]>,
+): Record<EdoNotationName, EdoNotationName[]> => {
+    const expectedDirectSupersetsEntries: [
+        EdoNotationName,
+        EdoNotationName[],
+    ][] = Object.entries(expectedDirectSupersets) as [
+        EdoNotationName,
+        EdoNotationName[],
+    ][]
 
     return expectedDirectSupersetsEntries.reduce(
         (
-            expectedSupersets: Record<EdoName, EdoName[]>,
-            [edoName, supersetEdoNames]: [EdoName, EdoName[]],
+            expectedSupersets: Record<EdoNotationName, EdoNotationName[]>,
+            [edoNotationName, supersetEdoNotationNames]: [
+                EdoNotationName,
+                EdoNotationName[],
+            ],
         ) => {
-            expectedSupersets[edoName] =
-                computeRecursiveSupersets(supersetEdoNames)
+            expectedSupersets[edoNotationName] = computeRecursiveSupersets(
+                supersetEdoNotationNames,
+            )
 
             return expectedSupersets
         },
-        {} as Record<EdoName, EdoName[]>,
+        {} as Record<EdoNotationName, EdoNotationName[]>,
     )
 }
 
-const EXPECTED_SUPERSETS: Record<EdoName, EdoName[]> =
+const EXPECTED_SUPERSETS: Record<EdoNotationName, EdoNotationName[]> =
     computeExpectedSupersetsFromExpectedDirectSuperset(
         EXPECTED_DIRECT_SUPERSETS,
     )
 
-describe("computeSupersetEdoNames", (): void => {
+describe("computeSupersetEdoNotationNames", (): void => {
     it("computes the correct list of EDOs whose notations are supersets of the given EDO's notation", (): void => {
-        const expectedSupersetsEntries: [EdoName, EdoName[]][] = Object.entries(
-            EXPECTED_SUPERSETS,
-        ) as [EdoName, EdoName[]][]
+        const expectedSupersetsEntries: [EdoNotationName, EdoNotationName[]][] =
+            Object.entries(EXPECTED_SUPERSETS) as [
+                EdoNotationName,
+                EdoNotationName[],
+            ][]
         expectedSupersetsEntries.forEach(
-            ([edoName, expectedSupersetEdoNames]: [
-                EdoName,
-                EdoName[],
+            ([edoNotationName, expectedSupersetEdoNotationNames]: [
+                EdoNotationName,
+                EdoNotationName[],
             ]): void => {
-                const actualSupersetEdoNames: EdoName[] =
-                    computeSupersetEdoNames(edoName).filter(
-                        (edoName: EdoName): boolean =>
-                            parseEdoName(edoName).edo <= MAX_PERIODIC_TABLE_EDO,
+                const actualSupersetEdoNotationNames: EdoNotationName[] =
+                    computeSupersetEdoNotationNames(edoNotationName).filter(
+                        (edoNotationName: EdoNotationName): boolean =>
+                            parseEdoNotationName(edoNotationName).edo <=
+                            MAX_PERIODIC_TABLE_EDO,
                     )
 
-                expect(actualSupersetEdoNames)
+                expect(actualSupersetEdoNotationNames)
                     .withContext(
-                        `Expected ${edoName} to find supersets ${expectedSupersetEdoNames}, but instead found ${actualSupersetEdoNames}`,
+                        `Expected ${edoNotationName} to find supersets ${expectedSupersetEdoNotationNames}, but instead found ${actualSupersetEdoNotationNames}`,
                     )
-                    .toEqual(expectedSupersetEdoNames)
+                    .toEqual(expectedSupersetEdoNotationNames)
             },
         )
     })

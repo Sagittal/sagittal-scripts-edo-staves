@@ -1,4 +1,4 @@
-import { EdoName } from "@sagittal/system"
+import { EdoNotationName } from "@sagittal/system"
 import {
     computeRevoCouldBeEvo,
     EVO_FLAVOR_INDEX,
@@ -11,11 +11,11 @@ import { DifferenceCase } from "./types"
 import { computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor } from "./sentence"
 
 const computeDifferenceCase = (
-    edoName: EdoName,
+    edoNotationName: EdoNotationName,
     defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
         Sentence)[],
 ): DifferenceCase => {
-    const revoCouldBeEvo: boolean = computeRevoCouldBeEvo(edoName)
+    const revoCouldBeEvo: boolean = computeRevoCouldBeEvo(edoNotationName)
 
     const keyInfos: Sentence[] =
         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor.map(
@@ -51,18 +51,21 @@ const computeDifferenceCase = (
     }
 }
 
-const computeSentencesAndDifferenceCase = (edoName: EdoName): {
-    defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io & Sentence)[],
-    differenceCase: DifferenceCase,
+const computeSentencesAndDifferenceCase = (
+    edoNotationName: EdoNotationName,
+): {
+    defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
+        Sentence)[]
+    differenceCase: DifferenceCase
 } => {
     const defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
         Sentence)[] =
         computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor(
-            edoName,
+            edoNotationName,
         )
 
     const differenceCase: DifferenceCase = computeDifferenceCase(
-        edoName,
+        edoNotationName,
         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
     )
 

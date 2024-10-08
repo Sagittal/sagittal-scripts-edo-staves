@@ -13,7 +13,7 @@ import {
     generateOneOffDiagram,
     REVO_FLAVOR_INDEX,
 } from "../diagram"
-import { EdoName } from "@sagittal/system/dist/cjs/notations"
+import { EdoNotationName } from "@sagittal/system/dist/cjs/notations"
 import { computeSentencesAndDifferenceCase } from "../difference"
 import { DiagramType, DifferenceCase } from "../types"
 import { FLAVOR_INDEX_FOR_GENERAL_DIAGRAM_TYPE } from "../diagram/generate/constants"
@@ -46,10 +46,12 @@ program
     .option("-f, --flavor <string>", "flavor (Evo, Evo-SZ, or Revo)")
 
 program.parse()
-const { edo: edoName, flavor: flavorString }: { edo: EdoName; flavor: string } =
-    program.opts()
+const {
+    edo: edoNotationName,
+    flavor: flavorString,
+}: { edo: EdoNotationName; flavor: string } = program.opts()
 
-if (isUndefined(edoName)) throw new Error("You must provide an EDO.")
+if (isUndefined(edoNotationName)) throw new Error("You must provide an EDO.")
 
 const {
     defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
@@ -58,7 +60,7 @@ const {
     defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
         Sentence)[]
     differenceCase: DifferenceCase
-} = computeSentencesAndDifferenceCase(edoName)
+} = computeSentencesAndDifferenceCase(edoNotationName)
 
 const maybeThrowError = (flavorString: string): void => {
     if (isUndefined(flavorString)) {
@@ -75,7 +77,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
             Object.values(Flavor).indexOf(flavor)
         ],
-        edoName,
+        edoNotationName,
         DIAGRAM_TYPE_FOR_FLAVOR[flavor],
     )
 } else if (
@@ -89,7 +91,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                 EVO_SZ_FLAVOR_INDEX
             ],
-            edoName,
+            edoNotationName,
             DiagramType.EVO_SZ,
         )
     } else if (flavor === Flavor.EVO) {
@@ -99,7 +101,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                 EVO_FLAVOR_INDEX
             ],
-            edoName,
+            edoNotationName,
             DiagramType.ALTERNATE_EVO,
         )
     } else if (flavor === Flavor.REVO) {
@@ -109,7 +111,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                 REVO_FLAVOR_INDEX
             ],
-            edoName,
+            edoNotationName,
             DiagramType.GENERAL,
         )
     }
@@ -120,7 +122,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
             FLAVOR_INDEX_FOR_GENERAL_DIAGRAM_TYPE
         ],
-        edoName,
+        edoNotationName,
         DiagramType.GENERAL,
     )
 } else if (differenceCase === DifferenceCase._3_REVO_DIFFERENT) {
@@ -132,7 +134,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                 REVO_FLAVOR_INDEX
             ],
-            edoName,
+            edoNotationName,
             DiagramType.REVO,
         )
     } else {
@@ -143,7 +145,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                 EVO_FLAVOR_INDEX
             ],
-            edoName,
+            edoNotationName,
             DiagramType.EVO,
         )
     }
@@ -160,7 +162,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                 REVO_FLAVOR_INDEX
             ],
-            edoName,
+            edoNotationName,
             DiagramType.GENERAL,
         )
     } else {
@@ -174,7 +176,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                 EVO_FLAVOR_INDEX
             ],
-            edoName,
+            edoNotationName,
             DiagramType.ALTERNATE_EVO,
         )
     }
@@ -187,7 +189,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                 EVO_SZ_FLAVOR_INDEX
             ],
-            edoName,
+            edoNotationName,
             DiagramType.EVO_SZ,
         )
     } else {
@@ -197,7 +199,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
                 FLAVOR_INDEX_FOR_GENERAL_DIAGRAM_TYPE
             ],
-            edoName,
+            edoNotationName,
             DiagramType.GENERAL,
         )
     }

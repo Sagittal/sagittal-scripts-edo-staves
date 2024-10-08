@@ -4,11 +4,11 @@ import {
     computeSharpStep,
     Edo,
     EDO_NOTATION_DEFINITIONS,
-    EdoName,
+    EdoNotationName,
     EdoNotationDefinition,
     EdoStep,
     isSubsetNotation,
-    parseEdoName,
+    parseEdoNotationName,
     Sagitype,
 } from "@sagittal/system"
 import { computeIsSagittalSemisharpTheHalfApotome } from "../../../halfApotome"
@@ -21,15 +21,15 @@ const SZ_SEMIFLAT_SMUFL_UNICODE = ""
 
 const handleSzForExpressions = (
     texts: Io[],
-    { edoName }: { edoName: EdoName },
+    { edoNotationName }: { edoNotationName: EdoNotationName },
 ): void => {
     const edoNotationDefinition: EdoNotationDefinition =
-        EDO_NOTATION_DEFINITIONS[edoName]
+        EDO_NOTATION_DEFINITIONS[edoNotationName]
     if (isSubsetNotation(edoNotationDefinition)) return
 
     const sagitypes: Sagitype[] = edoNotationDefinition.sagitypes
-    const edo: Edo = parseEdoName(edoName).edo
-    const fifthStep: EdoStep = computeFifthStep(edoName)
+    const edo: Edo = parseEdoNotationName(edoNotationName).edo
+    const fifthStep: EdoStep = computeFifthStep(edoNotationName)
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
     const sagittalSemisharpIsTheHalfApotome: boolean =
         computeIsSagittalSemisharpTheHalfApotome(sagitypes, sharpStep)

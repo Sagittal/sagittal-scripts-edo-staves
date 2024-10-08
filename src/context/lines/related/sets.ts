@@ -13,9 +13,9 @@ import {
 import {
     Edo,
     EDO_NOTATION_DEFINITIONS,
-    EdoName,
+    EdoNotationName,
     Flavor,
-    parseEdoName,
+    parseEdoNotationName,
     SubsetFactor,
 } from "@sagittal/system"
 import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "../../../sentence"
@@ -27,10 +27,10 @@ const MIN_DEFINED_EDO: Min<Edo> = min(...DEFINED_EDOS)
 
 const ARBITRARY_BUT_CONSISENT_FLAVOR: Flavor = Flavor.REVO
 
-const computeParsedKeyInfo = (edoName: EdoName): Word[] => {
+const computeParsedKeyInfo = (edoNotationName: EdoNotationName): Word[] => {
     const notation: Io & Sentence =
         computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-            edoName,
+            edoNotationName,
             ARBITRARY_BUT_CONSISENT_FLAVOR,
         )
     const keyInfo: Sentence = extractKeyInfoFromInputSentence(notation)
@@ -40,17 +40,22 @@ const computeParsedKeyInfo = (edoName: EdoName): Word[] => {
 }
 
 const computeIsSuperset = ({
-    candidateSupersetEdoName,
-    candidateSubsetEdoName,
+    candidateSupersetEdoNotationName,
+    candidateSubsetEdoNotationName,
 }: {
-    candidateSupersetEdoName: EdoName
-    candidateSubsetEdoName: EdoName
+    candidateSupersetEdoNotationName: EdoNotationName
+    candidateSubsetEdoNotationName: EdoNotationName
 }): boolean => {
-    const subsetFactor: SubsetFactor = (parseEdoName(candidateSupersetEdoName)
-        .edo / parseEdoName(candidateSubsetEdoName).edo) as SubsetFactor
+    const subsetFactor: SubsetFactor = (parseEdoNotationName(
+        candidateSupersetEdoNotationName,
+    ).edo /
+        parseEdoNotationName(candidateSubsetEdoNotationName)
+            .edo) as SubsetFactor
 
-    const parsedKeyInfo = computeParsedKeyInfo(candidateSubsetEdoName)
-    const supersetParsedKeyInfo = computeParsedKeyInfo(candidateSupersetEdoName)
+    const parsedKeyInfo = computeParsedKeyInfo(candidateSubsetEdoNotationName)
+    const supersetParsedKeyInfo = computeParsedKeyInfo(
+        candidateSupersetEdoNotationName,
+    )
 
     const candidateMatchParsedKeyInfo = supersetParsedKeyInfo.filter(
         (_: string, step: number) => {
@@ -61,10 +66,12 @@ const computeIsSuperset = ({
     return deepEquals(candidateMatchParsedKeyInfo, parsedKeyInfo)
 }
 
-const computeSupersetEdoNames = (edoName: EdoName): EdoName[] => {
-    const edo: Edo = parseEdoName(edoName).edo
+const computeSupersetEdoNotationNames = (
+    edoNotationName: EdoNotationName,
+): EdoNotationName[] => {
+    const edo: Edo = parseEdoNotationName(edoNotationName).edo
 
-    const supersetEdoNames: EdoName[] = []
+    const supersetEdoNotationNames: EdoNotationName[] = []
 
     let subsetFactor: SubsetFactor = 1 as SubsetFactor
     let supersetEdo: Edo = edo
@@ -73,43 +80,51 @@ const computeSupersetEdoNames = (edoName: EdoName): EdoName[] => {
         subsetFactor = (subsetFactor + 1) as SubsetFactor
         supersetEdo = (edo * subsetFactor) as Edo
 
-        const supersetEdoName: EdoName = supersetEdo.toString() as EdoName
-        if (!isUndefined(EDO_NOTATION_DEFINITIONS[supersetEdoName])) {
+        const supersetEdoNotationName: EdoNotationName =
+            supersetEdo.toString() as EdoNotationName
+        if (!isUndefined(EDO_NOTATION_DEFINITIONS[supersetEdoNotationName])) {
             if (
                 computeIsSuperset({
-                    candidateSupersetEdoName: supersetEdoName,
-                    candidateSubsetEdoName: edoName,
+                    candidateSupersetEdoNotationName: supersetEdoNotationName,
+                    candidateSubsetEdoNotationName: edoNotationName,
                 })
             ) {
-                supersetEdoNames.push(supersetEdoName)
+                supersetEdoNotationNames.push(supersetEdoNotationName)
             }
         }
 
-        const supersetSecondBestFifthEdoName: EdoName =
-            `${supersetEdoName}b` as EdoName
+        const supersetSecondBestFifthEdoNotationName: EdoNotationName =
+            `${supersetEdoNotationName}b` as EdoNotationName
         if (
             !isUndefined(
-                EDO_NOTATION_DEFINITIONS[supersetSecondBestFifthEdoName],
+                EDO_NOTATION_DEFINITIONS[
+                    supersetSecondBestFifthEdoNotationName
+                ],
             )
         ) {
             if (
                 computeIsSuperset({
-                    candidateSupersetEdoName: supersetSecondBestFifthEdoName,
-                    candidateSubsetEdoName: edoName,
+                    candidateSupersetEdoNotationName:
+                        supersetSecondBestFifthEdoNotationName,
+                    candidateSubsetEdoNotationName: edoNotationName,
                 })
             ) {
-                supersetEdoNames.push(supersetSecondBestFifthEdoName)
+                supersetEdoNotationNames.push(
+                    supersetSecondBestFifthEdoNotationName,
+                )
             }
         }
     }
 
-    return supersetEdoNames
+    return supersetEdoNotationNames
 }
 
-const computeSubsetEdoNames = (edoName: EdoName): EdoName[] => {
-    const edo: Edo = parseEdoName(edoName).edo
+const computeSubsetEdoNotationNames = (
+    edoNotationName: EdoNotationName,
+): EdoNotationName[] => {
+    const edo: Edo = parseEdoNotationName(edoNotationName).edo
 
-    const subsetEdoNames: EdoName[] = []
+    const subsetEdoNotationNames: EdoNotationName[] = []
 
     let subsetFactor: SubsetFactor = 1 as SubsetFactor
     let subsetEdo: Edo = edo
@@ -120,35 +135,37 @@ const computeSubsetEdoNames = (edoName: EdoName): EdoName[] => {
 
         if (!dividesEvenly(subsetEdo, 1)) continue
 
-        const subsetEdoName: EdoName = subsetEdo.toString() as EdoName
-        if (!isUndefined(EDO_NOTATION_DEFINITIONS[subsetEdoName])) {
+        const subsetEdoNotationName: EdoNotationName =
+            subsetEdo.toString() as EdoNotationName
+        if (!isUndefined(EDO_NOTATION_DEFINITIONS[subsetEdoNotationName])) {
             if (
                 computeIsSuperset({
-                    candidateSupersetEdoName: edoName,
-                    candidateSubsetEdoName: subsetEdoName,
+                    candidateSupersetEdoNotationName: edoNotationName,
+                    candidateSubsetEdoNotationName: subsetEdoNotationName,
                 })
             ) {
-                subsetEdoNames.push(subsetEdoName)
+                subsetEdoNotationNames.push(subsetEdoNotationName)
             }
         }
 
-        const subsetSecondBestFifthEdoName: EdoName =
-            `${subsetEdoName}b` as EdoName
+        const subsetSecondBestFifthEdoNotationName: EdoNotationName =
+            `${subsetEdoNotationName}b` as EdoNotationName
         if (
-            !isUndefined(EDO_NOTATION_DEFINITIONS[subsetSecondBestFifthEdoName])
+            !isUndefined(EDO_NOTATION_DEFINITIONS[subsetSecondBestFifthEdoNotationName])
         ) {
             if (
                 computeIsSuperset({
-                    candidateSupersetEdoName: edoName,
-                    candidateSubsetEdoName: subsetSecondBestFifthEdoName,
+                    candidateSupersetEdoNotationName: edoNotationName,
+                    candidateSubsetEdoNotationName:
+                        subsetSecondBestFifthEdoNotationName,
                 })
             ) {
-                subsetEdoNames.push(subsetSecondBestFifthEdoName)
+                subsetEdoNotationNames.push(subsetSecondBestFifthEdoNotationName)
             }
         }
     }
 
-    return subsetEdoNames
+    return subsetEdoNotationNames
 }
 
 const parseKeyInfo = (keyInfo: Sentence): Word[] => {
@@ -172,4 +189,4 @@ const parseKeyInfo = (keyInfo: Sentence): Word[] => {
     return parsedKeyInfo
 }
 
-export { computeSupersetEdoNames, computeSubsetEdoNames }
+export { computeSupersetEdoNotationNames, computeSubsetEdoNotationNames }

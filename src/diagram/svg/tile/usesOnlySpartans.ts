@@ -7,7 +7,7 @@ import {
 import {
     computeApotomeComplement,
     computeSagittalSagitype,
-    EdoName,
+    EdoNotationName,
     Sagittal,
     Sagitype,
     Shafts,
@@ -15,9 +15,7 @@ import {
     SymbolSubsetId,
 } from "@sagittal/system"
 import { computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes } from "../../usedSagittals"
-import {
-    computeSagittalFromSymbolClassId,
-} from "@sagittal/system/dist/cjs/notations/ji/class/symbol/from"
+import { computeSagittalFromSymbolClassId } from "@sagittal/system/dist/cjs/notations/ji/class/symbol/from"
 
 const SPARTAN_SAGITYPES: Sagitype[] = (
     SYMBOL_SUBSETS[SymbolSubsetId.SPARTAN].map(
@@ -37,14 +35,14 @@ const SPARTAN_SAGITYPES: Sagitype[] = (
     }, [] as Sagittal[])
     .map(computeSagittalSagitype)
 
-const computeUsesOnlySpartans = (edoName: EdoName): boolean => {
+const computeUsesOnlySpartans = (edoNotationName: EdoNotationName): boolean => {
     const {
         uniqueUsedAbsoluteSagittalIndices,
         sagitypes,
     }: {
         uniqueUsedAbsoluteSagittalIndices: Index<Sagittal>[]
         sagitypes: Sagitype[]
-    } = computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes(edoName)
+    } = computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes(edoNotationName)
 
     const uniqueUsedSagitypes: Sagitype[] = uniqueUsedAbsoluteSagittalIndices
         .map(

@@ -38,17 +38,6 @@ const TILE_SIZE: Px = 45 as Px
 
 const EDO_Y_OFFSET: Px = -10 as Px
 
-const SAGITTAL_Y_OFFSETS_BASED_ON_HOW_MANY_TIMES_SCALE_NEEDED_TO_CHANGE: Px[] =
-    [
-        -6, // 17
-        -1, // 64b
-        5, // 71
-        12, // 145
-        19, // 224
-        25, // 311
-        30, // 494
-        34, // 581
-    ] as Px[]
 const SUBSET_Y_OFFSET: Px = 14 as Px
 
 const WHOLE_TONE_X_OFFSET: Px = -7 as Px
@@ -90,7 +79,6 @@ export {
     SUBTITLE_FURTHER_Y_OFFSET,
     EDO_Y_OFFSET,
     SUBSET_Y_OFFSET,
-    SAGITTAL_Y_OFFSETS_BASED_ON_HOW_MANY_TIMES_SCALE_NEEDED_TO_CHANGE,
     CORNER_TRIANGLE_SIZE,
     SAGITTALS_MAX_WIDTH,
     EXTRA_SPACE_TO_COMFORTABLY_CLEAR_TILE_AND_EXPRESSIONS,

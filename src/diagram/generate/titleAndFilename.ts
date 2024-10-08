@@ -1,6 +1,6 @@
 import { Filename, Io } from "@sagittal/general"
-import { Edo, EdoName } from "@sagittal/system"
-import { parseEdoName } from "@sagittal/system/dist/cjs/notations"
+import { Edo, EdoNotationName } from "@sagittal/system"
+import { parseEdoNotationName } from "@sagittal/system/dist/cjs/notations"
 import { DiagramType } from "../../types"
 
 const FORMATTED_DIAGRAM_TYPE: Record<DiagramType, Io> = {
@@ -26,16 +26,17 @@ const embedEdoPart = (useSecondBestFifth: boolean): Io =>
     useSecondBestFifth ? "b" : "-EDO"
 
 const computeFilename = ({
-    edoName,
+    edoNotationName,
     diagramType,
 }: {
-    edoName: EdoName
+    edoNotationName: EdoNotationName
     diagramType: DiagramType
 }): Filename => {
     const {
         edo,
         useSecondBestFifth,
-    }: { edo: Edo; useSecondBestFifth: boolean } = parseEdoName(edoName)
+    }: { edo: Edo; useSecondBestFifth: boolean } =
+        parseEdoNotationName(edoNotationName)
 
     return `${edo}${embedEdoPart(useSecondBestFifth)}${embedDiagramType(
         diagramType,
@@ -44,16 +45,17 @@ const computeFilename = ({
 }
 
 const computeTitle = ({
-    edoName,
+    edoNotationName,
     diagramType,
 }: {
-    edoName: EdoName
+    edoNotationName: EdoNotationName
     diagramType: DiagramType
 }): Io => {
     const {
         edo,
         useSecondBestFifth,
-    }: { edo: Edo; useSecondBestFifth: boolean } = parseEdoName(edoName)
+    }: { edo: Edo; useSecondBestFifth: boolean } =
+        parseEdoNotationName(edoNotationName)
 
     return `${edo}${embedEdoPart(useSecondBestFifth)}${embedDiagramType(
         diagramType,

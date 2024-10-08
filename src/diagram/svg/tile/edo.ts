@@ -1,5 +1,5 @@
 import { Count, Px } from "@sagittal/general"
-import { EdoName } from "@sagittal/system"
+import { EdoNotationName } from "@sagittal/system"
 import {
     TILE_SIZE,
     TILE_EDO_TEXT_FONT_SIZE,
@@ -12,12 +12,15 @@ import { computeTileRowCountScaleFactor } from "./rowCount"
 
 const addEdo = async (
     tileGroupElement: NodeElement<SVGGElement>,
-    { edoName, tileRowCount }: { edoName: EdoName; tileRowCount: Count },
+    {
+        edoNotationName,
+        tileRowCount,
+    }: { edoNotationName: EdoNotationName; tileRowCount: Count },
 ): Promise<void> => {
     const tileRowCountScaleFactor: number =
         computeTileRowCountScaleFactor(tileRowCount)
 
-    await addText(tileGroupElement, edoName, {
+    await addText(tileGroupElement, edoNotationName, {
         fontFile: SANOMAT_FONT_FILE,
         fontSize: (TILE_EDO_TEXT_FONT_SIZE / tileRowCountScaleFactor) as Px,
         xOffset: (TILE_SIZE / 2) as Px,
