@@ -16,9 +16,15 @@ const setDiagramSizeAndGetDiagramWidth = (
     svgDocument: Document,
     {
         titleWidth,
+        subtitleWidth,
         expressionsWidth,
         tileRowCount,
-    }: { titleWidth: Px; expressionsWidth: Px; tileRowCount: Count },
+    }: {
+        titleWidth: Px
+        subtitleWidth: Px
+        expressionsWidth: Px
+        tileRowCount: Count
+    },
 ): Px => {
     const svg: NodeElement<SVGGElement> = svgDocument.getElementsByTagName(
         "svg",
@@ -44,6 +50,9 @@ const setDiagramSizeAndGetDiagramWidth = (
 
     if (width < titleWidth + totalWidthNeededForTile)
         width = (titleWidth + totalWidthNeededForTile) as Px
+
+    if (width < subtitleWidth + totalWidthNeededForTile)
+        width = (subtitleWidth + totalWidthNeededForTile) as Px
 
     if (width < expressionsWidth + totalWidthNeededForTile)
         width = (expressionsWidth + totalWidthNeededForTile) as Px

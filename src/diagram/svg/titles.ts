@@ -31,18 +31,24 @@ const addTitleAndGetWidth = async (
     return getGroupWidth(titleGroupElement)
 }
 
-const addSubtitle = async (
+const addSubtitleAndGetWidth = async (
     svgDocument: Document,
     subtitle: Io,
-): Promise<void> => {
-    await addText(svgDocument.documentElement!, subtitle, {
-        fontFile: OPEN_SANS_REGULAR_FONT_FILE,
-        fontSize: SUBTITLE_FONT_SIZE,
-        xOffset: LEFT_AND_RIGHT_MARGIN,
-        yOffset: (TITLE_Y_OFFSET +
-            TITLE_FONT_SIZE +
-            SUBTITLE_FURTHER_Y_OFFSET) as Px,
-    })
+): Promise<Px> => {
+    const subtitleGroupElement: NodeElement<SVGGElement> = await addText(
+        svgDocument.documentElement!,
+        subtitle,
+        {
+            fontFile: OPEN_SANS_REGULAR_FONT_FILE,
+            fontSize: SUBTITLE_FONT_SIZE,
+            xOffset: LEFT_AND_RIGHT_MARGIN,
+            yOffset: (TITLE_Y_OFFSET +
+                TITLE_FONT_SIZE +
+                SUBTITLE_FURTHER_Y_OFFSET) as Px,
+        },
+    )
+
+    return getGroupWidth(subtitleGroupElement)
 }
 
-export { addTitleAndGetWidth, addSubtitle }
+export { addTitleAndGetWidth, addSubtitleAndGetWidth }

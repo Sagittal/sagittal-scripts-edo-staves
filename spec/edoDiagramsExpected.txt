@@ -1,7 +1,7 @@
 
 
 5-EDO Sagittal notation
-(default spellings)
+A bad-fifth apotome-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -58,7 +58,7 @@ en; blfn
 
 
 7-EDO Sagittal notation
-(default spellings)
+A bad-fifth limma-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -148,7 +148,7 @@ en; blfn
 
 
 9-EDO Sagittal notation
-(default spellings)
+A bad-fifth limma-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -170,7 +170,7 @@ en; blfn
 
 
 10-EDO Sagittal notation
-(default spellings)
+A bad-fifth apotome-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -320,7 +320,7 @@ en; blfn
 
 
 14-EDO Sagittal notation
-(default spellings)
+A bad-fifth limma-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -341,7 +341,7 @@ en; blfn
 
 
 15-EDO Sagittal notation
-(default spellings)
+A bad-fifth apotome-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -359,7 +359,7 @@ en; blfn
 
 
 16-EDO Sagittal notation
-(default spellings)
+A bad-fifth limma-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -542,7 +542,7 @@ en; blfn
 
 
 20-EDO Sagittal notation
-(default spellings)
+A bad-fifth apotome-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -562,7 +562,7 @@ en; blfn
 
 
 21-EDO Sagittal notation
-(default spellings)
+A bad-fifth limma-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -632,7 +632,7 @@ en; blfn
 
 
 23-EDO Sagittal notation
-(default spellings)
+A bad-fifth limma-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -726,7 +726,7 @@ en; blfn
 
 
 25-EDO Sagittal notation
-(default spellings)
+A bad-fifth apotome-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -840,7 +840,7 @@ en; blfn
 
 
 28-EDO Sagittal notation
-(default spellings)
+A bad-fifth limma-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -912,7 +912,7 @@ en; blfn
 
 
 30-EDO Sagittal notation
-(default spellings)
+A bad-fifth apotome-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -1004,7 +1004,7 @@ en; blfn
 
 
 32-EDO Evo Sagittal notation
-(default spellings)
+A bad-fifth apotome-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -1029,7 +1029,7 @@ en; blfn
 
 
 32-EDO Revo Sagittal notation
-(default spellings)
+A bad-fifth apotome-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -1054,7 +1054,7 @@ en; blfn
 
 
 33-EDO Sagittal notation
-(default spellings)
+A bad-fifth limma-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -1158,7 +1158,7 @@ en; blfn
 
 
 35-EDO Sagittal notation
-(default spellings)
+A bad-fifth limma-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -1236,7 +1236,7 @@ en; blfn
 
 
 37-EDO Sagittal notation
-(default spellings)
+A bad-fifth apotome-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -1261,7 +1261,7 @@ en; blfn
 
 
 37-EDO Alternative Evo Sagittal notation
-(default spellings)
+A bad-fifth apotome-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -1416,7 +1416,7 @@ en; blfn
 
 
 40-EDO Sagittal notation
-(default spellings)
+A bad-fifth limma-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -1520,7 +1520,7 @@ en; blfn
 
 
 42-EDO Evo Sagittal notation
-(default spellings)
+A bad-fifth apotome-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -1545,7 +1545,7 @@ en; blfn
 
 
 42-EDO Revo Sagittal notation
-(default spellings)
+A bad-fifth apotome-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -1794,7 +1794,7 @@ en; blfn
 
 
 47-EDO Sagittal notation
-(default spellings)
+A bad-fifth limma-fraction notation (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3534,7 +3534,7 @@ en; blfn
 
 
 23-EDO Sagittal notation
-Using the second-best fifth (default spellings)
+A bad-fifth apotome-fraction notation, using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3554,7 +3554,7 @@ en; blfn
 
 
 30-EDO Sagittal notation
-Using the second-best fifth (default spellings)
+A bad-fifth limma-fraction notation, using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3578,7 +3578,7 @@ en; blfn
 
 
 35-EDO Sagittal notation
-Using the second-best fifth (default spellings)
+A bad-fifth apotome-fraction notation, using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3600,7 +3600,7 @@ en; blfn
 
 
 42-EDO Sagittal notation
-Using the second-best fifth (default spellings)
+A bad-fifth limma-fraction notation, using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3626,7 +3626,7 @@ en; blfn
 
 
 47-EDO Sagittal notation
-Using the second-best fifth (default spellings)
+A bad-fifth apotome-fraction notation, using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3655,7 +3655,7 @@ en; blfn
 
 
 47-EDO Alternative Evo Sagittal notation
-Using the second-best fifth (default spellings)
+A bad-fifth apotome-fraction notation, using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3744,7 +3744,7 @@ en; blfn
 
 
 64-EDO Evo Sagittal notation
-Using the second-best fifth (default spellings)
+A bad-fifth apotome-fraction notation, using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;
@@ -3774,7 +3774,7 @@ en; blfn
 
 
 64-EDO Revo Sagittal notation
-Using the second-best fifth (default spellings)
+A bad-fifth apotome-fraction notation, using the second-best fifth (default spellings)
 
 ston 
 4; trcl; 12;

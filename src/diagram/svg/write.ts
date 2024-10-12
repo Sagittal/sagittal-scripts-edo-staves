@@ -3,7 +3,7 @@ import { Document } from "@xmldom/xmldom"
 import { computeInputSentenceUnicode } from "staff-code"
 import { Count, Filename, Io, Px, Sentence, Unicode } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
-import { addSubtitle, addTitleAndGetWidth } from "./titles"
+import { addSubtitleAndGetWidth, addTitleAndGetWidth } from "./titles"
 import {
     BRAVURA_TEXT_SC_FONT_FILE,
     BRAVURA_TEXT_SC_FONT_SIZE,
@@ -45,8 +45,10 @@ const writeDiagramSvg = async ({
     shiftStavesDown(svgDocument, { tileRowCount })
 
     const titleWidth: Px = await addTitleAndGetWidth(svgDocument, title)
-
-    await addSubtitle(svgDocument, subtitle)
+    const subtitleWidth: Px = await addSubtitleAndGetWidth(
+        svgDocument,
+        subtitle,
+    )
 
     const expressionsWidth: Px = await addExpressionsAndGetWidth(svgDocument, {
         edoNotationName,
@@ -55,6 +57,7 @@ const writeDiagramSvg = async ({
 
     const diagramWidth: Px = setDiagramSizeAndGetDiagramWidth(svgDocument, {
         titleWidth,
+        subtitleWidth,
         expressionsWidth,
         tileRowCount,
     })
