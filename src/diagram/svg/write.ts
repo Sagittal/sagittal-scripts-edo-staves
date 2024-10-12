@@ -42,7 +42,7 @@ const writeDiagramSvg = async ({
 
     const tileRowCount: Count = computeTileRowCount({ edoNotationName })
 
-    shiftStavesDown(svgDocument, { tileRowCount })
+    shiftStavesDown(svgDocument, { tileRowCount }) // TODO: maybe instead we should care directly about the height of the tile, rather than the tile row count which is what causes its height to change. that way we could restrict awareness of the tile row count to the tile where it really matters
 
     const titleWidth: Px = await addTitleAndGetWidth(svgDocument, title)
     const subtitleWidth: Px = await addSubtitleAndGetWidth(
