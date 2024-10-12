@@ -7,7 +7,7 @@ import {
     REVO_FLAVOR_INDEX,
 } from "./constants"
 import { DiagramType } from "../../types"
-import { computeFilename, computeSubtitle, computeTitle } from "./titleAndFilename"
+import { computeFilename, computeSubtitle, computeTitle } from "./titlesAndFilename"
 import { writeDiagramSvg } from "../svg"
 
 const ONE_OFF_FILENAME: Filename = `one-off.svg` as Filename

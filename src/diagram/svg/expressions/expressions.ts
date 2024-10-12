@@ -1,6 +1,12 @@
 import { Document } from "@xmldom/xmldom"
 import { deepClone, HexColor, isUndefined, Px } from "@sagittal/general"
-import { computeSectionColor, EdoNotationName, SectionColor } from "@sagittal/system"
+import {
+    computeSectionColor,
+    EDO_NOTATION_DEFINITIONS,
+    EdoNotationName,
+    isSubsetNotation,
+    SectionColor,
+} from "@sagittal/system"
 import { DiagramType } from "../../../types"
 import {
     BRAVURA_TEXT_SC_FONT_FILE,
@@ -73,15 +79,21 @@ const addGoldBadFifthNotationExpressionsAndGetWidth = async (
     svgDocument: Document,
 ) => {
     const expressionsGroupElement: NodeElement<SVGGElement> =
-        await textToSvgGroupElement("(an apotome-fraction bad-fifth notation)", {
-            fontFile: OPEN_SANS_REGULAR_FONT_FILE,
-            fontSize: STEP_FONT_SIZE,
-        })
+        await textToSvgGroupElement(
+            "A bad-fifth apotome-fraction notation",
+            {
+                fontFile: OPEN_SANS_REGULAR_FONT_FILE,
+                fontSize: STEP_FONT_SIZE,
+            },
+        )
 
     expressionsGroupElement.setAttribute(
         "transform",
         `translate(${LEFT_AND_RIGHT_MARGIN} ${
-            TITLE_FONT_SIZE + SUBTITLE_FONT_SIZE + SUBTITLE_FONT_SIZE - DEFINIENS_Y_OFFSET
+            TITLE_FONT_SIZE +
+            SUBTITLE_FONT_SIZE +
+            SUBTITLE_FONT_SIZE -
+            DEFINIENS_Y_OFFSET
         })`,
     )
 
@@ -94,7 +106,7 @@ const addRoseBadFifthNotationExpressionsAndGetWidth = async (
     svgDocument: Document,
 ) => {
     const expressionsGroupElement: NodeElement<SVGGElement> =
-        await textToSvgGroupElement("(a limma-fraction bad-fifth notation)", {
+        await textToSvgGroupElement("A bad-fifth limma-fraction notation", {
             fontFile: OPEN_SANS_REGULAR_FONT_FILE,
             fontSize: STEP_FONT_SIZE,
         })
@@ -102,7 +114,10 @@ const addRoseBadFifthNotationExpressionsAndGetWidth = async (
     expressionsGroupElement.setAttribute(
         "transform",
         `translate(${LEFT_AND_RIGHT_MARGIN} ${
-            TITLE_FONT_SIZE + SUBTITLE_FONT_SIZE + SUBTITLE_FONT_SIZE - DEFINIENS_Y_OFFSET
+            TITLE_FONT_SIZE +
+            SUBTITLE_FONT_SIZE +
+            SUBTITLE_FONT_SIZE -
+            DEFINIENS_Y_OFFSET
         })`,
     )
 
@@ -118,7 +133,11 @@ const addExpressionsAndGetWidth = async (
         diagramType,
     }: { edoNotationName: EdoNotationName; diagramType: DiagramType },
 ): Promise<Px> => {
-    const sectionColor: SectionColor | HexColor = computeSectionColor(edoNotationName) 
+    if (isSubsetNotation(EDO_NOTATION_DEFINITIONS[edoNotationName]))
+        return 0 as Px
+
+    const sectionColor: SectionColor | HexColor =
+        computeSectionColor(edoNotationName)
 
     if (sectionColor === SectionColor.GOLD)
         return addGoldBadFifthNotationExpressionsAndGetWidth(svgDocument)

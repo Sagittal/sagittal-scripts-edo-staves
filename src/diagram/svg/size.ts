@@ -40,19 +40,14 @@ const setDiagramSizeAndGetDiagramWidth = (
     const totalWidthNeededForTile: Px = (TOTAL_WIDTH_NEEDED_FOR_TILE *
         tileRowCountScaleFactor) as Px
 
-    if (
-        widthAssumingStavesLongerEnoughThanTitleAndExpressions <
-        titleWidth + totalWidthNeededForTile
-    ) {
+    width = widthAssumingStavesLongerEnoughThanTitleAndExpressions
+
+    if (width < titleWidth + totalWidthNeededForTile)
         width = (titleWidth + totalWidthNeededForTile) as Px
-    } else if (
-        widthAssumingStavesLongerEnoughThanTitleAndExpressions <
-        expressionsWidth + totalWidthNeededForTile
-    ) {
+
+    if (width < expressionsWidth + totalWidthNeededForTile)
         width = (expressionsWidth + totalWidthNeededForTile) as Px
-    } else {
-        width = widthAssumingStavesLongerEnoughThanTitleAndExpressions
-    }
+
     width = (width + EXTRA_ROOM_FOR_FIFTH_SIZE) as Px
     svg.setAttribute("width", width.toString())
 
