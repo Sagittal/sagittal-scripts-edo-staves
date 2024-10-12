@@ -18,13 +18,13 @@ import {
     Flavor,
     isSubsetNotation,
     NonSubsetEdoNotationDefinition,
+    parseEdoNotationName,
     Sagittal,
     Sagitype,
     Spelling,
     SubsetFactor,
 } from "@sagittal/system"
 import { computeDefaultSpellings } from "../sentence"
-import { parseEdoNotationName } from "@sagittal/system/dist/cjs/notations"
 
 const computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes = (
     edoNotationName: EdoNotationName,

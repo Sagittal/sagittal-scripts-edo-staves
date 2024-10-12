@@ -1,5 +1,5 @@
 import { program } from "commander"
-import { Flavor } from "@sagittal/system"
+import { EdoNotationName, Flavor } from "@sagittal/system"
 import {
     Io,
     isUndefined,
@@ -13,7 +13,6 @@ import {
     generateOneOffDiagram,
     REVO_FLAVOR_INDEX,
 } from "../diagram"
-import { EdoNotationName } from "@sagittal/system/dist/cjs/notations"
 import { computeSentencesAndDifferenceCase } from "../difference"
 import { DiagramType, DifferenceCase } from "../types"
 import { FLAVOR_INDEX_FOR_GENERAL_DIAGRAM_TYPE } from "../diagram/generate/constants"

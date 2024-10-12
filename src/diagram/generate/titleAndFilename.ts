@@ -5,7 +5,7 @@ import {
     EdoNotationDefinition,
     isSubsetNotation,
     parseEdoNotationName,
-} from "@sagittal/system/dist/cjs/notations"
+} from "@sagittal/system"
 import { DiagramType } from "../../types"
 
 const FORMATTED_DIAGRAM_TYPE: Record<DiagramType, Io> = {
