@@ -6,7 +6,7 @@ import {
     TILE_SIZE,
 } from "./constants"
 import { NodeElement } from "./types"
-import { Count, Index, Px, round } from "@sagittal/general"
+import { Count, Index, isUndefined, Maybe, Px, round } from "@sagittal/general"
 import { computeTileRowCountScaleFactor } from "./tile/rowCount"
 
 const INDEX_OF_X_TRANSFORM: Index = 1 as Index
@@ -22,11 +22,26 @@ const roundAllTranslations = (
         const { existingX, existingY }: { existingX: Px; existingY: Px } =
             computeExistingTransform(groupElement)
 
+        // yeah, existing scale breaks the whole point of this, but not sure what to do...
+        const existingScale = computeExistingScale(groupElement)
+
         groupElement.setAttribute(
             "transform",
-            `translate(${round(existingX)} ${round(existingY)})`,
+            `translate(${round(existingX)} ${round(
+                existingY,
+            )})${isUndefined(existingScale) ? "" : ` scale(${existingScale})`}`,
         )
     })
+}
+
+const computeExistingScale = (
+    groupElement: NodeElement<SVGGElement>,
+): Maybe<number> => {
+    const existingTransform: string = groupElement.getAttribute("transform")!
+    const scaleMatch: null | RegExpMatchArray =
+        existingTransform.match(/scale\(([^)]+)\)/)
+
+    return scaleMatch ? parseFloat(scaleMatch[1]) : undefined
 }
 
 const computeExistingTransform = (
@@ -34,7 +49,7 @@ const computeExistingTransform = (
 ): { existingX: Px; existingY: Px } => {
     const existingTransform: string = groupElement.getAttribute("transform")!
     const existingXAndYRegExpMatches: null | RegExpMatchArray =
-        existingTransform?.match(/translate\((-?\d+\.?\d*)\s+(-?\d+\.?\d*)\)/)
+        existingTransform.match(/translate\((-?\d+\.?\d*)\s+(-?\d+\.?\d*)\)/)
     const existingX: Px = existingXAndYRegExpMatches
         ? (parseFloat(existingXAndYRegExpMatches[INDEX_OF_X_TRANSFORM]) as Px)
         : (0 as Px)

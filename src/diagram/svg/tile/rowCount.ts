@@ -20,6 +20,7 @@ const computeTileRowCountScaleFactor = (tileRowCount: Count): number =>
 const computeMaxSagittalsForTileRowCount = (
     tileRowCount: Count,
 ): Max<Count<Sagittal>> => {
+    if (tileRowCount === TILE_ROW_FOR_EDO) return 0 as Max<Count<Sagittal>>
     if (
         tileRowCount ===
         DEFAULT_TILE_ROW_COUNT_WITH_ONE_ROW_FOR_EDO_AND_ONE_FOR_SAGITTALS_OR_SUBSET
@@ -30,8 +31,10 @@ const computeMaxSagittalsForTileRowCount = (
         TILE_ROW_FOR_EDO) as Count
     const sizeProportionForThisTileRowCountIncrement: number =
         (tileRowCount + 1) / tileRowCount
+
     const maxSagittalsPerTileRow: Max<Count<Sagittal>> =
-        (computeMaxSagittalsForTileRowCount((tileRowCount - 1) as Count) *
+        ((computeMaxSagittalsForTileRowCount((tileRowCount - 1) as Count) /
+            (tileRowCountForSagittals - 1)) *
             sizeProportionForThisTileRowCountIncrement) as Max<Count<Sagittal>>
 
     return (maxSagittalsPerTileRow * tileRowCountForSagittals) as Max<
@@ -74,4 +77,5 @@ export {
     computeTileRowCount,
     DEFAULT_TILE_ROW_COUNT_WITH_ONE_ROW_FOR_EDO_AND_ONE_FOR_SAGITTALS_OR_SUBSET,
     computeTileRowCountScaleFactor,
+    computeMaxSagittalsForTileRowCount,
 }

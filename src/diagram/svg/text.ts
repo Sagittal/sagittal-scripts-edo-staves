@@ -16,7 +16,7 @@ import { getSvgDocumentFromString } from "./document"
 import { SVG_NS } from "./constants"
 import { shiftGroupElement } from "./shift"
 
-const FONT_SIZE_DIFFERENTIAL_Y_SHIFT_FACTOR: number = 27 / 20
+const FONT_SIZE_DIFFERENTIAL_Y_SHIFT_FACTOR: number = 27 / 20 // TODO: wtf is this
 
 const computeYShift = ({
     additionalYOffsets,
@@ -33,10 +33,11 @@ const computeYShift = ({
         (additionalYOffsets && additionalYOffsets[textsIndex]) || (0 as Px)
     const fontSizeBasedAutomaticYOffset: Px = ((maxFontSize - font.fontSize) *
         FONT_SIZE_DIFFERENTIAL_Y_SHIFT_FACTOR) as Px
+    // console.log("fontSizeBasedAutomaticYOffset: ", fontSizeBasedAutomaticYOffset)
     return (additionalYOffset + fontSizeBasedAutomaticYOffset) as Px
 }
 
-const textsToSvgGroupElement = async (
+const textsToSvgGroupElement = async ( // TODO: this should take named args
     svgDocument: Document,
     texts: Io[],
     fonts: Font[],
@@ -61,15 +62,18 @@ const textsToSvgGroupElement = async (
             const textGroupElement: NodeElement<SVGGElement> =
                 await textToSvgGroupElement(text, font)
 
+            const yShift = computeYShift({
+                additionalYOffsets,
+                textsIndex: textsIndex as Index,
+                maxFontSize,
+                font,
+            })
+            // console.log("text", text)
+            // console.log("yShift", yShift)
             shiftGroupElement(
                 textGroupElement,
                 textsWidth as Px,
-                computeYShift({
-                    additionalYOffsets,
-                    textsIndex: textsIndex as Index,
-                    maxFontSize,
-                    font,
-                }),
+                yShift,
             )
             const textWidth: Px = getGroupWidth(textGroupElement, {
                 includeLefthandWhitespace: true,

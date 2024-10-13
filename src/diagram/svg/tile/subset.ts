@@ -14,8 +14,8 @@ import {
     TILE_SIZE,
 } from "../constants"
 import { Count, Px } from "@sagittal/general"
-import { addSagittals } from "./sagittals"
 import { DiagramType } from "../../../types"
+import { addSagittals } from "./sagittals2"
 
 const addSubset = async (
     tileGroupElement: NodeElement<SVGGElement>,

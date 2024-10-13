@@ -33,7 +33,7 @@ const COMPRESS_SPACING_BEYOND_THIS_SAGITTAL_COUNT: Count<Sagittal> =
 
 const TILE_SAGITTALS_FONT: Font = {
     fontFile: BRAVURA_TEXT_SC_FONT_FILE,
-    fontSize: BRAVURA_TEXT_SC_FONT_SIZE,
+    fontSize: BRAVURA_TEXT_SC_FONT_SIZE // * 0.9, only if over 72-EDO?
 }
 const TILE_SZ_SEMISHARP_FONT: Font = {
     fontFile: BRAVURA_TEXT_SC_FONT_FILE,
