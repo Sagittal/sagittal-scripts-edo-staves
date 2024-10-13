@@ -33,7 +33,7 @@ const COMPRESS_SPACING_BEYOND_THIS_SAGITTAL_COUNT: Count<Sagittal> =
 
 const TILE_SAGITTALS_FONT: Font = {
     fontFile: BRAVURA_TEXT_SC_FONT_FILE,
-    fontSize: BRAVURA_TEXT_SC_FONT_SIZE // * 0.9, only if over 72-EDO?
+    fontSize: BRAVURA_TEXT_SC_FONT_SIZE,
 }
 const TILE_SZ_SEMISHARP_FONT: Font = {
     fontFile: BRAVURA_TEXT_SC_FONT_FILE,
@@ -59,6 +59,7 @@ const computeSagitypeSentence = (sagitypes: Sagitype[]): Io & Sentence => {
     return (sagittalPhrases.join(` ${spacing}; `) + ";") as Io & Sentence
 }
 
+// TODO: anything can be the half apotome now, not just /|\ so I need to update this to deal with that
 const computeShouldReplaceSagittalSemisharpWithSzInTile = ({
     edoNotationName,
     sagitypesForRow,
@@ -70,8 +71,10 @@ const computeShouldReplaceSagittalSemisharpWithSzInTile = ({
     const edo: Edo = parseEdoNotationName(edoNotationName).edo
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
 
-    return computeIsSagittalSemisharpTheHalfApotome(sagitypesForRow, sharpStep) // TODO: it's because sagittals for row isn't the total count of all the sagittals
-    // TODO: also wait, didn't we decide that anything can be the half apotome now?
+    // TODO: bug here where sometimes the tile doesn't show the SZ semisharp when the notation does, 
+    // because sagitypes for row isn't the total count of all the sagittals
+    // so it fails to identify the position as the half-apotome
+    return computeIsSagittalSemisharpTheHalfApotome(sagitypesForRow, sharpStep)
 }
 
 const computeSzTexts = (sagitypes: Sagitype[]): (Io & Sentence)[] => [

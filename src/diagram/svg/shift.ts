@@ -7,7 +7,7 @@ import {
 } from "./constants"
 import { NodeElement } from "./types"
 import { Count, Index, isUndefined, Maybe, Px, round } from "@sagittal/general"
-import { computeTileRowCountScaleFactor } from "./tile/rowCount"
+import { computeTileRowCountScaleFactor } from "./tile/tileRowCount"
 
 const INDEX_OF_X_TRANSFORM: Index = 1 as Index
 const INDEX_OF_Y_TRANSFORM: Index = 2 as Index
@@ -19,17 +19,25 @@ const roundAllTranslations = (
         getAllTopLevelGroupElements(tileGroupElement)
 
     groupElements.forEach((groupElement: NodeElement<SVGGElement>): void => {
-        const { existingX, existingY }: { existingX: Px; existingY: Px } =
+        const {
+            xTransformExisting,
+            yTransformExisting,
+        }: { xTransformExisting: Px; yTransformExisting: Px } =
             computeExistingTransform(groupElement)
+        // TODO: existing scale breaks the whole point of this, but not sure what else to do...
+        // other than to completely redo this whole thing so that we never scale anything other than the square itself
+        // always keeping the sagittals the same size and positioning them within the scaled up square
+        const existingScale: Maybe<number> = computeExistingScale(groupElement)
 
-        // yeah, existing scale breaks the whole point of this, but not sure what to do...
-        const existingScale = computeExistingScale(groupElement)
+        const newX: Px = round(xTransformExisting)
+        const newY: Px = round(yTransformExisting)
+        const newScale: string = isUndefined(existingScale)
+            ? ""
+            : ` scale(${existingScale})`
 
         groupElement.setAttribute(
             "transform",
-            `translate(${round(existingX)} ${round(
-                existingY,
-            )})${isUndefined(existingScale) ? "" : ` scale(${existingScale})`}`,
+            `translate(${newX} ${newY})${newScale}`,
         )
     })
 }
@@ -46,18 +54,18 @@ const computeExistingScale = (
 
 const computeExistingTransform = (
     groupElement: NodeElement<SVGGElement>,
-): { existingX: Px; existingY: Px } => {
+): { xTransformExisting: Px; yTransformExisting: Px } => {
     const existingTransform: string = groupElement.getAttribute("transform")!
     const existingXAndYRegExpMatches: null | RegExpMatchArray =
         existingTransform.match(/translate\((-?\d+\.?\d*)\s+(-?\d+\.?\d*)\)/)
-    const existingX: Px = existingXAndYRegExpMatches
+    const xTransformExisting: Px = existingXAndYRegExpMatches
         ? (parseFloat(existingXAndYRegExpMatches[INDEX_OF_X_TRANSFORM]) as Px)
         : (0 as Px)
-    const existingY: Px = existingXAndYRegExpMatches
+    const yTransformExisting: Px = existingXAndYRegExpMatches
         ? (parseFloat(existingXAndYRegExpMatches[INDEX_OF_Y_TRANSFORM]) as Px)
         : (0 as Px)
 
-    return { existingX, existingY }
+    return { xTransformExisting, yTransformExisting }
 }
 
 const shiftGroupElement = (
@@ -65,12 +73,17 @@ const shiftGroupElement = (
     xOffset: Px,
     yOffset: Px,
 ): void => {
-    const { existingX, existingY }: { existingX: Px; existingY: Px } =
+    const {
+        xTransformExisting,
+        yTransformExisting,
+    }: { xTransformExisting: Px; yTransformExisting: Px } =
         computeExistingTransform(groupElement)
 
     groupElement?.setAttribute(
         "transform",
-        `translate(${existingX + xOffset} ${existingY + yOffset})`,
+        `translate(${xTransformExisting + xOffset} ${
+            yTransformExisting + yOffset
+        })`,
     )
 }
 

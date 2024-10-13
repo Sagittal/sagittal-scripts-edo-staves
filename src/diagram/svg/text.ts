@@ -16,7 +16,7 @@ import { getSvgDocumentFromString } from "./document"
 import { SVG_NS } from "./constants"
 import { shiftGroupElement } from "./shift"
 
-const FONT_SIZE_DIFFERENTIAL_Y_SHIFT_FACTOR: number = 27 / 20 // TODO: wtf is this
+const FONT_SIZE_DIFFERENTIAL_Y_SHIFT_FACTOR: number = 27 / 20
 
 const computeYShift = ({
     additionalYOffsets,
@@ -31,13 +31,16 @@ const computeYShift = ({
 }): Px => {
     const additionalYOffset: Px =
         (additionalYOffsets && additionalYOffsets[textsIndex]) || (0 as Px)
+
+    // If the font changes in size, then we need to shift its y position slightly to put it back where it was previously
     const fontSizeBasedAutomaticYOffset: Px = ((maxFontSize - font.fontSize) *
         FONT_SIZE_DIFFERENTIAL_Y_SHIFT_FACTOR) as Px
-    // console.log("fontSizeBasedAutomaticYOffset: ", fontSizeBasedAutomaticYOffset)
+
     return (additionalYOffset + fontSizeBasedAutomaticYOffset) as Px
 }
 
-const textsToSvgGroupElement = async ( // TODO: this should take named args
+const textsToSvgGroupElement = async (
+    // TODO: this should take named args
     svgDocument: Document,
     texts: Io[],
     fonts: Font[],
@@ -62,19 +65,14 @@ const textsToSvgGroupElement = async ( // TODO: this should take named args
             const textGroupElement: NodeElement<SVGGElement> =
                 await textToSvgGroupElement(text, font)
 
-            const yShift = computeYShift({
+            const yShift: Px = computeYShift({
                 additionalYOffsets,
                 textsIndex: textsIndex as Index,
                 maxFontSize,
                 font,
             })
-            // console.log("text", text)
-            // console.log("yShift", yShift)
-            shiftGroupElement(
-                textGroupElement,
-                textsWidth as Px,
-                yShift,
-            )
+            shiftGroupElement(textGroupElement, textsWidth as Px, yShift)
+            
             const textWidth: Px = getGroupWidth(textGroupElement, {
                 includeLefthandWhitespace: true,
             })

@@ -59,15 +59,14 @@ const getGroupWidth = (
                 includeLefthandWhitespace: true,
             }),
     )
-    const transforms: { existingX: Px; existingY: Px }[] = groupElements.map(
-        computeExistingTransform,
-    )
+    const transforms: { xTransformExisting: Px; yTransformExisting: Px }[] =
+        groupElements.map(computeExistingTransform)
 
     let minX = Infinity
     let maxX = -Infinity
 
     widths.forEach((width: Px, widthIndex: number): void => {
-        const tranformX: Px = transforms[widthIndex].existingX
+        const tranformX: Px = transforms[widthIndex].xTransformExisting
         minX = min(minX, tranformX)
         maxX = max(maxX, tranformX + width)
     }, 0 as Px)

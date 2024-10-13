@@ -1,6 +1,6 @@
 import { Count, Max } from "@sagittal/general"
-import { computeMaxSagittalsForTileRowCount } from "../../../../../src/diagram/svg/tile/rowCount"
 import { Sagittal } from "@sagittal/system"
+import { computeMaxSagittalsForTileRowCount } from "../../../../../../src/diagram/svg/tile/sagittals/maxSagittals"
 
 describe("computeMaxSagittalsForTileRowCount", (): void => {
     it("1 tile row ∴ 0 sagittal rows has a max 4 sagittals per row × 0 rows = 0 sagittals", (): void => {
@@ -11,7 +11,7 @@ describe("computeMaxSagittalsForTileRowCount", (): void => {
     })
 
     it("2 tile rows ∴ 1 sagittal row has a max 6 sagittals per row × 1 row = 6 sagittals", (): void => {
-        const tileRowCount: Count = 2 as Count // TODO: Count<TileRow>
+        const tileRowCount: Count = 2 as Count // TODO: Count<TileRow>, and other generic Count I have around
         expect(computeMaxSagittalsForTileRowCount(tileRowCount)).toBe(
             6 as Max<Count<Sagittal>>,
         )

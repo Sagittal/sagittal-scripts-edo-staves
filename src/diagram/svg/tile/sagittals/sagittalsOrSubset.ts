@@ -5,17 +5,17 @@ import {
     EdoNotationDefinition,
     isSubsetNotation,
 } from "@sagittal/system"
-import { Justification, NodeElement } from "../types"
-import { addText } from "../text"
+import { Justification, NodeElement } from "../../types"
+import { addText } from "../../text"
 import {
     SANOMAT_FONT_FILE,
     SUBSET_TEXT_FONT_SIZE,
     SUBSET_Y_OFFSET,
     TILE_SIZE,
-} from "../constants"
+} from "../../constants"
 import { Count, Px } from "@sagittal/general"
-import { DiagramType } from "../../../types"
-import { addSagittals } from "./sagittals2"
+import { DiagramType } from "../../../../types"
+import { addSagittals } from "./sagittals"
 
 const addSubset = async (
     tileGroupElement: NodeElement<SVGGElement>,

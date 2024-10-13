@@ -1,8 +1,8 @@
 import { Document } from "@xmldom/xmldom"
 import { EdoNotationName } from "@sagittal/system"
-import { CORNER_TRIANGLE_SIZE, SVG_NS } from "../constants"
+import { CORNER_TRIANGLE_SIZE, SVG_NS } from "../../constants"
 import { computeUsesOnlySpartans } from "./usesOnlySpartans"
-import { NodeElement } from "../types"
+import { NodeElement } from "../../types"
 
 const maybeAddCornerTriangle = (
     tileGroupElement: NodeElement<SVGGElement>,

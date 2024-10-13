@@ -8,7 +8,7 @@ import {
     TILE_SIZE,
 } from "./constants"
 import { NodeElement } from "./types"
-import { computeTileRowCountScaleFactor } from "./tile/rowCount"
+import { computeTileRowCountScaleFactor } from "./tile/tileRowCount"
 
 const BOTH_SIDES: number = 2
 

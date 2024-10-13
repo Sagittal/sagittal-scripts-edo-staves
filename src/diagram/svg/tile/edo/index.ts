@@ -1,0 +1,1 @@
+export { addEdo } from "./edo"

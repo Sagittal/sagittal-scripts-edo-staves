@@ -3,8 +3,8 @@ import { Count, Px } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
 import { addTileSquare } from "./square"
 import { addEdo } from "./edo"
-import { addSagittalsOrSubset } from "./subset"
-import { addSteps } from "./steps"
+import { addSagittalsOrSubset } from "./sagittals"
+import { addSteps } from "./steps/steps"
 import { maybeAddCornerTriangle } from "./cornerTriangle"
 import { NodeElement } from "../types"
 import { roundAllTranslations } from "../shift"
@@ -15,7 +15,7 @@ import {
     TILE_SIZE,
     TILE_TOP_MARGIN,
 } from "../constants"
-import { computeTileRowCountScaleFactor } from "./rowCount"
+import { computeTileRowCountScaleFactor } from "./tileRowCount"
 import { append } from "../append"
 import { DiagramType } from "../../../types"
 

@@ -15,7 +15,7 @@ import {
     SymbolSubsetId,
     computeSagittalFromSymbolClassId,
 } from "@sagittal/system"
-import { computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes } from "../../usedSagittals"
+import { computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes } from "../../../usedSagittals"
 
 const SPARTAN_SAGITYPES: Sagitype[] = (
     SYMBOL_SUBSETS[SymbolSubsetId.SPARTAN].map(
