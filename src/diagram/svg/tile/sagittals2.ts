@@ -169,7 +169,11 @@ const addSagittals = async (
                 widths.push(sagittalsWidth)
             },
         ),
+
+        // TODO: clean all this up
     )
+
+    // TODO: Argh. But it just occurs to me that I've only counteracted shrinking sagittals by scaling the tile up w/r/t the row count. That is, you know how 4 is the max full-size sagittals that fit in one row, but since when we have 2 rows we fit 6 to a row, so before we actually split to 2 rows, we may as well start squishing the sagittals smaller until we have 6 in the one row before we hit 7 sagittals and are then forced to split into 2 rows where the sagittals are the size such that 6 of them can fit in each row? Well, so for the tiles that have 5 or 6 sagittals in one row, for examples, those tiles don't increase in size proportionally so that theoretically the sagittals in the PT never get smaller. So I'll have to make that tweak tomorrow. I don't think it will cause that many problems. The really hard part was just getting the rows to go in the correct places within the tile.
 
     const maxWidth = max(...widths)
     // console.log(

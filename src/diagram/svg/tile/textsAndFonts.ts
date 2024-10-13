@@ -70,7 +70,8 @@ const computeShouldReplaceSagittalSemisharpWithSzInTile = ({
     const edo: Edo = parseEdoNotationName(edoNotationName).edo
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
 
-    return computeIsSagittalSemisharpTheHalfApotome(sagitypesForRow, sharpStep)
+    return computeIsSagittalSemisharpTheHalfApotome(sagitypesForRow, sharpStep) // TODO: it's because sagittals for row isn't the total count of all the sagittals
+    // TODO: also wait, didn't we decide that anything can be the half apotome now?
 }
 
 const computeSzTexts = (sagitypes: Sagitype[]): (Io & Sentence)[] => [
