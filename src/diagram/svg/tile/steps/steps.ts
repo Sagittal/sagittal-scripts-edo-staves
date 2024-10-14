@@ -1,5 +1,5 @@
 import { Document } from "@xmldom/xmldom"
-import { Count } from "@sagittal/general"
+import { Px } from "@sagittal/general"
 import {
     computeFifthStep,
     Edo,
@@ -9,14 +9,12 @@ import {
     isSubsetNotation,
     parseEdoNotationName,
 } from "@sagittal/system"
-import { NodeElement, Scaler } from "../../types"
-import { computeTileRowCountScaler } from "../tileRowCount"
+import { NodeElement } from "../../types"
 import { DiagramType } from "../../../../types"
 import { addSharp } from "./sharp"
 import { addLimma } from "./limma"
 import { addWholeTone } from "./wholeTone"
 import { addFifth } from "./fifth"
-import { TileRow } from "../types"
 
 const addSteps = async (
     svgDocument: Document,
@@ -24,40 +22,39 @@ const addSteps = async (
         edoNotationName,
         tileWrapperGroupElement,
         diagramType,
-        tileRowCount,
+        tileSize,
     }: {
         edoNotationName: EdoNotationName
         tileWrapperGroupElement: NodeElement<SVGGElement>
         diagramType: DiagramType
-        tileRowCount: Count<TileRow>
+        tileSize: Px
     },
 ): Promise<void> => {
     if (isSubsetNotation(EDO_NOTATION_DEFINITIONS[edoNotationName])) return
 
     const fifthStep: EdoStep = computeFifthStep(edoNotationName)
     const edo: Edo = parseEdoNotationName(edoNotationName).edo
-    const tileRowCountScaler: Scaler = computeTileRowCountScaler(tileRowCount)
 
     await addFifth(tileWrapperGroupElement, {
         fifthStep,
-        tileRowCountScaler,
+        tileSize,
     })
     await addWholeTone(tileWrapperGroupElement, {
-        edo,
         fifthStep,
-        tileRowCountScaler,
+        tileSize,
+        edo,
     })
     await addLimma(tileWrapperGroupElement, {
-        edo,
         fifthStep,
-        tileRowCountScaler,
+        tileSize,
+        edo,
     })
     await addSharp(tileWrapperGroupElement, {
-        edo,
         fifthStep,
+        tileSize,
+        edo,
         svgDocument,
         diagramType,
-        tileRowCountScaler,
     })
 }
 

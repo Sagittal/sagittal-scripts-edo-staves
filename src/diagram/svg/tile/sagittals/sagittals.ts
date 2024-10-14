@@ -16,17 +16,16 @@ import { computeSagittalTextsAndFonts } from "./textsAndFonts"
 import { getGroupWidth } from "../../width"
 import { computeDownToNextTileRowCountsScaler } from "./nextRowCountScale"
 import { computeSagitypesByTileRow } from "./sagitypesByTileRow"
-import { ensureSagittalsWithinAvailableWidth } from "./ensureSagittalsWithinAvailableWidth"
+import { ensureSagittalsWithinAvailableWidthAndGetScaler } from "./ensureSagittalsWithinAvailableWidth"
 import { TileRow } from "../types"
 import { setTransform } from "../../transform"
+import { NEUTRAL_SCALER } from "./constants"
 
 const SAGITTAL_ROW_Y_OFFSET_SCALER: Scaler = 0.25 as Scaler
 
 const updateFontsWithDownToNextTileRowCountsScalerAndComputeCorrespondingAdditionalYOffsets =
-    (fonts: Font[], { sagittalCount }: { sagittalCount: Count<Sagittal> }) => {
-        const downToNextTileRowCountsScaler: Scaler =
-            computeDownToNextTileRowCountsScaler(sagittalCount)
-        return fonts.map((font: Font): Px => {
+    (fonts: Font[], downToNextTileRowCountsScaler: Scaler) =>
+        fonts.map((font: Font): Px => {
             const oldFontSize: Px = font.fontSize
             const newFontSize: Px = (oldFontSize /
                 downToNextTileRowCountsScaler) as Px
@@ -34,9 +33,8 @@ const updateFontsWithDownToNextTileRowCountsScalerAndComputeCorrespondingAdditio
 
             return (oldFontSize - newFontSize) as Px
         })
-    }
 
-const addSagittals = async (
+const addSagittalsAndGetFurtherScaler = async (
     tileGroupElement: NodeElement<SVGGElement>,
     {
         svgDocument,
@@ -49,7 +47,7 @@ const addSagittals = async (
         diagramType: DiagramType
         tileRowCount: Count<TileRow>
     },
-): Promise<void> => {
+): Promise<Scaler> => {
     const sagitypes: Sagitype[] = (
         EDO_NOTATION_DEFINITIONS[
             edoNotationName
@@ -57,7 +55,7 @@ const addSagittals = async (
     ).sagitypes
 
     const sagittalCount: Count<Sagittal> = sagitypes.length as Count<Sagittal>
-    if (sagittalCount === 0) return
+    if (sagittalCount === 0) return NEUTRAL_SCALER
 
     const tileRowCountScaler: Scaler = computeTileRowCountScaler(tileRowCount)
 
@@ -65,6 +63,10 @@ const addSagittals = async (
         sagitypes,
         tileRowCount,
     )
+
+    const downToNextTileRowCountsScaler: Scaler =
+        computeDownToNextTileRowCountsScaler(sagittalCount)
+
     const sagittalTileRowGroupElements: NodeElement<SVGGElement>[] =
         await Promise.all(
             sagitypesByTileRow.map(
@@ -94,7 +96,7 @@ const addSagittals = async (
                     const additionalYOffsets: Px[] =
                         updateFontsWithDownToNextTileRowCountsScalerAndComputeCorrespondingAdditionalYOffsets(
                             fonts,
-                            { sagittalCount },
+                            downToNextTileRowCountsScaler,
                         )
 
                     const sagittalTileRowGroupElement: NodeElement<SVGGElement> =
@@ -126,11 +128,17 @@ const addSagittals = async (
             ),
         )
 
-    ensureSagittalsWithinAvailableWidth(sagittalTileRowGroupElements)
+    const scalerToKeepSagittalsWithinAvailableWidth: Scaler =
+        ensureSagittalsWithinAvailableWidthAndGetScaler(
+            sagittalTileRowGroupElements,
+        )
 
     sagittalTileRowGroupElements.forEach((sagittalTileRowGroupElement) => {
         tileGroupElement.appendChild(sagittalTileRowGroupElement)
     })
+
+    return (scalerToKeepSagittalsWithinAvailableWidth *
+        downToNextTileRowCountsScaler) as Scaler
 }
 
-export { addSagittals }
+export { addSagittalsAndGetFurtherScaler }

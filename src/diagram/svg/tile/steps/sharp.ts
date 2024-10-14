@@ -9,11 +9,10 @@ import {
     SHARP_SYMBOL_Y_OFFSET,
     SHARP_TEXT_Y_OFFSET,
     STEP_FONT_SIZE,
-    TILE_SIZE,
     LIMMA_AND_SHARP_X_OFFSET,
 } from "../../constants"
 import { textsToSvgGroupElement } from "../../text"
-import { Font, NodeElement, Scaler } from "../../types"
+import { Font, NodeElement } from "../../types"
 import { computeInputSentenceUnicode } from "staff-code"
 import { getGroupWidth } from "../../width"
 import { DiagramType } from "../../../../types"
@@ -28,13 +27,13 @@ const addSharp = async (
         fifthStep,
         svgDocument,
         diagramType,
-        tileRowCountScaler,
+        tileSize,
     }: {
         edo: Edo
         fifthStep: EdoStep
         svgDocument: Document
         diagramType: DiagramType
-        tileRowCountScaler: Scaler
+        tileSize: Px
     },
 ): Promise<void> => {
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
@@ -95,11 +94,10 @@ const addSharp = async (
     const groupWidth = getGroupWidth(sharpStepGroupElement)
 
     setTransform(sharpStepGroupElement, {
-        xTranslation: ((LIMMA_AND_SHARP_X_OFFSET + TILE_SIZE) *
-            tileRowCountScaler -
+        xTranslation: (LIMMA_AND_SHARP_X_OFFSET +
+            tileSize -
             groupWidth / 2) as Px,
-        yTranslation: (TILE_SIZE * tileRowCountScaler +
-            LIMMA_AND_SHARP_Y_OFFSET) as Px,
+        yTranslation: (tileSize + LIMMA_AND_SHARP_Y_OFFSET) as Px,
     })
 
     tileWrapperGroupElement.appendChild(sharpStepGroupElement)

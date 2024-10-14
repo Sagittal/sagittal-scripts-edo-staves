@@ -3,8 +3,7 @@ import { Sagittal } from "@sagittal/system"
 import { computeSagittalCountsByTileRow } from "./sagittalCountsByTileRow"
 import { TileRow } from "../types"
 import { Scaler } from "../../types"
-
-const NEUTRAL_SCALER: Scaler = 1 as Scaler
+import { NEUTRAL_SCALER } from "./constants"
 
 // This computes the scale factor for sizing sagittals down as much as (but no further than) the size of sagittals
 // at their max size at the sagittal per row count for the next row count but before actually adding the next row
@@ -45,7 +44,7 @@ const computeDownToNextTileRowCountsScaler = (
             maxFullSizeSagittalsPerTileRow) as Scaler
     }
 
-    return NEUTRAL_SCALER as Scaler
+    return NEUTRAL_SCALER
 }
 
 export { computeDownToNextTileRowCountsScaler }
