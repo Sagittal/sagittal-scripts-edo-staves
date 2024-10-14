@@ -8,7 +8,7 @@ import {
     LIMMA_AND_SHARP_X_OFFSET,
 } from "../../constants"
 import { addText } from "../../text"
-import { Justification, NodeElement } from "../../types"
+import { Justification, NodeElement, Scaler } from "../../types"
 import { equalsPositiveOrLessThanZero } from "./zero"
 import { LIMMA_COLOR } from "./constants"
 
@@ -17,8 +17,8 @@ const addLimma = async (
     {
         edo,
         fifthStep,
-        tileRowCountScaleFactor,
-    }: { edo: Edo; fifthStep: EdoStep; tileRowCountScaleFactor: number },
+        tileRowCountScaler,
+    }: { edo: Edo; fifthStep: EdoStep; tileRowCountScaler: Scaler },
 ): Promise<void> => {
     const limmaStep: EdoStep = computeLimmaStep(edo, fifthStep)
 
@@ -29,7 +29,7 @@ const addLimma = async (
             fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
             fontSize: STEP_FONT_SIZE,
             xOffset: -LIMMA_AND_SHARP_X_OFFSET as Px,
-            yOffset: (TILE_SIZE * tileRowCountScaleFactor +
+            yOffset: (TILE_SIZE * tileRowCountScaler +
                 LIMMA_AND_SHARP_Y_OFFSET) as Px,
             color: LIMMA_COLOR,
             justification: Justification.CENTER,

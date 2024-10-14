@@ -8,7 +8,7 @@ import {
     WHOLE_TONE_AND_FIFTH_Y_ADDITIONAL_OFFSET,
 } from "../../constants"
 import { addText } from "../../text"
-import { Justification, NodeElement } from "../../types"
+import { Justification, NodeElement, Scaler } from "../../types"
 import { WHOLE_TONE_COLOR } from "./constants"
 import { equalsPositiveOrLessThanZero } from "./zero"
 
@@ -17,8 +17,8 @@ const addWholeTone = async (
     {
         edo,
         fifthStep,
-        tileRowCountScaleFactor,
-    }: { edo: Edo; fifthStep: EdoStep; tileRowCountScaleFactor: number },
+        tileRowCountScaler,
+    }: { edo: Edo; fifthStep: EdoStep; tileRowCountScaler: Scaler },
 ): Promise<void> => {
     const wholeToneStep: EdoStep = computeWholeToneStep(edo, fifthStep)
 
@@ -30,7 +30,7 @@ const addWholeTone = async (
             fontSize: STEP_FONT_SIZE,
             xOffset: WHOLE_TONE_X_OFFSET,
             yOffset: (WHOLE_TONE_AND_FIFTH_Y_ADDITIONAL_OFFSET +
-                (TILE_SIZE / 2) * tileRowCountScaleFactor) as Px,
+                (TILE_SIZE / 2) * tileRowCountScaler) as Px,
             color: WHOLE_TONE_COLOR,
             justification: Justification.RIGHT,
         },

@@ -16,6 +16,7 @@ import {
 import { Count, Px } from "@sagittal/general"
 import { DiagramType } from "../../../../types"
 import { addSagittals } from "./sagittals"
+import { TileRow } from "../types"
 
 const addSubset = async (
     tileGroupElement: NodeElement<SVGGElement>,
@@ -41,7 +42,7 @@ const addSagittalsOrSubset = async (
         svgDocument: Document
         edoNotationName: EdoNotationName
         diagramType: DiagramType
-        tileRowCount: Count
+        tileRowCount: Count<TileRow>
     },
 ): Promise<void> => {
     const edoNotationDefinition: EdoNotationDefinition =

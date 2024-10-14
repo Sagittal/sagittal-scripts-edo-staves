@@ -13,7 +13,7 @@ import {
     BRAVURA_TEXT_SC_FONT_SIZE,
     BRAVURA_TEXT_SC_FONT_SIZE_FOR_SZ_SEMISHARP,
 } from "../constants"
-import { Font } from "../types"
+import { Font, Scaler } from "../types"
 import { computeIsSagittalSemisharpTheHalfApotome } from "../../../halfApotome"
 import {
     Count,
@@ -62,19 +62,22 @@ const computeSagitypeSentence = (sagitypes: Sagitype[]): Io & Sentence => {
 // TODO: anything can be the half apotome now, not just /|\ so I need to update this to deal with that
 const computeShouldReplaceSagittalSemisharpWithSzInTile = ({
     edoNotationName,
-    sagitypesForRow,
+    sagitypesForTileRow,
 }: {
     edoNotationName: EdoNotationName
-    sagitypesForRow: Sagitype[]
+    sagitypesForTileRow: Sagitype[]
 }): boolean => {
     const fifthStep: EdoStep = computeFifthStep(edoNotationName)
     const edo: Edo = parseEdoNotationName(edoNotationName).edo
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
 
-    // TODO: bug here where sometimes the tile doesn't show the SZ semisharp when the notation does, 
+    // TODO: bug here where sometimes the tile doesn't show the SZ semisharp when the notation does,
     // because sagitypes for row isn't the total count of all the sagittals
     // so it fails to identify the position as the half-apotome
-    return computeIsSagittalSemisharpTheHalfApotome(sagitypesForRow, sharpStep)
+    return computeIsSagittalSemisharpTheHalfApotome(
+        sagitypesForTileRow,
+        sharpStep,
+    )
 }
 
 const computeSzTexts = (sagitypes: Sagitype[]): (Io & Sentence)[] => [
@@ -88,14 +91,14 @@ const computeSzTexts = (sagitypes: Sagitype[]): (Io & Sentence)[] => [
 
 const computeTextsAndFonts = ({
     edoNotationName,
-    sagitypesForRow,
+    sagitypesForTileRow,
     diagramType,
-    tileRowCountScaleFactor,
+    tileRowCountScaler,
 }: {
     edoNotationName: EdoNotationName
-    sagitypesForRow: Sagitype[]
+    sagitypesForTileRow: Sagitype[]
     diagramType: DiagramType
-    tileRowCountScaleFactor: number
+    tileRowCountScaler: Scaler
 }) => {
     let texts: (Io & Sentence)[]
     let fonts: Font[]
@@ -105,23 +108,23 @@ const computeTextsAndFonts = ({
         diagramType === DiagramType.EVO_SZ &&
         computeShouldReplaceSagittalSemisharpWithSzInTile({
             edoNotationName,
-            sagitypesForRow,
+            sagitypesForTileRow,
         })
     ) {
-        texts = computeSzTexts(sagitypesForRow)
+        texts = computeSzTexts(sagitypesForTileRow)
         fonts = [
             deepClone(TILE_SAGITTALS_FONT),
             deepClone(TILE_SZ_SEMISHARP_FONT),
         ]
         fontIndices = [0, 1] as Index<Font>[]
     } else {
-        texts = computeTexts(sagitypesForRow)
+        texts = computeTexts(sagitypesForTileRow)
         fonts = [deepClone(TILE_SAGITTALS_FONT)]
         fontIndices = [0] as Index<Font>[]
     }
 
     fonts.forEach((font: Font): void => {
-        font.fontSize = (font.fontSize / tileRowCountScaleFactor) as Px
+        font.fontSize = (font.fontSize / tileRowCountScaler) as Px
     })
 
     return { texts, fonts, fontIndices }

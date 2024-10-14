@@ -7,10 +7,10 @@ import {
     EXTRA_ROOM_FOR_FIFTH_SIZE,
     TILE_SIZE,
 } from "./constants"
-import { NodeElement } from "./types"
-import { computeTileRowCountScaleFactor } from "./tile/tileRowCount"
+import { NodeElement, Scaler } from "./types"
+import { TileRow, computeTileRowCountScaler } from "./tile"
 
-const BOTH_SIDES: number = 2
+const BOTH_SIDES: Scaler = 2 as Scaler
 
 const setDiagramSizeAndGetDiagramWidth = (
     svgDocument: Document,
@@ -23,7 +23,7 @@ const setDiagramSizeAndGetDiagramWidth = (
         titleWidth: Px
         subtitleWidth: Px
         expressionsWidth: Px
-        tileRowCount: Count
+        tileRowCount: Count<TileRow>
     },
 ): Px => {
     const svg: NodeElement<SVGGElement> = svgDocument.getElementsByTagName(
@@ -33,7 +33,7 @@ const setDiagramSizeAndGetDiagramWidth = (
     const existingHeight: Px = parseFloat(svg.getAttribute("height")!) as Px
     const height: Px = (existingHeight +
         TOP_MARGIN +
-        TILE_SIZE * computeTileRowCountScaleFactor(tileRowCount)) as Px
+        TILE_SIZE * computeTileRowCountScaler(tileRowCount)) as Px
     svg.setAttribute("height", height.toString())
 
     const existingWidth: Px = parseFloat(svg.getAttribute("width")!) as Px
@@ -41,10 +41,9 @@ const setDiagramSizeAndGetDiagramWidth = (
         (existingWidth + LEFT_AND_RIGHT_MARGIN * BOTH_SIDES) as Px
     let width: Px
 
-    const tileRowCountScaleFactor: number =
-        computeTileRowCountScaleFactor(tileRowCount)
+    const tileRowCountScaler: number = computeTileRowCountScaler(tileRowCount)
     const totalWidthNeededForTile: Px = (TOTAL_WIDTH_NEEDED_FOR_TILE *
-        tileRowCountScaleFactor) as Px
+        tileRowCountScaler) as Px
 
     width = widthAssumingStavesLongerEnoughThanTitleAndExpressions
 

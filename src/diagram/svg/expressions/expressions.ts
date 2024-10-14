@@ -18,6 +18,7 @@ import { Font, NodeElement } from "../types"
 import { PATHIFIABLE_TEXTS_BY_EDO_NAME } from "./pathifiableTexts"
 import { handleSzForExpressions } from "./evo_sz"
 import { PathifiableTexts } from "./types"
+import { setTransform } from "../transform"
 
 const DEFINIENDUM_FONT: Font = {
     fontFile: BRAVURA_TEXT_SC_FONT_FILE,
@@ -48,20 +49,20 @@ const addExpressionsAndGetWidth = async (
         handleSzForExpressions(texts, { edoNotationName })
 
     const expressionsGroupElement: NodeElement<SVGGElement> =
-        await textsToSvgGroupElement(
+        await textsToSvgGroupElement({
             svgDocument,
             texts,
-            deepClone(FONTS),
+            fonts: deepClone(FONTS),
             fontIndices,
             additionalYOffsets,
-        )
+        })
 
-    expressionsGroupElement.setAttribute(
-        "transform",
-        `translate(${LEFT_AND_RIGHT_MARGIN} ${
-            TITLE_FONT_SIZE + SUBTITLE_FONT_SIZE + SUBTITLE_FONT_SIZE
-        })`,
-    )
+    setTransform(expressionsGroupElement, {
+        xTranslation: LEFT_AND_RIGHT_MARGIN,
+        yTranslation: (TITLE_FONT_SIZE +
+            SUBTITLE_FONT_SIZE +
+            SUBTITLE_FONT_SIZE) as Px,
+    })
 
     append(svgDocument, expressionsGroupElement)
 

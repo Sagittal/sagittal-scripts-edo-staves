@@ -1,8 +1,9 @@
 import { computeRange, Count } from "@sagittal/general"
 import { Sagittal } from "@sagittal/system"
-import { computeDownToNextRowCountsScaleFactor } from "../../../../../../src/diagram/svg/tile/sagittals/nextRowCountScale"
+import { computeDownToNextTileRowCountsScaler } from "../../../../../../src/diagram/svg/tile/sagittals/nextRowCountScale"
+import { Scaler } from "../../../../../../src/diagram/svg/types"
 
-const EXPECTED_DOWN_TO_NEXT_ROW_COUNTS_SCALE_FACTORS: number[] = [
+const EXPECTED_DOWN_TO_NEXT_ROW_COUNTS_SCALERS: Scaler[] = [
     4 / 4, // 0
     4 / 4, // 1
     4 / 4, // 2
@@ -36,24 +37,22 @@ const EXPECTED_DOWN_TO_NEXT_ROW_COUNTS_SCALE_FACTORS: number[] = [
     10 / 8, // 30
     10 / 10, // 31
     // ...
-]
+] as Scaler[]
 
-describe("computeDownToNextRowCountsScaleFactor", (): void => {
+describe("computeDownToNextTileRowCountsScaler", (): void => {
     it("computes the correct down-to-next-row-count's scale factor for each sagittal count (up to the ones I've manually documented here anyway)", (): void => {
         computeRange(31 as Count<Sagittal>).forEach(
             (sagittalCount: Count<Sagittal>): void => {
-                const expectedDownToNextRowCountsScaleFactor: number =
-                    EXPECTED_DOWN_TO_NEXT_ROW_COUNTS_SCALE_FACTORS[
-                        sagittalCount
-                    ]
-                const actualDownToNextRowCountsScaleFactor: number =
-                    computeDownToNextRowCountsScaleFactor(sagittalCount)
+                const expectedDownToNextTileRowCountsScaler: Scaler =
+                    EXPECTED_DOWN_TO_NEXT_ROW_COUNTS_SCALERS[sagittalCount]
+                const actualDownToNextTileRowCountsScaler: Scaler =
+                    computeDownToNextTileRowCountsScaler(sagittalCount)
 
-                expect(actualDownToNextRowCountsScaleFactor)
+                expect(actualDownToNextTileRowCountsScaler)
                     .withContext(
-                        `Expected scale factor for sagittal count of ${sagittalCount} to be ${expectedDownToNextRowCountsScaleFactor}, but instead found ${actualDownToNextRowCountsScaleFactor}`,
+                        `Expected scale factor for sagittal count of ${sagittalCount} to be ${expectedDownToNextTileRowCountsScaler}, but instead found ${actualDownToNextTileRowCountsScaler}`,
                     )
-                    .toBe(expectedDownToNextRowCountsScaleFactor)
+                    .toBe(expectedDownToNextTileRowCountsScaler)
             },
         )
     })

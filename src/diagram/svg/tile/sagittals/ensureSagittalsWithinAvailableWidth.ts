@@ -1,44 +1,39 @@
 import { Max, max, Px } from "@sagittal/general"
 import { getGroupWidth } from "../../width"
-import { NodeElement } from "../../types"
+import { NodeElement, Scaler } from "../../types"
 import { AVAILABLE_WIDTH_FOR_SAGITTALS } from "../../constants"
-import { computeExistingTransform } from "../../shift"
+import { furtherTransform } from "../../transform"
 
-const SCALE_TRANSFORM_ADJUSTMENT_FACTOR: number = 25
+const TRANSLATION_ADJUSTMENT_SCALER: Scaler = 25 as Scaler
 
 const ensureSagittalsWithinAvailableWidth = (
-    sagittalRowGroupElements: NodeElement<SVGGElement>[],
+    sagittalTileRowGroupElements: NodeElement<SVGGElement>[],
 ) => {
-    const sagittalsWidths: Px[] = sagittalRowGroupElements.map(
+    const sagittalsWidths: Px[] = sagittalTileRowGroupElements.map(
         (sagittalRowGroupElement: NodeElement<SVGGElement>) =>
             getGroupWidth(sagittalRowGroupElement),
     )
     const maxSagittalsWidth: Max<Px> = max(...sagittalsWidths)
 
     if (maxSagittalsWidth > AVAILABLE_WIDTH_FOR_SAGITTALS) {
-        sagittalRowGroupElements.forEach(
+        sagittalTileRowGroupElements.forEach(
             (sagittalRowGroupElement: NodeElement<SVGGElement>): void => {
-                const scaleFactorToKeepSagittalsWithinAvailableWidth: number =
-                    AVAILABLE_WIDTH_FOR_SAGITTALS / maxSagittalsWidth
+                const scalerToKeepSagittalsWithinAvailableWidth: Scaler =
+                    (AVAILABLE_WIDTH_FOR_SAGITTALS /
+                        maxSagittalsWidth) as Scaler
 
-                const xTransformAdjustment: Px = ((1 -
-                    scaleFactorToKeepSagittalsWithinAvailableWidth) *
-                    SCALE_TRANSFORM_ADJUSTMENT_FACTOR) as Px
-                const yTransformAdjustment: Px = ((1 -
-                    scaleFactorToKeepSagittalsWithinAvailableWidth) *
-                    SCALE_TRANSFORM_ADJUSTMENT_FACTOR) as Px
+                const xTranslation: Px = ((1 -
+                    scalerToKeepSagittalsWithinAvailableWidth) *
+                    TRANSLATION_ADJUSTMENT_SCALER) as Px
+                const yTranslation: Px = ((1 -
+                    scalerToKeepSagittalsWithinAvailableWidth) *
+                    TRANSLATION_ADJUSTMENT_SCALER) as Px
 
-                const { xTransformExisting, yTransformExisting } =
-                    computeExistingTransform(sagittalRowGroupElement)
-                const xTransformNew: Px = (xTransformExisting +
-                    xTransformAdjustment) as Px
-                const yTransformNew: Px = (yTransformExisting +
-                    yTransformAdjustment) as Px
-
-                sagittalRowGroupElement.setAttribute(
-                    "transform",
-                    `translate(${xTransformNew} ${yTransformNew}) scale(${scaleFactorToKeepSagittalsWithinAvailableWidth})`,
-                )
+                furtherTransform(sagittalRowGroupElement, {
+                    xTranslation,
+                    yTranslation,
+                    scale: scalerToKeepSagittalsWithinAvailableWidth
+                })
             },
         )
     }

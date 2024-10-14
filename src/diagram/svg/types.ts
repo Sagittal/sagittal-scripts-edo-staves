@@ -15,4 +15,6 @@ interface Font {
     fontSize: Px
 }
 
-export { NodeElement, Justification, Font }
+type Scaler = number & { _ScalerBrand: boolean } 
+
+export { NodeElement, Justification, Font, Scaler }

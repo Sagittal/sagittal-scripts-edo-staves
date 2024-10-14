@@ -13,12 +13,13 @@ import {
     LIMMA_AND_SHARP_X_OFFSET,
 } from "../../constants"
 import { textsToSvgGroupElement } from "../../text"
-import { Font, NodeElement } from "../../types"
+import { Font, NodeElement, Scaler } from "../../types"
 import { computeInputSentenceUnicode } from "staff-code"
 import { getGroupWidth } from "../../width"
 import { DiagramType } from "../../../../types"
 import { equalsPositiveOrLessThanZero } from "./zero"
 import { SHARP_COLOR } from "./constants"
+import { setTransform } from "../../transform"
 
 const addSharp = async (
     tileWrapperGroupElement: NodeElement<SVGGElement>,
@@ -27,13 +28,13 @@ const addSharp = async (
         fifthStep,
         svgDocument,
         diagramType,
-        tileRowCountScaleFactor,
+        tileRowCountScaler,
     }: {
         edo: Edo
         fifthStep: EdoStep
         svgDocument: Document
         diagramType: DiagramType
-        tileRowCountScaleFactor: number
+        tileRowCountScaler: Scaler
     },
 ): Promise<void> => {
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
@@ -81,24 +82,25 @@ const addSharp = async (
         SHARP_TEXT_Y_OFFSET,
     ] as Px[]
     const sharpStepGroupElement: NodeElement<SVGGElement> =
-        await textsToSvgGroupElement(
+        await textsToSvgGroupElement({
             svgDocument,
             texts,
             fonts,
             fontIndices,
             additionalYOffsets,
-        )
+        })
 
     sharpStepGroupElement.setAttribute("fill", SHARP_COLOR)
 
     const groupWidth = getGroupWidth(sharpStepGroupElement)
-    sharpStepGroupElement.setAttribute(
-        "transform",
-        `translate(${
-            (LIMMA_AND_SHARP_X_OFFSET + TILE_SIZE) * tileRowCountScaleFactor -
-            groupWidth / 2
-        } ${TILE_SIZE * tileRowCountScaleFactor + LIMMA_AND_SHARP_Y_OFFSET})`,
-    )
+
+    setTransform(sharpStepGroupElement, {
+        xTranslation: ((LIMMA_AND_SHARP_X_OFFSET + TILE_SIZE) *
+            tileRowCountScaler -
+            groupWidth / 2) as Px,
+        yTranslation: (TILE_SIZE * tileRowCountScaler +
+            LIMMA_AND_SHARP_Y_OFFSET) as Px,
+    })
 
     tileWrapperGroupElement.appendChild(sharpStepGroupElement)
 }

@@ -1,43 +1,48 @@
 import { Count, max, Max } from "@sagittal/general"
 import { Sagittal } from "@sagittal/system"
-import { computeSagittalCountsByRow } from "./sagittalCountsByRow"
+import { computeSagittalCountsByTileRow } from "./sagittalCountsByTileRow"
+import { TileRow } from "../types"
+import { Scaler } from "../../types"
 
 // This computes the scale factor for sizing sagittals down as much as (but no further than) the size of sagittals
 // at their max size at the sagittal per row count for the next row count but before actually adding the next row
 
-const computeDownToNextRowCountsScaleFactor = (
+const computeDownToNextTileRowCountsScaler = (
     sagittalCount: Count<Sagittal>,
-): number => {
-    let sagittalRowCount: Count = 1 as Count
-    let maxFullSizeSagittalsPerRow: Max<Count<Sagittal>> = 4 as Max<
+): Scaler => {
+    let sagittalTileRowCount: Count<TileRow<Sagittal>> = 1 as Count<
+        TileRow<Sagittal>
+    >
+    let maxFullSizeSagittalsPerTileRow: Max<Count<Sagittal>> = 4 as Max<
         Count<Sagittal>
     >
-    let maxSagittalsPerRow: Max<Count<Sagittal>> = 6 as Max<Count<Sagittal>>
+    let maxSagittalsPerTileRow: Max<Count<Sagittal>> = 6 as Max<Count<Sagittal>>
 
-    while (sagittalCount > sagittalRowCount * maxSagittalsPerRow) {
-        sagittalRowCount++
-        maxFullSizeSagittalsPerRow = ((maxFullSizeSagittalsPerRow *
-            (sagittalRowCount + 1)) /
-            (sagittalRowCount + 0)) as Max<Count<Sagittal>>
-        maxSagittalsPerRow = ((maxSagittalsPerRow * (sagittalRowCount + 2)) /
-            (sagittalRowCount + 1)) as Max<Count<Sagittal>>
+    while (sagittalCount > sagittalTileRowCount * maxSagittalsPerTileRow) {
+        sagittalTileRowCount++
+        maxFullSizeSagittalsPerTileRow = ((maxFullSizeSagittalsPerTileRow *
+            (sagittalTileRowCount + 1)) /
+            (sagittalTileRowCount + 0)) as Max<Count<Sagittal>>
+        maxSagittalsPerTileRow = ((maxSagittalsPerTileRow *
+            (sagittalTileRowCount + 2)) /
+            (sagittalTileRowCount + 1)) as Max<Count<Sagittal>>
     }
 
-    if (sagittalCount > sagittalRowCount * maxFullSizeSagittalsPerRow) {
+    if (sagittalCount > sagittalTileRowCount * maxFullSizeSagittalsPerTileRow) {
         const sagittalCountsByRow: Count<Sagittal>[] =
-            computeSagittalCountsByRow({
-                sagittalRowCount,
+            computeSagittalCountsByTileRow({
+                sagittalTileRowCount,
                 sagittalCount,
             })
 
-        const maxSagittalRowCount: Max<Count<Sagittal>> = max(
+        const maxSagittalTileRowCount: Max<Count<Sagittal>> = max(
             ...sagittalCountsByRow,
         )
 
-        return maxSagittalRowCount / maxFullSizeSagittalsPerRow
+        return maxSagittalTileRowCount / maxFullSizeSagittalsPerTileRow
     }
 
     return 1
 }
 
-export { computeDownToNextRowCountsScaleFactor }
+export { computeDownToNextTileRowCountsScaler }

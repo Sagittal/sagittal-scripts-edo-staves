@@ -22,7 +22,7 @@ import {
 import { computeDefaultSpellings } from "./chaining"
 import { computeDiagramSteps, DiagramStep } from "./hydration"
 import { assembleAsStaffCodeInputSentence } from "./assembly"
-import { computeIsExtraLargeEdo } from "./hydration/extraLarge"
+import { computeIsExtraLargeEdo } from "./hydration"
 
 const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
     edoNotationName: EdoNotationName,

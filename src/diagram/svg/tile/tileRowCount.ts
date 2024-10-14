@@ -6,20 +6,22 @@ import {
     isSubsetNotation,
     Sagittal,
 } from "@sagittal/system"
-import { DEFAULT_TILE_ROW_COUNT_WITH_ONE_ROW_FOR_EDO_AND_ONE_FOR_SAGITTALS_OR_SUBSET } from "./constants"
-import { computeMaxSagittalsForTileRowCount } from "./sagittals/maxSagittals"
+import { DEFAULT_TILE_ROW_COUNT_WITH_ONE_TILE_ROW_FOR_EDO_AND_ONE_FOR_SAGITTALS_OR_SUBSET } from "./constants"
+import { computeMaxSagittalsForTileRowCount } from "./sagittals"
+import { TileRow } from "./types"
+import { Scaler } from "../types"
 
-const computeTileRowCountScaleFactor = (tileRowCount: Count): number =>
-    tileRowCount /
-    DEFAULT_TILE_ROW_COUNT_WITH_ONE_ROW_FOR_EDO_AND_ONE_FOR_SAGITTALS_OR_SUBSET
+const computeTileRowCountScaler = (tileRowCount: Count<TileRow>): Scaler =>
+    (tileRowCount /
+        DEFAULT_TILE_ROW_COUNT_WITH_ONE_TILE_ROW_FOR_EDO_AND_ONE_FOR_SAGITTALS_OR_SUBSET) as Scaler
 
 const computeTileRowCount = ({
     edoNotationName,
 }: {
     edoNotationName: EdoNotationName
-}): Count => {
-    let tileRowCount: Count =
-        DEFAULT_TILE_ROW_COUNT_WITH_ONE_ROW_FOR_EDO_AND_ONE_FOR_SAGITTALS_OR_SUBSET
+}): Count<TileRow> => {
+    let tileRowCount: Count<TileRow> =
+        DEFAULT_TILE_ROW_COUNT_WITH_ONE_TILE_ROW_FOR_EDO_AND_ONE_FOR_SAGITTALS_OR_SUBSET
     const edoNotationDefinition: EdoNotationDefinition =
         EDO_NOTATION_DEFINITIONS[edoNotationName]
     if (isSubsetNotation(edoNotationDefinition)) return tileRowCount
@@ -38,4 +40,4 @@ const computeTileRowCount = ({
     return tileRowCount
 }
 
-export { computeTileRowCount, computeTileRowCountScaleFactor }
+export { computeTileRowCount, computeTileRowCountScaler }

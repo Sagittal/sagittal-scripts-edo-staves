@@ -86,14 +86,14 @@ const computeDefaultSingleSpellingLinkSpellings = ({
         if (
             !areLinksComplete &&
             limmaStep <= 0 &&
-            (spellingPlacedCount as Count) ===
-                LIMMA_LESS_THAN_OR_EQUAL_TO_ZERO_NOMINAL_COUNT
+            (spellingPlacedCount as Count<Spelling>) ===
+                LIMMA_LESS_THAN_OR_EQUAL_TO_ZERO_NOMINAL_COUNT as Count as Count<Spelling>
         )
             areLinksComplete = true
         if (
             !areLinksComplete &&
             useOnlyPlainNominals &&
-            (spellingPlacedCount as Count) === NOMINAL_COUNT
+            (spellingPlacedCount as Count<Spelling>) === NOMINAL_COUNT as Count as Count<Spelling>
         )
             areLinksComplete = true
 

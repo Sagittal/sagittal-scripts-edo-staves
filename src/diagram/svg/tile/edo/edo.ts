@@ -7,24 +7,24 @@ import {
     EDO_Y_OFFSET,
 } from "../../constants"
 import { addText } from "../../text"
-import { Justification, NodeElement } from "../../types"
-import { computeTileRowCountScaleFactor } from "../tileRowCount"
+import { Justification, NodeElement, Scaler } from "../../types"
+import { computeTileRowCountScaler } from "../tileRowCount"
+import { TileRow } from "../types"
 
 const addEdo = async (
     tileGroupElement: NodeElement<SVGGElement>,
     {
         edoNotationName,
         tileRowCount,
-    }: { edoNotationName: EdoNotationName; tileRowCount: Count },
+    }: { edoNotationName: EdoNotationName; tileRowCount: Count<TileRow> },
 ): Promise<void> => {
-    const tileRowCountScaleFactor: number =
-        computeTileRowCountScaleFactor(tileRowCount)
+    const tileRowCountScaler: Scaler = computeTileRowCountScaler(tileRowCount)
 
     await addText(tileGroupElement, edoNotationName, {
         fontFile: SANOMAT_FONT_FILE,
-        fontSize: (TILE_EDO_TEXT_FONT_SIZE / tileRowCountScaleFactor) as Px,
+        fontSize: (TILE_EDO_TEXT_FONT_SIZE / tileRowCountScaler) as Px,
         xOffset: (TILE_SIZE / 2) as Px,
-        yOffset: (EDO_Y_OFFSET / tileRowCountScaleFactor) as Px,
+        yOffset: (EDO_Y_OFFSET / tileRowCountScaler) as Px,
         justification: Justification.CENTER,
     })
 }

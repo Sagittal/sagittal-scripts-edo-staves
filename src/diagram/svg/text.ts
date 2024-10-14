@@ -10,15 +10,15 @@ import {
     max,
     Maybe,
 } from "@sagittal/general"
-import { NodeElement, Justification, Font } from "./types"
+import { NodeElement, Justification, Font, Scaler } from "./types"
 import { getGroupWidth } from "./width"
 import { getSvgDocumentFromString } from "./document"
 import { SVG_NS } from "./constants"
-import { shiftGroupElement } from "./shift"
+import { furtherTransform, setTransform } from "./transform"
 
-const FONT_SIZE_DIFFERENTIAL_Y_SHIFT_FACTOR: number = 27 / 20
+const FONT_SIZE_DIFFERENTIAL_Y_SHIFT_SCALER: Scaler = (27 / 20) as Scaler
 
-const computeYShift = ({
+const computeYTranslation = ({
     additionalYOffsets,
     textsIndex,
     maxFontSize,
@@ -34,19 +34,24 @@ const computeYShift = ({
 
     // If the font changes in size, then we need to shift its y position slightly to put it back where it was previously
     const fontSizeBasedAutomaticYOffset: Px = ((maxFontSize - font.fontSize) *
-        FONT_SIZE_DIFFERENTIAL_Y_SHIFT_FACTOR) as Px
+        FONT_SIZE_DIFFERENTIAL_Y_SHIFT_SCALER) as Px
 
     return (additionalYOffset + fontSizeBasedAutomaticYOffset) as Px
 }
 
-const textsToSvgGroupElement = async (
-    // TODO: this should take named args
-    svgDocument: Document,
-    texts: Io[],
-    fonts: Font[],
-    fontIndices: Index<Font>[],
-    additionalYOffsets?: Px[],
-): Promise<NodeElement<SVGGElement>> => {
+const textsToSvgGroupElement = async ({
+    svgDocument,
+    texts,
+    fonts,
+    fontIndices,
+    additionalYOffsets,
+}: {
+    svgDocument: Document
+    texts: Io[]
+    fonts: Font[]
+    fontIndices: Index<Font>[]
+    additionalYOffsets?: Px[]
+}): Promise<NodeElement<SVGGElement>> => {
     let textsWidth = 0 as Px
     const maxFontSize: Max<Px> = max(
         ...fonts.map(({ fontSize }: Font): Px => fontSize),
@@ -65,14 +70,17 @@ const textsToSvgGroupElement = async (
             const textGroupElement: NodeElement<SVGGElement> =
                 await textToSvgGroupElement(text, font)
 
-            const yShift: Px = computeYShift({
+            const yTranslation: Px = computeYTranslation({
                 additionalYOffsets,
                 textsIndex: textsIndex as Index,
                 maxFontSize,
                 font,
             })
-            shiftGroupElement(textGroupElement, textsWidth as Px, yShift)
-            
+            furtherTransform(textGroupElement, {
+                xTranslation: textsWidth as Px,
+                yTranslation,
+            })
+
             const textWidth: Px = getGroupWidth(textGroupElement, {
                 includeLefthandWhitespace: true,
             })
@@ -135,25 +143,19 @@ const addText = async (
         })
     textGroupElement.setAttribute("fill", color)
 
-    if (justification !== Justification.LEFT) {
-        const groupWidth = getGroupWidth(textGroupElement)
-        if (justification === Justification.CENTER) {
-            textGroupElement.setAttribute(
-                "transform",
-                `translate(${xOffset - groupWidth / 2} ${yOffset})`,
-            )
-        } else {
-            textGroupElement.setAttribute(
-                "transform",
-                `translate(${xOffset - groupWidth} ${yOffset})`,
-            )
-        }
-    } else {
-        textGroupElement.setAttribute(
-            "transform",
-            `translate(${xOffset} ${yOffset})`,
-        )
-    }
+    const groupWidth: Px = getGroupWidth(textGroupElement)
+
+    const xTranslation: Px =
+        justification === Justification.RIGHT
+            ? ((xOffset - groupWidth) as Px)
+            : justification === Justification.CENTER
+            ? ((xOffset - groupWidth / 2) as Px)
+            : xOffset
+
+    setTransform(textGroupElement, {
+        xTranslation,
+        yTranslation: yOffset,
+    })
 
     parentElement.appendChild(textGroupElement)
 

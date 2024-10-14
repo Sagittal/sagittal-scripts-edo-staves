@@ -15,7 +15,7 @@ import {
 } from "../diagram"
 import { computeSentencesAndDifferenceCase } from "../difference"
 import { DiagramType, DifferenceCase } from "../types"
-import { FLAVOR_INDEX_FOR_GENERAL_DIAGRAM_TYPE } from "../diagram/generate/constants"
+import { FLAVOR_INDEX_FOR_GENERAL_DIAGRAM_TYPE } from "../diagram"
 
 const DIAGRAM_TYPE_FOR_FLAVOR: Record<Flavor, DiagramType> = {
     [Flavor.EVO]: DiagramType.EVO,

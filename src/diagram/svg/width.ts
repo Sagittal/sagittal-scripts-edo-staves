@@ -1,6 +1,6 @@
 import { max, min, Px } from "@sagittal/general"
 import { NodeElement } from "./types"
-import { computeExistingTransform } from "./shift"
+import { computeExistingTranslation } from "./transform"
 
 const PATH_COMMANDS_RELEVANT_TO_X_POSITION: string[] = ["M", "L", "H", "C"]
 
@@ -59,16 +59,16 @@ const getGroupWidth = (
                 includeLefthandWhitespace: true,
             }),
     )
-    const transforms: { xTransformExisting: Px; yTransformExisting: Px }[] =
-        groupElements.map(computeExistingTransform)
+    const translations: { xTranslationExisting: Px; yTranslationExisting: Px }[] =
+        groupElements.map(computeExistingTranslation)
 
     let minX = Infinity
     let maxX = -Infinity
 
     widths.forEach((width: Px, widthIndex: number): void => {
-        const tranformX: Px = transforms[widthIndex].xTransformExisting
-        minX = min(minX, tranformX)
-        maxX = max(maxX, tranformX + width)
+        const xTranslation: Px = translations[widthIndex].xTranslationExisting
+        minX = min(minX, xTranslation)
+        maxX = max(maxX, xTranslation + width)
     }, 0 as Px)
 
     return (maxX - minX) as Px
