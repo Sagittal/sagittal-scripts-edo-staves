@@ -89,7 +89,7 @@ This notation is a subset of the notations for EDOs [[36-EDO#Sagittal notation|3
 [[File:18-EDO_Revo.svg]]
 
 ===Sagittal notation===
-This notation is a subset of the notations for EDOs [[38-EDO#Sagittal notation|38]] and [[57-EDO#Sagittal notation|57]].
+This notation is a subset of the notations for EDOs [[38-EDO#Sagittal notation|38]], [[57-EDO#Sagittal notation|57]], and [[76-EDO#Sagittal notation|76]].
 ====Evo flavor====
 [[File:19-EDO_Evo.svg]]
 Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
