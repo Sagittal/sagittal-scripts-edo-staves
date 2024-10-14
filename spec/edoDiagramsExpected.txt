@@ -2574,7 +2574,7 @@ en; blfn
 
 
 59-EDO Evo Sagittal notation
-A bad-fifth apotome-fraction notation (default spellings)
+(default spellings)
 
 ston 
 4; trcl; 12;
@@ -2604,7 +2604,7 @@ en; blfn
 
 
 59-EDO Revo Sagittal notation
-A bad-fifth apotome-fraction notation (default spellings)
+(default spellings)
 
 ston 
 4; trcl; 12;
