@@ -5,6 +5,7 @@ import {
     EdoNotationDefinition,
     isSubsetNotation,
     Sagittal,
+    computeSagitypes,
 } from "@sagittal/system"
 import { DEFAULT_TILE_ROW_COUNT_WITH_ONE_TILE_ROW_FOR_EDO_AND_ONE_FOR_SAGITTALS_OR_SUBSET } from "./constants"
 import { computeMaxSagittalsForTileRowCount } from "./sagittals"
@@ -26,8 +27,9 @@ const computeTileRowCount = ({
         EDO_NOTATION_DEFINITIONS[edoNotationName]
     if (isSubsetNotation(edoNotationDefinition)) return tileRowCount
 
-    const sagittalCount: Count<Sagittal> = edoNotationDefinition.sagitypes
-        .length as Count<Sagittal>
+    const sagittalCount: Count<Sagittal> = computeSagitypes(
+        edoNotationDefinition,
+    ).length as Count<Sagittal>
 
     let maxSagittalsForTileRowCount: Max<Count<Sagittal>> =
         computeMaxSagittalsForTileRowCount(tileRowCount)

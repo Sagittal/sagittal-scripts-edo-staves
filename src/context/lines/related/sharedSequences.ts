@@ -9,6 +9,7 @@ import {
     isSubsetNotation,
     parseEdoNotationName,
     Sagitype,
+    computeSagitypes,
 } from "@sagittal/system"
 
 const EDO_NOTATION_DEFINITIONS_ENTRIES: [
@@ -63,11 +64,9 @@ const computeLimmaFractionSharedSagittalSequenceEdoNotationNames = (
 
             if (otherLimmaStep !== limmaStep!) return false
 
-            const otherRelevantSagitypes =
-                otherEdoNotationDefinition.sagitypes.slice(
-                    0,
-                    floor(otherLimmaStep / 2),
-                )
+            const otherRelevantSagitypes = computeSagitypes(
+                otherEdoNotationDefinition,
+            ).slice(0, floor(otherLimmaStep / 2))
             return deepEquals(otherRelevantSagitypes, relevantSagitypes)
         },
     )
@@ -99,11 +98,9 @@ const computeApotomeFractionSharedSagittalSequenceEdoNotationNames = (
 
             if (otherSharpStep !== sharpStep!) return false
 
-            const otherRelevantSagitypes =
-                otherEdoNotationDefinition.sagitypes.slice(
-                    0,
-                    floor(otherSharpStep / 2),
-                )
+            const otherRelevantSagitypes = computeSagitypes(
+                otherEdoNotationDefinition,
+            ).slice(0, floor(otherSharpStep / 2))
 
             return deepEquals(otherRelevantSagitypes, relevantSagitypes)
         },

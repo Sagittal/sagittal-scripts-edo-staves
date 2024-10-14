@@ -1,5 +1,6 @@
 import { Document } from "@xmldom/xmldom"
 import {
+    computeSagitypes,
     EDO_NOTATION_DEFINITIONS,
     EdoNotationName,
     NonSubsetEdoNotationDefinition,
@@ -48,11 +49,11 @@ const addSagittalsAndGetFurtherScaler = async (
         tileRowCount: Count<TileRow>
     },
 ): Promise<Scaler> => {
-    const sagitypes: Sagitype[] = (
+    const sagitypes: Sagitype[] = computeSagitypes(
         EDO_NOTATION_DEFINITIONS[
             edoNotationName
         ] as NonSubsetEdoNotationDefinition
-    ).sagitypes
+    )
 
     const sagittalCount: Count<Sagittal> = sagitypes.length as Count<Sagittal>
     if (sagittalCount === 0) return NEUTRAL_SCALER

@@ -23,6 +23,7 @@ import {
     Sagitype,
     Spelling,
     SubsetFactor,
+    computeSagitypes,
 } from "@sagittal/system"
 import { computeDefaultSpellings } from "../sentence"
 
@@ -43,11 +44,11 @@ const computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes = (
     const supersetEdo: Edo = parseEdoNotationName(supersetEdoNotationName).edo
     const subsetFactor: SubsetFactor = computeSubsetFactor({ edo, supersetEdo })
     const flavor: Flavor = Flavor.REVO
-    const sagitypes: Sagitype[] = (
+    const sagitypes: Sagitype[] = computeSagitypes(
         EDO_NOTATION_DEFINITIONS[
             supersetEdoNotationName
         ] as NonSubsetEdoNotationDefinition
-    ).sagitypes
+    )
     const fifthStep: EdoStep = computeFifthStep(supersetEdoNotationName)
     const sharpStep: EdoStep = computeSharpStep(supersetEdo, fifthStep)
     const limmaStep: EdoStep = computeLimmaStep(supersetEdo, fifthStep)

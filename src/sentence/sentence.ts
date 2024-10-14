@@ -18,6 +18,7 @@ import {
     EdoNotationName,
     parseEdoNotationName,
     EDO_NOTATION_DEFINITIONS,
+    computeSagitypes,
 } from "@sagittal/system"
 import { computeDefaultSpellings } from "./chaining"
 import { computeDiagramSteps, DiagramStep } from "./hydration"
@@ -29,11 +30,11 @@ const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
     flavor: Flavor,
     subsetFactor?: SubsetFactor,
 ): Io & Sentence => {
-    const sagitypes: Sagitype[] = (
+    const sagitypes: Sagitype[] = computeSagitypes(
         EDO_NOTATION_DEFINITIONS[
             edoNotationName
         ] as NonSubsetEdoNotationDefinition
-    ).sagitypes
+    )
     const fifthStep: EdoStep = computeFifthStep(edoNotationName)
     const edo: Edo = parseEdoNotationName(edoNotationName).edo
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
