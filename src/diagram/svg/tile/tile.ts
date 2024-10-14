@@ -8,20 +8,14 @@ import { addSteps } from "./steps"
 import { maybeAddCornerTriangle } from "./cornerTriangle"
 import { NodeElement, Scaler } from "../types"
 import { roundAllTranslations } from "../shift"
-import {
-    EXTRA_ROOM_FOR_FIFTH_SIZE,
-    LEFT_AND_RIGHT_MARGIN,
-    SVG_NS,
-    TILE_SIZE,
-    TILE_TOP_MARGIN,
-} from "../constants"
-import { computeTileRowCountScaler } from "./tileRowCount"
+import { SVG_NS, TILE_SIZE } from "../constants"
+import { computeTileRowCount, computeTileRowCountScaler } from "./tileRowCount"
 import { append } from "../append"
 import { DiagramType } from "../../../types"
 import { TileRow } from "./types"
 import { setTransform } from "../transform"
 
-const addTileItself = async (
+const addTileItselfAndGetSize = async (
     svgDocument: Document,
     {
         edoNotationName,
@@ -34,7 +28,7 @@ const addTileItself = async (
         tileWrapperGroupElement: NodeElement<SVGGElement>
         tileRowCount: Count<TileRow>
     },
-): Promise<void> => {
+): Promise<Px> => {
     const tileGroupElement: NodeElement<SVGGElement> =
         svgDocument.createElementNS(SVG_NS, "g") as NodeElement<SVGGElement>
 
@@ -59,46 +53,40 @@ const addTileItself = async (
 
     roundAllTranslations(tileGroupElement)
 
-    setTransform(tileGroupElement, {
-        scale: computeTileRowCountScaler(tileRowCount),
-    })
+    const scale: Scaler = computeTileRowCountScaler(tileRowCount)
+    setTransform(tileGroupElement, { scale })
 
     tileWrapperGroupElement.appendChild(tileGroupElement)
+
+    return (TILE_SIZE * scale) as Px
 }
 
-const addTile = async (
+const addTileAndGetSize = async (
     svgDocument: Document,
     {
         edoNotationName,
-        diagramWidth,
         diagramType,
-        tileRowCount,
     }: {
         edoNotationName: EdoNotationName
-        diagramWidth: Px
         diagramType: DiagramType
-        tileRowCount: Count<TileRow>
     },
-): Promise<void> => {
+): Promise<{
+    tileWrapperGroupElement: NodeElement<SVGGElement>
+    tileSize: Px
+}> => {
+    const tileRowCount: Count<TileRow> = computeTileRowCount({
+        edoNotationName,
+    })
     const tileWrapperGroupElement: NodeElement<SVGGElement> =
         svgDocument.createElementNS(SVG_NS, "g") as NodeElement<SVGGElement>
-    const tileRowCountScaler: Scaler = computeTileRowCountScaler(tileRowCount)
 
-    setTransform(tileWrapperGroupElement, {
-        xTranslation: (diagramWidth -
-            LEFT_AND_RIGHT_MARGIN -
-            TILE_SIZE * tileRowCountScaler -
-            EXTRA_ROOM_FOR_FIFTH_SIZE) as Px,
-        yTranslation: TILE_TOP_MARGIN,
-    })
-
-    await addTileItself(svgDocument, {
+    const tileSize: Px = await addTileItselfAndGetSize(svgDocument, {
         tileWrapperGroupElement,
         edoNotationName,
         diagramType,
         tileRowCount,
     })
-
+    console.log("tileSize", tileSize)
     await addSteps(svgDocument, {
         tileWrapperGroupElement,
         edoNotationName,
@@ -107,6 +95,8 @@ const addTile = async (
     })
 
     append(svgDocument, tileWrapperGroupElement)
+
+    return { tileWrapperGroupElement, tileSize }
 }
 
-export { addTile }
+export { addTileAndGetSize }

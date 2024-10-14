@@ -1,5 +1,5 @@
 import { Document } from "@xmldom/xmldom"
-import { Count, Px } from "@sagittal/general"
+import { Px } from "@sagittal/general"
 import {
     LEFT_AND_RIGHT_MARGIN,
     TOP_MARGIN,
@@ -8,7 +8,6 @@ import {
     TILE_SIZE,
 } from "./constants"
 import { NodeElement, Scaler } from "./types"
-import { TileRow, computeTileRowCountScaler } from "./tile"
 
 const BOTH_SIDES: Scaler = 2 as Scaler
 
@@ -18,12 +17,12 @@ const setDiagramSizeAndGetDiagramWidth = (
         titleWidth,
         subtitleWidth,
         expressionsWidth,
-        tileRowCount,
+        tileSize,
     }: {
         titleWidth: Px
         subtitleWidth: Px
         expressionsWidth: Px
-        tileRowCount: Count<TileRow>
+        tileSize: Px
     },
 ): Px => {
     const svg: NodeElement<SVGGElement> = svgDocument.getElementsByTagName(
@@ -31,9 +30,7 @@ const setDiagramSizeAndGetDiagramWidth = (
     )[0] as NodeElement<SVGGElement>
 
     const existingHeight: Px = parseFloat(svg.getAttribute("height")!) as Px
-    const height: Px = (existingHeight +
-        TOP_MARGIN +
-        TILE_SIZE * computeTileRowCountScaler(tileRowCount)) as Px
+    const height: Px = (existingHeight + TOP_MARGIN + tileSize) as Px
     svg.setAttribute("height", height.toString())
 
     const existingWidth: Px = parseFloat(svg.getAttribute("width")!) as Px
@@ -41,9 +38,9 @@ const setDiagramSizeAndGetDiagramWidth = (
         (existingWidth + LEFT_AND_RIGHT_MARGIN * BOTH_SIDES) as Px
     let width: Px
 
-    const tileRowCountScaler: number = computeTileRowCountScaler(tileRowCount)
-    const totalWidthNeededForTile: Px = (TOTAL_WIDTH_NEEDED_FOR_TILE *
-        tileRowCountScaler) as Px
+    const totalWidthNeededForTile: Px = ((TOTAL_WIDTH_NEEDED_FOR_TILE *
+        tileSize) /
+        TILE_SIZE) as Px
 
     width = widthAssumingStavesLongerEnoughThanTitleAndExpressions
 

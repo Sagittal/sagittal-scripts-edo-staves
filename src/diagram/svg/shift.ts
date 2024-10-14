@@ -3,15 +3,10 @@ import {
     LEFT_AND_RIGHT_MARGIN,
     OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION,
     TOP_MARGIN,
-    TILE_SIZE,
 } from "./constants"
 import { NodeElement } from "./types"
-import { Count, Px } from "@sagittal/general"
-import { TileRow, computeTileRowCountScaler } from "./tile"
-import {
-    furtherTransform,
-    roundTransform,
-} from "./transform"
+import { Px } from "@sagittal/general"
+import { furtherTransform, roundTransform } from "./transform"
 
 const roundAllTranslations = (
     tileGroupElement: NodeElement<SVGGElement>,
@@ -48,13 +43,12 @@ const shiftAllTopLevelGroupElements = (
 // the titles and tile have not yet been added
 const shiftStavesDown = (
     svgDocument: Document,
-    { tileRowCount }: { tileRowCount: Count<TileRow> },
+    { tileSize }: { tileSize: Px },
 ): void =>
     shiftAllTopLevelGroupElements(
         svgDocument,
         LEFT_AND_RIGHT_MARGIN,
-        (TOP_MARGIN +
-            TILE_SIZE * computeTileRowCountScaler(tileRowCount)) as Px,
+        (TOP_MARGIN + tileSize) as Px,
     )
 
 const makeNicelyPngifiable = (svgDocument: Document): void =>
