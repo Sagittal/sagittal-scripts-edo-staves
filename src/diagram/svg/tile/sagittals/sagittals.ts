@@ -12,7 +12,7 @@ import { Count, Index, Io, Px, Sentence } from "@sagittal/general"
 import { TILE_SIZE } from "../../constants"
 import { computeTileRowCountScaler } from "../tileRowCount"
 import { textsToSvgGroupElement } from "../../text"
-import { computeTextsAndFonts } from "../textsAndFonts"
+import { computeSagittalTextsAndFonts } from "./textsAndFonts"
 import { getGroupWidth } from "../../width"
 import { computeDownToNextTileRowCountsScaler } from "./nextRowCountScale"
 import { computeSagitypesByTileRow } from "./sagitypesByTileRow"
@@ -80,11 +80,16 @@ const addSagittals = async (
                         texts: (Io & Sentence)[]
                         fonts: Font[]
                         fontIndices: Index<Font>[]
-                    } = computeTextsAndFonts({
+                    } = computeSagittalTextsAndFonts({
                         edoNotationName,
                         diagramType,
                         sagitypesForTileRow,
                         tileRowCountScaler,
+                        sagitypes,
+                        sagittalTileRowIndex: sagittalTileRowIndex as Index<
+                            TileRow<Sagittal>
+                        >,
+                        tileRowCount,
                     })
 
                     const additionalYOffsets: Px[] =
@@ -108,9 +113,9 @@ const addSagittals = async (
 
                     const xTranslation: Px = (TILE_SIZE / 2 -
                         sagittalsWidth / 2) as Px
-                    const yTranslation: Px =
-                        (sagittalTileRowIndex - SAGITTAL_ROW_Y_OFFSET_SCALER) *
-                        (TILE_SIZE / 2 / tileRowCountScaler) as Px
+                    const yTranslation: Px = ((sagittalTileRowIndex -
+                        SAGITTAL_ROW_Y_OFFSET_SCALER) *
+                        (TILE_SIZE / 2 / tileRowCountScaler)) as Px
 
                     setTransform(sagittalTileRowGroupElement, {
                         xTranslation,

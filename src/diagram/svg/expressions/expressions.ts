@@ -16,7 +16,7 @@ import { append } from "../append"
 import { getGroupWidth } from "../width"
 import { Font, NodeElement } from "../types"
 import { PATHIFIABLE_TEXTS_BY_EDO_NAME } from "./pathifiableTexts"
-import { handleSzForExpressions } from "./evo_sz"
+import { handleSzForExpressions } from "./evoSz"
 import { PathifiableTexts } from "./types"
 import { setTransform } from "../transform"
 
