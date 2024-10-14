@@ -1,49 +1,19 @@
+import { isEven } from "@sagittal/general"
 import {
-    deepEquals,
-    Index,
-    isEven,
-    isUndefined,
-    Maybe,
-    ZERO_ONE_INDEX_DIFF,
-} from "@sagittal/general"
-import {
-    computeSagittalSagitype,
+    computeFifthStep,
+    computeSharpStep,
+    Edo,
+    EdoNotationName,
     EdoStep,
-    Sagittal,
-    SAGITTAL_SEMISHARP,
-    Sagitype,
+    parseEdoNotationName,
 } from "@sagittal/system"
 
-const computeHalfApotomeIndex = (sharpStep: EdoStep): Index =>
-    (sharpStep / 2 - ZERO_ONE_INDEX_DIFF) as Index
+const computeHasHalfApotome = (edoNotationName: EdoNotationName): boolean => {
+    const edo: Edo = parseEdoNotationName(edoNotationName).edo
+    const fifthStep: EdoStep = computeFifthStep(edoNotationName)
+    const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
 
-const getMaybeHalfApotome = <T = Sagittal | Sagitype>(
-    sagittalsOrSagitypes: T[],
-    sharpStep: EdoStep,
-): Maybe<T> =>
-    isEven(sharpStep)
-        ? sagittalsOrSagitypes[computeHalfApotomeIndex(sharpStep)]
-        : undefined
-
-const isSagittal = (
-    sagittalOrSagitype: Sagittal | Sagitype,
-): sagittalOrSagitype is Sagittal => typeof sagittalOrSagitype === "object"
-
-const computeIsSagittalSemisharpTheHalfApotome = (
-    sagittalsOrSagitypes: (Sagittal | Sagitype)[],
-    sharpStep: EdoStep,
-): boolean => {
-    const maybeHalfApotome: Maybe<Sagittal | Sagitype> = getMaybeHalfApotome(
-        sagittalsOrSagitypes,
-        sharpStep,
-    )
-    if (isUndefined(maybeHalfApotome)) return false
-
-    return deepEquals(
-        getMaybeHalfApotome(sagittalsOrSagitypes, sharpStep),
-        isSagittal(maybeHalfApotome)
-            ? SAGITTAL_SEMISHARP
-            : computeSagittalSagitype(SAGITTAL_SEMISHARP),
-    )
+    return isEven(sharpStep)
 }
-export { computeIsSagittalSemisharpTheHalfApotome }
+
+export { computeHasHalfApotome }

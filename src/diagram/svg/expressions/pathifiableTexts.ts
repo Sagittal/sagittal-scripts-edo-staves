@@ -33,7 +33,7 @@ const RAW_EXPRESSION_DATA = `
 56 12; !); = ~7C (63/64), 12; \\!; = ~5C (80/81), 12; /|\\; = ~11M (33/32) nl;
 57 12; /|); ≈ ~13M (1053/1024) nl;
 58 12; \\!; = ~5C (80/81), 12; |\\; = ~55C (55/54), 12; /|\\; = ~11M (33/32) nl;
-59 12; )|; ≈ ~3A/9 (⁹√(2187/2048)), 12; )~!; = ~143C (143/144), 12; \\!; = ~5C (80/81), 12; /|); ≈ ~13M (1053/1024) nl;
+59 12; )|; ≈ ~3A/9 ( ⁹√(2187/2048)), 12; )~!; = ~143C (143/144), 12; \\!; = ~5C (80/81), 12; /|); ≈ ~13M (1053/1024) nl;
 60 12; (!; = ~11/7C (45056/45927), 12; /|~; = ~23/5S (46/45) nl;
 61 12; )|; = ~19s (513/512), 12; \\!; = ~5C (80/81), 12; /|\\; = ~11M (33/32), 12; (!/; ≈ ~13L (26/27) nl;
 62 12; /|); ≈ ~13M (1053/1024), 12; /|\\; = ~11M (33/32) nl;
@@ -113,7 +113,7 @@ const convertToPathifiableTexts = (
 
             expressions.forEach(
                 ({ definiendum, definiens }: Expression): void => {
-                    texts.push(computeInputSentenceUnicode(definiendum))
+                    texts.push(definiendum)
                     fontIndices.push(0 as Index<Font>)
                     additionalYOffsets.push(0 as Px)
                     texts.push(definiens)

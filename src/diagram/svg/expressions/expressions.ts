@@ -1,5 +1,13 @@
 import { Document } from "@xmldom/xmldom"
-import { deepClone, isUndefined, Px } from "@sagittal/general"
+import {
+    deepClone,
+    Index,
+    Io,
+    isEven,
+    isUndefined,
+    Px,
+    Sentence,
+} from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
 import { DiagramType } from "../../../types"
 import {
@@ -19,6 +27,7 @@ import { PATHIFIABLE_TEXTS_BY_EDO_NAME } from "./pathifiableTexts"
 import { handleSzForExpressions } from "./evoSz"
 import { PathifiableTexts } from "./types"
 import { setTransform } from "../transform"
+import { computeInputSentenceUnicode } from "staff-code"
 
 const DEFINIENDUM_FONT: Font = {
     fontFile: BRAVURA_TEXT_SC_FONT_FILE,
@@ -29,6 +38,20 @@ const DEFINIENS_FONT: Font = {
     fontSize: STEP_FONT_SIZE,
 }
 const FONTS = [DEFINIENDUM_FONT, DEFINIENS_FONT]
+
+const convertBravuraTextsFromCodeToUnicode = (texts: Io[]): void => {
+    for (
+        let textsIndex: Index<Io> = 0 as Index<Io>;
+        textsIndex < texts.length;
+        textsIndex++
+    ) {
+        if (isEven(textsIndex)) {
+            texts[textsIndex] = computeInputSentenceUnicode(
+                texts[textsIndex] as Io & Sentence,
+            )
+        }
+    }
+}
 
 const addExpressionsAndGetWidth = async (
     svgDocument: Document,
@@ -47,6 +70,8 @@ const addExpressionsAndGetWidth = async (
 
     if (diagramType === DiagramType.EVO_SZ)
         handleSzForExpressions(texts, { edoNotationName })
+
+    convertBravuraTextsFromCodeToUnicode(texts)
 
     const expressionsGroupElement: NodeElement<SVGGElement> =
         await textsToSvgGroupElement({

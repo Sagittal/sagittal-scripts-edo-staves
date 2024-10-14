@@ -85,7 +85,6 @@ const addSagittals = async (
                         diagramType,
                         sagitypesForTileRow,
                         tileRowCountScaler,
-                        sagitypes,
                         sagittalTileRowIndex: sagittalTileRowIndex as Index<
                             TileRow<Sagittal>
                         >,

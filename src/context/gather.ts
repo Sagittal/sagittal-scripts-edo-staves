@@ -48,7 +48,7 @@ const gatherSubsectionsForEdoNotationName = (
     } else if (
         differenceCase === DifferenceCase._1A_ALL_DIFFERENT_REVO_COULD_BE_EVO
     ) {
-        ;[
+        return [
             {
                 diagramType: DiagramType.GENERAL,
                 notation:

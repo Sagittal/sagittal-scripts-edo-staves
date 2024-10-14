@@ -4,7 +4,7 @@ import { Count, deepClone, Index, Io, Px, Sentence } from "@sagittal/general"
 import { computeInputSentenceUnicode } from "staff-code"
 import { DiagramType } from "../../../../types"
 import { TileRow } from "../types"
-import { computeSzTextsAndFonts, shouldSz } from "./evoSz"
+import { computeSzTextsAndFonts, shouldHandleSzTextsAndFonts } from "./evoSz"
 import { computeSagitypeSentence } from "./sagitypeSentence"
 import { TILE_SAGITTALS_FONT } from "./constants"
 
@@ -27,7 +27,6 @@ const computeSagittalTextsAndFonts = ({
     sagitypesForTileRow,
     diagramType,
     tileRowCountScaler,
-    sagitypes,
     tileRowCount,
     sagittalTileRowIndex,
 }: {
@@ -35,14 +34,12 @@ const computeSagittalTextsAndFonts = ({
     sagitypesForTileRow: Sagitype[]
     diagramType: DiagramType
     tileRowCountScaler: Scaler
-    sagitypes: Sagitype[]
     tileRowCount: Count<TileRow>
     sagittalTileRowIndex: Index<TileRow<Sagittal>>
 }) => {
-    const { texts, fonts, fontIndices } = shouldSz({
+    const { texts, fonts, fontIndices } = shouldHandleSzTextsAndFonts({
         diagramType,
         sagittalTileRowIndex,
-        sagitypes,
         tileRowCount,
         edoNotationName,
     })

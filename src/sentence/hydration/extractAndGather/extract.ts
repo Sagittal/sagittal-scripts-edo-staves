@@ -3,7 +3,7 @@ import {
     Maybe,
     Index,
     ZERO_ONE_INDEX_DIFF,
-    deepEquals,
+    abs,
     isUndefined,
     Word,
     dividesEvenly,
@@ -16,9 +16,6 @@ import {
     Link,
     Whorl,
     NOMINALS,
-    SAGITTAL_SEMIFLAT,
-    SAGITTAL_SEMISHARP,
-    Sagitype,
     SubsetFactor,
     Nominal,
     EdoStep,
@@ -28,7 +25,6 @@ import {
 import { Codewords } from "../types"
 import { computeWidth } from "./spacing"
 import { computeIsC4 } from "./c4"
-import { computeIsSagittalSemisharpTheHalfApotome } from "../../../halfApotome"
 import { splitAccents } from "../../../accents"
 
 const REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D: Index<Link> = -17 as Index<Link>
@@ -105,21 +101,18 @@ const handleGeneralSagittalAndWhorlCodewords = ({
 
 const computeEvoSZSagittalAndWhorlCodewords = ({
     sharpStep,
-    sagittals,
+    sagittalIndex,
     maybeSagittal,
     whorl,
     flavor,
 }: {
     sharpStep: EdoStep
-    sagittals: Sagittal[]
     maybeSagittal: Maybe<Sagittal>
     whorl: Whorl
-    flavor: Flavor
+        flavor: Flavor
+        sagittalIndex: Index<Sagittal>
 }): { sagittalCodewords: (Code & Word)[]; whorlCodewords: (Code & Word)[] } => {
-    const sagittalSemisharpIsTheHalfApotome: boolean =
-        computeIsSagittalSemisharpTheHalfApotome(sagittals, sharpStep)
-
-    if (!sagittalSemisharpIsTheHalfApotome) {
+    if (!isEven(sharpStep) || isUndefined(maybeSagittal)) {
         return handleGeneralSagittalAndWhorlCodewords({
             maybeSagittal,
             whorl,
@@ -127,8 +120,9 @@ const computeEvoSZSagittalAndWhorlCodewords = ({
         })
     }
 
-    const isHalfSharp: boolean = deepEquals(maybeSagittal, SAGITTAL_SEMISHARP)
-    const isHalfFlat: boolean = deepEquals(maybeSagittal, SAGITTAL_SEMIFLAT)
+    const isHalfApotome = sharpStep / 2 === abs(sagittalIndex)
+    const isHalfSharp: boolean = isHalfApotome && !maybeSagittal.down
+    const isHalfFlat: boolean = isHalfApotome && !!maybeSagittal.down
 
     if (whorl === Whorl.DOUBLE_SHARP && isHalfFlat) {
         return { sagittalCodewords: [], whorlCodewords: [SZ_SESQUISHARP] }
@@ -177,7 +171,7 @@ const computeSagittalAndWhorlCodewords = ({
     return flavor === Flavor.EVO_SZ
         ? computeEvoSZSagittalAndWhorlCodewords({
               sharpStep,
-              sagittals,
+              sagittalIndex,
               maybeSagittal,
               whorl,
               flavor,
