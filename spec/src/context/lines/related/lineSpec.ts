@@ -2,7 +2,7 @@ import { EdoNotationName } from "@sagittal/system"
 import { computeRelatedEdosLine } from "../../../../../src/context/lines/related/line"
 
 describe("computeRelatedEdosLine", (): void => {
-    it("computes the correct sets line for 22-EDO", (): void => {
+    it("computes the correct sets line for 22-EDO, an example with all three of same sagittal sequences, subset notations, and superset notations", (): void => {
         const edoNotationName = "22" as EdoNotationName
         const setsLine = computeRelatedEdosLine(edoNotationName)
 
@@ -11,7 +11,7 @@ describe("computeRelatedEdosLine", (): void => {
         )
     })
 
-    it("computes the correct sets line for 7-EDO", (): void => {
+    it("computes the correct sets line for 7-EDO, an example with only same sagittal sequences and superset notations (no subset notations)", (): void => {
         const edoNotationName = "17" as EdoNotationName
         const setsLine = computeRelatedEdosLine(edoNotationName)
 
@@ -20,16 +20,16 @@ describe("computeRelatedEdosLine", (): void => {
         )
     })
 
-    it("computes the correct sets line for 38-EDO", (): void => {
-        const edoNotationName = "38" as EdoNotationName
+    it("computes the correct sets line for 25-EDO, an example with only same sagittal sequences and subset notations (no superset notations)", (): void => {
+        const edoNotationName = "25" as EdoNotationName
         const setsLine = computeRelatedEdosLine(edoNotationName)
 
         expect(setsLine).toBe(
-            "This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[24-EDO#Sagittal notation|24]], and [[31-EDO#Sagittal notation|31]], and is a superset of the notation for [[19-EDO#Sagittal notation|19-EDO]].",
+            "This notation uses the same sagittal sequence as [[32-EDO#Sagittal notation|32-EDO]], and is a superset of the notation for [[5-EDO#Sagittal notation|5-EDO]].",
         )
     })
 
-    it("computes the correct sets line for 26-EDO", (): void => {
+    it("computes the correct sets line for 26-EDO, an example with only subset and superset notations (no same sagittal sequences)", (): void => {
         const edoNotationName = "26" as EdoNotationName
         const setsLine = computeRelatedEdosLine(edoNotationName)
 
@@ -38,7 +38,7 @@ describe("computeRelatedEdosLine", (): void => {
         )
     })
 
-    it("computes the correct sets line for 42-EDO", (): void => {
+    it("computes the correct sets line for 42-EDO, an example with only same sagittal sequences (no subset or superset notations)", (): void => {
         const edoNotationName = "42" as EdoNotationName
         const setsLine = computeRelatedEdosLine(edoNotationName)
 
@@ -47,7 +47,7 @@ describe("computeRelatedEdosLine", (): void => {
         )
     })
 
-    it("computes the correct sets line for 20-EDO", (): void => {
+    it("computes the correct sets line for 20-EDO, an example with only subset notations (no same sagittal sequences or superset notations)", (): void => {
         const edoNotationName = "20" as EdoNotationName
         const setsLine = computeRelatedEdosLine(edoNotationName)
 
@@ -56,7 +56,7 @@ describe("computeRelatedEdosLine", (): void => {
         )
     })
 
-    it("computes the correct sets line for 5-EDO", (): void => {
+    it("computes the correct sets line for 5-EDO, an example with only superset notations (no same sagittal sequences or subset notations)", (): void => {
         const edoNotationName = "5" as EdoNotationName
         const setsLine = computeRelatedEdosLine(edoNotationName)
 

@@ -226,7 +226,7 @@ This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation
 [[File:37-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[24-EDO#Sagittal notation|24]], and [[31-EDO#Sagittal notation|31]], and is a superset of the notation for [[19-EDO#Sagittal notation|19-EDO]].
+This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[24-EDO#Sagittal notation|24]], and [[31-EDO#Sagittal notation|31]], is a subset of the notation for [[76-EDO#Sagittal notation|76-EDO]], and is a superset of the notation for [[19-EDO#Sagittal notation|19-EDO]].
 ====Evo flavor====
 [[File:38-EDO_Evo.svg]]
 ====Revo flavor====
@@ -429,7 +429,7 @@ This notation uses the same sagittal sequence as [[54-EDO#Sagittal notation|54-E
 [[File:61-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[69-EDO#Sagittal notation|69-EDO]], and is a superset of the notation for [[31-EDO#Sagittal notation|31-EDO]].
+This notation uses the same sagittal sequence as EDOs [[69-EDO#Sagittal notation|69]] and [[76-EDO#Sagittal notation|76]], and is a superset of the notation for [[31-EDO#Sagittal notation|31-EDO]].
 ====Evo flavor====
 [[File:62-EDO_Evo.svg]]
 ====Revo flavor====
@@ -492,7 +492,7 @@ This notation uses the same sagittal sequence as [[75-EDO#Sagittal notation|75-E
 [[File:68-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[62-EDO#Sagittal notation|62-EDO]].
+This notation uses the same sagittal sequence as EDOs [[62-EDO#Sagittal notation|62]] and [[76-EDO#Sagittal notation|76]].
 ====Evo flavor====
 [[File:69-EDO_Evo.svg]]
 ====Revo flavor====
