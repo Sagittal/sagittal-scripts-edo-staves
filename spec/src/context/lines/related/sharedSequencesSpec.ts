@@ -22,7 +22,7 @@ const EXPECTED_SHARED_SAGITTAL_SEQUENCES: EdoNotationName[][] = [
     ["54", "61"],
     ["56", "63"],
     ["59", "66"],
-    ["62", "69"],
+    ["62", "69", "76"],
     ["65", "72"],
 ] as EdoNotationName[][]
 

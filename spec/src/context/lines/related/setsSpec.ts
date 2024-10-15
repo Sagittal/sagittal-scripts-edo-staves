@@ -34,7 +34,7 @@ const EXPECTED_DIRECT_SUPERSETS: Record<EdoNotationName, EdoNotationName[]> = {
     "17": ["34"],
 
     // 19n
-    "19": ["38", "57"],
+    "19": ["38", "57", "76"],
 
     // 27n
     "27": ["54"],
