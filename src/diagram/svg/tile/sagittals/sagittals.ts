@@ -56,7 +56,7 @@ const addSagittals = async (
     )
 
     const sagittalCount: Count<Sagittal> = sagitypes.length as Count<Sagittal>
-    if (sagittalCount === 0) return NEUTRAL_SCALER
+    if (sagittalCount === 0) return
 
     const tileRowCountScaler: Scaler = computeTileRowCountScaler(tileRowCount)
 

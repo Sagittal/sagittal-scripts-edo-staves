@@ -26,10 +26,10 @@ const computeSharedSagittalSequenceEdoNotationNames = (
     const edoNotationDefinition = EDO_NOTATION_DEFINITIONS[edoNotationName]
     if (isSubsetNotation(edoNotationDefinition)) return []
 
-    const { sagitypes, isLimmaFraction } = edoNotationDefinition
+    const sagitypes: Sagitype[] = computeSagitypes(edoNotationDefinition)
     if (sagitypes.length === 0) return []
 
-    return isLimmaFraction
+    return edoNotationDefinition.isLimmaFraction
         ? computeLimmaFractionSharedSagittalSequenceEdoNotationNames(
               edoNotationName,
               sagitypes,
