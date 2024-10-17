@@ -7,6 +7,7 @@ import {
     computeRelatedEdosLine,
     computeDiagramLine,
     computeSubsectionHeadingLine,
+    computeApproximationExplanationLine,
 } from "./lines"
 
 const generateContext = (
@@ -18,6 +19,8 @@ const generateContext = (
 
     const hasSecondBestFifthNotation: boolean =
         subsectionsForEachFifth.length === 2
+
+    lines.push(computeApproximationExplanationLine(edo))
 
     subsectionsForEachFifth.forEach(
         (subsections: Subsection[], subsectionsIndex: number): void => {

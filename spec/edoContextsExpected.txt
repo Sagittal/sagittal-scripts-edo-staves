@@ -144,6 +144,7 @@ Because it includes no Sagittal symbols, this Evo Sagittal notation is also a co
 [[File:26-EDO_Revo.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 This notation is a subset of the notation for [[54-EDO#Sagittal notation|54-EDO]].
 [[File:27-EDO.svg]]
 ====Alternate Evo flavor====
@@ -274,6 +275,7 @@ This notation uses the same sagittal sequence as [[36-EDO#Sagittal notation|36-E
 [[File:43-EDO_Revo.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation|23b]], [[30-EDO#Sagittal notation|30]], and [[37-EDO#Sagittal notation|37]], and is a superset of the notations for EDOs [[22-EDO#Sagittal notation|22]] and [[11-EDO#Sagittal notation|11]].
 ====Evo flavor====
 [[File:44-EDO_Evo.svg]]
@@ -326,6 +328,7 @@ This notation is a superset of the notations for EDOs [[24-EDO#Sagittal notation
 [[File:49-EDO_Revo.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 This notation uses the same sagittal sequence as EDOs [[57-EDO#Sagittal notation|57]], [[64-EDO#Sagittal notation|64]], and [[71-EDO#Sagittal notation|71b]].
 ====Evo flavor====
 [[File:50-EDO_Evo.svg]]
@@ -333,6 +336,7 @@ This notation uses the same sagittal sequence as EDOs [[57-EDO#Sagittal notation
 [[File:50-EDO_Revo.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 ====Evo flavor====
 [[File:51-EDO_Evo.svg]]
 ====Revo flavor====
@@ -357,6 +361,7 @@ Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a
 [[File:53-EDO_Revo.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 This notation uses the same sagittal sequence as [[61-EDO#Sagittal notation|61-EDO]], and is a superset of the notation for [[27-EDO#Sagittal notation|27-EDO]].
 ====Evo flavor====
 [[File:54-EDO_Evo.svg]]
@@ -381,6 +386,7 @@ This notation uses the same sagittal sequence as [[63-EDO#Sagittal notation|63-E
 [[File:56-EDO_Revo.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 This notation uses the same sagittal sequence as EDOs [[50-EDO#Sagittal notation|50]], [[64-EDO#Sagittal notation|64]], and [[71-EDO#Sagittal notation|71b]], and is a superset of the notation for [[19-EDO#Sagittal notation|19-EDO]].
 ====Evo flavor====
 [[File:57-EDO_Evo.svg]]
@@ -396,6 +402,7 @@ This notation uses the same sagittal sequence as EDOs [[50-EDO#Sagittal notation
 [[File:58-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 ====Best fifth notation====
 This notation uses the same sagittal sequence as [[66-EDO#Sagittal notation|66-EDO]].
 =====Evo flavor=====
@@ -420,6 +427,7 @@ This notation is a superset of the notations for EDOs [[12-EDO#Sagittal notation
 [[File:60-EDO_Revo.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 This notation uses the same sagittal sequence as [[54-EDO#Sagittal notation|54-EDO]].
 ====Evo flavor====
 [[File:61-EDO_Evo.svg]]
@@ -429,6 +437,7 @@ This notation uses the same sagittal sequence as [[54-EDO#Sagittal notation|54-E
 [[File:61-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 This notation uses the same sagittal sequence as EDOs [[69-EDO#Sagittal notation|69]] and [[76-EDO#Sagittal notation|76]], and is a superset of the notation for [[31-EDO#Sagittal notation|31-EDO]].
 ====Evo flavor====
 [[File:62-EDO_Evo.svg]]
@@ -445,6 +454,7 @@ This notation uses the same sagittal sequence as [[56-EDO#Sagittal notation|56-E
 [[File:63-EDO_Revo.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 ====Best fifth notation====
 This notation uses the same sagittal sequence as EDOs [[50-EDO#Sagittal notation|50]], [[57-EDO#Sagittal notation|57]], and [[71-EDO#Sagittal notation|71b]].
 =====Evo flavor=====
@@ -470,6 +480,7 @@ This notation uses the same sagittal sequence as EDOs [[72-EDO#Sagittal notation
 [[File:65-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 This notation uses the same sagittal sequence as [[59-EDO#Sagittal notation|59-EDO]], and is a superset of the notations for EDOs [[22-EDO#Sagittal notation|22]] and [[11-EDO#Sagittal notation|11]].
 ====Evo flavor====
 [[File:66-EDO_Evo.svg]]
@@ -483,6 +494,7 @@ This notation uses the same sagittal sequence as [[59-EDO#Sagittal notation|59-E
 [[File:67-EDO_Revo.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 This notation uses the same sagittal sequence as [[75-EDO#Sagittal notation|75-EDO]].
 ====Evo flavor====
 [[File:68-EDO_Evo.svg]]
@@ -492,6 +504,7 @@ This notation uses the same sagittal sequence as [[75-EDO#Sagittal notation|75-E
 [[File:68-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 This notation uses the same sagittal sequence as EDOs [[62-EDO#Sagittal notation|62]] and [[76-EDO#Sagittal notation|76]].
 ====Evo flavor====
 [[File:69-EDO_Evo.svg]]
@@ -507,6 +520,7 @@ This notation uses the same sagittal sequence as EDOs [[62-EDO#Sagittal notation
 [[File:70-EDO_Revo.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 ====Best fifth notation====
 =====Evo flavor=====
 [[File:71-EDO_Evo.svg]]
@@ -538,12 +552,14 @@ This notation uses the same sagittal sequence as [[80-EDO#Sagittal notation|80-E
 [[File:73-EDO_Revo.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 ====Evo flavor====
 [[File:74-EDO_Evo.svg]]
 ====Revo flavor====
 [[File:74-EDO_Revo.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 This notation uses the same sagittal sequence as [[68-EDO#Sagittal notation|68-EDO]].
 ====Evo flavor====
 [[File:75-EDO_Evo.svg]]
@@ -553,6 +569,7 @@ This notation uses the same sagittal sequence as [[68-EDO#Sagittal notation|68-E
 [[File:75-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
+In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".
 This notation uses the same sagittal sequence as EDOs [[62-EDO#Sagittal notation|62]] and [[69-EDO#Sagittal notation|69]], and is a superset of the notations for EDOs [[38-EDO#Sagittal notation|38]] and [[19-EDO#Sagittal notation|19]].
 ====Evo flavor====
 [[File:76-EDO_Evo.svg]]
