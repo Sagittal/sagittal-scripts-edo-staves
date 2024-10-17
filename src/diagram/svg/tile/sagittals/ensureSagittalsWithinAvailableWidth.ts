@@ -3,13 +3,12 @@ import { getGroupWidth } from "../../width"
 import { NodeElement, Scaler } from "../../types"
 import { AVAILABLE_WIDTH_FOR_SAGITTALS } from "../../constants"
 import { furtherTransform } from "../../transform"
-import { NEUTRAL_SCALER } from "./constants"
 
 const TRANSLATION_ADJUSTMENT_SCALER: Scaler = 25 as Scaler
 
-const ensureSagittalsWithinAvailableWidthAndGetScaler = (
+const ensureSagittalsWithinAvailableWidth = (
     sagittalTileRowGroupElements: NodeElement<SVGGElement>[],
-): Scaler => {
+): void => {
     const sagittalsWidths: Px[] = sagittalTileRowGroupElements.map(
         (sagittalRowGroupElement: NodeElement<SVGGElement>) =>
             getGroupWidth(sagittalRowGroupElement),
@@ -36,11 +35,7 @@ const ensureSagittalsWithinAvailableWidthAndGetScaler = (
                 })
             },
         )
-
-        return 1 / scalerToKeepSagittalsWithinAvailableWidth as Scaler
-    } else {
-        return NEUTRAL_SCALER
     }
 }
 
-export { ensureSagittalsWithinAvailableWidthAndGetScaler }
+export { ensureSagittalsWithinAvailableWidth }

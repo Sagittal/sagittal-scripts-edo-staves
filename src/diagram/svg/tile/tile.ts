@@ -13,7 +13,7 @@ import { append } from "../append"
 import { DiagramType } from "../../../types"
 import { TileRow } from "./types"
 import { setTransform } from "../transform"
-import { addSagittalsOrSubsetAndGetFurtherScaler } from "./sagittals"
+import { addSagittalsOrSubset } from "./sagittals"
 
 const addTileItselfAndGetSize = async (
     svgDocument: Document,
@@ -41,15 +41,12 @@ const addTileItselfAndGetSize = async (
 
     await addEdo(tileGroupElement, { edoNotationName, tileRowCount })
 
-    const furtherScaler: Scaler = await addSagittalsOrSubsetAndGetFurtherScaler(
-        tileGroupElement,
-        {
-            svgDocument,
-            edoNotationName,
-            diagramType,
-            tileRowCount,
-        },
-    )
+    await addSagittalsOrSubset(tileGroupElement, {
+        svgDocument,
+        edoNotationName,
+        diagramType,
+        tileRowCount,
+    })
 
     maybeAddCornerTriangle(tileGroupElement, {
         svgDocument,
@@ -58,13 +55,12 @@ const addTileItselfAndGetSize = async (
 
     roundAllTranslations(tileGroupElement)
 
-    const scale: Scaler = (computeTileRowCountScaler(tileRowCount) *
-        furtherScaler) as Scaler
-    setTransform(tileGroupElement, { scale })
+    const tileRowCountScaler: Scaler = computeTileRowCountScaler(tileRowCount)
+    setTransform(tileGroupElement, { scale: tileRowCountScaler })
 
     tileWrapperGroupElement.appendChild(tileGroupElement)
 
-    return (TILE_SIZE * scale) as Px
+    return (TILE_SIZE * tileRowCountScaler) as Px
 }
 
 const addTileAndGetSize = async (

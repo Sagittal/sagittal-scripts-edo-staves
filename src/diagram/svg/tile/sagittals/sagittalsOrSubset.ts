@@ -15,9 +15,8 @@ import {
 } from "../../constants"
 import { Count, Px } from "@sagittal/general"
 import { DiagramType } from "../../../../types"
-import { addSagittalsAndGetFurtherScaler } from "./sagittals"
+import { addSagittals } from "./sagittals"
 import { TileRow } from "../types"
-import { NEUTRAL_SCALER } from "./constants"
 
 const addSubset = async (
     tileGroupElement: NodeElement<SVGGElement>,
@@ -32,7 +31,7 @@ const addSubset = async (
     })
 }
 
-const addSagittalsOrSubsetAndGetFurtherScaler = async (
+const addSagittalsOrSubset = async (
     tileGroupElement: NodeElement<SVGGElement>,
     {
         svgDocument,
@@ -45,7 +44,7 @@ const addSagittalsOrSubsetAndGetFurtherScaler = async (
         diagramType: DiagramType
         tileRowCount: Count<TileRow>
     },
-): Promise<Scaler> => {
+): Promise<void> => {
     const edoNotationDefinition: EdoNotationDefinition =
         EDO_NOTATION_DEFINITIONS[edoNotationName]
 
@@ -54,9 +53,8 @@ const addSagittalsOrSubsetAndGetFurtherScaler = async (
             supersetEdoNotationName:
                 edoNotationDefinition.supersetEdoNotationName,
         })
-        return NEUTRAL_SCALER
     } else {
-        return await addSagittalsAndGetFurtherScaler(tileGroupElement, {
+        await addSagittals(tileGroupElement, {
             svgDocument,
             edoNotationName,
             diagramType,
@@ -65,4 +63,4 @@ const addSagittalsOrSubsetAndGetFurtherScaler = async (
     }
 }
 
-export { addSagittalsOrSubsetAndGetFurtherScaler }
+export { addSagittalsOrSubset }

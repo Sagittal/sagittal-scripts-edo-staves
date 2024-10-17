@@ -17,7 +17,7 @@ import { computeSagittalTextsAndFonts } from "./textsAndFonts"
 import { getGroupWidth } from "../../width"
 import { computeDownToNextTileRowCountsScaler } from "./nextRowCountScale"
 import { computeSagitypesByTileRow } from "./sagitypesByTileRow"
-import { ensureSagittalsWithinAvailableWidthAndGetScaler } from "./ensureSagittalsWithinAvailableWidth"
+import { ensureSagittalsWithinAvailableWidth } from "./ensureSagittalsWithinAvailableWidth"
 import { TileRow } from "../types"
 import { setTransform } from "../../transform"
 import { NEUTRAL_SCALER } from "./constants"
@@ -35,7 +35,7 @@ const updateFontsWithDownToNextTileRowCountsScalerAndComputeCorrespondingAdditio
             return (oldFontSize - newFontSize) as Px
         })
 
-const addSagittalsAndGetFurtherScaler = async (
+const addSagittals = async (
     tileGroupElement: NodeElement<SVGGElement>,
     {
         svgDocument,
@@ -48,11 +48,11 @@ const addSagittalsAndGetFurtherScaler = async (
         diagramType: DiagramType
         tileRowCount: Count<TileRow>
     },
-): Promise<Scaler> => {
+): Promise<void> => {
     const sagitypes: Sagitype[] = computeSagitypes(
         EDO_NOTATION_DEFINITIONS[
             edoNotationName
-        ] as NonSubsetEdoNotationDefinition
+        ] as NonSubsetEdoNotationDefinition,
     )
 
     const sagittalCount: Count<Sagittal> = sagitypes.length as Count<Sagittal>
@@ -129,17 +129,11 @@ const addSagittalsAndGetFurtherScaler = async (
             ),
         )
 
-    const scalerToKeepSagittalsWithinAvailableWidth: Scaler =
-        ensureSagittalsWithinAvailableWidthAndGetScaler(
-            sagittalTileRowGroupElements,
-        )
+    ensureSagittalsWithinAvailableWidth(sagittalTileRowGroupElements)
 
     sagittalTileRowGroupElements.forEach((sagittalTileRowGroupElement) => {
         tileGroupElement.appendChild(sagittalTileRowGroupElement)
     })
-
-    return (scalerToKeepSagittalsWithinAvailableWidth *
-        downToNextTileRowCountsScaler) as Scaler
 }
 
-export { addSagittalsAndGetFurtherScaler }
+export { addSagittals }

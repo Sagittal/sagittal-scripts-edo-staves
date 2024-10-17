@@ -1,2 +1,2 @@
-export { addSagittalsOrSubsetAndGetFurtherScaler } from "./sagittalsOrSubset"
+export { addSagittalsOrSubset } from "./sagittalsOrSubset"
 export { computeMaxSagittalsForTileRowCount } from "./maxSagittals"
