@@ -7,7 +7,7 @@ describe("computeRelatedEdosLine", (): void => {
         const setsLine = computeRelatedEdosLine(edoNotationName)
 
         expect(setsLine).toBe(
-            "This notation uses the same sagittal sequence as EDOs [[15-EDO#Sagittal notation|15]] and [[29-EDO#Sagittal notation|29]], is a subset of the notations for EDOs [[44-EDO#Sagittal notation|44]] and [[66-EDO#Sagittal notation|66]], and is a superset of the notation for [[11-EDO#Sagittal notation|11-EDO]].",
+            "This notation uses the same sagittal sequence as EDOs [[15edo#Sagittal notation|15]] and [[29edo#Sagittal notation|29]], is a subset of the notations for EDOs [[44edo#Sagittal notation|44]] and [[66edo#Sagittal notation|66]], and is a superset of the notation for [[11edo#Sagittal notation|11-EDO]].",
         )
     })
 
@@ -16,7 +16,7 @@ describe("computeRelatedEdosLine", (): void => {
         const setsLine = computeRelatedEdosLine(edoNotationName)
 
         expect(setsLine).toBe(
-            "This notation uses the same sagittal sequence as EDOs [[24-EDO#Sagittal notation|24]], [[31-EDO#Sagittal notation|31]], and [[38-EDO#Sagittal notation|38]], and is a subset of the notation for [[34-EDO#Sagittal notation|34-EDO]].",
+            "This notation uses the same sagittal sequence as EDOs [[24edo#Sagittal notation|24]], [[31edo#Sagittal notation|31]], and [[38edo#Sagittal notation|38]], and is a subset of the notation for [[34edo#Sagittal notation|34-EDO]].",
         )
     })
 
@@ -25,7 +25,7 @@ describe("computeRelatedEdosLine", (): void => {
         const setsLine = computeRelatedEdosLine(edoNotationName)
 
         expect(setsLine).toBe(
-            "This notation uses the same sagittal sequence as [[32-EDO#Sagittal notation|32-EDO]], and is a superset of the notation for [[5-EDO#Sagittal notation|5-EDO]].",
+            "This notation uses the same sagittal sequence as [[32edo#Sagittal notation|32-EDO]], and is a superset of the notation for [[5edo#Sagittal notation|5-EDO]].",
         )
     })
 
@@ -34,7 +34,7 @@ describe("computeRelatedEdosLine", (): void => {
         const setsLine = computeRelatedEdosLine(edoNotationName)
 
         expect(setsLine).toBe(
-            "This notation is a subset of the notation for [[52-EDO#Sagittal notation|52-EDO]] and a superset of the notation for [[13-EDO#Sagittal notation|13-EDO]].",
+            "This notation is a subset of the notation for [[52edo#Sagittal notation|52-EDO]] and a superset of the notation for [[13edo#Sagittal notation|13-EDO]].",
         )
     })
 
@@ -43,7 +43,7 @@ describe("computeRelatedEdosLine", (): void => {
         const setsLine = computeRelatedEdosLine(edoNotationName)
 
         expect(setsLine).toBe(
-            "This notation uses the same sagittal sequence as [[35-EDO#Sagittal notation|35b]].",
+            "This notation uses the same sagittal sequence as [[35edo#Sagittal notation|35b]].",
         )
     })
 
@@ -52,7 +52,7 @@ describe("computeRelatedEdosLine", (): void => {
         const setsLine = computeRelatedEdosLine(edoNotationName)
 
         expect(setsLine).toBe(
-            "This notation is a superset of the notations for EDOs [[10-EDO#Sagittal notation|10]] and [[5-EDO#Sagittal notation|5]].",
+            "This notation is a superset of the notations for EDOs [[10edo#Sagittal notation|10]] and [[5edo#Sagittal notation|5]].",
         )
     })
 
@@ -61,7 +61,7 @@ describe("computeRelatedEdosLine", (): void => {
         const setsLine = computeRelatedEdosLine(edoNotationName)
 
         expect(setsLine).toBe(
-            "This notation is a subset of the notations for EDOs [[10-EDO#Sagittal notation|10]], [[15-EDO#Sagittal notation|15]], [[20-EDO#Sagittal notation|20]], [[25-EDO#Sagittal notation|25]], [[30-EDO#Sagittal notation|30]], and [[35-EDO#Sagittal notation|35b]].",
+            "This notation is a subset of the notations for EDOs [[10edo#Sagittal notation|10]], [[15edo#Sagittal notation|15]], [[20edo#Sagittal notation|20]], [[25edo#Sagittal notation|25]], [[30edo#Sagittal notation|30]], and [[35edo#Sagittal notation|35b]].",
         )
     })
 })

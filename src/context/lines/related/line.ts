@@ -13,10 +13,10 @@ const formatEdoNotationName = (
     const { edo, useSecondBestFifth } = parseEdoNotationName(edoNotationName)
 
     return useSecondBestFifth
-        ? `[[${edo}-EDO#Sagittal notation|${edoNotationName}]]`
+        ? `[[${edo}edo#Sagittal notation|${edoNotationName}]]`
         : suppressEdo
-        ? `[[${edo}-EDO#Sagittal notation|${edo}]]`
-        : `[[${edo}-EDO#Sagittal notation|${edo}-EDO]]`
+        ? `[[${edo}edo#Sagittal notation|${edo}]]`
+        : `[[${edo}edo#Sagittal notation|${edo}-EDO]]`
 }
 
 const formatEdoNotationNames = (edoNotationNames: EdoNotationName[]): Io => {

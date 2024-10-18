@@ -1,10 +1,10 @@
 ===Sagittal notation===
-This notation is a subset of the notations for EDOs [[10-EDO#Sagittal notation|10]], [[15-EDO#Sagittal notation|15]], [[20-EDO#Sagittal notation|20]], [[25-EDO#Sagittal notation|25]], [[30-EDO#Sagittal notation|30]], and [[35-EDO#Sagittal notation|35b]].
+This notation is a subset of the notations for EDOs [[10edo#Sagittal notation|10]], [[15edo#Sagittal notation|15]], [[20edo#Sagittal notation|20]], [[25edo#Sagittal notation|25]], [[30edo#Sagittal notation|30]], and [[35edo#Sagittal notation|35b]].
 [[File:5-EDO.svg]]
 Because it includes no Sagittal symbols, this Sagittal notation is also a conventional notation.
 
 ===Sagittal notation===
-This notation is a subset of the notations for EDOs [[12-EDO#Sagittal notation|12]], [[18-EDO#Sagittal notation|18]], [[24-EDO#Sagittal notation|24]], [[36-EDO#Sagittal notation|36]], [[48-EDO#Sagittal notation|48]], [[60-EDO#Sagittal notation|60]], [[72-EDO#Sagittal notation|72]], and [[84-EDO#Sagittal notation|84]].
+This notation is a subset of the notations for EDOs [[12edo#Sagittal notation|12]], [[18edo#Sagittal notation|18]], [[24edo#Sagittal notation|24]], [[36edo#Sagittal notation|36]], [[48edo#Sagittal notation|48]], [[60edo#Sagittal notation|60]], [[72edo#Sagittal notation|72]], and [[84edo#Sagittal notation|84]].
 ====Evo flavor====
 [[File:6-EDO_Evo.svg]]
 Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
@@ -12,12 +12,12 @@ Because it includes no Sagittal symbols, this Evo Sagittal notation is also a co
 [[File:6-EDO_Revo.svg]]
 
 ===Sagittal notation===
-This notation is a subset of the notations for EDOs [[14-EDO#Sagittal notation|14]], [[21-EDO#Sagittal notation|21]], [[28-EDO#Sagittal notation|28]], [[35-EDO#Sagittal notation|35]], and [[42-EDO#Sagittal notation|42b]].
+This notation is a subset of the notations for EDOs [[14edo#Sagittal notation|14]], [[21edo#Sagittal notation|21]], [[28edo#Sagittal notation|28]], [[35edo#Sagittal notation|35]], and [[42edo#Sagittal notation|42b]].
 [[File:7-EDO.svg]]
 Because it includes no Sagittal symbols, this Sagittal notation is also a conventional notation.
 
 ===Sagittal notation===
-This notation is a subset of the notations for EDOs [[24-EDO#Sagittal notation|24]], [[48-EDO#Sagittal notation|48]], and [[72-EDO#Sagittal notation|72]].
+This notation is a subset of the notations for EDOs [[24edo#Sagittal notation|24]], [[48edo#Sagittal notation|48]], and [[72edo#Sagittal notation|72]].
 ====Evo flavor====
 [[File:8-EDO_Evo.svg]]
 ====Revo flavor====
@@ -27,25 +27,25 @@ This notation is a subset of the notations for EDOs [[24-EDO#Sagittal notation|2
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[14-EDO#Sagittal notation|14-EDO]].
+This notation uses the same sagittal sequence as [[14edo#Sagittal notation|14-EDO]].
 [[File:9-EDO.svg]]
 
 ===Sagittal notation===
-This notation is a subset of the notations for EDOs [[20-EDO#Sagittal notation|20]] and [[30-EDO#Sagittal notation|30]] and a superset of the notation for [[5-EDO#Sagittal notation|5-EDO]].
+This notation is a subset of the notations for EDOs [[20edo#Sagittal notation|20]] and [[30edo#Sagittal notation|30]] and a superset of the notation for [[5edo#Sagittal notation|5-EDO]].
 [[File:10-EDO.svg]]
 ====Evo-SZ flavor====
 [[File:10-EDO_Evo-SZ.svg]]
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
-This notation is a subset of the notations for EDOs [[22-EDO#Sagittal notation|22]], [[44-EDO#Sagittal notation|44]], and [[66-EDO#Sagittal notation|66]].
+This notation is a subset of the notations for EDOs [[22edo#Sagittal notation|22]], [[44edo#Sagittal notation|44]], and [[66edo#Sagittal notation|66]].
 ====Evo flavor====
 [[File:11-EDO_Evo.svg]]
 ====Revo flavor====
 [[File:11-EDO_Revo.svg]]
 
 ===Sagittal notation===
-This notation is a subset of the notations for EDOs [[24-EDO#Sagittal notation|24]], [[36-EDO#Sagittal notation|36]], [[48-EDO#Sagittal notation|48]], [[60-EDO#Sagittal notation|60]], [[72-EDO#Sagittal notation|72]], and [[84-EDO#Sagittal notation|84]] and a superset of the notation for [[6-EDO#Sagittal notation|6-EDO]].
+This notation is a subset of the notations for EDOs [[24edo#Sagittal notation|24]], [[36edo#Sagittal notation|36]], [[48edo#Sagittal notation|48]], [[60edo#Sagittal notation|60]], [[72edo#Sagittal notation|72]], and [[84edo#Sagittal notation|84]] and a superset of the notation for [[6edo#Sagittal notation|6-EDO]].
 ====Evo flavor====
 [[File:12-EDO_Evo.svg]]
 Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
@@ -53,7 +53,7 @@ Because it includes no Sagittal symbols, this Evo Sagittal notation is also a co
 [[File:12-EDO_Revo.svg]]
 
 ===Sagittal notation===
-This notation is a subset of the notations for EDOs [[26-EDO#Sagittal notation|26]] and [[52-EDO#Sagittal notation|52]].
+This notation is a subset of the notations for EDOs [[26edo#Sagittal notation|26]] and [[52edo#Sagittal notation|52]].
 ====Evo flavor====
 [[File:13-EDO_Evo.svg]]
 Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
@@ -61,19 +61,19 @@ Because it includes no Sagittal symbols, this Evo Sagittal notation is also a co
 [[File:13-EDO_Revo.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[9-EDO#Sagittal notation|9-EDO]], is a subset of the notations for EDOs [[28-EDO#Sagittal notation|28]] and [[42-EDO#Sagittal notation|42b]], and is a superset of the notation for [[7-EDO#Sagittal notation|7-EDO]].
+This notation uses the same sagittal sequence as [[9edo#Sagittal notation|9-EDO]], is a subset of the notations for EDOs [[28edo#Sagittal notation|28]] and [[42edo#Sagittal notation|42b]], and is a superset of the notation for [[7edo#Sagittal notation|7-EDO]].
 [[File:14-EDO.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as EDOs [[22-EDO#Sagittal notation|22]] and [[29-EDO#Sagittal notation|29]], is a subset of the notation for [[30-EDO#Sagittal notation|30-EDO]], and is a superset of the notation for [[5-EDO#Sagittal notation|5-EDO]].
+This notation uses the same sagittal sequence as EDOs [[22edo#Sagittal notation|22]] and [[29edo#Sagittal notation|29]], is a subset of the notation for [[30edo#Sagittal notation|30-EDO]], and is a superset of the notation for [[5edo#Sagittal notation|5-EDO]].
 [[File:15-EDO.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[21-EDO#Sagittal notation|21-EDO]].
+This notation uses the same sagittal sequence as [[21edo#Sagittal notation|21-EDO]].
 [[File:16-EDO.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as EDOs [[24-EDO#Sagittal notation|24]], [[31-EDO#Sagittal notation|31]], and [[38-EDO#Sagittal notation|38]], and is a subset of the notation for [[34-EDO#Sagittal notation|34-EDO]].
+This notation uses the same sagittal sequence as EDOs [[24edo#Sagittal notation|24]], [[31edo#Sagittal notation|31]], and [[38edo#Sagittal notation|38]], and is a subset of the notation for [[34edo#Sagittal notation|34-EDO]].
 [[File:17-EDO.svg]]
 ====Alternate Evo flavor====
 [[File:17-EDO_Alternative_Evo.svg]]
@@ -82,14 +82,14 @@ This notation uses the same sagittal sequence as EDOs [[24-EDO#Sagittal notation
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
-This notation is a subset of the notations for EDOs [[36-EDO#Sagittal notation|36]] and [[72-EDO#Sagittal notation|72]] and a superset of the notation for [[6-EDO#Sagittal notation|6-EDO]].
+This notation is a subset of the notations for EDOs [[36edo#Sagittal notation|36]] and [[72edo#Sagittal notation|72]] and a superset of the notation for [[6edo#Sagittal notation|6-EDO]].
 ====Evo flavor====
 [[File:18-EDO_Evo.svg]]
 ====Revo flavor====
 [[File:18-EDO_Revo.svg]]
 
 ===Sagittal notation===
-This notation is a subset of the notations for EDOs [[38-EDO#Sagittal notation|38]], [[57-EDO#Sagittal notation|57]], and [[76-EDO#Sagittal notation|76]].
+This notation is a subset of the notations for EDOs [[38edo#Sagittal notation|38]], [[57edo#Sagittal notation|57]], and [[76edo#Sagittal notation|76]].
 ====Evo flavor====
 [[File:19-EDO_Evo.svg]]
 Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
@@ -97,17 +97,17 @@ Because it includes no Sagittal symbols, this Evo Sagittal notation is also a co
 [[File:19-EDO_Revo.svg]]
 
 ===Sagittal notation===
-This notation is a superset of the notations for EDOs [[10-EDO#Sagittal notation|10]] and [[5-EDO#Sagittal notation|5]].
+This notation is a superset of the notations for EDOs [[10edo#Sagittal notation|10]] and [[5edo#Sagittal notation|5]].
 [[File:20-EDO.svg]]
 ====Evo-SZ flavor====
 [[File:20-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[16-EDO#Sagittal notation|16-EDO]], is a subset of the notation for [[42-EDO#Sagittal notation|42b]], and is a superset of the notation for [[7-EDO#Sagittal notation|7-EDO]].
+This notation uses the same sagittal sequence as [[16edo#Sagittal notation|16-EDO]], is a subset of the notation for [[42edo#Sagittal notation|42b]], and is a superset of the notation for [[7edo#Sagittal notation|7-EDO]].
 [[File:21-EDO.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as EDOs [[15-EDO#Sagittal notation|15]] and [[29-EDO#Sagittal notation|29]], is a subset of the notations for EDOs [[44-EDO#Sagittal notation|44]] and [[66-EDO#Sagittal notation|66]], and is a superset of the notation for [[11-EDO#Sagittal notation|11-EDO]].
+This notation uses the same sagittal sequence as EDOs [[15edo#Sagittal notation|15]] and [[29edo#Sagittal notation|29]], is a subset of the notations for EDOs [[44edo#Sagittal notation|44]] and [[66edo#Sagittal notation|66]], and is a superset of the notation for [[11edo#Sagittal notation|11-EDO]].
 ====Evo flavor====
 [[File:22-EDO_Evo.svg]]
 ====Revo flavor====
@@ -115,14 +115,14 @@ This notation uses the same sagittal sequence as EDOs [[15-EDO#Sagittal notation
 
 ===Sagittal notation===
 ====Best fifth notation====
-This notation uses the same sagittal sequence as EDOs [[28-EDO#Sagittal notation|28]] and [[33-EDO#Sagittal notation|33]].
+This notation uses the same sagittal sequence as EDOs [[28edo#Sagittal notation|28]] and [[33edo#Sagittal notation|33]].
 [[File:23-EDO.svg]]
 ====Second best fifth notation====
-This notation uses the same sagittal sequence as EDOs [[30-EDO#Sagittal notation|30]], [[37-EDO#Sagittal notation|37]], and [[44-EDO#Sagittal notation|44]].
+This notation uses the same sagittal sequence as EDOs [[30edo#Sagittal notation|30]], [[37edo#Sagittal notation|37]], and [[44edo#Sagittal notation|44]].
 [[File:23b.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[31-EDO#Sagittal notation|31]], and [[38-EDO#Sagittal notation|38]], is a subset of the notations for EDOs [[48-EDO#Sagittal notation|48]] and [[72-EDO#Sagittal notation|72]], and is a superset of the notations for EDOs [[12-EDO#Sagittal notation|12]], [[8-EDO#Sagittal notation|8]], and [[6-EDO#Sagittal notation|6]].
+This notation uses the same sagittal sequence as EDOs [[17edo#Sagittal notation|17]], [[31edo#Sagittal notation|31]], and [[38edo#Sagittal notation|38]], is a subset of the notations for EDOs [[48edo#Sagittal notation|48]] and [[72edo#Sagittal notation|72]], and is a superset of the notations for EDOs [[12edo#Sagittal notation|12]], [[8edo#Sagittal notation|8]], and [[6edo#Sagittal notation|6]].
 ====Evo flavor====
 [[File:24-EDO_Evo.svg]]
 ====Revo flavor====
@@ -132,11 +132,11 @@ This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[32-EDO#Sagittal notation|32-EDO]], and is a superset of the notation for [[5-EDO#Sagittal notation|5-EDO]].
+This notation uses the same sagittal sequence as [[32edo#Sagittal notation|32-EDO]], and is a superset of the notation for [[5edo#Sagittal notation|5-EDO]].
 [[File:25-EDO.svg]]
 
 ===Sagittal notation===
-This notation is a subset of the notation for [[52-EDO#Sagittal notation|52-EDO]] and a superset of the notation for [[13-EDO#Sagittal notation|13-EDO]].
+This notation is a subset of the notation for [[52edo#Sagittal notation|52-EDO]] and a superset of the notation for [[13edo#Sagittal notation|13-EDO]].
 ====Evo flavor====
 [[File:26-EDO_Evo.svg]]
 Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
@@ -145,7 +145,7 @@ Because it includes no Sagittal symbols, this Evo Sagittal notation is also a co
 
 ===Sagittal notation===
 In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
-This notation is a subset of the notation for [[54-EDO#Sagittal notation|54-EDO]].
+This notation is a subset of the notation for [[54edo#Sagittal notation|54-EDO]].
 [[File:27-EDO.svg]]
 ====Alternate Evo flavor====
 [[File:27-EDO_Alternative_Evo.svg]]
@@ -153,11 +153,11 @@ This notation is a subset of the notation for [[54-EDO#Sagittal notation|54-EDO]
 [[File:27-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation|23]] and [[33-EDO#Sagittal notation|33]], and is a superset of the notations for EDOs [[14-EDO#Sagittal notation|14]] and [[7-EDO#Sagittal notation|7]].
+This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|23]] and [[33edo#Sagittal notation|33]], and is a superset of the notations for EDOs [[14edo#Sagittal notation|14]] and [[7edo#Sagittal notation|7]].
 [[File:28-EDO.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as EDOs [[15-EDO#Sagittal notation|15]] and [[22-EDO#Sagittal notation|22]].
+This notation uses the same sagittal sequence as EDOs [[15edo#Sagittal notation|15]] and [[22edo#Sagittal notation|22]].
 ====Evo flavor====
 [[File:29-EDO_Evo.svg]]
 ====Revo flavor====
@@ -165,16 +165,16 @@ This notation uses the same sagittal sequence as EDOs [[15-EDO#Sagittal notation
 
 ===Sagittal notation===
 ====Best fifth notation====
-This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation|23b]], [[37-EDO#Sagittal notation|37]], and [[44-EDO#Sagittal notation|44]], and is a superset of the notations for EDOs [[15-EDO#Sagittal notation|15]], [[10-EDO#Sagittal notation|10]], and [[5-EDO#Sagittal notation|5]].
+This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|23b]], [[37edo#Sagittal notation|37]], and [[44edo#Sagittal notation|44]], and is a superset of the notations for EDOs [[15edo#Sagittal notation|15]], [[10edo#Sagittal notation|10]], and [[5edo#Sagittal notation|5]].
 [[File:30-EDO.svg]]
 =====Evo-SZ flavor=====
 [[File:30-EDO_Evo-SZ.svg]]
 ====Second best fifth notation====
-This notation uses the same sagittal sequence as EDOs [[35-EDO#Sagittal notation|35]] and [[40-EDO#Sagittal notation|40]].
+This notation uses the same sagittal sequence as EDOs [[35edo#Sagittal notation|35]] and [[40edo#Sagittal notation|40]].
 [[File:30b.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[24-EDO#Sagittal notation|24]], and [[38-EDO#Sagittal notation|38]], and is a subset of the notation for [[62-EDO#Sagittal notation|62-EDO]].
+This notation uses the same sagittal sequence as EDOs [[17edo#Sagittal notation|17]], [[24edo#Sagittal notation|24]], and [[38edo#Sagittal notation|38]], and is a subset of the notation for [[62edo#Sagittal notation|62-EDO]].
 ====Evo flavor====
 [[File:31-EDO_Evo.svg]]
 ====Revo flavor====
@@ -184,18 +184,18 @@ This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[25-EDO#Sagittal notation|25-EDO]], and is a subset of the notation for [[64-EDO#Sagittal notation|64b]].
+This notation uses the same sagittal sequence as [[25edo#Sagittal notation|25-EDO]], and is a subset of the notation for [[64edo#Sagittal notation|64b]].
 ====Evo flavor====
 [[File:32-EDO_Evo.svg]]
 ====Revo flavor====
 [[File:32-EDO_Revo.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation|23]] and [[28-EDO#Sagittal notation|28]].
+This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|23]] and [[28edo#Sagittal notation|28]].
 [[File:33-EDO.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[41-EDO#Sagittal notation|41-EDO]], and is a superset of the notation for [[17-EDO#Sagittal notation|17-EDO]].
+This notation uses the same sagittal sequence as [[41edo#Sagittal notation|41-EDO]], and is a superset of the notation for [[17edo#Sagittal notation|17-EDO]].
 ====Evo flavor====
 [[File:34-EDO_Evo.svg]]
 ====Revo flavor====
@@ -205,21 +205,21 @@ This notation uses the same sagittal sequence as [[41-EDO#Sagittal notation|41-E
 
 ===Sagittal notation===
 ====Best fifth notation====
-This notation uses the same sagittal sequence as EDOs [[30-EDO#Sagittal notation|30b]] and [[40-EDO#Sagittal notation|40]], and is a superset of the notation for [[7-EDO#Sagittal notation|7-EDO]].
+This notation uses the same sagittal sequence as EDOs [[30edo#Sagittal notation|30b]] and [[40edo#Sagittal notation|40]], and is a superset of the notation for [[7edo#Sagittal notation|7-EDO]].
 [[File:35-EDO.svg]]
 ====Second best fifth notation====
-This notation uses the same sagittal sequence as [[42-EDO#Sagittal notation|42-EDO]], and is a superset of the notation for [[5-EDO#Sagittal notation|5-EDO]].
+This notation uses the same sagittal sequence as [[42edo#Sagittal notation|42-EDO]], and is a superset of the notation for [[5edo#Sagittal notation|5-EDO]].
 [[File:35b.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[43-EDO#Sagittal notation|43-EDO]], is a subset of the notation for [[72-EDO#Sagittal notation|72-EDO]], and is a superset of the notations for EDOs [[18-EDO#Sagittal notation|18]], [[12-EDO#Sagittal notation|12]], and [[6-EDO#Sagittal notation|6]].
+This notation uses the same sagittal sequence as [[43edo#Sagittal notation|43-EDO]], is a subset of the notation for [[72edo#Sagittal notation|72-EDO]], and is a superset of the notations for EDOs [[18edo#Sagittal notation|18]], [[12edo#Sagittal notation|12]], and [[6edo#Sagittal notation|6]].
 ====Evo flavor====
 [[File:36-EDO_Evo.svg]]
 ====Revo flavor====
 [[File:36-EDO_Revo.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation|23b]], [[30-EDO#Sagittal notation|30]], and [[44-EDO#Sagittal notation|44]].
+This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|23b]], [[30edo#Sagittal notation|30]], and [[44edo#Sagittal notation|44]].
 [[File:37-EDO.svg]]
 ====Alternate Evo flavor====
 [[File:37-EDO_Alternative_Evo.svg]]
@@ -227,7 +227,7 @@ This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation
 [[File:37-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation|17]], [[24-EDO#Sagittal notation|24]], and [[31-EDO#Sagittal notation|31]], is a subset of the notation for [[76-EDO#Sagittal notation|76-EDO]], and is a superset of the notation for [[19-EDO#Sagittal notation|19-EDO]].
+This notation uses the same sagittal sequence as EDOs [[17edo#Sagittal notation|17]], [[24edo#Sagittal notation|24]], and [[31edo#Sagittal notation|31]], is a subset of the notation for [[76edo#Sagittal notation|76-EDO]], and is a superset of the notation for [[19edo#Sagittal notation|19-EDO]].
 ====Evo flavor====
 [[File:38-EDO_Evo.svg]]
 ====Revo flavor====
@@ -237,18 +237,18 @@ This notation uses the same sagittal sequence as EDOs [[17-EDO#Sagittal notation
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[46-EDO#Sagittal notation|46-EDO]].
+This notation uses the same sagittal sequence as [[46edo#Sagittal notation|46-EDO]].
 ====Evo flavor====
 [[File:39-EDO_Evo.svg]]
 ====Revo flavor====
 [[File:39-EDO_Revo.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as EDOs [[30-EDO#Sagittal notation|30b]] and [[35-EDO#Sagittal notation|35]].
+This notation uses the same sagittal sequence as EDOs [[30edo#Sagittal notation|30b]] and [[35edo#Sagittal notation|35]].
 [[File:40-EDO.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[34-EDO#Sagittal notation|34-EDO]].
+This notation uses the same sagittal sequence as [[34edo#Sagittal notation|34-EDO]].
 ====Evo flavor====
 [[File:41-EDO_Evo.svg]]
 ====Revo flavor====
@@ -258,17 +258,17 @@ This notation uses the same sagittal sequence as [[34-EDO#Sagittal notation|34-E
 
 ===Sagittal notation===
 ====Best fifth notation====
-This notation uses the same sagittal sequence as [[35-EDO#Sagittal notation|35b]].
+This notation uses the same sagittal sequence as [[35edo#Sagittal notation|35b]].
 =====Evo flavor=====
 [[File:42-EDO_Evo.svg]]
 =====Revo flavor=====
 [[File:42-EDO_Revo.svg]]
 ====Second best fifth notation====
-This notation uses the same sagittal sequence as [[47-EDO#Sagittal notation|47-EDO]], and is a superset of the notations for EDOs [[21-EDO#Sagittal notation|21]], [[14-EDO#Sagittal notation|14]], and [[7-EDO#Sagittal notation|7]].
+This notation uses the same sagittal sequence as [[47edo#Sagittal notation|47-EDO]], and is a superset of the notations for EDOs [[21edo#Sagittal notation|21]], [[14edo#Sagittal notation|14]], and [[7edo#Sagittal notation|7]].
 [[File:42b.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[36-EDO#Sagittal notation|36-EDO]].
+This notation uses the same sagittal sequence as [[36edo#Sagittal notation|36-EDO]].
 ====Evo flavor====
 [[File:43-EDO_Evo.svg]]
 ====Revo flavor====
@@ -276,7 +276,7 @@ This notation uses the same sagittal sequence as [[36-EDO#Sagittal notation|36-E
 
 ===Sagittal notation===
 In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
-This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation|23b]], [[30-EDO#Sagittal notation|30]], and [[37-EDO#Sagittal notation|37]], and is a superset of the notations for EDOs [[22-EDO#Sagittal notation|22]] and [[11-EDO#Sagittal notation|11]].
+This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|23b]], [[30edo#Sagittal notation|30]], and [[37edo#Sagittal notation|37]], and is a superset of the notations for EDOs [[22edo#Sagittal notation|22]] and [[11edo#Sagittal notation|11]].
 ====Evo flavor====
 [[File:44-EDO_Evo.svg]]
 ====Revo flavor====
@@ -285,7 +285,7 @@ This notation uses the same sagittal sequence as EDOs [[23-EDO#Sagittal notation
 [[File:44-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as EDOs [[52-EDO#Sagittal notation|52]] and [[59-EDO#Sagittal notation|59b]].
+This notation uses the same sagittal sequence as EDOs [[52edo#Sagittal notation|52]] and [[59edo#Sagittal notation|59b]].
 ====Evo flavor====
 [[File:45-EDO_Evo.svg]]
 ====Revo flavor====
@@ -295,7 +295,7 @@ This notation uses the same sagittal sequence as EDOs [[52-EDO#Sagittal notation
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[39-EDO#Sagittal notation|39-EDO]].
+This notation uses the same sagittal sequence as [[39edo#Sagittal notation|39-EDO]].
 ====Evo flavor====
 [[File:46-EDO_Evo.svg]]
 ====Revo flavor====
@@ -303,7 +303,7 @@ This notation uses the same sagittal sequence as [[39-EDO#Sagittal notation|39-E
 
 ===Sagittal notation===
 ====Best fifth notation====
-This notation uses the same sagittal sequence as [[42-EDO#Sagittal notation|42b]].
+This notation uses the same sagittal sequence as [[42edo#Sagittal notation|42b]].
 [[File:47-EDO.svg]]
 ====Second best fifth notation====
 [[File:47b.svg]]
@@ -313,7 +313,7 @@ This notation uses the same sagittal sequence as [[42-EDO#Sagittal notation|42b]
 [[File:47b_Evo-SZ.svg]]
 
 ===Sagittal notation===
-This notation is a superset of the notations for EDOs [[24-EDO#Sagittal notation|24]], [[12-EDO#Sagittal notation|12]], [[8-EDO#Sagittal notation|8]], and [[6-EDO#Sagittal notation|6]].
+This notation is a superset of the notations for EDOs [[24edo#Sagittal notation|24]], [[12edo#Sagittal notation|12]], [[8edo#Sagittal notation|8]], and [[6edo#Sagittal notation|6]].
 ====Evo flavor====
 [[File:48-EDO_Evo.svg]]
 ====Revo flavor====
@@ -329,7 +329,7 @@ This notation is a superset of the notations for EDOs [[24-EDO#Sagittal notation
 
 ===Sagittal notation===
 In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
-This notation uses the same sagittal sequence as EDOs [[57-EDO#Sagittal notation|57]], [[64-EDO#Sagittal notation|64]], and [[71-EDO#Sagittal notation|71b]].
+This notation uses the same sagittal sequence as EDOs [[57edo#Sagittal notation|57]], [[64edo#Sagittal notation|64]], and [[71edo#Sagittal notation|71b]].
 ====Evo flavor====
 [[File:50-EDO_Evo.svg]]
 ====Revo flavor====
@@ -345,7 +345,7 @@ In the following diagrams, an equals sign (=) means that the symbol represents t
 [[File:51-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as EDOs [[45-EDO#Sagittal notation|45]] and [[59-EDO#Sagittal notation|59b]], and is a superset of the notations for EDOs [[26-EDO#Sagittal notation|26]] and [[13-EDO#Sagittal notation|13]].
+This notation uses the same sagittal sequence as EDOs [[45edo#Sagittal notation|45]] and [[59edo#Sagittal notation|59b]], and is a superset of the notations for EDOs [[26edo#Sagittal notation|26]] and [[13edo#Sagittal notation|13]].
 ====Evo flavor====
 [[File:52-EDO_Evo.svg]]
 ====Revo flavor====
@@ -362,7 +362,7 @@ Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a
 
 ===Sagittal notation===
 In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
-This notation uses the same sagittal sequence as [[61-EDO#Sagittal notation|61-EDO]], and is a superset of the notation for [[27-EDO#Sagittal notation|27-EDO]].
+This notation uses the same sagittal sequence as [[61edo#Sagittal notation|61-EDO]], and is a superset of the notation for [[27edo#Sagittal notation|27-EDO]].
 ====Evo flavor====
 [[File:54-EDO_Evo.svg]]
 ====Revo flavor====
@@ -379,7 +379,7 @@ This notation uses the same sagittal sequence as [[61-EDO#Sagittal notation|61-E
 [[File:55-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[63-EDO#Sagittal notation|63-EDO]].
+This notation uses the same sagittal sequence as [[63edo#Sagittal notation|63-EDO]].
 ====Evo flavor====
 [[File:56-EDO_Evo.svg]]
 ====Revo flavor====
@@ -387,7 +387,7 @@ This notation uses the same sagittal sequence as [[63-EDO#Sagittal notation|63-E
 
 ===Sagittal notation===
 In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
-This notation uses the same sagittal sequence as EDOs [[50-EDO#Sagittal notation|50]], [[64-EDO#Sagittal notation|64]], and [[71-EDO#Sagittal notation|71b]], and is a superset of the notation for [[19-EDO#Sagittal notation|19-EDO]].
+This notation uses the same sagittal sequence as EDOs [[50edo#Sagittal notation|50]], [[64edo#Sagittal notation|64]], and [[71edo#Sagittal notation|71b]], and is a superset of the notation for [[19edo#Sagittal notation|19-EDO]].
 ====Evo flavor====
 [[File:57-EDO_Evo.svg]]
 ====Revo flavor====
@@ -404,13 +404,13 @@ This notation uses the same sagittal sequence as EDOs [[50-EDO#Sagittal notation
 ===Sagittal notation===
 In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
 ====Best fifth notation====
-This notation uses the same sagittal sequence as [[66-EDO#Sagittal notation|66-EDO]].
+This notation uses the same sagittal sequence as [[66edo#Sagittal notation|66-EDO]].
 =====Evo flavor=====
 [[File:59-EDO_Evo.svg]]
 =====Revo flavor=====
 [[File:59-EDO_Revo.svg]]
 ====Second best fifth notation====
-This notation uses the same sagittal sequence as EDOs [[45-EDO#Sagittal notation|45]] and [[52-EDO#Sagittal notation|52]].
+This notation uses the same sagittal sequence as EDOs [[45edo#Sagittal notation|45]] and [[52edo#Sagittal notation|52]].
 =====Evo flavor=====
 [[File:59b_Evo.svg]]
 =====Revo flavor=====
@@ -420,7 +420,7 @@ This notation uses the same sagittal sequence as EDOs [[45-EDO#Sagittal notation
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
-This notation is a superset of the notations for EDOs [[12-EDO#Sagittal notation|12]] and [[6-EDO#Sagittal notation|6]].
+This notation is a superset of the notations for EDOs [[12edo#Sagittal notation|12]] and [[6edo#Sagittal notation|6]].
 ====Evo flavor====
 [[File:60-EDO_Evo.svg]]
 ====Revo flavor====
@@ -428,7 +428,7 @@ This notation is a superset of the notations for EDOs [[12-EDO#Sagittal notation
 
 ===Sagittal notation===
 In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
-This notation uses the same sagittal sequence as [[54-EDO#Sagittal notation|54-EDO]].
+This notation uses the same sagittal sequence as [[54edo#Sagittal notation|54-EDO]].
 ====Evo flavor====
 [[File:61-EDO_Evo.svg]]
 ====Revo flavor====
@@ -438,7 +438,7 @@ This notation uses the same sagittal sequence as [[54-EDO#Sagittal notation|54-E
 
 ===Sagittal notation===
 In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
-This notation uses the same sagittal sequence as EDOs [[69-EDO#Sagittal notation|69]] and [[76-EDO#Sagittal notation|76]], and is a superset of the notation for [[31-EDO#Sagittal notation|31-EDO]].
+This notation uses the same sagittal sequence as EDOs [[69edo#Sagittal notation|69]] and [[76edo#Sagittal notation|76]], and is a superset of the notation for [[31edo#Sagittal notation|31-EDO]].
 ====Evo flavor====
 [[File:62-EDO_Evo.svg]]
 ====Revo flavor====
@@ -447,7 +447,7 @@ This notation uses the same sagittal sequence as EDOs [[69-EDO#Sagittal notation
 [[File:62-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[56-EDO#Sagittal notation|56-EDO]].
+This notation uses the same sagittal sequence as [[56edo#Sagittal notation|56-EDO]].
 ====Evo flavor====
 [[File:63-EDO_Evo.svg]]
 ====Revo flavor====
@@ -456,13 +456,13 @@ This notation uses the same sagittal sequence as [[56-EDO#Sagittal notation|56-E
 ===Sagittal notation===
 In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
 ====Best fifth notation====
-This notation uses the same sagittal sequence as EDOs [[50-EDO#Sagittal notation|50]], [[57-EDO#Sagittal notation|57]], and [[71-EDO#Sagittal notation|71b]].
+This notation uses the same sagittal sequence as EDOs [[50edo#Sagittal notation|50]], [[57edo#Sagittal notation|57]], and [[71edo#Sagittal notation|71b]].
 =====Evo flavor=====
 [[File:64-EDO_Evo.svg]]
 =====Revo flavor=====
 [[File:64-EDO_Revo.svg]]
 ====Second best fifth notation====
-This notation is a superset of the notation for [[32-EDO#Sagittal notation|32-EDO]].
+This notation is a superset of the notation for [[32edo#Sagittal notation|32-EDO]].
 =====Evo flavor=====
 [[File:64b_Evo.svg]]
 =====Revo flavor=====
@@ -471,7 +471,7 @@ This notation is a superset of the notation for [[32-EDO#Sagittal notation|32-ED
 [[File:64b_Evo-SZ.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as EDOs [[72-EDO#Sagittal notation|72]] and [[79-EDO#Sagittal notation|79]].
+This notation uses the same sagittal sequence as EDOs [[72edo#Sagittal notation|72]] and [[79edo#Sagittal notation|79]].
 ====Evo flavor====
 [[File:65-EDO_Evo.svg]]
 ====Revo flavor====
@@ -481,7 +481,7 @@ This notation uses the same sagittal sequence as EDOs [[72-EDO#Sagittal notation
 
 ===Sagittal notation===
 In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
-This notation uses the same sagittal sequence as [[59-EDO#Sagittal notation|59-EDO]], and is a superset of the notations for EDOs [[22-EDO#Sagittal notation|22]] and [[11-EDO#Sagittal notation|11]].
+This notation uses the same sagittal sequence as [[59edo#Sagittal notation|59-EDO]], and is a superset of the notations for EDOs [[22edo#Sagittal notation|22]] and [[11edo#Sagittal notation|11]].
 ====Evo flavor====
 [[File:66-EDO_Evo.svg]]
 ====Revo flavor====
@@ -495,7 +495,7 @@ This notation uses the same sagittal sequence as [[59-EDO#Sagittal notation|59-E
 
 ===Sagittal notation===
 In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
-This notation uses the same sagittal sequence as [[75-EDO#Sagittal notation|75-EDO]].
+This notation uses the same sagittal sequence as [[75edo#Sagittal notation|75-EDO]].
 ====Evo flavor====
 [[File:68-EDO_Evo.svg]]
 ====Revo flavor====
@@ -505,7 +505,7 @@ This notation uses the same sagittal sequence as [[75-EDO#Sagittal notation|75-E
 
 ===Sagittal notation===
 In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
-This notation uses the same sagittal sequence as EDOs [[62-EDO#Sagittal notation|62]] and [[76-EDO#Sagittal notation|76]].
+This notation uses the same sagittal sequence as EDOs [[62edo#Sagittal notation|62]] and [[76edo#Sagittal notation|76]].
 ====Evo flavor====
 [[File:69-EDO_Evo.svg]]
 ====Revo flavor====
@@ -529,14 +529,14 @@ In the following diagrams, an equals sign (=) means that the symbol represents t
 =====Evo-SZ flavor=====
 [[File:71-EDO_Evo-SZ.svg]]
 ====Second best fifth notation====
-This notation uses the same sagittal sequence as EDOs [[50-EDO#Sagittal notation|50]], [[57-EDO#Sagittal notation|57]], and [[64-EDO#Sagittal notation|64]].
+This notation uses the same sagittal sequence as EDOs [[50edo#Sagittal notation|50]], [[57edo#Sagittal notation|57]], and [[64edo#Sagittal notation|64]].
 =====Evo flavor=====
 [[File:71b_Evo.svg]]
 =====Revo flavor=====
 [[File:71b_Revo.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as EDOs [[65-EDO#Sagittal notation|65]] and [[79-EDO#Sagittal notation|79]], and is a superset of the notations for EDOs [[36-EDO#Sagittal notation|36]], [[24-EDO#Sagittal notation|24]], [[18-EDO#Sagittal notation|18]], [[12-EDO#Sagittal notation|12]], [[8-EDO#Sagittal notation|8]], and [[6-EDO#Sagittal notation|6]].
+This notation uses the same sagittal sequence as EDOs [[65edo#Sagittal notation|65]] and [[79edo#Sagittal notation|79]], and is a superset of the notations for EDOs [[36edo#Sagittal notation|36]], [[24edo#Sagittal notation|24]], [[18edo#Sagittal notation|18]], [[12edo#Sagittal notation|12]], [[8edo#Sagittal notation|8]], and [[6edo#Sagittal notation|6]].
 ====Evo flavor====
 [[File:72-EDO_Evo.svg]]
 ====Revo flavor====
@@ -545,7 +545,7 @@ This notation uses the same sagittal sequence as EDOs [[65-EDO#Sagittal notation
 [[File:72-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-This notation uses the same sagittal sequence as [[80-EDO#Sagittal notation|80-EDO]].
+This notation uses the same sagittal sequence as [[80edo#Sagittal notation|80-EDO]].
 ====Evo flavor====
 [[File:73-EDO_Evo.svg]]
 ====Revo flavor====
@@ -560,7 +560,7 @@ In the following diagrams, an equals sign (=) means that the symbol represents t
 
 ===Sagittal notation===
 In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
-This notation uses the same sagittal sequence as [[68-EDO#Sagittal notation|68-EDO]].
+This notation uses the same sagittal sequence as [[68edo#Sagittal notation|68-EDO]].
 ====Evo flavor====
 [[File:75-EDO_Evo.svg]]
 ====Revo flavor====
@@ -570,7 +570,7 @@ This notation uses the same sagittal sequence as [[68-EDO#Sagittal notation|68-E
 
 ===Sagittal notation===
 In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
-This notation uses the same sagittal sequence as EDOs [[62-EDO#Sagittal notation|62]] and [[69-EDO#Sagittal notation|69]], and is a superset of the notations for EDOs [[38-EDO#Sagittal notation|38]] and [[19-EDO#Sagittal notation|19]].
+This notation uses the same sagittal sequence as EDOs [[62edo#Sagittal notation|62]] and [[69edo#Sagittal notation|69]], and is a superset of the notations for EDOs [[38edo#Sagittal notation|38]] and [[19edo#Sagittal notation|19]].
 ====Evo flavor====
 [[File:76-EDO_Evo.svg]]
 ====Revo flavor====
