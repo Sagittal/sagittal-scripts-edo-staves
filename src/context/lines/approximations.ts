@@ -38,7 +38,7 @@ const computeApproximationExplanationLine = (edo: Edo): Maybe<Io> => {
         hasAnyValidSecondaryCommas(edoNotationName) ||
         hasAnyValidSecondaryCommas(secondBestFifthEdoNotationName)
     ) {
-        return `In the following diagrams, "<symbol> = ~<comma>" (with an equals sign) means "<symbol> represents the tempering of <comma> which it exactly represents in JI", while "<symbol> ≈ ~<comma>" (with an approximately equals sign) means "<symbol> represents the tempering of <comma> which it approximately represents in JI".`
+        return `In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).`
     }
 
     return undefined
