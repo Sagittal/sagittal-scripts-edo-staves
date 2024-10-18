@@ -3,10 +3,18 @@ import {
     STEP_AND_MEANINGS_FONT_SIZE,
 } from "../constants"
 import { Font } from "../types"
+import { PathifiableTexts } from "./types"
 
 const MEANINGS_FONT: Font = {
     fontFile: OPEN_SANS_REGULAR_FONT_FILE,
     fontSize: STEP_AND_MEANINGS_FONT_SIZE,
 }
 
-export { MEANINGS_FONT }
+const EMPTY_PATHIFIABLE_TEXTS: PathifiableTexts = {
+    fontIndices: [],
+    fonts: [],
+    texts: [],
+    additionalYOffsets: [],
+}
+
+export { MEANINGS_FONT, EMPTY_PATHIFIABLE_TEXTS }

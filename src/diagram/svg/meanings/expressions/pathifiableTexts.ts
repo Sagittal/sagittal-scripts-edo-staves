@@ -12,6 +12,7 @@ import {
 import { handleSzForExpressions } from "./evoSz"
 import { computeInputSentenceUnicode } from "staff-code"
 import { PathifiableTexts } from "../types"
+import { EMPTY_PATHIFIABLE_TEXTS } from "../constants"
 
 const convertBravuraTextsFromCodeToUnicode = (texts: Io[]): void => {
     for (
@@ -37,14 +38,8 @@ const computeExpressionsPathifiableTexts = ({
     const pathifiableTextsForExpressions: PathifiableTexts =
         PATHIFIABLE_TEXTS_FOR_EXPRESSIONS_BY_EDO_NAME[edoNotationName]
 
-    if (isUndefined(pathifiableTextsForExpressions)) {
-        return {
-            texts: [],
-            fonts: [],
-            fontIndices: [],
-            additionalYOffsets: [],
-        }
-    }
+    if (isUndefined(pathifiableTextsForExpressions)) 
+        return EMPTY_PATHIFIABLE_TEXTS
 
     const { texts, fontIndices, additionalYOffsets, fonts } = deepClone(
         pathifiableTextsForExpressions,

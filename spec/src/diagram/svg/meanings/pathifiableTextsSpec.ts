@@ -9,9 +9,9 @@ import { Io } from "@sagittal/general"
 import { MAX_PERIODIC_TABLE_EDO } from "../../../../../src/constants"
 
 const EXPECTED_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
-    "5": ["a bad-fifth apotome-fraction notation"],
+    "5": [],
     "6": ["a subset of 12-EDO"],
-    "7": ["a bad-fifth limma-fraction notation"],
+    "7": [],
     "8": ["a subset of 24-EDO"],
     "9": ["a bad-fifth limma-fraction notation"],
     "10": ["a bad-fifth apotome-fraction notation"],
@@ -242,9 +242,9 @@ const EXPECTED_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
 } as Record<EdoNotationName, Io[]>
 
 const EXPECTED_EVO_SZ_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
-    "5": ["a bad-fifth apotome-fraction notation"],
+    "5": [],
     "6": ["a subset of 12-EDO"],
-    "7": ["a bad-fifth limma-fraction notation"],
+    "7": [],
     "8": ["a subset of 24-EDO"],
     "9": ["a bad-fifth limma-fraction notation"],
     "10": ["a bad-fifth apotome-fraction notation"],

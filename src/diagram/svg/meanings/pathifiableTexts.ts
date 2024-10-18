@@ -9,7 +9,7 @@ import {
 } from "@sagittal/system"
 import { DiagramType } from "../../../types"
 import { Font } from "../types"
-import { MEANINGS_FONT } from "./constants"
+import { EMPTY_PATHIFIABLE_TEXTS, MEANINGS_FONT } from "./constants"
 import { computeExpressionsPathifiableTexts } from "./expressions/pathifiableTexts"
 import { PathifiableTexts } from "./types"
 
@@ -36,18 +36,26 @@ const computeMeaningsPathifiableTexts = ({
         const sectionColor: SectionColor | HexColor =
             computeSectionColor(edoNotationName)
         if (sectionColor === SectionColor.ROSE) {
-            return {
-                fontIndices: [0 as Index<Font>],
-                fonts: [deepClone(MEANINGS_FONT)],
-                texts: ["a bad-fifth limma-fraction notation"],
-                additionalYOffsets: [0 as Px],
+            if (edoNotationName === "7") {
+                return EMPTY_PATHIFIABLE_TEXTS
+            } else {
+                return {
+                    fontIndices: [0 as Index<Font>],
+                    fonts: [deepClone(MEANINGS_FONT)],
+                    texts: ["a bad-fifth limma-fraction notation"],
+                    additionalYOffsets: [0 as Px],
+                }
             }
         } else if (sectionColor === SectionColor.GOLD) {
-            return {
-                fontIndices: [0 as Index<Font>],
-                fonts: [deepClone(MEANINGS_FONT)],
-                texts: ["a bad-fifth apotome-fraction notation"],
-                additionalYOffsets: [0 as Px],
+            if (edoNotationName === "5") {
+                return EMPTY_PATHIFIABLE_TEXTS
+            } else {
+                return {
+                    fontIndices: [0 as Index<Font>],
+                    fonts: [deepClone(MEANINGS_FONT)],
+                    texts: ["a bad-fifth apotome-fraction notation"],
+                    additionalYOffsets: [0 as Px],
+                }
             }
         } else {
             return computeExpressionsPathifiableTexts({
