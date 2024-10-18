@@ -12,7 +12,7 @@ import { getSvgStringFromDocument } from "./document"
 import { setDiagramSizeAndGetDiagramWidth } from "./size"
 import { makeNicelyPngifiable, shiftStavesDown } from "./shift"
 import { textToSvgDocument } from "./text"
-import { addExpressionsAndGetWidth } from "./expressions"
+import { addMeaningsAndGetWidth } from "./meanings"
 import { DiagramType } from "../../types"
 import { NodeElement } from "./types"
 import { placeTile, addTileAndGetSize } from "./tile"
@@ -56,7 +56,7 @@ const writeDiagramSvg = async ({
         svgDocument,
         subtitle,
     )
-    const expressionsWidth: Px = await addExpressionsAndGetWidth(svgDocument, {
+    const meaningsWidth: Px = await addMeaningsAndGetWidth(svgDocument, {
         edoNotationName,
         diagramType,
     })
@@ -65,7 +65,7 @@ const writeDiagramSvg = async ({
         tileSize,
         titleWidth,
         subtitleWidth,
-        expressionsWidth,
+        meaningsWidth,
     })
     placeTile({ tileWrapperGroupElement, tileSize, diagramWidth })
 

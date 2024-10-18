@@ -5,7 +5,7 @@ import {
     EdoNotationDefinition,
     isSubsetNotation,
 } from "@sagittal/system"
-import { computeHasHalfApotome } from "../../../halfApotome"
+import { computeHasHalfApotome } from "../../../../halfApotome"
 
 const handleSzForExpressions = (
     texts: Io[],

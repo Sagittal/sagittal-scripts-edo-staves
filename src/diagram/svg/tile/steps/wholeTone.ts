@@ -2,7 +2,7 @@ import { Px } from "@sagittal/general"
 import { computeWholeToneStep, Edo, EdoStep } from "@sagittal/system"
 import {
     OPEN_SANS_SEMIBOLD_FONT_FILE,
-    STEP_FONT_SIZE,
+    STEP_AND_MEANINGS_FONT_SIZE,
     WHOLE_TONE_X_OFFSET,
     WHOLE_TONE_AND_FIFTH_Y_ADDITIONAL_OFFSET,
 } from "../../constants"
@@ -26,7 +26,7 @@ const addWholeTone = async (
         `CD${equalsPositiveOrLessThanZero(wholeToneStep)}`,
         {
             fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
-            fontSize: STEP_FONT_SIZE,
+            fontSize: STEP_AND_MEANINGS_FONT_SIZE,
             xOffset: WHOLE_TONE_X_OFFSET,
             yOffset: (WHOLE_TONE_AND_FIFTH_Y_ADDITIONAL_OFFSET +
                 tileSize / 2) as Px,

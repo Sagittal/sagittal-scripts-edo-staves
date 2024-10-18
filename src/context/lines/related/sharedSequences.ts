@@ -5,20 +5,12 @@ import {
     computeSharpStep,
     EDO_NOTATION_DEFINITIONS,
     EdoNotationName,
-    EdoNotationDefinition,
     isSubsetNotation,
     parseEdoNotationName,
     Sagitype,
     computeSagitypes,
 } from "@sagittal/system"
-
-const EDO_NOTATION_DEFINITIONS_ENTRIES: [
-    EdoNotationName,
-    EdoNotationDefinition,
-][] = Object.entries(EDO_NOTATION_DEFINITIONS) as [
-    EdoNotationName,
-    EdoNotationDefinition,
-][]
+import { EDO_NOTATION_DEFINITIONS_ENTRIES } from "../../../constants"
 
 const computeSharedSagittalSequenceEdoNotationNames = (
     edoNotationName: EdoNotationName,

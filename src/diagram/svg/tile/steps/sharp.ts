@@ -8,7 +8,7 @@ import {
     OPEN_SANS_SEMIBOLD_FONT_FILE,
     SHARP_SYMBOL_Y_OFFSET,
     SHARP_TEXT_Y_OFFSET,
-    STEP_FONT_SIZE,
+    STEP_AND_MEANINGS_FONT_SIZE,
     LIMMA_AND_SHARP_X_OFFSET,
 } from "../../constants"
 import { textsToSvgGroupElement } from "../../text"
@@ -62,7 +62,7 @@ const addSharp = async (
         },
         {
             fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
-            fontSize: STEP_FONT_SIZE,
+            fontSize: STEP_AND_MEANINGS_FONT_SIZE,
         },
         {
             fontFile: BRAVURA_TEXT_SC_FONT_FILE,
@@ -70,7 +70,7 @@ const addSharp = async (
         },
         {
             fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
-            fontSize: STEP_FONT_SIZE,
+            fontSize: STEP_AND_MEANINGS_FONT_SIZE,
         },
     ]
     const fontIndices: Index<Font>[] = [0, 1, 0, 1] as Index<Font>[]

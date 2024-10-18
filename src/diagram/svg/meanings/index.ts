@@ -1,0 +1,1 @@
+export { addMeaningsAndGetWidth } from "./meanings"

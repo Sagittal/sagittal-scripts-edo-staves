@@ -3,7 +3,7 @@ import { computeLimmaStep, Edo, EdoStep } from "@sagittal/system"
 import {
     LIMMA_AND_SHARP_Y_OFFSET,
     OPEN_SANS_SEMIBOLD_FONT_FILE,
-    STEP_FONT_SIZE,
+    STEP_AND_MEANINGS_FONT_SIZE,
     LIMMA_AND_SHARP_X_OFFSET,
 } from "../../constants"
 import { addText } from "../../text"
@@ -26,7 +26,7 @@ const addLimma = async (
         `EF${equalsPositiveOrLessThanZero(limmaStep)}`,
         {
             fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
-            fontSize: STEP_FONT_SIZE,
+            fontSize: STEP_AND_MEANINGS_FONT_SIZE,
             xOffset: -LIMMA_AND_SHARP_X_OFFSET as Px,
             yOffset: (tileSize + LIMMA_AND_SHARP_Y_OFFSET) as Px,
             color: LIMMA_COLOR,

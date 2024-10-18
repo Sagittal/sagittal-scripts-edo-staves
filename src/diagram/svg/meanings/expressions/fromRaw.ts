@@ -1,11 +1,20 @@
 import { EdoNotationName } from "@sagittal/system"
-import { Expression, PathifiableTexts } from "./types"
+import { Expression } from "./types"
 import { Code } from "staff-code"
-import { Index, Io, Px, Sentence } from "@sagittal/general"
-import { Font } from "../types"
-import { DEFINIENS_Y_OFFSET } from "../constants"
+import { deepClone, Index, Io, Px, Sentence } from "@sagittal/general"
+import { Font } from "../../types"
+import { BRAVURA_TEXT_SC_FONT_FILE, BRAVURA_TEXT_SC_FONT_SIZE, DEFINIENS_Y_OFFSET } from "../../constants"
+import { MEANINGS_FONT } from "../constants"
+import { PathifiableTexts } from "../types"
 
-const RAW_EXPRESSION_DATA = `
+const DEFINIENDUM_FONT: Font = {
+    fontFile: BRAVURA_TEXT_SC_FONT_FILE,
+    fontSize: BRAVURA_TEXT_SC_FONT_SIZE,
+}
+const DEFINIENS_FONT: Font = deepClone(MEANINGS_FONT)
+const FONTS = [DEFINIENDUM_FONT, DEFINIENS_FONT]
+
+const RAW_EXPRESSIONS_DATA = `
 17 12; /|\\; = ~11M (~33/32) nl;
 22 12; \\!; = ~5C (~80/81) nl;
 24 12; /|\\; = ~11M (~33/32) nl;
@@ -97,11 +106,13 @@ const computeExpressionsByEdoNotationName = (
 const convertToPathifiableTexts = (
     expressionsByEdoNotationName: Record<EdoNotationName, Expression[]>,
 ): Record<EdoNotationName, PathifiableTexts> => {
-    const expressionsByEdoNotationNameEntries: [EdoNotationName, Expression[]][] =
-        Object.entries(expressionsByEdoNotationName) as [
-            EdoNotationName,
-            Expression[],
-        ][]
+    const expressionsByEdoNotationNameEntries: [
+        EdoNotationName,
+        Expression[],
+    ][] = Object.entries(expressionsByEdoNotationName) as [
+        EdoNotationName,
+        Expression[],
+    ][]
 
     return expressionsByEdoNotationNameEntries.reduce(
         (
@@ -128,6 +139,7 @@ const convertToPathifiableTexts = (
 
             pathifiableTextsByEdoNotationName[edoNotationName] = {
                 texts,
+                fonts: deepClone(FONTS),
                 fontIndices,
                 additionalYOffsets,
             }
@@ -152,7 +164,12 @@ const computePathifiableTextsByEdoNotationNameFromRawExpressionData = (
     return convertToPathifiableTexts(expressionsByEdoNotationName)
 }
 
-const PATHIFIABLE_TEXTS_BY_EDO_NAME: Record<EdoNotationName, PathifiableTexts> =
-    computePathifiableTextsByEdoNotationNameFromRawExpressionData(RAW_EXPRESSION_DATA)
+const PATHIFIABLE_TEXTS_FOR_EXPRESSIONS_BY_EDO_NAME: Record<
+    EdoNotationName,
+    PathifiableTexts
+> =
+    computePathifiableTextsByEdoNotationNameFromRawExpressionData(
+        RAW_EXPRESSIONS_DATA,
+    )
 
-export { PATHIFIABLE_TEXTS_BY_EDO_NAME }
+export { PATHIFIABLE_TEXTS_FOR_EXPRESSIONS_BY_EDO_NAME }

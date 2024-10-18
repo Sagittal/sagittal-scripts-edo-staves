@@ -1,16 +1,6 @@
-import { Filename, HexColor, Io } from "@sagittal/general"
-import {
-    computeSectionColor,
-    Edo,
-    EdoNotationName,
-    SectionColor,
-} from "@sagittal/system"
-import {
-    EDO_NOTATION_DEFINITIONS,
-    EdoNotationDefinition,
-    isSubsetNotation,
-    parseEdoNotationName,
-} from "@sagittal/system"
+import { Filename, Io } from "@sagittal/general"
+import { Edo, EdoNotationName } from "@sagittal/system"
+import { parseEdoNotationName } from "@sagittal/system"
 import { DiagramType } from "../../types"
 
 const FORMATTED_DIAGRAM_TYPE: Record<DiagramType, Io> = {
@@ -42,26 +32,9 @@ const computeSubtitle = ({
 }): Io => {
     const { useSecondBestFifth }: { useSecondBestFifth: boolean } =
         parseEdoNotationName(edoNotationName)
-    const edoNotationDefinition: EdoNotationDefinition =
-        EDO_NOTATION_DEFINITIONS[edoNotationName]
-
-    const sectionColor: SectionColor | HexColor =
-        computeSectionColor(edoNotationName)
 
     return `${
-        isSubsetNotation(edoNotationDefinition)
-            ? `As a subset of ${edoNotationDefinition.supersetEdoNotationName}-EDO `
-            : sectionColor === SectionColor.ROSE
-            ? useSecondBestFifth
-                ? "A bad-fifth limma-fraction notation, using the second-best fifth "
-                : "A bad-fifth limma-fraction notation "
-            : sectionColor === SectionColor.GOLD
-            ? useSecondBestFifth
-                ? "A bad-fifth apotome-fraction notation, using the second-best fifth "
-                : "A bad-fifth apotome-fraction notation "
-            : useSecondBestFifth
-            ? "Using the second-best fifth "
-            : ""
+        useSecondBestFifth ? "Using the second-best fifth " : ""
     }(default spellings)`
 }
 

@@ -16,12 +16,12 @@ const setDiagramSizeAndGetDiagramWidth = (
     {
         titleWidth,
         subtitleWidth,
-        expressionsWidth,
+        meaningsWidth,
         tileSize,
     }: {
         titleWidth: Px
         subtitleWidth: Px
-        expressionsWidth: Px
+        meaningsWidth: Px
         tileSize: Px
     },
 ): Px => {
@@ -34,7 +34,7 @@ const setDiagramSizeAndGetDiagramWidth = (
     svg.setAttribute("height", height.toString())
 
     const existingWidth: Px = parseFloat(svg.getAttribute("width")!) as Px
-    const widthAssumingStavesLongerEnoughThanTitleAndExpressions: Px =
+    const widthAssumingStavesLongerEnoughThanTitleSubtitleAndMeanings: Px =
         (existingWidth + LEFT_AND_RIGHT_MARGIN * BOTH_SIDES) as Px
     let width: Px
 
@@ -42,7 +42,7 @@ const setDiagramSizeAndGetDiagramWidth = (
         tileSize) /
         TILE_SIZE) as Px
 
-    width = widthAssumingStavesLongerEnoughThanTitleAndExpressions
+    width = widthAssumingStavesLongerEnoughThanTitleSubtitleAndMeanings
 
     if (width < titleWidth + totalWidthNeededForTile)
         width = (titleWidth + totalWidthNeededForTile) as Px
@@ -50,8 +50,8 @@ const setDiagramSizeAndGetDiagramWidth = (
     if (width < subtitleWidth + totalWidthNeededForTile)
         width = (subtitleWidth + totalWidthNeededForTile) as Px
 
-    if (width < expressionsWidth + totalWidthNeededForTile)
-        width = (expressionsWidth + totalWidthNeededForTile) as Px
+    if (width < meaningsWidth + totalWidthNeededForTile)
+        width = (meaningsWidth + totalWidthNeededForTile) as Px
 
     width = (width + EXTRA_ROOM_FOR_FIFTH_SIZE) as Px
     svg.setAttribute("width", width.toString())
