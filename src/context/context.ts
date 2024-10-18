@@ -20,7 +20,9 @@ const generateContext = (
     const hasSecondBestFifthNotation: boolean =
         subsectionsForEachFifth.length === 2
 
-    lines.push(computeApproximationExplanationLine(edo))
+    const approximationsExplanationLine: Maybe<Io> =
+        computeApproximationExplanationLine(edo)
+    lines.push(approximationsExplanationLine)
 
     subsectionsForEachFifth.forEach(
         (subsections: Subsection[], subsectionsIndex: number): void => {
@@ -34,13 +36,21 @@ const generateContext = (
                 )
             }
 
-            lines.push(
-                computeRelatedEdosLine(
-                    isSecondBestFifthNotation
-                        ? (`${edo}b` as EdoNotationName)
-                        : (edo.toString() as EdoNotationName),
-                ),
+            const relatedEdosLine: Maybe<Io> = computeRelatedEdosLine(
+                isSecondBestFifthNotation
+                    ? (`${edo}b` as EdoNotationName)
+                    : (edo.toString() as EdoNotationName),
             )
+
+            if (
+                !hasSecondBestFifthNotation &&
+                !isUndefined(approximationsExplanationLine) &&
+                !isUndefined(relatedEdosLine)
+            ) {
+                lines.push("")
+            }
+
+            lines.push(relatedEdosLine)
 
             subsections.forEach(
                 ({ diagramType, notation }: Subsection): void => {
