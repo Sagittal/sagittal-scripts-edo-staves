@@ -66,7 +66,7 @@ const computeTitle = ({
     edoNotationName: EdoNotationName
     diagramType: DiagramType
 }): Io => {
-    const { edo }: { edo: Edo } = parseEdoNotationName(edoNotationName)
+    const edo: Edo = parseEdoNotationName(edoNotationName).edo
 
     return `${edo}-EDO${embedDiagramType(diagramType)} Sagittal notation`
 }

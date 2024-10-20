@@ -9,13 +9,16 @@ import {
     parseEdoNotationName,
     Sagitype,
     computeSagitypes,
+    EdoNotationDefinition,
+    EdoStep,
+    Edo,
 } from "@sagittal/system"
 import { EDO_NOTATION_DEFINITIONS_ENTRIES } from "../../../constants"
 
 const computeSharedSagittalSequenceEdoNotationNames = (
     edoNotationName: EdoNotationName,
 ): EdoNotationName[] => {
-    const edoNotationDefinition = EDO_NOTATION_DEFINITIONS[edoNotationName]
+    const edoNotationDefinition: EdoNotationDefinition = EDO_NOTATION_DEFINITIONS[edoNotationName]
     if (isSubsetNotation(edoNotationDefinition)) return []
 
     const sagitypes: Sagitype[] = computeSagitypes(edoNotationDefinition)
@@ -35,11 +38,11 @@ const computeSharedSagittalSequenceEdoNotationNames = (
 const computeLimmaFractionSharedSagittalSequenceEdoNotationNames = (
     edoNotationName: EdoNotationName,
     sagitypes: Sagitype[],
-) => {
-    const fifthStep = computeFifthStep(edoNotationName)
-    const edo = parseEdoNotationName(edoNotationName).edo
-    const limmaStep = computeLimmaStep(edo, fifthStep)
-    const relevantSagitypes = sagitypes.slice(0, floor(limmaStep / 2))
+): EdoNotationName[] => {
+    const fifthStep: EdoStep = computeFifthStep(edoNotationName)
+    const edo: Edo = parseEdoNotationName(edoNotationName).edo
+    const limmaStep: EdoStep = computeLimmaStep(edo, fifthStep)
+    const relevantSagitypes: Sagitype[] = sagitypes.slice(0, floor(limmaStep / 2))
 
     return EDO_NOTATION_DEFINITIONS_ENTRIES.filter(
         ([otherEdoNotationName, otherEdoNotationDefinition]) => {
@@ -69,14 +72,17 @@ const computeLimmaFractionSharedSagittalSequenceEdoNotationNames = (
 const computeApotomeFractionSharedSagittalSequenceEdoNotationNames = (
     edoNotationName: EdoNotationName,
     sagitypes: Sagitype[],
-) => {
-    const fifthStep = computeFifthStep(edoNotationName)
-    const edo = parseEdoNotationName(edoNotationName).edo
-    const sharpStep = computeSharpStep(edo, fifthStep)
-    const relevantSagitypes = sagitypes.slice(0, floor(sharpStep / 2))
+): EdoNotationName[] => {
+    const fifthStep: EdoStep = computeFifthStep(edoNotationName)
+    const edo: Edo = parseEdoNotationName(edoNotationName).edo
+    const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
+    const relevantSagitypes: Sagitype[] = sagitypes.slice(0, floor(sharpStep / 2))
 
     return EDO_NOTATION_DEFINITIONS_ENTRIES.filter(
-        ([otherEdoNotationName, otherEdoNotationDefinition]) => {
+        ([otherEdoNotationName, otherEdoNotationDefinition]: [
+            EdoNotationName,
+            EdoNotationDefinition,
+        ]): boolean => {
             if (
                 otherEdoNotationName === edoNotationName ||
                 isSubsetNotation(otherEdoNotationDefinition) ||
