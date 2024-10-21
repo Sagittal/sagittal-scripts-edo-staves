@@ -1,1 +1,1 @@
-export { addExpressions } from "./pathifiableTexts"
+export { computeExpressionsPathifiableTexts } from "./pathifiableTexts"

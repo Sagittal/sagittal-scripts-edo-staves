@@ -10,7 +10,7 @@ import {
 import { DiagramType } from "../../../types"
 import { Font } from "../types"
 import { EMPTY_PATHIFIABLE_TEXTS, MEANINGS_FONT } from "./constants"
-import { computeExpressionsPathifiableTexts } from "./expressions/pathifiableTexts"
+import { computeExpressionsPathifiableTexts } from "./expressions"
 import { PathifiableTexts } from "./types"
 
 const computeMeaningsPathifiableTexts = ({

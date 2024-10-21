@@ -1,7 +1,5 @@
 import { Edo } from "@sagittal/system"
-import { generateContext } from "../context/context"
-import { computeSubsectionsForEachFifth, Subsection } from "../context"
-import { DEFINED_EDOS } from "../context/constants"
+import { generateContext, computeSubsectionsForEachFifth, Subsection, DEFINED_EDOS } from "../context"
 import { isUndefined, Max, program, scriptSettings } from "@sagittal/general"
 
 scriptSettings.disableColors = true
