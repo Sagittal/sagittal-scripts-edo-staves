@@ -21,7 +21,7 @@ const hasAnyValidSecondaryCommas = (
     return edoNotationDefinition.stepDefinitions.some(
         ({ validCommas }: StepDefinition): boolean => {
             if (isUndefined(validCommas)) return false
-            if (validCommas.length < 2) return false
+            if (validCommas.length > 1) return true
             if (isUndefined(validCommas[0])) return true
 
             return false
