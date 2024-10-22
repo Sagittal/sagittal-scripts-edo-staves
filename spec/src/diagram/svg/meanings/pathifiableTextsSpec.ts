@@ -5,8 +5,11 @@ import {
 } from "@sagittal/system"
 import { computeMeaningsPathifiableTexts } from "../../../../../src/diagram/svg/meanings/pathifiableTexts"
 import { DiagramType } from "../../../../../src/types"
-import { Io } from "@sagittal/general"
+import { Index, Io, Unicode, Word } from "@sagittal/general"
 import { MAX_PERIODIC_TABLE_EDO } from "../../../../../src/constants"
+import { PathifiableTexts } from "../../../../../src/diagram/svg/meanings/types"
+import { debugCode } from "staff-code"
+import { Font } from "../../../../../src/diagram/svg/types"
 
 const EXPECTED_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
     "5": [],
@@ -92,7 +95,7 @@ const EXPECTED_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
     "54": [
         "  ",
         " = ~19s (~513/512),",
-        "  ",
+        "  ",
         " = ~5C (~80/81),",
         "  ",
         " = ~11M (~33/32),",
@@ -340,7 +343,7 @@ const EXPECTED_EVO_SZ_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
     "54": [
         "  ",
         " = ~19s (~513/512),",
-        "  ",
+        "  ",
         " = ~5C (~80/81),",
         "  ",
         " = ~11M (~33/32),",
@@ -504,6 +507,26 @@ const EXPECTED_EVO_SZ_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
     "71b": [" ", " ≈ ~13M (~1053/1024)"],
 } as Record<EdoNotationName, Io[]>
 
+const BRAVURA_TEXT_INDEX: Index<Font> = 0 as Index<Font>
+
+const makeReadable = (
+    texts: Io[],
+    { fontIndices }: { fontIndices: Index<Font>[] },
+): Io =>
+    texts
+        .map((actualText: Io, index: number) =>
+            fontIndices[index] === BRAVURA_TEXT_INDEX
+                ? actualText
+                      .split("")
+                      .map((actualChar: Io) =>
+                          debugCode(actualChar as Unicode & Word),
+                      )
+                : [actualText],
+        )
+        .flat()
+        .join("")
+        .replace(/,/g, ", ")
+
 describe("computeMeaningsPathifiableTexts", (): void => {
     it("provides the correct text for each EDO for general, (alternative) Evo, and Revo diagrams", () => {
         const EDO_NOTATION_DEFINITIONS_KEYS: EdoNotationName[] = Object.keys(
@@ -518,12 +541,29 @@ describe("computeMeaningsPathifiableTexts", (): void => {
                 )
                     return
 
-                expect(
+                const actualPathifiableTexts: PathifiableTexts =
                     computeMeaningsPathifiableTexts({
                         edoNotationName,
                         diagramType: DiagramType.REVO,
-                    }).texts,
-                ).toEqual(EXPECTED_MEANINGS_TEXTS[edoNotationName])
+                    })
+                const actualTexts: Io[] = actualPathifiableTexts.texts
+
+                const expectedTexts: Io[] =
+                    EXPECTED_MEANINGS_TEXTS[edoNotationName]
+
+                const readableActualTexts: Io = makeReadable(actualTexts, {
+                    fontIndices: actualPathifiableTexts.fontIndices,
+                })
+
+                const readableExpectedTexts: Io = makeReadable(expectedTexts, {
+                    fontIndices: actualPathifiableTexts.fontIndices,
+                })
+
+                expect(actualTexts)
+                    .withContext(
+                        `For ${edoNotationName}, expected ${readableActualTexts} to be ${readableExpectedTexts}`,
+                    )
+                    .toEqual(expectedTexts)
             },
         )
     })
@@ -541,12 +581,29 @@ describe("computeMeaningsPathifiableTexts", (): void => {
                 )
                     return
 
-                expect(
+                const actualPathifiableTexts: PathifiableTexts =
                     computeMeaningsPathifiableTexts({
                         edoNotationName,
                         diagramType: DiagramType.EVO_SZ,
-                    }).texts,
-                ).toEqual(EXPECTED_EVO_SZ_MEANINGS_TEXTS[edoNotationName])
+                    })
+                const actualTexts: Io[] = actualPathifiableTexts.texts
+
+                const expectedTexts: Io[] =
+                    EXPECTED_EVO_SZ_MEANINGS_TEXTS[edoNotationName]
+
+                const readableActualTexts: Io = makeReadable(actualTexts, {
+                    fontIndices: actualPathifiableTexts.fontIndices,
+                })
+
+                const readableExpectedTexts: Io = makeReadable(expectedTexts, {
+                    fontIndices: actualPathifiableTexts.fontIndices,
+                })
+
+                expect(actualTexts)
+                    .withContext(
+                        `For ${edoNotationName}, expected ${readableActualTexts} to be ${readableExpectedTexts}`,
+                    )
+                    .toEqual(expectedTexts)
             },
         )
     })

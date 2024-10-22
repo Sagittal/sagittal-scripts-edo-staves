@@ -1,6 +1,6 @@
 import { EdoNotationName } from "@sagittal/system"
 import { DiagramType } from "../../../../types"
-import { PATHIFIABLE_TEXTS_FOR_EXPRESSIONS_BY_EDO_NAME } from "./fromRaw"
+import { PATHIFIABLE_TEXTS_FOR_EXPRESSIONS_BY_EDO_NOTATION_NAME } from "./fromDefinitions"
 import {
     deepClone,
     Index,
@@ -36,9 +36,9 @@ const computeExpressionsPathifiableTexts = ({
     edoNotationName: EdoNotationName
 }): PathifiableTexts => {
     const pathifiableTextsForExpressions: PathifiableTexts =
-        PATHIFIABLE_TEXTS_FOR_EXPRESSIONS_BY_EDO_NAME[edoNotationName]
+        PATHIFIABLE_TEXTS_FOR_EXPRESSIONS_BY_EDO_NOTATION_NAME[edoNotationName]
 
-    if (isUndefined(pathifiableTextsForExpressions)) 
+    if (isUndefined(pathifiableTextsForExpressions))
         return EMPTY_PATHIFIABLE_TEXTS
 
     const { texts, fontIndices, additionalYOffsets, fonts } = deepClone(
