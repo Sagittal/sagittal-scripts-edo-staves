@@ -3,13 +3,13 @@ import {
     EdoNotationName,
     parseEdoNotationName,
 } from "@sagittal/system"
-import { computeMeaningsPathifiableTexts } from "../../../../../src/diagram/svg/meanings/pathifiableTexts"
-import { DiagramType } from "../../../../../src/types"
+import { computeMeaningsPathifiableTexts } from "../../../../src/diagram/svg/meaning/pathifiableTexts"
+import { DiagramType } from "../../../../src/types"
 import { Index, Io, Unicode, Word } from "@sagittal/general"
-import { MAX_PERIODIC_TABLE_EDO } from "../../../../../src/constants"
-import { PathifiableTexts } from "../../../../../src/diagram/svg/meanings/types"
+import { MAX_PERIODIC_TABLE_EDO } from "../../../../src/constants"
+import { PathifiableTexts } from "../../../../src/diagram/svg/meaning/types"
 import { debugCode } from "staff-code"
-import { Font } from "../../../../../src/diagram/svg/types"
+import { Font } from "../../../../src/diagram/svg/types"
 
 const EXPECTED_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
     "5": [],

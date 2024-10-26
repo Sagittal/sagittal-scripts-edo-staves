@@ -6,4 +6,4 @@ interface Expression {
     definiens: Io
 }
 
-export {  Expression }
+export { Expression }

@@ -5,14 +5,13 @@ import {
     EdoNotationDefinition,
     isSubsetNotation,
 } from "@sagittal/system"
-import { computeHasHalfApotome } from "../../../../halfApotome"
+import { computeHasHalfApotome } from "../../halfApotome"
 
 const handleSzForExpressions = (
     texts: Io[],
     { edoNotationName }: { edoNotationName: EdoNotationName },
 ): void => {
-    const edoNotationDefinition: EdoNotationDefinition =
-        EDO_NOTATION_DEFINITIONS[edoNotationName]
+    const edoNotationDefinition: EdoNotationDefinition = EDO_NOTATION_DEFINITIONS[edoNotationName]
     if (isSubsetNotation(edoNotationDefinition)) return
 
     if (computeHasHalfApotome(edoNotationName))

@@ -10,7 +10,7 @@ import {
 import { DiagramType } from "../../../types"
 import { Font } from "../types"
 import { EMPTY_PATHIFIABLE_TEXTS, MEANINGS_FONT } from "./constants"
-import { computeExpressionsPathifiableTexts } from "./expressions"
+import { computeExpressionsPathifiableTexts } from "../../../expression"
 import { PathifiableTexts } from "./types"
 
 const computeMeaningsPathifiableTexts = ({
@@ -20,21 +20,17 @@ const computeMeaningsPathifiableTexts = ({
     edoNotationName: EdoNotationName
     diagramType: DiagramType
 }): PathifiableTexts => {
-    const edoNotationDefinition: EdoNotationDefinition =
-        EDO_NOTATION_DEFINITIONS[edoNotationName]
+    const edoNotationDefinition: EdoNotationDefinition = EDO_NOTATION_DEFINITIONS[edoNotationName]
 
     if (isSubsetNotation(edoNotationDefinition)) {
         return {
             fontIndices: [0 as Index<Font>],
             fonts: [deepClone(MEANINGS_FONT)],
-            texts: [
-                `a subset of ${edoNotationDefinition.supersetEdoNotationName}-EDO`,
-            ],
+            texts: [`a subset of ${edoNotationDefinition.supersetEdoNotationName}-EDO`],
             additionalYOffsets: [0 as Px],
         }
     } else {
-        const sectionColor: SectionColor | HexColor =
-            computeSectionColor(edoNotationName)
+        const sectionColor: SectionColor | HexColor = computeSectionColor(edoNotationName)
         if (sectionColor === SectionColor.ROSE) {
             if (edoNotationName === "7") {
                 return EMPTY_PATHIFIABLE_TEXTS
