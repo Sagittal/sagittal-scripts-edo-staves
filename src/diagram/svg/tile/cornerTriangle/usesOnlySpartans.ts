@@ -1,4 +1,5 @@
 import {
+    Abs,
     Index,
     isUndefined,
     Maybe,
@@ -40,13 +41,13 @@ const computeUsesOnlySpartans = (edoNotationName: EdoNotationName): boolean => {
         uniqueUsedAbsoluteSagittalIndices,
         sagitypes,
     }: {
-        uniqueUsedAbsoluteSagittalIndices: Index<Sagittal>[]
+        uniqueUsedAbsoluteSagittalIndices: Abs<Index<Sagittal>>[]
         sagitypes: Sagitype[]
     } = computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes(edoNotationName)
 
     const uniqueUsedSagitypes: Sagitype[] = uniqueUsedAbsoluteSagittalIndices
         .map(
-            (uniqueUsedAbsoluteSagittalIndex: Index<Sagittal>) =>
+            (uniqueUsedAbsoluteSagittalIndex: Abs<Index<Sagittal>>) =>
                 sagitypes[
                     uniqueUsedAbsoluteSagittalIndex - ZERO_ONE_INDEX_DIFF
                 ],
@@ -59,6 +60,6 @@ const computeUsesOnlySpartans = (edoNotationName: EdoNotationName): boolean => {
     return uniqueUsedSagitypes.every((usedSagitype: Sagitype): boolean =>
         SPARTAN_SAGITYPES.includes(usedSagitype),
     )
-}
+} // TODO: there are probably more places with sagittal index where it's coming straight off the list and those should be Abs<Index<
 
 export { computeUsesOnlySpartans }

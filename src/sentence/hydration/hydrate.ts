@@ -1,7 +1,5 @@
-import { Index, Max } from "@sagittal/general"
+import { Edo, EdoStep, Index, Max } from "@sagittal/general"
 import {
-    Edo,
-    EdoStep,
     Flavor,
     Sagittal,
     Spelling,

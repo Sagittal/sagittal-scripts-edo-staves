@@ -1,6 +1,5 @@
-import { Io, Maybe } from "@sagittal/general"
+import { Edo, Io, Maybe } from "@sagittal/general"
 import { DiagramType } from "../../types"
-import { Edo } from "@sagittal/system"
 
 const FORMATTED_FLAVOR_NAMES_BY_DIAGRAM_TYPE: Record<DiagramType, Maybe<Io>> = {
     [DiagramType.GENERAL]: "",

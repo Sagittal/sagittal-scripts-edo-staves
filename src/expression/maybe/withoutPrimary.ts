@@ -1,6 +1,6 @@
 import { Comma, Io, Name } from "@sagittal/general"
 import { Sagitype } from "@sagittal/system"
-import { Expression } from "./types"
+import { Expression } from "../types"
 import { computeIsDown } from "./down"
 import { computeCommaExpressionPart } from "./part"
 import { computeSecondaryCommasExpressionPart } from "./secondary"

@@ -1,14 +1,6 @@
 import { Octals } from "staff-code"
-import { Index, Decimal, Max } from "@sagittal/general"
-import {
-    Edo,
-    EdoStep,
-    Flavor,
-    Nominal,
-    Sagittal,
-    Spelling,
-    SubsetFactor,
-} from "@sagittal/system"
+import { Index, Decimal, Max, EdoStep, Edo } from "@sagittal/general"
+import { Flavor, Nominal, Sagittal, Spelling, SubsetFactor } from "@sagittal/system"
 import { Stave } from "../../types"
 import { Folding, HydrationState, Codewords } from "../types"
 import { extractDiagramStepParameters } from "./extract"

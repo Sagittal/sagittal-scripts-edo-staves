@@ -1,14 +1,9 @@
-import { Index } from "@sagittal/general"
-import { EdoStep } from "@sagittal/system"
+import { EdoStep, Index } from "@sagittal/general"
 import { Folding, SituationReC4 } from "../types"
 import { Stave } from "../../types"
 import { computeResultByColumn } from "./column"
 
-const computeColumnHasC4 = (
-    columnHasC4s: boolean[],
-    step: EdoStep,
-    folding: Folding,
-): boolean => {
+const computeColumnHasC4 = (columnHasC4s: boolean[], step: EdoStep, folding: Folding): boolean => {
     let cursor: EdoStep = step
     let staveIndex: Index<Stave> = 0 as Index<Stave>
 
@@ -34,8 +29,7 @@ const computeSituationReC4 = ({
     const columnHasC4s: boolean[] = computeResultByColumn(
         areC4s,
         folding,
-        (columnAreC4s: boolean[]): boolean =>
-            columnAreC4s.some((isC4: boolean): boolean => !!isC4),
+        (columnAreC4s: boolean[]): boolean => columnAreC4s.some((isC4: boolean): boolean => !!isC4),
         false,
     )
 

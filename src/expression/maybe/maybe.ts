@@ -1,8 +1,8 @@
 import { isUndefined, Maybe } from "@sagittal/general"
 import { StepDefinition } from "@sagittal/system"
-import { Expression } from "./types"
 import { computeMaybeNonJiExpression } from "./nonJi"
 import { computeJiExpression } from "./ji"
+import { Expression } from "../types"
 
 const computeMaybeExpression = (
     { sagitype, validCommas, nonJiMeaning }: StepDefinition,

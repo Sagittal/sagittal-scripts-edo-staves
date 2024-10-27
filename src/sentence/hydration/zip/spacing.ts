@@ -1,20 +1,11 @@
 import { Octals } from "staff-code"
-import { Index, max, Max } from "@sagittal/general"
-import { EdoStep } from "@sagittal/system"
+import { EdoStep, Index, max, Max } from "@sagittal/general"
 import { Stave } from "../../types"
 import { Folding } from "../types"
 import { computeResultByColumn } from "./column"
 
-const computeColumnWidths = (
-    widths: Octals[],
-    folding: Folding,
-): Max<Octals>[] =>
-    computeResultByColumn(
-        widths,
-        folding,
-        (columnWidths: Octals[]) => max(...columnWidths),
-        0 as Octals,
-    )
+const computeColumnWidths = (widths: Octals[], folding: Folding): Max<Octals>[] =>
+    computeResultByColumn(widths, folding, (columnWidths: Octals[]) => max(...columnWidths), 0 as Octals)
 
 const computeColumnWidth = ({
     folding,
@@ -46,7 +37,6 @@ const computeLefthandSpacing = ({
     folding: Folding
     widths: Octals[]
     step: EdoStep
-}): Octals =>
-    (computeColumnWidth({ folding, widths, step }) - widths[step]) as Octals
+}): Octals => (computeColumnWidth({ folding, widths, step }) - widths[step]) as Octals
 
 export { computeLefthandSpacing }

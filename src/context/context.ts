@@ -1,7 +1,7 @@
 import * as fs from "fs"
-import { Edo, EdoNotationName } from "@sagittal/system"
+import { EdoNotationName } from "@sagittal/system"
 import { Subsection } from "./types"
-import { Io, isUndefined, Maybe, saveLog } from "@sagittal/general"
+import { Edo, Io, isUndefined, Maybe, saveLog } from "@sagittal/general"
 import {
     computeEquivalentNotationsLine,
     computeRelatedEdosLine,
@@ -17,66 +17,58 @@ const generateContext = (
 ): void => {
     let lines: Maybe<Io>[] = ["===Sagittal notation==="]
 
-    const hasSecondBestFifthNotation: boolean =
-        subsectionsForEachFifth.length === 2
+    const hasSecondBestFifthNotation: boolean = subsectionsForEachFifth.length === 2
 
-    const approximationsExplanationLine: Maybe<Io> =
-        computeApproximationExplanationLine(edo)
+    const approximationsExplanationLine: Maybe<Io> = computeApproximationExplanationLine(edo)
     lines.push(approximationsExplanationLine)
 
-    subsectionsForEachFifth.forEach(
-        (subsections: Subsection[], subsectionsIndex: number): void => {
-            const isSecondBestFifthNotation: boolean = subsectionsIndex === 1
+    subsectionsForEachFifth.forEach((subsections: Subsection[], subsectionsIndex: number): void => {
+        const isSecondBestFifthNotation: boolean = subsectionsIndex === 1
 
-            if (hasSecondBestFifthNotation) {
-                lines.push(
-                    isSecondBestFifthNotation
-                        ? "====Second best fifth notation===="
-                        : "====Best fifth notation====",
-                )
-            }
-
-            const relatedEdosLine: Maybe<Io> = computeRelatedEdosLine(
+        if (hasSecondBestFifthNotation) {
+            lines.push(
                 isSecondBestFifthNotation
-                    ? (`${edo}b` as EdoNotationName)
-                    : (edo.toString() as EdoNotationName),
+                    ? "====Second best fifth notation===="
+                    : "====Best fifth notation====",
             )
+        }
 
-            if (
-                !hasSecondBestFifthNotation &&
-                !isUndefined(approximationsExplanationLine) &&
-                !isUndefined(relatedEdosLine)
-            ) {
-                lines.push("")
-            }
+        const relatedEdosLine: Maybe<Io> = computeRelatedEdosLine(
+            isSecondBestFifthNotation ? (`${edo}b` as EdoNotationName) : (edo.toString() as EdoNotationName),
+        )
 
-            lines.push(relatedEdosLine)
+        if (
+            !hasSecondBestFifthNotation &&
+            !isUndefined(approximationsExplanationLine) &&
+            !isUndefined(relatedEdosLine)
+        ) {
+            lines.push("")
+        }
 
-            subsections.forEach(
-                ({ diagramType, notation }: Subsection): void => {
-                    lines.push(
-                        computeSubsectionHeadingLine({
-                            diagramType,
-                            hasSecondBestFifthNotation,
-                        }),
-                    )
-                    lines.push(
-                        computeDiagramLine({
-                            edo,
-                            diagramType,
-                            isSecondBestFifthNotation,
-                        }),
-                    )
-                    lines.push(
-                        computeEquivalentNotationsLine({
-                            notation,
-                            diagramType,
-                        }),
-                    )
-                },
+        lines.push(relatedEdosLine)
+
+        subsections.forEach(({ diagramType, notation }: Subsection): void => {
+            lines.push(
+                computeSubsectionHeadingLine({
+                    diagramType,
+                    hasSecondBestFifthNotation,
+                }),
             )
-        },
-    )
+            lines.push(
+                computeDiagramLine({
+                    edo,
+                    diagramType,
+                    isSecondBestFifthNotation,
+                }),
+            )
+            lines.push(
+                computeEquivalentNotationsLine({
+                    notation,
+                    diagramType,
+                }),
+            )
+        })
+    })
 
     lines = lines.filter((line: Maybe<Io>): boolean => !isUndefined(line))
 

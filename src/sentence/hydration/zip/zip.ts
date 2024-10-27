@@ -1,6 +1,6 @@
 import { Octals } from "staff-code"
-import { Index, Maybe } from "@sagittal/general"
-import { EdoStep, Nominal } from "@sagittal/system"
+import { EdoStep, Index, Maybe } from "@sagittal/general"
+import { Nominal } from "@sagittal/system"
 import { Stave } from "../../types"
 import { Codewords, DiagramStep, Folding } from "../types"
 import { computeLefthandSpacing } from "./spacing"

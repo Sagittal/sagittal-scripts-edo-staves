@@ -1,10 +1,8 @@
-import { isEven } from "@sagittal/general"
+import { Edo, EdoStep, isEven } from "@sagittal/general"
 import {
     computeFifthStep,
     computeSharpStep,
-    Edo,
     EdoNotationName,
-    EdoStep,
     parseEdoNotationName,
 } from "@sagittal/system"
 

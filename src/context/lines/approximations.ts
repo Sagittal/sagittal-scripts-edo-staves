@@ -1,6 +1,5 @@
-import { Io, isUndefined, Maybe } from "@sagittal/general"
+import { Edo, Io, isUndefined, Maybe } from "@sagittal/general"
 import {
-    Edo,
     EDO_NOTATION_DEFINITIONS,
     EdoNotationDefinition,
     EdoNotationName,
@@ -8,31 +7,25 @@ import {
     StepDefinition,
 } from "@sagittal/system"
 
-const hasAnyValidSecondaryCommas = (
-    edoNotationName: EdoNotationName,
-): boolean => {
-    const edoNotationDefinition: EdoNotationDefinition =
-        EDO_NOTATION_DEFINITIONS[edoNotationName]
+const hasAnyValidSecondaryCommas = (edoNotationName: EdoNotationName): boolean => {
+    const edoNotationDefinition: EdoNotationDefinition = EDO_NOTATION_DEFINITIONS[edoNotationName]
 
     if (isUndefined(edoNotationDefinition)) return false
 
     if (isSubsetNotation(edoNotationDefinition)) return false
 
-    return edoNotationDefinition.stepDefinitions.some(
-        ({ validCommas }: StepDefinition): boolean => {
-            if (isUndefined(validCommas)) return false
-            if (validCommas.length > 1) return true
-            if (isUndefined(validCommas[0])) return true
+    return edoNotationDefinition.stepDefinitions.some(({ validCommas }: StepDefinition): boolean => {
+        if (isUndefined(validCommas)) return false
+        if (validCommas.length > 1) return true
+        if (isUndefined(validCommas[0])) return true
 
-            return false
-        },
-    )
+        return false
+    })
 }
 
 const computeApproximationExplanationLine = (edo: Edo): Maybe<Io> => {
     const edoNotationName: EdoNotationName = `${edo}` as EdoNotationName
-    const secondBestFifthEdoNotationName: EdoNotationName =
-        `${edo}b` as EdoNotationName
+    const secondBestFifthEdoNotationName: EdoNotationName = `${edo}b` as EdoNotationName
 
     if (
         hasAnyValidSecondaryCommas(edoNotationName) ||

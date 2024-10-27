@@ -1,10 +1,8 @@
-import { Io, Sentence } from "@sagittal/general"
+import { Edo, EdoStep, Io, Sentence } from "@sagittal/general"
 import {
     Flavor,
     Sagittal,
     Sagitype,
-    Edo,
-    EdoStep,
     EdoNotationDefinition,
     computeFifthStep,
     computeSharpStep,
@@ -31,9 +29,7 @@ const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
     subsetFactor?: SubsetFactor,
 ): Io & Sentence => {
     const sagitypes: Sagitype[] = computeSagitypes(
-        EDO_NOTATION_DEFINITIONS[
-            edoNotationName
-        ] as NonSubsetEdoNotationDefinition
+        EDO_NOTATION_DEFINITIONS[edoNotationName] as NonSubsetEdoNotationDefinition,
     )
     const fifthStep: EdoStep = computeFifthStep(edoNotationName)
     const edo: Edo = parseEdoNotationName(edoNotationName).edo
@@ -55,19 +51,16 @@ const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
 
     const isExtraLargeEdo: boolean = computeIsExtraLargeEdo(edo, { fifthStep })
 
-    const diagramSteps: DiagramStep[] = computeDiagramSteps(
-        defaultSingleSpellings,
-        {
-            sagittals,
-            flavor,
-            edo,
-            fifthStep,
-            subsetFactor,
-            sharpStep,
-            limmaStep,
-            isExtraLargeEdo,
-        },
-    )
+    const diagramSteps: DiagramStep[] = computeDiagramSteps(defaultSingleSpellings, {
+        sagittals,
+        flavor,
+        edo,
+        fifthStep,
+        subsetFactor,
+        sharpStep,
+        limmaStep,
+        isExtraLargeEdo,
+    })
 
     return assembleAsStaffCodeInputSentence(diagramSteps, { isExtraLargeEdo })
 }
@@ -76,17 +69,13 @@ const computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
     edoNotationName: EdoNotationName,
     flavor: Flavor,
 ): Io & Sentence => {
-    const edoNotationDefinition: EdoNotationDefinition =
-        EDO_NOTATION_DEFINITIONS[edoNotationName]
+    const edoNotationDefinition: EdoNotationDefinition = EDO_NOTATION_DEFINITIONS[edoNotationName]
 
     if (isSubsetNotation(edoNotationDefinition)) {
-        const supersetEdoNotationName: EdoNotationName =
-            edoNotationDefinition.supersetEdoNotationName
+        const supersetEdoNotationName: EdoNotationName = edoNotationDefinition.supersetEdoNotationName
 
         const edo: Edo = parseEdoNotationName(edoNotationName).edo
-        const supersetEdo: Edo = parseEdoNotationName(
-            supersetEdoNotationName,
-        ).edo
+        const supersetEdo: Edo = parseEdoNotationName(supersetEdoNotationName).edo
 
         return doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
             supersetEdoNotationName,
@@ -94,10 +83,7 @@ const computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
             computeSubsetFactor({ edo, supersetEdo }),
         )
     } else {
-        return doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-            edoNotationName,
-            flavor,
-        )
+        return doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(edoNotationName, flavor)
     }
 }
 

@@ -8,6 +8,8 @@ import {
     Word,
     dividesEvenly,
     isEven,
+    EdoStep,
+    Edo,
 } from "@sagittal/general"
 import {
     Flavor,
@@ -18,8 +20,6 @@ import {
     NOMINALS,
     SubsetFactor,
     Nominal,
-    EdoStep,
-    Edo,
     Spelling,
 } from "@sagittal/system"
 import { Codewords } from "../types"
@@ -37,19 +37,10 @@ const SZ_SESQUIFLAT: Code & Word = "db" as Code & Word
 const LINKS: Record<Index<Link>, Link> = Object.values(Whorl)
     .map((whorl) => NOMINALS.map((nominal) => ({ whorl, nominal })))
     .flat()
-    .reduce(
-        (
-            links: Record<Index<Link>, Link>,
-            link: Link,
-            index: number,
-        ): Record<Index<Link>, Link> => {
-            links[
-                (index + REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D) as Index<Link>
-            ] = link
-            return links
-        },
-        {} as Record<Index<Link>, Link>,
-    )
+    .reduce((links: Record<Index<Link>, Link>, link: Link, index: number): Record<Index<Link>, Link> => {
+        links[(index + REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D) as Index<Link>] = link
+        return links
+    }, {} as Record<Index<Link>, Link>)
 
 const computePositiveOrNegativeOrNullSagittal = (
     sagittals: Sagittal[],
@@ -66,22 +57,11 @@ const computePositiveOrNegativeOrNullSagittal = (
     return undefined
 }
 
-const computeSagittalCodewords = (
-    maybeSagittal: Maybe<Sagittal>,
-): (Code & Word)[] =>
-    isUndefined(maybeSagittal)
-        ? []
-        : splitAccents(computeAccidentalSagitype(maybeSagittal))
+const computeSagittalCodewords = (maybeSagittal: Maybe<Sagittal>): (Code & Word)[] =>
+    isUndefined(maybeSagittal) ? [] : splitAccents(computeAccidentalSagitype(maybeSagittal))
 
-const computeWhorlCodewords = (
-    whorl: Whorl,
-    { flavor }: { flavor: Flavor },
-): (Code & Word)[] =>
-    flavor === Flavor.REVO
-        ? []
-        : whorl === Whorl.NATURAL
-        ? []
-        : [whorl as Code & Word]
+const computeWhorlCodewords = (whorl: Whorl, { flavor }: { flavor: Flavor }): (Code & Word)[] =>
+    flavor === Flavor.REVO ? [] : whorl === Whorl.NATURAL ? [] : [whorl as Code & Word]
 
 const handleGeneralSagittalAndWhorlCodewords = ({
     maybeSagittal,
@@ -109,8 +89,8 @@ const computeEvoSZSagittalAndWhorlCodewords = ({
     sharpStep: EdoStep
     maybeSagittal: Maybe<Sagittal>
     whorl: Whorl
-        flavor: Flavor
-        sagittalIndex: Index<Sagittal>
+    flavor: Flavor
+    sagittalIndex: Index<Sagittal>
 }): { sagittalCodewords: (Code & Word)[]; whorlCodewords: (Code & Word)[] } => {
     if (!isEven(sharpStep) || isUndefined(maybeSagittal)) {
         return handleGeneralSagittalAndWhorlCodewords({
@@ -165,8 +145,7 @@ const computeSagittalAndWhorlCodewords = ({
     whorl: Whorl
     flavor: Flavor
 }): { sagittalCodewords: (Code & Word)[]; whorlCodewords: (Code & Word)[] } => {
-    const maybeSagittal: Maybe<Sagittal> =
-        computePositiveOrNegativeOrNullSagittal(sagittals, sagittalIndex)
+    const maybeSagittal: Maybe<Sagittal> = computePositiveOrNegativeOrNullSagittal(sagittals, sagittalIndex)
 
     return flavor === Flavor.EVO_SZ
         ? computeEvoSZSagittalAndWhorlCodewords({

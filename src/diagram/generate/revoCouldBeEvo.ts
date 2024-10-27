@@ -1,4 +1,4 @@
-import { Index, max, Max } from "@sagittal/general"
+import { Abs, Index, max, Max } from "@sagittal/general"
 import { EdoNotationName, Sagittal, Sagitype } from "@sagittal/system"
 import { computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes } from "../usedSagittals"
 
@@ -7,11 +7,11 @@ const computeRevoCouldBeEvo = (edoNotationName: EdoNotationName): boolean => {
         uniqueUsedAbsoluteSagittalIndices,
         sagitypes,
     }: {
-        uniqueUsedAbsoluteSagittalIndices: Index<Sagittal>[]
+        uniqueUsedAbsoluteSagittalIndices: Abs<Index<Sagittal>>[]
         sagitypes: Sagitype[]
     } = computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes(edoNotationName)
 
-    const maxSagittalIndex: Max<Index<Sagittal>> = max(
+    const maxSagittalIndex: Max<Abs<Index<Sagittal>>> = max(
         ...uniqueUsedAbsoluteSagittalIndices,
     )
 

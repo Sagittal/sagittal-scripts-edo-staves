@@ -1,5 +1,5 @@
-import { Index, Decimal } from "@sagittal/general"
-import { EdoStep, Link, Sagittal } from "@sagittal/system"
+import { Index, Decimal, EdoStep } from "@sagittal/general"
+import { Link } from "@sagittal/system"
 
 enum Way {
     UP = 1,

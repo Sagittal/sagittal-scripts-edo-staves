@@ -1,8 +1,6 @@
 import {
     Flavor,
     Sagittal,
-    Edo,
-    EdoStep,
     NonSubsetEdoNotationDefinition,
     Spelling,
     EdoNotationName,
@@ -11,11 +9,10 @@ import {
 } from "@sagittal/system"
 import { computeDefaultSingleSpellingLinkSpellings } from "./links"
 import { placeDefaultSingleSpellingSagittalSpelling } from "./sagittals"
+import { Edo, EdoStep } from "@sagittal/general"
 
 const computeIsLimmaNotation = (edoNotationName: EdoNotationName) =>
-    !!(<NonSubsetEdoNotationDefinition>(
-        EDO_NOTATION_DEFINITIONS[edoNotationName]
-    )).isLimmaFraction
+    !!(<NonSubsetEdoNotationDefinition>EDO_NOTATION_DEFINITIONS[edoNotationName]).isLimmaFraction
 
 const computeUseOnlyPlainNominals = ({
     flavor,
@@ -45,18 +42,14 @@ const computeDefaultSpellings = ({
 
     const edo: Edo = parseEdoNotationName(edoNotationName).edo
 
-    const defaultSingleSpellingLinkSpellings: Spelling[] =
-        computeDefaultSingleSpellingLinkSpellings({
-            edo,
-            fifthStep,
-            useOnlyPlainNominals,
-            limmaStep,
-        })
+    const defaultSingleSpellingLinkSpellings: Spelling[] = computeDefaultSingleSpellingLinkSpellings({
+        edo,
+        fifthStep,
+        useOnlyPlainNominals,
+        limmaStep,
+    })
 
-    return placeDefaultSingleSpellingSagittalSpelling(
-        defaultSingleSpellingLinkSpellings,
-        { edo, sagittals },
-    )
+    return placeDefaultSingleSpellingSagittalSpelling(defaultSingleSpellingLinkSpellings, { edo, sagittals })
 }
 
 export { computeDefaultSpellings }

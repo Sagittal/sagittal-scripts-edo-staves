@@ -1,7 +1,7 @@
-import { Edo } from "@sagittal/system"
 import { program } from "commander"
 import { generateContext } from "../context"
 import { Subsection, computeSubsectionsForEachFifth } from "../context"
+import { Edo } from "@sagittal/general"
 
 program.option("-e, --edo <number>", "EDO number")
 

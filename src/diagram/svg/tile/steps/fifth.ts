@@ -1,5 +1,4 @@
-import { Px } from "@sagittal/general"
-import { EdoStep } from "@sagittal/system"
+import { EdoStep, Px } from "@sagittal/general"
 import {
     OPEN_SANS_SEMIBOLD_FONT_FILE,
     STEP_AND_MEANINGS_FONT_SIZE,

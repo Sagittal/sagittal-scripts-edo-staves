@@ -1,5 +1,8 @@
 import {
     Count,
+    Decimal,
+    Edo,
+    EdoStep,
     Index,
     Maybe,
     ZERO_ONE_INDEX_DIFF,
@@ -7,7 +10,7 @@ import {
     isUndefined,
     mod,
 } from "@sagittal/general"
-import { Edo, EdoStep, Link, Sagittal, Spelling } from "@sagittal/system"
+import { Link, Sagittal, Spelling } from "@sagittal/system"
 import { Priority, Way } from "./types"
 import { chooseSpelling } from "./choose"
 import { MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL } from "./constants"
@@ -87,15 +90,13 @@ const equalGapsBetweenLinks = (linkSpellings: Spelling[]): boolean => {
     let currentGapSize: Count<EdoStep> = 0 as Count<EdoStep>
     let equalGapsBetweenLinks: boolean = true
 
-    computeRange(1 as EdoStep, linkSpellings.length as Edo).forEach(
+    computeRange(1 as Decimal<{ integer: true }> & EdoStep, linkSpellings.length as Edo).forEach(
         (linkSpellingIndex: number): void => {
             if (!equalGapsBetweenLinks) return
 
             if (linkSpellings[linkSpellingIndex]) {
-                if (isUndefined(allPreviousGapSizes))
-                    allPreviousGapSizes = currentGapSize
-                if (currentGapSize !== allPreviousGapSizes)
-                    equalGapsBetweenLinks = false
+                if (isUndefined(allPreviousGapSizes)) allPreviousGapSizes = currentGapSize
+                if (currentGapSize !== allPreviousGapSizes) equalGapsBetweenLinks = false
                 currentGapSize = 0 as Count<EdoStep>
             } else {
                 currentGapSize++
@@ -110,38 +111,20 @@ const placeAllOfGivenDirectedSagittal = (
     spellings: Spelling[],
     placingSagittalIndex: Index<Sagittal>,
     way: Way,
-    {
-        edo,
-        linkIndexRestriction,
-    }: { edo: Edo; linkIndexRestriction?: Index<Link> },
+    { edo, linkIndexRestriction }: { edo: Edo; linkIndexRestriction?: Index<Link> },
 ): void =>
     spellings.forEach((spelling: Spelling, edoStep: number): void => {
         if (isUndefined(spelling)) return
 
         const { linkIndex, sagittalIndex } = spelling
-        if (
-            !isUndefined(linkIndexRestriction) &&
-            linkIndex !== linkIndexRestriction
-        )
-            return
+        if (!isUndefined(linkIndexRestriction) && linkIndex !== linkIndexRestriction) return
 
         // don't notate beyond the Edge of the World
-        if (
-            linkIndex >= MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL &&
-            way > 0
-        )
-            return
-        if (
-            linkIndex <= -MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL &&
-            way < 0
-        )
-            return
+        if (linkIndex >= MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL && way > 0) return
+        if (linkIndex <= -MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL && way < 0) return
 
         if (way * sagittalIndex === placingSagittalIndex - 1) {
-            const neighborIndex: Index<Spelling> = mod(
-                edoStep + way,
-                edo,
-            ) as Index<Spelling>
+            const neighborIndex: Index<Spelling> = mod(edoStep + way, edo) as Index<Spelling>
             const chosenSpelling: Maybe<Spelling> = spellings[neighborIndex]
             const candidateSpelling: Spelling = {
                 linkIndex,
@@ -151,10 +134,7 @@ const placeAllOfGivenDirectedSagittal = (
             if (isUndefined(chosenSpelling)) {
                 spellings[neighborIndex] = candidateSpelling
             } else {
-                spellings[neighborIndex] = chooseSpelling(
-                    chosenSpelling,
-                    candidateSpelling,
-                )
+                spellings[neighborIndex] = chooseSpelling(chosenSpelling, candidateSpelling)
             }
         }
     })
@@ -165,23 +145,16 @@ const placeSagittalsAccordingToPriorities = (
     priorities: Priority[],
     { edo }: { edo: Edo },
 ): Spelling[] => {
-    computeRange(sagittals.length as Count<Sagittal>).forEach(
-        (sagittalZeroIndex: number): void => {
-            const placingSagittalIndex = (sagittalZeroIndex +
-                ZERO_ONE_INDEX_DIFF) as Index<Sagittal>
+    computeRange(sagittals.length as Count<Sagittal>).forEach((sagittalZeroIndex: number): void => {
+        const placingSagittalIndex = (sagittalZeroIndex + ZERO_ONE_INDEX_DIFF) as Index<Sagittal>
 
-            priorities.forEach(
-                ({ linkIndexRestriction, way }: Priority): void => {
-                    placeAllOfGivenDirectedSagittal(
-                        spellings,
-                        placingSagittalIndex,
-                        way,
-                        { linkIndexRestriction, edo },
-                    )
-                },
-            )
-        },
-    )
+        priorities.forEach(({ linkIndexRestriction, way }: Priority): void => {
+            placeAllOfGivenDirectedSagittal(spellings, placingSagittalIndex, way, {
+                linkIndexRestriction,
+                edo,
+            })
+        })
+    })
 
     return spellings as Spelling[]
 }
@@ -190,16 +163,9 @@ const placeDefaultSingleSpellingSagittalSpelling = (
     linkSpellings: Spelling[],
     { edo, sagittals }: { edo: Edo; sagittals: Sagittal[] },
 ): Spelling[] => {
-    const priorities = equalGapsBetweenLinks(linkSpellings)
-        ? WAY_PRIORITIES
-        : LINK_AND_WAY_PRIORITIES
+    const priorities = equalGapsBetweenLinks(linkSpellings) ? WAY_PRIORITIES : LINK_AND_WAY_PRIORITIES
 
-    return placeSagittalsAccordingToPriorities(
-        linkSpellings,
-        sagittals,
-        priorities,
-        { edo },
-    )
+    return placeSagittalsAccordingToPriorities(linkSpellings, sagittals, priorities, { edo })
 }
 
 export { placeDefaultSingleSpellingSagittalSpelling }

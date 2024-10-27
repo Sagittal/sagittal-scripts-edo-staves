@@ -1,6 +1,6 @@
-import { Count, Index } from "@sagittal/general"
+import { Count, EdoStep, Index } from "@sagittal/general"
 import { Stave } from "../types"
-import { EdoStep, Nominal } from "@sagittal/system"
+import { Nominal } from "@sagittal/system"
 
 type Octave = { _OctaveBrand: boolean }
 

@@ -1,5 +1,5 @@
-import { Filename, Io } from "@sagittal/general"
-import { Edo, EdoNotationName } from "@sagittal/system"
+import { Edo, Filename, Io } from "@sagittal/general"
+import { EdoNotationName } from "@sagittal/system"
 import { parseEdoNotationName } from "@sagittal/system"
 import { DiagramType } from "../../types"
 
@@ -17,25 +17,15 @@ const embedDiagramType = (
 ): Io => {
     const formattedDiagramType: Io = FORMATTED_DIAGRAM_TYPE[diagramType]
 
-    return useUnderscores
-        ? formattedDiagramType.replace(/ /g, "_")
-        : formattedDiagramType
+    return useUnderscores ? formattedDiagramType.replace(/ /g, "_") : formattedDiagramType
 }
 
-const embedEdoPart = (useSecondBestFifth: boolean): Io =>
-    useSecondBestFifth ? "b" : "-EDO"
+const embedEdoPart = (useSecondBestFifth: boolean): Io => (useSecondBestFifth ? "b" : "-EDO")
 
-const computeSubtitle = ({
-    edoNotationName,
-}: {
-    edoNotationName: EdoNotationName
-}): Io => {
-    const { useSecondBestFifth }: { useSecondBestFifth: boolean } =
-        parseEdoNotationName(edoNotationName)
+const computeSubtitle = ({ edoNotationName }: { edoNotationName: EdoNotationName }): Io => {
+    const { useSecondBestFifth }: { useSecondBestFifth: boolean } = parseEdoNotationName(edoNotationName)
 
-    return `${
-        useSecondBestFifth ? "Using the second-best fifth " : ""
-    }(default spellings)`
+    return `${useSecondBestFifth ? "Using the second-best fifth " : ""}(default spellings)`
 }
 
 const computeFilename = ({
@@ -45,18 +35,12 @@ const computeFilename = ({
     edoNotationName: EdoNotationName
     diagramType: DiagramType
 }): Filename => {
-    const {
-        edo,
-        useSecondBestFifth,
-    }: { edo: Edo; useSecondBestFifth: boolean } =
+    const { edo, useSecondBestFifth }: { edo: Edo; useSecondBestFifth: boolean } =
         parseEdoNotationName(edoNotationName)
 
-    return `${edo}${embedEdoPart(useSecondBestFifth)}${embedDiagramType(
-        diagramType,
-        {
-            useUnderscores: true,
-        },
-    )}.svg` as Filename
+    return `${edo}${embedEdoPart(useSecondBestFifth)}${embedDiagramType(diagramType, {
+        useUnderscores: true,
+    })}.svg` as Filename
 }
 
 const computeTitle = ({

@@ -1,5 +1,5 @@
-import { Count, Sentence, Io, Index } from "@sagittal/general"
-import { EdoStep, Nominal } from "@sagittal/system"
+import { Count, Sentence, Io, Index, EdoStep } from "@sagittal/general"
+import { Nominal } from "@sagittal/system"
 import { Stave } from "../types"
 import { computeBarClause } from "./bar"
 import { computeNominalClause } from "./nominal"

@@ -1,4 +1,4 @@
-import { deepEquals, floor } from "@sagittal/general"
+import { deepEquals, Edo, EdoStep, floor } from "@sagittal/general"
 import {
     computeFifthStep,
     computeLimmaStep,
@@ -10,8 +10,6 @@ import {
     Sagitype,
     computeSagitypes,
     EdoNotationDefinition,
-    EdoStep,
-    Edo,
 } from "@sagittal/system"
 import { EDO_NOTATION_DEFINITIONS_ENTRIES } from "../../../constants"
 

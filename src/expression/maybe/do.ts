@@ -2,7 +2,7 @@ import { Io, Sentence } from "@sagittal/general"
 import { computeDefiniendum, computeDefiniens } from "./expression"
 import { Code } from "staff-code"
 import { computeAccidentalSagitype, parseSagitype, Sagitype } from "@sagittal/system"
-import { Expression } from "./types"
+import { Expression } from "../types"
 
 const computeDownSagitype = (sagitype: Sagitype): Sagitype =>
     computeAccidentalSagitype({ ...parseSagitype(sagitype), down: true })

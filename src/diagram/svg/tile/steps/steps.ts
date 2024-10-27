@@ -1,11 +1,9 @@
 import { Document } from "@xmldom/xmldom"
-import { Px } from "@sagittal/general"
+import { Edo, EdoStep, Px } from "@sagittal/general"
 import {
     computeFifthStep,
-    Edo,
     EDO_NOTATION_DEFINITIONS,
     EdoNotationName,
-    EdoStep,
     isSubsetNotation,
     parseEdoNotationName,
 } from "@sagittal/system"

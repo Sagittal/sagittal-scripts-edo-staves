@@ -1,1 +1,1 @@
-export { computeExpressionsPathifiableTexts } from "./pathifiableTexts/pathifiableTexts"
+export { computeExpressionsPathifiableTexts } from "./pathifiableText/pathifiableTexts"

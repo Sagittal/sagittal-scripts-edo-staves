@@ -1,6 +1,7 @@
 import {
     deepEquals,
     dividesEvenly,
+    Edo,
     Io,
     isUndefined,
     Max,
@@ -11,7 +12,6 @@ import {
     Word,
 } from "@sagittal/general"
 import {
-    Edo,
     EDO_NOTATION_DEFINITIONS,
     EdoNotationName,
     Flavor,
@@ -28,11 +28,10 @@ const MIN_DEFINED_EDO: Min<Edo> = min(...DEFINED_EDOS)
 const ARBITRARY_BUT_CONSISENT_FLAVOR: Flavor = Flavor.REVO
 
 const computeParsedKeyInfo = (edoNotationName: EdoNotationName): Word[] => {
-    const notation: Io & Sentence =
-        computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-            edoNotationName,
-            ARBITRARY_BUT_CONSISENT_FLAVOR,
-        )
+    const notation: Io & Sentence = computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
+        edoNotationName,
+        ARBITRARY_BUT_CONSISENT_FLAVOR,
+    )
     const keyInfo: Sentence = extractKeyInfoFromInputSentence(notation)
     const parsedKeyInfo: Word[] = parseKeyInfo(keyInfo)
 
@@ -46,29 +45,20 @@ const computeIsSuperset = ({
     candidateSupersetEdoNotationName: EdoNotationName
     candidateSubsetEdoNotationName: EdoNotationName
 }): boolean => {
-    const subsetFactor: SubsetFactor = (parseEdoNotationName(
-        candidateSupersetEdoNotationName,
-    ).edo /
-        parseEdoNotationName(candidateSubsetEdoNotationName)
-            .edo) as SubsetFactor
+    const subsetFactor: SubsetFactor = (parseEdoNotationName(candidateSupersetEdoNotationName).edo /
+        parseEdoNotationName(candidateSubsetEdoNotationName).edo) as SubsetFactor
 
     const parsedKeyInfo = computeParsedKeyInfo(candidateSubsetEdoNotationName)
-    const supersetParsedKeyInfo = computeParsedKeyInfo(
-        candidateSupersetEdoNotationName,
-    )
+    const supersetParsedKeyInfo = computeParsedKeyInfo(candidateSupersetEdoNotationName)
 
-    const candidateMatchParsedKeyInfo = supersetParsedKeyInfo.filter(
-        (_: string, step: number) => {
-            return dividesEvenly(step, subsetFactor)
-        },
-    )
+    const candidateMatchParsedKeyInfo = supersetParsedKeyInfo.filter((_: string, step: number) => {
+        return dividesEvenly(step, subsetFactor)
+    })
 
     return deepEquals(candidateMatchParsedKeyInfo, parsedKeyInfo)
 }
 
-const computeSupersetEdoNotationNames = (
-    edoNotationName: EdoNotationName,
-): EdoNotationName[] => {
+const computeSupersetEdoNotationNames = (edoNotationName: EdoNotationName): EdoNotationName[] => {
     const edo: Edo = parseEdoNotationName(edoNotationName).edo
 
     const supersetEdoNotationNames: EdoNotationName[] = []
@@ -80,8 +70,7 @@ const computeSupersetEdoNotationNames = (
         subsetFactor = (subsetFactor + 1) as SubsetFactor
         supersetEdo = (edo * subsetFactor) as Edo
 
-        const supersetEdoNotationName: EdoNotationName =
-            supersetEdo.toString() as EdoNotationName
+        const supersetEdoNotationName: EdoNotationName = supersetEdo.toString() as EdoNotationName
         if (!isUndefined(EDO_NOTATION_DEFINITIONS[supersetEdoNotationName])) {
             if (
                 computeIsSuperset({
@@ -95,23 +84,14 @@ const computeSupersetEdoNotationNames = (
 
         const supersetSecondBestFifthEdoNotationName: EdoNotationName =
             `${supersetEdoNotationName}b` as EdoNotationName
-        if (
-            !isUndefined(
-                EDO_NOTATION_DEFINITIONS[
-                    supersetSecondBestFifthEdoNotationName
-                ],
-            )
-        ) {
+        if (!isUndefined(EDO_NOTATION_DEFINITIONS[supersetSecondBestFifthEdoNotationName])) {
             if (
                 computeIsSuperset({
-                    candidateSupersetEdoNotationName:
-                        supersetSecondBestFifthEdoNotationName,
+                    candidateSupersetEdoNotationName: supersetSecondBestFifthEdoNotationName,
                     candidateSubsetEdoNotationName: edoNotationName,
                 })
             ) {
-                supersetEdoNotationNames.push(
-                    supersetSecondBestFifthEdoNotationName,
-                )
+                supersetEdoNotationNames.push(supersetSecondBestFifthEdoNotationName)
             }
         }
     }
@@ -119,9 +99,7 @@ const computeSupersetEdoNotationNames = (
     return supersetEdoNotationNames
 }
 
-const computeSubsetEdoNotationNames = (
-    edoNotationName: EdoNotationName,
-): EdoNotationName[] => {
+const computeSubsetEdoNotationNames = (edoNotationName: EdoNotationName): EdoNotationName[] => {
     const edo: Edo = parseEdoNotationName(edoNotationName).edo
 
     const subsetEdoNotationNames: EdoNotationName[] = []
@@ -135,8 +113,7 @@ const computeSubsetEdoNotationNames = (
 
         if (!dividesEvenly(subsetEdo, 1)) continue
 
-        const subsetEdoNotationName: EdoNotationName =
-            subsetEdo.toString() as EdoNotationName
+        const subsetEdoNotationName: EdoNotationName = subsetEdo.toString() as EdoNotationName
         if (!isUndefined(EDO_NOTATION_DEFINITIONS[subsetEdoNotationName])) {
             if (
                 computeIsSuperset({
@@ -150,14 +127,11 @@ const computeSubsetEdoNotationNames = (
 
         const subsetSecondBestFifthEdoNotationName: EdoNotationName =
             `${subsetEdoNotationName}b` as EdoNotationName
-        if (
-            !isUndefined(EDO_NOTATION_DEFINITIONS[subsetSecondBestFifthEdoNotationName])
-        ) {
+        if (!isUndefined(EDO_NOTATION_DEFINITIONS[subsetSecondBestFifthEdoNotationName])) {
             if (
                 computeIsSuperset({
                     candidateSupersetEdoNotationName: edoNotationName,
-                    candidateSubsetEdoNotationName:
-                        subsetSecondBestFifthEdoNotationName,
+                    candidateSubsetEdoNotationName: subsetSecondBestFifthEdoNotationName,
                 })
             ) {
                 subsetEdoNotationNames.push(subsetSecondBestFifthEdoNotationName)
@@ -179,10 +153,7 @@ const parseKeyInfo = (keyInfo: Sentence): Word[] => {
         const newNominalMatch = note.match(/^([a-g][0-9])/)
         if (newNominalMatch) currentNominal = newNominalMatch[1]
         parsedKeyInfo.push(
-            (currentNominal +
-                (newNominalMatch
-                    ? note.slice(currentNominal.length)
-                    : note)) as Word,
+            (currentNominal + (newNominalMatch ? note.slice(currentNominal.length) : note)) as Word,
         )
     }
 

@@ -1,6 +1,6 @@
 import { Document } from "@xmldom/xmldom"
-import { Index, Io, Px, Sentence } from "@sagittal/general"
-import { computeSharpStep, Edo, EdoStep } from "@sagittal/system"
+import { Edo, EdoStep, Index, Io, Px, Sentence } from "@sagittal/general"
+import { computeSharpStep } from "@sagittal/system"
 import {
     BRAVURA_TEXT_SC_FONT_FILE,
     BRAVURA_TEXT_SC_FONT_SIZE_FOR_SHARP_IN_STEPS,
@@ -51,10 +51,7 @@ const addSharp = async (
                   computeInputSentenceUnicode("5; /||\\;" as Io & Sentence),
                   equalsPositiveOrLessThanZero(sharpStep),
               ]
-            : [
-                  computeInputSentenceUnicode("#;" as Io & Sentence),
-                  equalsPositiveOrLessThanZero(sharpStep),
-              ]
+            : [computeInputSentenceUnicode("#;" as Io & Sentence), equalsPositiveOrLessThanZero(sharpStep)]
     const fonts: Font[] = [
         {
             fontFile: BRAVURA_TEXT_SC_FONT_FILE,
@@ -80,23 +77,20 @@ const addSharp = async (
         SHARP_SYMBOL_Y_OFFSET,
         SHARP_TEXT_Y_OFFSET,
     ] as Px[]
-    const sharpStepGroupElement: NodeElement<SVGGElement> =
-        await textsToSvgGroupElement({
-            svgDocument,
-            texts,
-            fonts,
-            fontIndices,
-            additionalYOffsets,
-        })
+    const sharpStepGroupElement: NodeElement<SVGGElement> = await textsToSvgGroupElement({
+        svgDocument,
+        texts,
+        fonts,
+        fontIndices,
+        additionalYOffsets,
+    })
 
     sharpStepGroupElement.setAttribute("fill", SHARP_COLOR)
 
     const groupWidth = getGroupWidth(sharpStepGroupElement)
 
     setTransform(sharpStepGroupElement, {
-        xTranslation: (LIMMA_AND_SHARP_X_OFFSET +
-            tileSize -
-            groupWidth / 2) as Px,
+        xTranslation: (LIMMA_AND_SHARP_X_OFFSET + tileSize - groupWidth / 2) as Px,
         yTranslation: (tileSize + LIMMA_AND_SHARP_Y_OFFSET) as Px,
     })
 

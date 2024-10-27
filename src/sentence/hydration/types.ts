@@ -1,6 +1,6 @@
 import { Code, Octals } from "staff-code"
-import { Count, Index, Maybe, Word } from "@sagittal/general"
-import { EdoStep, Nominal } from "@sagittal/system"
+import { Count, EdoStep, Index, Maybe, Word } from "@sagittal/general"
+import { Nominal } from "@sagittal/system"
 import { Stave } from "../types"
 
 type WholeTone = { _WholeToneBrand: boolean }

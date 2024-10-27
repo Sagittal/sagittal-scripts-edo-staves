@@ -1,6 +1,5 @@
-import { Max } from "@sagittal/general"
+import { Max, Edo } from "@sagittal/general"
 import {
-    Edo,
     EDO_NOTATION_DEFINITIONS,
     EdoNotationDefinition,
     EdoNotationName,
