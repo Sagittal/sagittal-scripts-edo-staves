@@ -60,6 +60,6 @@ const computeUsesOnlySpartans = (edoNotationName: EdoNotationName): boolean => {
     return uniqueUsedSagitypes.every((usedSagitype: Sagitype): boolean =>
         SPARTAN_SAGITYPES.includes(usedSagitype),
     )
-} // TODO: there are probably more places with sagittal index where it's coming straight off the list and those should be Abs<Index<
+}
 
 export { computeUsesOnlySpartans }

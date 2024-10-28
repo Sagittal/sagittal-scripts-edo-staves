@@ -42,7 +42,7 @@ const LINKS: Record<Index<Link>, Link> = Object.values(Whorl)
         return links
     }, {} as Record<Index<Link>, Link>)
 
-const computePositiveOrNegativeOrNullSagittal = (
+const computeUpOrDownOrNoSagittal = (
     sagittals: Sagittal[],
     sagittalIndex: Index<Sagittal>,
 ): Maybe<Sagittal> => {
@@ -145,7 +145,7 @@ const computeSagittalAndWhorlCodewords = ({
     whorl: Whorl
     flavor: Flavor
 }): { sagittalCodewords: (Code & Word)[]; whorlCodewords: (Code & Word)[] } => {
-    const maybeSagittal: Maybe<Sagittal> = computePositiveOrNegativeOrNullSagittal(sagittals, sagittalIndex)
+    const maybeSagittal: Maybe<Sagittal> = computeUpOrDownOrNoSagittal(sagittals, sagittalIndex)
 
     return flavor === Flavor.EVO_SZ
         ? computeEvoSZSagittalAndWhorlCodewords({

@@ -62,7 +62,7 @@ const computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes = (
 
     return {
         uniqueUsedAbsoluteSagittalIndices: computeDeepDistinct(usedAbsoluteSagittalIndices).filter(
-            (usedAbsoluteSagittalIndex: Index<Sagittal>) => usedAbsoluteSagittalIndex !== 0,
+            (usedAbsoluteSagittalIndex: Abs<Index<Sagittal>>) => usedAbsoluteSagittalIndex !== 0,
         ),
         sagitypes,
     }
