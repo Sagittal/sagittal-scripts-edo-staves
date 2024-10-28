@@ -4,8 +4,7 @@ const SVG_NS = "http://www.w3.org/2000/svg"
 
 const BRAVURA_TEXT_SC_FONT_FILE: Filename =
     "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
-const SANOMAT_FONT_FILE: Filename =
-    "/Users/douglasblumeyer/Library/Fonts/Sanomat-Semibold.otf" as Filename
+const SANOMAT_FONT_FILE: Filename = "/Users/douglasblumeyer/Library/Fonts/Sanomat-Semibold.otf" as Filename
 const OPEN_SANS_REGULAR_FONT_FILE: Filename =
     "/Users/douglasblumeyer/Library/Fonts/OpenSans-Regular.ttf" as Filename
 const OPEN_SANS_SEMIBOLD_FONT_FILE: Filename =
@@ -22,9 +21,9 @@ const OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION: Px = 0.5 as Px
 
 const BRAVURA_TEXT_SC_FONT_SIZE: Px = 40 as Px
 const BRAVURA_TEXT_SC_FONT_SIZE_FOR_SZ_SEMISHARP: Px = 33 as Px
-const SHARP_SCALER_TO_MATCH_TEXT = 2 / 3
-const BRAVURA_TEXT_SC_FONT_SIZE_FOR_SHARP_IN_STEPS: Px =
-    (BRAVURA_TEXT_SC_FONT_SIZE * SHARP_SCALER_TO_MATCH_TEXT) as Px
+const SHARP_MULTIPLIER_TO_MATCH_TEXT = 2 / 3
+const BRAVURA_TEXT_SC_FONT_SIZE_FOR_SHARP_IN_STEPS: Px = (BRAVURA_TEXT_SC_FONT_SIZE *
+    SHARP_MULTIPLIER_TO_MATCH_TEXT) as Px
 const TITLE_FONT_SIZE: Px = 19 as Px
 const SUBTITLE_FONT_SIZE: Px = 10 as Px
 const TILE_EDO_TEXT_FONT_SIZE: Px = TITLE_FONT_SIZE
@@ -57,8 +56,7 @@ const SAGITTALS_MAX_WIDTH: Px = (TILE_SIZE - TILE_MARGIN * 2) as Px
 const DEFINIENS_Y_OFFSET: Px = -16 as Px
 
 const TWO_PIXEL_MARGIN_ON_EITHER_SIDE: Px = 4 as Px
-const AVAILABLE_WIDTH_FOR_SAGITTALS: Px = (TILE_SIZE -
-    TWO_PIXEL_MARGIN_ON_EITHER_SIDE) as Px
+const AVAILABLE_WIDTH_FOR_SAGITTALS: Px = (TILE_SIZE - TWO_PIXEL_MARGIN_ON_EITHER_SIDE) as Px
 
 export {
     SVG_NS,

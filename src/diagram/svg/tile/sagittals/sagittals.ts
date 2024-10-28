@@ -7,33 +7,33 @@ import {
     Sagittal,
     Sagitype,
 } from "@sagittal/system"
-import { Font, NodeElement, Scaler } from "../../types"
+import { Font, NodeElement } from "../../types"
 import { DiagramType } from "../../../../types"
-import { Count, Index, Io, Px, Sentence } from "@sagittal/general"
+import { Count, Index, Io, Multiplier, Px, Sentence } from "@sagittal/general"
 import { TILE_SIZE } from "../../constants"
-import { computeTileRowCountScaler } from "../tileRowCount"
+import { computeTileRowCountMultiplier } from "../tileRowCount"
 import { textsToSvgGroupElement } from "../../text"
 import { computeSagittalTextsAndFonts } from "./textsAndFonts"
 import { getGroupWidth } from "../../width"
-import { computeDownToNextTileRowCountsScaler } from "./nextRowCountScale"
+import { computeDownToNextTileRowCountsMultiplier } from "./nextRowCountScale"
 import { computeSagitypesByTileRow } from "./sagitypesByTileRow"
 import { ensureSagittalsWithinAvailableWidth } from "./ensureSagittalsWithinAvailableWidth"
 import { TileRow } from "../types"
 import { setTransform } from "../../transform"
-import { NEUTRAL_SCALER } from "./constants"
 
-const SAGITTAL_ROW_Y_OFFSET_SCALER: Scaler = 0.25 as Scaler
+const SAGITTAL_ROW_Y_OFFSET_MULTIPLIER: Multiplier = 0.25 as Multiplier
 
-const updateFontsWithDownToNextTileRowCountsScalerAndComputeCorrespondingAdditionalYOffsets =
-    (fonts: Font[], downToNextTileRowCountsScaler: Scaler) =>
-        fonts.map((font: Font): Px => {
-            const oldFontSize: Px = font.fontSize
-            const newFontSize: Px = (oldFontSize /
-                downToNextTileRowCountsScaler) as Px
-            font.fontSize = newFontSize
+const updateFontsWithDownToNextTileRowCountsMultiplierAndComputeCorrespondingAdditionalYOffsets = (
+    fonts: Font[],
+    downToNextTileRowCountsMultiplier: Multiplier,
+) =>
+    fonts.map((font: Font): Px => {
+        const oldFontSize: Px = font.fontSize
+        const newFontSize: Px = (oldFontSize / downToNextTileRowCountsMultiplier) as Px
+        font.fontSize = newFontSize
 
-            return (oldFontSize - newFontSize) as Px
-        })
+        return (oldFontSize - newFontSize) as Px
+    })
 
 const addSagittals = async (
     tileGroupElement: NodeElement<SVGGElement>,
@@ -50,84 +50,71 @@ const addSagittals = async (
     },
 ): Promise<void> => {
     const sagitypes: Sagitype[] = computeSagitypes(
-        EDO_NOTATION_DEFINITIONS[
-            edoNotationName
-        ] as NonSubsetEdoNotationDefinition,
+        EDO_NOTATION_DEFINITIONS[edoNotationName] as NonSubsetEdoNotationDefinition,
     )
 
     const sagittalCount: Count<Sagittal> = sagitypes.length as Count<Sagittal>
     if (sagittalCount === 0) return
 
-    const tileRowCountScaler: Scaler = computeTileRowCountScaler(tileRowCount)
+    const tileRowCountMultiplier: Multiplier<Count<TileRow>> = computeTileRowCountMultiplier(tileRowCount)
 
-    const sagitypesByTileRow: Sagitype[][] = computeSagitypesByTileRow(
-        sagitypes,
-        tileRowCount,
-    )
+    const sagitypesByTileRow: Sagitype[][] = computeSagitypesByTileRow(sagitypes, tileRowCount)
 
-    const downToNextTileRowCountsScaler: Scaler =
-        computeDownToNextTileRowCountsScaler(sagittalCount)
+    const downToNextTileRowCountsMultiplier: Multiplier =
+        computeDownToNextTileRowCountsMultiplier(sagittalCount)
 
-    const sagittalTileRowGroupElements: NodeElement<SVGGElement>[] =
-        await Promise.all(
-            sagitypesByTileRow.map(
-                async (
-                    sagitypesForTileRow: Sagitype[],
-                    sagittalTileRowIndex: number,
-                ): Promise<NodeElement<SVGGElement>> => {
-                    const {
-                        texts,
+    const sagittalTileRowGroupElements: NodeElement<SVGGElement>[] = await Promise.all(
+        sagitypesByTileRow.map(
+            async (
+                sagitypesForTileRow: Sagitype[],
+                sagittalTileRowIndex: number,
+            ): Promise<NodeElement<SVGGElement>> => {
+                const {
+                    texts,
+                    fonts,
+                    fontIndices,
+                }: {
+                    texts: (Io & Sentence)[]
+                    fonts: Font[]
+                    fontIndices: Index<Font>[]
+                } = computeSagittalTextsAndFonts({
+                    edoNotationName,
+                    diagramType,
+                    sagitypesForTileRow,
+                    tileRowCountMultiplier,
+                    sagittalTileRowIndex: sagittalTileRowIndex as Index<TileRow<Sagittal>>,
+                    tileRowCount,
+                })
+
+                const additionalYOffsets: Px[] =
+                    updateFontsWithDownToNextTileRowCountsMultiplierAndComputeCorrespondingAdditionalYOffsets(
                         fonts,
-                        fontIndices,
-                    }: {
-                        texts: (Io & Sentence)[]
-                        fonts: Font[]
-                        fontIndices: Index<Font>[]
-                    } = computeSagittalTextsAndFonts({
-                        edoNotationName,
-                        diagramType,
-                        sagitypesForTileRow,
-                        tileRowCountScaler,
-                        sagittalTileRowIndex: sagittalTileRowIndex as Index<
-                            TileRow<Sagittal>
-                        >,
-                        tileRowCount,
-                    })
-
-                    const additionalYOffsets: Px[] =
-                        updateFontsWithDownToNextTileRowCountsScalerAndComputeCorrespondingAdditionalYOffsets(
-                            fonts,
-                            downToNextTileRowCountsScaler,
-                        )
-
-                    const sagittalTileRowGroupElement: NodeElement<SVGGElement> =
-                        await textsToSvgGroupElement({
-                            svgDocument,
-                            texts,
-                            fonts,
-                            fontIndices,
-                            additionalYOffsets,
-                        })
-
-                    const sagittalsWidth: Px = getGroupWidth(
-                        sagittalTileRowGroupElement,
+                        downToNextTileRowCountsMultiplier,
                     )
 
-                    const xTranslation: Px = (TILE_SIZE / 2 -
-                        sagittalsWidth / 2) as Px
-                    const yTranslation: Px = ((sagittalTileRowIndex -
-                        SAGITTAL_ROW_Y_OFFSET_SCALER) *
-                        (TILE_SIZE / 2 / tileRowCountScaler)) as Px
+                const sagittalTileRowGroupElement: NodeElement<SVGGElement> = await textsToSvgGroupElement({
+                    svgDocument,
+                    texts,
+                    fonts,
+                    fontIndices,
+                    additionalYOffsets,
+                })
 
-                    setTransform(sagittalTileRowGroupElement, {
-                        xTranslation,
-                        yTranslation,
-                    })
+                const sagittalsWidth: Px = getGroupWidth(sagittalTileRowGroupElement)
 
-                    return sagittalTileRowGroupElement
-                },
-            ),
-        )
+                const xTranslation: Px = (TILE_SIZE / 2 - sagittalsWidth / 2) as Px
+                const yTranslation: Px = ((sagittalTileRowIndex - SAGITTAL_ROW_Y_OFFSET_MULTIPLIER) *
+                    (TILE_SIZE / 2 / tileRowCountMultiplier)) as Px
+
+                setTransform(sagittalTileRowGroupElement, {
+                    xTranslation,
+                    yTranslation,
+                })
+
+                return sagittalTileRowGroupElement
+            },
+        ),
+    )
 
     ensureSagittalsWithinAvailableWidth(sagittalTileRowGroupElements)
 

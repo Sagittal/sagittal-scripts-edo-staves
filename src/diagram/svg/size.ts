@@ -1,5 +1,5 @@
 import { Document } from "@xmldom/xmldom"
-import { Px } from "@sagittal/general"
+import { Multiplier, Px } from "@sagittal/general"
 import {
     LEFT_AND_RIGHT_MARGIN,
     TOP_MARGIN,
@@ -7,9 +7,9 @@ import {
     EXTRA_ROOM_FOR_FIFTH_SIZE,
     TILE_SIZE,
 } from "./constants"
-import { NodeElement, Scaler } from "./types"
+import { NodeElement } from "./types"
 
-const BOTH_SIDES: Scaler = 2 as Scaler
+const BOTH_SIDES: Multiplier = 2 as Multiplier
 
 const setDiagramSizeAndGetDiagramWidth = (
     svgDocument: Document,
@@ -34,18 +34,15 @@ const setDiagramSizeAndGetDiagramWidth = (
     svg.setAttribute("height", height.toString())
 
     const existingWidth: Px = parseFloat(svg.getAttribute("width")!) as Px
-    const widthAssumingStavesLongerEnoughThanTitleSubtitleAndMeanings: Px =
-        (existingWidth + LEFT_AND_RIGHT_MARGIN * BOTH_SIDES) as Px
+    const widthAssumingStavesLongerEnoughThanTitleSubtitleAndMeanings: Px = (existingWidth +
+        LEFT_AND_RIGHT_MARGIN * BOTH_SIDES) as Px
     let width: Px
 
-    const totalWidthNeededForTile: Px = ((TOTAL_WIDTH_NEEDED_FOR_TILE *
-        tileSize) /
-        TILE_SIZE) as Px
+    const totalWidthNeededForTile: Px = ((TOTAL_WIDTH_NEEDED_FOR_TILE * tileSize) / TILE_SIZE) as Px
 
     width = widthAssumingStavesLongerEnoughThanTitleSubtitleAndMeanings
 
-    if (width < titleWidth + totalWidthNeededForTile)
-        width = (titleWidth + totalWidthNeededForTile) as Px
+    if (width < titleWidth + totalWidthNeededForTile) width = (titleWidth + totalWidthNeededForTile) as Px
 
     if (width < subtitleWidth + totalWidthNeededForTile)
         width = (subtitleWidth + totalWidthNeededForTile) as Px

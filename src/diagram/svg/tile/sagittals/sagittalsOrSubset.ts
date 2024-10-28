@@ -5,14 +5,9 @@ import {
     EdoNotationDefinition,
     isSubsetNotation,
 } from "@sagittal/system"
-import { Justification, NodeElement, Scaler } from "../../types"
+import { Justification, NodeElement } from "../../types"
 import { addText } from "../../text"
-import {
-    SANOMAT_FONT_FILE,
-    SUBSET_TEXT_FONT_SIZE,
-    SUBSET_Y_OFFSET,
-    TILE_SIZE,
-} from "../../constants"
+import { SANOMAT_FONT_FILE, SUBSET_TEXT_FONT_SIZE, SUBSET_Y_OFFSET, TILE_SIZE } from "../../constants"
 import { Count, Px } from "@sagittal/general"
 import { DiagramType } from "../../../../types"
 import { addSagittals } from "./sagittals"
@@ -45,13 +40,11 @@ const addSagittalsOrSubset = async (
         tileRowCount: Count<TileRow>
     },
 ): Promise<void> => {
-    const edoNotationDefinition: EdoNotationDefinition =
-        EDO_NOTATION_DEFINITIONS[edoNotationName]
+    const edoNotationDefinition: EdoNotationDefinition = EDO_NOTATION_DEFINITIONS[edoNotationName]
 
     if (isSubsetNotation(edoNotationDefinition)) {
         await addSubset(tileGroupElement, {
-            supersetEdoNotationName:
-                edoNotationDefinition.supersetEdoNotationName,
+            supersetEdoNotationName: edoNotationDefinition.supersetEdoNotationName,
         })
     } else {
         await addSagittals(tileGroupElement, {

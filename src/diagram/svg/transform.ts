@@ -1,45 +1,32 @@
-import { Index, isUndefined, Px, round } from "@sagittal/general"
-import { NodeElement, Scaler } from "./types"
+import { Index, isUndefined, Multiplier, Px, round } from "@sagittal/general"
+import { NodeElement } from "./types"
 
 const INDEX_OF_SCALE: Index = 1 as Index
 
 const INDEX_OF_X_TRANSLATION: Index = 1 as Index
 const INDEX_OF_Y_TRANSLATION: Index = 2 as Index
 
-const computeExistingScale = (svgElement: NodeElement<SVGElement>): Scaler => {
-    const existingTransform: null | string =
-        svgElement.getAttribute("transform")
+const computeExistingScale = (svgElement: NodeElement<SVGElement>): Multiplier => {
+    const existingTransform: null | string = svgElement.getAttribute("transform")
 
-    const scaleMatch: undefined | null | RegExpMatchArray =
-        existingTransform?.match(/scale\(([^)]+)\)/)
+    const scaleMatch: undefined | null | RegExpMatchArray = existingTransform?.match(/scale\(([^)]+)\)/)
 
-    return scaleMatch
-        ? (parseFloat(scaleMatch[INDEX_OF_SCALE]) as Scaler)
-        : (1 as Scaler)
+    return scaleMatch ? (parseFloat(scaleMatch[INDEX_OF_SCALE]) as Multiplier) : (1 as Multiplier)
 }
 
 const computeExistingTranslation = (
     svgElement: NodeElement<SVGElement>,
 ): { xTranslationExisting: Px; yTranslationExisting: Px } => {
-    const existingTransform: null | string =
-        svgElement.getAttribute("transform")
+    const existingTransform: null | string = svgElement.getAttribute("transform")
 
-    const existingXAndYTranslationRegExpMatches:
-        | undefined
-        | null
-        | RegExpMatchArray = existingTransform?.match(
-        /translate\((-?\d+\.?\d*)\s+(-?\d+\.?\d*)\)/,
-    )
+    const existingXAndYTranslationRegExpMatches: undefined | null | RegExpMatchArray =
+        existingTransform?.match(/translate\((-?\d+\.?\d*)\s+(-?\d+\.?\d*)\)/)
 
     const xTranslationExisting: Px = existingXAndYTranslationRegExpMatches
-        ? (parseFloat(
-              existingXAndYTranslationRegExpMatches[INDEX_OF_X_TRANSLATION],
-          ) as Px)
+        ? (parseFloat(existingXAndYTranslationRegExpMatches[INDEX_OF_X_TRANSLATION]) as Px)
         : (0 as Px)
     const yTranslationExisting: Px = existingXAndYTranslationRegExpMatches
-        ? (parseFloat(
-              existingXAndYTranslationRegExpMatches[INDEX_OF_Y_TRANSLATION],
-          ) as Px)
+        ? (parseFloat(existingXAndYTranslationRegExpMatches[INDEX_OF_Y_TRANSLATION]) as Px)
         : (0 as Px)
 
     return { xTranslationExisting, yTranslationExisting }
@@ -47,23 +34,14 @@ const computeExistingTranslation = (
 
 const setTransform = (
     svgElement: NodeElement<SVGElement>,
-    {
-        xTranslation,
-        yTranslation,
-        scale,
-    }: { xTranslation?: Px; yTranslation?: Px; scale?: Scaler },
+    { xTranslation, yTranslation, scale }: { xTranslation?: Px; yTranslation?: Px; scale?: Multiplier },
 ): void => {
-    const { xTranslationExisting, yTranslationExisting } =
-        computeExistingTranslation(svgElement)
-    const existingScale: Scaler = computeExistingScale(svgElement)
+    const { xTranslationExisting, yTranslationExisting } = computeExistingTranslation(svgElement)
+    const existingScale: Multiplier = computeExistingScale(svgElement)
 
-    const xTranslationToApply: Px = isUndefined(xTranslation)
-        ? xTranslationExisting
-        : xTranslation
-    const yTranslationToApply: Px = isUndefined(yTranslation)
-        ? yTranslationExisting
-        : yTranslation
-    const scaleToApply: Scaler = isUndefined(scale) ? existingScale : scale
+    const xTranslationToApply: Px = isUndefined(xTranslation) ? xTranslationExisting : xTranslation
+    const yTranslationToApply: Px = isUndefined(yTranslation) ? yTranslationExisting : yTranslation
+    const scaleToApply: Multiplier = isUndefined(scale) ? existingScale : scale
 
     svgElement.setAttribute(
         "transform",
@@ -73,15 +51,10 @@ const setTransform = (
 
 const furtherTransform = (
     svgElement: NodeElement<SVGElement>,
-    {
-        xTranslation,
-        yTranslation,
-        scale,
-    }: { xTranslation?: Px; yTranslation?: Px; scale?: Scaler },
+    { xTranslation, yTranslation, scale }: { xTranslation?: Px; yTranslation?: Px; scale?: Multiplier },
 ): void => {
-    const { xTranslationExisting, yTranslationExisting } =
-        computeExistingTranslation(svgElement)
-    const existingScale: Scaler = computeExistingScale(svgElement)
+    const { xTranslationExisting, yTranslationExisting } = computeExistingTranslation(svgElement)
+    const existingScale: Multiplier = computeExistingScale(svgElement)
 
     const xTranslationToApply: Px = isUndefined(xTranslation)
         ? xTranslationExisting
@@ -89,9 +62,9 @@ const furtherTransform = (
     const yTranslationToApply: Px = isUndefined(yTranslation)
         ? yTranslationExisting
         : ((yTranslationExisting + yTranslation) as Px)
-    const scaleToApply: Scaler = isUndefined(scale)
+    const scaleToApply: Multiplier = isUndefined(scale)
         ? existingScale
-        : ((existingScale * scale) as Scaler)
+        : ((existingScale * scale) as Multiplier)
 
     svgElement.setAttribute(
         "transform",
@@ -103,8 +76,7 @@ const roundTransform = (svgElement: NodeElement<SVGElement>) => {
     const {
         xTranslationExisting,
         yTranslationExisting,
-    }: { xTranslationExisting: Px; yTranslationExisting: Px } =
-        computeExistingTranslation(svgElement)
+    }: { xTranslationExisting: Px; yTranslationExisting: Px } = computeExistingTranslation(svgElement)
 
     const xTranslation: Px = round(xTranslationExisting)
     const yTranslation: Px = round(yTranslationExisting)
@@ -112,9 +84,4 @@ const roundTransform = (svgElement: NodeElement<SVGElement>) => {
     setTransform(svgElement, { xTranslation, yTranslation })
 }
 
-export {
-    setTransform,
-    computeExistingTranslation,
-    furtherTransform,
-    roundTransform,
-}
+export { setTransform, computeExistingTranslation, furtherTransform, roundTransform }

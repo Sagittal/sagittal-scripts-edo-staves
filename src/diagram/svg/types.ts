@@ -15,7 +15,4 @@ interface Font {
     fontSize: Px
 }
 
-// TODO: no need for Scaler because we have Multiplier in @sagittal/general
-type Scaler = number & { _ScalerBrand: boolean } 
-
-export { NodeElement, Justification, Font, Scaler }
+export { NodeElement, Justification, Font }

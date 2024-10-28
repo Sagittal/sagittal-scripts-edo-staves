@@ -1,14 +1,14 @@
 import { Document } from "@xmldom/xmldom"
-import { Count, Px } from "@sagittal/general"
+import { Count, Multiplier, Px } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
 import { addTileSquare } from "./square"
 import { addEdo } from "./edo"
 import { addSteps } from "./steps"
 import { maybeAddCornerTriangle } from "./cornerTriangle"
-import { NodeElement, Scaler } from "../types"
+import { NodeElement } from "../types"
 import { roundAllTranslations } from "../shift"
 import { SVG_NS, TILE_SIZE } from "../constants"
-import { computeTileRowCount, computeTileRowCountScaler } from "./tileRowCount"
+import { computeTileRowCount, computeTileRowCountMultiplier } from "./tileRowCount"
 import { append } from "../append"
 import { DiagramType } from "../../../types"
 import { TileRow } from "./types"
@@ -27,8 +27,10 @@ const addTileItselfAndGetSize = async (
         tileWrapperGroupElement: NodeElement<SVGGElement>
     },
 ): Promise<Px> => {
-    const tileGroupElement: NodeElement<SVGGElement> =
-        svgDocument.createElementNS(SVG_NS, "g") as NodeElement<SVGGElement>
+    const tileGroupElement: NodeElement<SVGGElement> = svgDocument.createElementNS(
+        SVG_NS,
+        "g",
+    ) as NodeElement<SVGGElement>
 
     addTileSquare(tileGroupElement, {
         svgDocument,
@@ -55,12 +57,12 @@ const addTileItselfAndGetSize = async (
 
     roundAllTranslations(tileGroupElement)
 
-    const tileRowCountScaler: Scaler = computeTileRowCountScaler(tileRowCount)
-    setTransform(tileGroupElement, { scale: tileRowCountScaler })
+    const tileRowCountMultiplier: Multiplier<Count<TileRow>> = computeTileRowCountMultiplier(tileRowCount)
+    setTransform(tileGroupElement, { scale: tileRowCountMultiplier })
 
     tileWrapperGroupElement.appendChild(tileGroupElement)
 
-    return (TILE_SIZE * tileRowCountScaler) as Px
+    return (TILE_SIZE * tileRowCountMultiplier) as Px
 }
 
 const addTileAndGetSize = async (
@@ -76,8 +78,10 @@ const addTileAndGetSize = async (
     tileWrapperGroupElement: NodeElement<SVGGElement>
     tileSize: Px
 }> => {
-    const tileWrapperGroupElement: NodeElement<SVGGElement> =
-        svgDocument.createElementNS(SVG_NS, "g") as NodeElement<SVGGElement>
+    const tileWrapperGroupElement: NodeElement<SVGGElement> = svgDocument.createElementNS(
+        SVG_NS,
+        "g",
+    ) as NodeElement<SVGGElement>
 
     const tileSize: Px = await addTileItselfAndGetSize(svgDocument, {
         tileWrapperGroupElement,

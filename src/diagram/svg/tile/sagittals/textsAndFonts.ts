@@ -1,6 +1,6 @@
 import { EdoNotationName, Sagittal, Sagitype } from "@sagittal/system"
-import { Font, Scaler } from "../../types"
-import { Count, deepClone, Index, Io, Px, Sentence } from "@sagittal/general"
+import { Font } from "../../types"
+import { Count, deepClone, Index, Io, Multiplier, Px, Sentence } from "@sagittal/general"
 import { computeInputSentenceUnicode } from "staff-code"
 import { DiagramType } from "../../../../types"
 import { TileRow } from "../types"
@@ -26,14 +26,14 @@ const computeSagittalTextsAndFonts = ({
     edoNotationName,
     sagitypesForTileRow,
     diagramType,
-    tileRowCountScaler,
+    tileRowCountMultiplier,
     tileRowCount,
     sagittalTileRowIndex,
 }: {
     edoNotationName: EdoNotationName
     sagitypesForTileRow: Sagitype[]
     diagramType: DiagramType
-    tileRowCountScaler: Scaler
+    tileRowCountMultiplier: Multiplier<Count<TileRow>>
     tileRowCount: Count<TileRow>
     sagittalTileRowIndex: Index<TileRow<Sagittal>>
 }) => {
@@ -47,7 +47,7 @@ const computeSagittalTextsAndFonts = ({
         : computeTextsAndFonts(sagitypesForTileRow)
 
     fonts.forEach((font: Font): void => {
-        font.fontSize = (font.fontSize / tileRowCountScaler) as Px
+        font.fontSize = (font.fontSize / tileRowCountMultiplier) as Px
     })
 
     return { texts, fonts, fontIndices }

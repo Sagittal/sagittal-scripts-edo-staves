@@ -1,9 +1,8 @@
-import { computeRange, Count } from "@sagittal/general"
+import { computeRange, Count, Multiplier } from "@sagittal/general"
 import { Sagittal } from "@sagittal/system"
-import { computeDownToNextTileRowCountsScaler } from "../../../../../../src/diagram/svg/tile/sagittals/nextRowCountScale"
-import { Scaler } from "../../../../../../src/diagram/svg/types"
+import { computeDownToNextTileRowCountsMultiplier } from "../../../../../../src/diagram/svg/tile/sagittals/nextRowCountScale"
 
-const EXPECTED_DOWN_TO_NEXT_ROW_COUNTS_SCALERS: Scaler[] = [
+const EXPECTED_DOWN_TO_NEXT_ROW_COUNTS_MULTIPLIERS: Multiplier[] = [
     4 / 4, // 0
     4 / 4, // 1
     4 / 4, // 2
@@ -37,23 +36,21 @@ const EXPECTED_DOWN_TO_NEXT_ROW_COUNTS_SCALERS: Scaler[] = [
     10 / 8, // 30
     10 / 10, // 31
     // ...
-] as Scaler[]
+] as Multiplier[]
 
-describe("computeDownToNextTileRowCountsScaler", (): void => {
+describe("computeDownToNextTileRowCountsMultiplier", (): void => {
     it("computes the correct down-to-next-row-count's scale factor for each sagittal count (up to the ones I've manually documented here anyway)", (): void => {
-        computeRange(31 as Count<Sagittal>).forEach(
-            (sagittalCount: Count<Sagittal>): void => {
-                const expectedDownToNextTileRowCountsScaler: Scaler =
-                    EXPECTED_DOWN_TO_NEXT_ROW_COUNTS_SCALERS[sagittalCount]
-                const actualDownToNextTileRowCountsScaler: Scaler =
-                    computeDownToNextTileRowCountsScaler(sagittalCount)
+        computeRange(31 as Count<Sagittal>).forEach((sagittalCount: Count<Sagittal>): void => {
+            const expectedDownToNextTileRowCountsMultiplier: Multiplier =
+                EXPECTED_DOWN_TO_NEXT_ROW_COUNTS_MULTIPLIERS[sagittalCount]
+            const actualDownToNextTileRowCountsMultiplier: Multiplier =
+                computeDownToNextTileRowCountsMultiplier(sagittalCount)
 
-                expect(actualDownToNextTileRowCountsScaler)
-                    .withContext(
-                        `Expected scale factor for sagittal count of ${sagittalCount} to be ${expectedDownToNextTileRowCountsScaler}, but instead found ${actualDownToNextTileRowCountsScaler}`,
-                    )
-                    .toBe(expectedDownToNextTileRowCountsScaler)
-            },
-        )
+            expect(actualDownToNextTileRowCountsMultiplier)
+                .withContext(
+                    `Expected scale factor for sagittal count of ${sagittalCount} to be ${expectedDownToNextTileRowCountsMultiplier}, but instead found ${actualDownToNextTileRowCountsMultiplier}`,
+                )
+                .toBe(expectedDownToNextTileRowCountsMultiplier)
+        })
     })
 })
