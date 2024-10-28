@@ -1,11 +1,11 @@
-import { Index, Maybe, Count, isUndefined, mod, EdoStep, Edo } from "@sagittal/general"
+import { Index, Maybe, Count, isUndefined, mod, EdoStep, Edo, indexOf } from "@sagittal/general"
 import { Sagittal, Link, Nominal, NOMINALS, Spelling } from "@sagittal/system"
 import { Way, ChainingState } from "./types"
 import { computeHaveNominalsCrossed } from "./nominalCrossing"
 import { LIMMA_LESS_THAN_OR_EQUAL_TO_ZERO_NOMINAL_COUNT, NOMINAL_COUNT } from "./constants"
 
 const computeDStep = ({ edo, fifthStep }: { edo: Edo; fifthStep: EdoStep }): EdoStep =>
-    mod(fifthStep * (NOMINALS.indexOf(Nominal.D) - NOMINALS.indexOf(Nominal.C)), edo) as EdoStep
+    mod(fifthStep * (indexOf(NOMINALS, Nominal.D) - indexOf(NOMINALS, Nominal.C)), edo) as EdoStep
 
 const computeLinkSpellingsFromEdoStepLinks = (edoStepLinkIndices: Index<Link>[]): Spelling[] =>
     edoStepLinkIndices.map(

@@ -74,7 +74,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
     const flavor: Flavor = flavorString.toLowerCase() as Flavor
     generateOneOffDiagram(
         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[
-            Object.values(Flavor).indexOf(flavor)
+            indexOf(Object.values(Flavor), flavor)
         ],
         edoNotationName,
         DIAGRAM_TYPE_FOR_FLAVOR[flavor],
