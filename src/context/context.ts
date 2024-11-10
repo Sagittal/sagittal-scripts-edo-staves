@@ -1,5 +1,5 @@
 import * as fs from "fs"
-import { Edo, Io, isUndefined, Maybe, saveLog } from "@sagittal/general"
+import { Edo, Io, isUndefined, Maybe, saveLog, stringify } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
 import {
     computeEquivalentNotationsLine,
@@ -30,7 +30,7 @@ const generateContext = (edo: Edo, subsectionsForEachFifth: Subsection[][], dryR
         }
 
         const relatedEdosLine: Maybe<Io> = computeRelatedEdosLine(
-            isSecondBestFifthNotation ? (`${edo}b` as EdoNotationName) : (edo.toString() as EdoNotationName),
+            isSecondBestFifthNotation ? (`${edo}b` as EdoNotationName) : (stringify(edo) as EdoNotationName),
         )
 
         if (

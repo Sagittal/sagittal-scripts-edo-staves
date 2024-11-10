@@ -1,4 +1,4 @@
-import { computeDeepDistinct, isUndefined, Maybe } from "@sagittal/general"
+import { computeDeepDistinct, isUndefined, Maybe, stringify } from "@sagittal/general"
 import { EdoNotationName, parseEdoNotationName } from "@sagittal/system"
 import { MAX_PERIODIC_TABLE_EDO } from "../../../../../src/constants"
 import { computeSupersetEdoNotationNames } from "../../../../../src/context/lines/related/sets"
@@ -103,7 +103,7 @@ describe("computeSupersetEdoNotationNames", (): void => {
 
                 expect(actualSupersetEdoNotationNames)
                     .withContext(
-                        `Expected ${edoNotationName} to find supersets ${expectedSupersetEdoNotationNames.toString()}, but instead found ${actualSupersetEdoNotationNames.toString()}`,
+                        `Expected ${edoNotationName} to find supersets ${stringify(expectedSupersetEdoNotationNames)}, but instead found ${stringify(actualSupersetEdoNotationNames)}`,
                     )
                     .toEqual(expectedSupersetEdoNotationNames)
             },

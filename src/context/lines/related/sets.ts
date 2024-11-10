@@ -11,6 +11,7 @@ import {
     min,
     Min,
     Sentence,
+    stringify,
     Word,
 } from "@sagittal/general"
 import {
@@ -72,7 +73,7 @@ const computeSupersetEdoNotationNames = (edoNotationName: EdoNotationName): EdoN
         subsetFactor = (subsetFactor + 1) as SubsetFactor
         supersetEdo = (edo * subsetFactor) as Edo
 
-        const supersetEdoNotationName: EdoNotationName = supersetEdo.toString() as EdoNotationName
+        const supersetEdoNotationName: EdoNotationName = stringify(supersetEdo) as EdoNotationName
         if (!isUndefined(EDO_NOTATION_DEFINITIONS[supersetEdoNotationName])) {
             if (
                 computeIsSuperset({
@@ -115,7 +116,7 @@ const computeSubsetEdoNotationNames = (edoNotationName: EdoNotationName): EdoNot
 
         if (!dividesEvenly(subsetEdo, 1 as Decimal<Integer>)) continue
 
-        const subsetEdoNotationName: EdoNotationName = subsetEdo.toString() as EdoNotationName
+        const subsetEdoNotationName: EdoNotationName = stringify(subsetEdo) as EdoNotationName
         if (!isUndefined(EDO_NOTATION_DEFINITIONS[subsetEdoNotationName])) {
             if (
                 computeIsSuperset({

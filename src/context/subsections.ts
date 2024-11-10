@@ -1,10 +1,10 @@
-import { Edo, isUndefined } from "@sagittal/general"
+import { Edo, isUndefined, stringify } from "@sagittal/general"
 import { EDO_NOTATION_DEFINITIONS, EdoNotationName } from "@sagittal/system"
 import { gatherSubsectionsForEdoNotationName } from "./gather"
 import { Subsection } from "./types"
 
 const computeSubsectionsForEachFifth = (edo: Edo): Subsection[][] => {
-    const edoNotationName: EdoNotationName = edo.toString() as EdoNotationName
+    const edoNotationName: EdoNotationName = stringify(edo) as EdoNotationName
     const subsections: Subsection[] = gatherSubsectionsForEdoNotationName(edoNotationName)
 
     const secondBestFifthEdoNotationName: EdoNotationName = `${edo}b` as EdoNotationName

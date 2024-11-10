@@ -125,7 +125,7 @@ const placeAllOfGivenDirectedSagittal = (
         // don't notate beyond the Edge of the World
         if (linkIndex >= MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL && (way as number) > 0) return
         if (linkIndex <= -(MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL as number) && (way as number) < 0)
-            return // TODO: oh whoa, maybe I _do_ need negate() the equiv of invertDirection
+            return
 
         if (way * sagittalIndex === placingSagittalIndex - 1) {
             const neighborIndex: Index<Spelling> = mod(

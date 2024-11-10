@@ -18,6 +18,6 @@ interface ChainingState {
 
 type Difference<T = void> = Decimal<Integer> & {
     _DifferenceBrand: boolean
-} & (T extends void ? void : { _DifferenceOfBrand: T }) // TODO: should I just do it like this everywhere?
+} & (T extends void ? void : { _DifferenceOfBrand: T })
 
 export { Way, Priority, ChainingState, Difference }

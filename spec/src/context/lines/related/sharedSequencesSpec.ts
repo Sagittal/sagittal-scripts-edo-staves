@@ -1,4 +1,4 @@
-import { computeCombinations, Count, isUndefined } from "@sagittal/general"
+import { computeCombinations, Count, isUndefined, stringify } from "@sagittal/general"
 import { EdoNotationName, parseEdoNotationName } from "@sagittal/system"
 import { MAX_PERIODIC_TABLE_EDO } from "../../../../../src/constants"
 import { computeSharedSagittalSequenceEdoNotationNames } from "../../../../../src/context/lines/related/sharedSequences"
@@ -90,7 +90,7 @@ describe("computeSharedSagittalSequenceEdoNotationNames", (): void => {
 
                 expect(actualSharedSagittalSequenceEdoNotationNames)
                     .withContext(
-                        `Expected ${edoNotationName} to find shared sagittal sequences ${expectedSharedSagittalSequenceEdoNotationNames.toString()}, but instead found ${actualSharedSagittalSequenceEdoNotationNames.toString()}`,
+                        `Expected ${edoNotationName} to find shared sagittal sequences ${stringify(expectedSharedSagittalSequenceEdoNotationNames)}, but instead found ${stringify(actualSharedSagittalSequenceEdoNotationNames)}`,
                     )
                     .toEqual(expectedSharedSagittalSequenceEdoNotationNames)
             },

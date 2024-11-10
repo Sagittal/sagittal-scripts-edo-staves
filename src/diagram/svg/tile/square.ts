@@ -1,4 +1,4 @@
-import { HexColor } from "@sagittal/general"
+import { HexColor, stringify } from "@sagittal/general"
 import { computeSectionColor, EdoNotationName, SectionColor } from "@sagittal/system"
 import { Document } from "@xmldom/xmldom"
 import { SVG_NS, TILE_SIZE } from "../constants"
@@ -19,8 +19,8 @@ const addTileSquare = (
         SVG_NS,
         "rect",
     ) as NodeElement<SVGRectElement>
-    tileRectElement.setAttribute("width", TILE_SIZE.toString())
-    tileRectElement.setAttribute("height", TILE_SIZE.toString())
+    tileRectElement.setAttribute("width", stringify(TILE_SIZE))
+    tileRectElement.setAttribute("height", stringify(TILE_SIZE))
     tileRectElement.setAttribute("fill", sectionColor)
     tileRectElement.setAttribute("stroke-width", "1")
     tileRectElement.setAttribute("stroke", "black")

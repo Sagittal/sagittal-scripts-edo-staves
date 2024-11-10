@@ -1,4 +1,4 @@
-import { deepEquals, Index, saveLog, scriptSettings, ZERO_ONE_INDEX_DIFF } from "@sagittal/general"
+import { deepEquals, Index, saveLog, scriptSettings, stringify, ZERO_ONE_INDEX_DIFF } from "@sagittal/general"
 import {
     computeSymbolClassIdAndSectionFromSagittal,
     EDO_NOTATION_DEFINITIONS,
@@ -47,7 +47,7 @@ edoNotationDefinitionsEntries.forEach(
             .sort((a: Index<Sagittal>, b: Index<Sagittal>): number => a - b)
 
         if (!deepEquals(sagittalIndices, sortedSagittalIndices)) {
-            saveLog(`EDO ${edoNotationName} has unsorted sagittal indices: ${sagittalIndices.toString()}`)
+            saveLog(`EDO ${edoNotationName} has unsorted sagittal indices: ${stringify(sagittalIndices)}`)
         }
     },
 )

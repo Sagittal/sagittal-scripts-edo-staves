@@ -1,4 +1,4 @@
-import { Multiplier, Px } from "@sagittal/general"
+import { Multiplier, Px, stringify } from "@sagittal/general"
 import { Document } from "@xmldom/xmldom"
 import {
     LEFT_AND_RIGHT_MARGIN,
@@ -31,7 +31,7 @@ const setDiagramSizeAndGetDiagramWidth = (
 
     const existingHeight: Px = parseFloat(svg.getAttribute("height")!) as Px
     const height: Px = (existingHeight + TOP_MARGIN + tileSize) as Px
-    svg.setAttribute("height", height.toString())
+    svg.setAttribute("height", stringify(height))
 
     const existingWidth: Px = parseFloat(svg.getAttribute("width")!) as Px
     const widthAssumingStavesLongerEnoughThanTitleSubtitleAndMeanings: Px = (existingWidth +
@@ -51,7 +51,7 @@ const setDiagramSizeAndGetDiagramWidth = (
         width = (meaningsWidth + totalWidthNeededForTile) as Px
 
     width = (width + EXTRA_ROOM_FOR_FIFTH_SIZE) as Px
-    svg.setAttribute("width", width.toString())
+    svg.setAttribute("width", stringify(width))
 
     return width
 }
