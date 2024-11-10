@@ -1,10 +1,10 @@
 import { Comma, Io, Maybe, Name } from "@sagittal/general"
-import { computeIsDown } from "./down"
-import { computeCommaExpressionPart } from "./part"
 import { Sagitype } from "@sagittal/system"
 import { Expression } from "../types"
-import { computeSecondaryCommasExpressionPart } from "./secondary"
 import { doComputeJiExpression } from "./do"
+import { computeIsDown } from "./down"
+import { computeCommaExpressionPart } from "./part"
+import { computeSecondaryCommasExpressionPart } from "./secondary"
 
 const computeCommaExpressionPartAndIsDown = (
     commaName: Name<Comma>,

@@ -1,8 +1,8 @@
 import { Count, max, Max, Multiplier } from "@sagittal/general"
 import { Sagittal } from "@sagittal/system"
-import { computeSagittalCountsByTileRow } from "./sagittalCountsByTileRow"
 import { TileRow } from "../types"
 import { NEUTRAL_MULTIPLIER } from "./constants"
+import { computeSagittalCountsByTileRow } from "./sagittalCountsByTileRow"
 
 // This computes the scale factor for sizing sagittals down as much as (but no further than) the size of sagittals
 // at their max size at the sagittal per row count for the next row count but before actually adding the next row

@@ -1,6 +1,6 @@
 import { max, min, Px } from "@sagittal/general"
-import { NodeElement } from "./types"
 import { computeExistingTranslation } from "./transform"
+import { NodeElement } from "./types"
 
 const PATH_COMMANDS_RELEVANT_TO_X_POSITION: string[] = ["M", "L", "H", "C"]
 
@@ -8,13 +8,11 @@ const getGroupWithOnlyOnePathWidth = (
     groupElement: NodeElement<SVGGElement>,
     { includeLefthandWhitespace }: { includeLefthandWhitespace: boolean },
 ): Px => {
-    const pathElement: NodeElement<SVGPathElement> =
-        groupElement.getElementsByTagName(
-            "path",
-        )[0] as NodeElement<SVGPathElement>
+    const pathElement: NodeElement<SVGPathElement> = groupElement.getElementsByTagName(
+        "path",
+    )[0] as NodeElement<SVGPathElement>
     const dAttribute: string = pathElement.getAttribute("d")!
-    const pathCommands: RegExpMatchArray =
-        dAttribute.match(/[a-zA-Z][^a-zA-Z]*/g)!
+    const pathCommands: RegExpMatchArray = dAttribute.match(/[a-zA-Z][^a-zA-Z]*/g)!
 
     if (pathCommands === null) return 0 as Px
 

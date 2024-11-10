@@ -1,5 +1,5 @@
-import { Octals } from "staff-code"
 import { EdoStep, Index, max, Max } from "@sagittal/general"
+import { Octals } from "staff-code"
 import { Stave } from "../../types"
 import { Folding } from "../types"
 import { computeResultByColumn } from "./column"

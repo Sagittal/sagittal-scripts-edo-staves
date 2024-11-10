@@ -7,7 +7,7 @@ const C_LINK_INDICES: Index<Link>[] = [
     5, // C sharp
     12, // C double sharp
 ] as Index<Link>[]
-const HALF_BECAUSE_NO_WAY_ANY_C5_OCCURS_IN_THE_FIRST_HALF_OF_THE_STEPS: number = (1 / 2) as number
+const HALF_BECAUSE_NO_WAY_ANY_C5_OCCURS_IN_THE_FIRST_HALF_OF_THE_STEPS: number = 1 / 2
 
 const computeIsC4 = (
     step: EdoStep,

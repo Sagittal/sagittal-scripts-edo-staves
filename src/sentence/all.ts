@@ -4,13 +4,11 @@ import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } f
 
 const FLAVORS: Flavor[] = Object.values(Flavor)
 
-const computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor =
-    (edoNotationName: EdoNotationName): (Io & Sentence)[] =>
-        FLAVORS.map((flavor: Flavor): Io & Sentence =>
-            computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(
-                edoNotationName,
-                flavor,
-            ),
-        )
+const computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor = (
+    edoNotationName: EdoNotationName,
+): (Io & Sentence)[] =>
+    FLAVORS.map((flavor: Flavor): Io & Sentence =>
+        computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence(edoNotationName, flavor),
+    )
 
 export { computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor }

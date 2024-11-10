@@ -1,5 +1,5 @@
-import { Code, computeCodewordWidth, Octals } from "staff-code"
 import { Word } from "@sagittal/general"
+import { Code, computeCodewordWidth, Octals } from "staff-code"
 
 const computeWidth = ({
     sagittalCodewords,

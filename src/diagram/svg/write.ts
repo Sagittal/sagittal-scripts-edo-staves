@@ -1,21 +1,18 @@
 import * as fs from "fs"
-import { Document } from "@xmldom/xmldom"
-import { computeInputSentenceUnicode } from "staff-code"
 import { Filename, Io, Px, Sentence, Unicode } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
-import { addSubtitleAndGetWidth, addTitleAndGetWidth } from "./titles"
-import {
-    BRAVURA_TEXT_SC_FONT_FILE,
-    BRAVURA_TEXT_SC_FONT_SIZE,
-} from "./constants"
-import { getSvgStringFromDocument } from "./document"
-import { setDiagramSizeAndGetDiagramWidth } from "./size"
-import { makeNicelyPngifiable, shiftStavesDown } from "./shift"
-import { textToSvgDocument } from "./text"
-import { addMeaningsAndGetWidth } from "./meaning"
+import { Document } from "@xmldom/xmldom"
+import { computeInputSentenceUnicode } from "staff-code"
 import { DiagramType } from "../../types"
-import { NodeElement } from "./types"
+import { BRAVURA_TEXT_SC_FONT_FILE, BRAVURA_TEXT_SC_FONT_SIZE } from "./constants"
+import { getSvgStringFromDocument } from "./document"
+import { addMeaningsAndGetWidth } from "./meaning"
+import { makeNicelyPngifiable, shiftStavesDown } from "./shift"
+import { setDiagramSizeAndGetDiagramWidth } from "./size"
+import { textToSvgDocument } from "./text"
 import { placeTile, addTileAndGetSize } from "./tile"
+import { addSubtitleAndGetWidth, addTitleAndGetWidth } from "./titles"
+import { NodeElement } from "./types"
 
 const writeDiagramSvg = async ({
     inputSentence,
@@ -32,8 +29,7 @@ const writeDiagramSvg = async ({
     edoNotationName: EdoNotationName
     diagramType: DiagramType
 }): Promise<void> => {
-    const unicodeSentence: Unicode & Sentence =
-        computeInputSentenceUnicode(inputSentence)
+    const unicodeSentence: Unicode & Sentence = computeInputSentenceUnicode(inputSentence)
 
     const svgDocument: Document = await textToSvgDocument(unicodeSentence, {
         fontFile: BRAVURA_TEXT_SC_FONT_FILE,
@@ -43,19 +39,18 @@ const writeDiagramSvg = async ({
     const {
         tileWrapperGroupElement,
         tileSize,
-    }: { tileWrapperGroupElement: NodeElement<SVGGElement>; tileSize: Px } =
-        await addTileAndGetSize(svgDocument, {
+    }: { tileWrapperGroupElement: NodeElement<SVGGElement>; tileSize: Px } = await addTileAndGetSize(
+        svgDocument,
+        {
             edoNotationName,
             diagramType,
-        })
+        },
+    )
 
     shiftStavesDown(svgDocument, { tileSize })
 
     const titleWidth: Px = await addTitleAndGetWidth(svgDocument, title)
-    const subtitleWidth: Px = await addSubtitleAndGetWidth(
-        svgDocument,
-        subtitle,
-    )
+    const subtitleWidth: Px = await addSubtitleAndGetWidth(svgDocument, subtitle)
     const meaningsWidth: Px = await addMeaningsAndGetWidth(svgDocument, {
         edoNotationName,
         diagramType,

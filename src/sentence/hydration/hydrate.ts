@@ -1,15 +1,10 @@
 import { Edo, EdoStep, Index, Max } from "@sagittal/general"
-import {
-    Flavor,
-    Sagittal,
-    Spelling,
-    SubsetFactor,
-} from "@sagittal/system"
+import { Flavor, Sagittal, Spelling, SubsetFactor } from "@sagittal/system"
 import { Stave } from "../types"
-import { Folding, HydrationState, DiagramStep } from "./types"
-import { computeFolding } from "./folding"
-import { computeDiagramStepsFromGatheredParameters } from "./zip"
 import { gatherDiagramStepParameters } from "./extractAndGather"
+import { computeFolding } from "./folding"
+import { Folding, HydrationState, DiagramStep } from "./types"
+import { computeDiagramStepsFromGatheredParameters } from "./zip"
 
 const computeDiagramSteps = (
     spellings: Spelling[],
@@ -40,9 +35,7 @@ const computeDiagramSteps = (
         isExtraLargeEdo,
     })
 
-    const maxStaveIndex: Max<Index<Stave>> = (folding.length - 1) as Max<
-        Index<Stave>
-    >
+    const maxStaveIndex: Max<Index<Stave>> = (folding.length - 1) as Max<Index<Stave>>
 
     const hydrationState: HydrationState = {
         stepInStaveIndex: 0 as Index<EdoStep>,

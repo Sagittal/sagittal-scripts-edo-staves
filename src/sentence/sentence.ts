@@ -18,9 +18,9 @@ import {
     EDO_NOTATION_DEFINITIONS,
     computeSagitypes,
 } from "@sagittal/system"
+import { assembleAsStaffCodeInputSentence } from "./assembly"
 import { computeDefaultSpellings } from "./chaining"
 import { computeDiagramSteps, DiagramStep } from "./hydration"
-import { assembleAsStaffCodeInputSentence } from "./assembly"
 import { computeIsExtraLargeEdo } from "./hydration"
 
 const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (

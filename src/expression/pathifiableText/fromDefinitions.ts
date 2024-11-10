@@ -1,15 +1,10 @@
-import {
-    EdoNotationDefinition,
-    EdoNotationName,
-    isSubsetNotation,
-    StepDefinition,
-} from "@sagittal/system"
-import { Expression } from "../types"
-import { PathifiableTexts } from "../../diagram/svg/meaning/types"
-import { EDO_NOTATION_DEFINITIONS_ENTRIES } from "../../constants"
-import { computeMaybeExpression } from "../maybe"
-import { convertToPathifiableTexts } from "./convert"
 import { Maybe } from "@sagittal/general"
+import { EdoNotationDefinition, EdoNotationName, isSubsetNotation, StepDefinition } from "@sagittal/system"
+import { EDO_NOTATION_DEFINITIONS_ENTRIES } from "../../constants"
+import { PathifiableTexts } from "../../diagram/svg/meaning/types"
+import { computeMaybeExpression } from "../maybe"
+import { Expression } from "../types"
+import { convertToPathifiableTexts } from "./convert"
 
 const computePathifiableTextsForExpressionsByEdoNotationNameFromEdoNotationDefinitions = (): Record<
     EdoNotationName,
@@ -42,9 +37,7 @@ const computePathifiableTextsForExpressionsByEdoNotationNameFromEdoNotationDefin
     return convertToPathifiableTexts(expressionsByEdoNotationName)
 }
 
-const PATHIFIABLE_TEXTS_FOR_EXPRESSIONS_BY_EDO_NOTATION_NAME: Record<
-    EdoNotationName,
-    PathifiableTexts
-> = computePathifiableTextsForExpressionsByEdoNotationNameFromEdoNotationDefinitions()
+const PATHIFIABLE_TEXTS_FOR_EXPRESSIONS_BY_EDO_NOTATION_NAME: Record<EdoNotationName, PathifiableTexts> =
+    computePathifiableTextsForExpressionsByEdoNotationNameFromEdoNotationDefinitions()
 
 export { PATHIFIABLE_TEXTS_FOR_EXPRESSIONS_BY_EDO_NOTATION_NAME }

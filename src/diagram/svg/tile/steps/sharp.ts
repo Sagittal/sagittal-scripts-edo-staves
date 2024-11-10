@@ -1,6 +1,8 @@
-import { Document } from "@xmldom/xmldom"
 import { Edo, EdoStep, Index, Io, Px, Sentence } from "@sagittal/general"
 import { computeSharpStep } from "@sagittal/system"
+import { Document } from "@xmldom/xmldom"
+import { computeInputSentenceUnicode } from "staff-code"
+import { DiagramType } from "../../../../types"
 import {
     BRAVURA_TEXT_SC_FONT_FILE,
     BRAVURA_TEXT_SC_FONT_SIZE_FOR_SHARP_IN_STEPS,
@@ -12,13 +14,11 @@ import {
     LIMMA_AND_SHARP_X_OFFSET,
 } from "../../constants"
 import { textsToSvgGroupElement } from "../../text"
-import { Font, NodeElement } from "../../types"
-import { computeInputSentenceUnicode } from "staff-code"
-import { getGroupWidth } from "../../width"
-import { DiagramType } from "../../../../types"
-import { equalsPositiveOrLessThanZero } from "./zero"
-import { SHARP_COLOR } from "./constants"
 import { setTransform } from "../../transform"
+import { Font, NodeElement } from "../../types"
+import { getGroupWidth } from "../../width"
+import { SHARP_COLOR } from "./constants"
+import { equalsPositiveOrLessThanZero } from "./zero"
 
 const addSharp = async (
     tileWrapperGroupElement: NodeElement<SVGGElement>,
@@ -45,17 +45,17 @@ const addSharp = async (
                   equalsPositiveOrLessThanZero(sharpStep),
               ]
             : diagramType === DiagramType.GENERAL
-            ? [
-                  computeInputSentenceUnicode("#;" as Io & Sentence),
-                  " or",
-                  computeInputSentenceUnicode("5; /||\\;" as Io & Sentence),
-                  equalsPositiveOrLessThanZero(sharpStep),
-              ]
-            : [computeInputSentenceUnicode("#;" as Io & Sentence), equalsPositiveOrLessThanZero(sharpStep)]
+              ? [
+                    computeInputSentenceUnicode("#;" as Io & Sentence),
+                    " or",
+                    computeInputSentenceUnicode("5; /||\\;" as Io & Sentence),
+                    equalsPositiveOrLessThanZero(sharpStep),
+                ]
+              : [computeInputSentenceUnicode("#;" as Io & Sentence), equalsPositiveOrLessThanZero(sharpStep)]
     const fonts: Font[] = [
         {
             fontFile: BRAVURA_TEXT_SC_FONT_FILE,
-            fontSize: BRAVURA_TEXT_SC_FONT_SIZE_FOR_SHARP_IN_STEPS as Px,
+            fontSize: BRAVURA_TEXT_SC_FONT_SIZE_FOR_SHARP_IN_STEPS,
         },
         {
             fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
@@ -63,7 +63,7 @@ const addSharp = async (
         },
         {
             fontFile: BRAVURA_TEXT_SC_FONT_FILE,
-            fontSize: BRAVURA_TEXT_SC_FONT_SIZE_FOR_SHARP_IN_STEPS as Px,
+            fontSize: BRAVURA_TEXT_SC_FONT_SIZE_FOR_SHARP_IN_STEPS,
         },
         {
             fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,

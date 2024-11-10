@@ -1,10 +1,5 @@
 import { Edo, EdoStep, isEven } from "@sagittal/general"
-import {
-    computeFifthStep,
-    computeSharpStep,
-    EdoNotationName,
-    parseEdoNotationName,
-} from "@sagittal/system"
+import { computeFifthStep, computeSharpStep, EdoNotationName, parseEdoNotationName } from "@sagittal/system"
 
 const computeHasHalfApotome = (edoNotationName: EdoNotationName): boolean => {
     const edo: Edo = parseEdoNotationName(edoNotationName).edo

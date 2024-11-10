@@ -1,7 +1,4 @@
-import {
-    OPEN_SANS_REGULAR_FONT_FILE,
-    STEP_AND_MEANINGS_FONT_SIZE,
-} from "../constants"
+import { OPEN_SANS_REGULAR_FONT_FILE, STEP_AND_MEANINGS_FONT_SIZE } from "../constants"
 import { Font } from "../types"
 import { PathifiableTexts } from "./types"
 

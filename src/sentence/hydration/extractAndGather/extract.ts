@@ -1,4 +1,3 @@
-import { Octals, Code } from "staff-code"
 import {
     Maybe,
     Index,
@@ -22,10 +21,11 @@ import {
     Nominal,
     Spelling,
 } from "@sagittal/system"
-import { Codewords } from "../types"
-import { computeWidth } from "./spacing"
-import { computeIsC4 } from "./c4"
+import { Octals, Code } from "staff-code"
 import { splitAccents } from "../../../accents"
+import { Codewords } from "../types"
+import { computeIsC4 } from "./c4"
+import { computeWidth } from "./spacing"
 
 const REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D: Index<Link> = -17 as Index<Link>
 
@@ -37,10 +37,13 @@ const SZ_SESQUIFLAT: Code & Word = "db" as Code & Word
 const LINKS: Record<Index<Link>, Link> = Object.values(Whorl)
     .map((whorl) => NOMINALS.map((nominal) => ({ whorl, nominal })))
     .flat()
-    .reduce((links: Record<Index<Link>, Link>, link: Link, index: number): Record<Index<Link>, Link> => {
-        links[(index + REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D) as Index<Link>] = link
-        return links
-    }, {} as Record<Index<Link>, Link>)
+    .reduce(
+        (links: Record<Index<Link>, Link>, link: Link, index: number): Record<Index<Link>, Link> => {
+            links[(index + REINDEX_LINK_FROM_F_DOUBLE_FLAT_TO_D) as Index<Link>] = link
+            return links
+        },
+        {} as Record<Index<Link>, Link>,
+    )
 
 const computeUpOrDownOrNoSagittal = (
     sagittals: Sagittal[],
@@ -49,7 +52,7 @@ const computeUpOrDownOrNoSagittal = (
     if (sagittalIndex > 0) return sagittals[sagittalIndex - ZERO_ONE_INDEX_DIFF]
     else if (sagittalIndex < 0) {
         return {
-            ...sagittals[-sagittalIndex - ZERO_ONE_INDEX_DIFF],
+            ...sagittals[-(sagittalIndex as number) - ZERO_ONE_INDEX_DIFF],
             down: true,
         }
     }

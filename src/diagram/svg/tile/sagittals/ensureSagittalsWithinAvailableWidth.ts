@@ -1,8 +1,8 @@
 import { Max, max, Multiplier, Px } from "@sagittal/general"
-import { getGroupWidth } from "../../width"
-import { NodeElement } from "../../types"
 import { AVAILABLE_WIDTH_FOR_SAGITTALS } from "../../constants"
 import { furtherTransform } from "../../transform"
+import { NodeElement } from "../../types"
+import { getGroupWidth } from "../../width"
 
 const TRANSLATION_ADJUSTMENT_MULTIPLIER: Multiplier = 25 as Multiplier
 

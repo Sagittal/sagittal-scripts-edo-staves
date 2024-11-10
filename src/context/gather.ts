@@ -1,23 +1,16 @@
 import { Io, Sentence } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
+import { EVO_FLAVOR_INDEX, EVO_SZ_FLAVOR_INDEX, REVO_FLAVOR_INDEX } from "../diagram"
 import { computeSentencesAndDifferenceCase } from "../difference"
-import { Subsection } from "./types"
 import { DiagramType, DifferenceCase } from "../types"
-import {
-    EVO_FLAVOR_INDEX,
-    EVO_SZ_FLAVOR_INDEX,
-    REVO_FLAVOR_INDEX,
-} from "../diagram"
+import { Subsection } from "./types"
 
-const gatherSubsectionsForEdoNotationName = (
-    edoNotationName: EdoNotationName,
-): Subsection[] => {
+const gatherSubsectionsForEdoNotationName = (edoNotationName: EdoNotationName): Subsection[] => {
     const {
         defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
         differenceCase,
     }: {
-        defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io &
-            Sentence)[]
+        defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor: (Io & Sentence)[]
         differenceCase: DifferenceCase
     } = computeSentencesAndDifferenceCase(edoNotationName)
 
@@ -45,9 +38,7 @@ const gatherSubsectionsForEdoNotationName = (
                     ],
             },
         ]
-    } else if (
-        differenceCase === DifferenceCase._1A_ALL_DIFFERENT_REVO_COULD_BE_EVO
-    ) {
+    } else if (differenceCase === DifferenceCase._1A_ALL_DIFFERENT_REVO_COULD_BE_EVO) {
         return [
             {
                 diagramType: DiagramType.GENERAL,
@@ -98,9 +89,7 @@ const gatherSubsectionsForEdoNotationName = (
                     ],
             },
         ]
-    } else if (
-        differenceCase === DifferenceCase._3A_REVO_DIFFERENT_REVO_COULD_BE_EVO
-    ) {
+    } else if (differenceCase === DifferenceCase._3A_REVO_DIFFERENT_REVO_COULD_BE_EVO) {
         return [
             {
                 diagramType: DiagramType.GENERAL,

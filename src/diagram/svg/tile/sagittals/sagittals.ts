@@ -1,4 +1,4 @@
-import { Document } from "@xmldom/xmldom"
+import { Count, Index, Io, Multiplier, Px, Sentence } from "@sagittal/general"
 import {
     computeSagitypes,
     EDO_NOTATION_DEFINITIONS,
@@ -7,19 +7,19 @@ import {
     Sagittal,
     Sagitype,
 } from "@sagittal/system"
-import { Font, NodeElement } from "../../types"
+import { Document } from "@xmldom/xmldom"
 import { DiagramType } from "../../../../types"
-import { Count, Index, Io, Multiplier, Px, Sentence } from "@sagittal/general"
 import { TILE_SIZE } from "../../constants"
-import { computeTileRowCountMultiplier } from "../tileRowCount"
 import { textsToSvgGroupElement } from "../../text"
-import { computeSagittalTextsAndFonts } from "./textsAndFonts"
+import { setTransform } from "../../transform"
+import { Font, NodeElement } from "../../types"
 import { getGroupWidth } from "../../width"
+import { computeTileRowCountMultiplier } from "../tileRowCount"
+import { TileRow } from "../types"
+import { ensureSagittalsWithinAvailableWidth } from "./ensureSagittalsWithinAvailableWidth"
 import { computeDownToNextTileRowCountsMultiplier } from "./nextRowCountScale"
 import { computeSagitypesByTileRow } from "./sagitypesByTileRow"
-import { ensureSagittalsWithinAvailableWidth } from "./ensureSagittalsWithinAvailableWidth"
-import { TileRow } from "../types"
-import { setTransform } from "../../transform"
+import { computeSagittalTextsAndFonts } from "./textsAndFonts"
 
 const SAGITTAL_ROW_Y_OFFSET_MULTIPLIER: Multiplier = 0.25 as Multiplier
 

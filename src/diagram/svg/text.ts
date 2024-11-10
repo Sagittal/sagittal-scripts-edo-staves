@@ -1,10 +1,21 @@
+import {
+    Filename,
+    HexColor,
+    Io,
+    Px,
+    textToSvgPathString,
+    Index,
+    Max,
+    max,
+    Maybe,
+    Multiplier,
+} from "@sagittal/general"
 import { Element, Document } from "@xmldom/xmldom"
-import { Filename, HexColor, Io, Px, textToSvgPathString, Index, Max, max, Maybe, Multiplier } from "@sagittal/general"
+import { SVG_NS } from "./constants"
+import { getSvgDocumentFromString } from "./document"
+import { furtherTransform, setTransform } from "./transform"
 import { NodeElement, Justification, Font } from "./types"
 import { getGroupWidth } from "./width"
-import { getSvgDocumentFromString } from "./document"
-import { SVG_NS } from "./constants"
-import { furtherTransform, setTransform } from "./transform"
 
 const FONT_SIZE_DIFFERENTIAL_Y_SHIFT_MULTIPLIER: Multiplier = (27 / 20) as Multiplier
 
@@ -62,7 +73,7 @@ const textsToSvgGroupElement = async ({
                 font,
             })
             furtherTransform(textGroupElement, {
-                xTranslation: textsWidth as Px,
+                xTranslation: textsWidth,
                 yTranslation,
             })
 
@@ -125,8 +136,8 @@ const addText = async (
         justification === Justification.RIGHT
             ? ((xOffset - groupWidth) as Px)
             : justification === Justification.CENTER
-            ? ((xOffset - groupWidth / 2) as Px)
-            : xOffset
+              ? ((xOffset - groupWidth / 2) as Px)
+              : xOffset
 
     setTransform(textGroupElement, {
         xTranslation,

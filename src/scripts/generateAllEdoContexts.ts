@@ -1,5 +1,5 @@
-import { generateContext, computeSubsectionsForEachFifth, Subsection, DEFINED_EDOS } from "../context"
 import { Edo, isUndefined, Max, program, scriptSettings } from "@sagittal/general"
+import { generateContext, computeSubsectionsForEachFifth, Subsection, DEFINED_EDOS } from "../context"
 
 scriptSettings.disableColors = true
 
@@ -7,7 +7,7 @@ program.option("-d, --dry-run").option("-m, --max-edo <number>", "max EDO to gen
 
 program.parse()
 const { dryRun: dryRunString, maxEdo: maxEdoString }: { dryRun: string; maxEdo: string } = program.opts()
-const dryRun: boolean = !isUndefined(dryRunString)
+const dryRun = !isUndefined(dryRunString)
 const maxEdo: Max<Edo> = isUndefined(maxEdoString)
     ? (Infinity as Max<Edo>)
     : (parseInt(maxEdoString) as Max<Edo>)

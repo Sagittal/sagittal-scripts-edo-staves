@@ -1,4 +1,14 @@
-import { Abs, abs, computeDeepDistinct, dividesEvenly, Edo, EdoStep, Index } from "@sagittal/general"
+import {
+    Abs,
+    abs,
+    computeDeepDistinct,
+    Decimal,
+    dividesEvenly,
+    Edo,
+    EdoStep,
+    Index,
+    Integer,
+} from "@sagittal/general"
 import {
     computeFifthStep,
     computeLimmaStep,
@@ -28,7 +38,7 @@ const computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes = (
 } => {
     const edoNotationDefinition: EdoNotationDefinition = EDO_NOTATION_DEFINITIONS[edoNotationName]
     const edo: Edo = parseEdoNotationName(edoNotationName).edo
-    let supersetEdoNotationName: EdoNotationName = isSubsetNotation(edoNotationDefinition)
+    const supersetEdoNotationName: EdoNotationName = isSubsetNotation(edoNotationDefinition)
         ? edoNotationDefinition.supersetEdoNotationName
         : edoNotationName
     const supersetEdo: Edo = parseEdoNotationName(supersetEdoNotationName).edo
@@ -54,7 +64,7 @@ const computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes = (
         limmaStep,
     })
     const usedSpellings: Spelling[] = defaultSingleSpellings.filter((_: Spelling, step: number) =>
-        dividesEvenly(step, subsetFactor),
+        dividesEvenly(step as Decimal<Integer>, subsetFactor),
     )
     const usedAbsoluteSagittalIndices: Abs<Index<Sagittal>>[] = usedSpellings.map(({ sagittalIndex }) =>
         abs(sagittalIndex),

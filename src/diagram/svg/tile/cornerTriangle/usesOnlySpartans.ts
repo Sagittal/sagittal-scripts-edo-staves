@@ -1,10 +1,4 @@
-import {
-    Abs,
-    Index,
-    isUndefined,
-    Maybe,
-    ZERO_ONE_INDEX_DIFF,
-} from "@sagittal/general"
+import { Abs, Index, isUndefined, Maybe, ZERO_ONE_INDEX_DIFF } from "@sagittal/general"
 import {
     computeApotomeComplement,
     computeSagittalSagitype,
@@ -19,17 +13,11 @@ import {
 import { computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes } from "../../../usedSagittals"
 
 const SPARTAN_SAGITYPES: Sagitype[] = (
-    SYMBOL_SUBSETS[SymbolSubsetId.SPARTAN].map(
-        computeSagittalFromSymbolClassId,
-    ) as Sagittal[]
+    SYMBOL_SUBSETS[SymbolSubsetId.SPARTAN].map(computeSagittalFromSymbolClassId) as Sagittal[]
 )
     .reduce((sagittals: Sagittal[], sagittal: Sagittal): Sagittal[] => {
-        const apotomeComplement: Maybe<Sagittal> =
-            computeApotomeComplement(sagittal)
-        if (
-            !isUndefined(apotomeComplement) &&
-            apotomeComplement.shafts === Shafts.SINGLE
-        )
+        const apotomeComplement: Maybe<Sagittal> = computeApotomeComplement(sagittal)
+        if (!isUndefined(apotomeComplement) && apotomeComplement.shafts === Shafts.SINGLE)
             sagittals.push(apotomeComplement)
         sagittals.push(sagittal)
         return sagittals
@@ -48,14 +36,9 @@ const computeUsesOnlySpartans = (edoNotationName: EdoNotationName): boolean => {
     const uniqueUsedSagitypes: Sagitype[] = uniqueUsedAbsoluteSagittalIndices
         .map(
             (uniqueUsedAbsoluteSagittalIndex: Abs<Index<Sagittal>>) =>
-                sagitypes[
-                    uniqueUsedAbsoluteSagittalIndex - ZERO_ONE_INDEX_DIFF
-                ],
+                sagitypes[uniqueUsedAbsoluteSagittalIndex - ZERO_ONE_INDEX_DIFF],
         )
-        .filter(
-            (uniqueUsedSagitype: Sagitype): boolean =>
-                !isUndefined(uniqueUsedSagitype),
-        )
+        .filter((uniqueUsedSagitype: Sagitype): boolean => !isUndefined(uniqueUsedSagitype))
 
     return uniqueUsedSagitypes.every((usedSagitype: Sagitype): boolean =>
         SPARTAN_SAGITYPES.includes(usedSagitype),

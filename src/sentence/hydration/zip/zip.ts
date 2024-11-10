@@ -1,10 +1,10 @@
-import { Octals } from "staff-code"
 import { EdoStep, Index, Maybe } from "@sagittal/general"
 import { Nominal } from "@sagittal/system"
+import { Octals } from "staff-code"
 import { Stave } from "../../types"
 import { Codewords, DiagramStep, Folding } from "../types"
-import { computeLefthandSpacing } from "./spacing"
 import { computeSituationReC4 } from "./c4"
+import { computeLefthandSpacing } from "./spacing"
 
 const computeDiagramStepsFromGatheredParameters = ({
     folding,

@@ -1,6 +1,5 @@
-import { Filename, Index, Io, Px, Sentence } from "@sagittal/general"
+import { Filename, Px } from "@sagittal/general"
 import { Node, Element } from "@xmldom/xmldom"
-import { Code } from "staff-code"
 
 type NodeElement<T> = Node & Element & T
 

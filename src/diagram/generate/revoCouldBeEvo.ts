@@ -11,9 +11,7 @@ const computeRevoCouldBeEvo = (edoNotationName: EdoNotationName): boolean => {
         sagitypes: Sagitype[]
     } = computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes(edoNotationName)
 
-    const maxSagittalIndex: Max<Abs<Index<Sagittal>>> = max(
-        ...uniqueUsedAbsoluteSagittalIndices,
-    )
+    const maxSagittalIndex: Max<Abs<Index<Sagittal>>> = max(...uniqueUsedAbsoluteSagittalIndices)
 
     return maxSagittalIndex <= sagitypes.length
 }

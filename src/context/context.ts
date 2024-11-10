@@ -1,7 +1,6 @@
 import * as fs from "fs"
-import { EdoNotationName } from "@sagittal/system"
-import { Subsection } from "./types"
 import { Edo, Io, isUndefined, Maybe, saveLog } from "@sagittal/general"
+import { EdoNotationName } from "@sagittal/system"
 import {
     computeEquivalentNotationsLine,
     computeRelatedEdosLine,
@@ -9,12 +8,9 @@ import {
     computeSubsectionHeadingLine,
     computeApproximationExplanationLine,
 } from "./lines"
+import { Subsection } from "./types"
 
-const generateContext = (
-    edo: Edo,
-    subsectionsForEachFifth: Subsection[][],
-    dryRun: boolean = false,
-): void => {
+const generateContext = (edo: Edo, subsectionsForEachFifth: Subsection[][], dryRun = false): void => {
     let lines: Maybe<Io>[] = ["===Sagittal notation==="]
 
     const hasSecondBestFifthNotation: boolean = subsectionsForEachFifth.length === 2

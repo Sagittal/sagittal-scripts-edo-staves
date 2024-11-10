@@ -1,0 +1,21 @@
+{
+  '11M': {},
+  '5C': {},
+  '35L': {},
+  '13L': { primaryCommaName: '35L' },
+  '7C': {},
+  '19s': {},
+  '35M': {},
+  '13M': { primaryCommaName: '35M up' },
+  '23C': {},
+  '25S': {},
+  '13/5S': { primaryCommaName: '25S up' },
+  '11/7k': {},
+  '55C': {},
+  '143C': {},
+  '11/7C': {},
+  '23/5S': {},
+  '11/5S': {},
+  '13/7S': { primaryCommaName: '11/5S up' },
+  '25⋅11/7M': { primaryCommaName: '11M' }
+}

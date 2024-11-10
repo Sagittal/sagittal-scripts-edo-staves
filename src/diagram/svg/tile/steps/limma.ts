@@ -8,8 +8,8 @@ import {
 } from "../../constants"
 import { addText } from "../../text"
 import { Justification, NodeElement } from "../../types"
-import { equalsPositiveOrLessThanZero } from "./zero"
 import { LIMMA_COLOR } from "./constants"
+import { equalsPositiveOrLessThanZero } from "./zero"
 
 const addLimma = async (
     tileWrapperGroupElement: NodeElement<SVGGElement>,
@@ -20,7 +20,7 @@ const addLimma = async (
     await addText(tileWrapperGroupElement, `EF${equalsPositiveOrLessThanZero(limmaStep)}`, {
         fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
         fontSize: STEP_AND_MEANINGS_FONT_SIZE,
-        xOffset: -LIMMA_AND_SHARP_X_OFFSET as Px,
+        xOffset: -(LIMMA_AND_SHARP_X_OFFSET as number) as Px,
         yOffset: (tileSize + LIMMA_AND_SHARP_Y_OFFSET) as Px,
         color: LIMMA_COLOR,
         justification: Justification.CENTER,

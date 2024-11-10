@@ -31,10 +31,9 @@ const computeEquivalentNotationsLine = ({
     if (anythingBesidesConventionalNotation.length === 0)
         return `Because it includes no Sagittal symbols, this ${DIAGRAM_TO_NOTATION_TYPE[diagramType]} notation is also a conventional notation.`
 
-    const anythingBesidesConventionalAndSzNotation: Sentence =
-        anythingBesidesConventionalNotation
-            .replace(/d/g, "")
-            .replace(/t/g, "") as Sentence
+    const anythingBesidesConventionalAndSzNotation: Sentence = anythingBesidesConventionalNotation
+        .replace(/d/g, "")
+        .replace(/t/g, "") as Sentence
 
     if (anythingBesidesConventionalAndSzNotation.length === 0)
         return `Because it contains no Sagittal symbols, this ${DIAGRAM_TO_NOTATION_TYPE[diagramType]} notation is also a Stein-Zimmerman notation.`

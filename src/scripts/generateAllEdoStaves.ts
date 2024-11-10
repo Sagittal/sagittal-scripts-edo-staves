@@ -1,5 +1,5 @@
-import { EDO_NOTATION_DEFINITIONS, EdoNotationName, parseEdoNotationName } from "@sagittal/system"
 import { Edo, Io, isUndefined, Max, program, scriptSettings, Sentence } from "@sagittal/general"
+import { EDO_NOTATION_DEFINITIONS, EdoNotationName, parseEdoNotationName } from "@sagittal/system"
 import {
     generateEvoDiagram,
     generateEvoSZDiagram,
@@ -16,7 +16,7 @@ program.option("-d, --dry-run").option("-m, --max-edo <number>", "max EDO to gen
 
 program.parse()
 const { dryRun: dryRunString, maxEdo: maxEdoString }: { dryRun: string; maxEdo: string } = program.opts()
-const dryRun: boolean = !isUndefined(dryRunString)
+const dryRun = !isUndefined(dryRunString)
 const maxEdo: Max<Edo> = isUndefined(maxEdoString)
     ? (Infinity as Max<Edo>)
     : (parseInt(maxEdoString) as Max<Edo>)
@@ -36,72 +36,72 @@ edoNotationNames.forEach((edoNotationName: EdoNotationName): void => {
     } = computeSentencesAndDifferenceCase(edoNotationName)
 
     if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
-        generateEvoDiagram(
+        void generateEvoDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoNotationName,
             { dryRun },
         )
-        generateEvoSZDiagram(
+        void generateEvoSZDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoNotationName,
             { dryRun },
         )
-        generateRevoDiagram(
+        void generateRevoDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoNotationName,
             { dryRun },
         )
     } else if (differenceCase === DifferenceCase._1A_ALL_DIFFERENT_REVO_COULD_BE_EVO) {
-        generateGeneralDiagram(
+        void generateGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoNotationName,
             { dryRun },
         )
-        generateAlternativeEvoDiagram(
+        void generateAlternativeEvoDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoNotationName,
             { dryRun },
         )
-        generateEvoSZDiagram(
+        void generateEvoSZDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoNotationName,
             { dryRun },
         )
     } else if (differenceCase === DifferenceCase._2_NONE_DIFFERENT) {
-        generateGeneralDiagram(
+        void generateGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoNotationName,
             { dryRun },
         )
     } else if (differenceCase === DifferenceCase._3_REVO_DIFFERENT) {
-        generateEvoDiagram(
+        void generateEvoDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoNotationName,
             { dryRun },
         )
-        generateRevoDiagram(
+        void generateRevoDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoNotationName,
             { dryRun },
         )
     } else if (differenceCase === DifferenceCase._3A_REVO_DIFFERENT_REVO_COULD_BE_EVO) {
-        generateGeneralDiagram(
+        void generateGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoNotationName,
             { dryRun },
         )
-        generateAlternativeEvoDiagram(
+        void generateAlternativeEvoDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoNotationName,
             { dryRun },
         )
     } else if (differenceCase === DifferenceCase._4_EVO_SZ_DIFFERENT) {
-        generateGeneralDiagram(
+        void generateGeneralDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoNotationName,
             { dryRun },
         )
-        generateEvoSZDiagram(
+        void generateEvoSZDiagram(
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor,
             edoNotationName,
             { dryRun },

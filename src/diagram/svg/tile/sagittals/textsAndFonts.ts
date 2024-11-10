@@ -1,12 +1,12 @@
-import { EdoNotationName, Sagittal, Sagitype } from "@sagittal/system"
-import { Font } from "../../types"
 import { Count, deepClone, Index, Io, Multiplier, Px, Sentence } from "@sagittal/general"
+import { EdoNotationName, Sagittal, Sagitype } from "@sagittal/system"
 import { computeInputSentenceUnicode } from "staff-code"
 import { DiagramType } from "../../../../types"
+import { Font } from "../../types"
 import { TileRow } from "../types"
+import { TILE_SAGITTALS_FONT } from "./constants"
 import { computeSzTextsAndFonts, shouldHandleSzTextsAndFonts } from "./evoSz"
 import { computeSagitypeSentence } from "./sagitypeSentence"
-import { TILE_SAGITTALS_FONT } from "./constants"
 
 const computeTexts = (sagitypes: Sagitype[]): (Io & Sentence)[] => [
     computeInputSentenceUnicode(computeSagitypeSentence(sagitypes)),

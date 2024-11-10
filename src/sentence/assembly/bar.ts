@@ -1,5 +1,5 @@
-import { Code } from "staff-code"
 import { Clause, Word } from "@sagittal/general"
+import { Code } from "staff-code"
 import { MIDSTAVE_BARLINE } from "./constants"
 import { AssemblyState } from "./types"
 

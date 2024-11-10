@@ -12,15 +12,14 @@ const computeSagittalCountsByTileRow = ({
     const sagittalCountByTileRow: Count<Sagittal>[] = []
     let remainingSagittalCount: Count<Sagittal> = sagittalCount
 
-    const maxSagittalsPerRow: Max<Count<Sagittal>> = Math.ceil(
-        sagittalCount / sagittalTileRowCount,
-    ) as Max<Count<Sagittal>>
+    const maxSagittalsPerRow: Max<Count<Sagittal>> = Math.ceil(sagittalCount / sagittalTileRowCount) as Max<
+        Count<Sagittal>
+    >
 
     while (remainingSagittalCount > 0) {
         if (remainingSagittalCount > maxSagittalsPerRow) {
             sagittalCountByTileRow.push(maxSagittalsPerRow)
-            remainingSagittalCount = (remainingSagittalCount -
-                maxSagittalsPerRow) as Count<Sagittal>
+            remainingSagittalCount = (remainingSagittalCount - maxSagittalsPerRow) as Count<Sagittal>
         } else {
             sagittalCountByTileRow.push(remainingSagittalCount)
             remainingSagittalCount = 0 as Count<Sagittal>

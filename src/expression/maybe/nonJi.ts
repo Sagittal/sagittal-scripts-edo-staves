@@ -1,8 +1,8 @@
 import { Io, isUndefined, Maybe, Sentence } from "@sagittal/general"
 import { Sagitype } from "@sagittal/system"
 import { Code } from "staff-code"
-import { computeDefiniendum, computeDefiniens } from "./expression"
 import { Expression } from "../types"
+import { computeDefiniendum, computeDefiniens } from "./expression"
 
 const computeNonJiExpression = ({
     nonJiMeaning,

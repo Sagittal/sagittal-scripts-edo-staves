@@ -1,3 +1,4 @@
+import { Edo, EdoStep } from "@sagittal/general"
 import {
     Flavor,
     Sagittal,
@@ -9,7 +10,6 @@ import {
 } from "@sagittal/system"
 import { computeDefaultSingleSpellingLinkSpellings } from "./links"
 import { placeDefaultSingleSpellingSagittalSpelling } from "./sagittals"
-import { Edo, EdoStep } from "@sagittal/general"
 
 const computeIsLimmaNotation = (edoNotationName: EdoNotationName) =>
     !!(<NonSubsetEdoNotationDefinition>EDO_NOTATION_DEFINITIONS[edoNotationName]).isLimmaFraction

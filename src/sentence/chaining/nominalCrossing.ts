@@ -1,7 +1,7 @@
 import { Index, isUndefined, Maybe, mod, indexOf } from "@sagittal/general"
 import { Link, Nominal, NOMINALS } from "@sagittal/system"
-import { Difference } from "./types"
 import { NOMINAL_COUNT } from "./constants"
+import { Difference } from "./types"
 
 const NOMINALS_IN_CHROMATIC_ORDER: Nominal[] = NOMINALS.slice().sort()
 
@@ -28,7 +28,7 @@ const computeHaveNominalsCrossed = (edoStepLinkIndices: Maybe<Index<Link>>[]): b
 
     if (edoStepLinkIndicesWithNoGaps.length <= NOMINAL_COUNT) return false
 
-    let shouldStopPlacingLinksDueToNominalCrossing: boolean = false
+    let shouldStopPlacingLinksDueToNominalCrossing = false
     let nominalIndexDifference: Difference<Index<Nominal>>
 
     edoStepLinkIndicesWithNoGaps

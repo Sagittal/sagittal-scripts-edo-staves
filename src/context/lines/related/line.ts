@@ -1,10 +1,7 @@
-import { EdoNotationName, parseEdoNotationName } from "@sagittal/system"
-import { computeSharedSagittalSequenceEdoNotationNames } from "./sharedSequences"
 import { Io, Maybe } from "@sagittal/general"
-import {
-    computeSubsetEdoNotationNames,
-    computeSupersetEdoNotationNames,
-} from "./sets"
+import { EdoNotationName, parseEdoNotationName } from "@sagittal/system"
+import { computeSubsetEdoNotationNames, computeSupersetEdoNotationNames } from "./sets"
+import { computeSharedSagittalSequenceEdoNotationNames } from "./sharedSequences"
 
 const formatEdoNotationName = (
     edoNotationName: EdoNotationName,
@@ -15,13 +12,12 @@ const formatEdoNotationName = (
     return useSecondBestFifth
         ? `[[${edo}edo#Sagittal notation|${edoNotationName}]]`
         : suppressEdo
-        ? `[[${edo}edo#Sagittal notation|${edo}]]`
-        : `[[${edo}edo#Sagittal notation|${edo}-EDO]]`
+          ? `[[${edo}edo#Sagittal notation|${edo}]]`
+          : `[[${edo}edo#Sagittal notation|${edo}-EDO]]`
 }
 
 const formatEdoNotationNames = (edoNotationNames: EdoNotationName[]): Io => {
-    if (edoNotationNames.length === 1)
-        return formatEdoNotationName(edoNotationNames[0])
+    if (edoNotationNames.length === 1) return formatEdoNotationName(edoNotationNames[0])
     if (edoNotationNames.length === 2)
         return `EDOs ${formatEdoNotationName(edoNotationNames[0], {
             suppressEdo: true,
@@ -35,26 +31,17 @@ const formatEdoNotationNames = (edoNotationNames: EdoNotationName[]): Io => {
             (edoNotationName: EdoNotationName): Io =>
                 formatEdoNotationName(edoNotationName, { suppressEdo: true }),
         )
-        .join(", ")}, and ${formatEdoNotationName(
-        edoNotationNames[edoNotationNames.length - 1],
-        {
-            suppressEdo: true,
-        },
-    )}` as Io
+        .join(", ")}, and ${formatEdoNotationName(edoNotationNames[edoNotationNames.length - 1], {
+        suppressEdo: true,
+    })}` as Io
 }
 
-const maybePlural = (edoNotationNames: EdoNotationName[]): Io =>
-    edoNotationNames.length > 1 ? "s" : ""
+const maybePlural = (edoNotationNames: EdoNotationName[]): Io => (edoNotationNames.length > 1 ? "s" : "")
 
-const computeRelatedEdosLine = (
-    edoNotationName: EdoNotationName,
-): Maybe<Io> => {
-    const sharedSequenceEdoNotationNames =
-        computeSharedSagittalSequenceEdoNotationNames(edoNotationName)
-    const supersetEdoNotationNames =
-        computeSupersetEdoNotationNames(edoNotationName)
-    const subsetEdoNotationNames =
-        computeSubsetEdoNotationNames(edoNotationName)
+const computeRelatedEdosLine = (edoNotationName: EdoNotationName): Maybe<Io> => {
+    const sharedSequenceEdoNotationNames = computeSharedSagittalSequenceEdoNotationNames(edoNotationName)
+    const supersetEdoNotationNames = computeSupersetEdoNotationNames(edoNotationName)
+    const subsetEdoNotationNames = computeSubsetEdoNotationNames(edoNotationName)
 
     let setsLine = undefined
     if (
@@ -64,17 +51,12 @@ const computeRelatedEdosLine = (
     ) {
         setsLine = `This notation uses the same sagittal sequence as ${formatEdoNotationNames(
             sharedSequenceEdoNotationNames,
-        )}, is a subset of the notation${maybePlural(
-            supersetEdoNotationNames,
-        )} for ${formatEdoNotationNames(
+        )}, is a subset of the notation${maybePlural(supersetEdoNotationNames)} for ${formatEdoNotationNames(
             supersetEdoNotationNames,
         )}, and is a superset of the notation${maybePlural(
             subsetEdoNotationNames,
         )} for ${formatEdoNotationNames(subsetEdoNotationNames)}.`
-    } else if (
-        supersetEdoNotationNames.length > 0 &&
-        subsetEdoNotationNames.length > 0
-    ) {
+    } else if (supersetEdoNotationNames.length > 0 && subsetEdoNotationNames.length > 0) {
         setsLine = `This notation is a subset of the notation${maybePlural(
             supersetEdoNotationNames,
         )} for ${formatEdoNotationNames(
@@ -82,19 +64,13 @@ const computeRelatedEdosLine = (
         )} and a superset of the notation${maybePlural(
             subsetEdoNotationNames,
         )} for ${formatEdoNotationNames(subsetEdoNotationNames)}.`
-    } else if (
-        sharedSequenceEdoNotationNames.length > 0 &&
-        subsetEdoNotationNames.length > 0
-    ) {
+    } else if (sharedSequenceEdoNotationNames.length > 0 && subsetEdoNotationNames.length > 0) {
         setsLine = `This notation uses the same sagittal sequence as ${formatEdoNotationNames(
             sharedSequenceEdoNotationNames,
         )}, and is a superset of the notation${maybePlural(
             subsetEdoNotationNames,
         )} for ${formatEdoNotationNames(subsetEdoNotationNames)}.`
-    } else if (
-        sharedSequenceEdoNotationNames.length > 0 &&
-        supersetEdoNotationNames.length > 0
-    ) {
+    } else if (sharedSequenceEdoNotationNames.length > 0 && supersetEdoNotationNames.length > 0) {
         setsLine = `This notation uses the same sagittal sequence as ${formatEdoNotationNames(
             sharedSequenceEdoNotationNames,
         )}, and is a subset of the notation${maybePlural(

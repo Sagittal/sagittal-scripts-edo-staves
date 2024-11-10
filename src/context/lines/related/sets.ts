@@ -1,7 +1,9 @@
 import {
+    Decimal,
     deepEquals,
     dividesEvenly,
     Edo,
+    Integer,
     Io,
     isUndefined,
     Max,
@@ -18,8 +20,8 @@ import {
     parseEdoNotationName,
     SubsetFactor,
 } from "@sagittal/system"
-import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "../../../sentence"
 import { extractKeyInfoFromInputSentence } from "../../../diagram"
+import { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "../../../sentence"
 import { DEFINED_EDOS } from "../../constants"
 
 const MAX_DEFINED_EDO: Max<Edo> = max(...DEFINED_EDOS)
@@ -52,7 +54,7 @@ const computeIsSuperset = ({
     const supersetParsedKeyInfo = computeParsedKeyInfo(candidateSupersetEdoNotationName)
 
     const candidateMatchParsedKeyInfo = supersetParsedKeyInfo.filter((_: string, step: number) => {
-        return dividesEvenly(step, subsetFactor)
+        return dividesEvenly(step as Decimal<Integer>, subsetFactor)
     })
 
     return deepEquals(candidateMatchParsedKeyInfo, parsedKeyInfo)
@@ -111,7 +113,7 @@ const computeSubsetEdoNotationNames = (edoNotationName: EdoNotationName): EdoNot
         subsetFactor = (subsetFactor + 1) as SubsetFactor
         subsetEdo = (edo / subsetFactor) as Edo
 
-        if (!dividesEvenly(subsetEdo, 1)) continue
+        if (!dividesEvenly(subsetEdo, 1 as Decimal<Integer>)) continue
 
         const subsetEdoNotationName: EdoNotationName = subsetEdo.toString() as EdoNotationName
         if (!isUndefined(EDO_NOTATION_DEFINITIONS[subsetEdoNotationName])) {
@@ -149,7 +151,7 @@ const parseKeyInfo = (keyInfo: Sentence): Word[] => {
 
     let notePatternMatch
     while ((notePatternMatch = notePattern.exec(keyInfo)) !== null) {
-        let note = notePatternMatch[0]
+        const note = notePatternMatch[0]
         const newNominalMatch = note.match(/^([a-g][0-9])/)
         if (newNominalMatch) currentNominal = newNominalMatch[1]
         parsedKeyInfo.push(

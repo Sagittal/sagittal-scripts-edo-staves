@@ -1,15 +1,11 @@
-import {
-    EDO_NOTATION_DEFINITIONS,
-    EdoNotationName,
-    parseEdoNotationName,
-} from "@sagittal/system"
-import { computeMeaningsPathifiableTexts } from "../../../../src/diagram/svg/meaning/pathifiableTexts"
-import { DiagramType } from "../../../../src/types"
 import { Index, Io, Unicode, Word } from "@sagittal/general"
-import { MAX_PERIODIC_TABLE_EDO } from "../../../../src/constants"
-import { PathifiableTexts } from "../../../../src/diagram/svg/meaning/types"
+import { EDO_NOTATION_DEFINITIONS, EdoNotationName, parseEdoNotationName } from "@sagittal/system"
 import { debugCode } from "staff-code"
+import { MAX_PERIODIC_TABLE_EDO } from "../../../../src/constants"
+import { computeMeaningsPathifiableTexts } from "../../../../src/diagram/svg/meaning/pathifiableTexts"
+import { PathifiableTexts } from "../../../../src/diagram/svg/meaning/types"
 import { Font } from "../../../../src/diagram/svg/types"
+import { DiagramType } from "../../../../src/types"
 
 const EXPECTED_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
     "5": [],
@@ -34,12 +30,7 @@ const EXPECTED_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
     "24": [" ", " = ~11M (~33/32)"],
     "25": ["a bad-fifth apotome-fraction notation"],
     "26": [],
-    "27": [
-        " ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~35L (~8505/8192) ≈ ~13L up (~27/26)",
-    ],
+    "27": [" ", " = ~5C (~80/81),", "  ", " = ~35L (~8505/8192) ≈ ~13L up (~27/26)"],
     "28": ["a bad-fifth limma-fraction notation"],
     "29": [" ", " = ~5C (~80/81)"],
     "30": ["a bad-fifth apotome-fraction notation"],
@@ -56,42 +47,16 @@ const EXPECTED_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
     "41": [" ", " = ~5C (~80/81),", "  ", " = ~11M (~33/32)"],
     "42": ["a bad-fifth apotome-fraction notation"],
     "43": [" ", " = ~7C (~63/64)"],
-    "44": [
-        "  ",
-        " = ~19s (~513/512),",
-        "  ",
-        " = ~5C (~80/81),",
-        "  ",
-        " ≈ ~13L (~26/27)",
-    ],
+    "44": ["  ", " = ~19s (~513/512),", "  ", " = ~5C (~80/81),", "  ", " ≈ ~13L (~26/27)"],
     "45": [" ", " = ~35M (~35/36) ≈ ~13M down (~1024/1053)"],
     "46": [" ", " = ~5C (~80/81),", "  ", " = ~11M (~33/32)"],
     "47": ["a bad-fifth limma-fraction notation"],
     "48": ["  ", " = ~23C (~736/729),", "  ", " = ~11M (~33/32)"],
-    "49": [
-        "  ",
-        " = ~19s (~513/512),",
-        "  ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~11M (~33/32)",
-    ],
+    "49": ["  ", " = ~19s (~513/512),", "  ", " = ~5C (~80/81),", "  ", " = ~11M (~33/32)"],
     "50": [" ", " ≈ ~13M (~1053/1024)"],
-    "51": [
-        " ",
-        " = ~7C (~63/64),",
-        "  ",
-        " = ~5C (~80/81),",
-        "  ",
-        " ≈ ~13L (~26/27)",
-    ],
+    "51": [" ", " = ~7C (~63/64),", "  ", " = ~5C (~80/81),", "  ", " ≈ ~13L (~26/27)"],
     "52": [" ", " = ~35M (~35/36)"],
-    "53": [
-        " ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~25S (~6400/6561) ≈ ~13/5S (~39/40)",
-    ],
+    "53": [" ", " = ~5C (~80/81),", "  ", " = ~25S (~6400/6561) ≈ ~13/5S (~39/40)"],
     "54": [
         "  ",
         " = ~19s (~513/512),",
@@ -103,23 +68,9 @@ const EXPECTED_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
         " ≈ ~13L (~26/27)",
     ],
     "55": [" ", " = ~11/7k (~891/896),", "  ", " = ~11M (~33/32)"],
-    "56": [
-        " ",
-        " = ~7C (~63/64),",
-        "  ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~11M (~33/32)",
-    ],
+    "56": [" ", " = ~7C (~63/64),", "  ", " = ~5C (~80/81),", "  ", " = ~11M (~33/32)"],
     "57": [" ", " ≈ ~13M (~1053/1024)"],
-    "58": [
-        " ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~55C (~55/54),",
-        "  ",
-        " = ~11M (~33/32)",
-    ],
+    "58": [" ", " = ~5C (~80/81),", "  ", " = ~55C (~55/54),", "  ", " = ~11M (~33/32)"],
     "59": [
         "  ",
         " = (~3A)/9 ((~2187/2048)/9),",
@@ -142,23 +93,9 @@ const EXPECTED_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
         " ≈ ~13L (~26/27)",
     ],
     "62": [" ", " ≈ ~13M (~1053/1024),", "  ", " = ~11M (~33/32)"],
-    "63": [
-        " ",
-        " = ~7C (~63/64),",
-        "  ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~11M (~33/32)",
-    ],
+    "63": [" ", " = ~7C (~63/64),", "  ", " = ~5C (~80/81),", "  ", " = ~11M (~33/32)"],
     "64": [" ", " ≈ ~13M (~1053/1024)"],
-    "65": [
-        " ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~7C (~63/64),",
-        "  ",
-        " = ~11M (~33/32)",
-    ],
+    "65": [" ", " = ~5C (~80/81),", "  ", " = ~7C (~63/64),", "  ", " = ~11M (~33/32)"],
     "66": [
         "  ",
         " = ~19s (~513/512),",
@@ -169,12 +106,7 @@ const EXPECTED_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
         "  ",
         " ≈ ~13M (~1053/1024)",
     ],
-    "67": [
-        " ",
-        " = ~11/7k (~891/896),",
-        "  ",
-        " = ~35M (~35/36) ≈ ~13M down (~1024/1053)",
-    ],
+    "67": [" ", " = ~11/7k (~891/896),", "  ", " = ~35M (~35/36) ≈ ~13M down (~1024/1053)"],
     "68": [
         " ",
         " = ~7C (~63/64),",
@@ -186,14 +118,7 @@ const EXPECTED_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
         " ≈ ~13L (~26/27)",
     ],
     "69": [" ", " ≈ ~13M (~1053/1024),", "  ", " = ~11M (~33/32)"],
-    "70": [
-        " ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~55C (~55/54),",
-        "  ",
-        " = ~11M (~33/32)",
-    ],
+    "70": [" ", " = ~5C (~80/81),", "  ", " = ~55C (~55/54),", "  ", " = ~11M (~33/32)"],
     "71": [
         " ",
         " = ~55C (~55/54),",
@@ -206,14 +131,7 @@ const EXPECTED_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
         "  ",
         " ≈ ~13L (~26/27)",
     ],
-    "72": [
-        " ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~7C (~63/64),",
-        "  ",
-        " = ~11M (~33/32)",
-    ],
+    "72": [" ", " = ~5C (~80/81),", "  ", " = ~7C (~63/64),", "  ", " = ~11M (~33/32)"],
     "73": [
         " ",
         " = ~7C (~63/64),",
@@ -224,12 +142,7 @@ const EXPECTED_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
         "  ",
         " = ~11M (~33/32)",
     ],
-    "74": [
-        " ",
-        " ≈ ~13/7S (~1664/1701),",
-        "  ",
-        " = ~35M (~35/36) ≈ ~13M down (~1024/1053)",
-    ],
+    "74": [" ", " ≈ ~13/7S (~1664/1701),", "  ", " = ~35M (~35/36) ≈ ~13M down (~1024/1053)"],
     "75": [
         " ",
         " = ~7C (~63/64),",
@@ -241,14 +154,7 @@ const EXPECTED_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
         " ≈ ~13L (~26/27)",
     ],
     "76": [" ", " ≈ ~13M (~1053/1024),", "  ", " ≈ ~25⋅11/7M (~550/567)"],
-    "77": [
-        " ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~7C (~63/64),",
-        "  ",
-        " = ~11M (~33/32)",
-    ],
+    "77": [" ", " = ~5C (~80/81),", "  ", " = ~7C (~63/64),", "  ", " = ~11M (~33/32)"],
     "23b": ["a bad-fifth apotome-fraction notation"],
     "30b": ["a bad-fifth limma-fraction notation"],
     "35b": ["a bad-fifth apotome-fraction notation"],
@@ -282,12 +188,7 @@ const EXPECTED_EVO_SZ_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
     "24": ["  ", " = ~11M (~33/32)"],
     "25": ["a bad-fifth apotome-fraction notation"],
     "26": [],
-    "27": [
-        " ",
-        " = ~5C (~80/81),",
-        "    ",
-        " = ~35L (~8505/8192) ≈ ~13L up (~27/26)",
-    ],
+    "27": [" ", " = ~5C (~80/81),", "    ", " = ~35L (~8505/8192) ≈ ~13L up (~27/26)"],
     "28": ["a bad-fifth limma-fraction notation"],
     "29": [" ", " = ~5C (~80/81)"],
     "30": ["a bad-fifth apotome-fraction notation"],
@@ -304,42 +205,16 @@ const EXPECTED_EVO_SZ_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
     "41": [" ", " = ~5C (~80/81),", "    ", " = ~11M (~33/32)"],
     "42": ["a bad-fifth apotome-fraction notation"],
     "43": [" ", " = ~7C (~63/64)"],
-    "44": [
-        "  ",
-        " = ~19s (~513/512),",
-        "  ",
-        " = ~5C (~80/81),",
-        "   ",
-        " ≈ ~13L (~26/27)",
-    ],
+    "44": ["  ", " = ~19s (~513/512),", "  ", " = ~5C (~80/81),", "   ", " ≈ ~13L (~26/27)"],
     "45": [" ", " = ~35M (~35/36) ≈ ~13M down (~1024/1053)"],
     "46": [" ", " = ~5C (~80/81),", "  ", " = ~11M (~33/32)"],
     "47": ["a bad-fifth limma-fraction notation"],
     "48": ["  ", " = ~23C (~736/729),", "    ", " = ~11M (~33/32)"],
-    "49": [
-        "  ",
-        " = ~19s (~513/512),",
-        "  ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~11M (~33/32)",
-    ],
+    "49": ["  ", " = ~19s (~513/512),", "  ", " = ~5C (~80/81),", "  ", " = ~11M (~33/32)"],
     "50": [" ", " ≈ ~13M (~1053/1024)"],
-    "51": [
-        " ",
-        " = ~7C (~63/64),",
-        "  ",
-        " = ~5C (~80/81),",
-        "   ",
-        " ≈ ~13L (~26/27)",
-    ],
+    "51": [" ", " = ~7C (~63/64),", "  ", " = ~5C (~80/81),", "   ", " ≈ ~13L (~26/27)"],
     "52": [" ", " = ~35M (~35/36)"],
-    "53": [
-        " ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~25S (~6400/6561) ≈ ~13/5S (~39/40)",
-    ],
+    "53": [" ", " = ~5C (~80/81),", "  ", " = ~25S (~6400/6561) ≈ ~13/5S (~39/40)"],
     "54": [
         "  ",
         " = ~19s (~513/512),",
@@ -351,23 +226,9 @@ const EXPECTED_EVO_SZ_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
         " ≈ ~13L (~26/27)",
     ],
     "55": [" ", " = ~11/7k (~891/896),", "    ", " = ~11M (~33/32)"],
-    "56": [
-        " ",
-        " = ~7C (~63/64),",
-        "  ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~11M (~33/32)",
-    ],
+    "56": [" ", " = ~7C (~63/64),", "  ", " = ~5C (~80/81),", "  ", " = ~11M (~33/32)"],
     "57": [" ", " ≈ ~13M (~1053/1024)"],
-    "58": [
-        " ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~55C (~55/54),",
-        "    ",
-        " = ~11M (~33/32)",
-    ],
+    "58": [" ", " = ~5C (~80/81),", "  ", " = ~55C (~55/54),", "    ", " = ~11M (~33/32)"],
     "59": [
         "  ",
         " = (~3A)/9 ((~2187/2048)/9),",
@@ -390,23 +251,9 @@ const EXPECTED_EVO_SZ_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
         " ≈ ~13L (~26/27)",
     ],
     "62": [" ", " ≈ ~13M (~1053/1024),", "    ", " = ~11M (~33/32)"],
-    "63": [
-        " ",
-        " = ~7C (~63/64),",
-        "  ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~11M (~33/32)",
-    ],
+    "63": [" ", " = ~7C (~63/64),", "  ", " = ~5C (~80/81),", "  ", " = ~11M (~33/32)"],
     "64": [" ", " ≈ ~13M (~1053/1024)"],
-    "65": [
-        " ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~7C (~63/64),",
-        "    ",
-        " = ~11M (~33/32)",
-    ],
+    "65": [" ", " = ~5C (~80/81),", "  ", " = ~7C (~63/64),", "    ", " = ~11M (~33/32)"],
     "66": [
         "  ",
         " = ~19s (~513/512),",
@@ -417,12 +264,7 @@ const EXPECTED_EVO_SZ_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
         "  ",
         " ≈ ~13M (~1053/1024)",
     ],
-    "67": [
-        " ",
-        " = ~11/7k (~891/896),",
-        "  ",
-        " = ~35M (~35/36) ≈ ~13M down (~1024/1053)",
-    ],
+    "67": [" ", " = ~11/7k (~891/896),", "  ", " = ~35M (~35/36) ≈ ~13M down (~1024/1053)"],
     "68": [
         " ",
         " = ~7C (~63/64),",
@@ -434,14 +276,7 @@ const EXPECTED_EVO_SZ_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
         " ≈ ~13L (~26/27)",
     ],
     "69": [" ", " ≈ ~13M (~1053/1024),", "    ", " = ~11M (~33/32)"],
-    "70": [
-        " ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~55C (~55/54),",
-        "  ",
-        " = ~11M (~33/32)",
-    ],
+    "70": [" ", " = ~5C (~80/81),", "  ", " = ~55C (~55/54),", "  ", " = ~11M (~33/32)"],
     "71": [
         " ",
         " = ~55C (~55/54),",
@@ -454,14 +289,7 @@ const EXPECTED_EVO_SZ_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
         "   ",
         " ≈ ~13L (~26/27)",
     ],
-    "72": [
-        " ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~7C (~63/64),",
-        "    ",
-        " = ~11M (~33/32)",
-    ],
+    "72": [" ", " = ~5C (~80/81),", "  ", " = ~7C (~63/64),", "    ", " = ~11M (~33/32)"],
     "73": [
         " ",
         " = ~7C (~63/64),",
@@ -472,12 +300,7 @@ const EXPECTED_EVO_SZ_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
         "  ",
         " = ~11M (~33/32)",
     ],
-    "74": [
-        " ",
-        " ≈ ~13/7S (~1664/1701),",
-        "  ",
-        " = ~35M (~35/36) ≈ ~13M down (~1024/1053)",
-    ],
+    "74": [" ", " ≈ ~13/7S (~1664/1701),", "  ", " = ~35M (~35/36) ≈ ~13M down (~1024/1053)"],
     "75": [
         " ",
         " = ~7C (~63/64),",
@@ -489,14 +312,7 @@ const EXPECTED_EVO_SZ_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
         " ≈ ~13L (~26/27)",
     ],
     "76": [" ", " ≈ ~13M (~1053/1024),", "   ", " ≈ ~25⋅11/7M (~550/567)"],
-    "77": [
-        " ",
-        " = ~5C (~80/81),",
-        "  ",
-        " = ~7C (~63/64),",
-        "  ",
-        " = ~11M (~33/32)",
-    ],
+    "77": [" ", " = ~5C (~80/81),", "  ", " = ~7C (~63/64),", "  ", " = ~11M (~33/32)"],
     "23b": ["a bad-fifth apotome-fraction notation"],
     "30b": ["a bad-fifth limma-fraction notation"],
     "35b": ["a bad-fifth apotome-fraction notation"],
@@ -509,18 +325,11 @@ const EXPECTED_EVO_SZ_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
 
 const BRAVURA_TEXT_INDEX: Index<Font> = 0 as Index<Font>
 
-const makeReadable = (
-    texts: Io[],
-    { fontIndices }: { fontIndices: Index<Font>[] },
-): Io =>
+const makeReadable = (texts: Io[], { fontIndices }: { fontIndices: Index<Font>[] }): Io =>
     texts
         .map((actualText: Io, index: number) =>
             fontIndices[index] === BRAVURA_TEXT_INDEX
-                ? actualText
-                      .split("")
-                      .map((actualChar: Io) =>
-                          debugCode(actualChar as Unicode & Word),
-                      )
+                ? actualText.split("").map((actualChar: Io) => debugCode(actualChar as Unicode & Word))
                 : [actualText],
         )
         .flat()
@@ -533,39 +342,31 @@ describe("computeMeaningsPathifiableTexts", (): void => {
             EDO_NOTATION_DEFINITIONS,
         ) as EdoNotationName[]
 
-        EDO_NOTATION_DEFINITIONS_KEYS.forEach(
-            (edoNotationName: EdoNotationName) => {
-                if (
-                    parseEdoNotationName(edoNotationName).edo >
-                    MAX_PERIODIC_TABLE_EDO
+        EDO_NOTATION_DEFINITIONS_KEYS.forEach((edoNotationName: EdoNotationName) => {
+            if (parseEdoNotationName(edoNotationName).edo > MAX_PERIODIC_TABLE_EDO) return
+
+            const actualPathifiableTexts: PathifiableTexts = computeMeaningsPathifiableTexts({
+                edoNotationName,
+                diagramType: DiagramType.REVO,
+            })
+            const actualTexts: Io[] = actualPathifiableTexts.texts
+
+            const expectedTexts: Io[] = EXPECTED_MEANINGS_TEXTS[edoNotationName]
+
+            const readableActualTexts: Io = makeReadable(actualTexts, {
+                fontIndices: actualPathifiableTexts.fontIndices,
+            })
+
+            const readableExpectedTexts: Io = makeReadable(expectedTexts, {
+                fontIndices: actualPathifiableTexts.fontIndices,
+            })
+
+            expect(actualTexts)
+                .withContext(
+                    `For ${edoNotationName}, expected ${readableActualTexts} to be ${readableExpectedTexts}`,
                 )
-                    return
-
-                const actualPathifiableTexts: PathifiableTexts =
-                    computeMeaningsPathifiableTexts({
-                        edoNotationName,
-                        diagramType: DiagramType.REVO,
-                    })
-                const actualTexts: Io[] = actualPathifiableTexts.texts
-
-                const expectedTexts: Io[] =
-                    EXPECTED_MEANINGS_TEXTS[edoNotationName]
-
-                const readableActualTexts: Io = makeReadable(actualTexts, {
-                    fontIndices: actualPathifiableTexts.fontIndices,
-                })
-
-                const readableExpectedTexts: Io = makeReadable(expectedTexts, {
-                    fontIndices: actualPathifiableTexts.fontIndices,
-                })
-
-                expect(actualTexts)
-                    .withContext(
-                        `For ${edoNotationName}, expected ${readableActualTexts} to be ${readableExpectedTexts}`,
-                    )
-                    .toEqual(expectedTexts)
-            },
-        )
+                .toEqual(expectedTexts)
+        })
     })
 
     it("provides the correct text for each EDO for Evo-SZ diagrams", () => {
@@ -573,38 +374,30 @@ describe("computeMeaningsPathifiableTexts", (): void => {
             EDO_NOTATION_DEFINITIONS,
         ) as EdoNotationName[]
 
-        EDO_NOTATION_DEFINITIONS_KEYS.forEach(
-            (edoNotationName: EdoNotationName) => {
-                if (
-                    parseEdoNotationName(edoNotationName).edo >
-                    MAX_PERIODIC_TABLE_EDO
+        EDO_NOTATION_DEFINITIONS_KEYS.forEach((edoNotationName: EdoNotationName) => {
+            if (parseEdoNotationName(edoNotationName).edo > MAX_PERIODIC_TABLE_EDO) return
+
+            const actualPathifiableTexts: PathifiableTexts = computeMeaningsPathifiableTexts({
+                edoNotationName,
+                diagramType: DiagramType.EVO_SZ,
+            })
+            const actualTexts: Io[] = actualPathifiableTexts.texts
+
+            const expectedTexts: Io[] = EXPECTED_EVO_SZ_MEANINGS_TEXTS[edoNotationName]
+
+            const readableActualTexts: Io = makeReadable(actualTexts, {
+                fontIndices: actualPathifiableTexts.fontIndices,
+            })
+
+            const readableExpectedTexts: Io = makeReadable(expectedTexts, {
+                fontIndices: actualPathifiableTexts.fontIndices,
+            })
+
+            expect(actualTexts)
+                .withContext(
+                    `For ${edoNotationName}, expected ${readableActualTexts} to be ${readableExpectedTexts}`,
                 )
-                    return
-
-                const actualPathifiableTexts: PathifiableTexts =
-                    computeMeaningsPathifiableTexts({
-                        edoNotationName,
-                        diagramType: DiagramType.EVO_SZ,
-                    })
-                const actualTexts: Io[] = actualPathifiableTexts.texts
-
-                const expectedTexts: Io[] =
-                    EXPECTED_EVO_SZ_MEANINGS_TEXTS[edoNotationName]
-
-                const readableActualTexts: Io = makeReadable(actualTexts, {
-                    fontIndices: actualPathifiableTexts.fontIndices,
-                })
-
-                const readableExpectedTexts: Io = makeReadable(expectedTexts, {
-                    fontIndices: actualPathifiableTexts.fontIndices,
-                })
-
-                expect(actualTexts)
-                    .withContext(
-                        `For ${edoNotationName}, expected ${readableActualTexts} to be ${readableExpectedTexts}`,
-                    )
-                    .toEqual(expectedTexts)
-            },
-        )
+                .toEqual(expectedTexts)
+        })
     })
 })

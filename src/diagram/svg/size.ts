@@ -1,5 +1,5 @@
-import { Document } from "@xmldom/xmldom"
 import { Multiplier, Px } from "@sagittal/general"
+import { Document } from "@xmldom/xmldom"
 import {
     LEFT_AND_RIGHT_MARGIN,
     TOP_MARGIN,

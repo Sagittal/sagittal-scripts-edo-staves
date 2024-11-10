@@ -1,7 +1,7 @@
-import { EDO_NOTATION_DEFINITIONS, EdoNotationName } from "@sagittal/system"
-import { Subsection } from "./types"
-import { gatherSubsectionsForEdoNotationName } from "./gather"
 import { Edo, isUndefined } from "@sagittal/general"
+import { EDO_NOTATION_DEFINITIONS, EdoNotationName } from "@sagittal/system"
+import { gatherSubsectionsForEdoNotationName } from "./gather"
+import { Subsection } from "./types"
 
 const computeSubsectionsForEachFifth = (edo: Edo): Subsection[][] => {
     const edoNotationName: EdoNotationName = edo.toString() as EdoNotationName

@@ -1,4 +1,4 @@
-import { Index, Decimal, EdoStep } from "@sagittal/general"
+import { Index, Decimal, EdoStep, Integer } from "@sagittal/general"
 import { Link } from "@sagittal/system"
 
 enum Way {
@@ -16,8 +16,8 @@ interface ChainingState {
     linkIndex: Index<Link>
 }
 
-type Difference<T = void> = Decimal<{ integer: true }> & {
+type Difference<T = void> = Decimal<Integer> & {
     _DifferenceBrand: boolean
-} & (T extends void ? {} : { _DifferenceOfBrand: T })
+} & (T extends void ? void : { _DifferenceOfBrand: T }) // TODO: should I just do it like this everywhere?
 
 export { Way, Priority, ChainingState, Difference }

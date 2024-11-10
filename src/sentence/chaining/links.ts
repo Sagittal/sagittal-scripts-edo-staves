@@ -1,11 +1,25 @@
-import { Index, Maybe, Count, isUndefined, mod, EdoStep, Edo, indexOf } from "@sagittal/general"
+import {
+    Index,
+    Maybe,
+    Count,
+    isUndefined,
+    mod,
+    EdoStep,
+    Edo,
+    indexOf,
+    Integer,
+    Decimal,
+} from "@sagittal/general"
 import { Sagittal, Link, Nominal, NOMINALS, Spelling } from "@sagittal/system"
-import { Way, ChainingState } from "./types"
-import { computeHaveNominalsCrossed } from "./nominalCrossing"
 import { LIMMA_LESS_THAN_OR_EQUAL_TO_ZERO_NOMINAL_COUNT, NOMINAL_COUNT } from "./constants"
+import { computeHaveNominalsCrossed } from "./nominalCrossing"
+import { Way, ChainingState } from "./types"
 
 const computeDStep = ({ edo, fifthStep }: { edo: Edo; fifthStep: EdoStep }): EdoStep =>
-    mod(fifthStep * (indexOf(NOMINALS, Nominal.D) - indexOf(NOMINALS, Nominal.C)), edo) as EdoStep
+    mod(
+        (fifthStep * (indexOf(NOMINALS, Nominal.D) - indexOf(NOMINALS, Nominal.C))) as Decimal<Integer>,
+        edo,
+    ) as EdoStep
 
 const computeLinkSpellingsFromEdoStepLinks = (edoStepLinkIndices: Index<Link>[]): Spelling[] =>
     edoStepLinkIndices.map(
@@ -28,9 +42,9 @@ const computeDefaultSingleSpellingLinkSpellings = ({
 }): Spelling[] => {
     const dStep: EdoStep = computeDStep({ edo, fifthStep })
 
-    let edoStepLinkIndices: Maybe<Index<Link>>[] = Array(edo)
+    let edoStepLinkIndices: Maybe<Index<Link>>[] = Array(edo) as Maybe<Index<Link>>[]
     edoStepLinkIndices[dStep] = 0 as Index<Link>
-    let candidateEdoStepLinkIndices: Maybe<Index<Link>>[] = Array(edo)
+    let candidateEdoStepLinkIndices: Maybe<Index<Link>>[] = Array(edo) as Maybe<Index<Link>>[]
 
     let chainingState: ChainingState
     let way: Way = Way.UP
@@ -39,14 +53,17 @@ const computeDefaultSingleSpellingLinkSpellings = ({
         [Way.DOWN]: { edoStep: dStep, linkIndex: 0 as Index<Link> },
     }
 
-    let areLinksComplete: boolean = false
+    let areLinksComplete = false
 
     let spellingPlacedCount: Count<Spelling> = 1 as Count<Spelling>
 
     while (!areLinksComplete) {
         candidateEdoStepLinkIndices = edoStepLinkIndices.slice()
         chainingState = chainingStates[way]
-        chainingState.edoStep = mod(chainingState.edoStep + way * fifthStep, edo) as EdoStep
+        chainingState.edoStep = mod(
+            (chainingState.edoStep + way * fifthStep) as Decimal<Integer>,
+            edo,
+        ) as EdoStep
 
         if (!isUndefined(candidateEdoStepLinkIndices[chainingState.edoStep])) {
             areLinksComplete = true
@@ -59,14 +76,14 @@ const computeDefaultSingleSpellingLinkSpellings = ({
         if (
             !areLinksComplete &&
             limmaStep <= 0 &&
-            (spellingPlacedCount as Count<Spelling>) ===
+            spellingPlacedCount ===
                 (LIMMA_LESS_THAN_OR_EQUAL_TO_ZERO_NOMINAL_COUNT as Count as Count<Spelling>)
         )
             areLinksComplete = true
         if (
             !areLinksComplete &&
             useOnlyPlainNominals &&
-            (spellingPlacedCount as Count<Spelling>) === (NOMINAL_COUNT as Count as Count<Spelling>)
+            spellingPlacedCount === (NOMINAL_COUNT as Count as Count<Spelling>)
         )
             areLinksComplete = true
 

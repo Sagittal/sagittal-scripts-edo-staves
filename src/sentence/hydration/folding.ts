@@ -1,8 +1,8 @@
 import { Index, ZERO_ONE_INDEX_DIFF, Count, EdoStep, Edo } from "@sagittal/general"
 import { computeWholeToneStep } from "@sagittal/system"
-import { FoldingParameters, Folding, FoldingCategory, Limma, WholeTone } from "./types"
 import { MAX_STEP_COUNT_PER_STAVE } from "./constants"
 import { computeExtraLargeEdoFolding } from "./extraLarge"
+import { FoldingParameters, Folding, FoldingCategory, Limma, WholeTone } from "./types"
 
 const FOLDING_PARAMETERS_BY_CATEGORY: Record<FoldingCategory, FoldingParameters[]> = {
     [FoldingCategory.SMALL]: [

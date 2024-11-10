@@ -1,21 +1,16 @@
 import { Count, Sentence, Io, Index, EdoStep } from "@sagittal/general"
 import { Nominal } from "@sagittal/system"
+import { DiagramStep } from "../hydration"
 import { Stave } from "../types"
 import { computeBarClause } from "./bar"
-import { computeNominalClause } from "./nominal"
-import {
-    ACTIVATE_STAFF,
-    CLEF,
-    EARLIER_NOMINALS_OCTAVE,
-    FINAL_BARLINE,
-} from "./constants"
-import { computeLefthandSpacingClause } from "./spacing"
-import { computeSagittalClause } from "./sagittal"
-import { computeNoteAndRighthandSpaceClause } from "./note"
-import { computeWhorlClause } from "./whorl"
-import { AssemblyState } from "./types"
-import { DiagramStep } from "../hydration"
 import { computeStaveBreakClause } from "./break"
+import { ACTIVATE_STAFF, CLEF, EARLIER_NOMINALS_OCTAVE, FINAL_BARLINE } from "./constants"
+import { computeNominalClause } from "./nominal"
+import { computeNoteAndRighthandSpaceClause } from "./note"
+import { computeSagittalClause } from "./sagittal"
+import { computeLefthandSpacingClause } from "./spacing"
+import { AssemblyState } from "./types"
+import { computeWhorlClause } from "./whorl"
 
 const assembleAsStaffCodeInputSentence = (
     diagramSteps: DiagramStep[],
@@ -42,8 +37,7 @@ const assembleAsStaffCodeInputSentence = (
                     situationReC4,
                 }: DiagramStep,
             ): Io & Sentence => {
-                const startingNewStave: boolean =
-                    staveIndex > assemblyState.currentStave
+                const startingNewStave: boolean = staveIndex > assemblyState.currentStave
 
                 return (inputSentence +
                     computeStaveBreakClause(startingNewStave, {

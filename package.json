@@ -1,40 +1,52 @@
 {
-  "name": "sagittal-scripts-edo-staves",
-  "version": "1.0.0",
-  "description": "generates examples on the staff for EDO notations",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Sagittal/sagittal-scripts-edo-staves.git"
-  },
-  "license": "MIT",
-  "scripts": {
-    "setup": "npm i",
-    "profile": "node --prof -r ts-node/register/transpile-only --max-old-space-size=131072 [[script.ts]] && node --prof-process isolate-*.log > processed.txt && rm isolate-*.log",
-    "test": "node -r ts-node/register/transpile-only node_modules/jasmine/bin/jasmine",
-    "test-names": "node -r ts-node/register/transpile-only node_modules/jasmine/bin/jasmine --full=false --names=true",
-    "test-full": "node -r ts-node/register node_modules/jasmine/bin/jasmine --full=true",
-    "test-full-names": "node -r ts-node/register node_modules/jasmine/bin/jasmine --full=true --names=true",
-    "tmp": "node -r ts-node/register/transpile-only --max-old-space-size=131072 spec/helpers/shared/tmp/tmp.ts",
-    "generate-edo-staves": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateEdoStaves.ts",
-    "generate-all-edo-staves": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateAllEdoStaves.ts",
-    "generate-edo-context": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateEdoContext.ts",
-    "generate-all-edo-contexts": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateAllEdoContexts.ts",
-    "size-reversals": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/sizeReversals.ts"
-  },
-  "devDependencies": {
-    "@sagittal/general": "^1.0.120",
-    "@sagittal/system": "^1.0.38",
-    "@types/jasmine": "^4.3.0",
-    "@types/node": "^18.8.0",
-    "@types/xmldom": "^0.1.34",
-    "@xmldom/xmldom": "^0.9.2",
-    "jasmine": "^4.4.0",
-    "jasmine-spec-reporter": "^7.0.0",
-    "staff-code": "^1.0.231",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.8.4"
-  },
-  "engines": {
-    "node": ">=14"
-  }
+    "name": "sagittal-scripts-edo-staves",
+    "version": "1.0.0",
+    "description": "generates examples on the staff for EDO notations",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Sagittal/sagittal-scripts-edo-staves.git"
+    },
+    "license": "MIT",
+    "scripts": {
+        "setup": "npm i",
+        "profile": "node --prof -r ts-node/register/transpile-only --max-old-space-size=131072 [[script.ts]] && node --prof-process isolate-*.log > processed.txt && rm isolate-*.log",
+        "test": "node -r ts-node/register/transpile-only node_modules/jasmine/bin/jasmine",
+        "test-names": "node -r ts-node/register/transpile-only node_modules/jasmine/bin/jasmine --full=false --names=true",
+        "test-full": "node -r ts-node/register node_modules/jasmine/bin/jasmine --full=true",
+        "test-full-names": "node -r ts-node/register node_modules/jasmine/bin/jasmine --full=true --names=true",
+        "tmp": "node -r ts-node/register/transpile-only --max-old-space-size=131072 spec/helpers/shared/tmp/tmp.ts",
+        "lint": "node --max-old-space-size=131072 ./node_modules/.bin/eslint . --fix",
+        "format": "prettier --write .",
+        "typecheck": "node --max-old-space-size=131072 ./node_modules/.bin/tsc --noEmit",
+        "check": "npm run typecheck && npm run lint && npm run format && npm run test-full",
+        "generate-edo-staves": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateEdoStaves.ts",
+        "generate-all-edo-staves": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateAllEdoStaves.ts",
+        "generate-edo-context": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateEdoContext.ts",
+        "generate-all-edo-contexts": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateAllEdoContexts.ts",
+        "generate-comma-sections": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/generateCommaSections.ts",
+        "size-reversals": "node -r ts-node/register/transpile-only --max-old-space-size=131072 src/scripts/sizeReversals.ts"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.14.0",
+        "@sagittal/general": "^1.0.120",
+        "@sagittal/system": "^1.0.38",
+        "@types/eslint__js": "^8.42.3",
+        "@types/jasmine": "^4.3.0",
+        "@types/node": "^18.8.0",
+        "@types/xmldom": "^0.1.34",
+        "@xmldom/xmldom": "^0.9.2",
+        "eslint": "^9.14.0",
+        "eslint-plugin-import": "^2.31.0",
+        "eslint-plugin-unused-imports": "^4.1.4",
+        "jasmine": "^4.4.0",
+        "jasmine-spec-reporter": "^7.0.0",
+        "prettier": "^3.3.3",
+        "staff-code": "^1.0.231",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.8.4",
+        "typescript-eslint": "^8.13.0"
+    },
+    "engines": {
+        "node": ">=14"
+    }
 }

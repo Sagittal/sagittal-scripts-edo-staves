@@ -16,7 +16,4 @@ enum DifferenceCase {
     _4_EVO_SZ_DIFFERENT,
 }
 
-export {
-    DiagramType,
-    DifferenceCase,
-}
+export { DiagramType, DifferenceCase }

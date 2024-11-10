@@ -1,6 +1,6 @@
+import { Clause, Index } from "@sagittal/general"
 import { Code, Octals } from "staff-code"
 import { Octave } from "./types"
-import { Clause, Index } from "@sagittal/general"
 
 const COLUMN_BUFFER_WIDTH: Octals = 4 as Octals
 

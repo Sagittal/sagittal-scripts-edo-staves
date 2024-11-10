@@ -14,6 +14,4 @@ const extractKeyInfoFromInputSentence = (inputSentence: Io & Sentence): Sentence
         .replace(/(\w\d)/g, "\n$1")
         .replace(/;/g, "") as Sentence
 
-export {
-    extractKeyInfoFromInputSentence,
-}
+export { extractKeyInfoFromInputSentence }

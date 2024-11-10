@@ -4,6 +4,7 @@ import {
     Edo,
     EdoStep,
     Index,
+    Integer,
     Maybe,
     ZERO_ONE_INDEX_DIFF,
     computeRange,
@@ -11,9 +12,9 @@ import {
     mod,
 } from "@sagittal/general"
 import { Link, Sagittal, Spelling } from "@sagittal/system"
-import { Priority, Way } from "./types"
 import { chooseSpelling } from "./choose"
 import { MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL } from "./constants"
+import { Priority, Way } from "./types"
 
 const WAY_PRIORITIES: Priority[] = Object.values(Way).map(
     (way: string | Way): Priority => ({ way: way as Way }),
@@ -88,9 +89,9 @@ const LINK_AND_WAY_PRIORITIES: Priority[] = [
 const equalGapsBetweenLinks = (linkSpellings: Spelling[]): boolean => {
     let allPreviousGapSizes: Count<EdoStep>
     let currentGapSize: Count<EdoStep> = 0 as Count<EdoStep>
-    let equalGapsBetweenLinks: boolean = true
+    let equalGapsBetweenLinks = true
 
-    computeRange(1 as Decimal<{ integer: true }> & EdoStep, linkSpellings.length as Edo).forEach(
+    computeRange(1 as Decimal<Integer> & EdoStep, linkSpellings.length as Edo).forEach(
         (linkSpellingIndex: number): void => {
             if (!equalGapsBetweenLinks) return
 
@@ -120,11 +121,15 @@ const placeAllOfGivenDirectedSagittal = (
         if (!isUndefined(linkIndexRestriction) && linkIndex !== linkIndexRestriction) return
 
         // don't notate beyond the Edge of the World
-        if (linkIndex >= MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL && way > 0) return
-        if (linkIndex <= -MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL && way < 0) return
+        if (linkIndex >= MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL && (way as number) > 0) return
+        if (linkIndex <= -(MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL as number) && (way as number) < 0)
+            return // TODO: oh whoa, maybe I _do_ need negate() the equiv of invertDirection
 
         if (way * sagittalIndex === placingSagittalIndex - 1) {
-            const neighborIndex: Index<Spelling> = mod(edoStep + way, edo) as Index<Spelling>
+            const neighborIndex: Index<Spelling> = mod(
+                (edoStep + way) as Decimal<Integer>,
+                edo,
+            ) as Index<Spelling>
             const chosenSpelling: Maybe<Spelling> = spellings[neighborIndex]
             const candidateSpelling: Spelling = {
                 linkIndex,
@@ -156,7 +161,7 @@ const placeSagittalsAccordingToPriorities = (
         })
     })
 
-    return spellings as Spelling[]
+    return spellings
 }
 
 const placeDefaultSingleSpellingSagittalSpelling = (

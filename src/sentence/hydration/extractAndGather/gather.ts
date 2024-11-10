@@ -1,6 +1,6 @@
-import { Octals } from "staff-code"
-import { Index, Decimal, Max, EdoStep, Edo } from "@sagittal/general"
+import { Index, Decimal, Max, EdoStep, Edo, Integer } from "@sagittal/general"
 import { Flavor, Nominal, Sagittal, Spelling, SubsetFactor } from "@sagittal/system"
+import { Octals } from "staff-code"
 import { Stave } from "../../types"
 import { Folding, HydrationState, Codewords } from "../types"
 import { extractDiagramStepParameters } from "./extract"
@@ -60,9 +60,7 @@ const gatherDiagramStepParameters = (
     if (
         hydrationState.staveIndex < maxStaveIndex &&
         hydrationState.stepInStaveIndex ===
-            (folding[hydrationState.staveIndex] as Decimal<{
-                integer: true
-            }> as Index<EdoStep>)
+            (folding[hydrationState.staveIndex] as Decimal<Integer> as Index<EdoStep>)
     ) {
         hydrationState.staveIndex++
         hydrationState.stepInStaveIndex = 0 as Index<EdoStep>

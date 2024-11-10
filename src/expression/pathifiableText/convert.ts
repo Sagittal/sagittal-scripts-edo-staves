@@ -1,11 +1,11 @@
-import { EdoNotationName } from "@sagittal/system"
-import { Expression } from "../types"
-import { PathifiableTexts } from "../../diagram/svg/meaning/types"
 import { deepClone, Index, Io, Px } from "@sagittal/general"
+import { EdoNotationName } from "@sagittal/system"
 import { DEFINIENS_Y_OFFSET } from "../../diagram/svg/constants"
-import { Font } from "../../diagram/svg/types"
 import { BRAVURA_TEXT_SC_FONT_FILE, BRAVURA_TEXT_SC_FONT_SIZE } from "../../diagram/svg/constants"
 import { MEANINGS_FONT } from "../../diagram/svg/meaning/constants"
+import { PathifiableTexts } from "../../diagram/svg/meaning/types"
+import { Font } from "../../diagram/svg/types"
+import { Expression } from "../types"
 
 const DEFINIENDUM_FONT: Font = {
     fontFile: BRAVURA_TEXT_SC_FONT_FILE,

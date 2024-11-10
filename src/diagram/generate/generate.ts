@@ -1,14 +1,14 @@
 import { Filename, Io, saveLog, Sentence } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
+import { DiagramType } from "../../types"
+import { writeDiagramSvg } from "../svg"
 import {
     EVO_FLAVOR_INDEX,
     EVO_SZ_FLAVOR_INDEX,
     FLAVOR_INDEX_FOR_GENERAL_DIAGRAM_TYPE,
     REVO_FLAVOR_INDEX,
 } from "./constants"
-import { DiagramType } from "../../types"
 import { computeFilename, computeSubtitle, computeTitle } from "./titlesAndFilename"
-import { writeDiagramSvg } from "../svg"
 
 const ONE_OFF_FILENAME: Filename = `one-off.svg` as Filename
 

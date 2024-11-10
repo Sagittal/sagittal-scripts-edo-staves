@@ -1,6 +1,6 @@
 import { Octals } from "staff-code"
-import { COLUMN_BUFFER_WIDTH } from "./constants"
 import { SituationReC4 } from "../hydration"
+import { COLUMN_BUFFER_WIDTH } from "./constants"
 
 const computeLefthandSpacingClause = (
     lefthandSpacing: Octals,

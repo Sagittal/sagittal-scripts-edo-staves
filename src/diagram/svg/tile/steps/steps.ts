@@ -1,4 +1,3 @@
-import { Document } from "@xmldom/xmldom"
 import { Edo, EdoStep, Px } from "@sagittal/general"
 import {
     computeFifthStep,
@@ -7,12 +6,13 @@ import {
     isSubsetNotation,
     parseEdoNotationName,
 } from "@sagittal/system"
-import { NodeElement } from "../../types"
+import { Document } from "@xmldom/xmldom"
 import { DiagramType } from "../../../../types"
-import { addSharp } from "./sharp"
-import { addLimma } from "./limma"
-import { addWholeTone } from "./wholeTone"
+import { NodeElement } from "../../types"
 import { addFifth } from "./fifth"
+import { addLimma } from "./limma"
+import { addSharp } from "./sharp"
+import { addWholeTone } from "./wholeTone"
 
 const addSteps = async (
     svgDocument: Document,

@@ -7,10 +7,10 @@ import {
     isSubsetNotation,
     SectionColor,
 } from "@sagittal/system"
+import { computeExpressionsPathifiableTexts } from "../../../expression"
 import { DiagramType } from "../../../types"
 import { Font } from "../types"
 import { EMPTY_PATHIFIABLE_TEXTS, MEANINGS_FONT } from "./constants"
-import { computeExpressionsPathifiableTexts } from "../../../expression"
 import { PathifiableTexts } from "./types"
 
 const computeMeaningsPathifiableTexts = ({

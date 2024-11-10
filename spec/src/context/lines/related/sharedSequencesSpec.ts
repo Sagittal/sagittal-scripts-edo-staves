@@ -1,6 +1,6 @@
+import { computeCombinations, Count, isUndefined } from "@sagittal/general"
 import { EdoNotationName, parseEdoNotationName } from "@sagittal/system"
 import { MAX_PERIODIC_TABLE_EDO } from "../../../../../src/constants"
-import { computeCombinations, Count, isUndefined } from "@sagittal/general"
 import { computeSharedSagittalSequenceEdoNotationNames } from "../../../../../src/context/lines/related/sharedSequences"
 
 const EXPECTED_SHARED_SAGITTAL_SEQUENCES: EdoNotationName[][] = [
@@ -31,39 +31,24 @@ const EDO_NAME_PAIR: Count<EdoNotationName> = 2 as Count<EdoNotationName>
 const computeExpectedSharedSagittalSequencesByEdoNotationName = (
     expectedSharedSagittalSequences: EdoNotationName[][],
 ): Record<EdoNotationName, EdoNotationName[]> => {
-    const expectedSharedSagittalSequencesByEdoNotationName =
-        expectedSharedSagittalSequences.reduce(
-            (
-                expectedSharedSagittalSequencesByEdoNotationName: Record<
-                    EdoNotationName,
-                    EdoNotationName[]
-                >,
-                expectedSharedSagittalSequence: EdoNotationName[],
-            ): Record<EdoNotationName, EdoNotationName[]> => {
-                const combinations = computeCombinations(
-                    expectedSharedSagittalSequence,
-                    EDO_NAME_PAIR,
-                )
-                combinations.forEach(([a, b]) => {
-                    if (
-                        isUndefined(
-                            expectedSharedSagittalSequencesByEdoNotationName[a],
-                        )
-                    )
-                        expectedSharedSagittalSequencesByEdoNotationName[a] = []
-                    expectedSharedSagittalSequencesByEdoNotationName[a].push(b)
-                    if (
-                        isUndefined(
-                            expectedSharedSagittalSequencesByEdoNotationName[b],
-                        )
-                    )
-                        expectedSharedSagittalSequencesByEdoNotationName[b] = []
-                    expectedSharedSagittalSequencesByEdoNotationName[b].push(a)
-                })
-                return expectedSharedSagittalSequencesByEdoNotationName
-            },
-            {} as Record<EdoNotationName, EdoNotationName[]>,
-        )
+    const expectedSharedSagittalSequencesByEdoNotationName = expectedSharedSagittalSequences.reduce(
+        (
+            expectedSharedSagittalSequencesByEdoNotationName: Record<EdoNotationName, EdoNotationName[]>,
+            expectedSharedSagittalSequence: EdoNotationName[],
+        ): Record<EdoNotationName, EdoNotationName[]> => {
+            const combinations = computeCombinations(expectedSharedSagittalSequence, EDO_NAME_PAIR)
+            combinations.forEach(([a, b]) => {
+                if (isUndefined(expectedSharedSagittalSequencesByEdoNotationName[a]))
+                    expectedSharedSagittalSequencesByEdoNotationName[a] = []
+                expectedSharedSagittalSequencesByEdoNotationName[a].push(b)
+                if (isUndefined(expectedSharedSagittalSequencesByEdoNotationName[b]))
+                    expectedSharedSagittalSequencesByEdoNotationName[b] = []
+                expectedSharedSagittalSequencesByEdoNotationName[b].push(a)
+            })
+            return expectedSharedSagittalSequencesByEdoNotationName
+        },
+        {} as Record<EdoNotationName, EdoNotationName[]>,
+    )
 
     const keys: EdoNotationName[] = Object.keys(
         expectedSharedSagittalSequencesByEdoNotationName,
@@ -78,9 +63,7 @@ const computeExpectedSharedSagittalSequencesByEdoNotationName = (
 }
 
 const EXPECTED_SHARED_SAGITTAL_SEQUENCES_BY_EDO_NAME =
-    computeExpectedSharedSagittalSequencesByEdoNotationName(
-        EXPECTED_SHARED_SAGITTAL_SEQUENCES,
-    )
+    computeExpectedSharedSagittalSequencesByEdoNotationName(EXPECTED_SHARED_SAGITTAL_SEQUENCES)
 
 describe("computeSharedSagittalSequenceEdoNotationNames", (): void => {
     /* 
@@ -91,29 +74,23 @@ describe("computeSharedSagittalSequenceEdoNotationNames", (): void => {
     because limma complements are different from apotome complements.
     */
     it("given the name of an EDO, finds a sorted list of EDOs which share the same sagittal sequence", (): void => {
-        const expectedSharedSagittalSequencesEntries: [
-            EdoNotationName,
-            EdoNotationName[],
-        ][] = Object.entries(
+        const expectedSharedSagittalSequencesEntries: [EdoNotationName, EdoNotationName[]][] = Object.entries(
             EXPECTED_SHARED_SAGITTAL_SEQUENCES_BY_EDO_NAME,
         ) as [EdoNotationName, EdoNotationName[]][]
         expectedSharedSagittalSequencesEntries.forEach(
-            ([
-                edoNotationName,
-                expectedSharedSagittalSequenceEdoNotationNames,
-            ]: [EdoNotationName, EdoNotationName[]]): void => {
+            ([edoNotationName, expectedSharedSagittalSequenceEdoNotationNames]: [
+                EdoNotationName,
+                EdoNotationName[],
+            ]): void => {
                 const actualSharedSagittalSequenceEdoNotationNames: EdoNotationName[] =
-                    computeSharedSagittalSequenceEdoNotationNames(
-                        edoNotationName,
-                    ).filter(
+                    computeSharedSagittalSequenceEdoNotationNames(edoNotationName).filter(
                         (edoNotationName: EdoNotationName): boolean =>
-                            parseEdoNotationName(edoNotationName).edo <=
-                            MAX_PERIODIC_TABLE_EDO,
+                            parseEdoNotationName(edoNotationName).edo <= MAX_PERIODIC_TABLE_EDO,
                     )
 
                 expect(actualSharedSagittalSequenceEdoNotationNames)
                     .withContext(
-                        `Expected ${edoNotationName} to find shared sagittal sequences ${expectedSharedSagittalSequenceEdoNotationNames}, but instead found ${actualSharedSagittalSequenceEdoNotationNames}`,
+                        `Expected ${edoNotationName} to find shared sagittal sequences ${expectedSharedSagittalSequenceEdoNotationNames.toString()}, but instead found ${actualSharedSagittalSequenceEdoNotationNames.toString()}`,
                     )
                     .toEqual(expectedSharedSagittalSequenceEdoNotationNames)
             },
