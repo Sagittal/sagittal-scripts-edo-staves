@@ -89,28 +89,15 @@ const FOLDING_PARAMETERS_BY_CATEGORY: Record<FoldingCategory, FoldingParameters[
     ],
 }
 
+/* eslint-disable prettier/prettier */
 const FOLDING_PARAMETERS_BY_DECREASING_EDO_SIZE_FOLDING_CATEGORY: FoldingParameters[] = [
-    {
-        wholeToneCount: 1 as Count<WholeTone>,
-        limmaCount: 0 as Count<Limma>,
-    }, // large
-    {
-        wholeToneCount: 1 as Count<WholeTone>,
-        limmaCount: 1 as Count<Limma>,
-    }, // large medium
-    {
-        wholeToneCount: 2 as Count<WholeTone>,
-        limmaCount: 1 as Count<Limma>,
-    }, // medium
-    {
-        wholeToneCount: 3 as Count<WholeTone>,
-        limmaCount: 1 as Count<Limma>,
-    }, // small medium
-    {
-        wholeToneCount: 5 as Count<WholeTone>,
-        limmaCount: 2 as Count<Limma>,
-    }, // small
+    { wholeToneCount: 1 as Count<WholeTone>, limmaCount: 0 as Count<Limma>, }, // large
+    { wholeToneCount: 1 as Count<WholeTone>, limmaCount: 1 as Count<Limma>, }, // large medium
+    { wholeToneCount: 2 as Count<WholeTone>, limmaCount: 1 as Count<Limma>, }, // medium
+    { wholeToneCount: 3 as Count<WholeTone>, limmaCount: 1 as Count<Limma>, }, // small medium
+    { wholeToneCount: 5 as Count<WholeTone>, limmaCount: 2 as Count<Limma>, }, // small
 ]
+/* eslint-enable prettier/prettier */
 
 const FOLDING_CATEGORIES: FoldingCategory[] = Object.values(FoldingCategory)
 
