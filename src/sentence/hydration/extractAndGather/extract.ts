@@ -9,6 +9,7 @@ import {
     isEven,
     EdoStep,
     Edo,
+    negate,
 } from "@sagittal/general"
 import {
     Flavor,
@@ -52,7 +53,7 @@ const computeUpOrDownOrNoSagittal = (
     if (sagittalIndex > 0) return sagittals[sagittalIndex - ZERO_ONE_INDEX_DIFF]
     else if (sagittalIndex < 0) {
         return {
-            ...sagittals[-(sagittalIndex as number) - ZERO_ONE_INDEX_DIFF],
+            ...sagittals[negate(sagittalIndex) - ZERO_ONE_INDEX_DIFF],
             down: true,
         }
     }

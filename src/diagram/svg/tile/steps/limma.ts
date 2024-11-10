@@ -1,4 +1,4 @@
-import { Edo, EdoStep, Px } from "@sagittal/general"
+import { Edo, EdoStep, negate, Px } from "@sagittal/general"
 import { computeLimmaStep } from "@sagittal/system"
 import {
     LIMMA_AND_SHARP_Y_OFFSET,
@@ -20,7 +20,7 @@ const addLimma = async (
     await addText(tileWrapperGroupElement, `EF${equalsPositiveOrLessThanZero(limmaStep)}`, {
         fontFile: OPEN_SANS_SEMIBOLD_FONT_FILE,
         fontSize: STEP_AND_MEANINGS_FONT_SIZE,
-        xOffset: -(LIMMA_AND_SHARP_X_OFFSET as number) as Px,
+        xOffset: negate(LIMMA_AND_SHARP_X_OFFSET) as number as Px,
         yOffset: (tileSize + LIMMA_AND_SHARP_Y_OFFSET) as Px,
         color: LIMMA_COLOR,
         justification: Justification.CENTER,

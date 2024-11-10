@@ -8,6 +8,7 @@ import {
     Maybe,
     ZERO_ONE_INDEX_DIFF,
     computeRange,
+    negate,
     isUndefined,
     mod,
 } from "@sagittal/general"
@@ -124,8 +125,7 @@ const placeAllOfGivenDirectedSagittal = (
 
         // don't notate beyond the Edge of the World
         if (linkIndex >= MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL && (way as number) > 0) return
-        if (linkIndex <= -(MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL as number) && (way as number) < 0)
-            return
+        if (linkIndex <= negate(MAX_ABSOLUTE_LINK_INDEX_IN_SHARP_OR_FLAT_WHORL) && (way as number) < 0) return
 
         if (way * sagittalIndex === placingSagittalIndex - 1) {
             const neighborIndex: Index<Spelling> = mod(
