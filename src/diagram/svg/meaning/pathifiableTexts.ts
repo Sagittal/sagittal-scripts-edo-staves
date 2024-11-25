@@ -8,10 +8,28 @@ import {
     SectionColor,
 } from "@sagittal/system"
 import { computeExpressionsPathifiableTexts } from "../../../expression"
+import { computeExpressionsBeyondHalfApotomePathifiableTexts } from "../../../expression/pathifiableText/beyond"
 import { DiagramType } from "../../../types"
 import { Font } from "../types"
 import { EMPTY_PATHIFIABLE_TEXTS, MEANINGS_FONT } from "./constants"
 import { PathifiableTexts } from "./types"
+
+const concatPathifiableTexts = (
+    pathifiableTextsA: PathifiableTexts,
+    pathifiableTextsB: PathifiableTexts,
+): PathifiableTexts => {
+    return {
+        texts: pathifiableTextsA.texts.concat(pathifiableTextsB.texts),
+        fonts: pathifiableTextsA.fonts.concat(pathifiableTextsB.fonts),
+        fontIndices: pathifiableTextsA.fontIndices.concat(
+            pathifiableTextsB.fontIndices.map(
+                (fontIndex: Index<Font>): Index<Font> =>
+                    (fontIndex + pathifiableTextsA.fontIndices.length) as Index<Font>,
+            ),
+        ),
+        additionalYOffsets: pathifiableTextsA.additionalYOffsets.concat(pathifiableTextsB.additionalYOffsets),
+    }
+}
 
 const computeMeaningsPathifiableTexts = ({
     edoNotationName,
@@ -54,10 +72,22 @@ const computeMeaningsPathifiableTexts = ({
                 }
             }
         } else {
-            return computeExpressionsPathifiableTexts({
+            const expressionsPathifiableTexts: PathifiableTexts = computeExpressionsPathifiableTexts({
                 edoNotationName,
                 diagramType,
             })
+
+            const expressionsBeyondHalfApotomePathifiableTexts: PathifiableTexts =
+                computeExpressionsBeyondHalfApotomePathifiableTexts({
+                    edoNotationName,
+                    diagramType,
+                })
+
+            // return concatPathifiableTexts(
+            //     expressionsPathifiableTexts,
+            //     expressionsBeyondHalfApotomePathifiableTexts,
+            // )
+            return expressionsPathifiableTexts
         }
     }
 }
