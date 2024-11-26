@@ -3,3 +3,5 @@
 # sagittal-scripts-edo-staves
 
 generates default spelling examples on the staff for defined EDO notations
+
+// TODO: Add description of scripts each one to the readme 

@@ -25,6 +25,10 @@ import { DiagramType } from "../../types"
 // TODO: massively clean up all these imports, though I'm worried about weird circular deps
 import { FONTS } from "./constants"
 
+// TODO: FONTS is more like EXPRESSIONS_FONTS, and its more like EXPRESSIONS_BRAVURA_FONT
+// or something... I can't keep straight the difference between expressions and meanings
+// and there's also expressions bravura y offset, not definiens y offset
+
 const computeThing = (): Record<EdoNotationName, PathifiableTexts> => {
     return {}
 }
@@ -111,6 +115,8 @@ const doItForEvo = ({
         texts: [],
     }
 }
+
+// TODO: make sure that it works for ones with a half-apotome symbol as well as ones without
 
 const PATHIFIABLE_TEXTS_FOR_BEYOND_HALF_APOTOME_EXPRESSIONS_BY_EDO_NOTATION_NAME: Record<
     EdoNotationName,
