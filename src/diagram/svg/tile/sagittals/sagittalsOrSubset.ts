@@ -6,8 +6,9 @@ import {
     isSubsetNotation,
 } from "@sagittal/system"
 import { Document } from "@xmldom/xmldom"
+import { SANOMAT_FONT_FILE } from "../../../../constants"
 import { DiagramType } from "../../../../types"
-import { SANOMAT_FONT_FILE, SUBSET_TEXT_FONT_SIZE, SUBSET_Y_OFFSET, TILE_SIZE } from "../../constants"
+import { SUBSET_TEXT_FONT_SIZE, SUBSET_Y_OFFSET, TILE_SIZE } from "../../constants"
 import { addText } from "../../text"
 import { Justification, NodeElement } from "../../types"
 import { TileRow } from "../types"

@@ -1,1 +1,1 @@
-export { computeDefaultSpellings } from "./defaultIndices"
+export { computeDefaultSingleSpellings } from "./defaultIndices"

@@ -1,8 +1,13 @@
 import { indexOf, Io, isUndefined, saveLog, scriptSettings, Sentence } from "@sagittal/general"
 import { EdoNotationName, Flavor } from "@sagittal/system"
 import { program } from "commander"
-import { EVO_FLAVOR_INDEX, EVO_SZ_FLAVOR_INDEX, generateOneOffDiagram, REVO_FLAVOR_INDEX } from "../diagram"
-import { FLAVOR_INDEX_FOR_GENERAL_DIAGRAM_TYPE } from "../diagram"
+import {
+    EVO_FLAVOR_INDEX,
+    EVO_SZ_FLAVOR_INDEX,
+    generateOneOffDiagram,
+    REVO_FLAVOR_INDEX,
+    FLAVOR_INDEX_FOR_GENERAL_DIAGRAM_TYPE,
+} from "../diagram"
 import { computeSentencesAndDifferenceCase } from "../difference"
 import { DiagramType, DifferenceCase } from "../types"
 

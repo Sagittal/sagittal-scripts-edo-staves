@@ -11,10 +11,11 @@ import {
     Multiplier,
 } from "@sagittal/general"
 import { Element, Document } from "@xmldom/xmldom"
+import { Font } from "../../types"
 import { SVG_NS } from "./constants"
 import { getSvgDocumentFromString } from "./document"
 import { furtherTransform, setTransform } from "./transform"
-import { NodeElement, Justification, Font } from "./types"
+import { NodeElement, Justification } from "./types"
 import { getGroupWidth } from "./width"
 
 const FONT_SIZE_DIFFERENTIAL_Y_SHIFT_MULTIPLIER: Multiplier = (27 / 20) as Multiplier

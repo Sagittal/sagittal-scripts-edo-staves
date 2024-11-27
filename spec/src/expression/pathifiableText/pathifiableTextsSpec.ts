@@ -1,11 +1,9 @@
 import { Index, Io, Unicode, Word } from "@sagittal/general"
-import { EDO_NOTATION_DEFINITIONS, EdoNotationName, parseEdoNotationName } from "@sagittal/system"
+import { EdoNotationName, parseEdoNotationName } from "@sagittal/system"
 import { debugCode } from "staff-code"
-import { MAX_PERIODIC_TABLE_EDO } from "../../../../src/constants"
+import { EDO_NOTATION_NAMES, MAX_PERIODIC_TABLE_EDO } from "../../../../src/constants"
 import { computeMeaningsPathifiableTexts } from "../../../../src/diagram/svg/meaning/pathifiableTexts"
-import { PathifiableTexts } from "../../../../src/diagram/svg/meaning/types"
-import { Font } from "../../../../src/diagram/svg/types"
-import { DiagramType } from "../../../../src/types"
+import { DiagramType, Font, PathifiableTexts } from "../../../../src/types"
 
 const EXPECTED_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
     "5": [],
@@ -338,11 +336,7 @@ const makeReadable = (texts: Io[], { fontIndices }: { fontIndices: Index<Font>[]
 
 describe("computeMeaningsPathifiableTexts", (): void => {
     it("provides the correct text for each EDO for general, (alternative) Evo, and Revo diagrams", () => {
-        const EDO_NOTATION_DEFINITIONS_KEYS: EdoNotationName[] = Object.keys(
-            EDO_NOTATION_DEFINITIONS,
-        ) as EdoNotationName[]
-
-        EDO_NOTATION_DEFINITIONS_KEYS.forEach((edoNotationName: EdoNotationName) => {
+        EDO_NOTATION_NAMES.forEach((edoNotationName: EdoNotationName) => {
             if (parseEdoNotationName(edoNotationName).edo > MAX_PERIODIC_TABLE_EDO) return
 
             const actualPathifiableTexts: PathifiableTexts = computeMeaningsPathifiableTexts({
@@ -370,11 +364,7 @@ describe("computeMeaningsPathifiableTexts", (): void => {
     })
 
     it("provides the correct text for each EDO for Evo-SZ diagrams", () => {
-        const EDO_NOTATION_DEFINITIONS_KEYS: EdoNotationName[] = Object.keys(
-            EDO_NOTATION_DEFINITIONS,
-        ) as EdoNotationName[]
-
-        EDO_NOTATION_DEFINITIONS_KEYS.forEach((edoNotationName: EdoNotationName) => {
+        EDO_NOTATION_NAMES.forEach((edoNotationName: EdoNotationName) => {
             if (parseEdoNotationName(edoNotationName).edo > MAX_PERIODIC_TABLE_EDO) return
 
             const actualPathifiableTexts: PathifiableTexts = computeMeaningsPathifiableTexts({

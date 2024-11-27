@@ -1,10 +1,8 @@
 import { deepClone, Index, Io, Px } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
-import { DEFINIENS_Y_OFFSET } from "../../diagram/svg/constants"
-import { PathifiableTexts } from "../../diagram/svg/meaning/types"
-import { Font } from "../../diagram/svg/types"
+import { BRAVURA_Y_OFFSET, MEANINGS_FONTS } from "../../constants"
+import { Font, PathifiableTexts } from "../../types"
 import { Expression } from "../types"
-import { FONTS } from "./constants"
 
 const convertToPathifiableTexts = (
     expressionsByEdoNotationName: Record<EdoNotationName, Expression[]>,
@@ -28,12 +26,12 @@ const convertToPathifiableTexts = (
                 additionalYOffsets.push(0 as Px)
                 texts.push(definiens)
                 fontIndices.push(1 as Index<Font>)
-                additionalYOffsets.push(DEFINIENS_Y_OFFSET)
+                additionalYOffsets.push(BRAVURA_Y_OFFSET)
             })
 
             pathifiableTextsByEdoNotationName[edoNotationName] = {
                 texts,
-                fonts: deepClone(FONTS),
+                fonts: deepClone(MEANINGS_FONTS),
                 fontIndices,
                 additionalYOffsets,
             }

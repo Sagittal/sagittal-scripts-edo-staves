@@ -1,10 +1,6 @@
 import { EdoStep, Px } from "@sagittal/general"
-import {
-    OPEN_SANS_SEMIBOLD_FONT_FILE,
-    STEP_AND_MEANINGS_FONT_SIZE,
-    FIFTH_X_ADDITIONAL_OFFSET,
-    WHOLE_TONE_AND_FIFTH_Y_ADDITIONAL_OFFSET,
-} from "../../constants"
+import { OPEN_SANS_SEMIBOLD_FONT_FILE, STEP_AND_MEANINGS_FONT_SIZE } from "../../../../constants"
+import { FIFTH_X_ADDITIONAL_OFFSET, WHOLE_TONE_AND_FIFTH_Y_ADDITIONAL_OFFSET } from "../../constants"
 import { addText } from "../../text"
 import { Justification, NodeElement } from "../../types"
 import { FIFTH_COLOR } from "./constants"

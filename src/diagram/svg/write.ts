@@ -1,10 +1,10 @@
 import * as fs from "fs"
-import { Filename, Io, Px, Sentence, Unicode } from "@sagittal/general"
+import { deepClone, Filename, Io, Px, Sentence, Unicode } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
 import { Document } from "@xmldom/xmldom"
 import { computeInputSentenceUnicode } from "staff-code"
+import { BRAVURA_TEXT_FONT } from "../../constants"
 import { DiagramType } from "../../types"
-import { BRAVURA_TEXT_SC_FONT_FILE, BRAVURA_TEXT_SC_FONT_SIZE } from "./constants"
 import { getSvgStringFromDocument } from "./document"
 import { addMeaningsAndGetWidth } from "./meaning"
 import { makeNicelyPngifiable, shiftStavesDown } from "./shift"
@@ -31,10 +31,7 @@ const writeDiagramSvg = async ({
 }): Promise<void> => {
     const unicodeSentence: Unicode & Sentence = computeInputSentenceUnicode(inputSentence)
 
-    const svgDocument: Document = await textToSvgDocument(unicodeSentence, {
-        fontFile: BRAVURA_TEXT_SC_FONT_FILE,
-        fontSize: BRAVURA_TEXT_SC_FONT_SIZE,
-    })
+    const svgDocument: Document = await textToSvgDocument(unicodeSentence, deepClone(BRAVURA_TEXT_FONT))
 
     const {
         tileWrapperGroupElement,

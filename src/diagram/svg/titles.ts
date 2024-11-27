@@ -1,11 +1,10 @@
 import { Io, Px } from "@sagittal/general"
 import { Document } from "@xmldom/xmldom"
+import { OPEN_SANS_REGULAR_FONT_FILE, SANOMAT_FONT_FILE } from "../../constants"
 import {
     TITLE_FONT_SIZE,
     LEFT_AND_RIGHT_MARGIN,
     SUBTITLE_FONT_SIZE,
-    SANOMAT_FONT_FILE,
-    OPEN_SANS_REGULAR_FONT_FILE,
     TITLE_Y_OFFSET,
     SUBTITLE_FURTHER_Y_OFFSET,
 } from "./constants"

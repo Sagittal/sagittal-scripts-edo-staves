@@ -1,9 +1,8 @@
 import { deepClone, Index, Io, isEven, isUndefined, Sentence } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
 import { computeInputSentenceUnicode } from "staff-code"
-import { EMPTY_PATHIFIABLE_TEXTS } from "../../diagram/svg/meaning/constants"
-import { PathifiableTexts } from "../../diagram/svg/meaning/types"
-import { DiagramType } from "../../types"
+import { EMPTY_PATHIFIABLE_TEXTS } from "../../constants"
+import { DiagramType, PathifiableTexts } from "../../types"
 import { handleSzForExpressions } from "./evoSz"
 import { PATHIFIABLE_TEXTS_FOR_EXPRESSIONS_BY_EDO_NOTATION_NAME } from "./fromDefinitions"
 

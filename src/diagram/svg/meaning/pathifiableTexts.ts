@@ -1,4 +1,4 @@
-import { deepClone, HexColor, Index, Px } from "@sagittal/general"
+import { deepClone, HexColor, Index } from "@sagittal/general"
 import {
     computeSectionColor,
     EDO_NOTATION_DEFINITIONS,
@@ -7,12 +7,10 @@ import {
     isSubsetNotation,
     SectionColor,
 } from "@sagittal/system"
+import { EMPTY_PATHIFIABLE_TEXTS, MEANINGS_FONT, MEANINGS_Y_OFFSET } from "../../../constants"
 import { computeExpressionsPathifiableTexts } from "../../../expression"
-import { computeExpressionsBeyondHalfApotomePathifiableTexts } from "../../../expression/pathifiableText/beyond"
-import { DiagramType } from "../../../types"
-import { Font } from "../types"
-import { EMPTY_PATHIFIABLE_TEXTS, MEANINGS_FONT } from "./constants"
-import { PathifiableTexts } from "./types"
+import { computeExpressionsBeyondHalfApotomePathifiableTexts } from "../../../expression"
+import { DiagramType, Font, PathifiableTexts } from "../../../types"
 
 const concatPathifiableTexts = (
     pathifiableTextsA: PathifiableTexts,
@@ -45,7 +43,7 @@ const computeMeaningsPathifiableTexts = ({
             fontIndices: [0 as Index<Font>],
             fonts: [deepClone(MEANINGS_FONT)],
             texts: [`a subset of ${edoNotationDefinition.supersetEdoNotationName}-EDO`],
-            additionalYOffsets: [0 as Px],
+            additionalYOffsets: [MEANINGS_Y_OFFSET],
         }
     } else {
         const sectionColor: SectionColor | HexColor = computeSectionColor(edoNotationName)
@@ -57,7 +55,7 @@ const computeMeaningsPathifiableTexts = ({
                     fontIndices: [0 as Index<Font>],
                     fonts: [deepClone(MEANINGS_FONT)],
                     texts: ["a bad-fifth limma-fraction notation"],
-                    additionalYOffsets: [0 as Px],
+                    additionalYOffsets: [MEANINGS_Y_OFFSET],
                 }
             }
         } else if (sectionColor === SectionColor.GOLD) {
@@ -68,7 +66,7 @@ const computeMeaningsPathifiableTexts = ({
                     fontIndices: [0 as Index<Font>],
                     fonts: [deepClone(MEANINGS_FONT)],
                     texts: ["a bad-fifth apotome-fraction notation"],
-                    additionalYOffsets: [0 as Px],
+                    additionalYOffsets: [MEANINGS_Y_OFFSET],
                 }
             }
         } else {
@@ -83,11 +81,11 @@ const computeMeaningsPathifiableTexts = ({
                     diagramType,
                 })
 
-            // return concatPathifiableTexts(
-            //     expressionsPathifiableTexts,
-            //     expressionsBeyondHalfApotomePathifiableTexts,
-            // )
-            return expressionsPathifiableTexts
+            return concatPathifiableTexts(
+                expressionsPathifiableTexts,
+                expressionsBeyondHalfApotomePathifiableTexts,
+            )
+            // return expressionsPathifiableTexts
         }
     }
 }

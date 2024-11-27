@@ -8,11 +8,11 @@ import {
     Sagitype,
 } from "@sagittal/system"
 import { Document } from "@xmldom/xmldom"
-import { DiagramType } from "../../../../types"
+import { DiagramType, Font } from "../../../../types"
 import { TILE_SIZE } from "../../constants"
 import { textsToSvgGroupElement } from "../../text"
 import { setTransform } from "../../transform"
-import { Font, NodeElement } from "../../types"
+import { NodeElement } from "../../types"
 import { getGroupWidth } from "../../width"
 import { computeTileRowCountMultiplier } from "../tileRowCount"
 import { TileRow } from "../types"

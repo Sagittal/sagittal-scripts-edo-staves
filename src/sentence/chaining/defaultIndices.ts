@@ -22,7 +22,7 @@ const computeUseOnlyPlainNominals = ({
     edoNotationName: EdoNotationName
 }): boolean => flavor === Flavor.REVO || computeIsLimmaNotation(edoNotationName)
 
-const computeDefaultSpellings = ({
+const computeDefaultSingleSpellings = ({
     edoNotationName,
     fifthStep,
     sagittals,
@@ -52,4 +52,4 @@ const computeDefaultSpellings = ({
     return placeDefaultSingleSpellingSagittalSpelling(defaultSingleSpellingLinkSpellings, { edo, sagittals })
 }
 
-export { computeDefaultSpellings }
+export { computeDefaultSingleSpellings }

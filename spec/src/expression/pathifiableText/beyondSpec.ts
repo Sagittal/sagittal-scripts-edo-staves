@@ -1,11 +1,8 @@
 import { deepClone, Index, Io, Px } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
-import { DEFINIENS_Y_OFFSET } from "../../../../src/diagram/svg/constants"
-import { PathifiableTexts } from "../../../../src/diagram/svg/meaning/types"
-import { Font } from "../../../../src/diagram/svg/types"
+import { BRAVURA_Y_OFFSET, MEANINGS_FONTS } from "../../../../src/constants"
 import { computeExpressionsBeyondHalfApotomePathifiableTexts } from "../../../../src/expression/pathifiableText/beyond"
-import { FONTS } from "../../../../src/expression/pathifiableText/constants"
-import { DiagramType } from "../../../../src/types"
+import { DiagramType, Font, PathifiableTexts } from "../../../../src/types"
 
 describe("computeExpressionsBeyondHalfApotomePathifiableTexts", (): void => {
     it("handles a simple Revo case", (): void => {
@@ -30,16 +27,16 @@ describe("computeExpressionsBeyondHalfApotomePathifiableTexts", (): void => {
                 "   ",    // #
             ] as Io[],
             /* eslint-ensable prettier/prettier */
-            fonts: deepClone(FONTS),
+            fonts: deepClone(MEANINGS_FONTS),
             fontIndices: [1, 0, 1, 0, 1, 0, 1, 0] as Index<Font>[],
             additionalYOffsets: [
-                DEFINIENS_Y_OFFSET,
+                BRAVURA_Y_OFFSET,
                 0,
-                DEFINIENS_Y_OFFSET,
+                BRAVURA_Y_OFFSET,
                 0,
-                DEFINIENS_Y_OFFSET,
+                BRAVURA_Y_OFFSET,
                 0,
-                DEFINIENS_Y_OFFSET,
+                BRAVURA_Y_OFFSET,
                 0,
             ] as Px[],
         }

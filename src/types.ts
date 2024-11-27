@@ -1,3 +1,5 @@
+import { Filename, Index, Io, Px } from "@sagittal/general"
+
 // ordered according to the order they should appear on the Xen wiki page
 enum DiagramType {
     GENERAL,
@@ -16,4 +18,16 @@ enum DifferenceCase {
     _4_EVO_SZ_DIFFERENT,
 }
 
-export { DiagramType, DifferenceCase }
+interface Font {
+    fontFile: Filename
+    fontSize: Px
+}
+
+interface PathifiableTexts {
+    texts: Io[]
+    fonts: Font[]
+    fontIndices: Index<Font>[]
+    additionalYOffsets: Px[]
+}
+
+export { DiagramType, DifferenceCase, Font, PathifiableTexts }

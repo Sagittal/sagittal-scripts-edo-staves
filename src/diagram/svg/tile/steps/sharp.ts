@@ -2,20 +2,22 @@ import { Edo, EdoStep, Index, Io, Px, Sentence } from "@sagittal/general"
 import { computeSharpStep } from "@sagittal/system"
 import { Document } from "@xmldom/xmldom"
 import { computeInputSentenceUnicode } from "staff-code"
-import { DiagramType } from "../../../../types"
 import {
     BRAVURA_TEXT_SC_FONT_FILE,
+    OPEN_SANS_SEMIBOLD_FONT_FILE,
+    STEP_AND_MEANINGS_FONT_SIZE,
+} from "../../../../constants"
+import { DiagramType, Font } from "../../../../types"
+import {
     BRAVURA_TEXT_SC_FONT_SIZE_FOR_SHARP_IN_STEPS,
     LIMMA_AND_SHARP_Y_OFFSET,
-    OPEN_SANS_SEMIBOLD_FONT_FILE,
     SHARP_SYMBOL_Y_OFFSET,
     SHARP_TEXT_Y_OFFSET,
-    STEP_AND_MEANINGS_FONT_SIZE,
     LIMMA_AND_SHARP_X_OFFSET,
 } from "../../constants"
 import { textsToSvgGroupElement } from "../../text"
 import { setTransform } from "../../transform"
-import { Font, NodeElement } from "../../types"
+import { NodeElement } from "../../types"
 import { getGroupWidth } from "../../width"
 import { SHARP_COLOR } from "./constants"
 import { equalsPositiveOrLessThanZero } from "./zero"

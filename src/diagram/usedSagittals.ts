@@ -1,34 +1,18 @@
+import { Abs, abs, computeDeepDistinct, Decimal, dividesEvenly, Edo, Index, Integer } from "@sagittal/general"
 import {
-    Abs,
-    abs,
-    computeDeepDistinct,
-    Decimal,
-    dividesEvenly,
-    Edo,
-    EdoStep,
-    Index,
-    Integer,
-} from "@sagittal/general"
-import {
-    computeFifthStep,
-    computeLimmaStep,
-    computeSagittals,
-    computeSharpStep,
     computeSubsetFactor,
     EDO_NOTATION_DEFINITIONS,
     EdoNotationName,
     EdoNotationDefinition,
     Flavor,
     isSubsetNotation,
-    NonSubsetEdoNotationDefinition,
     parseEdoNotationName,
     Sagittal,
     Sagitype,
     Spelling,
     SubsetFactor,
-    computeSagitypes,
 } from "@sagittal/system"
-import { computeDefaultSpellings } from "../sentence"
+import { computeNotation } from "../notation"
 
 const computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes = (
     edoNotationName: EdoNotationName,
@@ -44,25 +28,8 @@ const computeUniqueUsedAbsoluteSagittalIndicesAndSagitypes = (
     const supersetEdo: Edo = parseEdoNotationName(supersetEdoNotationName).edo
     const subsetFactor: SubsetFactor = computeSubsetFactor({ edo, supersetEdo })
     const flavor: Flavor = Flavor.REVO
-    const sagitypes: Sagitype[] = computeSagitypes(
-        EDO_NOTATION_DEFINITIONS[supersetEdoNotationName] as NonSubsetEdoNotationDefinition,
-    )
-    const fifthStep: EdoStep = computeFifthStep(supersetEdoNotationName)
-    const sharpStep: EdoStep = computeSharpStep(supersetEdo, fifthStep)
-    const limmaStep: EdoStep = computeLimmaStep(supersetEdo, fifthStep)
-    const sagittals: Sagittal[] = computeSagittals({
-        sagitypes,
-        flavor,
-        sharpStep,
-    })
+    const { defaultSingleSpellings, sagitypes } = computeNotation(supersetEdoNotationName, flavor)
 
-    const defaultSingleSpellings: Spelling[] = computeDefaultSpellings({
-        edoNotationName: supersetEdoNotationName,
-        fifthStep,
-        sagittals,
-        flavor,
-        limmaStep,
-    })
     const usedSpellings: Spelling[] = defaultSingleSpellings.filter((_: Spelling, step: number) =>
         dividesEvenly(step as Decimal<Integer>, subsetFactor),
     )

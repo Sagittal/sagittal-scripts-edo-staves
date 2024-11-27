@@ -1,7 +1,7 @@
 import { Px } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
 import { Document } from "@xmldom/xmldom"
-import { DiagramType } from "../../../types"
+import { DiagramType, PathifiableTexts } from "../../../types"
 import { append } from "../append"
 import { LEFT_AND_RIGHT_MARGIN, SUBTITLE_FONT_SIZE, TITLE_FONT_SIZE } from "../constants"
 import { textsToSvgGroupElement } from "../text"
@@ -9,7 +9,6 @@ import { setTransform } from "../transform"
 import { NodeElement } from "../types"
 import { getGroupWidth } from "../width"
 import { computeMeaningsPathifiableTexts } from "./pathifiableTexts"
-import { PathifiableTexts } from "./types"
 
 const addMeaningsAndGetWidth = async (
     svgDocument: Document,

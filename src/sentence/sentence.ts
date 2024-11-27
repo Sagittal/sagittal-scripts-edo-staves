@@ -1,25 +1,18 @@
-import { Edo, EdoStep, Io, Sentence } from "@sagittal/general"
+import { Edo, Io, Sentence } from "@sagittal/general"
 import {
     Flavor,
-    Sagittal,
-    Sagitype,
     EdoNotationDefinition,
-    computeFifthStep,
-    computeSharpStep,
-    computeSagittals,
     isSubsetNotation,
     SubsetFactor,
     computeSubsetFactor,
-    NonSubsetEdoNotationDefinition,
-    computeLimmaStep,
     Spelling,
     EdoNotationName,
     parseEdoNotationName,
     EDO_NOTATION_DEFINITIONS,
-    computeSagitypes,
 } from "@sagittal/system"
+import { computeNotation } from "../notation"
 import { assembleAsStaffCodeInputSentence } from "./assembly"
-import { computeDefaultSpellings } from "./chaining"
+import { computeDefaultSingleSpellings } from "./chaining"
 import { computeDiagramSteps, DiagramStep } from "./hydration"
 import { computeIsExtraLargeEdo } from "./hydration"
 
@@ -28,20 +21,9 @@ const doComputeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence = (
     flavor: Flavor,
     subsetFactor?: SubsetFactor,
 ): Io & Sentence => {
-    const sagitypes: Sagitype[] = computeSagitypes(
-        EDO_NOTATION_DEFINITIONS[edoNotationName] as NonSubsetEdoNotationDefinition,
-    )
-    const fifthStep: EdoStep = computeFifthStep(edoNotationName)
-    const edo: Edo = parseEdoNotationName(edoNotationName).edo
-    const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
-    const limmaStep: EdoStep = computeLimmaStep(edo, fifthStep)
-    const sagittals: Sagittal[] = computeSagittals({
-        sagitypes,
-        flavor,
-        sharpStep,
-    })
+    const { edo, sharpStep, fifthStep, sagittals, limmaStep } = computeNotation(edoNotationName, flavor)
 
-    const defaultSingleSpellings: Spelling[] = computeDefaultSpellings({
+    const defaultSingleSpellings: Spelling[] = computeDefaultSingleSpellings({
         edoNotationName,
         fifthStep,
         sagittals,

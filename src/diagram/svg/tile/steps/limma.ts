@@ -1,11 +1,7 @@
 import { Edo, EdoStep, negate, Px } from "@sagittal/general"
 import { computeLimmaStep } from "@sagittal/system"
-import {
-    LIMMA_AND_SHARP_Y_OFFSET,
-    OPEN_SANS_SEMIBOLD_FONT_FILE,
-    STEP_AND_MEANINGS_FONT_SIZE,
-    LIMMA_AND_SHARP_X_OFFSET,
-} from "../../constants"
+import { OPEN_SANS_SEMIBOLD_FONT_FILE, STEP_AND_MEANINGS_FONT_SIZE } from "../../../../constants"
+import { LIMMA_AND_SHARP_Y_OFFSET, LIMMA_AND_SHARP_X_OFFSET } from "../../constants"
 import { addText } from "../../text"
 import { Justification, NodeElement } from "../../types"
 import { LIMMA_COLOR } from "./constants"

@@ -1,11 +1,7 @@
 import { Px, Edo, EdoStep } from "@sagittal/general"
 import { computeWholeToneStep } from "@sagittal/system"
-import {
-    OPEN_SANS_SEMIBOLD_FONT_FILE,
-    STEP_AND_MEANINGS_FONT_SIZE,
-    WHOLE_TONE_X_OFFSET,
-    WHOLE_TONE_AND_FIFTH_Y_ADDITIONAL_OFFSET,
-} from "../../constants"
+import { OPEN_SANS_SEMIBOLD_FONT_FILE, STEP_AND_MEANINGS_FONT_SIZE } from "../../../../constants"
+import { WHOLE_TONE_X_OFFSET, WHOLE_TONE_AND_FIFTH_Y_ADDITIONAL_OFFSET } from "../../constants"
 import { addText } from "../../text"
 import { Justification, NodeElement } from "../../types"
 import { WHOLE_TONE_COLOR } from "./constants"

@@ -1,7 +1,7 @@
 import { Maybe } from "@sagittal/general"
 import { EdoNotationDefinition, EdoNotationName, isSubsetNotation, StepDefinition } from "@sagittal/system"
 import { EDO_NOTATION_DEFINITIONS_ENTRIES } from "../../constants"
-import { PathifiableTexts } from "../../diagram/svg/meaning/types"
+import { PathifiableTexts } from "../../types"
 import { computeMaybeExpression } from "../maybe"
 import { Expression } from "../types"
 import { convertToPathifiableTexts } from "./convert"

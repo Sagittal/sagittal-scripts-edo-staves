@@ -1,3 +1,3 @@
 export { computeDefaultSingleSpellingPerStepNotationAsStaffCodeInputSentence } from "./sentence"
-export { computeDefaultSpellings } from "./chaining"
+export { computeDefaultSingleSpellings } from "./chaining"
 export { computeDefaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor } from "./all"

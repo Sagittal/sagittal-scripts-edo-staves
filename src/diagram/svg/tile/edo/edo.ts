@@ -1,6 +1,7 @@
 import { Count, Multiplier, Px } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
-import { TILE_SIZE, TILE_EDO_TEXT_FONT_SIZE, SANOMAT_FONT_FILE, EDO_Y_OFFSET } from "../../constants"
+import { SANOMAT_FONT_FILE } from "../../../../constants"
+import { TILE_SIZE, TILE_EDO_TEXT_FONT_SIZE, EDO_Y_OFFSET } from "../../constants"
 import { addText } from "../../text"
 import { Justification, NodeElement } from "../../types"
 import { computeTileRowCountMultiplier } from "../tileRowCount"
