@@ -18,13 +18,13 @@ describe("computeExpressionsBeyondHalfApotomePathifiableTexts", (): void => {
             /* eslint-disable prettier/prettier */
             texts: [
                 ", ",
-                "  ",    // (|\
+                "  ",      // (|\
                 " = ",
                 "    ",   // \!)#
                 ", ",
-                "  ",    // /||\
+                "  ",      // /||\
                 " = ",
-                "   ",    // #
+                "   ",     // #
             ] as Io[],
             /* eslint-ensable prettier/prettier */
             fonts: deepClone(MEANINGS_FONTS),
