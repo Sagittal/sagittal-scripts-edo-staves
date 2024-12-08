@@ -1,6 +1,11 @@
 import { Px } from "@sagittal/general"
 import { Document } from "@xmldom/xmldom"
-import { LEFT_AND_RIGHT_MARGIN, OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION, TOP_MARGIN } from "./constants"
+import {
+    EXTRA_MEANINGS_SPACING,
+    LEFT_AND_RIGHT_MARGIN,
+    OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION,
+    TOP_MARGIN,
+} from "./constants"
 import { furtherTransform, roundTransform } from "./transform"
 import { NodeElement } from "./types"
 
@@ -31,7 +36,11 @@ const shiftAllTopLevelGroupElements = (svgDocument: Document, xTranslation: Px, 
 // relies on these being the only group elements in the SVG at this time;
 // the titles and tile have not yet been added
 const shiftStavesDown = (svgDocument: Document, { tileSize }: { tileSize: Px }): void =>
-    shiftAllTopLevelGroupElements(svgDocument, LEFT_AND_RIGHT_MARGIN, (TOP_MARGIN + tileSize) as Px)
+    shiftAllTopLevelGroupElements(
+        svgDocument,
+        LEFT_AND_RIGHT_MARGIN,
+        (TOP_MARGIN + tileSize + EXTRA_MEANINGS_SPACING) as Px,
+    )
 
 const makeNicelyPngifiable = (svgDocument: Document): void =>
     shiftAllTopLevelGroupElements(svgDocument, 0 as Px, OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION)
