@@ -8,9 +8,13 @@ const getGroupWithOnlyOnePathWidth = (
     groupElement: NodeElement<SVGGElement>,
     { includeLefthandWhitespace }: { includeLefthandWhitespace: boolean },
 ): Px => {
-    const pathElement: NodeElement<SVGPathElement> = groupElement.getElementsByTagName(
+    const pathElements: NodeElement<SVGPathElement>[] = groupElement.getElementsByTagName(
         "path",
-    )[0] as NodeElement<SVGPathElement>
+    ) as unknown as NodeElement<SVGPathElement>[]
+
+    if (pathElements.length === 0) return 0 as Px
+
+    const pathElement: NodeElement<SVGPathElement> = pathElements[0]
     const dAttribute: string = pathElement.getAttribute("d")!
     const pathCommands: RegExpMatchArray = dAttribute.match(/[a-zA-Z][^a-zA-Z]*/g)!
 

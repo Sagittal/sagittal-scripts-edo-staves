@@ -1,7 +1,7 @@
 import { deepClone, Index, Io, Px } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
-import { BRAVURA_Y_OFFSET, MEANINGS_FONTS } from "../../constants"
-import { Font, PathifiableTexts } from "../../types"
+import { BRAVURA_Y_OFFSET, MEANINGS_FONTS } from "../../../../../constants"
+import { Font, PathifiableTexts } from "../../../../../types"
 import { Expression } from "../types"
 
 const convertToPathifiableTexts = (

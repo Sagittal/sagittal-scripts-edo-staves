@@ -8,9 +8,11 @@ import {
     SectionColor,
 } from "@sagittal/system"
 import { EMPTY_PATHIFIABLE_TEXTS, MEANINGS_FONT, MEANINGS_Y_OFFSET } from "../../../constants"
-import { computeExpressionsPathifiableTexts } from "../../../expression"
-import { computeExpressionsBeyondHalfApotomePathifiableTexts } from "../../../expression"
 import { DiagramType, Font, PathifiableTexts } from "../../../types"
+import {
+    computeExpressionsBeyondHalfApotomePathifiableTexts,
+    computeExpressionsPathifiableTexts,
+} from "./expression"
 
 const concatPathifiableTexts = (
     pathifiableTextsA: PathifiableTexts,
@@ -22,7 +24,7 @@ const concatPathifiableTexts = (
         fontIndices: pathifiableTextsA.fontIndices.concat(
             pathifiableTextsB.fontIndices.map(
                 (fontIndex: Index<Font>): Index<Font> =>
-                    (fontIndex + pathifiableTextsA.fontIndices.length) as Index<Font>,
+                    (fontIndex + pathifiableTextsA.fonts.length) as Index<Font>,
             ),
         ),
         additionalYOffsets: pathifiableTextsA.additionalYOffsets.concat(pathifiableTextsB.additionalYOffsets),
@@ -85,7 +87,6 @@ const computeMeaningsPathifiableTexts = ({
                 expressionsPathifiableTexts,
                 expressionsBeyondHalfApotomePathifiableTexts,
             )
-            // return expressionsPathifiableTexts
         }
     }
 }

@@ -1,5 +1,14 @@
-import { APOTOME, Comma, deepEquals, isUndefined, Maybe, Name, ScaledVector } from "@sagittal/general"
-import { addVectors, invertVector } from "@sagittal/general/dist/cjs/math"
+import {
+    addVectors,
+    APOTOME,
+    Comma,
+    deepEquals,
+    invertVector,
+    isUndefined,
+    Maybe,
+    Name,
+    ScaledVector,
+} from "@sagittal/general"
 import {
     CommaClass,
     computeSymbolClassIdAndSectionFromSagittal,

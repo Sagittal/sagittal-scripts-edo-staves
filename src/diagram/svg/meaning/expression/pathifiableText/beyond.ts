@@ -9,13 +9,15 @@ import {
     parseSagitype,
     Sagittal,
     Shafts,
+    flipSagittal,
+    Sagitype,
 } from "@sagittal/system"
-import { flipSagittal } from "@sagittal/system/dist/cjs/accidental"
 import { computeInputSentenceUnicode } from "staff-code"
-import { BRAVURA_Y_OFFSET, EDO_NOTATION_NAMES, MEANINGS_FONTS } from "../../constants"
-import { computeFlavorFromDiagramType } from "../../flavorFromDiagramType"
-import { computeNotation } from "../../notation"
-import { DiagramType, Font, PathifiableTexts } from "../../types"
+import { BRAVURA_Y_OFFSET, EDO_NOTATION_NAMES, MEANINGS_FONTS } from "../../../../../constants"
+import { computeFlavorFromDiagramType } from "../../../../../flavorFromDiagramType"
+import { computeHasHalfApotome } from "../../../../../halfApotome"
+import { computeNotation } from "../../../../../notation"
+import { DiagramType, Font, PathifiableTexts } from "../../../../../types"
 
 const computePathifiableTextsForExpressionsBeyondHalfApotomeByEdoNotationNameFromEdoNotationDefinitions = (
     flavor: Flavor,
@@ -59,14 +61,17 @@ const computeRevoExpressionsBeyondHalfApotomePathifiableTexts = (
 
     const reversedSagitypes = sagitypes.reverse()
 
+    const hasHalfApotome: boolean = computeHasHalfApotome(edoNotationName)
+
     const texts: Io[] = filteredSagittals.flatMap((sagittal: Sagittal, index: number): Io[] => {
         const commaText = ", "
         const revoText = computeInputSentenceUnicode(
             `5; ${computeSagittalSagitype(sagittal)}` as Io & Sentence,
         )
         const expressionText = " = "
+        const halfApotomeAdjustedIndex = hasHalfApotome ? index + 1 : index
         const evoText = computeInputSentenceUnicode(
-            `5; ${index < reversedSagitypes.length ? `${computeSagittalSagitype(flipSagittal(parseSagitype(reversedSagitypes[index])))}` : ""}; #` as Io &
+            `5; ${halfApotomeAdjustedIndex < reversedSagitypes.length ? `${computeSagittalSagitype(flipSagittal(parseSagitype(reversedSagitypes[halfApotomeAdjustedIndex])))}` : ""}; #` as Io &
                 Sentence,
         )
 
@@ -79,11 +84,31 @@ const computeRevoExpressionsBeyondHalfApotomePathifiableTexts = (
         (): Px[] => [BRAVURA_Y_OFFSET, 0, BRAVURA_Y_OFFSET, 0] as Px[],
     )
 
+    handleNoSagittalsCase({ sagitypes, texts, fontIndices, additionalYOffsets })
+
     return {
         fonts: deepClone(MEANINGS_FONTS),
         fontIndices,
         additionalYOffsets,
         texts,
+    }
+}
+
+const handleNoSagittalsCase = ({
+    sagitypes,
+    texts,
+    fontIndices,
+    additionalYOffsets,
+}: {
+    sagitypes: Sagitype[]
+    texts: Io[]
+    fontIndices: Index<Font>[]
+    additionalYOffsets: Px[]
+}) => {
+    if (sagitypes.length === 0) {
+        texts.shift()
+        fontIndices.shift()
+        additionalYOffsets.shift()
     }
 }
 
@@ -105,15 +130,43 @@ const computeEvoExpressionsBeyondHalfApotomePathifiableTexts = (
         .slice(sagitypes.length)
         .filter((sagittal: Sagittal): boolean => sagittal.shafts === Shafts.SINGLE)
 
+    const reversedSagitypes = sagitypes.reverse()
+
+    const hasHalfApotome: boolean = computeHasHalfApotome(edoNotationName)
+
+    const texts: Io[] = filteredSagittals.flatMap((sagittal: Sagittal, index: number): Io[] => {
+        const commaText = ", "
+        const singleShaftSymbolBeyondHalfApotomeText = computeInputSentenceUnicode(
+            `5; ${computeSagittalSagitype(sagittal)}` as Io & Sentence,
+        )
+        const expressionText = " = "
+        const halfApotomeAdjustedIndex = hasHalfApotome ? index + 1 : index
+        const equivalentUsingSharpAndApotomeComplementText = computeInputSentenceUnicode(
+            `5; ${halfApotomeAdjustedIndex < reversedSagitypes.length ? `${computeSagittalSagitype(flipSagittal(parseSagitype(reversedSagitypes[halfApotomeAdjustedIndex])))}` : ""}; #` as Io &
+                Sentence,
+        )
+
+        return [
+            commaText,
+            singleShaftSymbolBeyondHalfApotomeText,
+            expressionText,
+            equivalentUsingSharpAndApotomeComplementText,
+        ]
+    })
+    const fontIndices: Index<Font>[] = filteredSagittals.flatMap(
+        (): Index<Font>[] => [1, 0, 1, 0] as Index<Font>[],
+    )
+    const additionalYOffsets: Px[] = filteredSagittals.flatMap(
+        (): Px[] => [BRAVURA_Y_OFFSET, 0, BRAVURA_Y_OFFSET, 0] as Px[],
+    )
+
     return {
-        fonts: [],
-        fontIndices: [],
-        additionalYOffsets: [],
-        texts: [],
+        fonts: deepClone(MEANINGS_FONTS),
+        fontIndices,
+        additionalYOffsets,
+        texts,
     }
 }
-
-// TODO: make sure that it works for ones with a half-apotome symbol as well as ones without
 
 const REVO_PATHIFIABLE_TEXTS_FOR_BEYOND_HALF_APOTOME_EXPRESSIONS_BY_EDO_NOTATION_NAME: Record<
     EdoNotationName,
