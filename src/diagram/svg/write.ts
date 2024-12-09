@@ -33,6 +33,8 @@ const writeDiagramSvg = async ({
 }): Promise<void> => {
     const unicodeSentence: Unicode & Sentence = computeInputSentenceUnicode(inputSentence)
 
+    if (dryRun) return
+
     const svgDocument: Document = await textToSvgDocument(unicodeSentence, deepClone(BRAVURA_TEXT_FONT))
 
     const {
@@ -66,8 +68,6 @@ const writeDiagramSvg = async ({
     makeNicelyPngifiable(svgDocument)
 
     const svgString = getSvgStringFromDocument(svgDocument)
-
-    if (dryRun) return
 
     if (!fs.existsSync("dist")) fs.mkdirSync("dist")
     fs.writeFileSync(`dist/${filename}`, svgString)
