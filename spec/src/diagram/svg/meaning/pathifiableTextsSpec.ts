@@ -1295,29 +1295,9 @@ describe("computeMeaningsPathifiableTexts", (): void => {
         EDO_NOTATION_NAMES.forEach((edoNotationName: EdoNotationName) => {
             if (parseEdoNotationName(edoNotationName).edo > MAX_PERIODIC_TABLE_EDO) return
 
-            const actualPathifiableTexts: PathifiableTexts = computeMeaningsPathifiableTexts({
-                edoNotationName,
-                diagramType: DiagramType.EVO,
-            })
-            const actualTexts: Io[] = actualPathifiableTexts.texts
-
-            const expectedTexts: Io[] = EXPECTED_EVO_MEANINGS_TEXTS[edoNotationName]
-
-            const readableActualTexts: Io = makeReadable(actualTexts, {
-                fontIndices: actualPathifiableTexts.fontIndices,
-            })
-
-            const readableExpectedTexts: Io = makeReadable(expectedTexts, {
-                fontIndices: actualPathifiableTexts.fontIndices,
-            })
-
-            expect(actualTexts)
-                .withContext(
-                    `For ${edoNotationName}, expected ${readableActualTexts} to be ${readableExpectedTexts}`,
-                )
-                .toEqual(expectedTexts)
-
-            // TODO: actually do it again for DiagramType.GENERAL and DiagramType.ALTERNATIVE_EVO, still against
+            checkEvoDiagram(edoNotationName, DiagramType.EVO)
+            checkEvoDiagram(edoNotationName, DiagramType.ALTERNATE_EVO)
+            checkEvoDiagram(edoNotationName, DiagramType.GENERAL)
         })
     })
 
@@ -1349,3 +1329,25 @@ describe("computeMeaningsPathifiableTexts", (): void => {
         })
     })
 })
+
+const checkEvoDiagram = (edoNotationName: EdoNotationName, diagramType: DiagramType) => {
+    const actualPathifiableTexts: PathifiableTexts = computeMeaningsPathifiableTexts({
+        edoNotationName,
+        diagramType,
+    })
+    const actualTexts: Io[] = actualPathifiableTexts.texts
+
+    const expectedTexts: Io[] = EXPECTED_EVO_MEANINGS_TEXTS[edoNotationName]
+
+    const readableActualTexts: Io = makeReadable(actualTexts, {
+        fontIndices: actualPathifiableTexts.fontIndices,
+    })
+
+    const readableExpectedTexts: Io = makeReadable(expectedTexts, {
+        fontIndices: actualPathifiableTexts.fontIndices,
+    })
+
+    expect(actualTexts)
+        .withContext(`For ${edoNotationName}, expected ${readableActualTexts} to be ${readableExpectedTexts}`)
+        .toEqual(expectedTexts)
+}
