@@ -14,7 +14,9 @@ const handleSzForExpressions = (
     const edoNotationDefinition: EdoNotationDefinition = EDO_NOTATION_DEFINITIONS[edoNotationName]
     if (isSubsetNotation(edoNotationDefinition)) return
 
-    if (computeHasHalfApotome(edoNotationName))
+    // TODO: always catch the leading comma
+
+    if (computeHasHalfApotome(edoNotationName) && texts.length > 0)
         texts[texts.length - 2] = texts[texts.length - 2].match(/!/g) // is a down sagittal
             ? `${texts.length > 2 ? "4; " : ""}d`
             : `${texts.length > 2 ? "4; " : ""}t`
