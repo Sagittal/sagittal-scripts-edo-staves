@@ -40,20 +40,10 @@ const addSharp = async (
 ): Promise<void> => {
     const sharpStep: EdoStep = computeSharpStep(edo, fifthStep)
 
-    const texts: Io[] =
-        diagramType === DiagramType.REVO
-            ? [
-                  computeInputSentenceUnicode("/||\\;" as Io & Sentence),
-                  equalsPositiveOrLessThanZero(sharpStep),
-              ]
-            : diagramType === DiagramType.GENERAL
-              ? [
-                    computeInputSentenceUnicode("#;" as Io & Sentence),
-                    " or",
-                    computeInputSentenceUnicode("5; /||\\;" as Io & Sentence),
-                    equalsPositiveOrLessThanZero(sharpStep),
-                ]
-              : [computeInputSentenceUnicode("#;" as Io & Sentence), equalsPositiveOrLessThanZero(sharpStep)]
+    const texts: Io[] = [
+        computeInputSentenceUnicode("#;" as Io & Sentence),
+        equalsPositiveOrLessThanZero(sharpStep),
+    ]
     const fonts: Font[] = [
         {
             fontFile: BRAVURA_TEXT_SC_FONT_FILE,
