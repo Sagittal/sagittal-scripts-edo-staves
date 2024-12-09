@@ -21,6 +21,7 @@ const writeDiagramSvg = async ({
     filename,
     edoNotationName,
     diagramType,
+    dryRun,
 }: {
     inputSentence: Io & Sentence
     title: Io
@@ -28,6 +29,7 @@ const writeDiagramSvg = async ({
     filename: Filename
     edoNotationName: EdoNotationName
     diagramType: DiagramType
+    dryRun: boolean
 }): Promise<void> => {
     const unicodeSentence: Unicode & Sentence = computeInputSentenceUnicode(inputSentence)
 
@@ -64,6 +66,9 @@ const writeDiagramSvg = async ({
     makeNicelyPngifiable(svgDocument)
 
     const svgString = getSvgStringFromDocument(svgDocument)
+
+    if (dryRun) return
+
     if (!fs.existsSync("dist")) fs.mkdirSync("dist")
     fs.writeFileSync(`dist/${filename}`, svgString)
 }

@@ -35,12 +35,18 @@ const REVO_COULD_BE_EVO_MESSAGE_FOR_EVO_SZ: Io =
 scriptSettings.disableColors = true
 
 program
+    .option("-d, --dry-run")
     .option("-e, --edo <string>", "EDO name (e.g. 17, 64b)")
     .option("-f, --flavor <string>", "flavor (Evo, Evo-SZ, or Revo)")
 
 program.parse()
-const { edo: edoNotationName, flavor: flavorString }: { edo: EdoNotationName; flavor: string } =
-    program.opts()
+const {
+    dryRun: dryRunString,
+    edo: edoNotationName,
+    flavor: flavorString,
+}: { dryRun: string; edo: EdoNotationName; flavor: string } = program.opts()
+
+const dryRun = !isUndefined(dryRunString)
 
 if (isUndefined(edoNotationName)) throw new Error("You must provide an EDO.")
 
@@ -67,6 +73,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
         ],
         edoNotationName,
         DIAGRAM_TYPE_FOR_FLAVOR[flavor],
+        { dryRun },
     )
 } else if (differenceCase === DifferenceCase._1A_ALL_DIFFERENT_REVO_COULD_BE_EVO) {
     maybeThrowError(flavorString)
@@ -77,6 +84,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[EVO_SZ_FLAVOR_INDEX],
             edoNotationName,
             DiagramType.EVO_SZ,
+            { dryRun },
         )
     } else if (flavor === Flavor.EVO) {
         saveLog(REVO_COULD_BE_EVO_MESSAGE_FOR_EVO)
@@ -85,6 +93,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[EVO_FLAVOR_INDEX],
             edoNotationName,
             DiagramType.ALTERNATE_EVO,
+            { dryRun },
         )
     } else if (flavor === Flavor.REVO) {
         saveLog(REVO_COULD_BE_EVO_MESSAGE_FOR_REVO)
@@ -93,6 +102,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[REVO_FLAVOR_INDEX],
             edoNotationName,
             DiagramType.GENERAL,
+            { dryRun },
         )
     }
 } else if (differenceCase === DifferenceCase._2_NONE_DIFFERENT) {
@@ -104,6 +114,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
         ],
         edoNotationName,
         DiagramType.GENERAL,
+        { dryRun },
     )
 } else if (differenceCase === DifferenceCase._3_REVO_DIFFERENT) {
     maybeThrowError(flavorString)
@@ -114,6 +125,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[REVO_FLAVOR_INDEX],
             edoNotationName,
             DiagramType.REVO,
+            { dryRun },
         )
     } else {
         if (flavor === Flavor.EVO_SZ) {
@@ -123,6 +135,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[EVO_FLAVOR_INDEX],
             edoNotationName,
             DiagramType.EVO,
+            { dryRun },
         )
     }
 } else if (differenceCase === DifferenceCase._3A_REVO_DIFFERENT_REVO_COULD_BE_EVO) {
@@ -136,6 +149,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[REVO_FLAVOR_INDEX],
             edoNotationName,
             DiagramType.GENERAL,
+            { dryRun },
         )
     } else {
         if (flavor === Flavor.EVO) {
@@ -148,6 +162,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[EVO_FLAVOR_INDEX],
             edoNotationName,
             DiagramType.ALTERNATE_EVO,
+            { dryRun },
         )
     }
 } else if (differenceCase === DifferenceCase._4_EVO_SZ_DIFFERENT) {
@@ -159,6 +174,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             defaultSingleSpellingPerStepNotationsAsStaffCodeInputSentencesForEachFlavor[EVO_SZ_FLAVOR_INDEX],
             edoNotationName,
             DiagramType.EVO_SZ,
+            { dryRun },
         )
     } else {
         saveLog(EVO_AND_REVO_IDENTICAL_MESSAGE_FOR_EITHER)
@@ -169,6 +185,7 @@ if (differenceCase === DifferenceCase._1_ALL_DIFFERENT) {
             ],
             edoNotationName,
             DiagramType.GENERAL,
+            { dryRun },
         )
     }
 }

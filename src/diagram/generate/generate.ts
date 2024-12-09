@@ -37,15 +37,15 @@ const generateDiagram = async ({
 
     saveLog(`\n\n${title}\n${subtitle}\n\n${inputSentence}`)
 
-    if (!dryRun)
-        await writeDiagramSvg({
-            inputSentence,
-            title,
-            subtitle,
-            filename,
-            edoNotationName,
-            diagramType,
-        })
+    await writeDiagramSvg({
+        inputSentence,
+        title,
+        subtitle,
+        filename,
+        edoNotationName,
+        diagramType,
+        dryRun,
+    })
 }
 
 const generateGeneralDiagram = async (
@@ -112,6 +112,7 @@ const generateOneOffDiagram = async (
     inputSentence: Io & Sentence,
     edoNotationName: EdoNotationName,
     diagramType: DiagramType,
+    { dryRun }: { dryRun: boolean },
 ): Promise<void> => {
     const title: Io = computeTitle({
         edoNotationName,
@@ -129,6 +130,7 @@ const generateOneOffDiagram = async (
         filename,
         edoNotationName,
         diagramType,
+        dryRun,
     })
 }
 
