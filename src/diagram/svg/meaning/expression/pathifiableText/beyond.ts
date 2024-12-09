@@ -10,7 +10,6 @@ import {
     Sagittal,
     Shafts,
     flipSagittal,
-    Sagitype,
 } from "@sagittal/system"
 import { computeInputSentenceUnicode } from "staff-code"
 import { BRAVURA_Y_OFFSET, EDO_NOTATION_NAMES, MEANINGS_FONTS } from "../../../../../constants"
@@ -18,6 +17,7 @@ import { computeFlavorFromDiagramType } from "../../../../../flavorFromDiagramTy
 import { computeHasHalfApotome } from "../../../../../halfApotome"
 import { computeNotation } from "../../../../../notation"
 import { DiagramType, Font, PathifiableTexts } from "../../../../../types"
+import { COMMA_TEXT } from "../../constants"
 
 const computePathifiableTextsForExpressionsBeyondHalfApotomeByEdoNotationNameFromEdoNotationDefinitions = (
     flavor: Flavor,
@@ -64,7 +64,7 @@ const computeRevoExpressionsBeyondHalfApotomePathifiableTexts = (
     const hasHalfApotome: boolean = computeHasHalfApotome(edoNotationName)
 
     const texts: Io[] = filteredSagittals.flatMap((sagittal: Sagittal, index: number): Io[] => {
-        const commaText = ", "
+        const commaText = COMMA_TEXT
         const revoText = computeInputSentenceUnicode(
             `5; ${computeSagittalSagitype(sagittal)}` as Io & Sentence,
         )
@@ -84,31 +84,11 @@ const computeRevoExpressionsBeyondHalfApotomePathifiableTexts = (
         (): Px[] => [BRAVURA_Y_OFFSET, 0, BRAVURA_Y_OFFSET, 0] as Px[],
     )
 
-    handleNoSagittalsCase({ sagitypes, texts, fontIndices, additionalYOffsets })
-
     return {
         fonts: deepClone(MEANINGS_FONTS),
         fontIndices,
         additionalYOffsets,
         texts,
-    }
-}
-
-const handleNoSagittalsCase = ({
-    sagitypes,
-    texts,
-    fontIndices,
-    additionalYOffsets,
-}: {
-    sagitypes: Sagitype[]
-    texts: Io[]
-    fontIndices: Index<Font>[]
-    additionalYOffsets: Px[]
-}) => {
-    if (sagitypes.length === 0) {
-        texts.shift()
-        fontIndices.shift()
-        additionalYOffsets.shift()
     }
 }
 

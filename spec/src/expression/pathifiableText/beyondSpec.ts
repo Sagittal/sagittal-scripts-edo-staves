@@ -161,36 +161,6 @@ describe("computeExpressionsBeyondHalfApotomePathifiableTexts", (): void => {
                 expect(actual).toEqual(expected)
             })
         })
-
-        describe("when there are no sagittals but /||\\ = # will be shown, do not lead with a (grammatical) comma", (): void => {
-            it("12-EDO", (): void => {
-                const edoNotationName: EdoNotationName = "12" as EdoNotationName
-                const diagramType: DiagramType = DiagramType.REVO
-    
-                const actual: PathifiableTexts = computeExpressionsBeyondHalfApotomePathifiableTexts({
-                    edoNotationName,
-                    diagramType,
-                })
-    
-                const expected: PathifiableTexts = {
-                    /* eslint-disable prettier/prettier */
-                    texts: [
-                        "  ",      // /||\
-                        " = ",
-                        "   ",     // #
-                    ] as Io[],
-                    /* eslint-ensable prettier/prettier */
-                    fonts: deepClone(MEANINGS_FONTS),
-                    fontIndices: [0, 1, 0] as Index<Font>[],
-                    additionalYOffsets: [
-                        0,
-                        BRAVURA_Y_OFFSET,
-                        0,
-                    ] as Px[],
-                }
-                expect(actual).toEqual(expected)
-            })
-        })
     })
     
     describe("Evo cases", (): void => {

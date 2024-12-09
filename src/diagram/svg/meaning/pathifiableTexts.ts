@@ -9,6 +9,7 @@ import {
 } from "@sagittal/system"
 import { EMPTY_PATHIFIABLE_TEXTS, MEANINGS_FONT, MEANINGS_Y_OFFSET } from "../../../constants"
 import { DiagramType, Font, PathifiableTexts } from "../../../types"
+import { COMMA_TEXT } from "./constants"
 import {
     computeExpressionsBeyondHalfApotomePathifiableTexts,
     computeExpressionsPathifiableTexts,
@@ -29,6 +30,16 @@ const concatPathifiableTexts = (
         ),
         additionalYOffsets: pathifiableTextsA.additionalYOffsets.concat(pathifiableTextsB.additionalYOffsets),
     }
+}
+
+const handleLeadingComma = (pathifiableTexts: PathifiableTexts): PathifiableTexts => {
+    if (pathifiableTexts.texts[0] === COMMA_TEXT) {
+        pathifiableTexts.texts.shift()
+        pathifiableTexts.fontIndices.shift()
+        pathifiableTexts.additionalYOffsets.shift()
+    }
+
+    return pathifiableTexts
 }
 
 const computeMeaningsPathifiableTexts = ({
@@ -83,9 +94,11 @@ const computeMeaningsPathifiableTexts = ({
                     diagramType,
                 })
 
-            return concatPathifiableTexts(
-                expressionsPathifiableTexts,
-                expressionsBeyondHalfApotomePathifiableTexts,
+            return handleLeadingComma(
+                concatPathifiableTexts(
+                    expressionsPathifiableTexts,
+                    expressionsBeyondHalfApotomePathifiableTexts,
+                ),
             )
         }
     }
