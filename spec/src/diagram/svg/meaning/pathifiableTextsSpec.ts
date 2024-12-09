@@ -1,9 +1,9 @@
 import { Index, Io, Unicode, Word } from "@sagittal/general"
 import { EdoNotationName, parseEdoNotationName } from "@sagittal/system"
 import { debugCode } from "staff-code"
-import { EDO_NOTATION_NAMES, MAX_PERIODIC_TABLE_EDO } from "../../../../src/constants"
-import { computeMeaningsPathifiableTexts } from "../../../../src/diagram/svg/meaning/pathifiableTexts"
-import { DiagramType, Font, PathifiableTexts } from "../../../../src/types"
+import { EDO_NOTATION_NAMES, MAX_PERIODIC_TABLE_EDO } from "../../../../../src/constants"
+import { computeMeaningsPathifiableTexts } from "../../../../../src/diagram/svg/meaning/pathifiableTexts"
+import { DiagramType, Font, PathifiableTexts } from "../../../../../src/types"
 
 const EXPECTED_REVO_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
     "5": [],

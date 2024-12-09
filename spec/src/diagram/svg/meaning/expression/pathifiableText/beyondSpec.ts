@@ -1,8 +1,8 @@
 import { deepClone, Index, Io, Px } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
-import { BRAVURA_Y_OFFSET, MEANINGS_FONTS } from "../../../../src/constants"
-import { computeExpressionsBeyondHalfApotomePathifiableTexts } from "../../../../src/diagram/svg/meaning/expression"
-import { DiagramType, Font, PathifiableTexts } from "../../../../src/types"
+import { BRAVURA_Y_OFFSET, MEANINGS_FONTS } from "../../../../../../../src/constants"
+import { computeExpressionsBeyondHalfApotomePathifiableTexts } from "../../../../../../../src/diagram/svg/meaning/expression"
+import { DiagramType, Font, PathifiableTexts } from "../../../../../../../src/types"
 
 describe("computeExpressionsBeyondHalfApotomePathifiableTexts", (): void => {
     describe("Revo cases", (): void => {
