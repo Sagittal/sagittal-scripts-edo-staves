@@ -55,7 +55,7 @@ const computeMeaningsPathifiableTexts = ({
         return {
             fontIndices: [0 as Index<Font>],
             fonts: [deepClone(MEANINGS_FONT)],
-            texts: [`a subset of ${edoNotationDefinition.supersetEdoNotationName}-EDO`],
+            texts: [`a subset of ${edoNotationDefinition.supersetEdoNotationName}-EDO notation`],
             additionalYOffsets: [MEANINGS_Y_OFFSET],
         }
     } else {
