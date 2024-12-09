@@ -2,11 +2,11 @@ import { Filename, Index, Io, Px } from "@sagittal/general"
 
 // ordered according to the order they should appear on the Xen wiki page
 enum DiagramType {
-    GENERAL,
-    EVO,
-    REVO,
-    ALTERNATE_EVO,
-    EVO_SZ,
+    GENERAL = "general",
+    EVO = "Evo",
+    REVO = "Revo",
+    ALTERNATE_EVO = "alternative Evo",
+    EVO_SZ = "Evo-SZ",
 }
 
 enum DifferenceCase {

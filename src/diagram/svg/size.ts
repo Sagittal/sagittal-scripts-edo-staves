@@ -6,7 +6,7 @@ import {
     TOTAL_WIDTH_NEEDED_FOR_TILE,
     EXTRA_ROOM_FOR_FIFTH_SIZE,
     TILE_SIZE,
-    EXTRA_MEANINGS_SPACING,
+    MEANINGS_SPACING,
 } from "./constants"
 import { NodeElement } from "./types"
 
@@ -19,11 +19,13 @@ const setDiagramSizeAndGetDiagramWidth = (
         subtitleWidth,
         meaningsWidth,
         tileSize,
+        extraHeight,
     }: {
         titleWidth: Px
         subtitleWidth: Px
         meaningsWidth: Px
         tileSize: Px
+        extraHeight: Px
     },
 ): Px => {
     const svg: NodeElement<SVGGElement> = svgDocument.getElementsByTagName(
@@ -31,7 +33,7 @@ const setDiagramSizeAndGetDiagramWidth = (
     )[0] as NodeElement<SVGGElement>
 
     const existingHeight: Px = parseFloat(svg.getAttribute("height")!) as Px
-    const height: Px = (existingHeight + TOP_MARGIN + tileSize + EXTRA_MEANINGS_SPACING) as Px
+    const height: Px = (existingHeight + TOP_MARGIN + tileSize + MEANINGS_SPACING + extraHeight) as Px
     svg.setAttribute("height", stringify(height))
 
     const existingWidth: Px = parseFloat(svg.getAttribute("width")!) as Px

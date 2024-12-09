@@ -6,13 +6,14 @@ import { computeInputSentenceUnicode } from "staff-code"
 import { BRAVURA_TEXT_FONT } from "../../constants"
 import { DiagramType } from "../../types"
 import { getSvgStringFromDocument } from "./document"
-import { addMeaningsAndGetWidth } from "./meaning"
-import { makeNicelyPngifiable, shiftStavesDown } from "./shift"
+import { addMeaningsAndGetWidthAndExtraHeight } from "./meaning"
+import { getAllTopLevelGroupElements, makeNicelyPngifiable, shiftStavesDown } from "./shift"
 import { setDiagramSizeAndGetDiagramWidth } from "./size"
 import { textToSvgDocument } from "./text"
 import { placeTile, addTileAndGetSize } from "./tile"
 import { addSubtitleAndGetWidth, addTitleAndGetWidth } from "./titles"
 import { NodeElement } from "./types"
+import { getGroupWidth } from "./width"
 
 const writeDiagramSvg = async ({
     inputSentence,
@@ -36,6 +37,7 @@ const writeDiagramSvg = async ({
     if (dryRun) return
 
     const svgDocument: Document = await textToSvgDocument(unicodeSentence, deepClone(BRAVURA_TEXT_FONT))
+    const stavesWidth: Px = getGroupWidth(svgDocument.documentElement! as NodeElement<SVGGElement>)
 
     const {
         tileWrapperGroupElement,
@@ -48,20 +50,27 @@ const writeDiagramSvg = async ({
         },
     )
 
-    shiftStavesDown(svgDocument, { tileSize })
+    const staveGroupElements = getAllTopLevelGroupElements(
+        svgDocument.documentElement! as NodeElement<SVGElement>,
+    )
 
     const titleWidth: Px = await addTitleAndGetWidth(svgDocument, title)
     const subtitleWidth: Px = await addSubtitleAndGetWidth(svgDocument, subtitle)
-    const meaningsWidth: Px = await addMeaningsAndGetWidth(svgDocument, {
-        edoNotationName,
-        diagramType,
-    })
+    const { width: meaningsWidth, extraHeight }: { width: Px; extraHeight: Px } =
+        await addMeaningsAndGetWidthAndExtraHeight(svgDocument, {
+            edoNotationName,
+            diagramType,
+            stavesWidth,
+        })
+
+    shiftStavesDown(staveGroupElements, { tileSize, extraHeight })
 
     const diagramWidth: Px = setDiagramSizeAndGetDiagramWidth(svgDocument, {
         tileSize,
         titleWidth,
         subtitleWidth,
         meaningsWidth,
+        extraHeight,
     })
     placeTile({ tileWrapperGroupElement, tileSize, diagramWidth })
 

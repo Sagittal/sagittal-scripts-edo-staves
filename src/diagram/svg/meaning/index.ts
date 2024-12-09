@@ -1,1 +1,1 @@
-export { addMeaningsAndGetWidth } from "./meanings"
+export { addMeaningsAndGetWidthAndExtraHeight } from "./meanings"

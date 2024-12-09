@@ -1,7 +1,7 @@
 import { Px } from "@sagittal/general"
 import { Document } from "@xmldom/xmldom"
 import {
-    EXTRA_MEANINGS_SPACING,
+    MEANINGS_SPACING,
     LEFT_AND_RIGHT_MARGIN,
     OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION,
     TOP_MARGIN,
@@ -12,7 +12,7 @@ import { NodeElement } from "./types"
 const roundAllTranslations = (tileGroupElement: NodeElement<SVGGElement>): void =>
     getAllTopLevelGroupElements(tileGroupElement).forEach(roundTransform)
 
-const getAllTopLevelGroupElements = (nodeElement: NodeElement<SVGElement>) => {
+const getAllTopLevelGroupElements = (nodeElement: NodeElement<SVGElement>): NodeElement<SVGGElement>[] => {
     const childElements: NodeElement<SVGElement>[] = Array.from(
         nodeElement.childNodes,
     ) as NodeElement<SVGElement>[]
@@ -32,15 +32,18 @@ const shiftAllTopLevelGroupElements = (svgDocument: Document, xTranslation: Px, 
     })
 }
 
-// shift staves down to make space for title and tile, and slightly to the right
-// relies on these being the only group elements in the SVG at this time;
-// the titles and tile have not yet been added
-const shiftStavesDown = (svgDocument: Document, { tileSize }: { tileSize: Px }): void =>
-    shiftAllTopLevelGroupElements(
-        svgDocument,
-        LEFT_AND_RIGHT_MARGIN,
-        (TOP_MARGIN + tileSize + EXTRA_MEANINGS_SPACING) as Px,
-    )
+// shift staves down to make space for titles, meanings, and tile, and slightly to the right
+const shiftStavesDown = (
+    staveGroupElements: NodeElement<SVGGElement>[],
+    { tileSize, extraHeight }: { tileSize: Px; extraHeight: Px },
+): void => {
+    staveGroupElements.forEach((staveGroupElement: NodeElement<SVGGElement>): void => {
+        furtherTransform(staveGroupElement, {
+            xTranslation: LEFT_AND_RIGHT_MARGIN,
+            yTranslation: (TOP_MARGIN + tileSize + MEANINGS_SPACING + extraHeight) as Px,
+        })
+    })
+}
 
 const makeNicelyPngifiable = (svgDocument: Document): void =>
     shiftAllTopLevelGroupElements(svgDocument, 0 as Px, OFFSET_FOR_CLEANER_MEDIAWIKI_PNGIFICATION)

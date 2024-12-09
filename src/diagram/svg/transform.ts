@@ -51,7 +51,11 @@ const setTransform = (
 
 const furtherTransform = (
     svgElement: NodeElement<SVGElement>,
-    { xTranslation, yTranslation, scale }: { xTranslation?: Px; yTranslation?: Px; scale?: Multiplier },
+    {
+        xTranslation = 0 as Px,
+        yTranslation = 0 as Px,
+        scale = 1 as Multiplier,
+    }: { xTranslation?: Px; yTranslation?: Px; scale?: Multiplier },
 ): void => {
     const { xTranslationExisting, yTranslationExisting } = computeExistingTranslation(svgElement)
     const existingScale: Multiplier = computeExistingScale(svgElement)
