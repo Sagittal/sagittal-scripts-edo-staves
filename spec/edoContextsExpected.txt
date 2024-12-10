@@ -144,7 +144,7 @@ Because it includes no Sagittal symbols, this Evo Sagittal notation is also a co
 [[File:26-EDO_Revo.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 
 This notation is a subset of the notation for [[54edo#Sagittal notation|54-EDO]].
 [[File:27-EDO.svg]]
@@ -276,7 +276,7 @@ This notation uses the same sagittal sequence as [[36edo#Sagittal notation|36-ED
 [[File:43-EDO_Revo.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 
 This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|23b]], [[30edo#Sagittal notation|30]], and [[37edo#Sagittal notation|37]], and is a superset of the notations for EDOs [[22edo#Sagittal notation|22]] and [[11edo#Sagittal notation|11]].
 ====Evo flavor====
@@ -287,7 +287,7 @@ This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|
 [[File:44-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 
 This notation uses the same sagittal sequence as EDOs [[52edo#Sagittal notation|52]] and [[59edo#Sagittal notation|59b]].
 ====Evo flavor====
@@ -332,7 +332,7 @@ This notation is a superset of the notations for EDOs [[24edo#Sagittal notation|
 [[File:49-EDO_Revo.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 
 This notation uses the same sagittal sequence as EDOs [[57edo#Sagittal notation|57]], [[64edo#Sagittal notation|64]], and [[71edo#Sagittal notation|71b]].
 ====Evo flavor====
@@ -341,7 +341,7 @@ This notation uses the same sagittal sequence as EDOs [[57edo#Sagittal notation|
 [[File:50-EDO_Revo.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 ====Evo flavor====
 [[File:51-EDO_Evo.svg]]
 ====Revo flavor====
@@ -360,14 +360,14 @@ This notation uses the same sagittal sequence as EDOs [[45edo#Sagittal notation|
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 ====Evo flavor====
 [[File:53-EDO_Evo.svg]]
 ====Revo flavor====
 [[File:53-EDO_Revo.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 
 This notation uses the same sagittal sequence as [[61edo#Sagittal notation|61-EDO]], and is a superset of the notation for [[27edo#Sagittal notation|27-EDO]].
 ====Evo flavor====
@@ -393,7 +393,7 @@ This notation uses the same sagittal sequence as [[63edo#Sagittal notation|63-ED
 [[File:56-EDO_Revo.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 
 This notation uses the same sagittal sequence as EDOs [[50edo#Sagittal notation|50]], [[64edo#Sagittal notation|64]], and [[71edo#Sagittal notation|71b]], and is a superset of the notation for [[19edo#Sagittal notation|19-EDO]].
 ====Evo flavor====
@@ -410,7 +410,7 @@ This notation uses the same sagittal sequence as EDOs [[50edo#Sagittal notation|
 [[File:58-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 ====Best fifth notation====
 This notation uses the same sagittal sequence as [[66edo#Sagittal notation|66-EDO]].
 =====Evo flavor=====
@@ -435,7 +435,7 @@ This notation is a superset of the notations for EDOs [[12edo#Sagittal notation|
 [[File:60-EDO_Revo.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 
 This notation uses the same sagittal sequence as [[54edo#Sagittal notation|54-EDO]].
 ====Evo flavor====
@@ -446,7 +446,7 @@ This notation uses the same sagittal sequence as [[54edo#Sagittal notation|54-ED
 [[File:61-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 
 This notation uses the same sagittal sequence as EDOs [[69edo#Sagittal notation|69]] and [[76edo#Sagittal notation|76]], and is a superset of the notation for [[31edo#Sagittal notation|31-EDO]].
 ====Evo flavor====
@@ -464,7 +464,7 @@ This notation uses the same sagittal sequence as [[56edo#Sagittal notation|56-ED
 [[File:63-EDO_Revo.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 ====Best fifth notation====
 This notation uses the same sagittal sequence as EDOs [[50edo#Sagittal notation|50]], [[57edo#Sagittal notation|57]], and [[71edo#Sagittal notation|71b]].
 =====Evo flavor=====
@@ -490,7 +490,7 @@ This notation uses the same sagittal sequence as EDOs [[72edo#Sagittal notation|
 [[File:65-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 
 This notation uses the same sagittal sequence as [[59edo#Sagittal notation|59-EDO]], and is a superset of the notations for EDOs [[22edo#Sagittal notation|22]] and [[11edo#Sagittal notation|11]].
 ====Evo flavor====
@@ -499,14 +499,14 @@ This notation uses the same sagittal sequence as [[59edo#Sagittal notation|59-ED
 [[File:66-EDO_Revo.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 ====Evo flavor====
 [[File:67-EDO_Evo.svg]]
 ====Revo flavor====
 [[File:67-EDO_Revo.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 
 This notation uses the same sagittal sequence as [[75edo#Sagittal notation|75-EDO]].
 ====Evo flavor====
@@ -517,7 +517,7 @@ This notation uses the same sagittal sequence as [[75edo#Sagittal notation|75-ED
 [[File:68-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 
 This notation uses the same sagittal sequence as EDOs [[62edo#Sagittal notation|62]] and [[76edo#Sagittal notation|76]].
 ====Evo flavor====
@@ -534,7 +534,7 @@ This notation uses the same sagittal sequence as EDOs [[62edo#Sagittal notation|
 [[File:70-EDO_Revo.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 ====Best fifth notation====
 =====Evo flavor=====
 [[File:71-EDO_Evo.svg]]
@@ -566,14 +566,14 @@ This notation uses the same sagittal sequence as [[80edo#Sagittal notation|80-ED
 [[File:73-EDO_Revo.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 ====Evo flavor====
 [[File:74-EDO_Evo.svg]]
 ====Revo flavor====
 [[File:74-EDO_Revo.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 
 This notation uses the same sagittal sequence as [[68edo#Sagittal notation|68-EDO]].
 ====Evo flavor====
@@ -584,7 +584,7 @@ This notation uses the same sagittal sequence as [[68edo#Sagittal notation|68-ED
 [[File:75-EDO_Evo-SZ.svg]]
 
 ===Sagittal notation===
-In the following diagrams, an equals sign (=) means that the symbol represents the tempered version of a comma which it ''exactly'' represents in JI (a [[Sagittal notation#Primary comma|primary comma]]), while an approximately equals sign (≈) means the symbol represents the tempered version of a comma which it ''approximately'' represents in JI (a secondary comma).
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 
 This notation uses the same sagittal sequence as EDOs [[62edo#Sagittal notation|62]] and [[69edo#Sagittal notation|69]], and is a superset of the notations for EDOs [[38edo#Sagittal notation|38]] and [[19edo#Sagittal notation|19]].
 ====Evo flavor====
