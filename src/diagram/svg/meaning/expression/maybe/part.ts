@@ -1,14 +1,12 @@
-import { Comma, computeQuotientFromVector, formatQuotient, Io, Name } from "@sagittal/general"
-import { computeComma } from "./comma"
-
-const formatCommaQuotient = (comma: Comma): Io => formatQuotient(computeQuotientFromVector(comma.vector))
+import { Comma, Io, Name } from "@sagittal/general"
+import { computeFormattedCommaFromCommaName } from "../../../../../comma"
 
 const computeCommaExpressionPart = (
     commaName: Name<Comma>,
     { isSecondary }: { isSecondary: boolean } = { isSecondary: false },
 ): Io => {
-    const comma: Comma = computeComma(commaName)
-    const formattedCommaQuotient: Io = formatCommaQuotient(comma)
+    const formattedCommaQuotient: Io = computeFormattedCommaFromCommaName(commaName)
+
     const equalitySymbol: Io = isSecondary ? "≈" : "="
 
     return ` ${equalitySymbol} ~${commaName} (~${formattedCommaQuotient})`

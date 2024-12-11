@@ -2,7 +2,7 @@ import { unlinkSync, writeFileSync } from "fs"
 import { Filename, Io, readLines, runScriptAndGetConsoleOutput } from "@sagittal/general"
 
 describe("generate-comma-sections", (): void => {
-    xit("generates the correct Sagittal notation sections to comma pages on the Xen wiki", (): void => {
+    it("generates the correct Sagittal notation sections to comma pages on the Xen wiki", (): void => {
         const actual: Io[] = runScriptAndGetConsoleOutput(`npm run generate-comma-sections` as Io)
         writeFileSync("spec/commaSectionsActual.txt", actual.join("\n"))
 

@@ -1,5 +1,5 @@
 import { Comma, Io, Name } from "@sagittal/general"
-import { computeIsDown } from "./down"
+import { computeIsDown } from "../../../../../comma"
 import { computeCommaExpressionPart } from "./part"
 
 const computeMaybeSecondaryCommaDirectionOverride = ({
