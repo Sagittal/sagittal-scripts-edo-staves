@@ -7,27 +7,29 @@ import { computeFormattedCommaFromCommaName } from "../format"
 import { CommaSection } from "../types"
 import { PRIMARY_COMMA_NAME_OPTIONS } from "./constants"
 
-// TODO: types? missing them from a ton of these
-
 const computePrimaryRoleText = ({ sagitype, primaryComma, isDown }: CommaSection): Io => {
     if (isUndefined(primaryComma)) return ""
 
     const primaryCommaName: Name<Comma> = computeCommaName(primaryComma, PRIMARY_COMMA_NAME_OPTIONS)
-    const formattedPrimaryComma = computeFormattedCommaFromCommaName(primaryCommaName)
+    const formattedPrimaryComma: Io = computeFormattedCommaFromCommaName(primaryCommaName)
 
-    const oppositePrimaryCommaName = computeCommaName(flipComma(computeComma(primaryCommaName)))
-    const oppositeFormattedPrimaryComma = computeFormattedCommaFromCommaName(oppositePrimaryCommaName)
+    const oppositePrimaryCommaName: Name<Comma> = computeCommaName(flipComma(computeComma(primaryCommaName)))
+    const oppositeFormattedPrimaryComma: Io = computeFormattedCommaFromCommaName(oppositePrimaryCommaName)
 
-    const isPrimaryDown = computeIsDown(primaryCommaName)
-    const formattedSuperPrimaryComma = isPrimaryDown ? oppositeFormattedPrimaryComma : formattedPrimaryComma
+    const isPrimaryDown: boolean = computeIsDown(primaryCommaName)
+    const formattedSuperPrimaryComma: Io = isPrimaryDown
+        ? oppositeFormattedPrimaryComma
+        : formattedPrimaryComma
 
-    const sameDirection = isPrimaryDown === isDown
-    const formattedMatchPrimaryComma = sameDirection ? formattedPrimaryComma : oppositeFormattedPrimaryComma
-    const upOrDownText = sameDirection ? "" : isDown ? " down" : " up"
+    const sameDirection: boolean = isPrimaryDown === isDown
+    const formattedMatchingPrimaryComma: Io = sameDirection
+        ? formattedPrimaryComma
+        : oppositeFormattedPrimaryComma
+    const upOrDownText: Io = sameDirection ? "" : isDown ? " down" : " up"
 
     return (
         `The primary role of {{sagittal| ${sagitype} }} is ` +
-        `[[${formattedSuperPrimaryComma}#Sagittal notation | ${formattedMatchPrimaryComma}]] ` +
+        `[[${formattedSuperPrimaryComma}#Sagittal notation | ${formattedMatchingPrimaryComma}]] ` +
         `(${primaryCommaName}${upOrDownText}). `
     )
 }

@@ -4,7 +4,8 @@ import { CommaSection } from "../types"
 import { LONG_COMMA_NAME_OPTIONS } from "./constants"
 import { fixFactoring, fixLongName } from "./format"
 
-// TODO: obviously figure out a way to compute these
+// TODO: obviously figure out a way to compute these two rather than leaving them hard-coded
+
 const SIMPLEST_NOTATED_DYAD_RATIOS: Record<Name<Comma>, Io> = {
     "11/7C": "11/7",
     "35L": "35/1 = 5×7 (equiv. 35/32)",
@@ -34,7 +35,6 @@ const SIMPLEST_NOTATED_DYAD_RATIOS: Record<Name<Comma>, Io> = {
     "13L": "13/1 (equiv. 13/8)",
 } as Record<Name<Comma>, Io>
 
-// TODO: obviously figure out a way to compute these too
 const SIMPLEST_NOTATED_DYAD_SPELLINGS: Record<Name<Comma>, Io> = {
     "11/7C": "E{{nbhsp}}{{sagittal| b }}-B{{nbhsp}}{{sagittal| (! }}",
     "35L": "E-F{{nbhsp}}{{sagittal| (|\\ }}",
@@ -71,8 +71,10 @@ const maybeSecondaryRole = (primaryComma: Maybe<Comma>) =>
     isUndefined(primaryComma) ? "" : "(in a secondary role) "
 
 const computeMainText = ({ comma, commaName, isDown, sagitype, primaryComma }: CommaSection): Io => {
-    const commaLongName = fixLongName(fixFactoring(computeCommaName(comma, LONG_COMMA_NAME_OPTIONS)))
-    const maybeDownwardText = isDown ? "the downward version of " : ""
+    const commaLongName: Name<Comma> = fixLongName(
+        fixFactoring(computeCommaName(comma, LONG_COMMA_NAME_OPTIONS)),
+    )
+    const maybeDownwardText: Io = isDown ? "the downward version of " : ""
 
     return (
         `In the [[Sagittal]] system, ${maybeDownwardText}this comma (possibly tempered) ` +

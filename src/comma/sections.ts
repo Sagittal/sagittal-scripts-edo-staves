@@ -3,6 +3,7 @@ import {
     EDO_NOTATION_DEFINITIONS,
     EdoNotationDefinition,
     isSubsetNotation,
+    NonSubsetEdoNotationDefinition,
     StepDefinition,
 } from "@sagittal/system"
 import { computeComma } from "./comma"
@@ -17,7 +18,7 @@ const COMMA_SECTIONS: CommaSection[] = Object.values(EDO_NOTATION_DEFINITIONS).r
 
         const newCommaSections: CommaSection[] = []
 
-        const { stepDefinitions } = edoNotationDefinition
+        const { stepDefinitions }: NonSubsetEdoNotationDefinition = edoNotationDefinition
         stepDefinitions.forEach((stepDefinition: StepDefinition): void => {
             const { sagitype, validCommas } = stepDefinition
             if (isUndefined(validCommas)) return
@@ -34,8 +35,8 @@ const COMMA_SECTIONS: CommaSection[] = Object.values(EDO_NOTATION_DEFINITIONS).r
                     return
 
                 const isDown: boolean = computeIsDown(commaName)
-                const comma = computeComma(commaName)
-                const superComma = isDown ? flipComma(comma) : comma
+                const comma: Comma = computeComma(commaName)
+                const superComma: Comma = isDown ? flipComma(comma) : comma
                 const commaSection: CommaSection = {
                     commaName,
                     isDown,

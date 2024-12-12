@@ -1,4 +1,4 @@
-import { computeCentsFromPitch, Io, Precision, round } from "@sagittal/general"
+import { Comma, computeCentsFromPitch, Io, Name, Precision, round } from "@sagittal/general"
 import { computeCommaName } from "@sagittal/system"
 import { computeFormattedCommaFromComma } from "../format"
 import { CommaSection } from "../types"
@@ -7,10 +7,10 @@ import { fixFactoring, fixLongName } from "./format"
 
 const computeMaybeNewCommaText = ({ commaName, superComma }: CommaSection): Io => {
     if (NEW_COMMA_PAGES.includes(commaName)) {
-        const superCommaLongName = fixLongName(
+        const superCommaLongName: Name<Comma> = fixLongName(
             fixFactoring(computeCommaName(superComma, LONG_COMMA_NAME_OPTIONS)),
         )
-        const superCommaCents = round(computeCentsFromPitch(superComma), 2 as Precision)
+        const superCommaCents: Io = round(computeCentsFromPitch(superComma), 2 as Precision)
             .toString()
             .replace(/\.(\d)$/, ".$10") // pad with an extra zero to ensure 2 decimal places
         const formattedSuperCommaName: Io = computeFormattedCommaFromComma(superComma)

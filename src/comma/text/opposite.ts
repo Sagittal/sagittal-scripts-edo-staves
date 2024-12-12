@@ -1,16 +1,16 @@
-import { Io, isUndefined } from "@sagittal/general"
-import { computeCommaName, DirectedNumbers, DirectedWord } from "@sagittal/system"
+import { Comma, Io, isUndefined, Name } from "@sagittal/general"
+import { computeCommaName, DirectedNumbers, DirectedWord, Sagitype } from "@sagittal/system"
 import { flipComma, flipSagitype } from "../flip"
 import { CommaSection } from "../types"
 import { fixFactoring } from "./format"
 
 const computeOppositeText = ({ comma, commaName, sagitype, isDown, primaryComma }: CommaSection): Io => {
-    const wardText = isDown ? "upward" : "downward"
-    const maybeSecondaryRoleText = isUndefined(primaryComma) ? "" : "(in a secondary role) "
-    const oppositeSagitype = flipSagitype(sagitype)
+    const wardText: Io = isDown ? "upward" : "downward"
+    const maybeSecondaryRoleText: Io = isUndefined(primaryComma) ? "" : "(in a secondary role) "
+    const oppositeSagitype: Sagitype = flipSagitype(sagitype)
 
-    const oppositeComma = flipComma(comma)
-    const oppositeCommaName = fixFactoring(
+    const oppositeComma: Comma = flipComma(comma)
+    const oppositeCommaName: Name<Comma> = fixFactoring(
         computeCommaName(oppositeComma, {
             directedWord: DirectedWord.NEVER,
             directedNumbers: DirectedNumbers.ON,
