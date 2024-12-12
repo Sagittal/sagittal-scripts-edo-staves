@@ -1,10 +1,8 @@
-import { Comma, computeCentsFromPitch, Io, Name, Precision, round } from "@sagittal/general"
+import { computeCentsFromPitch, Io, Precision, round } from "@sagittal/general"
 import { computeCommaName } from "@sagittal/system"
 import { computeFormattedCommaFromComma } from "../format"
 import { CommaSection } from "../types"
-import { LONG_COMMA_NAME_OPTIONS } from "./constants"
-
-const NEW_COMMA_PAGES: Name<Comma>[] = ["35L", "13/7S", "25⋅11/7M"] as Name<Comma>[]
+import { LONG_COMMA_NAME_OPTIONS, NEW_COMMA_PAGES } from "./constants"
 
 const computeMaybeNewCommaText = ({ commaName, superComma }: CommaSection): Io => {
     if (NEW_COMMA_PAGES.includes(commaName)) {
