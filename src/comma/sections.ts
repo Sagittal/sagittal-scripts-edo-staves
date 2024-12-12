@@ -1,11 +1,8 @@
 import { Comma, isUndefined, Maybe, Name } from "@sagittal/general"
 import {
-    computeAccidentalSagitype,
     EDO_NOTATION_DEFINITIONS,
     EdoNotationDefinition,
-    flipSagittal,
     isSubsetNotation,
-    parseSagitype,
     StepDefinition,
 } from "@sagittal/system"
 import { computeComma } from "./comma"
@@ -36,35 +33,19 @@ const COMMA_SECTIONS: CommaSection[] = Object.values(EDO_NOTATION_DEFINITIONS).r
                 )
                     return
 
-                // TODO: DRY these two branches up
-                if (commaIndex === 0) {
-                    const isDown: boolean = computeIsDown(commaName)
-                    const comma = computeComma(commaName)
-                    const superComma = isDown ? flipComma(comma) : comma
-
-                    newCommaSections.push({
-                        commaName,
-                        isDown,
-                        comma,
-                        superComma,
-                        sagitype: isDown
-                            ? computeAccidentalSagitype(flipSagittal(parseSagitype(sagitype))!)
-                            : sagitype,
-                    })
-                } else {
-                    const isDown: boolean = computeIsDown(commaName)
-                    const comma = computeComma(commaName)
-                    const superComma = isDown ? flipComma(comma) : comma
-
-                    newCommaSections.push({
-                        commaName,
-                        primaryComma: computePrimaryComma(sagitype),
-                        isDown,
-                        comma,
-                        superComma, // TODO: may not want to keep this here if it's only used in one place and we're going for a minimal representation here
-                        sagitype: isDown ? flipSagitype(sagitype) : sagitype,
-                    })
+                const isDown: boolean = computeIsDown(commaName)
+                const comma = computeComma(commaName)
+                const superComma = isDown ? flipComma(comma) : comma
+                const commaSection: CommaSection = {
+                    commaName,
+                    isDown,
+                    comma,
+                    superComma,
+                    sagitype: isDown ? flipSagitype(sagitype) : sagitype,
                 }
+                if (commaIndex !== 0) commaSection.primaryComma = computePrimaryComma(sagitype)
+
+                newCommaSections.push(commaSection)
             })
         })
 
