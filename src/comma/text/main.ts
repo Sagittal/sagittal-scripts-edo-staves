@@ -66,12 +66,12 @@ const SIMPLEST_NOTATED_DYAD_SPELLINGS: Record<Name<Comma>, Io> = {
 const simplestNotatedDyadRatio = (commaName: Name<Comma>) => SIMPLEST_NOTATED_DYAD_RATIOS[commaName] //"E{{nbhsp}} {{sagittal| b}} -B{{nbhsp}} {{sagittal| (! }}."
 const simplestNotatedDyadSpelling = (commaName: Name<Comma>) => SIMPLEST_NOTATED_DYAD_SPELLINGS[commaName]
 
-const maybeSecondaryRole = (primaryCommaName: Maybe<Name<Comma>>) =>
-    isUndefined(primaryCommaName) ? "" : "(in a secondary role) "
+const maybeSecondaryRole = (primaryComma: Maybe<Comma>) =>
+    isUndefined(primaryComma) ? "" : "(in a secondary role) "
 
 const computeMainText = (
     commaName: Name<Comma>,
-    { comma, isDown, sagitype, primaryCommaName }: CommaSection,
+    { comma, isDown, sagitype, primaryComma }: CommaSection,
 ): Io => {
     const commaLongName = computeCommaName(comma, LONG_COMMA_NAME_OPTIONS)
         .replace(/-/g, " ")
@@ -81,7 +81,7 @@ const computeMainText = (
 
     return (
         `In the [[Sagittal]] system, ${maybeDownwardText}this comma (possibly tempered) ` +
-        `is represented ${maybeSecondaryRole(primaryCommaName)}by the sagittal {{sagittal| ${sagitype} }} ` +
+        `is represented ${maybeSecondaryRole(primaryComma)}by the sagittal {{sagittal| ${sagitype} }} ` +
         `and is called the '''${commaLongName}''', or '''${commaName}''' for short, ` +
         `because the simplest interval it notates is ${simplestNotatedDyadRatio(commaName)}, ` +
         `as for example in ${simplestNotatedDyadSpelling(commaName)}. `

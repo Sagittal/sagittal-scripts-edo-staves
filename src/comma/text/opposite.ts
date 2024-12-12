@@ -5,10 +5,10 @@ import { CommaSection } from "../types"
 
 const computeOppositeText = (
     commaName: Name<Comma>,
-    { comma, sagitype, isDown, primaryCommaName }: CommaSection,
+    { comma, sagitype, isDown, primaryComma }: CommaSection,
 ): Io => {
     const wardText = isDown ? "upward" : "downward"
-    const maybeSecondaryRoleText = isUndefined(primaryCommaName) ? "" : "(in a secondary role) "
+    const maybeSecondaryRoleText = isUndefined(primaryComma) ? "" : "(in a secondary role) "
     const oppositeSagitype = flipSagitype(sagitype)
 
     const oppositeComma = flipComma(comma)

@@ -11,7 +11,7 @@ import {
 import { computeComma } from "./comma"
 import { computeIsDown } from "./down"
 import { flipComma, flipSagitype } from "./flip"
-import { computePrimaryCommaName } from "./primary"
+import { computePrimaryComma } from "./primary"
 import { CommaSection } from "./types"
 
 const COMMA_SECTIONS: Record<Name<Comma>, CommaSection> = Object.values(EDO_NOTATION_DEFINITIONS).reduce(
@@ -52,7 +52,7 @@ const COMMA_SECTIONS: Record<Name<Comma>, CommaSection> = Object.values(EDO_NOTA
 
                     commaSections[commaName] = {
                         // TODO: oh maybe we should just put the commaName on the section here? that would simplify the signatures in the text, which I have a TODO about
-                        primaryCommaName: computePrimaryCommaName(sagitype),
+                        primaryComma: computePrimaryComma(sagitype),
                         isDown,
                         comma,
                         superComma, // TODO: may not want to keep this here if it's only used in one place and we're going for a minimal representation here
