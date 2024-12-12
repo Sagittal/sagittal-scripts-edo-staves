@@ -6,9 +6,9 @@ import { computeMeaningsPathifiableTexts } from "../../../../../src/diagram/svg/
 import { DiagramType, Font, PathifiableTexts } from "../../../../../src/types"
 
 const EXPECTED_REVO_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
-    "5": [],
+    "5": ["a bad-fifth apotome-fraction notation"],
     "6": ["a subset of 12-EDO notation"],
-    "7": [],
+    "7": ["a bad-fifth limma-fraction notation"],
     "8": ["a subset of 24-EDO notation"],
     "9": ["a bad-fifth limma-fraction notation"],
     "10": ["a bad-fifth apotome-fraction notation"],
@@ -724,9 +724,9 @@ const EXPECTED_REVO_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
 } as Record<EdoNotationName, Io[]>
 
 const EXPECTED_EVO_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
-    "5": [],
+    "5": ["a bad-fifth apotome-fraction notation"],
     "6": ["a subset of 12-EDO notation"],
-    "7": [],
+    "7": ["a bad-fifth limma-fraction notation"],
     "8": ["a subset of 24-EDO notation"],
     "9": ["a bad-fifth limma-fraction notation"],
     "10": ["a bad-fifth apotome-fraction notation"],
@@ -987,9 +987,9 @@ const EXPECTED_EVO_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
 } as Record<EdoNotationName, Io[]>
 
 const EXPECTED_EVO_SZ_MEANINGS_TEXTS: Record<EdoNotationName, Io[]> = {
-    "5": [],
+    "5": ["a bad-fifth apotome-fraction notation"],
     "6": ["a subset of 12-EDO notation"],
-    "7": [],
+    "7": ["a bad-fifth limma-fraction notation"],
     "8": ["a subset of 24-EDO notation"],
     "9": ["a bad-fifth limma-fraction notation"],
     "10": ["a bad-fifth apotome-fraction notation"],

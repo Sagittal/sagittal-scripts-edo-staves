@@ -1,6 +1,6 @@
 import { Max, Edo, Filename, Px, deepClone } from "@sagittal/general"
 import { EDO_NOTATION_DEFINITIONS, EdoNotationDefinition, EdoNotationName } from "@sagittal/system"
-import { Font, PathifiableTexts } from "./types"
+import { Font } from "./types"
 
 const BRAVURA_TEXT_SC_FONT_FILE: Filename =
     "./node_modules/staff-code/dist/package/assets/fonts/BravuraTextSC.otf" as Filename
@@ -32,13 +32,6 @@ const MEANINGS_FONT: Font = {
 
 const MEANINGS_FONTS = [deepClone(BRAVURA_TEXT_FONT), deepClone(MEANINGS_FONT)]
 
-const EMPTY_PATHIFIABLE_TEXTS: PathifiableTexts = {
-    fontIndices: [],
-    fonts: [],
-    texts: [],
-    additionalYOffsets: [],
-}
-
 const BRAVURA_Y_OFFSET: Px = -16 as Px
 const MEANINGS_Y_OFFSET: Px = 20 as Px
 
@@ -55,7 +48,6 @@ export {
     BRAVURA_TEXT_SC_FONT_FILE,
     BRAVURA_TEXT_FONT,
     OPEN_SANS_REGULAR_FONT_FILE,
-    EMPTY_PATHIFIABLE_TEXTS,
     BRAVURA_Y_OFFSET,
     MEANINGS_Y_OFFSET,
 }

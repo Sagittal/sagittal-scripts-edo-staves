@@ -1,10 +1,16 @@
 import { deepClone, Index, Io, isEven, isUndefined, Sentence } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
 import { computeInputSentenceUnicode } from "staff-code"
-import { EMPTY_PATHIFIABLE_TEXTS } from "../../../../../constants"
 import { DiagramType, PathifiableTexts } from "../../../../../types"
 import { handleSzForExpressions } from "./evoSz"
 import { PATHIFIABLE_TEXTS_FOR_EXPRESSIONS_BY_EDO_NOTATION_NAME } from "./fromDefinitions"
+
+const EMPTY_PATHIFIABLE_TEXTS: PathifiableTexts = {
+    fontIndices: [],
+    fonts: [],
+    texts: [],
+    additionalYOffsets: [],
+}
 
 const convertBravuraTextsFromCodeToUnicode = (texts: Io[]): void => {
     for (let textsIndex: Index<Io> = 0 as Index<Io>; textsIndex < texts.length; textsIndex++) {

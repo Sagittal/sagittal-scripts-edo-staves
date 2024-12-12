@@ -7,7 +7,7 @@ import {
     isSubsetNotation,
     SectionColor,
 } from "@sagittal/system"
-import { EMPTY_PATHIFIABLE_TEXTS, MEANINGS_FONT, MEANINGS_Y_OFFSET } from "../../../constants"
+import { MEANINGS_FONT, MEANINGS_Y_OFFSET } from "../../../constants"
 import { DiagramType, Font, PathifiableTexts } from "../../../types"
 import {
     computeExpressionsBeyondHalfApotomePathifiableTexts,
@@ -50,26 +50,18 @@ const computeMeaningsPathifiableTexts = ({
     } else {
         const sectionColor: SectionColor | HexColor = computeSectionColor(edoNotationName)
         if (sectionColor === SectionColor.ROSE) {
-            if (edoNotationName === "7") {
-                return EMPTY_PATHIFIABLE_TEXTS
-            } else {
-                return {
-                    fontIndices: [0 as Index<Font>],
-                    fonts: [deepClone(MEANINGS_FONT)],
-                    texts: ["a bad-fifth limma-fraction notation"],
-                    additionalYOffsets: [MEANINGS_Y_OFFSET],
-                }
+            return {
+                fontIndices: [0 as Index<Font>],
+                fonts: [deepClone(MEANINGS_FONT)],
+                texts: ["a bad-fifth limma-fraction notation"],
+                additionalYOffsets: [MEANINGS_Y_OFFSET],
             }
         } else if (sectionColor === SectionColor.GOLD) {
-            if (edoNotationName === "5") {
-                return EMPTY_PATHIFIABLE_TEXTS
-            } else {
-                return {
-                    fontIndices: [0 as Index<Font>],
-                    fonts: [deepClone(MEANINGS_FONT)],
-                    texts: ["a bad-fifth apotome-fraction notation"],
-                    additionalYOffsets: [MEANINGS_Y_OFFSET],
-                }
+            return {
+                fontIndices: [0 as Index<Font>],
+                fonts: [deepClone(MEANINGS_FONT)],
+                texts: ["a bad-fifth apotome-fraction notation"],
+                additionalYOffsets: [MEANINGS_Y_OFFSET],
             }
         } else {
             const expressionsPathifiableTexts: PathifiableTexts = computeExpressionsPathifiableTexts({
