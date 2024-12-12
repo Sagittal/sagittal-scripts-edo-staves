@@ -1,12 +1,9 @@
-import { Comma, Io, isUndefined, Name } from "@sagittal/general"
+import { Io, isUndefined } from "@sagittal/general"
 import { computeCommaName, DirectedNumbers, DirectedWord } from "@sagittal/system"
 import { flipComma, flipSagitype } from "../flip"
 import { CommaSection } from "../types"
 
-const computeOppositeText = (
-    commaName: Name<Comma>,
-    { comma, sagitype, isDown, primaryComma }: CommaSection,
-): Io => {
+const computeOppositeText = ({ comma, commaName, sagitype, isDown, primaryComma }: CommaSection): Io => {
     const wardText = isDown ? "upward" : "downward"
     const maybeSecondaryRoleText = isUndefined(primaryComma) ? "" : "(in a secondary role) "
     const oppositeSagitype = flipSagitype(sagitype)

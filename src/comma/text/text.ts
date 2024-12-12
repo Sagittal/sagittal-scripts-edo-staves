@@ -1,4 +1,4 @@
-import { Comma, Io, Name } from "@sagittal/general"
+import { Io } from "@sagittal/general"
 import { CommaSection } from "../types"
 import { computeMainText } from "./main"
 import { computeMaybeNewCommaText } from "./new"
@@ -7,14 +7,14 @@ import { computePrimaryRoleText } from "./primary"
 import { computeMaybeRareText } from "./rare"
 import { computeUrlText } from "./url"
 
-const convertCommaSectionToText = ([commaName, commaSection]: [Name<Comma>, CommaSection]): Io => {
+const convertCommaSectionToText = (commaSection: CommaSection): Io => {
     const commaSectionText: Io =
         computeUrlText(commaSection) +
-        computeMaybeNewCommaText(commaName, commaSection) + // TODO these signatures should be consistent or nice somehow
-        computeMainText(commaName, commaSection) +
+        computeMaybeNewCommaText(commaSection) +
+        computeMainText(commaSection) +
         computePrimaryRoleText(commaSection) +
-        computeOppositeText(commaName, commaSection) +
-        computeMaybeRareText(commaName)
+        computeOppositeText(commaSection) +
+        computeMaybeRareText(commaSection)
 
     return commaSectionText
 }

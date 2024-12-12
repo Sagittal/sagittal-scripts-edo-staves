@@ -6,7 +6,7 @@ import { LONG_COMMA_NAME_OPTIONS } from "./constants"
 
 const NEW_COMMA_PAGES: Name<Comma>[] = ["35L", "13/7S", "25⋅11/7M"] as Name<Comma>[]
 
-const computeMaybeNewCommaText = (commaName: Name<Comma>, { superComma }: CommaSection): Io => {
+const computeMaybeNewCommaText = ({ commaName, superComma }: CommaSection): Io => {
     if (NEW_COMMA_PAGES.includes(commaName)) {
         // TODO: this should maybe be how it just works, i.e. w/o - and capitalization and proper factorization?
         // perhaps just build this into the existing comma name to -do in @sagittal / system

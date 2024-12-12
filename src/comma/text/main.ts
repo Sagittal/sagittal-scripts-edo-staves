@@ -69,10 +69,7 @@ const simplestNotatedDyadSpelling = (commaName: Name<Comma>) => SIMPLEST_NOTATED
 const maybeSecondaryRole = (primaryComma: Maybe<Comma>) =>
     isUndefined(primaryComma) ? "" : "(in a secondary role) "
 
-const computeMainText = (
-    commaName: Name<Comma>,
-    { comma, isDown, sagitype, primaryComma }: CommaSection,
-): Io => {
+const computeMainText = ({ comma, commaName, isDown, sagitype, primaryComma }: CommaSection): Io => {
     const commaLongName = computeCommaName(comma, LONG_COMMA_NAME_OPTIONS)
         .replace(/-/g, " ")
         .replace(/5²/g, "25")
