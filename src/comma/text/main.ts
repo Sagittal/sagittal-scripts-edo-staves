@@ -2,6 +2,7 @@ import { Comma, Io, isUndefined, Maybe, Name } from "@sagittal/general"
 import { computeCommaName } from "@sagittal/system"
 import { CommaSection } from "../types"
 import { LONG_COMMA_NAME_OPTIONS } from "./constants"
+import { fixFactoring, fixLongName } from "./format"
 
 // TODO: obviously figure out a way to compute these
 const SIMPLEST_NOTATED_DYAD_RATIOS: Record<Name<Comma>, Io> = {
@@ -63,17 +64,14 @@ const SIMPLEST_NOTATED_DYAD_SPELLINGS: Record<Name<Comma>, Io> = {
     "13L": "C-A{{nbhsp}}{{sagittal| (!/ }}",
 } as Record<Name<Comma>, Io>
 
-const simplestNotatedDyadRatio = (commaName: Name<Comma>) => SIMPLEST_NOTATED_DYAD_RATIOS[commaName] //"E{{nbhsp}} {{sagittal| b}} -B{{nbhsp}} {{sagittal| (! }}."
+const simplestNotatedDyadRatio = (commaName: Name<Comma>) => SIMPLEST_NOTATED_DYAD_RATIOS[commaName]
 const simplestNotatedDyadSpelling = (commaName: Name<Comma>) => SIMPLEST_NOTATED_DYAD_SPELLINGS[commaName]
 
 const maybeSecondaryRole = (primaryComma: Maybe<Comma>) =>
     isUndefined(primaryComma) ? "" : "(in a secondary role) "
 
 const computeMainText = ({ comma, commaName, isDown, sagitype, primaryComma }: CommaSection): Io => {
-    const commaLongName = computeCommaName(comma, LONG_COMMA_NAME_OPTIONS)
-        .replace(/-/g, " ")
-        .replace(/5²/g, "25")
-        .toLowerCase() // TODO: dry up with other place
+    const commaLongName = fixLongName(fixFactoring(computeCommaName(comma, LONG_COMMA_NAME_OPTIONS)))
     const maybeDownwardText = isDown ? "the downward version of " : ""
 
     return (
