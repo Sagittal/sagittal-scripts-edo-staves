@@ -40,7 +40,7 @@ const computeFilename = ({
 
     return `${edo}${embedEdoPart(useSecondBestFifth)}${embedDiagramType(diagramType, {
         useUnderscores: true,
-    })}.svg` as Filename
+    })}_Sagittal.svg` as Filename
 }
 
 const computeTitle = ({

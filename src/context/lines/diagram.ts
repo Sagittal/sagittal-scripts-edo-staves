@@ -20,6 +20,6 @@ const computeDiagramLine = ({
 }) =>
     `\n[[File:${edo}${isSecondBestFifthNotation ? `b` : `-EDO`}${
         diagramType === DiagramType.GENERAL ? "" : "_"
-    }${FORMATTED_FLAVOR_NAMES_BY_DIAGRAM_TYPE[diagramType]}.svg]]\n`
+    }${FORMATTED_FLAVOR_NAMES_BY_DIAGRAM_TYPE[diagramType]}_Sagittal.svg]]\n`
 
 export { computeDiagramLine }
