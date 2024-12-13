@@ -18,8 +18,8 @@ const computeDiagramLine = ({
     diagramType: DiagramType
     isSecondBestFifthNotation?: Maybe<boolean>
 }) =>
-    `[[File:${edo}${isSecondBestFifthNotation ? `b` : `-EDO`}${
+    `\n[[File:${edo}${isSecondBestFifthNotation ? `b` : `-EDO`}${
         diagramType === DiagramType.GENERAL ? "" : "_"
-    }${FORMATTED_FLAVOR_NAMES_BY_DIAGRAM_TYPE[diagramType]}.svg]]`
+    }${FORMATTED_FLAVOR_NAMES_BY_DIAGRAM_TYPE[diagramType]}.svg]]\n`
 
 export { computeDiagramLine }
