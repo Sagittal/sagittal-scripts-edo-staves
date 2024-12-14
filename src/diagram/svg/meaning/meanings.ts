@@ -28,7 +28,7 @@ const handleLeadingComma = (pathifiableTexts: PathifiableTexts): PathifiableText
         pathifiableTexts.texts[0] = pathifiableTexts.texts[0].slice(1) // remove the 5; space from the first thing, too
 
         pathifiableTexts.fontIndices.shift()
-        pathifiableTexts.additionalYOffsets.shift()
+        pathifiableTexts.additionalYOffsets!.shift()
     }
 
     return pathifiableTexts

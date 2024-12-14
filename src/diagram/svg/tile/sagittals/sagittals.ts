@@ -1,4 +1,4 @@
-import { Count, Index, Io, Multiplier, Px, Sentence } from "@sagittal/general"
+import { Count, Hyperlink, Index, Io, Maybe, Multiplier, Px, Sentence } from "@sagittal/general"
 import {
     computeSagitypes,
     EDO_NOTATION_DEFINITIONS,
@@ -98,6 +98,7 @@ const addSagittals = async (
                     fonts,
                     fontIndices,
                     additionalYOffsets,
+                    hyperlinks: texts.map((text: Io): Maybe<Hyperlink> => undefined),
                 })
 
                 const sagittalsWidth: Px = getGroupWidth(sagittalTileRowGroupElement)

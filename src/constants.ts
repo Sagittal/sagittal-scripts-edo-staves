@@ -1,4 +1,4 @@
-import { Max, Edo, Filename, Px, deepClone } from "@sagittal/general"
+import { Max, Edo, Filename, Px, deepClone, Hyperlink } from "@sagittal/general"
 import { EDO_NOTATION_DEFINITIONS, EdoNotationDefinition, EdoNotationName } from "@sagittal/system"
 import { Font } from "./types"
 
@@ -35,6 +35,9 @@ const MEANINGS_FONTS = [deepClone(BRAVURA_TEXT_FONT), deepClone(MEANINGS_FONT)]
 const BRAVURA_Y_OFFSET: Px = -16 as Px
 const MEANINGS_Y_OFFSET: Px = 20 as Px
 
+const XEN_WIKI_BASE_URL: Hyperlink = "https://en.xen.wiki/w/" as Hyperlink
+const FRACTIONAL_3_LIMIT_NOTATION_PAGE = "Fractional_3-limit_notation"
+
 export {
     MAX_PERIODIC_TABLE_EDO,
     EDO_NOTATION_DEFINITIONS_ENTRIES,
@@ -50,4 +53,6 @@ export {
     OPEN_SANS_REGULAR_FONT_FILE,
     BRAVURA_Y_OFFSET,
     MEANINGS_Y_OFFSET,
+    XEN_WIKI_BASE_URL,
+    FRACTIONAL_3_LIMIT_NOTATION_PAGE,
 }

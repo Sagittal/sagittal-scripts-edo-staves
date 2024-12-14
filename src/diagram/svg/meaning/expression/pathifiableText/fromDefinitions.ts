@@ -4,7 +4,7 @@ import { EDO_NOTATION_DEFINITIONS_ENTRIES } from "../../../../../constants"
 import { PathifiableTexts } from "../../../../../types"
 import { computeMaybeExpression } from "../maybe"
 import { Expression } from "../types"
-import { convertToPathifiableTexts } from "./convert"
+import { convertExpressionsToPathifiableTexts } from "./convert"
 
 const computePathifiableTextsForExpressionsByEdoNotationNameFromEdoNotationDefinitions = (): Record<
     EdoNotationName,
@@ -34,7 +34,7 @@ const computePathifiableTextsForExpressionsByEdoNotationNameFromEdoNotationDefin
             {} as Record<EdoNotationName, Expression[]>,
         )
 
-    return convertToPathifiableTexts(expressionsByEdoNotationName)
+    return convertExpressionsToPathifiableTexts(expressionsByEdoNotationName)
 }
 
 const PATHIFIABLE_TEXTS_FOR_EXPRESSIONS_BY_EDO_NOTATION_NAME: Record<EdoNotationName, PathifiableTexts> =

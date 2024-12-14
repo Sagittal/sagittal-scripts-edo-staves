@@ -47,7 +47,6 @@ const computeRevoExpressionsBeyondHalfApotomePathifiableTexts = (
         return {
             fonts: [],
             fontIndices: [],
-            additionalYOffsets: [],
             texts: [],
         }
 
@@ -101,7 +100,6 @@ const computeEvoExpressionsBeyondHalfApotomePathifiableTexts = (
         return {
             fonts: [],
             fontIndices: [],
-            additionalYOffsets: [],
             texts: [],
         }
 

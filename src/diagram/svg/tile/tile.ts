@@ -1,7 +1,8 @@
-import { Count, Multiplier, Px } from "@sagittal/general"
+import { Count, Hyperlink, Multiplier, Px } from "@sagittal/general"
 import { EdoNotationName } from "@sagittal/system"
 import { Document } from "@xmldom/xmldom"
 import { DiagramType } from "../../../types"
+import { wrapInAnchor } from "../anchor"
 import { append } from "../append"
 import { SVG_NS, TILE_SIZE } from "../constants"
 import { roundAllTranslations } from "../shift"
@@ -60,7 +61,13 @@ const addTileItselfAndGetSize = async (
     const tileRowCountMultiplier: Multiplier<Count<TileRow>> = computeTileRowCountMultiplier(tileRowCount)
     setTransform(tileGroupElement, { scale: tileRowCountMultiplier })
 
-    tileWrapperGroupElement.appendChild(tileGroupElement)
+    const anchorElement = wrapInAnchor(
+        tileGroupElement,
+        "https://sagittal.org/Periodic%20table%20of%20small%20EDOs.png" as Hyperlink,
+        { svgDocument },
+    )
+
+    tileWrapperGroupElement.appendChild(anchorElement)
 
     return (TILE_SIZE * tileRowCountMultiplier) as Px
 }
@@ -92,7 +99,6 @@ const addTileAndGetSize = async (
     await addSteps(svgDocument, {
         tileWrapperGroupElement,
         edoNotationName,
-        diagramType,
         tileSize,
     })
 

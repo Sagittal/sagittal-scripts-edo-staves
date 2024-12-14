@@ -1,4 +1,5 @@
 import { Edo, Io, Maybe } from "@sagittal/general"
+import { FRACTIONAL_3_LIMIT_NOTATION_PAGE } from "../../constants"
 import { DiagramType } from "../../types"
 
 const FORMATTED_FLAVOR_NAMES_BY_DIAGRAM_TYPE: Record<DiagramType, Maybe<Io>> = {
@@ -28,7 +29,7 @@ const computeDiagramLines = ({
         fileLink,
         "desc none",
         "rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]",
-        "rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]",
+        `rect 20 80 300 106 [[${FRACTIONAL_3_LIMIT_NOTATION_PAGE}#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]`,
         `default ${fileLink}`,
         "</imagemap>",
         "",

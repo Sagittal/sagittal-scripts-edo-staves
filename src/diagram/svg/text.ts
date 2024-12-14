@@ -9,9 +9,12 @@ import {
     max,
     Maybe,
     Multiplier,
+    Hyperlink,
+    isUndefined,
 } from "@sagittal/general"
 import { Element, Document } from "@xmldom/xmldom"
 import { Font } from "../../types"
+import { wrapInAnchor } from "./anchor"
 import { SVG_NS } from "./constants"
 import { getSvgDocumentFromString } from "./document"
 import { furtherTransform, setTransform } from "./transform"
@@ -40,18 +43,25 @@ const computeYTranslation = ({
     return (additionalYOffset + fontSizeBasedAutomaticYOffset) as Px
 }
 
+const maybeGetProp = <T>(prop: Maybe<T[]>, textsIndex: Index<T>) =>
+    isUndefined(prop) ? undefined : prop.length > textsIndex ? prop[textsIndex] : undefined
+
 const textsToSvgGroupElement = async ({
     svgDocument,
     texts,
     fonts,
     fontIndices,
     additionalYOffsets,
+    hyperlinks,
+    colors,
 }: {
     svgDocument: Document
     texts: Io[]
     fonts: Font[]
     fontIndices: Index<Font>[]
     additionalYOffsets?: Px[]
+    hyperlinks?: Maybe<Hyperlink>[]
+    colors?: Maybe<HexColor>[]
 }): Promise<NodeElement<SVGGElement>> => {
     let textsWidth = 0 as Px
     const maxFontSize: Max<Px> = max(...fonts.map(({ fontSize }: Font): Px => fontSize))
@@ -63,9 +73,13 @@ const textsToSvgGroupElement = async ({
             textsIndex: number,
         ): Promise<NodeElement<SVGGElement>> => {
             const fontIndex: Index<Font> = fontIndices[textsIndex]
+            const hyperlink: Maybe<Hyperlink> = maybeGetProp(hyperlinks, textsIndex as Index<Hyperlink>)
             const font: Font = fonts[fontIndex]
+            const color: Maybe<HexColor> = maybeGetProp(colors, textsIndex as Index<HexColor>)
+
             const textsGroupElement: NodeElement<SVGGElement> = await textsGroupElementPromise
             const textGroupElement: NodeElement<SVGGElement> = await textToSvgGroupElement(text, font)
+            if (!isUndefined(color)) textGroupElement.setAttribute("fill", color)
 
             const yTranslation: Px = computeYTranslation({
                 additionalYOffsets,
@@ -83,7 +97,12 @@ const textsToSvgGroupElement = async ({
             })
             textsWidth = (textsWidth + textWidth) as Px
 
-            textsGroupElement.appendChild(textGroupElement)
+            if (isUndefined(hyperlink)) {
+                textsGroupElement.appendChild(textGroupElement)
+            } else {
+                const anchorElement = wrapInAnchor(textGroupElement, hyperlink, { svgDocument })
+                textsGroupElement.appendChild(anchorElement)
+            }
 
             return textsGroupElement
         },
@@ -106,6 +125,13 @@ const textToSvgGroupElement = async (text: Io, font: Font): Promise<NodeElement<
     return svgDocument.getElementsByTagName("g")[0] as NodeElement<SVGGElement>
 }
 
+const justify = (x: Px, width: Px, justification: Justification): Px =>
+    justification === Justification.RIGHT
+        ? ((x - width) as Px)
+        : justification === Justification.CENTER
+          ? ((x - width / 2) as Px)
+          : x
+
 const addText = async (
     parentElement: Element,
     text: Io,
@@ -116,6 +142,8 @@ const addText = async (
         yOffset = 0 as Px,
         color = "#000000" as HexColor,
         justification = Justification.LEFT,
+        hyperlink,
+        svgDocument,
     }: {
         fontFile: Filename
         fontSize: Px
@@ -123,6 +151,8 @@ const addText = async (
         yOffset?: Px
         color?: HexColor
         justification?: Justification
+        hyperlink?: Hyperlink
+        svgDocument?: Document
     },
 ): Promise<NodeElement<SVGGElement>> => {
     const textGroupElement: NodeElement<SVGGElement> = await textToSvgGroupElement(text, {
@@ -132,22 +162,27 @@ const addText = async (
     textGroupElement.setAttribute("fill", color)
 
     const groupWidth: Px = getGroupWidth(textGroupElement)
-
-    const xTranslation: Px =
-        justification === Justification.RIGHT
-            ? ((xOffset - groupWidth) as Px)
-            : justification === Justification.CENTER
-              ? ((xOffset - groupWidth / 2) as Px)
-              : xOffset
-
+    const xTranslation: Px = justify(xOffset, groupWidth, justification)
     setTransform(textGroupElement, {
         xTranslation,
         yTranslation: yOffset,
     })
 
-    parentElement.appendChild(textGroupElement)
+    if (isUndefined(hyperlink)) {
+        parentElement.appendChild(textGroupElement)
 
-    return textGroupElement
+        return textGroupElement
+    } else {
+        if (isUndefined(svgDocument)) throw new Error("svgDocument is required when hyperlink is provided")
+
+        const anchorElement: NodeElement<SVGAElement> = wrapInAnchor(textGroupElement, hyperlink, {
+            svgDocument,
+        })
+
+        parentElement.appendChild(anchorElement)
+
+        return anchorElement
+    }
 }
 
-export { addText, textToSvgGroupElement, textToSvgDocument, textsToSvgGroupElement }
+export { addText, textToSvgGroupElement, textToSvgDocument, textsToSvgGroupElement, justify }

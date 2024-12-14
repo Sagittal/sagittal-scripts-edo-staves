@@ -1,4 +1,4 @@
-import { Filename, Index, Io, Px } from "@sagittal/general"
+import { Filename, HexColor, Hyperlink, Index, Io, Maybe, Px } from "@sagittal/general"
 
 // ordered according to the order they should appear on the Xen wiki page
 enum DiagramType {
@@ -27,7 +27,9 @@ interface PathifiableTexts {
     texts: Io[]
     fonts: Font[]
     fontIndices: Index<Font>[]
-    additionalYOffsets: Px[]
+    additionalYOffsets?: Px[]
+    hyperlinks?: Maybe<Hyperlink>[]
+    colors?: HexColor[]
 }
 
 export { DiagramType, DifferenceCase, Font, PathifiableTexts }

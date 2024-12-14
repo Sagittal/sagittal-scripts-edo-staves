@@ -7,7 +7,6 @@ import {
     parseEdoNotationName,
 } from "@sagittal/system"
 import { Document } from "@xmldom/xmldom"
-import { DiagramType } from "../../../../types"
 import { NodeElement } from "../../types"
 import { addFifth } from "./fifth"
 import { addLimma } from "./limma"
@@ -19,12 +18,10 @@ const addSteps = async (
     {
         edoNotationName,
         tileWrapperGroupElement,
-        diagramType,
         tileSize,
     }: {
         edoNotationName: EdoNotationName
         tileWrapperGroupElement: NodeElement<SVGGElement>
-        diagramType: DiagramType
         tileSize: Px
     },
 ): Promise<void> => {
@@ -36,15 +33,18 @@ const addSteps = async (
     await addFifth(tileWrapperGroupElement, {
         fifthStep,
         tileSize,
+        svgDocument,
     })
     await addWholeTone(tileWrapperGroupElement, {
         fifthStep,
         tileSize,
+        svgDocument,
         edo,
     })
     await addLimma(tileWrapperGroupElement, {
         fifthStep,
         tileSize,
+        svgDocument,
         edo,
     })
     await addSharp(tileWrapperGroupElement, {
@@ -52,7 +52,6 @@ const addSteps = async (
         tileSize,
         edo,
         svgDocument,
-        diagramType,
     })
 }
 
