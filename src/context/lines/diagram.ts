@@ -19,9 +19,9 @@ const computeDiagramLines = ({
     diagramType: DiagramType
     isSecondBestFifthNotation?: Maybe<boolean>
 }): Maybe<Io>[] => {
-    const fileLink = `[[File:${edo}${isSecondBestFifthNotation ? `b` : `-EDO`}${
+    const fileLink = `File:${edo}${isSecondBestFifthNotation ? `b` : `-EDO`}${
         diagramType === DiagramType.GENERAL ? "" : "_"
-    }${FORMATTED_FLAVOR_NAMES_BY_DIAGRAM_TYPE[diagramType]}_Sagittal.svg]]`
+    }${FORMATTED_FLAVOR_NAMES_BY_DIAGRAM_TYPE[diagramType]}_Sagittal.svg`
 
     return [
         "",
@@ -30,7 +30,7 @@ const computeDiagramLines = ({
         "desc none",
         "rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]",
         `rect 20 80 300 106 [[${FRACTIONAL_3_LIMIT_NOTATION_PAGE}#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]`,
-        `default ${fileLink}`,
+        `default [[${fileLink}]]`,
         "</imagemap>",
         "",
     ]
