@@ -1,7 +1,13 @@
 ===Sagittal notation===
 This notation is a subset of the notations for EDOs [[10edo#Sagittal notation|10]], [[15edo#Sagittal notation|15]], [[20edo#Sagittal notation|20]], [[25edo#Sagittal notation|25]], [[30edo#Sagittal notation|30]], and [[35edo#Sagittal notation|35b]].
 
+<imagemap>
 [[File:5-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:5-EDO_Sagittal.svg]]
+</imagemap>
 
 Because it includes no Sagittal symbols, this Sagittal notation is also a conventional notation.
 
@@ -9,18 +15,36 @@ Because it includes no Sagittal symbols, this Sagittal notation is also a conven
 This notation is a subset of the notations for EDOs [[12edo#Sagittal notation|12]], [[18edo#Sagittal notation|18]], [[24edo#Sagittal notation|24]], [[36edo#Sagittal notation|36]], [[48edo#Sagittal notation|48]], [[60edo#Sagittal notation|60]], [[72edo#Sagittal notation|72]], and [[84edo#Sagittal notation|84]].
 ====Evo flavor====
 
+<imagemap>
 [[File:6-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:6-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
 ====Revo flavor====
 
+<imagemap>
 [[File:6-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:6-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation is a subset of the notations for EDOs [[14edo#Sagittal notation|14]], [[21edo#Sagittal notation|21]], [[28edo#Sagittal notation|28]], [[35edo#Sagittal notation|35]], and [[42edo#Sagittal notation|42b]].
 
+<imagemap>
 [[File:7-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:7-EDO_Sagittal.svg]]
+</imagemap>
 
 Because it includes no Sagittal symbols, this Sagittal notation is also a conventional notation.
 
@@ -28,32 +52,68 @@ Because it includes no Sagittal symbols, this Sagittal notation is also a conven
 This notation is a subset of the notations for EDOs [[24edo#Sagittal notation|24]], [[48edo#Sagittal notation|48]], and [[72edo#Sagittal notation|72]].
 ====Evo flavor====
 
+<imagemap>
 [[File:8-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:8-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:8-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:8-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:8-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:8-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as [[14edo#Sagittal notation|14-EDO]].
 
+<imagemap>
 [[File:9-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:9-EDO_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation is a subset of the notations for EDOs [[20edo#Sagittal notation|20]] and [[30edo#Sagittal notation|30]] and a superset of the notation for [[5edo#Sagittal notation|5-EDO]].
 
+<imagemap>
 [[File:10-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:10-EDO_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:10-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:10-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
@@ -61,67 +121,139 @@ Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a
 This notation is a subset of the notations for EDOs [[22edo#Sagittal notation|22]], [[44edo#Sagittal notation|44]], and [[66edo#Sagittal notation|66]].
 ====Evo flavor====
 
+<imagemap>
 [[File:11-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:11-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:11-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:11-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation is a subset of the notations for EDOs [[24edo#Sagittal notation|24]], [[36edo#Sagittal notation|36]], [[48edo#Sagittal notation|48]], [[60edo#Sagittal notation|60]], [[72edo#Sagittal notation|72]], and [[84edo#Sagittal notation|84]] and a superset of the notation for [[6edo#Sagittal notation|6-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:12-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:12-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
 ====Revo flavor====
 
+<imagemap>
 [[File:12-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:12-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation is a subset of the notations for EDOs [[26edo#Sagittal notation|26]] and [[52edo#Sagittal notation|52]].
 ====Evo flavor====
 
+<imagemap>
 [[File:13-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:13-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
 ====Revo flavor====
 
+<imagemap>
 [[File:13-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:13-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as [[9edo#Sagittal notation|9-EDO]], is a subset of the notations for EDOs [[28edo#Sagittal notation|28]] and [[42edo#Sagittal notation|42b]], and is a superset of the notation for [[7edo#Sagittal notation|7-EDO]].
 
+<imagemap>
 [[File:14-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:14-EDO_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as EDOs [[22edo#Sagittal notation|22]] and [[29edo#Sagittal notation|29]], is a subset of the notation for [[30edo#Sagittal notation|30-EDO]], and is a superset of the notation for [[5edo#Sagittal notation|5-EDO]].
 
+<imagemap>
 [[File:15-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:15-EDO_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as [[21edo#Sagittal notation|21-EDO]].
 
+<imagemap>
 [[File:16-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:16-EDO_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as EDOs [[24edo#Sagittal notation|24]], [[31edo#Sagittal notation|31]], and [[38edo#Sagittal notation|38]], and is a subset of the notation for [[34edo#Sagittal notation|34-EDO]].
 
+<imagemap>
 [[File:17-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:17-EDO_Sagittal.svg]]
+</imagemap>
 
 ====Alternate Evo flavor====
 
+<imagemap>
 [[File:17-EDO_Alternative_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:17-EDO_Alternative_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:17-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:17-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
@@ -129,96 +261,198 @@ Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a
 This notation is a subset of the notations for EDOs [[36edo#Sagittal notation|36]] and [[72edo#Sagittal notation|72]] and a superset of the notation for [[6edo#Sagittal notation|6-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:18-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:18-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:18-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:18-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation is a subset of the notations for EDOs [[38edo#Sagittal notation|38]], [[57edo#Sagittal notation|57]], and [[76edo#Sagittal notation|76]].
 ====Evo flavor====
 
+<imagemap>
 [[File:19-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:19-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
 ====Revo flavor====
 
+<imagemap>
 [[File:19-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:19-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation is a superset of the notations for EDOs [[10edo#Sagittal notation|10]] and [[5edo#Sagittal notation|5]].
 
+<imagemap>
 [[File:20-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:20-EDO_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:20-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:20-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as [[16edo#Sagittal notation|16-EDO]], is a subset of the notation for [[42edo#Sagittal notation|42b]], and is a superset of the notation for [[7edo#Sagittal notation|7-EDO]].
 
+<imagemap>
 [[File:21-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:21-EDO_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as EDOs [[15edo#Sagittal notation|15]] and [[29edo#Sagittal notation|29]], is a subset of the notations for EDOs [[44edo#Sagittal notation|44]] and [[66edo#Sagittal notation|66]], and is a superset of the notation for [[11edo#Sagittal notation|11-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:22-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:22-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:22-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:22-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 ====Best fifth notation====
 This notation uses the same sagittal sequence as EDOs [[28edo#Sagittal notation|28]] and [[33edo#Sagittal notation|33]].
 
+<imagemap>
 [[File:23-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:23-EDO_Sagittal.svg]]
+</imagemap>
 
 ====Second best fifth notation====
 This notation uses the same sagittal sequence as EDOs [[30edo#Sagittal notation|30]], [[37edo#Sagittal notation|37]], and [[44edo#Sagittal notation|44]].
 
+<imagemap>
 [[File:23b_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:23b_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as EDOs [[17edo#Sagittal notation|17]], [[31edo#Sagittal notation|31]], and [[38edo#Sagittal notation|38]], is a subset of the notations for EDOs [[48edo#Sagittal notation|48]] and [[72edo#Sagittal notation|72]], and is a superset of the notations for EDOs [[12edo#Sagittal notation|12]], [[8edo#Sagittal notation|8]], and [[6edo#Sagittal notation|6]].
 ====Evo flavor====
 
+<imagemap>
 [[File:24-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:24-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:24-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:24-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:24-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:24-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as [[32edo#Sagittal notation|32-EDO]], and is a superset of the notation for [[5edo#Sagittal notation|5-EDO]].
 
+<imagemap>
 [[File:25-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:25-EDO_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation is a subset of the notation for [[52edo#Sagittal notation|52-EDO]] and a superset of the notation for [[13edo#Sagittal notation|13-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:26-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:26-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
 ====Revo flavor====
 
+<imagemap>
 [[File:26-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:26-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -226,63 +460,135 @@ In the following diagrams, a sagittal symbol followed by an equals sign (=) mean
 
 This notation is a subset of the notation for [[54edo#Sagittal notation|54-EDO]].
 
+<imagemap>
 [[File:27-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:27-EDO_Sagittal.svg]]
+</imagemap>
 
 ====Alternate Evo flavor====
 
+<imagemap>
 [[File:27-EDO_Alternative_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:27-EDO_Alternative_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:27-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:27-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|23]] and [[33edo#Sagittal notation|33]], and is a superset of the notations for EDOs [[14edo#Sagittal notation|14]] and [[7edo#Sagittal notation|7]].
 
+<imagemap>
 [[File:28-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:28-EDO_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as EDOs [[15edo#Sagittal notation|15]] and [[22edo#Sagittal notation|22]].
 ====Evo flavor====
 
+<imagemap>
 [[File:29-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:29-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:29-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:29-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 ====Best fifth notation====
 This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|23b]], [[37edo#Sagittal notation|37]], and [[44edo#Sagittal notation|44]], and is a superset of the notations for EDOs [[15edo#Sagittal notation|15]], [[10edo#Sagittal notation|10]], and [[5edo#Sagittal notation|5]].
 
+<imagemap>
 [[File:30-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:30-EDO_Sagittal.svg]]
+</imagemap>
 
 =====Evo-SZ flavor=====
 
+<imagemap>
 [[File:30-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:30-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 ====Second best fifth notation====
 This notation uses the same sagittal sequence as EDOs [[35edo#Sagittal notation|35]] and [[40edo#Sagittal notation|40]].
 
+<imagemap>
 [[File:30b_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:30b_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as EDOs [[17edo#Sagittal notation|17]], [[24edo#Sagittal notation|24]], and [[38edo#Sagittal notation|38]], and is a subset of the notation for [[62edo#Sagittal notation|62-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:31-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:31-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:31-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:31-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:31-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:31-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
@@ -290,84 +596,180 @@ Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a
 This notation uses the same sagittal sequence as [[25edo#Sagittal notation|25-EDO]], and is a subset of the notation for [[64edo#Sagittal notation|64b]].
 ====Evo flavor====
 
+<imagemap>
 [[File:32-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:32-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:32-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:32-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|23]] and [[28edo#Sagittal notation|28]].
 
+<imagemap>
 [[File:33-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:33-EDO_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as [[41edo#Sagittal notation|41-EDO]], and is a superset of the notation for [[17edo#Sagittal notation|17-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:34-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:34-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:34-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:34-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:34-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:34-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 ====Best fifth notation====
 This notation uses the same sagittal sequence as EDOs [[30edo#Sagittal notation|30b]] and [[40edo#Sagittal notation|40]], and is a superset of the notation for [[7edo#Sagittal notation|7-EDO]].
 
+<imagemap>
 [[File:35-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:35-EDO_Sagittal.svg]]
+</imagemap>
 
 ====Second best fifth notation====
 This notation uses the same sagittal sequence as [[42edo#Sagittal notation|42-EDO]], and is a superset of the notation for [[5edo#Sagittal notation|5-EDO]].
 
+<imagemap>
 [[File:35b_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:35b_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as [[43edo#Sagittal notation|43-EDO]], is a subset of the notation for [[72edo#Sagittal notation|72-EDO]], and is a superset of the notations for EDOs [[18edo#Sagittal notation|18]], [[12edo#Sagittal notation|12]], and [[6edo#Sagittal notation|6]].
 ====Evo flavor====
 
+<imagemap>
 [[File:36-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:36-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:36-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:36-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|23b]], [[30edo#Sagittal notation|30]], and [[44edo#Sagittal notation|44]].
 
+<imagemap>
 [[File:37-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:37-EDO_Sagittal.svg]]
+</imagemap>
 
 ====Alternate Evo flavor====
 
+<imagemap>
 [[File:37-EDO_Alternative_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:37-EDO_Alternative_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:37-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:37-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as EDOs [[17edo#Sagittal notation|17]], [[24edo#Sagittal notation|24]], and [[31edo#Sagittal notation|31]], is a subset of the notation for [[76edo#Sagittal notation|76-EDO]], and is a superset of the notation for [[19edo#Sagittal notation|19-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:38-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:38-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:38-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:38-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:38-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:38-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
@@ -375,32 +777,68 @@ Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a
 This notation uses the same sagittal sequence as [[46edo#Sagittal notation|46-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:39-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:39-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:39-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:39-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as EDOs [[30edo#Sagittal notation|30b]] and [[35edo#Sagittal notation|35]].
 
+<imagemap>
 [[File:40-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:40-EDO_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as [[34edo#Sagittal notation|34-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:41-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:41-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:41-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:41-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:41-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:41-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -408,27 +846,57 @@ This notation uses the same sagittal sequence as [[34edo#Sagittal notation|34-ED
 This notation uses the same sagittal sequence as [[35edo#Sagittal notation|35b]].
 =====Evo flavor=====
 
+<imagemap>
 [[File:42-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:42-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 =====Revo flavor=====
 
+<imagemap>
 [[File:42-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:42-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Second best fifth notation====
 This notation uses the same sagittal sequence as [[47edo#Sagittal notation|47-EDO]], and is a superset of the notations for EDOs [[21edo#Sagittal notation|21]], [[14edo#Sagittal notation|14]], and [[7edo#Sagittal notation|7]].
 
+<imagemap>
 [[File:42b_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:42b_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as [[36edo#Sagittal notation|36-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:43-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:43-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:43-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:43-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -437,15 +905,33 @@ In the following diagrams, a sagittal symbol followed by an equals sign (=) mean
 This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|23b]], [[30edo#Sagittal notation|30]], and [[37edo#Sagittal notation|37]], and is a superset of the notations for EDOs [[22edo#Sagittal notation|22]] and [[11edo#Sagittal notation|11]].
 ====Evo flavor====
 
+<imagemap>
 [[File:44-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:44-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:44-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:44-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:44-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:44-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -454,15 +940,33 @@ In the following diagrams, a sagittal symbol followed by an equals sign (=) mean
 This notation uses the same sagittal sequence as EDOs [[52edo#Sagittal notation|52]] and [[59edo#Sagittal notation|59b]].
 ====Evo flavor====
 
+<imagemap>
 [[File:45-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:45-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:45-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:45-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:45-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:45-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
@@ -470,55 +974,121 @@ Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a
 This notation uses the same sagittal sequence as [[39edo#Sagittal notation|39-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:46-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:46-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:46-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:46-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 ====Best fifth notation====
 This notation uses the same sagittal sequence as [[42edo#Sagittal notation|42b]].
 
+<imagemap>
 [[File:47-EDO_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:47-EDO_Sagittal.svg]]
+</imagemap>
 
 ====Second best fifth notation====
 
+<imagemap>
 [[File:47b_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:47b_Sagittal.svg]]
+</imagemap>
 
 =====Alternate Evo flavor=====
 
+<imagemap>
 [[File:47b_Alternative_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:47b_Alternative_Evo_Sagittal.svg]]
+</imagemap>
 
 =====Evo-SZ flavor=====
 
+<imagemap>
 [[File:47b_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:47b_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation is a superset of the notations for EDOs [[24edo#Sagittal notation|24]], [[12edo#Sagittal notation|12]], [[8edo#Sagittal notation|8]], and [[6edo#Sagittal notation|6]].
 ====Evo flavor====
 
+<imagemap>
 [[File:48-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:48-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:48-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:48-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:48-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:48-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 ====Evo flavor====
 
+<imagemap>
 [[File:49-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:49-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:49-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:49-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -527,41 +1097,89 @@ In the following diagrams, a sagittal symbol followed by an equals sign (=) mean
 This notation uses the same sagittal sequence as EDOs [[57edo#Sagittal notation|57]], [[64edo#Sagittal notation|64]], and [[71edo#Sagittal notation|71b]].
 ====Evo flavor====
 
+<imagemap>
 [[File:50-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:50-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:50-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:50-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 ====Evo flavor====
 
+<imagemap>
 [[File:51-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:51-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:51-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:51-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:51-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:51-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as EDOs [[45edo#Sagittal notation|45]] and [[59edo#Sagittal notation|59b]], and is a superset of the notations for EDOs [[26edo#Sagittal notation|26]] and [[13edo#Sagittal notation|13]].
 ====Evo flavor====
 
+<imagemap>
 [[File:52-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:52-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:52-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:52-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:52-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:52-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
@@ -569,11 +1187,23 @@ Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a
 In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 ====Evo flavor====
 
+<imagemap>
 [[File:53-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:53-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:53-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:53-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -582,40 +1212,88 @@ In the following diagrams, a sagittal symbol followed by an equals sign (=) mean
 This notation uses the same sagittal sequence as [[61edo#Sagittal notation|61-EDO]], and is a superset of the notation for [[27edo#Sagittal notation|27-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:54-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:54-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:54-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:54-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:54-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:54-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 ====Evo flavor====
 
+<imagemap>
 [[File:55-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:55-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:55-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:55-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:55-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:55-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as [[63edo#Sagittal notation|63-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:56-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:56-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:56-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:56-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -624,25 +1302,55 @@ In the following diagrams, a sagittal symbol followed by an equals sign (=) mean
 This notation uses the same sagittal sequence as EDOs [[50edo#Sagittal notation|50]], [[64edo#Sagittal notation|64]], and [[71edo#Sagittal notation|71b]], and is a superset of the notation for [[19edo#Sagittal notation|19-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:57-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:57-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:57-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:57-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 ====Evo flavor====
 
+<imagemap>
 [[File:58-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:58-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:58-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:58-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:58-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:58-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -651,25 +1359,55 @@ In the following diagrams, a sagittal symbol followed by an equals sign (=) mean
 This notation uses the same sagittal sequence as [[66edo#Sagittal notation|66-EDO]].
 =====Evo flavor=====
 
+<imagemap>
 [[File:59-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:59-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 =====Revo flavor=====
 
+<imagemap>
 [[File:59-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:59-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Second best fifth notation====
 This notation uses the same sagittal sequence as EDOs [[45edo#Sagittal notation|45]] and [[52edo#Sagittal notation|52]].
 =====Evo flavor=====
 
+<imagemap>
 [[File:59b_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:59b_Evo_Sagittal.svg]]
+</imagemap>
 
 =====Revo flavor=====
 
+<imagemap>
 [[File:59b_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:59b_Revo_Sagittal.svg]]
+</imagemap>
 
 =====Evo-SZ flavor=====
 
+<imagemap>
 [[File:59b_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:59b_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
 
@@ -677,11 +1415,23 @@ Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a
 This notation is a superset of the notations for EDOs [[12edo#Sagittal notation|12]] and [[6edo#Sagittal notation|6]].
 ====Evo flavor====
 
+<imagemap>
 [[File:60-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:60-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:60-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:60-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -690,15 +1440,33 @@ In the following diagrams, a sagittal symbol followed by an equals sign (=) mean
 This notation uses the same sagittal sequence as [[54edo#Sagittal notation|54-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:61-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:61-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:61-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:61-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:61-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:61-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -707,26 +1475,56 @@ In the following diagrams, a sagittal symbol followed by an equals sign (=) mean
 This notation uses the same sagittal sequence as EDOs [[69edo#Sagittal notation|69]] and [[76edo#Sagittal notation|76]], and is a superset of the notation for [[31edo#Sagittal notation|31-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:62-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:62-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:62-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:62-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:62-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:62-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as [[56edo#Sagittal notation|56-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:63-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:63-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:63-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:63-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -735,40 +1533,88 @@ In the following diagrams, a sagittal symbol followed by an equals sign (=) mean
 This notation uses the same sagittal sequence as EDOs [[50edo#Sagittal notation|50]], [[57edo#Sagittal notation|57]], and [[71edo#Sagittal notation|71b]].
 =====Evo flavor=====
 
+<imagemap>
 [[File:64-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:64-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 =====Revo flavor=====
 
+<imagemap>
 [[File:64-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:64-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Second best fifth notation====
 This notation is a superset of the notation for [[32edo#Sagittal notation|32-EDO]].
 =====Evo flavor=====
 
+<imagemap>
 [[File:64b_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:64b_Evo_Sagittal.svg]]
+</imagemap>
 
 =====Revo flavor=====
 
+<imagemap>
 [[File:64b_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:64b_Revo_Sagittal.svg]]
+</imagemap>
 
 =====Evo-SZ flavor=====
 
+<imagemap>
 [[File:64b_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:64b_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as EDOs [[72edo#Sagittal notation|72]] and [[79edo#Sagittal notation|79]].
 ====Evo flavor====
 
+<imagemap>
 [[File:65-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:65-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:65-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:65-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:65-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:65-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -777,22 +1623,46 @@ In the following diagrams, a sagittal symbol followed by an equals sign (=) mean
 This notation uses the same sagittal sequence as [[59edo#Sagittal notation|59-EDO]], and is a superset of the notations for EDOs [[22edo#Sagittal notation|22]] and [[11edo#Sagittal notation|11]].
 ====Evo flavor====
 
+<imagemap>
 [[File:66-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:66-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:66-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:66-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 ====Evo flavor====
 
+<imagemap>
 [[File:67-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:67-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:67-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:67-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -801,15 +1671,33 @@ In the following diagrams, a sagittal symbol followed by an equals sign (=) mean
 This notation uses the same sagittal sequence as [[75edo#Sagittal notation|75-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:68-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:68-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:68-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:68-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:68-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:68-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -818,25 +1706,55 @@ In the following diagrams, a sagittal symbol followed by an equals sign (=) mean
 This notation uses the same sagittal sequence as EDOs [[62edo#Sagittal notation|62]] and [[76edo#Sagittal notation|76]].
 ====Evo flavor====
 
+<imagemap>
 [[File:69-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:69-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:69-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:69-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:69-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:69-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 ====Evo flavor====
 
+<imagemap>
 [[File:70-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:70-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:70-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:70-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -844,62 +1762,134 @@ In the following diagrams, a sagittal symbol followed by an equals sign (=) mean
 ====Best fifth notation====
 =====Evo flavor=====
 
+<imagemap>
 [[File:71-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:71-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 =====Revo flavor=====
 
+<imagemap>
 [[File:71-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:71-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 =====Evo-SZ flavor=====
 
+<imagemap>
 [[File:71-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:71-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 ====Second best fifth notation====
 This notation uses the same sagittal sequence as EDOs [[50edo#Sagittal notation|50]], [[57edo#Sagittal notation|57]], and [[64edo#Sagittal notation|64]].
 =====Evo flavor=====
 
+<imagemap>
 [[File:71b_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:71b_Evo_Sagittal.svg]]
+</imagemap>
 
 =====Revo flavor=====
 
+<imagemap>
 [[File:71b_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:71b_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as EDOs [[65edo#Sagittal notation|65]] and [[79edo#Sagittal notation|79]], and is a superset of the notations for EDOs [[36edo#Sagittal notation|36]], [[24edo#Sagittal notation|24]], [[18edo#Sagittal notation|18]], [[12edo#Sagittal notation|12]], [[8edo#Sagittal notation|8]], and [[6edo#Sagittal notation|6]].
 ====Evo flavor====
 
+<imagemap>
 [[File:72-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:72-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:72-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:72-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:72-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:72-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 This notation uses the same sagittal sequence as [[80edo#Sagittal notation|80-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:73-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:73-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:73-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:73-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
 ====Evo flavor====
 
+<imagemap>
 [[File:74-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:74-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:74-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:74-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -908,15 +1898,33 @@ In the following diagrams, a sagittal symbol followed by an equals sign (=) mean
 This notation uses the same sagittal sequence as [[68edo#Sagittal notation|68-EDO]].
 ====Evo flavor====
 
+<imagemap>
 [[File:75-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:75-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:75-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:75-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:75-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:75-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
@@ -925,24 +1933,54 @@ In the following diagrams, a sagittal symbol followed by an equals sign (=) mean
 This notation uses the same sagittal sequence as EDOs [[62edo#Sagittal notation|62]] and [[69edo#Sagittal notation|69]], and is a superset of the notations for EDOs [[38edo#Sagittal notation|38]] and [[19edo#Sagittal notation|19]].
 ====Evo flavor====
 
+<imagemap>
 [[File:76-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:76-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:76-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:76-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 ====Evo-SZ flavor====
 
+<imagemap>
 [[File:76-EDO_Evo-SZ_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:76-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
 
 
 ===Sagittal notation===
 ====Evo flavor====
 
+<imagemap>
 [[File:77-EDO_Evo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:77-EDO_Evo_Sagittal.svg]]
+</imagemap>
 
 ====Revo flavor====
 
+<imagemap>
 [[File:77-EDO_Revo_Sagittal.svg]]
+desc none
+rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:77-EDO_Revo_Sagittal.svg]]
+</imagemap>
 
 

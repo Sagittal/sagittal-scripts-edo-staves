@@ -4,7 +4,7 @@ import { EdoNotationName } from "@sagittal/system"
 import {
     computeEquivalentNotationsLine,
     computeRelatedEdosLine,
-    computeDiagramLine,
+    computeDiagramLines,
     computeSubsectionHeadingLine,
     computeApproximationExplanationLine,
 } from "./lines"
@@ -50,13 +50,15 @@ const generateContext = (edo: Edo, subsectionsForEachFifth: Subsection[][], dryR
                     hasSecondBestFifthNotation,
                 }),
             )
-            lines.push(
-                computeDiagramLine({
-                    edo,
-                    diagramType,
-                    isSecondBestFifthNotation,
-                }),
-            )
+
+            computeDiagramLines({
+                edo,
+                diagramType,
+                isSecondBestFifthNotation,
+            }).forEach((line: Maybe<Io>): void => {
+                lines.push(line)
+            })
+
             lines.push(
                 computeEquivalentNotationsLine({
                     notation,

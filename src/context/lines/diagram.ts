@@ -9,7 +9,7 @@ const FORMATTED_FLAVOR_NAMES_BY_DIAGRAM_TYPE: Record<DiagramType, Maybe<Io>> = {
     [DiagramType.EVO_SZ]: "Evo-SZ",
 }
 
-const computeDiagramLine = ({
+const computeDiagramLines = ({
     edo,
     diagramType,
     isSecondBestFifthNotation = false,
@@ -17,9 +17,22 @@ const computeDiagramLine = ({
     edo: Edo
     diagramType: DiagramType
     isSecondBestFifthNotation?: Maybe<boolean>
-}) =>
-    `\n[[File:${edo}${isSecondBestFifthNotation ? `b` : `-EDO`}${
+}): Maybe<Io>[] => {
+    const fileLink = `[[File:${edo}${isSecondBestFifthNotation ? `b` : `-EDO`}${
         diagramType === DiagramType.GENERAL ? "" : "_"
-    }${FORMATTED_FLAVOR_NAMES_BY_DIAGRAM_TYPE[diagramType]}_Sagittal.svg]]\n`
+    }${FORMATTED_FLAVOR_NAMES_BY_DIAGRAM_TYPE[diagramType]}_Sagittal.svg]]`
 
-export { computeDiagramLine }
+    return [
+        "",
+        "<imagemap>",
+        fileLink,
+        "desc none",
+        "rect 300 0 460 80 [https://sagittal.org#periodic-table periodic table]",
+        "rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]",
+        `default ${fileLink}`,
+        "</imagemap>",
+        "",
+    ]
+}
+
+export { computeDiagramLines }
