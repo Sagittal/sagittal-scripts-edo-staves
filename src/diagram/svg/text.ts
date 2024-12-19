@@ -111,7 +111,9 @@ const textsToSvgGroupElement = async ({
 }
 
 const textToSvgDocument = async (text: Io, { fontFile, fontSize }: Font): Promise<Document> => {
-    const svgString: string = await textToSvgPathString(text, {
+    const sanitizedText = text.replace("⋅", "·")
+
+    const svgString: string = await textToSvgPathString(sanitizedText, {
         font: fontFile,
         fontSize,
     })

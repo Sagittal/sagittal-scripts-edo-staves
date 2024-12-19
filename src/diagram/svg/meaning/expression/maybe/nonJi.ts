@@ -2,6 +2,7 @@ import { Hyperlink, Io, isUndefined, Maybe, Sentence } from "@sagittal/general"
 import { Sagitype } from "@sagittal/system"
 import { Code } from "staff-code"
 import { FRACTIONAL_3_LIMIT_NOTATION_PAGE, XEN_WIKI_BASE_URL } from "../../../../../constants"
+import { APOTOME_FRACTION_NOTATION_SECTION, LIMMA_FRACTION_NOTATION_SECTION } from "../../constants"
 import { Expression } from "../types"
 import { computeDefiniendum, computeDefiniens } from "./expression"
 
@@ -23,10 +24,14 @@ const computeNonJiExpression = ({
     const definiensBody: Io = ` = ${nonJiMeaning}` as Io
     const definiens: Io = computeDefiniens(definiensBody, { isFinalExpression })
 
+    const sectionAnchor = definiensBody.match(/3A/g)
+        ? APOTOME_FRACTION_NOTATION_SECTION
+        : LIMMA_FRACTION_NOTATION_SECTION
+
     return {
         definiendum,
         definiens,
-        hyperlink: `${XEN_WIKI_BASE_URL}${FRACTIONAL_3_LIMIT_NOTATION_PAGE}` as Hyperlink,
+        hyperlink: `${XEN_WIKI_BASE_URL}${FRACTIONAL_3_LIMIT_NOTATION_PAGE}${sectionAnchor}` as Hyperlink,
     }
 }
 

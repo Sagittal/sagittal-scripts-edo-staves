@@ -85,6 +85,8 @@ const computeApotomeFractionSharedSagittalSequenceEdoNotationNames = (
             const otherEdo = parseEdoNotationName(otherEdoNotationName).edo
             const otherSharpStep = computeSharpStep(otherEdo, otherFifthStep)
 
+            // If we don't want to include 79 in 65 and 72's sequences, and 80 in 73's.
+            // if (otherEdo > MAX_PERIODIC_TABLE_EDO) return false
             if (otherSharpStep !== sharpStep) return false
 
             const otherRelevantSagitypes = computeSagitypes(otherEdoNotationDefinition).slice(

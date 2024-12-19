@@ -1,0 +1,2276 @@
+===Sagittal notation===
+This notation is a subset of the notations for EDOs [[10edo#Sagittal notation|10]], [[15edo#Sagittal notation|15]], [[20edo#Sagittal notation|20]], [[25edo#Sagittal notation|25]], [[30edo#Sagittal notation|30]], and [[35edo#Sagittal notation|35b]].
+
+<imagemap>
+File:5-EDO_Sagittal.svg
+desc none
+rect 80 0 263 50 [[Sagittal_notation]]
+rect 263 0 423 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 263 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:5-EDO_Sagittal.svg]]
+</imagemap>
+
+Because it includes no Sagittal symbols, this Sagittal notation is also a conventional notation.
+
+===Sagittal notation===
+This notation is a subset of the notations for EDOs [[12edo#Sagittal notation|12]], [[18edo#Sagittal notation|18]], [[24edo#Sagittal notation|24]], [[36edo#Sagittal notation|36]], [[48edo#Sagittal notation|48]], [[60edo#Sagittal notation|60]], [[72edo#Sagittal notation|72]], and [[84edo#Sagittal notation|84]].
+====Evo flavor====
+
+<imagemap>
+File:6-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 368 0 528 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 368 106 [[12-EDO#Sagittal_notation| 12-EDO notation]]
+default [[File:6-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
+
+====Revo flavor====
+
+<imagemap>
+File:6-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 376 0 536 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 376 106 [[12-EDO#Sagittal_notation | 12-EDO notation]]
+default [[File:6-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+This notation is a subset of the notations for EDOs [[14edo#Sagittal notation|14]], [[21edo#Sagittal notation|21]], [[28edo#Sagittal notation|28]], [[35edo#Sagittal notation|35]], and [[42edo#Sagittal notation|42b]].
+
+<imagemap>
+File:7-EDO_Sagittal.svg
+desc none
+rect 80 0 246 50 [[Sagittal_notation]]
+rect 246 0 406 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 246 106 [[Fractional_3-limit_notation#Bad-fifths_limma-fraction_notation | limma-fraction notation]]
+default [[File:7-EDO_Sagittal.svg]]
+</imagemap>
+
+Because it includes no Sagittal symbols, this Sagittal notation is also a conventional notation.
+
+===Sagittal notation===
+This notation is a subset of the notations for EDOs [[24edo#Sagittal notation|24]], [[48edo#Sagittal notation|48]], and [[72edo#Sagittal notation|72]].
+====Evo flavor====
+
+<imagemap>
+File:8-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 392 0 552 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 392 106 [[24-EDO#Sagittal_notation | 24-EDO notation]]
+default [[File:8-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:8-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 400 0 560 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 400 106 [[24-EDO#Sagittal_notation | 24-EDO notation]]
+default [[File:8-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:8-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 376 0 536 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 376 106 [[24-EDO#Sagittal_notation | 24-EDO notation]]
+default [[File:8-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as [[14edo#Sagittal notation|14-EDO]].
+
+<imagemap>
+File:9-EDO_Sagittal.svg
+desc none
+rect 80 0 296 50 [[Sagittal_notation]]
+rect 296 0 456 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 296 106 [[Fractional_3-limit_notation#Bad-fifths_limma-fraction_notation |limma-fraction notation]]
+default [[File:9-EDO_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+This notation is a subset of the notations for EDOs [[20edo#Sagittal notation|20]] and [[30edo#Sagittal notation|30]] and a superset of the notation for [[5edo#Sagittal notation|5-EDO]].
+
+<imagemap>
+File:10-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 319 0 479 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 319 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:10-EDO_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:10-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 315 0 475 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 315 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:10-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
+
+===Sagittal notation===
+This notation is a subset of the notations for EDOs [[22edo#Sagittal notation|22]], [[44edo#Sagittal notation|44]], and [[66edo#Sagittal notation|66]].
+====Evo flavor====
+
+<imagemap>
+File:11-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 400 0 560 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 400 106 [[22-EDO#Sagittal_notation | 22-EDO notation]]
+default [[File:11-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:11-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 368 0 528 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 368 106 [[22-EDO#Sagittal_notation | 22-EDO notation]]
+default [[File:11-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation is a subset of the notations for EDOs [[24edo#Sagittal notation|24]], [[36edo#Sagittal notation|36]], [[48edo#Sagittal notation|48]], [[60edo#Sagittal notation|60]], [[72edo#Sagittal notation|72]], and [[84edo#Sagittal notation|84]] and a superset of the notation for [[6edo#Sagittal notation|6-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:12-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 384 0 543 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+default [[File:12-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
+====Revo flavor====
+
+<imagemap>
+File:12-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 399 0 559 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+default [[File:12-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation is a subset of the notations for EDOs [[26edo#Sagittal notation|26]] and [[52edo#Sagittal notation|52]].
+====Evo flavor====
+
+<imagemap>
+File:13-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 447 0 607 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 447 106 [[26-EDO#Sagittal_notation | 26-EDO notation]]
+default [[File:13-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
+====Revo flavor====
+
+<imagemap>
+File:13-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 495 0 655 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 495 106 [[26-EDO#Sagittal_notation | 26-EDO notation]]
+default [[File:13-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as [[9edo#Sagittal notation|9-EDO]], is a subset of the notations for EDOs [[28edo#Sagittal notation|28]] and [[42edo#Sagittal notation|42b]], and is a superset of the notation for [[7edo#Sagittal notation|7-EDO]].
+
+<imagemap>
+File:14-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 423 0 583 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 423 106 [[Fractional_3-limit_notation#Bad-fifths_limma-fraction_notation | limma-fraction notation]]
+default [[File:14-EDO_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[22edo#Sagittal notation|22]] and [[29edo#Sagittal notation|29]], is a subset of the notation for [[30edo#Sagittal notation|30-EDO]], and is a superset of the notation for [[5edo#Sagittal notation|5-EDO]].
+
+<imagemap>
+File:15-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 439 0 599 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 439 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:15-EDO_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as [[21edo#Sagittal notation|21-EDO]].
+
+<imagemap>
+File:16-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 471 0 631 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 471 106 [[Fractional_3-limit_notation#Bad-fifths_limma-fraction_notation | limma-fraction notation]]
+default [[File:16-EDO_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[24edo#Sagittal notation|24]], [[31edo#Sagittal notation|31]], and [[38edo#Sagittal notation|38]], and is a subset of the notation for [[34edo#Sagittal notation|34-EDO]].
+
+<imagemap>
+File:17-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 559 0 719 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[33/32]]
+default [[File:17-EDO_Sagittal.svg]]
+</imagemap>
+
+====Alternate Evo flavor====
+
+<imagemap>
+File:17-EDO_Alternative_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 559 0 719 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[33/32]]
+default [[File:17-EDO_Alternative_Evo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:17-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 627 0 687 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[33/32]]
+default [[File:17-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
+
+===Sagittal notation===
+This notation is a subset of the notations for EDOs [[36edo#Sagittal notation|36]] and [[72edo#Sagittal notation|72]] and a superset of the notation for [[6edo#Sagittal notation|6-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:18-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 463 0 623 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 463 106 [[36-EDO#Sagittal_notation | 36-EDO notation]]
+default [[File:18-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:18-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 447 0 607 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 447 106 [[36-EDO#Sagittal_notation | 36-EDO notation]]
+default [[File:18-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation is a subset of the notations for EDOs [[38edo#Sagittal notation|38]], [[57edo#Sagittal notation|57]], and [[76edo#Sagittal notation|76]].
+====Evo flavor====
+
+<imagemap>
+File:19-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 327 0 487 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+default [[File:19-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
+====Revo flavor====
+
+<imagemap>
+File:19-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 367 0 527 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+default [[File:19-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation is a superset of the notations for EDOs [[10edo#Sagittal notation|10]] and [[5edo#Sagittal notation|5]].
+
+<imagemap>
+File:20-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 351 0 511 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 351 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:20-EDO_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:20-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 327 0 487 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 327                                                                                                                                                                                                                                                                                                                                                                                                                                                           106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:20-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as [[16edo#Sagittal notation|16-EDO]], is a subset of the notation for [[42edo#Sagittal notation|42b]], and is a superset of the notation for [[7edo#Sagittal notation|7-EDO]].
+
+<imagemap>
+File:21-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 343 0 503 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 343 106 [[Fractional_3-limit_notation#Bad-fifths_limma-fraction_notation | limma-fraction notation]]
+default [[File:21-EDO_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[15edo#Sagittal notation|15]] and [[29edo#Sagittal notation|29]], is a subset of the notations for EDOs [[44edo#Sagittal notation|44]] and [[66edo#Sagittal notation|66]], and is a superset of the notation for [[11edo#Sagittal notation|11-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:22-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 415 0 575 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+default [[File:22-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:22-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 384 0 543 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+default [[File:22-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+====Best fifth notation====
+This notation uses the same sagittal sequence as EDOs [[28edo#Sagittal notation|28]] and [[33edo#Sagittal notation|33]].
+
+<imagemap>
+File:23-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 367 0 527 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 367 106 [[Fractional_3-limit_notation#Bad-fifths_limma-fraction_notation | limma-fraction notation]]
+default [[File:23-EDO_Sagittal.svg]]
+</imagemap>
+
+====Second best fifth notation====
+This notation uses the same sagittal sequence as EDOs [[30edo#Sagittal notation|30]], [[37edo#Sagittal notation|37]], and [[44edo#Sagittal notation|44]].
+
+<imagemap>
+File:23b_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 375 0 535 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 375 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:23b_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[17edo#Sagittal notation|17]], [[31edo#Sagittal notation|31]], and [[38edo#Sagittal notation|38]], is a subset of the notations for EDOs [[48edo#Sagittal notation|48]] and [[72edo#Sagittal notation|72]], and is a superset of the notations for EDOs [[12edo#Sagittal notation|12]], [[8edo#Sagittal notation|8]], and [[6edo#Sagittal notation|6]].
+====Evo flavor====
+
+<imagemap>
+File:24-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 447 0 607 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[33/32]]
+default [[File:24-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:24-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 463 0 623 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[33/32]]
+default [[File:24-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:24-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 407 0 567 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[33/32]]
+default [[File:24-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as [[32edo#Sagittal notation|32-EDO]], and is a superset of the notation for [[5edo#Sagittal notation|5-EDO]].
+
+<imagemap>
+File:25-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 415 0 575 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 415 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:25-EDO_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation is a subset of the notation for [[52edo#Sagittal notation|52-EDO]] and a superset of the notation for [[13edo#Sagittal notation|13-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:26-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 463 0 623 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+default [[File:26-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+Because it includes no Sagittal symbols, this Evo Sagittal notation is also a conventional notation.
+====Revo flavor====
+
+<imagemap>
+File:26-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 511 0 671 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+default [[File:26-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+
+This notation is a subset of the notation for [[54edo#Sagittal notation|54-EDO]].
+
+<imagemap>
+File:27-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 487 0 647 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 270 106 [[8505/8192]]
+rect 270 80 380 106 [[27/26]]
+default [[File:27-EDO_Sagittal.svg]]
+</imagemap>
+
+====Alternate Evo flavor====
+
+<imagemap>
+File:27-EDO_Alternative_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 511 0 671 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 270 106 [[8505/8192]]
+rect 270 80 380 106 [[27/26]]
+default [[File:27-EDO_Alternative_Evo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:27-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 487 0 647 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 270 106 [[8505/8192]]
+rect 270 80 380 106 [[27/26]]
+default [[File:27-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|23]] and [[33edo#Sagittal notation|33]], and is a superset of the notations for EDOs [[14edo#Sagittal notation|14]] and [[7edo#Sagittal notation|7]].
+
+<imagemap>
+File:28-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 447 0 607 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 447 106 [[Fractional_3-limit_notation#Bad-fifths_limma-fraction_notation | limma-fraction notation]]
+default [[File:28-EDO_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[15edo#Sagittal notation|15]] and [[22edo#Sagittal notation|22]].
+====Evo flavor====
+
+<imagemap>
+File:29-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 511 0 671 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+default [[File:29-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:29-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 503 0 663 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+default [[File:29-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+====Best fifth notation====
+This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|23b]], [[37edo#Sagittal notation|37]], and [[44edo#Sagittal notation|44]], and is a superset of the notations for EDOs [[15edo#Sagittal notation|15]], [[10edo#Sagittal notation|10]], and [[5edo#Sagittal notation|5]].
+
+<imagemap>
+File:30-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 519 0 679 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 519 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:30-EDO_Sagittal.svg]]
+</imagemap>
+
+=====Evo-SZ flavor=====
+
+<imagemap>
+File:30-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 495 0 655 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 495 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:30-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+====Second best fifth notation====
+This notation uses the same sagittal sequence as EDOs [[35edo#Sagittal notation|35]] and [[40edo#Sagittal notation|40]].
+
+<imagemap>
+File:30b_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 479 0 639 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 479 106 [[Fractional_3-limit_notation#Bad-fifths_limma-fraction_notation | limma-fraction notation]]
+default [[File:30b_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[17edo#Sagittal notation|17]], [[24edo#Sagittal notation|24]], and [[38edo#Sagittal notation|38]], and is a subset of the notation for [[62edo#Sagittal notation|62-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:31-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 567 0 727 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[33/32]]
+default [[File:31-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:31-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 599 0 759 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[33/32]]
+default [[File:31-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:31-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 519 0 679 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[33/32]]
+default [[File:31-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as [[25edo#Sagittal notation|25-EDO]], and is a subset of the notation for [[64edo#Sagittal notation|64b]].
+====Evo flavor====
+
+<imagemap>
+File:32-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 407 0 567 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 407 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:32-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:32-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 367 0 527 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 3067 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:32-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|23]] and [[28edo#Sagittal notation|28]].
+
+<imagemap>
+File:33-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 399 0 559 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 399 106 [[Fractional_3-limit_notation#Bad-fifths_limma-fraction_notation | limma-fraction notation]]
+default [[File:33-EDO_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as [[41edo#Sagittal notation|41-EDO]], and is a superset of the notation for [[17edo#Sagittal notation|17-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:34-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 431 0 591 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 240 106 [[33/32]]
+default [[File:34-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:34-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 423 0 583 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 240 106 [[33/32]]
+default [[File:34-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:34-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 423 0 583 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 240 106 [[33/32]]
+default [[File:34-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+====Best fifth notation====
+This notation uses the same sagittal sequence as EDOs [[30edo#Sagittal notation|30b]] and [[40edo#Sagittal notation|40]], and is a superset of the notation for [[7edo#Sagittal notation|7-EDO]].
+
+<imagemap>
+File:35-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 415 0 575 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 415 106 [[Fractional_3-limit_notation#Bad-fifths_limma-fraction_notation | limma-fraction notation]]
+default [[File:35-EDO_Sagittal.svg]]
+</imagemap>
+
+====Second best fifth notation====
+This notation uses the same sagittal sequence as [[42edo#Sagittal notation|42-EDO]], and is a superset of the notation for [[5edo#Sagittal notation|5-EDO]].
+
+<imagemap>
+File:35b_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 391 0 551 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 391 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:35b_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as [[43edo#Sagittal notation|43-EDO]], is a subset of the notation for [[72edo#Sagittal notation|72-EDO]], and is a superset of the notations for EDOs [[18edo#Sagittal notation|18]], [[12edo#Sagittal notation|12]], and [[6edo#Sagittal notation|6]].
+====Evo flavor====
+
+<imagemap>
+File:36-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 463 0 623 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+default [[File:36-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:36-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 447 0 607 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+default [[File:36-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|23b]], [[30edo#Sagittal notation|30]], and [[44edo#Sagittal notation|44]].
+
+<imagemap>
+File:37-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 599 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:37-EDO_Sagittal.svg]]
+</imagemap>
+
+====Alternate Evo flavor====
+
+<imagemap>
+File:37-EDO_Alternative_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 639 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:37-EDO_Alternative_Evo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:37-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 623 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:37-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[17edo#Sagittal notation|17]], [[24edo#Sagittal notation|24]], and [[31edo#Sagittal notation|31]], is a subset of the notation for [[76edo#Sagittal notation|76-EDO]], and is a superset of the notation for [[19edo#Sagittal notation|19-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:38-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 679 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[33/32]]
+default [[File:38-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:38-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 703 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[33/32]]
+default [[File:38-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:38-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 631 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[33/32]]
+default [[File:38-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as [[46edo#Sagittal notation|46-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:39-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 679 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 240 106 [[33/32]]
+default [[File:39-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:39-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 655 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 240 106 [[33/32]]
+default [[File:39-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[30edo#Sagittal notation|30b]] and [[35edo#Sagittal notation|35]].
+
+<imagemap>
+File:40-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 647 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_limma-fraction_notation | limma-fraction notation]]
+default [[File:40-EDO_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as [[34edo#Sagittal notation|34-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:41-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 687 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 240 106 [[33/32]]
+default [[File:41-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:41-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 671 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 240 106 [[33/32]]
+default [[File:41-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:41-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 655 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 240 106 [[33/32]]
+default [[File:41-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+====Best fifth notation====
+This notation uses the same sagittal sequence as [[35edo#Sagittal notation|35b]].
+=====Evo flavor=====
+
+<imagemap>
+File:42-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 719 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:42-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+=====Revo flavor=====
+
+<imagemap>
+File:42-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 663 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:42-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Second best fifth notation====
+This notation uses the same sagittal sequence as [[47edo#Sagittal notation|47-EDO]], and is a superset of the notations for EDOs [[21edo#Sagittal notation|21]], [[14edo#Sagittal notation|14]], and [[7edo#Sagittal notation|7]].
+
+<imagemap>
+File:42b_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 663 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_limma-fraction_notation | limma-fraction notation]]
+default [[File:42b_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as [[36edo#Sagittal notation|36-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:43-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 719 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+default [[File:43-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:43-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 703 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+default [[File:43-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+
+This notation uses the same sagittal sequence as EDOs [[23edo#Sagittal notation|23b]], [[30edo#Sagittal notation|30]], and [[37edo#Sagittal notation|37]], and is a superset of the notations for EDOs [[22edo#Sagittal notation|22]] and [[11edo#Sagittal notation|11]].
+====Evo flavor====
+
+<imagemap>
+File:44-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 711 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[513/512]]
+rect 140 80 240 106 [[81/80]]
+rect 240 80 360 106 [[27/26]]
+default [[File:44-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:44-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 687 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[513/512]]
+rect 140 80 240 106 [[81/80]]
+rect 240 80 360 106 [[27/26]]
+default [[File:44-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:44-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 695 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[513/512]]
+rect 140 80 240 106 [[81/80]]
+rect 240 80 360 106 [[27/26]]
+default [[File:44-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+
+This notation uses the same sagittal sequence as EDOs [[52edo#Sagittal notation|52]] and [[59edo#Sagittal notation|59b]].
+====Evo flavor====
+
+<imagemap>
+File:45-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 543 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[36/35]]
+rect 140 80 300 106 [[1053/1024]]
+default [[File:45-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:45-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 543 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[36/35]]
+rect 140 80 300 106 [[1053/1024]]
+default [[File:45-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:45-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 511 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[36/35]]
+rect 140 80 300 106 [[1053/1024]]
+default [[File:45-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as [[39edo#Sagittal notation|39-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:46-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 511 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 240 106 [[33/32]]
+default [[File:46-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:46-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 557 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 240 106 [[33/32]]
+default [[File:46-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+====Best fifth notation====
+This notation uses the same sagittal sequence as [[42edo#Sagittal notation|42b]].
+
+<imagemap>
+File:47-EDO_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 519 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_limma-fraction_notation | limma-fraction notation]]
+default [[File:47-EDO_Sagittal.svg]]
+</imagemap>
+
+====Second best fifth notation====
+
+<imagemap>
+File:47b_Sagittal.svg
+desc none
+rect 80 0 280 50 [[Sagittal_notation]]
+rect 280 0 440 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:47b_Sagittal.svg]]
+</imagemap>
+
+=====Alternate Evo flavor=====
+
+<imagemap>
+File:47b_Alternative_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 389 0 549 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 389 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:47b_Alternative_Evo_Sagittal.svg]]
+</imagemap>
+
+=====Evo-SZ flavor=====
+
+<imagemap>
+File:47b_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 335 50 [[Sagittal_notation]]
+rect 335 0 495 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:47b_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+This notation is a superset of the notations for EDOs [[24edo#Sagittal notation|24]], [[12edo#Sagittal notation|12]], [[8edo#Sagittal notation|8]], and [[6edo#Sagittal notation|6]].
+====Evo flavor====
+
+<imagemap>
+File:48-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 535 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[736/729]]
+rect 140 80 260 106 [[33/32]]
+default [[File:48-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:48-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 535 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[736/729]]
+rect 140 80 260 106 [[33/32]]
+default [[File:48-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:48-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 519 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[736/729]]
+rect 140 80 260 106 [[33/32]]
+default [[File:48-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+====Evo flavor====
+
+<imagemap>
+File:49-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 589 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[513/512]]
+rect 140 80 240 106 [[81/80]]
+rect 240 80 360 106 [[33/32]]
+default [[File:49-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:49-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 534 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[513/512]]
+rect 140 80 240 106 [[81/80]]
+rect 240 80 360 106 [[33/32]]
+default [[File:49-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+
+This notation uses the same sagittal sequence as EDOs [[57edo#Sagittal notation|57]], [[64edo#Sagittal notation|64]], and [[71edo#Sagittal notation|71b]].
+====Evo flavor====
+
+<imagemap>
+File:50-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 599 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 160 106 [[1053/1024]]
+default [[File:50-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:50-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 583 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 160 106 [[1053/1024]]
+default [[File:50-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+====Evo flavor====
+
+<imagemap>
+File:51-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 519 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+rect 120 80 220 106 [[81/80]]
+rect 220 80 340 106 [[27/26]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:51-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 511 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+rect 120 80 220 106 [[81/80]]
+rect 220 80 340 106 [[27/26]]
+default [[File:51-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:51-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 511 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+rect 120 80 220 106 [[81/80]]
+rect 220 80 340 106 [[27/26]]
+default [[File:51-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[45edo#Sagittal notation|45]] and [[59edo#Sagittal notation|59b]], and is a superset of the notations for EDOs [[26edo#Sagittal notation|26]] and [[13edo#Sagittal notation|13]].
+====Evo flavor====
+
+<imagemap>
+File:52-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 615 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[36/35]]
+default [[File:52-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:52-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 623 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[36/35]]
+default [[File:52-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:52-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 583 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[36/35]]
+default [[File:52-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+====Evo flavor====
+
+<imagemap>
+File:53-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 567 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 270 106 [[6561/6400]]
+rect 270 80 370 106 [[40/39]]
+default [[File:53-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:53-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 543 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 270 106 [[6561/6400]]
+rect 270 80 370 106 [[40/39]]
+default [[File:53-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+
+This notation uses the same sagittal sequence as [[61edo#Sagittal notation|61-EDO]], and is a superset of the notation for [[27edo#Sagittal notation|27-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:54-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 650 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[513/512]]
+rect 140 80 240 106 [[81/80]]
+rect 240 80 360 106 [[33/32]]
+rect 360 80 480 106 [[27/26]]
+default [[File:54-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:54-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 650 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[513/512]]
+rect 140 80 240 106 [[81/80]]
+rect 240 80 360 106 [[33/32]]
+rect 360 80 480 106 [[27/26]]
+default [[File:54-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:54-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 642 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[513/512]]
+rect 140 80 240 106 [[81/80]]
+rect 240 80 360 106 [[33/32]]
+rect 360 80 480 106 [[27/26]]
+default [[File:54-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+====Evo flavor====
+
+<imagemap>
+File:55-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 615 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 160 106 [[896/891]]
+rect 160 80 280 106 [[33/32]]
+default [[File:55-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:55-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 599 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 160 106 [[896/891]]
+rect 160 80 280 106 [[33/32]]
+default [[File:55-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:55-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 607 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 160 106 [[896/891]]
+rect 160 80 280 106 [[33/32]]
+default [[File:55-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as [[63edo#Sagittal notation|63-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:56-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 575 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+rect 120 80 220 106 [[81/80]]
+rect 220 80 340 106 [[33/32]]
+default [[File:56-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:56-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 543 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+rect 120 80 220 106 [[81/80]]
+rect 220 80 340 106 [[33/32]]
+default [[File:56-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+
+This notation uses the same sagittal sequence as EDOs [[50edo#Sagittal notation|50]], [[64edo#Sagittal notation|64]], and [[71edo#Sagittal notation|71b]], and is a superset of the notation for [[19edo#Sagittal notation|19-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:57-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 671 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 160 106 [[1053/1024]]
+default [[File:57-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:57-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 647 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 160 106 [[1053/1024]]
+default [[File:57-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+====Evo flavor====
+
+<imagemap>
+File:58-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 662 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 230 106 [[55/54]]
+rect 230 80 350 106 [[33/32]]
+default [[File:58-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:58-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 662 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 230 106 [[55/54]]
+rect 230 80 350 106 [[33/32]]
+default [[File:58-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:58-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 583 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 230 106 [[55/54]]
+rect 230 80 350 106 [[33/32]]
+default [[File:58-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+====Best fifth notation====
+This notation uses the same sagittal sequence as [[66edo#Sagittal notation|66-EDO]].
+=====Evo flavor=====
+
+<imagemap>
+File:59-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 743 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 190 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+rect 190 80 320 106 [[144/143]]
+rect 320 80 430 106 [[81/80]]
+rect 430 80 570 106 [[1053/1024]]
+default [[File:59-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+=====Revo flavor=====
+
+<imagemap>
+File:59-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 743 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 190 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+rect 190 80 320 106 [[144/143]]
+rect 320 80 430 106 [[81/80]]
+rect 430 80 570 106 [[1053/1024]]
+default [[File:59-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Second best fifth notation====
+This notation uses the same sagittal sequence as EDOs [[45edo#Sagittal notation|45]] and [[52edo#Sagittal notation|52]].
+=====Evo flavor=====
+
+<imagemap>
+File:59b_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 687 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[36/35]]
+default [[File:59b_Evo_Sagittal.svg]]
+</imagemap>
+
+=====Revo flavor=====
+
+<imagemap>
+File:59b_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 695 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[36/35]]
+default [[File:59b_Revo_Sagittal.svg]]
+</imagemap>
+
+=====Evo-SZ flavor=====
+
+<imagemap>
+File:59b_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 655 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[36/35]]
+default [[File:59b_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+Because it contains no Sagittal symbols, this Evo-SZ Sagittal notation is also a Stein-Zimmerman notation.
+
+===Sagittal notation===
+This notation is a superset of the notations for EDOs [[12edo#Sagittal notation|12]] and [[6edo#Sagittal notation|6]].
+====Evo flavor====
+
+<imagemap>
+File:60-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 655 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 190 106 [[45927/45056]]
+rect 190 80 310 106 [[46/45]]
+default [[File:60-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:60-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 628 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 190 106 [[45927/45056]]
+rect 190 80 310 106 [[46/45]]
+default [[File:60-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+
+This notation uses the same sagittal sequence as [[54edo#Sagittal notation|54-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:61-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 704 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[513/512]]
+rect 140 80 240 106 [[81/80]]
+rect 240 80 360 106 [[33/32]]
+rect 360 80 480 106 [[27/26]]
+default [[File:61-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:61-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 650 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[513/512]]
+rect 140 80 240 106 [[81/80]]
+rect 240 80 360 106 [[33/32]]
+rect 360 80 480 106 [[27/26]]
+default [[File:61-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:61-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 696 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 140 106 [[513/512]]
+rect 140 80 240 106 [[81/80]]
+rect 240 80 360 106 [[33/32]]
+rect 360 80 480 106 [[27/26]]
+default [[File:61-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+
+This notation uses the same sagittal sequence as EDOs [[69edo#Sagittal notation|69]] and [[76edo#Sagittal notation|76]], and is a superset of the notation for [[31edo#Sagittal notation|31-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:62-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 703 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 170 106 [[1053/1024]]
+rect 170 80 290 106 [[33/32]]
+default [[File:62-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:62-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 687 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 170 106 [[1053/1024]]
+rect 170 80 290 106 [[33/32]]
+default [[File:62-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:62-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 679 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 170 106 [[1053/1024]]
+rect 170 80 290 106 [[33/32]]
+default [[File:62-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as [[56edo#Sagittal notation|56-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:63-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 639 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+rect 120 80 220 106 [[81/80]]
+rect 220 80 340 106 [[33/32]]
+default [[File:63-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:63-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 705 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+rect 120 80 220 106 [[81/80]]
+rect 220 80 340 106 [[33/32]]
+default [[File:63-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+====Best fifth notation====
+This notation uses the same sagittal sequence as EDOs [[50edo#Sagittal notation|50]], [[57edo#Sagittal notation|57]], and [[71edo#Sagittal notation|71b]].
+=====Evo flavor=====
+
+<imagemap>
+File:64-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 751 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 160 106 [[1053/1024]]
+default [[File:64-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+=====Revo flavor=====
+
+<imagemap>
+File:64-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 735 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 160 106 [[1053/1024]]
+default [[File:64-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Second best fifth notation====
+This notation is a superset of the notation for [[32edo#Sagittal notation|32-EDO]].
+=====Evo flavor=====
+
+<imagemap>
+File:64b_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 623 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:64b_Evo_Sagittal.svg]]
+</imagemap>
+
+=====Revo flavor=====
+
+<imagemap>
+File:64b_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 559 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:64b_Revo_Sagittal.svg]]
+</imagemap>
+
+=====Evo-SZ flavor=====
+
+<imagemap>
+File:64b_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 623 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 300 106 [[Fractional_3-limit_notation#Bad-fifths_apotome-fraction_notation | apotome-fraction notation]]
+default [[File:64b_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[72edo#Sagittal notation|72]] and [[79edo#Sagittal notation|79]].
+====Evo flavor====
+
+<imagemap>
+File:65-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 655 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 220 106 [[64/63]]
+rect 220 80 340 106 [[33/32]]
+default [[File:65-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:65-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 650 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 220 106 [[64/63]]
+rect 220 80 340 106 [[33/32]]
+default [[File:65-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:65-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 639 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 220 106 [[64/63]]
+rect 220 80 340 106 [[33/32]]
+default [[File:65-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+
+This notation uses the same sagittal sequence as [[59edo#Sagittal notation|59-EDO]], and is a superset of the notations for EDOs [[22edo#Sagittal notation|22]] and [[11edo#Sagittal notation|11]].
+====Evo flavor====
+
+<imagemap>
+File:66-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 748 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 190 106 [[513/512]]
+rect 190 80 320 106 [[144/143]]
+rect 320 80 430 106 [[81/80]]
+rect 430 80 570 106 [[1053/1024]]
+default [[File:66-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:66-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 694 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 190 106 [[513/512]]
+rect 190 80 320 106 [[144/143]]
+rect 320 80 430 106 [[81/80]]
+rect 430 80 570 106 [[1053/1024]]
+default [[File:66-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+====Evo flavor====
+
+<imagemap>
+File:67-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 735 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 160 106 [[896/891]]
+rect 160 80 280 106 [[36/35]]
+rect 280 80 440 106 [[1053/1024]]
+default [[File:67-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:67-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 759 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 160 106 [[896/891]]
+rect 160 80 280 106 [[36/35]]
+rect 280 80 440 106 [[1053/1024]]
+default [[File:67-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+
+This notation uses the same sagittal sequence as [[75edo#Sagittal notation|75-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:68-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 685 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+rect 120 80 220 106 [[81/80]]
+rect 220 80 340 106 [[33/32]]
+rect 340 80 460 106 [[27/26]]
+default [[File:68-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:68-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 647 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+rect 120 80 220 106 [[81/80]]
+rect 220 80 340 106 [[33/32]]
+rect 340 80 460 106 [[27/26]]
+default [[File:68-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:68-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 677 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+rect 120 80 220 106 [[81/80]]
+rect 220 80 340 106 [[33/32]]
+rect 340 80 460 106 [[27/26]]
+default [[File:68-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+
+This notation uses the same sagittal sequence as EDOs [[62edo#Sagittal notation|62]] and [[76edo#Sagittal notation|76]].
+====Evo flavor====
+
+<imagemap>
+File:69-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 783 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 170 106 [[1053/1024]]
+rect 170 80 290 106 [[33/32]]
+default [[File:69-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:69-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 751 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 170 106 [[1053/1024]]
+rect 170 80 290 106 [[33/32]]
+default [[File:69-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:69-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 759 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 170 106 [[1053/1024]]
+rect 170 80 290 106 [[33/32]]
+default [[File:69-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+====Evo flavor====
+
+<imagemap>
+File:70-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 719 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 230 106 [[55/54]]
+rect 230 80 350 106 [[33/32]]
+default [[File:70-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:70-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 716 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 230 106 [[55/54]]
+rect 230 80 350 106 [[33/32]]
+default [[File:70-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+====Best fifth notation====
+=====Evo flavor=====
+
+<imagemap>
+File:71-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 772 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[55/54]]
+rect 130 80 260 106 [[144/143]]
+rect 260 80 370 106 [[81/80]]
+rect 370 80 490 106 [[33/32]]
+rect 490 80 600 106 [[27/26]]
+default [[File:71-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+=====Revo flavor=====
+
+<imagemap>
+File:71-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 772 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[55/54]]
+rect 130 80 260 106 [[144/143]]
+rect 260 80 370 106 [[81/80]]
+rect 370 80 490 106 [[33/32]]
+rect 490 80 600 106 [[27/26]]
+default [[File:71-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+=====Evo-SZ flavor=====
+
+<imagemap>
+File:71-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 605 0 765 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 130 106 [[55/54]]
+rect 130 80 260 106 [[144/143]]
+rect 260 80 370 106 [[81/80]]
+rect 370 80 490 106 [[33/32]]
+rect 490 80 600 106 [[27/26]]
+default [[File:71-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+====Second best fifth notation====
+This notation uses the same sagittal sequence as EDOs [[50edo#Sagittal notation|50]], [[57edo#Sagittal notation|57]], and [[64edo#Sagittal notation|64]].
+=====Evo flavor=====
+
+<imagemap>
+File:71b_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 551 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 160 106 [[1053/1024]]
+default [[File:71b_Evo_Sagittal.svg]]
+</imagemap>
+
+=====Revo flavor=====
+
+<imagemap>
+File:71b_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 520 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 160 106 [[1053/1024]]
+default [[File:71b_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as EDOs [[65edo#Sagittal notation|65-EDO]] and [[79edo#Sagittal notation|79]], and is a superset of the notations for EDOs [[36edo#Sagittal notation|36]], [[24edo#Sagittal notation|24]], [[18edo#Sagittal notation|18]], [[12edo#Sagittal notation|12]], [[8edo#Sagittal notation|8]], and [[6edo#Sagittal notation|6]].
+====Evo flavor====
+
+<imagemap>
+File:72-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 719 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 220 106 [[64/63]]
+rect 220 80 340 106 [[33/32]]
+default [[File:72-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:72-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 695 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 220 106 [[64/63]]
+rect 220 80 340 106 [[33/32]]
+default [[File:72-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:72-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 711 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 220 106 [[64/63]]
+rect 220 80 340 106 [[33/32]]
+default [[File:72-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+This notation uses the same sagittal sequence as [[80edo#Sagittal notation|80-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:73-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 719 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+rect 120 80 220 106 [[81/80]]
+rect 220 80 350 106 [[45/44]]
+rect 350 80 470 106 [[33/32]]
+default [[File:73-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:73-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 679 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+rect 120 80 220 106 [[81/80]]
+rect 220 80 350 106 [[45/44]]
+rect 350 80 470 106 [[33/32]]
+default [[File:73-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+====Evo flavor====
+
+<imagemap>
+File:74-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 685 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 180 106 [[1701/1664]]
+rect 180 80 300 106 [[36/35]]
+rect 300 80 460 106 [[1053/1024]]
+default [[File:74-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:74-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 631 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 180 106 [[1701/1664]]
+rect 180 80 300 106 [[36/35]]
+rect 300 80 460 106 [[1053/1024]]
+default [[File:74-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+
+This notation uses the same sagittal sequence as [[68edo#Sagittal notation|68-EDO]].
+====Evo flavor====
+
+<imagemap>
+File:75-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 735 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+rect 120 80 220 106 [[81/80]]
+rect 220 80 340 106 [[33/32]]
+rect 340 80 460 106 [[27/26]]
+default [[File:75-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:75-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 703 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+rect 120 80 220 106 [[81/80]]
+rect 220 80 340 106 [[33/32]]
+rect 340 80 460 106 [[27/26]]
+default [[File:75-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:75-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 727 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[64/63]]
+rect 120 80 220 106 [[81/80]]
+rect 220 80 340 106 [[33/32]]
+rect 340 80 460 106 [[27/26]]
+default [[File:75-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+In the following diagrams, a sagittal symbol followed by an equals sign (=) means that the following comma is the symbol's [[Sagittal notation#Primary comma|primary comma]] (the comma it ''exactly'' represents in JI), while an approximately equals sign (≈) means it is a secondary comma (a comma it ''approximately'' represents in JI). In both cases the symbol exactly represents the tempered version of the comma in this EDO.
+
+This notation uses the same sagittal sequence as EDOs [[62edo#Sagittal notation|62]] and [[69edo#Sagittal notation|69]], and is a superset of the notations for EDOs [[38edo#Sagittal notation|38]] and [[19edo#Sagittal notation|19]].
+====Evo flavor====
+
+<imagemap>
+File:76-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 575 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 170 106 [[1053/1024]]
+rect 170 80 330 106 [[567/550]]
+default [[File:76-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:76-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 604 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 170 106 [[1053/1024]]
+rect 170 80 330 106 [[567/550]]
+default [[File:76-EDO_Revo_Sagittal.svg]]
+</imagemap>
+
+====Evo-SZ flavor====
+
+<imagemap>
+File:76-EDO_Evo-SZ_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 553 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 170 106 [[1053/1024]]
+rect 170 80 330 106 [[567/550]]
+default [[File:76-EDO_Evo-SZ_Sagittal.svg]]
+</imagemap>
+
+===Sagittal notation===
+====Evo flavor====
+
+<imagemap>
+File:77-EDO_Evo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 591 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 220 106 [[64/63]]
+rect 220 80 340 106 [[33/32]]
+default [[File:77-EDO_Evo_Sagittal.svg]]
+</imagemap>
+
+====Revo flavor====
+
+<imagemap>
+File:77-EDO_Revo_Sagittal.svg
+desc none
+rect 80 0 300 50 [[Sagittal_notation]]
+rect 300 0 543 80 [https://sagittal.org#periodic-table Periodic table of EDOs with sagittal notation]
+rect 20 80 120 106 [[81/80]]
+rect 120 80 220 106 [[64/63]]
+rect 220 80 340 106 [[33/32]]
+default [[File:77-EDO_Revo_Sagittal.svg]]
+</imagemap>

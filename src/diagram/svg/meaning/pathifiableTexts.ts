@@ -15,6 +15,7 @@ import {
     XEN_WIKI_BASE_URL,
 } from "../../../constants"
 import { DiagramType, Font, PathifiableTexts } from "../../../types"
+import { APOTOME_FRACTION_NOTATION_SECTION, LIMMA_FRACTION_NOTATION_SECTION } from "./constants"
 import {
     computeExpressionsBeyondHalfApotomePathifiableTexts,
     computeExpressionsPathifiableTexts,
@@ -56,7 +57,7 @@ const computeMeaningsPathifiableTexts = ({
             texts: [`a subset of ${edoNotationDefinition.supersetEdoNotationName}-EDO notation`],
             additionalYOffsets: [MEANINGS_Y_OFFSET],
             hyperlinks: [
-                `${XEN_WIKI_BASE_URL}${parseEdoNotationName(edoNotationDefinition.supersetEdoNotationName).edo}edo` as Hyperlink,
+                `${XEN_WIKI_BASE_URL}${parseEdoNotationName(edoNotationDefinition.supersetEdoNotationName).edo}edo#Sagittal_notation` as Hyperlink,
             ],
         }
     } else {
@@ -68,7 +69,7 @@ const computeMeaningsPathifiableTexts = ({
                 texts: ["a bad-fifth limma-fraction notation"],
                 additionalYOffsets: [MEANINGS_Y_OFFSET],
                 hyperlinks: [
-                    `${XEN_WIKI_BASE_URL}${FRACTIONAL_3_LIMIT_NOTATION_PAGE}#Bad-fifths_limma-fraction_notation` as Hyperlink,
+                    `${XEN_WIKI_BASE_URL}${FRACTIONAL_3_LIMIT_NOTATION_PAGE}${APOTOME_FRACTION_NOTATION_SECTION}` as Hyperlink,
                 ],
             }
         } else if (sectionColor === SectionColor.GOLD) {
@@ -78,7 +79,7 @@ const computeMeaningsPathifiableTexts = ({
                 texts: ["a bad-fifth apotome-fraction notation"],
                 additionalYOffsets: [MEANINGS_Y_OFFSET],
                 hyperlinks: [
-                    `${XEN_WIKI_BASE_URL}${FRACTIONAL_3_LIMIT_NOTATION_PAGE}#Bad-fifths_apotome-fraction_notation` as Hyperlink,
+                    `${XEN_WIKI_BASE_URL}${FRACTIONAL_3_LIMIT_NOTATION_PAGE}${LIMMA_FRACTION_NOTATION_SECTION}` as Hyperlink,
                 ],
             }
         } else {
